@@ -45,10 +45,12 @@ public class ModUpToDateMod {
 		loadModMetadata(modMetadata);
 		loadConfig();
 		
+		MyBlocks.register();
+		MyItems.register();
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		
+		Recipes.register();
 	}
 }
