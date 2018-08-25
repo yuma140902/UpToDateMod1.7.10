@@ -24,6 +24,8 @@ public class ModUpToDateMod {
 	public static final String MOD_VERSION = "MC1.7.10_0.0.0";
 	public static final String CONFIG_FILE_NAME = "config\\" + MOD_NAME + ".cfg";
 	
+	public boolean config_worldGen_genStones;
+	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = MOD_ID;
 		modMetadata.name = MOD_NAME;
@@ -37,6 +39,7 @@ public class ModUpToDateMod {
 		Configuration cfg = new Configuration(new File(CONFIG_FILE_NAME));
 		try {
 			cfg.load();
+			config_worldGen_genStones = cfg.getBoolean("genStones", "worldGen", true, "花崗岩、閃緑岩、安山岩をワールドに生成するか否か");
 		}
 		finally {
 			cfg.save();
@@ -55,7 +58,7 @@ public class ModUpToDateMod {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		Recipes.register();
-		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(true, 33, 10, 0, 80);
+		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(config_worldGen_genStones, 33, 10, 0, 80);
 		
 		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_GRANITE, stoneConfig);
 		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_DIORITE, stoneConfig);
