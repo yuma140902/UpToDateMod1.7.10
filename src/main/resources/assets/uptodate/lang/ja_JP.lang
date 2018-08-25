@@ -1,7 +1,7 @@
-tile.neostone.0.name=石(UpToDateMod)
-tile.neostone.1.name=花崗岩
-tile.neostone.2.name=磨いた花崗岩
-tile.neostone.3.name=閃緑岩
-tile.neostone.4.name=磨いた閃緑岩
-tile.neostone.5.name=安山岩
-tile.neostone.6.name=磨いた安山岩
+tile.newstone.0.name=石(UpToDateMod)
+tile.newstone.1.name=花崗岩
+tile.newstone.2.name=磨いた花崗岩
+tile.newstone.3.name=閃緑岩
+tile.newstone.4.name=磨いた閃緑岩
+tile.newstone.5.name=安山岩
+tile.newstone.6.name=磨いた安山岩

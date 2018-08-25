@@ -34,9 +34,9 @@ public class Stone extends Block implements IMyBlock {
 	
 	@Override
 	public void register() {
-		this.setBlockName("neostone");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":neostone");
-		GameRegistry.registerBlock(this, ItemBlockStone.class, "neostone");
+		this.setBlockName("newstone");
+		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":newstone");
+		GameRegistry.registerBlock(this, ItemBlockStone.class, "newstone");
 	}
 	
 	private IIcon[] iIcons = new IIcon[META_MAX + 1];
@@ -82,6 +82,9 @@ public class Stone extends Block implements IMyBlock {
 		return iIcons[meta];
 	}
 	
+	@SuppressWarnings({
+		"unchecked", "rawtypes"
+	})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
