@@ -11,6 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
 public class Stone extends Block implements IMyBlock {
@@ -30,6 +31,11 @@ public class Stone extends Block implements IMyBlock {
 		this.setStepSound(soundTypeStone);
 		this.setHarvestLevel("pickaxe", 1);
 		this.setLightLevel(0.0F);
+	}
+	
+	@Override
+	public boolean isReplaceableOreGen(World world, int x, int y, int z, Block target) {
+		return true;
 	}
 	
 	@Override
