@@ -6,7 +6,10 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.block.Block;
 import net.minecraftforge.common.config.Configuration;
+import yuma140902.uptodatemod.blocks.Stone;
+import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, useMetadata = true)
 public class ModUpToDateMod {
@@ -52,5 +55,11 @@ public class ModUpToDateMod {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		Recipes.register();
+		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(true, 33, 10, 0, 80);
+		
+		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_GRANITE, stoneConfig);
+		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_DIORITE, stoneConfig);
+		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_ANDESITE, stoneConfig);
+		WorldGenerators.register();
 	}
 }
