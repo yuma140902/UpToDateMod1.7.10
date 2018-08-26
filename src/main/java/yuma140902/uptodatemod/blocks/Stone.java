@@ -12,9 +12,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class Stone extends Block implements IMyBlock {
+public class Stone extends Block implements IRegisterable {
 	public static final int META_MAX = 6;
 	public static final int META_GRANITE = 1;
 	public static final int META_SMOOTH_GRANITE = 2;
