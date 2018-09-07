@@ -1,41 +1,54 @@
 package yuma140902.uptodatemod;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import yuma140902.uptodatemod.blocks.Stone;
+import yuma140902.uptodatemod.util.ListUtils;
 
 public final class Recipes {
 	private Recipes() {}
 	
 	public static void removeVanillaRecipes() {
+		List<String> removeRecipesOutputNameList = new ArrayList<>(Arrays.asList("minecraft:wooden_door"));
+		removeRecipesByOutputName(removeRecipesOutputNameList);
+	}
+	
+	//クラフト結果のアイテムの内部名称によって削除するレシピを指定します。
+	//レシピは最初に見つかった一つだけが削除されます。
+	private static void removeRecipesByOutputName(List<String> outputNameList) {
 		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
 		List<IRecipe> removeList = new ArrayList<IRecipe>();
-		for (IRecipe recipe : recipes) {
+		FMLControlledNamespacedRegistry<Item> itemRegistry = GameData.getItemRegistry();
+		
+		for(IRecipe recipe : recipes) {
 			//see: http://forum.minecraftuser.jp/viewtopic.php?f=39&t=33757
-      // nullチェックは十分に
-      // これを怠ると、レシピ大量自動追加系によってnullクラッシュを喰らうことがあるので
-      if(recipe != null && recipe.getRecipeOutput() != null && recipe.getRecipeOutput().getItem() != null){
-         // 一致判定
-         if("minecraft:wooden_door".equals(GameData.getItemRegistry().getNameForObject(recipe.getRecipeOutput().getItem()))){
-            // このループ内では削除はせず、いったん削除予定リストに入れる
-            removeList.add(recipe);
-            break; //削除するレシピが一つしかないので
-         }
-      }
-   }
-   
-   // 削除する
-   for(IRecipe remove : removeList){
-      // removeListに保存したレシピをrecipesから除去している
-      recipes.remove(remove);
-   }
+			if(recipe != null && recipe.getRecipeOutput() != null && recipe.getRecipeOutput().getItem() != null) {
+				Item outputItem = recipe.getRecipeOutput().getItem();
+				String name = itemRegistry.getNameForObject(outputItem);
+				
+				if(ListUtils.contains(outputNameList, name)) {
+					// このループ内では削除はせず、い)ったん削除予定リストに入れる
+					removeList.add(recipe);
+
+					outputNameList.remove(name);
+				}
+			}
+		}
+		
+		// 削除する
+		for(IRecipe removeRecipe : removeList) {
+			recipes.remove(removeRecipe);
+		}
 	}
 	
 	public static void register() {
