@@ -17,3 +17,9 @@ item.uptodate.door_birch.name=シラカバのドア
 item.uptodate.door_dark_oak.name=ダークオークのドア
 item.uptodate.door_jungle.name=ジャングルのドア
 item.uptodate.door_spruce.name=マツのドア
+
+tile.uptodate.fence_acacia.name=アカシアのフェンス
+tile.uptodate.fence_birch.name=シラカバのフェンス
+tile.uptodate.fence_dark_oak.name=ダークオークのフェンス
+tile.uptodate.fence_jungle.name=ジャングルのフェンス
+tile.uptodate.fence_spruce.name=マツのフェンス
