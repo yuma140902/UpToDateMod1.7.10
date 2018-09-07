@@ -41,6 +41,7 @@ public final class Recipes {
 	public static void register() {
 		registerStoneRecipes();
 		registerDoorRecipes();
+		registerFenceRecipes();
 	}
 	
 	private static void registerStoneRecipes() {
@@ -143,5 +144,64 @@ public final class Recipes {
 				"##",
 				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
 				);
+	}
+	
+	private static void registerFenceRecipes() {
+		final int
+			PLANK_META_OAK = 0,
+			PLANK_META_ACACIA = 4,
+			PLANK_META_BIRCH = 2,
+			PLANK_META_DARKOAK = 5,
+			PLANK_META_JUNGLE = 3,
+			PLANK_META_SPRUCE = 1;
+		
+		GameRegistry.addRecipe(
+				new ItemStack(Blocks.fence, 3, 0),
+				"#|#",
+				"#|#",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_OAK),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceAcacia, 3, 0),
+				"#|#",
+				"#|#",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceBirch, 3, 0),
+				"#|#",
+				"#|#",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceDarkOak, 3, 0),
+				"#|#",
+				"#|#",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceJungle, 3, 0),
+				"#|#",
+				"#|#",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceSpruce, 3, 0),
+				"#|#",
+				"#|#",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
+				'|', Items.stick
+				);
+		
 	}
 }
