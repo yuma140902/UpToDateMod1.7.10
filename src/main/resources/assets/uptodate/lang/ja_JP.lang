@@ -1,11 +1,11 @@
 
-tile.newstone.0.name=石(UpToDateMod)
-tile.newstone.1.name=花崗岩
-tile.newstone.2.name=磨いた花崗岩
-tile.newstone.3.name=閃緑岩
-tile.newstone.4.name=磨いた閃緑岩
-tile.newstone.5.name=安山岩
-tile.newstone.6.name=磨いた安山岩
+tile.uptodate.stone.0.name=石(UpToDateMod)
+tile.uptodate.stone.1.name=花崗岩
+tile.uptodate.stone.2.name=磨いた花崗岩
+tile.uptodate.stone.3.name=閃緑岩
+tile.uptodate.stone.4.name=磨いた閃緑岩
+tile.uptodate.stone.5.name=安山岩
+tile.uptodate.stone.6.name=磨いた安山岩
 tile.uptodate.door_acacia.name=アカシアのドア
 tile.uptodate.door_birch.name=シラカバのドア
 tile.uptodate.door_dark_oak.name=ダークオークのドア

@@ -41,9 +41,9 @@ public class Stone extends Block implements IRegisterable {
 	
 	@Override
 	public void register() {
-		this.setBlockName("newstone");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":newstone");
-		GameRegistry.registerBlock(this, ItemBlockStone.class, "newstone");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".stone");
+		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":stone");
+		GameRegistry.registerBlock(this, ItemBlockStone.class, "stone");
 	}
 	
 	private IIcon[] iIcons = new IIcon[META_MAX + 1];
