@@ -26,6 +26,7 @@ public final class Recipes {
          if("minecraft:wooden_door".equals(GameData.getItemRegistry().getNameForObject(recipe.getRecipeOutput().getItem()))){
             // このループ内では削除はせず、いったん削除予定リストに入れる
             removeList.add(recipe);
+            break; //削除するレシピが一つしかないので
          }
       }
    }
