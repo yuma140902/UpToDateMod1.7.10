@@ -21,7 +21,7 @@ public class DoorJungle extends net.minecraft.block.BlockDoor implements IRegist
 	}
 	
 	public void register() {
-		this.setBlockName("door_jungle");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_jungle");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_jungle");
 		GameRegistry.registerBlock(this, "door_jungle");
 	}

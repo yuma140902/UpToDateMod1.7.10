@@ -21,7 +21,7 @@ public class DoorDarkOak extends net.minecraft.block.BlockDoor implements IRegis
 	}
 	
 	public void register() {
-		this.setBlockName("door_dark_oak");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_dark_oak");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_dark_oak");
 		GameRegistry.registerBlock(this, "door_dark_oak");
 	}

@@ -21,7 +21,7 @@ public class DoorBirch extends net.minecraft.block.BlockDoor implements IRegiste
 	}
 	
 	public void register() {
-		this.setBlockName("door_birch");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_birch");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_birch");
 		GameRegistry.registerBlock(this, "door_birch");
 	}

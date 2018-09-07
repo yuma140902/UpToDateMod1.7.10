@@ -21,7 +21,7 @@ public class DoorAcacia extends net.minecraft.block.BlockDoor implements IRegist
 	}
 	
 	public void register() {
-		this.setBlockName("door_acacia");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_acacia");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_acacia");
 		GameRegistry.registerBlock(this, "door_acacia");
 	}

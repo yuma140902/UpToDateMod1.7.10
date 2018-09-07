@@ -21,7 +21,7 @@ public class DoorSpruce extends net.minecraft.block.BlockDoor implements IRegist
 	}
 	
 	public void register() {
-		this.setBlockName("door_spruce");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_spruce");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_spruce");
 		GameRegistry.registerBlock(this, "door_spruce");
 	}

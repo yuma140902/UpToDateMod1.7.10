@@ -6,11 +6,11 @@ tile.newstone.3.name=閃緑岩
 tile.newstone.4.name=磨いた閃緑岩
 tile.newstone.5.name=安山岩
 tile.newstone.6.name=磨いた安山岩
-tile.door_acacia.name=アカシアのドア
-tile.door_birch.name=シラカバのドア
-tile.door_dark_oak.name=ダークオークのドア
-tile.door_jungle.name=ジャングルのドア
-tile.door_spruce.name=マツのドア
+tile.uptodate.door_acacia.name=アカシアのドア
+tile.uptodate.door_birch.name=シラカバのドア
+tile.uptodate.door_dark_oak.name=ダークオークのドア
+tile.uptodate.door_jungle.name=ジャングルのドア
+tile.uptodate.door_spruce.name=マツのドア
 
 item.uptodate.door_acacia.name=アカシアのドア
 item.uptodate.door_birch.name=シラカバのドア
