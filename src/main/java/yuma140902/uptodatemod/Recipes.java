@@ -19,7 +19,7 @@ public final class Recipes {
 	private Recipes() {}
 	
 	public static void removeVanillaRecipes() {
-		List<String> removeRecipesOutputNameList = new ArrayList<>(Arrays.asList("minecraft:wooden_door"));
+		List<String> removeRecipesOutputNameList = new ArrayList<>(Arrays.asList("minecraft:wooden_door", "minecraft:fence"));
 		removeRecipesByOutputName(removeRecipesOutputNameList);
 	}
 	
