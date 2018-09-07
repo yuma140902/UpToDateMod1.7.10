@@ -19,7 +19,7 @@ public class ItemDoorAcacia extends net.minecraft.item.ItemDoor implements IRegi
   }
   
   public void register() {
-		this.setUnlocalizedName("itemDoorAcacia");
+		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + ".door_acacia");
 		this.setTextureName(ModUpToDateMod.MOD_ID + ":door_acacia");
 		GameRegistry.registerItem(this, "itemDoorAcacia");
   }

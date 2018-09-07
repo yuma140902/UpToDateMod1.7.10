@@ -1,3 +1,4 @@
+
 tile.newstone.0.name=石(UpToDateMod)
 tile.newstone.1.name=花崗岩
 tile.newstone.2.name=磨いた花崗岩
@@ -11,8 +12,8 @@ tile.door_dark_oak.name=ダークオークのドア
 tile.door_jungle.name=ジャングルのドア
 tile.door_spruce.name=マツのドア
 
-item.itemDoorAcacia.name=アカシアのドア
-item.itemDoorBirch.name=シラカバのドア
-item.itemDoorDarkOak.name=ダークオークのドア
-item.itemDoorJungle.name=ジャングルのドア
-item.itemDoorSpruce.name=マツのドア
+item.uptodate.door_acacia.name=アカシアのドア
+item.uptodate.door_birch.name=シラカバのドア
+item.uptodate.door_dark_oak.name=ダークオークのドア
+item.uptodate.door_jungle.name=ジャングルのドア
+item.uptodate.door_spruce.name=マツのドア

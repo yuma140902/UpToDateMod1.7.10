@@ -19,7 +19,7 @@ public class ItemDoorJungle extends net.minecraft.item.ItemDoor implements IRegi
   }
   
   public void register() {
-		this.setUnlocalizedName("itemDoorJungle");
+		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + ".door_jungle");
 		this.setTextureName(ModUpToDateMod.MOD_ID + ":door_jungle");
 		GameRegistry.registerItem(this, "itemDoorJungle");
   }

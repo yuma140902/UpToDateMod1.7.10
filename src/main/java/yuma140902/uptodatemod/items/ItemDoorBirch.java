@@ -19,7 +19,7 @@ public class ItemDoorBirch extends net.minecraft.item.ItemDoor implements IRegis
   }
   
   public void register() {
-		this.setUnlocalizedName("itemDoorBirch");
+		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + ".door_birch");
 		this.setTextureName(ModUpToDateMod.MOD_ID + ":door_birch");
 		GameRegistry.registerItem(this, "itemDoorBirch");
   }
