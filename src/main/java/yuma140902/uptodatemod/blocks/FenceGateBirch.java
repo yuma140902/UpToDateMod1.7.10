@@ -11,6 +11,9 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 public class FenceGateBirch extends BlockFenceGate implements IRegisterable {
 	public FenceGateBirch() {
 		super();
+		setHardness(2.0F);
+		setResistance(5.0F);
+		setStepSound(soundTypeWood);
 	}
 	
 	@Override
