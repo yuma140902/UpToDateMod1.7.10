@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod.blocks;
 
+import static yuma140902.uptodatemod.util.Stat.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.init.Blocks;
@@ -14,7 +15,7 @@ public class FenceGateAcacia extends BlockFenceGate implements IRegisterable {
 	
 	@Override
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
-		return Blocks.planks.getIcon(p_149691_1_, 4);
+		return Blocks.planks.getIcon(p_149691_1_, PLANK_META_ACACIA);
 	}
 	
 	@Override
