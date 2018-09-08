@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod;
 
+import static yuma140902.uptodatemod.util.Stat.*;
 import java.util.ArrayList;
 import java.util.List;
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
@@ -105,14 +106,6 @@ public final class Recipes {
 	}
 
 	private static void registerDoorRecipes() {
-		final int
-				PLANK_META_OAK = 0,
-				PLANK_META_ACACIA = 4,
-				PLANK_META_BIRCH = 2,
-				PLANK_META_DARKOAK = 5,
-				PLANK_META_JUNGLE = 3,
-				PLANK_META_SPRUCE = 1;
-		
 		GameRegistry.addRecipe(
 				new ItemStack(Items.wooden_door, 1, 0),
 				"##",
@@ -163,14 +156,6 @@ public final class Recipes {
 	}
 	
 	private static void registerFenceRecipes() {
-		final int
-			PLANK_META_OAK = 0,
-			PLANK_META_ACACIA = 4,
-			PLANK_META_BIRCH = 2,
-			PLANK_META_DARKOAK = 5,
-			PLANK_META_JUNGLE = 3,
-			PLANK_META_SPRUCE = 1;
-		
 		GameRegistry.addRecipe(
 				new ItemStack(Blocks.fence, 3, 0),
 				"#|#",
