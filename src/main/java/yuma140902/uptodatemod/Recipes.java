@@ -23,6 +23,7 @@ public final class Recipes {
 		removeRecipesOutputNameList.add("minecraft:wooden_door");
 		if(ModUpToDateMod.INSTANCE.config_recipeRemove_oldFenceRecipe)
 			removeRecipesOutputNameList.add("minecraft:fence");
+		removeRecipesOutputNameList.add("minecraft:fence_gate");
 		
 		removeRecipesByOutputName(removeRecipesOutputNameList);
 	}
@@ -59,6 +60,7 @@ public final class Recipes {
 		registerStoneRecipes();
 		registerDoorRecipes();
 		registerFenceRecipes();
+		registerFenceGateRecipes();
 	}
 	
 	private static void registerStoneRecipes() {
@@ -204,5 +206,55 @@ public final class Recipes {
 				'|', Items.stick
 				);
 		
+	}
+
+	private static void registerFenceGateRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(Blocks.fence_gate),
+				"|#|",
+				"|#|",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_OAK),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceGateAcacia),
+				"|#|",
+				"|#|",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceGateBirch),
+				"|#|",
+				"|#|",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceGateDarkOak),
+				"|#|",
+				"|#|",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceGateJungle),
+				"|#|",
+				"|#|",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE),
+				'|', Items.stick
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.fenceGateSpruce),
+				"|#|",
+				"|#|",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
+				'|', Items.stick
+				);
 	}
 }
