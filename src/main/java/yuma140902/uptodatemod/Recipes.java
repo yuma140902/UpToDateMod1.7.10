@@ -1,7 +1,6 @@
 package yuma140902.uptodatemod;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import cpw.mods.fml.common.registry.GameData;
@@ -19,7 +18,10 @@ public final class Recipes {
 	private Recipes() {}
 	
 	public static void removeVanillaRecipes() {
-		List<String> removeRecipesOutputNameList = new ArrayList<>(Arrays.asList("minecraft:wooden_door", "minecraft:fence"));
+		List<String> removeRecipesOutputNameList = new ArrayList<>();
+		removeRecipesOutputNameList.add("minecraft:wooden_door");
+		removeRecipesOutputNameList.add("minecraft:fence");
+		
 		removeRecipesByOutputName(removeRecipesOutputNameList);
 	}
 	
