@@ -21,7 +21,7 @@ public class ModUpToDateMod {
 	
 	public static final String MOD_ID = "uptodate";
 	public static final String MOD_NAME = "UpToDateMod";
-	public static final String MOD_VERSION = "MC1.7.10_0.0.2";
+	public static final String MOD_VERSION = "MC1.7.10_0.1.0";
 	public static final String CONFIG_FILE_NAME = "config\\" + MOD_NAME + ".cfg";
 	
 	public boolean config_worldGen_genStones;
