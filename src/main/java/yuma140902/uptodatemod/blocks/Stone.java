@@ -27,7 +27,7 @@ public class Stone extends Block implements IRegisterable {
 	public Stone() {
 		super(Material.rock);
 		this.setCreativeTab(CreativeTabs.tabBlock);
-		this.setHardness(2.0F);
+		this.setHardness(1.5F);
 		this.setResistance(10.0F);
 		this.setStepSound(soundTypeStone);
 		this.setHarvestLevel("pickaxe", 1);
