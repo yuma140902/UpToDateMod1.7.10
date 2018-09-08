@@ -25,6 +25,7 @@ public class ModUpToDateMod {
 	public static final String CONFIG_FILE_NAME = "config\\" + MOD_NAME + ".cfg";
 	
 	public boolean config_worldGen_genStones;
+	public boolean config_recipeRemove_oldFenceRecipe;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = MOD_ID;
@@ -41,6 +42,7 @@ public class ModUpToDateMod {
 		try {
 			cfg.load();
 			config_worldGen_genStones = cfg.getBoolean("genStones", "worldGen", true, "花崗岩、閃緑岩、安山岩をワールドに生成するか否か");
+			config_recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", "recipeRemove", false, "棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)");
 		}
 		finally {
 			cfg.save();

@@ -20,7 +20,8 @@ public final class Recipes {
 	public static void removeVanillaRecipes() {
 		List<String> removeRecipesOutputNameList = new ArrayList<>();
 		removeRecipesOutputNameList.add("minecraft:wooden_door");
-		removeRecipesOutputNameList.add("minecraft:fence");
+		if(ModUpToDateMod.INSTANCE.config_recipeRemove_oldFenceRecipe)
+			removeRecipesOutputNameList.add("minecraft:fence");
 		
 		removeRecipesByOutputName(removeRecipesOutputNameList);
 	}
