@@ -10,6 +10,10 @@ import yuma140902.uptodatemod.blocks.FenceAcacia;
 import yuma140902.uptodatemod.blocks.FenceBirch;
 import yuma140902.uptodatemod.blocks.FenceDarkOak;
 import yuma140902.uptodatemod.blocks.FenceGateAcacia;
+import yuma140902.uptodatemod.blocks.FenceGateBirch;
+import yuma140902.uptodatemod.blocks.FenceGateDarkOak;
+import yuma140902.uptodatemod.blocks.FenceGateJungle;
+import yuma140902.uptodatemod.blocks.FenceGateSpruce;
 import yuma140902.uptodatemod.blocks.FenceJungle;
 import yuma140902.uptodatemod.blocks.FenceSpruce;
 
@@ -29,6 +33,10 @@ public final class MyBlocks {
 		((IRegisterable) fenceJungle).register();
 		((IRegisterable) fenceSpruce).register();
 		((IRegisterable) fenceGateAcacia).register();
+		((IRegisterable) fenceGateBirch).register();
+		((IRegisterable) fenceGateDarkOak).register();
+		((IRegisterable) fenceGateJungle).register();
+		((IRegisterable) fenceGateSpruce).register();
 	}
 	
 	public static final Block stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -45,4 +53,8 @@ public final class MyBlocks {
 	public static final Block fenceSpruce = new FenceSpruce();
 	
 	public static final Block fenceGateAcacia = new FenceGateAcacia();
+	public static final Block fenceGateBirch = new FenceGateBirch();
+	public static final Block fenceGateDarkOak = new FenceGateDarkOak();
+	public static final Block fenceGateJungle = new FenceGateJungle();
+	public static final Block fenceGateSpruce = new FenceGateSpruce();
 }
