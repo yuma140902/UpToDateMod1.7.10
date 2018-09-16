@@ -6,7 +6,7 @@ import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
 public final class WorldGenerators {
 	private WorldGenerators() {}
 	
-	private static final int WORLD_GENERATOR_PRIORITY = 0; //小さいほど優先度が高い
+	private static final int WORLD_GENERATOR_PRIORITY = 100; //小さいほど優先度が高い
 	
 	public static void register() {
 		GameRegistry.registerWorldGenerator(myMinableGenerator, WORLD_GENERATOR_PRIORITY);
