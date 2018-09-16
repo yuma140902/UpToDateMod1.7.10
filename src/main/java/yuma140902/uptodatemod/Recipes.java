@@ -61,6 +61,24 @@ public final class Recipes {
 		registerDoorRecipes();
 		registerFenceRecipes();
 		registerFenceGateRecipes();
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.coarseDirt, 4, 0),
+				"GD",
+				"DG",
+				'D', Blocks.dirt,
+				'G', Blocks.gravel
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.coarseDirt, 4, 0),
+				"DG",
+				"GD",
+				'D', Blocks.dirt,
+				'G', Blocks.gravel
+				);
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), MyBlocks.coarseDirt);
 	}
 	
 	private static void registerStoneRecipes() {
