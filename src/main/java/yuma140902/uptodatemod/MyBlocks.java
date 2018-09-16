@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod;
 
 import net.minecraft.block.Block;
+import yuma140902.uptodatemod.blocks.CoarseDirt;
 import yuma140902.uptodatemod.blocks.DoorAcacia;
 import yuma140902.uptodatemod.blocks.DoorBirch;
 import yuma140902.uptodatemod.blocks.DoorDarkOak;
@@ -37,6 +38,8 @@ public final class MyBlocks {
 		((IRegisterable) fenceGateDarkOak).register();
 		((IRegisterable) fenceGateJungle).register();
 		((IRegisterable) fenceGateSpruce).register();
+		
+		((IRegisterable) coarseDirt).register();
 	}
 	
 	public static final Block stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -57,4 +60,6 @@ public final class MyBlocks {
 	public static final Block fenceGateDarkOak = new FenceGateDarkOak();
 	public static final Block fenceGateJungle = new FenceGateJungle();
 	public static final Block fenceGateSpruce = new FenceGateSpruce();
+	
+	public static final Block coarseDirt = new CoarseDirt();
 }
