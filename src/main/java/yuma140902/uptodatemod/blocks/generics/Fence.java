@@ -1,16 +1,21 @@
-package yuma140902.uptodatemod.blocks;
+package yuma140902.uptodatemod.blocks.generics;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 
-public abstract class FenceBase extends BlockFence implements IRegisterable {
-	public FenceBase(String texture) {
+public class Fence extends BlockFence implements IRegisterable {
+	private String name;
+	
+	public Fence(String texture, String name) {
 		super(texture, Material.wood);
+		this.name = name;
 		setHardness(2.0F);
 		setResistance(5.0F);
 		setStepSound(soundTypeWood);
@@ -39,4 +44,11 @@ public abstract class FenceBase extends BlockFence implements IRegisterable {
     	return false;
     }
   }
+
+	@Override
+	public void register() {
+		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
+		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
+		GameRegistry.registerBlock(this, name);
+	}
 }
