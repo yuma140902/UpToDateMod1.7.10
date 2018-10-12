@@ -47,4 +47,9 @@ public class BlockSeaLantern extends Block implements IRegisterable{
 	public MapColor getMapColor(int p_149728_1_) {
 		return MapColor.quartzColor;
 	}
+	
+	@Override
+	protected boolean canSilkHarvest() {
+		return true;
+	}
 }
