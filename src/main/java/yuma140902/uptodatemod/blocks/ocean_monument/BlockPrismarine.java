@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.items.ocean_monument;
+package yuma140902.uptodatemod.blocks.ocean_monument;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;

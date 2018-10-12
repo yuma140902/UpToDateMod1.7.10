@@ -17,7 +17,7 @@ import yuma140902.uptodatemod.blocks.FenceGateJungle;
 import yuma140902.uptodatemod.blocks.FenceGateSpruce;
 import yuma140902.uptodatemod.blocks.FenceJungle;
 import yuma140902.uptodatemod.blocks.FenceSpruce;
-import yuma140902.uptodatemod.items.ocean_monument.BlockPrismarine;
+import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
 
 public final class MyBlocks {
 	private MyBlocks() {}
