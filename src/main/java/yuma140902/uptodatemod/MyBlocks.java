@@ -20,6 +20,7 @@ import yuma140902.uptodatemod.blocks.FenceSpruce;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBrick;
+import yuma140902.uptodatemod.blocks.ocean_monument.BlockSeaLantern;
 
 public final class MyBlocks {
 	private MyBlocks() {}
@@ -47,6 +48,7 @@ public final class MyBlocks {
 		prismarineBlock.register();
 		prismarineBrick.register();
 		prismarineDark.register();
+		seaLantern.register();
 	}
 	
 	public static final Block stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -73,4 +75,5 @@ public final class MyBlocks {
 	public static final BlockPrismarine prismarineBlock = new BlockPrismarine();
 	public static final BlockPrismarineBrick prismarineBrick = new BlockPrismarineBrick();
 	public static final BlockDarkPrismarine prismarineDark = new BlockDarkPrismarine();
+	public static final BlockSeaLantern seaLantern = new BlockSeaLantern();
 }
