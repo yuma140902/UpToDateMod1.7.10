@@ -3,12 +3,11 @@ package yuma140902.uptodatemod.blocks.generics;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
+import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.MyBlocks;
 
 public class Fence extends BlockFence implements IRegisterable {
 	private String name;
@@ -31,12 +30,10 @@ public class Fence extends BlockFence implements IRegisterable {
     if(block.getMaterial().isOpaque() && block.renderAsNormalBlock()) {
     	return block.getMaterial() != Material.gourd;
     }
-    else if(block == this || block == Blocks.fence_gate
-    		|| block == MyBlocks.fenceGateAcacia
-    		|| block == MyBlocks.fenceGateBirch
-    		|| block == MyBlocks.fenceGateDarkOak
-    		|| block == MyBlocks.fenceGateJungle
-    		|| block == MyBlocks.fenceGateSpruce
+    else if(
+    		block == this
+    		|| block instanceof BlockFenceGate
+    		|| block instanceof Fence
     		) {
     	return true;
     }
