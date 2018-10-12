@@ -21,6 +21,6 @@ public class BlockPrismarine extends Block implements IRegisterable {
 	public void register() {
 		setBlockName(ModUpToDateMod.MOD_ID + ".prismarine_block");
 		setBlockTextureName(ModUpToDateMod.MOD_ID + ":prismarine_block");
-		GameRegistry.registerBlock(this, "prismatine_block");
+		GameRegistry.registerBlock(this, "prismarine_block");
 	}
 }
