@@ -7,6 +7,7 @@ import yuma140902.uptodatemod.items.ItemDoorDarkOak;
 import yuma140902.uptodatemod.items.ItemDoorJungle;
 import yuma140902.uptodatemod.items.ItemDoorSpruce;
 import yuma140902.uptodatemod.items.ocean_monument.PrismarineCrystals;
+import yuma140902.uptodatemod.items.ocean_monument.PrismarineShard;
 
 public final class MyItems {
 	private MyItems() {}
@@ -17,7 +18,9 @@ public final class MyItems {
 		((IRegisterable) itemDoorDarkOak).register();
 		((IRegisterable) itemDoorJungle).register();
 		((IRegisterable) itemDoorSpruce).register();
+		
 		((IRegisterable) prismarineCrystal).register();
+		prismarineShard.register();
 	}
 	
 	public static final Item itemDoorAcacia = new ItemDoorAcacia();
@@ -27,4 +30,5 @@ public final class MyItems {
 	public static final Item itemDoorSpruce = new ItemDoorSpruce();
 	
 	public static final Item prismarineCrystal = new PrismarineCrystals();
+	public static final PrismarineShard prismarineShard = new PrismarineShard();
 }
