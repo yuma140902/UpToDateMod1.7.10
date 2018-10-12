@@ -1,11 +1,16 @@
 package yuma140902.uptodatemod.blocks.ocean_monument;
 
+import java.util.Random;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.util.MathHelper;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyItems;
 
 public class BlockSeaLantern extends Block implements IRegisterable{
 	public BlockSeaLantern() {
@@ -21,5 +26,25 @@ public class BlockSeaLantern extends Block implements IRegisterable{
 		setBlockName(ModUpToDateMod.MOD_ID + ".sea_lantern");
 		setBlockTextureName(ModUpToDateMod.MOD_ID + ":sea_lantern");
 		GameRegistry.registerBlock(this, "sea_lantern");
+	}
+	
+	@Override
+	public int quantityDropped(Random rand) {
+		return 2 + rand.nextInt(2);
+	}
+	
+	@Override
+	public int quantityDroppedWithBonus(int fortune, Random rand) {
+		return MathHelper.clamp_int(quantityDropped(rand) + rand.nextInt(fortune + 1), 1, 5);
+	}
+	
+	@Override
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+		return MyItems.prismarineCrystal;
+	}
+	
+	@Override
+	public MapColor getMapColor(int p_149728_1_) {
+		return MapColor.quartzColor;
 	}
 }
