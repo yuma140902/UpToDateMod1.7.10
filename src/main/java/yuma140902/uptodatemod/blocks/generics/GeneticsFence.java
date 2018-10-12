@@ -9,10 +9,10 @@ import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class Fence extends BlockFence implements IRegisterable {
+public class GeneticsFence extends BlockFence implements IRegisterable {
 	private String name;
 	
-	public Fence(String texture, String name) {
+	public GeneticsFence(String texture, String name) {
 		super(texture, Material.wood);
 		this.name = name;
 		setHardness(2.0F);
@@ -33,7 +33,7 @@ public class Fence extends BlockFence implements IRegisterable {
     else if(
     		block == this
     		|| block instanceof BlockFenceGate
-    		|| block instanceof Fence
+    		|| block instanceof GeneticsFence
     		) {
     	return true;
     }

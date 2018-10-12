@@ -12,7 +12,7 @@ import yuma140902.uptodatemod.blocks.FenceGateBirch;
 import yuma140902.uptodatemod.blocks.FenceGateDarkOak;
 import yuma140902.uptodatemod.blocks.FenceGateJungle;
 import yuma140902.uptodatemod.blocks.FenceGateSpruce;
-import yuma140902.uptodatemod.blocks.generics.Fence;
+import yuma140902.uptodatemod.blocks.generics.GeneticsFence;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBrick;
@@ -54,11 +54,11 @@ public final class MyBlocks {
 	public static final Block doorJungle = new DoorJungle();
 	public static final Block doorSpruce = new DoorSpruce();
 	
-	public static final Block fenceAcacia = new Fence("planks_acacia", "fence_acacia");
-	public static final Block fenceBirch = new Fence("planks_birch", "fence_birch");
-	public static final Block fenceDarkOak = new Fence("planks_big_oak", "fence_dark_oak");
-	public static final Block fenceJungle = new Fence("planks_jungle", "fence_jungle");
-	public static final Block fenceSpruce = new Fence("planks_spruce", "fence_spruce");
+	public static final Block fenceAcacia = new GeneticsFence("planks_acacia", "fence_acacia");
+	public static final Block fenceBirch = new GeneticsFence("planks_birch", "fence_birch");
+	public static final Block fenceDarkOak = new GeneticsFence("planks_big_oak", "fence_dark_oak");
+	public static final Block fenceJungle = new GeneticsFence("planks_jungle", "fence_jungle");
+	public static final Block fenceSpruce = new GeneticsFence("planks_spruce", "fence_spruce");
 	
 	public static final Block fenceGateAcacia = new FenceGateAcacia();
 	public static final Block fenceGateBirch = new FenceGateBirch();
