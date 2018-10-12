@@ -79,6 +79,8 @@ public final class Recipes {
 				);
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), MyBlocks.coarseDirt);
+		
+		registerOceanMonumentRecipes();
 	}
 	
 	private static void registerStoneRecipes() {
@@ -273,6 +275,41 @@ public final class Recipes {
 				"|#|",
 				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
 				'|', Items.stick
+				);
+	}
+
+	private static void registerOceanMonumentRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.prismarineBlock),
+				"##",
+				"##",
+				'#', MyItems.prismarineShard
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.prismarineBrick),
+				"###",
+				"###",
+				"###",
+				'#', MyItems.prismarineShard
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.prismarineDark),
+				"###",
+				"#I#",
+				"###",
+				'#', MyItems.prismarineShard,
+				'I', new ItemStack(Items.dye, 1, 0)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.seaLantern),
+				"#C#",
+				"CCC",
+				"#C#",
+				'#', MyItems.prismarineShard,
+				'C', MyItems.prismarineCrystal
 				);
 	}
 }
