@@ -6,26 +6,26 @@ import net.minecraft.tileentity.TileEntity;
 import yuma140902.uptodatemod.IRegisterable;
 
 public class TileEntityObserver extends TileEntity implements IRegisterable {
-	private int blockId;
-	private int blockMeta;
+	private int targetId;
+	private int targetMeta;
 	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		this.blockId = nbt.getInteger("blockId");
-		this.blockMeta = nbt.getInteger("blockMeta");
+		this.targetId = nbt.getInteger("targetId");
+		this.targetMeta = nbt.getInteger("targetMeta");
 	}
 	
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		nbt.setInteger("blockId", blockId);
-		nbt.setInteger("blockMeta", blockMeta);
+		nbt.setInteger("targetId", targetId);
+		nbt.setInteger("targetMeta", targetMeta);
 	}
 	
-	public void setValues(int blockId, int blockMeta) {
-		this.blockId = blockId;
-		this.blockMeta = blockMeta;
+	public void setValues(int targetId, int targetMeta) {
+		this.targetId = targetId;
+		this.targetMeta = targetMeta;
 		System.out.println("オブザーバーのタイルエンティティの更新!");
 //		worldObj.notifyBlockChange(xCoord, yCoord, zCoord, blockType);
 	}
