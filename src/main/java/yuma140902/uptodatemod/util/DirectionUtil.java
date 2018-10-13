@@ -34,4 +34,18 @@ public class DirectionUtil {
 			default: return 0;
 		}
 	}
+	
+	//座標(x, y, z)のブロックのside側の隣の座標を返します
+	public static BlockCoordinate3 getCoordBySide(int side, int x, int y, int z) {
+		switch (side) {
+			case Stat.SIDE_BOTTOM: 	return new BlockCoordinate3(x  , y-1, z  );
+			case Stat.SIDE_TOP: 			return new BlockCoordinate3(x  , y+1, z  );
+			case Stat.SIDE_NORTH: 	return new BlockCoordinate3(x  , y  , z-1);
+			case Stat.SIDE_SOUTH: 	return new BlockCoordinate3(x  , y  , z+1);
+			case Stat.SIDE_WEST: 		return new BlockCoordinate3(x-1, y  , z  );
+			case Stat.SIDE_EAST: 		return new BlockCoordinate3(x+1, y  , z  );
+			
+			default: return new BlockCoordinate3(0, 0, 0);
+		}
+	}
 }
