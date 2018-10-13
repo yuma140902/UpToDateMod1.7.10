@@ -30,6 +30,14 @@ public class TileEntityObserver extends TileEntity implements IRegisterable {
 //		worldObj.notifyBlockChange(xCoord, yCoord, zCoord, blockType);
 	}
 	
+	public int getTargetId() {
+		return targetId;
+	}
+	
+	public int getTargetMeta() {
+		return targetMeta;
+	}
+	
 	@Override
 	public void register() {
 		GameRegistry.registerTileEntity(TileEntityObserver.class, "tileentity_observer");
