@@ -7,11 +7,11 @@ import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class GeneticsFenceGate extends BlockFenceGate implements IRegisterable {
+public class GenericFenceGate extends BlockFenceGate implements IRegisterable {
 	private int iconSourcePlankMeta;
 	private String name;
 	
-	public GeneticsFenceGate(int iconSourcePlankMeta, String name) {
+	public GenericFenceGate(int iconSourcePlankMeta, String name) {
 		super();
 		this.iconSourcePlankMeta = iconSourcePlankMeta;
 		this.name = name;

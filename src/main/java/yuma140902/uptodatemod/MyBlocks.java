@@ -10,7 +10,7 @@ import yuma140902.uptodatemod.blocks.DoorJungle;
 import yuma140902.uptodatemod.blocks.DoorSpruce;
 import yuma140902.uptodatemod.blocks.generics.GenericTrapDoor;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
-import yuma140902.uptodatemod.blocks.generics.GeneticsFenceGate;
+import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBrick;
@@ -67,11 +67,11 @@ public final class MyBlocks {
 	public static final Block fenceJungle = new GenericFence("planks_jungle", "fence_jungle");
 	public static final Block fenceSpruce = new GenericFence("planks_spruce", "fence_spruce");
 	
-	public static final Block fenceGateAcacia = new GeneticsFenceGate(Stat.PLANK_META_ACACIA, "fence_gate_acacia");
-	public static final Block fenceGateBirch = new GeneticsFenceGate(Stat.PLANK_META_BIRCH, "fence_gate_birch");
-	public static final Block fenceGateDarkOak = new GeneticsFenceGate(Stat.PLANK_META_DARKOAK, "fence_gate_dark_oak");
-	public static final Block fenceGateJungle = new GeneticsFenceGate(Stat.PLANK_META_JUNGLE, "fence_gate_jungle");
-	public static final Block fenceGateSpruce = new GeneticsFenceGate(Stat.PLANK_META_SPRUCE, "fence_gate_spruce");
+	public static final Block fenceGateAcacia = new GenericFenceGate(Stat.PLANK_META_ACACIA, "fence_gate_acacia");
+	public static final Block fenceGateBirch = new GenericFenceGate(Stat.PLANK_META_BIRCH, "fence_gate_birch");
+	public static final Block fenceGateDarkOak = new GenericFenceGate(Stat.PLANK_META_DARKOAK, "fence_gate_dark_oak");
+	public static final Block fenceGateJungle = new GenericFenceGate(Stat.PLANK_META_JUNGLE, "fence_gate_jungle");
+	public static final Block fenceGateSpruce = new GenericFenceGate(Stat.PLANK_META_SPRUCE, "fence_gate_spruce");
 	
 	public static final Block coarseDirt = new CoarseDirt();
 	
