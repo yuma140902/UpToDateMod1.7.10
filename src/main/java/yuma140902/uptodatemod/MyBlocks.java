@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod;
 
 import net.minecraft.block.Block;
+import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.CoarseDirt;
 import yuma140902.uptodatemod.blocks.DoorAcacia;
 import yuma140902.uptodatemod.blocks.DoorBirch;
@@ -42,6 +43,8 @@ public final class MyBlocks {
 		prismarineBrick.register();
 		prismarineDark.register();
 		seaLantern.register();
+		
+		observer.register();
 	}
 	
 	public static final Block stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -69,4 +72,6 @@ public final class MyBlocks {
 	public static final BlockPrismarineBrick prismarineBrick = new BlockPrismarineBrick();
 	public static final BlockDarkPrismarine prismarineDark = new BlockDarkPrismarine();
 	public static final BlockSeaLantern seaLantern = new BlockSeaLantern();
+	
+	public static final BlockObserver observer = new BlockObserver();
 }
