@@ -59,6 +59,7 @@ public final class Recipes {
 	public static void register() {
 		registerStoneRecipes();
 		registerDoorRecipes();
+		registerTrapDoorRecipes();
 		registerFenceRecipes();
 		registerFenceGateRecipes();
 		
@@ -173,6 +174,43 @@ public final class Recipes {
 				"##",
 				"##",
 				"##",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
+				);
+	}
+	
+	private static void registerTrapDoorRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.trapDoorAcacia, 2, 0),
+				"###",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.trapDoorBirch, 2, 0),
+				"###",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.trapDoorDarkOak, 2, 0),
+				"###",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.trapDoorJungle, 2, 0),
+				"###",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.trapDoorSpruce, 2, 0),
+				"###",
+				"###",
 				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
 				);
 	}
