@@ -45,7 +45,7 @@ public final class MyBlocks {
 		prismarineDark.register();
 		seaLantern.register();
 		
-		observer.register();
+		if(ModUpToDateMod.INSTANCE.config_enable_observer) observer.register();
 		
 		trapDoorAcacia.register();
 		trapDoorBirch.register();
@@ -80,7 +80,7 @@ public final class MyBlocks {
 	public static final BlockDarkPrismarine prismarineDark = new BlockDarkPrismarine();
 	public static final BlockSeaLantern seaLantern = new BlockSeaLantern();
 	
-	public static final BlockObserver observer = new BlockObserver();
+	public static final BlockObserver observer = ModUpToDateMod.INSTANCE.config_enable_observer ? new BlockObserver() : null;
 	
 	public static final GenericTrapDoor trapDoorAcacia = new GenericTrapDoor("trap_door_acacia");
 	public static final GenericTrapDoor trapDoorBirch = new GenericTrapDoor("trap_door_birch");

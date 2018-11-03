@@ -26,6 +26,7 @@ public class ModUpToDateMod {
 	
 	public boolean config_worldGen_genStones;
 	public boolean config_recipeRemove_oldFenceRecipe;
+	public boolean config_enable_observer;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = MOD_ID;
@@ -43,6 +44,7 @@ public class ModUpToDateMod {
 			cfg.load();
 			config_worldGen_genStones = cfg.getBoolean("genStones", "worldGen", true, "花崗岩、閃緑岩、安山岩をワールドに生成するか否か");
 			config_recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", "recipeRemove", false, "棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)");
+			config_enable_observer = cfg.getBoolean("enableObserver", "experimental", false, "オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】");
 		}
 		finally {
 			cfg.save();
