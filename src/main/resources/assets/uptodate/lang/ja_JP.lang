@@ -38,3 +38,9 @@ tile.uptodate.prismarine_block.name=プリズマリン
 tile.uptodate.prismarine_brick.name=プリズマリンレンガ
 tile.uptodate.dark_prismarine_block.name=ダークプリズマリン
 tile.uptodate.sea_lantern.name=シーランタン
+
+tile.uptodate.trap_door_acacia.name=アカシアのトラップドア
+tile.uptodate.trap_door_birch.name=シラカバのトラップドア
+tile.uptodate.trap_door_dark_oak.name=ダークオークのトラップドア
+tile.uptodate.trap_door_jungle.name=ジャングルのトラップドア
+tile.uptodate.trap_door_spruce.name=マツのトラップドア

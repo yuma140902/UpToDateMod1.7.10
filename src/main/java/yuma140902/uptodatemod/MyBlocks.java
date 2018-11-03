@@ -8,6 +8,7 @@ import yuma140902.uptodatemod.blocks.DoorBirch;
 import yuma140902.uptodatemod.blocks.DoorDarkOak;
 import yuma140902.uptodatemod.blocks.DoorJungle;
 import yuma140902.uptodatemod.blocks.DoorSpruce;
+import yuma140902.uptodatemod.blocks.generics.GenericTrapDoor;
 import yuma140902.uptodatemod.blocks.generics.GeneticsFence;
 import yuma140902.uptodatemod.blocks.generics.GeneticsFenceGate;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
@@ -45,6 +46,12 @@ public final class MyBlocks {
 		seaLantern.register();
 		
 		observer.register();
+		
+		trapDoorAcacia.register();
+		trapDoorBirch.register();
+		trapDoorDarkOak.register();
+		trapDoorJungle.register();
+		trapDoorSpruce.register();
 	}
 	
 	public static final Block stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -74,4 +81,11 @@ public final class MyBlocks {
 	public static final BlockSeaLantern seaLantern = new BlockSeaLantern();
 	
 	public static final BlockObserver observer = new BlockObserver();
+	
+	public static final GenericTrapDoor trapDoorAcacia = new GenericTrapDoor("trap_door_acacia");
+	public static final GenericTrapDoor trapDoorBirch = new GenericTrapDoor("trap_door_birch");
+	public static final GenericTrapDoor trapDoorDarkOak = new GenericTrapDoor("trap_door_dark_oak");
+	public static final GenericTrapDoor trapDoorJungle = new GenericTrapDoor("trap_door_jungle");
+	public static final GenericTrapDoor trapDoorSpruce = new GenericTrapDoor("trap_door_spruce");
+	
 }
