@@ -24,6 +24,7 @@ public final class Recipes {
 		if(ModUpToDateMod.INSTANCE.config_recipeRemove_oldFenceRecipe)
 			removeRecipesOutputNameList.add("minecraft:fence");
 		removeRecipesOutputNameList.add("minecraft:fence_gate");
+		removeRecipesOutputNameList.add("minecraft:wooden_button");
 		
 		removeRecipesByOutputName(removeRecipesOutputNameList);
 	}
@@ -62,6 +63,7 @@ public final class Recipes {
 		registerTrapDoorRecipes();
 		registerFenceRecipes();
 		registerFenceGateRecipes();
+		registerButtonRecipes();
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.coarseDirt, 4, 0),
@@ -320,6 +322,38 @@ public final class Recipes {
 				"|#|",
 				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
 				'|', Items.stick
+				);
+	}
+	
+	private static void registerButtonRecipes() {
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(Blocks.wooden_button),
+				new ItemStack(Blocks.planks, 1, PLANK_META_OAK)
+				);
+		
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(MyBlocks.buttonAcacia),
+				new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA)
+				);
+		
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(MyBlocks.buttonBirch),
+				new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH)
+				);
+		
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(MyBlocks.buttonDarkOak),
+				new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK)
+				);
+		
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(MyBlocks.buttonJungle),
+				new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE)
+				);
+		
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(MyBlocks.buttonSpruce),
+				new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
 				);
 	}
 
