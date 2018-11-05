@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;
+import net.minecraft.init.Items;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.blocks.Stone;
 import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
@@ -53,6 +54,8 @@ public class ModUpToDateMod {
 	}
 	
 	private void tweakVanilla() {
+		Items.wooden_door.setMaxStackSize(64);
+		Items.iron_door.setMaxStackSize(64);
 		BlockTrapDoor.disableValidation = true;
 	}
 	

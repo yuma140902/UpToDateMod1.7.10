@@ -130,7 +130,7 @@ public final class Recipes {
 
 	private static void registerDoorRecipes() {
 		GameRegistry.addRecipe(
-				new ItemStack(Items.wooden_door, 1, 0),
+				new ItemStack(Items.wooden_door, 3, 0),
 				"##",
 				"##",
 				"##",
