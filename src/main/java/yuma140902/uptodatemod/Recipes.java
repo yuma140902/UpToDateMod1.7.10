@@ -213,6 +213,13 @@ public final class Recipes {
 				"###",
 				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
 				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.trapDoorIron, 1, 0),
+				"##",
+				"##",
+				'#', Items.iron_ingot
+				);
 	}
 	
 	private static void registerFenceRecipes() {

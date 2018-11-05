@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod;
 
+import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.CoarseDirt;
 import yuma140902.uptodatemod.blocks.DoorAcacia;
@@ -51,6 +52,7 @@ public final class MyBlocks {
 		trapDoorDarkOak.register();
 		trapDoorJungle.register();
 		trapDoorSpruce.register();
+		trapDoorIron.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.Stone stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -86,5 +88,6 @@ public final class MyBlocks {
 	public static final GenericTrapDoor trapDoorDarkOak = new GenericTrapDoor("trap_door_dark_oak");
 	public static final GenericTrapDoor trapDoorJungle = new GenericTrapDoor("trap_door_jungle");
 	public static final GenericTrapDoor trapDoorSpruce = new GenericTrapDoor("trap_door_spruce");
+	public static final BlockIronTrapDoor trapDoorIron = new BlockIronTrapDoor();
 	
 }
