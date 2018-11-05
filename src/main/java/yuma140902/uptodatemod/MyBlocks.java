@@ -8,6 +8,7 @@ import yuma140902.uptodatemod.blocks.DoorBirch;
 import yuma140902.uptodatemod.blocks.DoorDarkOak;
 import yuma140902.uptodatemod.blocks.DoorJungle;
 import yuma140902.uptodatemod.blocks.DoorSpruce;
+import yuma140902.uptodatemod.blocks.generics.GenericButton;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
 import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
 import yuma140902.uptodatemod.blocks.generics.GenericTrapDoor;
@@ -53,6 +54,12 @@ public final class MyBlocks {
 		trapDoorJungle.register();
 		trapDoorSpruce.register();
 		trapDoorIron.register();
+		
+		buttonAcacia.register();
+		buttonBirch.register();
+		buttonDarkOak.register();
+		buttonJungle.register();
+		buttonSpruce.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.Stone stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -90,4 +97,9 @@ public final class MyBlocks {
 	public static final GenericTrapDoor trapDoorSpruce = new GenericTrapDoor("trap_door_spruce");
 	public static final BlockIronTrapDoor trapDoorIron = new BlockIronTrapDoor();
 	
+	public static final GenericButton buttonAcacia = new GenericButton(Stat.PLANK_META_ACACIA, "button_acacia");
+	public static final GenericButton buttonBirch = new GenericButton(Stat.PLANK_META_BIRCH, "button_birch");
+	public static final GenericButton buttonDarkOak = new GenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
+	public static final GenericButton buttonJungle = new GenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
+	public static final GenericButton buttonSpruce = new GenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
 }

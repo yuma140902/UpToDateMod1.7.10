@@ -45,3 +45,9 @@ tile.uptodate.trap_door_dark_oak.name=ダークオークのトラップドア
 tile.uptodate.trap_door_jungle.name=ジャングルのトラップドア
 tile.uptodate.trap_door_spruce.name=マツのトラップドア
 tile.uptodate.trap_door_iron.name=鉄のトラップドア
+
+tile.uptodate.button_acacia.name=アカシアのボタン
+tile.uptodate.button_birch.name=シラカバのボタン
+tile.uptodate.button_dark_oak.name=ダークオークのボタン
+tile.uptodate.button_jungle.name=ジャングルのボタン
+tile.uptodate.button_spruce.name=マツのボタン
