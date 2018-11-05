@@ -7,6 +7,7 @@ import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockTrapDoor;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.blocks.Stone;
 import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
@@ -51,11 +52,16 @@ public class ModUpToDateMod {
 		}
 	}
 	
+	private void tweakVanilla() {
+		BlockTrapDoor.disableValidation = true;
+	}
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
 		loadConfig();
 		
+		tweakVanilla();
 		MyBlocks.register();
 		MyItems.register();
 	}

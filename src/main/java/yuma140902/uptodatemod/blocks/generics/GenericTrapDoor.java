@@ -9,7 +9,6 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 
 public class GenericTrapDoor extends BlockTrapDoor implements IRegisterable {
 	/** Set this to allow trapdoors to remain free-floating */
-  public static boolean disableValidation = false;
   private String name;
 
   public GenericTrapDoor(String name)
