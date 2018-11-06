@@ -90,11 +90,11 @@ public final class MyBlocks {
 	
 	public static final BlockObserver observer = ModUpToDateMod.INSTANCE.config_enable_observer ? new BlockObserver() : null;
 	
-	public static final GenericTrapDoor trapDoorAcacia = new GenericTrapDoor("trap_door_acacia");
-	public static final GenericTrapDoor trapDoorBirch = new GenericTrapDoor("trap_door_birch");
-	public static final GenericTrapDoor trapDoorDarkOak = new GenericTrapDoor("trap_door_dark_oak");
-	public static final GenericTrapDoor trapDoorJungle = new GenericTrapDoor("trap_door_jungle");
-	public static final GenericTrapDoor trapDoorSpruce = new GenericTrapDoor("trap_door_spruce");
+	public static final GenericTrapDoor trapDoorAcacia = new GenericTrapDoor("trap_door_acacia", Stat.PLANK_META_ACACIA);
+	public static final GenericTrapDoor trapDoorBirch = new GenericTrapDoor("trap_door_birch", Stat.PLANK_META_BIRCH);
+	public static final GenericTrapDoor trapDoorDarkOak = new GenericTrapDoor("trap_door_dark_oak", Stat.PLANK_META_DARKOAK);
+	public static final GenericTrapDoor trapDoorJungle = new GenericTrapDoor("trap_door_jungle", Stat.PLANK_META_JUNGLE);
+	public static final GenericTrapDoor trapDoorSpruce = new GenericTrapDoor("trap_door_spruce", Stat.PLANK_META_SPRUCE);
 	public static final BlockIronTrapDoor trapDoorIron = new BlockIronTrapDoor();
 	
 	public static final GenericButton buttonAcacia = new GenericButton(Stat.PLANK_META_ACACIA, "button_acacia");
