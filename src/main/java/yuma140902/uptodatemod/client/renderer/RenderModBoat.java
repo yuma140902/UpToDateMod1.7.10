@@ -14,11 +14,11 @@ import yuma140902.uptodatemod.entity.item.EntityModBoat.Type;
 
 @SideOnly(Side.CLIENT)
 public class RenderModBoat extends RenderBoat {
-	private static final ResourceLocation acaciaBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/acacia_boat.png");
-	private static final ResourceLocation birchBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/birch_boat.png");
-	private static final ResourceLocation darkOakBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/dark_oak_boat.png");
-	private static final ResourceLocation jungleBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/jungle_boat.png");
-	private static final ResourceLocation spruceBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/spruce_boat.png");
+	private static final ResourceLocation acaciaBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/boat_acacia.png");
+	private static final ResourceLocation birchBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/boat_birch.png");
+	private static final ResourceLocation darkOakBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/boat_dark_oak.png");
+	private static final ResourceLocation jungleBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/boat_jungle.png");
+	private static final ResourceLocation spruceBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/boat_spruce.png");
 	
 	private Type type;
 	/** instance of ModelBoat for rendering */
