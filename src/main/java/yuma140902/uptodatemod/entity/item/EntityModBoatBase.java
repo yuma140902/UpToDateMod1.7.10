@@ -23,7 +23,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 		ACACIA, BIRCH, DARK_OAK, JUNGLE, SPRUCE
 	}
 	
-	private Type type;
+	protected abstract Type getType();
 	
 	/** true if no player in boat */
 	private boolean isBoatEmpty;
@@ -41,9 +41,8 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	@SideOnly(Side.CLIENT)
 	private double velocityZ;
 	
-	public EntityModBoatBase(Type type, World p_i1704_1_) {
+	public EntityModBoatBase(World p_i1704_1_) {
 		super(p_i1704_1_);
-		this.type = type;
 		this.isBoatEmpty = true;
 		this.speedMultiplier = 0.07D;
 		this.preventEntitySpawning = true;
@@ -82,8 +81,8 @@ public abstract class EntityModBoatBase extends EntityBoat {
 		return true;
 	}
 	
-	public EntityModBoatBase(Type type, World p_i1705_1_, double p_i1705_2_, double p_i1705_4_, double p_i1705_6_) {
-		this(type, p_i1705_1_);
+	public EntityModBoatBase(World p_i1705_1_, double p_i1705_2_, double p_i1705_4_, double p_i1705_6_) {
+		this(p_i1705_1_);
 		this.setPosition(p_i1705_2_, p_i1705_4_ + (double) this.yOffset, p_i1705_6_);
 		this.motionX = 0.0D;
 		this.motionY = 0.0D;
