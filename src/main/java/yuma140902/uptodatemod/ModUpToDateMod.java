@@ -73,6 +73,7 @@ public class ModUpToDateMod {
 	public void init(FMLInitializationEvent event) {
 		Recipes.removeVanillaRecipes();
 		Recipes.register();
+		MyEntities.register();
 		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(config_worldGen_genStones, 33, 10, 0, 80);
 		
 		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_GRANITE, stoneConfig);
