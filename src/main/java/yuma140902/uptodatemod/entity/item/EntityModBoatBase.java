@@ -24,6 +24,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	}
 	
 	protected abstract Type getType();
+	protected abstract Item getItemBoat();
 	
 	/** true if no player in boat */
 	private boolean isBoatEmpty;
@@ -121,7 +122,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 				}
 				
 				if (!flag) {
-					this.func_145778_a(Items.boat, 1, 0.0F);
+					this.func_145778_a(getItemBoat(), 1, 0.0F);
 				}
 				
 				this.setDead();
