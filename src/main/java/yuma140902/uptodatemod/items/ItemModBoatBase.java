@@ -24,7 +24,7 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
 	protected abstract Type getType();
 	protected abstract EntityModBoatBase getEntityModBoat(World world, double d1, double d2, double d3);
 	
-	public ItemModBoatBase(String name) {
+	public ItemModBoatBase() {
 		super();
 		this.setCreativeTab(CreativeTabs.tabTransport);
 	}
