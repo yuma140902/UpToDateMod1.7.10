@@ -2,13 +2,13 @@ package yuma140902.uptodatemod.entity.item;
 
 import net.minecraft.world.World;
 
-public class EntityAcaciaBoat extends EntityModBoatBase {
+public class EntityBoatAcacia extends EntityModBoatBase {
 
-	public EntityAcaciaBoat(World world) {
+	public EntityBoatAcacia(World world) {
 		super(world);
 	}
 	
-	public EntityAcaciaBoat(World world, double d1, double d2, double d3) {
+	public EntityBoatAcacia(World world, double d1, double d2, double d3) {
 		super(world, d1, d2, d3);
 	}
 

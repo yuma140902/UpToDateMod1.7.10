@@ -2,13 +2,13 @@ package yuma140902.uptodatemod.entity.item;
 
 import net.minecraft.world.World;
 
-public class EntityDarkOakBoat extends EntityModBoatBase {
+public class EntityBoatDarkOak extends EntityModBoatBase {
 
-	public EntityDarkOakBoat(World world) {
+	public EntityBoatDarkOak(World world) {
 		super(world);
 	}
 
-	public EntityDarkOakBoat(World world, double d1, double d2, double d3) {
+	public EntityBoatDarkOak(World world, double d1, double d2, double d3) {
 		super(world, d1, d2, d3);
 	}
 	
