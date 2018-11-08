@@ -20,20 +20,19 @@ import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 
 public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
 	
-	private String name;
+	protected abstract String getName();
 	protected abstract Type getType();
 	
 	public ItemModBoatBase(String name) {
 		super();
-		this.name = name;
 		this.setCreativeTab(CreativeTabs.tabTransport);
 	}
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + "." + name);
-		this.setTextureName(ModUpToDateMod.MOD_ID + ":" + name);
-		GameRegistry.registerItem(this, name);
+		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + "." + getName());
+		this.setTextureName(ModUpToDateMod.MOD_ID + ":" + getName());
+		GameRegistry.registerItem(this, getName());
 	}
 	
 	/**
