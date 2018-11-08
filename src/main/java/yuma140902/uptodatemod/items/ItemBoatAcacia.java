@@ -18,7 +18,7 @@ public class ItemBoatAcacia extends ItemModBoatBase {
 	}
 
 	@Override
-	protected EntityModBoatBase getEntityModBoat(World world, double d1, double d2, double d3) {
+	protected EntityModBoatBase getNewEntityModBoat(World world, double d1, double d2, double d3) {
 		return new EntityBoatAcacia(world, d1, d2, d3);
 	}
 	

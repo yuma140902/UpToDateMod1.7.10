@@ -22,7 +22,7 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
 	
 	protected abstract String getName();
 	protected abstract Type getType();
-	protected abstract EntityModBoatBase getEntityModBoat(World world, double d1, double d2, double d3);
+	protected abstract EntityModBoatBase getNewEntityModBoat(World world, double d1, double d2, double d3);
 	
 	public ItemModBoatBase() {
 		super();
@@ -97,7 +97,7 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
 						--j;
 					}
 					
-					EntityModBoatBase entitymodboat = getEntityModBoat(p_77659_2_, (double) ((float) i + 0.5F), (double) ((float) j + 1.0F), (double) ((float) k + 0.5F));
+					EntityModBoatBase entitymodboat = getNewEntityModBoat(p_77659_2_, (double) ((float) i + 0.5F), (double) ((float) j + 1.0F), (double) ((float) k + 0.5F));
 					entitymodboat.rotationYaw
 							= (float) (((MathHelper.floor_double((double) (p_77659_3_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) - 1)
 									* 90);
