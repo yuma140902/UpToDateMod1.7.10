@@ -1,6 +1,8 @@
 package yuma140902.uptodatemod.entity.item;
 
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.MyItems;
 
 public class EntityBoatAcacia extends EntityModBoatBase {
 
@@ -15,6 +17,11 @@ public class EntityBoatAcacia extends EntityModBoatBase {
 	@Override
 	protected Type getType() {
 		return Type.ACACIA;
+	}
+	
+	@Override
+	protected Item getItemBoat() {
+		return MyItems.boatAcacia;
 	}
 	
 }

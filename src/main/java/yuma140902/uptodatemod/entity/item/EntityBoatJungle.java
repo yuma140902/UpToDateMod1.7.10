@@ -1,6 +1,8 @@
 package yuma140902.uptodatemod.entity.item;
 
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.MyItems;
 
 public class EntityBoatJungle extends EntityModBoatBase {
 
@@ -15,6 +17,11 @@ public class EntityBoatJungle extends EntityModBoatBase {
 	@Override
 	protected Type getType() {
 		return Type.JUNGLE;
+	}
+	
+	@Override
+	protected Item getItemBoat() {
+		return MyItems.boatJungle;
 	}
 	
 }
