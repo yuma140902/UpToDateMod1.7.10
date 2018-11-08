@@ -51,3 +51,15 @@ tile.uptodate.button_birch.name=シラカバのボタン
 tile.uptodate.button_dark_oak.name=ダークオークのボタン
 tile.uptodate.button_jungle.name=ジャングルのボタン
 tile.uptodate.button_spruce.name=マツのボタン
+
+item.uptodate.item_boat_acacia.name=アカシアのボート
+item.uptodate.item_boat_birch.name=シラカバのボート
+item.uptodate.item_boat_dark_oak.name=ダークオークのボート
+item.uptodate.item_boat_jungle.name=ジャングルのボート
+item.uptodate.item_boat_spruce.name=マツのボート
+
+entity.uptodate.boat_acacia.name=アカシアのボート
+entity.uptodate.boat_birch.name=シラカバのボート
+entity.uptodate.boat_dark_oak.name=ダークオークのボート
+entity.uptodate.boat_jungle.name=ジャングルのボート
+entity.uptodate.boat_spruce.name=マツのボート
