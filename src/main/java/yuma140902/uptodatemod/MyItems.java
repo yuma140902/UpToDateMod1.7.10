@@ -1,13 +1,16 @@
 package yuma140902.uptodatemod;
 
 import net.minecraft.item.Item;
-import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
+import yuma140902.uptodatemod.items.ItemBoatAcacia;
+import yuma140902.uptodatemod.items.ItemBoatBirch;
+import yuma140902.uptodatemod.items.ItemBoatDarkOak;
+import yuma140902.uptodatemod.items.ItemBoatJungle;
+import yuma140902.uptodatemod.items.ItemBoatSpruce;
 import yuma140902.uptodatemod.items.ItemDoorAcacia;
 import yuma140902.uptodatemod.items.ItemDoorBirch;
 import yuma140902.uptodatemod.items.ItemDoorDarkOak;
 import yuma140902.uptodatemod.items.ItemDoorJungle;
 import yuma140902.uptodatemod.items.ItemDoorSpruce;
-import yuma140902.uptodatemod.items.ItemModBoatBase;
 import yuma140902.uptodatemod.items.ocean_monument.PrismarineCrystals;
 import yuma140902.uptodatemod.items.ocean_monument.PrismarineShard;
 
@@ -40,9 +43,9 @@ public final class MyItems {
 	public static final Item prismarineCrystal = new PrismarineCrystals();
 	public static final PrismarineShard prismarineShard = new PrismarineShard();
 	
-	public static final ItemModBoatBase boatAcacia = new ItemModBoatBase("item_boat_acacia", Type.ACACIA);
-	public static final ItemModBoatBase boatBirch = new ItemModBoatBase("item_boat_birch", Type.BIRCH);
-	public static final ItemModBoatBase boatDarkOak = new ItemModBoatBase("item_boat_dark_oak", Type.DARK_OAK);
-	public static final ItemModBoatBase boatJungle = new ItemModBoatBase("item_boat_jungle", Type.JUNGLE);
-	public static final ItemModBoatBase boatSpruce = new ItemModBoatBase("item_boat_spruce", Type.SPRUCE);
+	public static final ItemBoatAcacia boatAcacia = new ItemBoatAcacia();
+	public static final ItemBoatBirch boatBirch = new ItemBoatBirch();
+	public static final ItemBoatDarkOak boatDarkOak = new ItemBoatDarkOak();
+	public static final ItemBoatJungle boatJungle = new ItemBoatJungle();
+	public static final ItemBoatSpruce boatSpruce = new ItemBoatSpruce();
 }
