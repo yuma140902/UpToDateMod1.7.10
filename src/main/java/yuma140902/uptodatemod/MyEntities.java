@@ -4,6 +4,5 @@ public class MyEntities {
 	private MyEntities() {}
 	
 	public static void register() {
-		
 	}
 }

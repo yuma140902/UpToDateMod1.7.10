@@ -18,7 +18,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityModBoat extends EntityBoat {
+public abstract class EntityModBoatBase extends EntityBoat {
 	public static enum Type {
 		ACACIA, BIRCH, DARK_OAK, JUNGLE, SPRUCE
 	}
@@ -41,7 +41,7 @@ public class EntityModBoat extends EntityBoat {
 	@SideOnly(Side.CLIENT)
 	private double velocityZ;
 	
-	public EntityModBoat(Type type, World p_i1704_1_) {
+	public EntityModBoatBase(Type type, World p_i1704_1_) {
 		super(p_i1704_1_);
 		this.type = type;
 		this.isBoatEmpty = true;
@@ -82,7 +82,7 @@ public class EntityModBoat extends EntityBoat {
 		return true;
 	}
 	
-	public EntityModBoat(Type type, World p_i1705_1_, double p_i1705_2_, double p_i1705_4_, double p_i1705_6_) {
+	public EntityModBoatBase(Type type, World p_i1705_1_, double p_i1705_2_, double p_i1705_4_, double p_i1705_6_) {
 		this(type, p_i1705_1_);
 		this.setPosition(p_i1705_2_, p_i1705_4_ + (double) this.yOffset, p_i1705_6_);
 		this.motionX = 0.0D;

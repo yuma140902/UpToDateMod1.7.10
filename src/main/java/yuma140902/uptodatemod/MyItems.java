@@ -1,7 +1,7 @@
 package yuma140902.uptodatemod;
 
 import net.minecraft.item.Item;
-import yuma140902.uptodatemod.entity.item.EntityModBoat.Type;
+import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 import yuma140902.uptodatemod.items.ItemDoorAcacia;
 import yuma140902.uptodatemod.items.ItemDoorBirch;
 import yuma140902.uptodatemod.items.ItemDoorDarkOak;
