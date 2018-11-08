@@ -21,12 +21,11 @@ import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
 	
 	private String name;
-	private Type type;
+	protected abstract Type getType();
 	
-	public ItemModBoatBase(String name, Type type) {
+	public ItemModBoatBase(String name) {
 		super();
 		this.name = name;
-		this.type = type;
 		this.setCreativeTab(CreativeTabs.tabTransport);
 	}
 	
@@ -99,7 +98,7 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
 					}
 					
 					EntityModBoatBase entitymodboat = new EntityModBoatBase(
-							type, p_77659_2_, (double) ((float) i + 0.5F), (double) ((float) j + 1.0F), (double) ((float) k + 0.5F));
+							getType(), p_77659_2_, (double) ((float) i + 0.5F), (double) ((float) j + 1.0F), (double) ((float) k + 0.5F));
 					entitymodboat.rotationYaw
 							= (float) (((MathHelper.floor_double((double) (p_77659_3_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) - 1)
 									* 90);
