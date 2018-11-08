@@ -8,6 +8,10 @@ public class EntityDarkOakBoat extends EntityModBoatBase {
 		super(world);
 	}
 
+	public EntityDarkOakBoat(World world, double d1, double d2, double d3) {
+		super(world, d1, d2, d3);
+	}
+	
 	@Override
 	protected Type getType() {
 		return Type.DARK_OAK;

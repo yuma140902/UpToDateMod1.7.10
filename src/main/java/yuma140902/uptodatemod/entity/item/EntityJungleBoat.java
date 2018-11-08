@@ -7,6 +7,10 @@ public class EntityJungleBoat extends EntityModBoatBase {
 	public EntityJungleBoat(World world) {
 		super(world);
 	}
+	
+	public EntityJungleBoat(World world, double d1, double d2, double d3) {
+		super(world, d1, d2, d3);
+	}
 
 	@Override
 	protected Type getType() {
