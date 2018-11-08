@@ -18,12 +18,12 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 
-public class ItemModBoat extends ItemBoat implements IRegisterable{
+public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
 	
 	private String name;
 	private Type type;
 	
-	public ItemModBoat(String name, Type type) {
+	public ItemModBoatBase(String name, Type type) {
 		super();
 		this.name = name;
 		this.type = type;
