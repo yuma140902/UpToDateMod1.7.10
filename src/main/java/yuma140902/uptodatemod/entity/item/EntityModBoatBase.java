@@ -17,6 +17,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public abstract class EntityModBoatBase extends EntityBoat {
@@ -51,6 +52,11 @@ public abstract class EntityModBoatBase extends EntityBoat {
 		this.preventEntitySpawning = true;
 		this.setSize(1.5F, 0.6F);
 		this.yOffset = this.height / 2.0F;
+	}
+	
+	@Override
+	public ItemStack getPickedResult(MovingObjectPosition target) {
+		return new ItemStack(getItemBoat());
 	}
 	
 	@Override
