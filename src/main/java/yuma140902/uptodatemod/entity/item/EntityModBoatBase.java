@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
@@ -25,6 +26,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	
 	protected abstract Type getType();
 	protected abstract Item getItemBoat();
+	protected abstract int getPlankMeta();
 	
 	/** true if no player in boat */
 	private boolean isBoatEmpty;
@@ -372,7 +374,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 					this.setDead();
 					
 					for (l = 0; l < 3; ++l) {
-						this.func_145778_a(Item.getItemFromBlock(Blocks.planks), 1, 0.0F);
+						this.entityDropItem(new ItemStack(Blocks.planks, 1, getPlankMeta()), 0.0F);
 					}
 					
 					for (l = 0; l < 2; ++l) {
@@ -490,7 +492,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 					int l;
 					
 					for (l = 0; l < 3; ++l) {
-						this.func_145778_a(Item.getItemFromBlock(Blocks.planks), 1, 0.0F);
+						this.entityDropItem(new ItemStack(Blocks.planks, 1, getPlankMeta()), 0.0F);
 					}
 					
 					for (l = 0; l < 2; ++l) {

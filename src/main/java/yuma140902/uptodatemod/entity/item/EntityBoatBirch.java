@@ -3,6 +3,7 @@ package yuma140902.uptodatemod.entity.item;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.util.Stat;
 
 public class EntityBoatBirch extends EntityModBoatBase {
 
@@ -23,5 +24,11 @@ public class EntityBoatBirch extends EntityModBoatBase {
 	protected Item getItemBoat() {
 		return MyItems.boatBirch;
 	}
+
+	@Override
+	protected int getPlankMeta() {
+		return Stat.PLANK_META_BIRCH;
+	}
+	
 	
 }
