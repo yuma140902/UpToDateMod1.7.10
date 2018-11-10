@@ -46,8 +46,8 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	@SideOnly(Side.CLIENT)
 	private double velocityZ;
 	
-	public EntityModBoatBase(World p_i1704_1_) {
-		super(p_i1704_1_);
+	public EntityModBoatBase(World world) {
+		super(world);
 		this.isBoatEmpty = true;
 		this.speedMultiplier = 0.07D;
 		this.preventEntitySpawning = true;
@@ -65,8 +65,8 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * blocks. This enables the entity to be
 	 * pushable on contact, like boats or minecarts.
 	 */
-	public AxisAlignedBB getCollisionBox(Entity p_70114_1_) {
-		return p_70114_1_.boundingBox;
+	public AxisAlignedBB getCollisionBox(Entity entityBoat) {
+		return entityBoat.boundingBox;
 	}
 	
 	/**
@@ -98,15 +98,14 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * posY, posZ, yaw, pitch
 	 */
 	@SideOnly(Side.CLIENT)
-	public void setPositionAndRotation2(
-			double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_) {
+	public void setPositionAndRotation2(double par1d, double par2d, double par3d, float par4d, float par5f, int par6i) {
 		if (this.isBoatEmpty) {
-			this.boatPosRotationIncrements = p_70056_9_ + 5;
+			this.boatPosRotationIncrements = par6i + 5;
 		}
 		else {
-			double d3 = p_70056_1_ - this.posX;
-			double d4 = p_70056_3_ - this.posY;
-			double d5 = p_70056_5_ - this.posZ;
+			double d3 = par1d - this.posX;
+			double d4 = par2d - this.posY;
+			double d5 = par3d - this.posZ;
 			double d6 = d3 * d3 + d4 * d4 + d5 * d5;
 			
 			if (d6 <= 1.0D) {
@@ -116,11 +115,11 @@ public abstract class EntityModBoatBase extends EntityBoat {
 			this.boatPosRotationIncrements = 3;
 		}
 		
-		this.boatX = p_70056_1_;
-		this.boatY = p_70056_3_;
-		this.boatZ = p_70056_5_;
-		this.boatYaw = (double) p_70056_7_;
-		this.boatPitch = (double) p_70056_8_;
+		this.boatX = par1d;
+		this.boatY = par2d;
+		this.boatZ = par3d;
+		this.boatYaw = (double) par4d;
+		this.boatPitch = (double) par5f;
 		this.motionX = this.velocityX;
 		this.motionY = this.velocityY;
 		this.motionZ = this.velocityZ;
@@ -130,10 +129,10 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * Sets the velocity to the args. Args: x, y, z
 	 */
 	@SideOnly(Side.CLIENT)
-	public void setVelocity(double p_70016_1_, double p_70016_3_, double p_70016_5_) {
-		this.velocityX = this.motionX = p_70016_1_;
-		this.velocityY = this.motionY = p_70016_3_;
-		this.velocityZ = this.motionZ = p_70016_5_;
+	public void setVelocity(double x, double y, double z) {
+		this.velocityX = this.motionX = x;
+		this.velocityY = this.motionY = y;
+		this.velocityZ = this.motionZ = z;
 	}
 	
 	@Override
@@ -143,15 +142,15 @@ public abstract class EntityModBoatBase extends EntityBoat {
 		this.dataWatcher.addObject(19, new Float(0.0F));
 	}
 	
-	public EntityModBoatBase(World p_i1705_1_, double p_i1705_2_, double p_i1705_4_, double p_i1705_6_) {
-		this(p_i1705_1_);
-		this.setPosition(p_i1705_2_, p_i1705_4_ + (double) this.yOffset, p_i1705_6_);
+	public EntityModBoatBase(World world, double posX, double posY, double posZ) {
+		this(world);
+		this.setPosition(posX, posY + (double) this.yOffset, posZ);
 		this.motionX = 0.0D;
 		this.motionY = 0.0D;
 		this.motionZ = 0.0D;
-		this.prevPosX = p_i1705_2_;
-		this.prevPosY = p_i1705_4_;
-		this.prevPosZ = p_i1705_6_;
+		this.prevPosX = posX;
+		this.prevPosY = posY;
+		this.prevPosZ = posZ;
 	}
 	
 	/**
@@ -435,14 +434,14 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * First layer of player interaction
 	 */
-	public boolean interactFirst(EntityPlayer p_130002_1_) {
+	public boolean interactFirst(EntityPlayer player) {
 		if (this.riddenByEntity != null && this.riddenByEntity instanceof EntityPlayer
-				&& this.riddenByEntity != p_130002_1_) {
+				&& this.riddenByEntity != player) {
 			return true;
 		}
 		else {
 			if (!this.worldObj.isRemote) {
-				p_130002_1_.mountEntity(this);
+				player.mountEntity(this);
 			}
 			
 			return true;
@@ -455,12 +454,12 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * and deal fall damage if landing on the ground. Args:
 	 * distanceFallenThisTick, onGround
 	 */
-	protected void updateFallState(double p_70064_1_, boolean p_70064_3_) {
+	protected void updateFallState(double distanceFallenThisTick, boolean onGround) {
 		int i = MathHelper.floor_double(this.posX);
 		int j = MathHelper.floor_double(this.posY);
 		int k = MathHelper.floor_double(this.posZ);
 		
-		if (p_70064_3_) {
+		if (onGround) {
 			if (this.fallDistance > 3.0F) {
 				this.fall(this.fallDistance);
 				
@@ -480,16 +479,16 @@ public abstract class EntityModBoatBase extends EntityBoat {
 				this.fallDistance = 0.0F;
 			}
 		}
-		else if (this.worldObj.getBlock(i, j - 1, k).getMaterial() != Material.water && p_70064_1_ < 0.0D) {
-			this.fallDistance = (float) ((double) this.fallDistance - p_70064_1_);
+		else if (this.worldObj.getBlock(i, j - 1, k).getMaterial() != Material.water && distanceFallenThisTick < 0.0D) {
+			this.fallDistance = (float) ((double) this.fallDistance - distanceFallenThisTick);
 		}
 	}
 	
 	/**
 	 * Sets the damage taken from the last hit.
 	 */
-	public void setDamageTaken(float p_70266_1_) {
-		this.dataWatcher.updateObject(19, Float.valueOf(p_70266_1_));
+	public void setDamageTaken(float par1f) {
+		this.dataWatcher.updateObject(19, Float.valueOf(par1f));
 	}
 	
 	/**
@@ -502,8 +501,8 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Sets the time to count down from since the last time entity was hit.
 	 */
-	public void setTimeSinceHit(int p_70265_1_) {
-		this.dataWatcher.updateObject(17, Integer.valueOf(p_70265_1_));
+	public void setTimeSinceHit(int par1i) {
+		this.dataWatcher.updateObject(17, Integer.valueOf(par1i));
 	}
 	
 	/**
@@ -516,8 +515,8 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Sets the forward direction of the entity.
 	 */
-	public void setForwardDirection(int p_70269_1_) {
-		this.dataWatcher.updateObject(18, Integer.valueOf(p_70269_1_));
+	public void setForwardDirection(int par1i) {
+		this.dataWatcher.updateObject(18, Integer.valueOf(par1i));
 	}
 	
 	/**
@@ -531,7 +530,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * true if no player in boat
 	 */
 	@SideOnly(Side.CLIENT)
-	public void setIsBoatEmpty(boolean p_70270_1_) {
-		this.isBoatEmpty = p_70270_1_;
+	public void setIsBoatEmpty(boolean isBoatEmpty) {
+		this.isBoatEmpty = isBoatEmpty;
 	}
 }
