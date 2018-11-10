@@ -13,7 +13,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -26,7 +25,9 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	}
 	
 	protected abstract Type getType();
+	
 	protected abstract Item getItemBoat();
+	
 	protected abstract int getPlankMeta();
 	
 	/** true if no player in boat */
@@ -59,13 +60,6 @@ public abstract class EntityModBoatBase extends EntityBoat {
 		return new ItemStack(getItemBoat());
 	}
 	
-	@Override
-	protected void entityInit() {
-		this.dataWatcher.addObject(17, new Integer(0));
-		this.dataWatcher.addObject(18, new Integer(1));
-		this.dataWatcher.addObject(19, new Float(0.0F));
-	}
-	
 	/**
 	 * Returns a boundingBox used to collide the entity with other entities and
 	 * blocks. This enables the entity to be
@@ -83,75 +77,11 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	}
 	
 	/**
-	 * Returns true if this entity should push and be pushed by other entities
-	 * when colliding.
-	 */
-	public boolean canBePushed() {
-		return true;
-	}
-	
-	public EntityModBoatBase(World p_i1705_1_, double p_i1705_2_, double p_i1705_4_, double p_i1705_6_) {
-		this(p_i1705_1_);
-		this.setPosition(p_i1705_2_, p_i1705_4_ + (double) this.yOffset, p_i1705_6_);
-		this.motionX = 0.0D;
-		this.motionY = 0.0D;
-		this.motionZ = 0.0D;
-		this.prevPosX = p_i1705_2_;
-		this.prevPosY = p_i1705_4_;
-		this.prevPosZ = p_i1705_6_;
-	}
-	
-	/**
 	 * Returns the Y offset from the entity's position for any entity riding this
 	 * one.
 	 */
 	public double getMountedYOffset() {
 		return (double) this.height * 0.0D - 0.30000001192092896D;
-	}
-	
-	/**
-	 * Called when the entity is attacked.
-	 */
-	public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_) {
-		if (this.isEntityInvulnerable()) {
-			return false;
-		}
-		else if (!this.worldObj.isRemote && !this.isDead) {
-			this.setForwardDirection(-this.getForwardDirection());
-			this.setTimeSinceHit(10);
-			this.setDamageTaken(this.getDamageTaken() + p_70097_2_ * 10.0F);
-			this.setBeenAttacked();
-			boolean flag = p_70097_1_.getEntity() instanceof EntityPlayer
-					&& ((EntityPlayer) p_70097_1_.getEntity()).capabilities.isCreativeMode;
-			
-			if (flag || this.getDamageTaken() > 40.0F) {
-				if (this.riddenByEntity != null) {
-					this.riddenByEntity.mountEntity(this);
-				}
-				
-				if (!flag) {
-					this.func_145778_a(getItemBoat(), 1, 0.0F);
-				}
-				
-				this.setDead();
-			}
-			
-			return true;
-		}
-		else {
-			return true;
-		}
-	}
-	
-	/**
-	 * Setups the entity to do the hurt animation. Only used by packets in
-	 * multiplayer.
-	 */
-	@SideOnly(Side.CLIENT)
-	public void performHurtAnimation() {
-		this.setForwardDirection(-this.getForwardDirection());
-		this.setTimeSinceHit(10);
-		this.setDamageTaken(this.getDamageTaken() * 11.0F);
 	}
 	
 	/**
@@ -204,6 +134,62 @@ public abstract class EntityModBoatBase extends EntityBoat {
 		this.velocityX = this.motionX = p_70016_1_;
 		this.velocityY = this.motionY = p_70016_3_;
 		this.velocityZ = this.motionZ = p_70016_5_;
+	}
+	
+	@Override
+	protected void entityInit() {
+		this.dataWatcher.addObject(17, new Integer(0));
+		this.dataWatcher.addObject(18, new Integer(1));
+		this.dataWatcher.addObject(19, new Float(0.0F));
+	}
+	
+	public EntityModBoatBase(World p_i1705_1_, double p_i1705_2_, double p_i1705_4_, double p_i1705_6_) {
+		this(p_i1705_1_);
+		this.setPosition(p_i1705_2_, p_i1705_4_ + (double) this.yOffset, p_i1705_6_);
+		this.motionX = 0.0D;
+		this.motionY = 0.0D;
+		this.motionZ = 0.0D;
+		this.prevPosX = p_i1705_2_;
+		this.prevPosY = p_i1705_4_;
+		this.prevPosZ = p_i1705_6_;
+	}
+	
+	/**
+	 * Called when the entity is attacked.
+	 */
+	public boolean attackEntityFrom(DamageSource damageSource, float par2f) {
+		System.out.println("Boat was damaged!!!!!!!!!!!!!!  Damage Type:");
+		System.out.println("  " + damageSource.getDamageType());
+		System.out.println("  " + damageSource.damageType);
+		
+		if (this.isEntityInvulnerable()) {
+			return false;
+		}
+		else if (!this.worldObj.isRemote && !this.isDead) {
+			this.setForwardDirection(-this.getForwardDirection());
+			this.setTimeSinceHit(10);
+			this.setDamageTaken(this.getDamageTaken() + par2f * 10.0F);
+			this.setBeenAttacked();
+			boolean flag = damageSource.getEntity() instanceof EntityPlayer
+					&& ((EntityPlayer) damageSource.getEntity()).capabilities.isCreativeMode;
+			
+			if (flag || this.getDamageTaken() > 40.0F) {
+				if (this.riddenByEntity != null) {
+					this.riddenByEntity.mountEntity(this);
+				}
+				
+				if (!flag) {
+					this.func_145778_a(getItemBoat(), 1, 0.0F);
+				}
+				
+				this.setDead();
+			}
+			
+			return true;
+		}
+		else {
+			return true;
+		}
 	}
 	
 	/**
@@ -444,21 +430,6 @@ public abstract class EntityModBoatBase extends EntityBoat {
 			this.riddenByEntity.setPosition(
 					this.posX + d0, this.posY + this.getMountedYOffset() + this.riddenByEntity.getYOffset(), this.posZ + d1);
 		}
-	}
-	
-	/**
-	 * (abstract) Protected helper method to write subclass entity data to NBT.
-	 */
-	protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {}
-	
-	/**
-	 * (abstract) Protected helper method to read subclass entity data from NBT.
-	 */
-	protected void readEntityFromNBT(NBTTagCompound p_70037_1_) {}
-	
-	@SideOnly(Side.CLIENT)
-	public float getShadowSize() {
-		return 0.0F;
 	}
 	
 	/**
