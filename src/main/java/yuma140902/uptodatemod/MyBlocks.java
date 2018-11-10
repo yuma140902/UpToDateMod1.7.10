@@ -8,10 +8,12 @@ import yuma140902.uptodatemod.blocks.DoorBirch;
 import yuma140902.uptodatemod.blocks.DoorDarkOak;
 import yuma140902.uptodatemod.blocks.DoorJungle;
 import yuma140902.uptodatemod.blocks.DoorSpruce;
+import yuma140902.uptodatemod.blocks.Stone;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
 import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
 import yuma140902.uptodatemod.blocks.generics.GenericTrapDoor;
+import yuma140902.uptodatemod.blocks.generics.GenericWall;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBrick;
@@ -60,6 +62,13 @@ public final class MyBlocks {
 		buttonDarkOak.register();
 		buttonJungle.register();
 		buttonSpruce.register();
+		
+		wallAndesite.register();
+		wallDiorite.register();
+		wallGranite.register();
+		wallSmoothAndesite.register();
+		wallSmoothDiorite.register();
+		wallSmoothGranite.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.Stone stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -102,4 +111,11 @@ public final class MyBlocks {
 	public static final GenericButton buttonDarkOak = new GenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
 	public static final GenericButton buttonJungle = new GenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
 	public static final GenericButton buttonSpruce = new GenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
+	
+	public static final GenericWall wallAndesite = new GenericWall(MyBlocks.stone, Stone.META_ANDESITE, "wall_andesite");
+	public static final GenericWall wallDiorite = new GenericWall(MyBlocks.stone, Stone.META_DIORITE, "wall_diorite");
+	public static final GenericWall wallGranite = new GenericWall(MyBlocks.stone, Stone.META_GRANITE, "wall_granite");
+	public static final GenericWall wallSmoothAndesite = new GenericWall(MyBlocks.stone, Stone.META_SMOOTH_ANDESITE, "wall_smooth_andesite");
+	public static final GenericWall wallSmoothDiorite = new GenericWall(MyBlocks.stone, Stone.META_SMOOTH_DIORITE, "wall_smooth_diorite");
+	public static final GenericWall wallSmoothGranite = new GenericWall(MyBlocks.stone, Stone.META_SMOOTH_GRANITE, "wall_smooth_granite");
 }
