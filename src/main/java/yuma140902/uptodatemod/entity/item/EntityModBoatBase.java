@@ -65,6 +65,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * blocks. This enables the entity to be
 	 * pushable on contact, like boats or minecarts.
 	 */
+	@Override
 	public AxisAlignedBB getCollisionBox(Entity entityBoat) {
 		return entityBoat.boundingBox;
 	}
@@ -72,6 +73,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * returns the bounding box for this entity
 	 */
+	@Override
 	public AxisAlignedBB getBoundingBox() {
 		return this.boundingBox;
 	}
@@ -80,6 +82,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * Returns the Y offset from the entity's position for any entity riding this
 	 * one.
 	 */
+	@Override
 	public double getMountedYOffset() {
 		return (double) this.height * 0.0D - 0.30000001192092896D;
 	}
@@ -88,6 +91,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * Returns true if other Entities should be prevented from moving through this
 	 * Entity.
 	 */
+	@Override
 	public boolean canBeCollidedWith() {
 		return !this.isDead;
 	}
@@ -98,6 +102,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * posY, posZ, yaw, pitch
 	 */
 	@SideOnly(Side.CLIENT)
+	@Override
 	public void setPositionAndRotation2(double par1d, double par2d, double par3d, float par4d, float par5f, int par6i) {
 		if (this.isBoatEmpty) {
 			this.boatPosRotationIncrements = par6i + 5;
@@ -129,6 +134,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * Sets the velocity to the args. Args: x, y, z
 	 */
 	@SideOnly(Side.CLIENT)
+	@Override
 	public void setVelocity(double x, double y, double z) {
 		this.velocityX = this.motionX = x;
 		this.velocityY = this.motionY = y;
@@ -156,6 +162,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Called when the entity is attacked.
 	 */
+	@Override
 	public boolean attackEntityFrom(DamageSource damageSource, float par2f) {
 		System.out.println("Boat was damaged!!!!!!!!!!!!!!  Damage Type:");
 		System.out.println("  " + damageSource.getDamageType());
@@ -194,6 +201,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Called to update the entity's position/logic.
 	 */
+	@Override
 	public void onUpdate() {
 		super.onUpdate();
 		
@@ -422,6 +430,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 		}
 	}
 	
+	@Override
 	public void updateRiderPosition() {
 		if (this.riddenByEntity != null) {
 			double d0 = Math.cos((double) this.rotationYaw * Math.PI / 180.0D) * 0.4D;
@@ -434,6 +443,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * First layer of player interaction
 	 */
+	@Override
 	public boolean interactFirst(EntityPlayer player) {
 		if (this.riddenByEntity != null && this.riddenByEntity instanceof EntityPlayer
 				&& this.riddenByEntity != player) {
@@ -454,6 +464,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 * and deal fall damage if landing on the ground. Args:
 	 * distanceFallenThisTick, onGround
 	 */
+	@Override
 	protected void updateFallState(double distanceFallenThisTick, boolean onGround) {
 		int i = MathHelper.floor_double(this.posX);
 		int j = MathHelper.floor_double(this.posY);
@@ -487,6 +498,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Sets the damage taken from the last hit.
 	 */
+	@Override
 	public void setDamageTaken(float par1f) {
 		this.dataWatcher.updateObject(19, Float.valueOf(par1f));
 	}
@@ -494,6 +506,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Gets the damage taken from the last hit.
 	 */
+	@Override
 	public float getDamageTaken() {
 		return this.dataWatcher.getWatchableObjectFloat(19);
 	}
@@ -501,6 +514,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Sets the time to count down from since the last time entity was hit.
 	 */
+	@Override
 	public void setTimeSinceHit(int par1i) {
 		this.dataWatcher.updateObject(17, Integer.valueOf(par1i));
 	}
@@ -508,6 +522,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Gets the time since the last hit.
 	 */
+	@Override
 	public int getTimeSinceHit() {
 		return this.dataWatcher.getWatchableObjectInt(17);
 	}
@@ -515,6 +530,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Sets the forward direction of the entity.
 	 */
+	@Override
 	public void setForwardDirection(int par1i) {
 		this.dataWatcher.updateObject(18, Integer.valueOf(par1i));
 	}
@@ -522,6 +538,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * Gets the forward direction of the entity.
 	 */
+	@Override
 	public int getForwardDirection() {
 		return this.dataWatcher.getWatchableObjectInt(18);
 	}
@@ -529,6 +546,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	/**
 	 * true if no player in boat
 	 */
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void setIsBoatEmpty(boolean isBoatEmpty) {
 		this.isBoatEmpty = isBoatEmpty;
