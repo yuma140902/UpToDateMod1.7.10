@@ -199,7 +199,9 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 */
 	@Override
 	public void onUpdate() {
-		super.onUpdate();
+//		super.onUpdate();
+		this.onEntityUpdate();
+		//TODO: ↑これのせいでぶつかったときにボートが壊れると思われる
 		
 		if (this.getTimeSinceHit() > 0) {
 			this.setTimeSinceHit(this.getTimeSinceHit() - 1);
@@ -364,7 +366,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 			
 			this.moveEntity(this.motionX, this.motionY, this.motionZ);
 			
-			if (this.isCollidedHorizontally && d10 > 0.2D) {
+			if (/*this.isCollidedHorizontally && d10 > 0.2D*/ false) {
 				if (!this.worldObj.isRemote && !this.isDead) {
 					this.setDead();
 					
