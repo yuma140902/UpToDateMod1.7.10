@@ -64,6 +64,7 @@ public final class Recipes {
 		registerFenceRecipes();
 		registerFenceGateRecipes();
 		registerButtonRecipes();
+		registerBoatRecipes();
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.coarseDirt, 4, 0),
@@ -389,6 +390,43 @@ public final class Recipes {
 				"#C#",
 				'#', MyItems.prismarineShard,
 				'C', MyItems.prismarineCrystal
+				);
+	}
+	
+	private static void registerBoatRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyItems.boatAcacia),
+				"# #",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyItems.boatBirch),
+				"# #",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyItems.boatDarkOak),
+				"# #",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyItems.boatJungle),
+				"# #",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyItems.boatSpruce),
+				"# #",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
 				);
 	}
 }
