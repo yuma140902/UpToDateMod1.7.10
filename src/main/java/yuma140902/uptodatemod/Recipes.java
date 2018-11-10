@@ -18,6 +18,14 @@ import yuma140902.uptodatemod.util.ListUtils;
 public final class Recipes {
 	private Recipes() {}
 	
+	public static final ItemStack
+		PLANK_ACACIA = new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA),
+		PLANK_BIRCH = new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH),
+		PLANK_DARK_OAK = new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK),
+		PLANK_JUNGLE = new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE),
+		PLANK_SPRUCE = new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
+		PLANK_OAK = new ItemStack(Blocks.planks, 1, PLANK_META_OAK);
+	
 	public static void removeVanillaRecipes() {
 		List<String> removeRecipesOutputNameList = new ArrayList<>();
 		removeRecipesOutputNameList.add("minecraft:wooden_door");
@@ -137,7 +145,7 @@ public final class Recipes {
 				"##",
 				"##",
 				"##",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_OAK)
+				'#', PLANK_OAK
 				);
 		
 		GameRegistry.addRecipe(
@@ -145,7 +153,7 @@ public final class Recipes {
 				"##",
 				"##",
 				"##",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA)
+				'#', PLANK_ACACIA
 				);
 		
 		GameRegistry.addRecipe(
@@ -153,7 +161,7 @@ public final class Recipes {
 				"##",
 				"##",
 				"##",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH)
+				'#', PLANK_BIRCH
 				);
 		
 		GameRegistry.addRecipe(
@@ -161,7 +169,7 @@ public final class Recipes {
 				"##",
 				"##",
 				"##",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK)
+				'#', PLANK_DARK_OAK
 				);
 		
 		GameRegistry.addRecipe(
@@ -169,7 +177,7 @@ public final class Recipes {
 				"##",
 				"##",
 				"##",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE)
+				'#', PLANK_JUNGLE
 				);
 		
 		GameRegistry.addRecipe(
@@ -177,7 +185,7 @@ public final class Recipes {
 				"##",
 				"##",
 				"##",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
+				'#', PLANK_SPRUCE
 				);
 	}
 	
@@ -186,35 +194,35 @@ public final class Recipes {
 				new ItemStack(MyBlocks.trapDoorAcacia, 2, 0),
 				"###",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA)
+				'#', PLANK_ACACIA
 				);
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.trapDoorBirch, 2, 0),
 				"###",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH)
+				'#', PLANK_BIRCH
 				);
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.trapDoorDarkOak, 2, 0),
 				"###",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK)
+				'#', PLANK_DARK_OAK
 				);
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.trapDoorJungle, 2, 0),
 				"###",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE)
+				'#', PLANK_JUNGLE
 				);
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.trapDoorSpruce, 2, 0),
 				"###",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
+				'#', PLANK_SPRUCE
 				);
 		
 		GameRegistry.addRecipe(
@@ -230,7 +238,7 @@ public final class Recipes {
 				new ItemStack(Blocks.fence, 3, 0),
 				"#|#",
 				"#|#",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_OAK),
+				'#', PLANK_OAK,
 				'|', Items.stick
 				);
 		
@@ -238,7 +246,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceAcacia, 3, 0),
 				"#|#",
 				"#|#",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA),
+				'#', PLANK_ACACIA,
 				'|', Items.stick
 				);
 		
@@ -246,7 +254,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceBirch, 3, 0),
 				"#|#",
 				"#|#",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH),
+				'#', PLANK_BIRCH,
 				'|', Items.stick
 				);
 		
@@ -254,7 +262,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceDarkOak, 3, 0),
 				"#|#",
 				"#|#",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK),
+				'#', PLANK_DARK_OAK,
 				'|', Items.stick
 				);
 		
@@ -262,7 +270,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceJungle, 3, 0),
 				"#|#",
 				"#|#",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE),
+				'#', PLANK_JUNGLE,
 				'|', Items.stick
 				);
 		
@@ -270,7 +278,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceSpruce, 3, 0),
 				"#|#",
 				"#|#",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
+				'#', PLANK_SPRUCE,
 				'|', Items.stick
 				);
 		
@@ -281,7 +289,7 @@ public final class Recipes {
 				new ItemStack(Blocks.fence_gate),
 				"|#|",
 				"|#|",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_OAK),
+				'#', PLANK_OAK,
 				'|', Items.stick
 				);
 		
@@ -289,7 +297,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceGateAcacia),
 				"|#|",
 				"|#|",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA),
+				'#', PLANK_ACACIA,
 				'|', Items.stick
 				);
 		
@@ -297,7 +305,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceGateBirch),
 				"|#|",
 				"|#|",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH),
+				'#', PLANK_BIRCH,
 				'|', Items.stick
 				);
 		
@@ -305,7 +313,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceGateDarkOak),
 				"|#|",
 				"|#|",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK),
+				'#', PLANK_DARK_OAK,
 				'|', Items.stick
 				);
 		
@@ -313,7 +321,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceGateJungle),
 				"|#|",
 				"|#|",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE),
+				'#', PLANK_JUNGLE,
 				'|', Items.stick
 				);
 		
@@ -321,7 +329,7 @@ public final class Recipes {
 				new ItemStack(MyBlocks.fenceGateSpruce),
 				"|#|",
 				"|#|",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
+				'#', PLANK_SPRUCE,
 				'|', Items.stick
 				);
 	}
@@ -329,32 +337,32 @@ public final class Recipes {
 	private static void registerButtonRecipes() {
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(Blocks.wooden_button),
-				new ItemStack(Blocks.planks, 1, PLANK_META_OAK)
+				PLANK_OAK
 				);
 		
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(MyBlocks.buttonAcacia),
-				new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA)
+				PLANK_ACACIA
 				);
 		
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(MyBlocks.buttonBirch),
-				new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH)
+				PLANK_BIRCH
 				);
 		
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(MyBlocks.buttonDarkOak),
-				new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK)
+				PLANK_DARK_OAK
 				);
 		
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(MyBlocks.buttonJungle),
-				new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE)
+				PLANK_JUNGLE
 				);
 		
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(MyBlocks.buttonSpruce),
-				new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
+				PLANK_SPRUCE
 				);
 	}
 
@@ -398,35 +406,35 @@ public final class Recipes {
 				new ItemStack(MyItems.boatAcacia),
 				"# #",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA)
+				'#', PLANK_ACACIA
 				);
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyItems.boatBirch),
 				"# #",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH)
+				'#', PLANK_BIRCH
 				);
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyItems.boatDarkOak),
 				"# #",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK)
+				'#', PLANK_DARK_OAK
 				);
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyItems.boatJungle),
 				"# #",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE)
+				'#', PLANK_JUNGLE
 				);
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyItems.boatSpruce),
 				"# #",
 				"###",
-				'#', new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE)
+				'#', PLANK_SPRUCE
 				);
 	}
 }
