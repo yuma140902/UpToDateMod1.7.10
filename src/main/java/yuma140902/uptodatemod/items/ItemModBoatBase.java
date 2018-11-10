@@ -2,13 +2,18 @@ package yuma140902.uptodatemod.items;
 
 import java.util.List;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.BlockDispenser;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
+import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBoat;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
@@ -18,10 +23,12 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 
-public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
+public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable {
 	
 	protected abstract String getName();
+	
 	protected abstract Type getType();
+	
 	protected abstract EntityModBoatBase getNewEntityModBoat(World world, double d1, double d2, double d3);
 	
 	public ItemModBoatBase() {
@@ -31,6 +38,49 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
 	
 	@Override
 	public void register() {
+		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new BehaviorDefaultDispenseItem() {
+			private final BehaviorDefaultDispenseItem field_150842_b = new BehaviorDefaultDispenseItem();
+			
+			/**
+			 * Dispense the specified stack, play the dispense sound and spawn
+			 * particles.
+			 */
+			public ItemStack dispenseStack(IBlockSource blockSource, ItemStack itemStack) {
+				EnumFacing enumfacing = BlockDispenser.func_149937_b(blockSource.getBlockMetadata());
+				World world = blockSource.getWorld();
+				double d0 = blockSource.getX() + (double) ((float) enumfacing.getFrontOffsetX() * 1.125F);
+				double d1 = blockSource.getY() + (double) ((float) enumfacing.getFrontOffsetY() * 1.125F);
+				double d2 = blockSource.getZ() + (double) ((float) enumfacing.getFrontOffsetZ() * 1.125F);
+				int i = blockSource.getXInt() + enumfacing.getFrontOffsetX();
+				int j = blockSource.getYInt() + enumfacing.getFrontOffsetY();
+				int k = blockSource.getZInt() + enumfacing.getFrontOffsetZ();
+				Material material = world.getBlock(i, j, k).getMaterial();
+				double d3;
+				
+				if (Material.water.equals(material)) {
+					d3 = 1.0D;
+				}
+				else {
+					if (!Material.air.equals(material) || !Material.water.equals(world.getBlock(i, j - 1, k).getMaterial())) {
+						return this.field_150842_b.dispense(blockSource, itemStack);
+					}
+					
+					d3 = 0.0D;
+				}
+				
+				EntityModBoatBase entityboat = getNewEntityModBoat(world, d0, d1 + d3, d2);
+				world.spawnEntityInWorld(entityboat);
+				itemStack.splitStack(1);
+				return itemStack;
+			}
+			
+			/**
+			 * Play the dispense sound from the specified block.
+			 */
+			protected void playDispenseSound(IBlockSource p_82485_1_) {
+				p_82485_1_.getWorld().playAuxSFX(1000, p_82485_1_.getXInt(), p_82485_1_.getYInt(), p_82485_1_.getZInt(), 0);
+			}
+		});
 		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + "." + getName());
 		this.setTextureName(ModUpToDateMod.MOD_ID + ":" + getName());
 		GameRegistry.registerItem(this, getName());
@@ -97,12 +147,14 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable{
 						--j;
 					}
 					
-					EntityModBoatBase entitymodboat = getNewEntityModBoat(p_77659_2_, (double) ((float) i + 0.5F), (double) ((float) j + 1.0F), (double) ((float) k + 0.5F));
+					EntityModBoatBase entitymodboat = getNewEntityModBoat(
+							p_77659_2_, (double) ((float) i + 0.5F), (double) ((float) j + 1.0F), (double) ((float) k + 0.5F));
 					entitymodboat.rotationYaw
 							= (float) (((MathHelper.floor_double((double) (p_77659_3_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) - 1)
 									* 90);
 					
-					if (!p_77659_2_.getCollidingBoundingBoxes(entitymodboat, entitymodboat.boundingBox.expand(-0.1D, -0.1D, -0.1D))
+					if (!p_77659_2_
+							.getCollidingBoundingBoxes(entitymodboat, entitymodboat.boundingBox.expand(-0.1D, -0.1D, -0.1D))
 							.isEmpty()) {
 						return p_77659_1_;
 					}
