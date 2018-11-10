@@ -164,10 +164,6 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 */
 	@Override
 	public boolean attackEntityFrom(DamageSource damageSource, float par2f) {
-		System.out.println("Boat was damaged!!!!!!!!!!!!!!  Damage Type:");
-		System.out.println("  " + damageSource.getDamageType());
-		System.out.println("  " + damageSource.damageType);
-		
 		if (this.isEntityInvulnerable()) {
 			return false;
 		}
