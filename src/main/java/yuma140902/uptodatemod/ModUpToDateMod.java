@@ -11,6 +11,7 @@ import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.init.Items;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.blocks.Stone;
+import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, useMetadata = true)
@@ -47,6 +48,7 @@ public class ModUpToDateMod {
 			config_worldGen_genStones = cfg.getBoolean("genStones", "worldGen", true, "花崗岩、閃緑岩、安山岩をワールドに生成するか否か");
 			config_recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", "recipeRemove", false, "棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)");
 			config_enable_observer = cfg.getBoolean("enableObserver", "experimental", false, "オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】");
+			EntityModBoatBase.boatCrashWhenCollide = cfg.getBoolean("boatCrashWhenCollide", "entity", false, "このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)");
 		}
 		finally {
 			cfg.save();

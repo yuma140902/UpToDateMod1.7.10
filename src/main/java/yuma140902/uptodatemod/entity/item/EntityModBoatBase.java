@@ -30,6 +30,8 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	
 	protected abstract int getPlankMeta();
 	
+	public static boolean boatCrashWhenCollide = false;
+	
 	/** true if no player in boat */
 	private boolean isBoatEmpty;
 	private double speedMultiplier;
@@ -199,9 +201,8 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 */
 	@Override
 	public void onUpdate() {
-//		super.onUpdate();
-		this.onEntityUpdate();
-		//TODO: ↑これのせいでぶつかったときにボートが壊れると思われる
+		if(boatCrashWhenCollide) super.onUpdate();
+		else this.onEntityUpdate();
 		
 		if (this.getTimeSinceHit() > 0) {
 			this.setTimeSinceHit(this.getTimeSinceHit() - 1);
@@ -366,7 +367,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 			
 			this.moveEntity(this.motionX, this.motionY, this.motionZ);
 			
-			if (/*this.isCollidedHorizontally && d10 > 0.2D*/ false) {
+			if (boatCrashWhenCollide && this.isCollidedHorizontally && d10 > 0.2D) {
 				if (!this.worldObj.isRemote && !this.isDead) {
 					this.setDead();
 					
