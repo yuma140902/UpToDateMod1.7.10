@@ -33,8 +33,8 @@ public class ColorUtil {
 				return "purple";
 			case Stat.COLOR_META_RED:
 				return "red";
-			case Stat.COLOR_META_SILVER:
-				return "silver";
+			case Stat.COLOR_META_LIGHT_GRAY:
+				return "light_gray";
 			case Stat.COLOR_META_WHITE:
 				return "white";
 			case Stat.COLOR_META_YELLOW:
@@ -72,7 +72,7 @@ public class ColorUtil {
 				return MapColor.purpleColor;
 			case Stat.COLOR_META_RED:
 				return MapColor.redColor;
-			case Stat.COLOR_META_SILVER:
+			case Stat.COLOR_META_LIGHT_GRAY:
 				return MapColor.ironColor;
 			case Stat.COLOR_META_WHITE:
 				return MapColor.snowColor;
