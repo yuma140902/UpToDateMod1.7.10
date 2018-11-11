@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod;
 
 import yuma140902.uptodatemod.blocks.BlockConcrete;
+import yuma140902.uptodatemod.blocks.BlockConcretePowder;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.CoarseDirt;
@@ -63,6 +64,7 @@ public final class MyBlocks {
 		buttonSpruce.register();
 		
 		blockConcrete.register();
+		blockConcretePowder.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.Stone stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -107,4 +109,5 @@ public final class MyBlocks {
 	public static final GenericButton buttonSpruce = new GenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
 	
 	public static final BlockConcrete blockConcrete = new BlockConcrete();
+	public static final BlockConcretePowder blockConcretePowder = new BlockConcretePowder();
 }
