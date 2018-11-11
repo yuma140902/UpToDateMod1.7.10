@@ -1,0 +1,65 @@
+
+tile.uptodate.stone.0.name=Stone(UpToDateMod)
+tile.uptodate.stone.1.name=Granite
+tile.uptodate.stone.2.name=Smooth Granite
+tile.uptodate.stone.3.name=Diorite
+tile.uptodate.stone.4.name=Smooth Diorite
+tile.uptodate.stone.5.name=Andesite
+tile.uptodate.stone.6.name=Smooth Andesite
+tile.uptodate.door_acacia.name=Acacia
+tile.uptodate.door_birch.name=Birch Door
+tile.uptodate.door_dark_oak.name=Dark Oak Door
+tile.uptodate.door_jungle.name=Jungle Door
+tile.uptodate.door_spruce.name=Spruce Door
+
+item.uptodate.door_acacia.name=Acacia Door
+item.uptodate.door_birch.name=Birch Door
+item.uptodate.door_dark_oak.name=Dark Oak Door
+item.uptodate.door_jungle.name=Jungle Door
+item.uptodate.door_spruce.name=Spruce Door
+
+tile.uptodate.fence_acacia.name=Acacia Fence
+tile.uptodate.fence_birch.name=Birch Fence
+tile.uptodate.fence_dark_oak.name=Dark Oak Fence
+tile.uptodate.fence_jungle.name=Jungle Fence
+tile.uptodate.fence_spruce.name=Spruce Fence
+
+tile.uptodate.fence_gate_acacia.name=Acacia Fence Gate
+tile.uptodate.fence_gate_birch.name=Birch Fence Gate
+tile.uptodate.fence_gate_dark_oak.name=Dark Oak Fence Gate
+tile.uptodate.fence_gate_jungle.name=Jungle Fence Gate
+tile.uptodate.fence_gate_spruce.name=Spruce Fence Gate
+
+tile.uptodate.coarse_dirt.name=Coarse Dirt
+
+item.uptodate.prismarine_crystals.name=Prismarine Crystal
+item.uptodate.prismarine_shard.name=Prismarine Shard
+tile.uptodate.prismarine_block.name=Prismarine
+tile.uptodate.prismarine_brick.name=Prismarine Brick
+tile.uptodate.dark_prismarine_block.name=Dark Prismarine
+tile.uptodate.sea_lantern.name=Sea Lantern
+
+tile.uptodate.trap_door_acacia.name=Acacia Trapdoor
+tile.uptodate.trap_door_birch.name=Birch Trapdoor
+tile.uptodate.trap_door_dark_oak.name=Dark Oak Trapdoor
+tile.uptodate.trap_door_jungle.name=Jungle Trapdoor
+tile.uptodate.trap_door_spruce.name=Spruce Trapdoor
+tile.uptodate.trap_door_iron.name=Iron Trapdoor
+
+tile.uptodate.button_acacia.name=Acacia Button
+tile.uptodate.button_birch.name=Birch Button
+tile.uptodate.button_dark_oak.name=Dark Oak Button
+tile.uptodate.button_jungle.name=Jungle Button
+tile.uptodate.button_spruce.name=Spruce Button
+
+item.uptodate.item_boat_acacia.name=Acacia Boat
+item.uptodate.item_boat_birch.name=Birch Boat
+item.uptodate.item_boat_dark_oak.name=Dark Oak Boat
+item.uptodate.item_boat_jungle.name=Jungle Boat
+item.uptodate.item_boat_spruce.name=Spruce Boat
+
+entity.uptodate.boat_acacia.name=Acacia Boat
+entity.uptodate.boat_birch.name=Birch Boat
+entity.uptodate.boat_dark_oak.name=Dark Oak Boat
+entity.uptodate.boat_jungle.name=Jungle Boat
+entity.uptodate.boat_spruce.name=Spruce Boat
