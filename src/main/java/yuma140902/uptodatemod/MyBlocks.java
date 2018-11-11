@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod;
 
+import yuma140902.uptodatemod.blocks.BlockConcrete;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.CoarseDirt;
@@ -60,6 +61,8 @@ public final class MyBlocks {
 		buttonDarkOak.register();
 		buttonJungle.register();
 		buttonSpruce.register();
+		
+		blockConcrete.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.Stone stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -102,4 +105,6 @@ public final class MyBlocks {
 	public static final GenericButton buttonDarkOak = new GenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
 	public static final GenericButton buttonJungle = new GenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
 	public static final GenericButton buttonSpruce = new GenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
+	
+	public static final BlockConcrete blockConcrete = new BlockConcrete();
 }
