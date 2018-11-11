@@ -1,8 +1,14 @@
 package yuma140902.uptodatemod.blocks.generics;
 
+import java.util.List;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWall;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IRegisterable;
@@ -25,6 +31,7 @@ public class GenericWall extends BlockWall implements IRegisterable {
 		this.block = block;
 		this.meta = meta;
 		this.name = name;
+		setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
 	@Override
@@ -38,4 +45,9 @@ public class GenericWall extends BlockWall implements IRegisterable {
 		GameRegistry.registerBlock(this, name);
 	}
 	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs craetiveTab, List list) {
+		list.add(new ItemStack(item));
+	}
 }
