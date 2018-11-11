@@ -64,6 +64,10 @@ mobの追加、ブロックの追加、レシピの変更、構造物の追加�
  - トラップドアを空中に設置できるようにした
  - トラップドアのテクスチャの向きがおかしい問題を修正
 
+**[v0.3.0](https://github.com/yuma140902/UpToDateMod1.7.10/releases/tag/v0.3.0)**
+ - 各種ボートを追加
+ - 英語のlangファイルを追加
+
 ----
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンス</a>の下に提供されています。
