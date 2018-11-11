@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.items.ItemBlockConcrete;
 import yuma140902.uptodatemod.util.ColorUtil;
 
 public class BlockConcrete extends Block implements IRegisterable {
@@ -32,7 +33,7 @@ public class BlockConcrete extends Block implements IRegisterable {
 	public void register() {
 		this.setBlockName(ModUpToDateMod.MOD_ID + ".concrete");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":concrete");
-		GameRegistry.registerBlock(this, "concrete");
+		GameRegistry.registerBlock(this, ItemBlockConcrete.class, "concrete");
 	}
 	
 	@SideOnly(Side.CLIENT)
