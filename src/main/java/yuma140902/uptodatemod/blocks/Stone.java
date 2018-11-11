@@ -30,7 +30,7 @@ public class Stone extends Block implements IRegisterable {
 		this.setHardness(1.5F);
 		this.setResistance(10.0F);
 		this.setStepSound(soundTypeStone);
-		this.setHarvestLevel("pickaxe", 1);
+		this.setHarvestLevel("pickaxe", 0);
 		this.setLightLevel(0.0F);
 	}
 	
