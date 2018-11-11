@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod;
 
+import net.minecraft.init.Blocks;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.CoarseDirt;
@@ -11,6 +12,7 @@ import yuma140902.uptodatemod.blocks.DoorSpruce;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
 import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
+import yuma140902.uptodatemod.blocks.generics.GenericStairs;
 import yuma140902.uptodatemod.blocks.generics.GenericTrapDoor;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
@@ -60,6 +62,8 @@ public final class MyBlocks {
 		buttonDarkOak.register();
 		buttonJungle.register();
 		buttonSpruce.register();
+		
+		stairsStone.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.Stone stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -102,4 +106,6 @@ public final class MyBlocks {
 	public static final GenericButton buttonDarkOak = new GenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
 	public static final GenericButton buttonJungle = new GenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
 	public static final GenericButton buttonSpruce = new GenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
+	
+	public static final GenericStairs stairsStone = new GenericStairs(Blocks.stone, 0, "stair_stone");
 }
