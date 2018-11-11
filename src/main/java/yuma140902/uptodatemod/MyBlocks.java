@@ -69,6 +69,10 @@ public final class MyBlocks {
 		wallSmoothAndesite.register();
 		wallSmoothDiorite.register();
 		wallSmoothGranite.register();
+		
+		wallPrismarine.register();
+		wallPrismarineBrick.register();
+		wallDarkPrismarine.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.Stone stone = new yuma140902.uptodatemod.blocks.Stone();
@@ -118,4 +122,8 @@ public final class MyBlocks {
 	public static final GenericWall wallSmoothAndesite = new GenericWall(MyBlocks.stone, Stone.META_SMOOTH_ANDESITE, "wall_smooth_andesite");
 	public static final GenericWall wallSmoothDiorite = new GenericWall(MyBlocks.stone, Stone.META_SMOOTH_DIORITE, "wall_smooth_diorite");
 	public static final GenericWall wallSmoothGranite = new GenericWall(MyBlocks.stone, Stone.META_SMOOTH_GRANITE, "wall_smooth_granite");
+	
+	public static final GenericWall wallPrismarine = new GenericWall(prismarineBlock, "wall_prismarine");
+	public static final GenericWall wallPrismarineBrick = new GenericWall(prismarineBrick, "wall_prismarine_brick");
+	public static final GenericWall wallDarkPrismarine = new GenericWall(prismarineDark, "wall_dark_prismarine");
 }
