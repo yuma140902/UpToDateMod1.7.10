@@ -5,9 +5,14 @@ import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.util.ColorUtil;
 
-public class ItemBlockConcrete extends ItemBlockWithMetadata {
+/**
+ * メタデータで16色の色を表現するブロックに対応する汎用のItemBlockです
+ * @author yuma1
+ *
+ */
+public class ItemBlockColored extends ItemBlockWithMetadata {
 
-	public ItemBlockConcrete(Block block) {
+	public ItemBlockColored(Block block) {
 		super(block, block);
 	}
 	
