@@ -11,7 +11,6 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,6 +19,7 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.entity.item.EntityFallingConcretePowderBlock;
 import yuma140902.uptodatemod.items.ItemBlockColored;
 import yuma140902.uptodatemod.util.ColorUtil;
 
@@ -125,7 +125,7 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable {
 			if (!fallInstantly
 					&& world.checkChunksExist(x - offset, y - offset, z - offset, x + offset, y + offset, z + offset)) {
 				if (!world.isRemote) {
-					EntityFallingBlock entityfallingblock = new EntityFallingBlock(
+					EntityFallingConcretePowderBlock entityfallingblock = new EntityFallingConcretePowderBlock(
 							world, (double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), this,
 							world.getBlockMetadata(x, y, z));
 					func_149829_a(entityfallingblock);
