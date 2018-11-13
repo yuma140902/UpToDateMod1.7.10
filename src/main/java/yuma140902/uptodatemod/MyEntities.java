@@ -26,7 +26,7 @@ public class MyEntities {
 		EntityRegistry.registerModEntity(EntityBoatJungle.class, "boat_jungle", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityBoatSpruce.class, "boat_spruce", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
 		
-		EntityRegistry.registerModEntity(EntityFallingConcretePowderBlock.class, "falling_concrete_powder_block", id++, ModUpToDateMod.INSTANCE, 128, 2, true);
+		EntityRegistry.registerModEntity(EntityFallingConcretePowderBlock.class, "falling_concrete_powder_block", id++, ModUpToDateMod.INSTANCE, 128, 1, true);
 		
 		registerRenderers();
 	}
