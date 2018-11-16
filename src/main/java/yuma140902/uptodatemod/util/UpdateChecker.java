@@ -16,6 +16,9 @@ public class UpdateChecker {
 	public static final String LATEST_STR = "latest";
 	public static final String RECOMMENDED_STR = "recommended";
 	
+	public String config_updateChannel = RECOMMENDED_STR;
+	public boolean config_doCheckUpdate = true;
+	
 	public String currentVersion = ModUpToDateMod.MOD_VERSION;
 	public String availableNewVersion = ModUpToDateMod.MOD_VERSION;
 	public HashMap<String, String> versions = null;
@@ -90,6 +93,10 @@ public class UpdateChecker {
 	}
 	
 	public void checkForUpdates() {
+		if(!config_doCheckUpdate) {
+			return;
+		}
+		
 		String versionsTsv = getFromUrl(ModUpToDateMod.MOD_VERSIONS_TSV_URL);
 		if(versionsTsv == null || versionsTsv.isEmpty()) return;
 		
@@ -98,18 +105,12 @@ public class UpdateChecker {
 		
 		this.versions = getVersionsTable(versionsTsv);
 		
-		if(versions.keySet().contains(RECOMMENDED_STR)) {
-			String recommendedVersion = versions.get(RECOMMENDED_STR);
-			if(Version3.isLaterThan(recommendedVersion, currentVersion)) {
-				this.availableNewVersion = recommendedVersion;
-				return;
-			}
-		}
+		String newestVersionStr = LATEST_STR.equals(config_updateChannel) ? LATEST_STR : RECOMMENDED_STR;
 		
-		if(versions.keySet().contains(LATEST_STR)) {
-			String latestVersion = versions.get(LATEST_STR);
-			if(Version3.isLaterThan(latestVersion, currentVersion)) {
-				this.availableNewVersion = latestVersion;
+		if(versions.keySet().contains(newestVersionStr)) {
+			String newestVersion = versions.get(newestVersionStr);
+			if(Version3.isLaterThan(newestVersion, currentVersion)) {
+				this.availableNewVersion = newestVersion;
 				return;
 			}
 		}
