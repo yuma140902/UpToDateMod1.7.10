@@ -4,13 +4,6 @@ public class Version3 {
 	public int a = 0;
 	public int b = 0;
 	public int c = 0;
-	protected boolean _latest = false;
-	protected boolean _recommended = false;
-	
-	public static final Version3 LATEST = new Version3(0, 0, 0) {{_latest = true;}};
-	public static final Version3 RECOMMENDED = new Version3(0, 0, 0) {{_recommended = true;}};
-	public static final String LATEST_STR = "latest";
-	public static final String RECOMMENDED_STR = "recommended";
 	
 	public Version3(int a, int b, int c) {
 		this.a = a;
@@ -20,8 +13,6 @@ public class Version3 {
 	
 	public static Version3 FromString(String str) {
 		if(str == null || str.isEmpty()) return new Version3(0, 0, 0);
-		if(LATEST_STR.equals(str)) return LATEST;
-		if(RECOMMENDED_STR.equals(str)) return RECOMMENDED;
 		
 		int a = 0, b = 0, c = 0;
 		String[] tmp = str.split("[.]");
@@ -39,14 +30,6 @@ public class Version3 {
 		return new Version3(a, b, c);
 	}
 	
-	public boolean isLatest() {
-		return this._latest;
-	}
-	
-	public boolean isRecommended() {
-		return this._recommended;
-	}
-	
 	public boolean isLaterThan(Version3 version3) {
 		if(this.a > version3.a) return true;
 		else if(this.a < version3.a) return false;
@@ -60,9 +43,13 @@ public class Version3 {
 		return false;
 	}
 	
+	public static boolean isLaterThan(String verA, String verB) {
+		Version3 versionA = FromString(verA);
+		Version3 versionB = FromString(verB);
+		return versionA.isLaterThan(versionB);
+	}
+	
 	public String toString() {
-		if(_latest) return LATEST_STR;
-		if(_recommended) return RECOMMENDED_STR;
 		return a + "." + b + "." + c;
 	}
 }
