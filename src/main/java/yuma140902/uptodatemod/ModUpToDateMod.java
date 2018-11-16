@@ -1,8 +1,6 @@
 package yuma140902.uptodatemod;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
@@ -14,9 +12,7 @@ import net.minecraft.init.Items;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.blocks.Stone;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
-import yuma140902.uptodatemod.util.HttpUtil;
-import yuma140902.uptodatemod.util.TsvUtil;
-import yuma140902.uptodatemod.util.Version3;
+import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, useMetadata = true)
@@ -31,11 +27,8 @@ public class ModUpToDateMod {
 	public static final String MOD_NAME = "UpToDateMod";
 	public static final String MINECRAFT_VERSION = "1.7.10";
 	public static final String MOD_VERSION = "0.3.1";
-	public static final String MOD_VERSIONS_JSON = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
+	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
 	public static final String CONFIG_FILE_NAME = "config\\" + MOD_NAME + ".cfg";
-	
-	public static boolean hasNewVersion = false;
-	public static HashMap<Version3, String> versions = null;
 	
 	public boolean config_worldGen_genStones;
 	public boolean config_recipeRemove_oldFenceRecipe;
@@ -65,26 +58,6 @@ public class ModUpToDateMod {
 		}
 	}
 	
-	private boolean checkForUpdates() {
-		
-		String versionsTsv = HttpUtil.getFromUrl(MOD_VERSIONS_JSON);
-		if(versionsTsv == null || versionsTsv.isEmpty()) return false;
-		
-		System.out.println("versionsTsv:");
-		System.out.print(versionsTsv);
-		
-		versions = TsvUtil.getTable(versionsTsv);
-		Version3 currentVersion = Version3.FromString(MOD_VERSION);
-		
-		for (Map.Entry<Version3, String> entry : versions.entrySet()) {
-			if(entry.getKey().isLaterThan(currentVersion)) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
-	
 	private void tweakVanilla() {
 		Items.wooden_door.setMaxStackSize(64);
 		Items.iron_door.setMaxStackSize(64);
@@ -96,11 +69,12 @@ public class ModUpToDateMod {
 		loadModMetadata(modMetadata);
 		loadConfig();
 		try {
-			hasNewVersion = checkForUpdates();
+			UpdateChecker.INSTANCE.checkForUpdates();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(UpdateChecker.INSTANCE.hasNewVersionAvailable());
 		
 		tweakVanilla();
 		MyBlocks.register();
