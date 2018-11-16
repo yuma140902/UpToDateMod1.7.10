@@ -36,4 +36,8 @@ public final class Stat {
 		COLOR_META_GREEN = 13,
 		COLOR_META_RED = 14,
 		COLOR_META_BLACK = 15;
+
+	public static final String
+		PROXY_CLIENT = "yuma140902.uptodatemod.proxy.ClientProxy",
+		PROXY_SERVER = "yuma140902.uptodatemod.proxy.ServerProxy";
 }
