@@ -4,6 +4,7 @@ import java.io.File;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.block.Block;
@@ -12,6 +13,8 @@ import net.minecraft.init.Items;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.blocks.Stone;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
+import yuma140902.uptodatemod.proxy.CommonProxy;
+import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, useMetadata = true)
@@ -21,6 +24,9 @@ public class ModUpToDateMod {
 	
 	@Mod.Instance
 	public static ModUpToDateMod INSTANCE;
+	
+	@SidedProxy(clientSide = Stat.PROXY_CLIENT, serverSide = Stat.PROXY_SERVER)
+	public static CommonProxy proxy;
 	
 	public static final String MOD_ID = "uptodate";
 	public static final String MOD_NAME = "UpToDateMod";
