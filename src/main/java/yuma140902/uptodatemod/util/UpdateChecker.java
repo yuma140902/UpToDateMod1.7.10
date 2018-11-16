@@ -13,9 +13,12 @@ public class UpdateChecker {
 	
 	public static final UpdateChecker INSTANCE = new UpdateChecker();
 	
-	public Version3 currentVersion = Version3.FromString(ModUpToDateMod.MOD_VERSION);
-	public Version3 availableNewVersion = Version3.FromString(ModUpToDateMod.MOD_VERSION);
-	public HashMap<Version3, String> versions = null;
+	public static final String LATEST_STR = "latest";
+	public static final String RECOMMENDED_STR = "recommended";
+	
+	public String currentVersion = ModUpToDateMod.MOD_VERSION;
+	public String availableNewVersion = ModUpToDateMod.MOD_VERSION;
+	public HashMap<String, String> versions = null;
 	
 	private static String getFromUrl(String urlStr) {
 		InputStream is = null;
@@ -71,8 +74,8 @@ public class UpdateChecker {
 	}
 	
 	
-	private static HashMap<Version3, String> getVersionsTable(String tsv){
-		HashMap<Version3, String> hashMap = new HashMap<>();
+	private static HashMap<String, String> getVersionsTable(String tsv){
+		HashMap<String, String> hashMap = new HashMap<>();
 		
 		if(tsv == null || tsv.isEmpty()) return hashMap;
 		
@@ -80,8 +83,7 @@ public class UpdateChecker {
 		for (String line : lines) {
 			String[] tmp = line.split("\\t");
 			if(tmp.length < 2) continue;
-			Version3 version = Version3.FromString(tmp[0]);
-			hashMap.put(version, tmp[1]);
+			hashMap.put(tmp[0], tmp[1]);
 		}
 		
 		return hashMap;
@@ -96,17 +98,17 @@ public class UpdateChecker {
 		
 		this.versions = getVersionsTable(versionsTsv);
 		
-		if(versions.keySet().contains(Version3.RECOMMENDED)) {
-			Version3 recommendedVersion = Version3.FromString(versions.get(Version3.RECOMMENDED));
-			if(recommendedVersion.isLaterThan(currentVersion)) {
+		if(versions.keySet().contains(RECOMMENDED_STR)) {
+			String recommendedVersion = versions.get(RECOMMENDED_STR);
+			if(Version3.isLaterThan(recommendedVersion, currentVersion)) {
 				this.availableNewVersion = recommendedVersion;
 				return;
 			}
 		}
 		
-		if(versions.keySet().contains(Version3.LATEST)) {
-			Version3 latestVersion = Version3.FromString(versions.get(Version3.LATEST));
-			if(latestVersion.isLaterThan(currentVersion)) {
+		if(versions.keySet().contains(LATEST_STR)) {
+			String latestVersion = versions.get(LATEST_STR);
+			if(Version3.isLaterThan(latestVersion, currentVersion)) {
 				this.availableNewVersion = latestVersion;
 				return;
 			}
@@ -114,6 +116,6 @@ public class UpdateChecker {
 	}
 	
 	public boolean hasNewVersionAvailable() {
-		return availableNewVersion.isLaterThan(currentVersion);
+		return Version3.isLaterThan(availableNewVersion, currentVersion);
 	}
 }
