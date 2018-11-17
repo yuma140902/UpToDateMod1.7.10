@@ -97,3 +97,5 @@ tile.uptodate.concrete_powder.red.name=Red Concrete Powder
 tile.uptodate.concrete_powder.light_gray.name=Light Gray Concrete Powder
 tile.uptodate.concrete_powder.white.name=White Concrete Powder
 tile.uptodate.concrete_powder.yellow.name=Yellow Concrete Powder
+
+text.uptodate.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark_green"},{"text":" There is a new version available: v%s ["},{"text":"Click to open download URL","underlined":true,"color":"green","clickEvent":{"action":"open_url","value":"%s"}},{"text":"]"}]
