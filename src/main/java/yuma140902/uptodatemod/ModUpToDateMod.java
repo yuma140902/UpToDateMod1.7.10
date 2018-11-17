@@ -15,6 +15,7 @@ import yuma140902.uptodatemod.blocks.Stone;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, useMetadata = true)
@@ -30,7 +31,9 @@ public class ModUpToDateMod {
 	
 	public static final String MOD_ID = "uptodate";
 	public static final String MOD_NAME = "UpToDateMod";
-	public static final String MOD_VERSION = "mc1.7.10_0.3.1";
+	public static final String MINECRAFT_VERSION = "1.7.10";
+	public static final String MOD_VERSION = "0.3.0";
+	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
 	public static final String CONFIG_FILE_NAME = "config\\" + MOD_NAME + ".cfg";
 	
 	public boolean config_worldGen_genStones;
@@ -55,6 +58,8 @@ public class ModUpToDateMod {
 			config_recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", "recipe", false, "Delete the recipe from 6 sticks to 2 fences | 棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)");
 			config_enable_observer = cfg.getBoolean("enableObserver", "experimental", false, "Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】");
 			EntityModBoatBase.boatCrashWhenCollide = cfg.getBoolean("boatCrashWhenCollide", "entity", false, "Boat added by this mod will crash when collision | このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)");
+			UpdateChecker.INSTANCE.config_updateChannel = cfg.getString("updateChannel", "misc", UpdateChecker.INSTANCE.config_updateChannel, "Channel of update checking| アップデートのチャンネル", new String[] {UpdateChecker.RECOMMENDED_STR, UpdateChecker.LATEST_STR});
+			UpdateChecker.INSTANCE.config_doCheckUpdate = cfg.getBoolean("doUpdateChecking", "misc", UpdateChecker.INSTANCE.config_doCheckUpdate, "If true, the mod will check for updates automatically | アップデートを自動で確認するかどうか");
 		}
 		finally {
 			cfg.save();
@@ -71,6 +76,13 @@ public class ModUpToDateMod {
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
 		loadConfig();
+		try {
+			UpdateChecker.INSTANCE.checkForUpdates();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(UpdateChecker.INSTANCE.hasNewVersionAvailable());
 		
 		tweakVanilla();
 		MyBlocks.register();
@@ -88,5 +100,7 @@ public class ModUpToDateMod {
 		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_DIORITE, stoneConfig);
 		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_ANDESITE, stoneConfig);
 		WorldGenerators.register();
+		
+		proxy.registerEventHandlers();
 	}
 }
