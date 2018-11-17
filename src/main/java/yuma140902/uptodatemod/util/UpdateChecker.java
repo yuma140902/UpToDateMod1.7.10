@@ -15,6 +15,7 @@ public class UpdateChecker {
 	
 	public static final String LATEST_STR = "latest";
 	public static final String RECOMMENDED_STR = "recommended";
+	public static final String homePage = "https://minecraft.curseforge.com/projects/uptodatemod";
 	
 	public String config_updateChannel = RECOMMENDED_STR;
 	public boolean config_doCheckUpdate = true;
@@ -118,5 +119,14 @@ public class UpdateChecker {
 	
 	public boolean hasNewVersionAvailable() {
 		return Version3.isLaterThan(availableNewVersion, currentVersion);
+	}
+	
+	public String getNewVersionUrl() {
+		if(versions == null) return homePage;
+		
+		if(versions.keySet().contains(availableNewVersion)) {
+			return versions.get(availableNewVersion);
+		}
+		else return homePage;
 	}
 }
