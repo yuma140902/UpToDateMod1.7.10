@@ -32,7 +32,7 @@ public class ModUpToDateMod {
 	public static final String MOD_ID = "uptodate";
 	public static final String MOD_NAME = "UpToDateMod";
 	public static final String MINECRAFT_VERSION = "1.7.10";
-	public static final String MOD_VERSION = "0.4.0";
+	public static final String MOD_VERSION = "0.5.0";
 	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
 	public static final String CONFIG_FILE_NAME = "config\\" + MOD_NAME + ".cfg";
 	
@@ -82,7 +82,7 @@ public class ModUpToDateMod {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(UpdateChecker.INSTANCE.hasNewVersionAvailable());
+		System.out.println(UpdateChecker.INSTANCE.hasNewVersionAvailable() ? "UpToDateMod: There is a new version available. - v" + UpdateChecker.INSTANCE.availableNewVersion + ". Visit " + UpdateChecker.INSTANCE.getNewVersionUrl() : "UpToDateMod is now up-to-date.");
 		
 		tweakVanilla();
 		MyBlocks.register();
@@ -93,7 +93,8 @@ public class ModUpToDateMod {
 	public void init(FMLInitializationEvent event) {
 		Recipes.removeVanillaRecipes();
 		Recipes.register();
-		MyEntities.register();
+		proxy.registerEntities();
+		proxy.registerRenderers();
 		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(config_worldGen_genStones, 33, 10, 0, 80);
 		
 		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_GRANITE, stoneConfig);
