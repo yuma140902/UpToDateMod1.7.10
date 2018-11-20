@@ -82,7 +82,7 @@ public class ModUpToDateMod {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(UpdateChecker.INSTANCE.hasNewVersionAvailable());
+		System.out.println(UpdateChecker.INSTANCE.hasNewVersionAvailable() ? "UpToDateMod: There is a new version available. - v" + UpdateChecker.INSTANCE.availableNewVersion + ". Visit " + UpdateChecker.INSTANCE.getNewVersionUrl() : "UpToDateMod is now up-to-date.");
 		
 		tweakVanilla();
 		MyBlocks.register();
