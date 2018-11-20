@@ -1,6 +1,8 @@
 package yuma140902.uptodatemod.blocks.generics;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
@@ -21,6 +23,7 @@ public class GenericFenceGate extends BlockFenceGate implements IRegisterable {
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
 		return Blocks.planks.getIcon(p_149691_1_, iconSourcePlankMeta);
 	}

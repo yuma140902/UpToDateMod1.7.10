@@ -1,6 +1,8 @@
 package yuma140902.uptodatemod.blocks.generics;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -39,6 +41,7 @@ public class GenericTrapDoor extends BlockTrapDoor implements IRegisterable {
   }
   
   @Override
+  @SideOnly(Side.CLIENT)
   public IIcon getIcon(int side, int meta) {
   	//メタデータの仕様
   	/*
