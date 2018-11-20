@@ -1,6 +1,8 @@
 package yuma140902.uptodatemod.blocks.generics;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockButtonWood;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -21,6 +23,7 @@ public class GenericButton extends BlockButtonWood implements IRegisterable {
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		return Blocks.planks.getIcon(1, texture_plank_meta);
 	}
