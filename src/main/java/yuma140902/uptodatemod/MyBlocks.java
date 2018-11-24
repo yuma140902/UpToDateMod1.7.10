@@ -2,7 +2,7 @@ package yuma140902.uptodatemod;
 
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockObserver;
-import yuma140902.uptodatemod.blocks.CoarseDirt;
+import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.DoorAcacia;
 import yuma140902.uptodatemod.blocks.DoorBirch;
 import yuma140902.uptodatemod.blocks.DoorDarkOak;
@@ -81,7 +81,7 @@ public final class MyBlocks {
 	public static final GenericFenceGate fenceGateJungle = new GenericFenceGate(Stat.PLANK_META_JUNGLE, "fence_gate_jungle");
 	public static final GenericFenceGate fenceGateSpruce = new GenericFenceGate(Stat.PLANK_META_SPRUCE, "fence_gate_spruce");
 	
-	public static final CoarseDirt coarseDirt = new CoarseDirt();
+	public static final BlockCoarseDirt coarseDirt = new BlockCoarseDirt();
 	
 	public static final BlockPrismarine prismarineBlock = new BlockPrismarine();
 	public static final BlockPrismarineBrick prismarineBrick = new BlockPrismarineBrick();

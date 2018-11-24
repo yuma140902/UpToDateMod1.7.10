@@ -12,9 +12,9 @@ import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class CoarseDirt extends Block implements IRegisterable {
+public class BlockCoarseDirt extends Block implements IRegisterable {
 
-	public CoarseDirt() {
+	public BlockCoarseDirt() {
 		super(Material.ground);
 		setHardness(0.5F);
 		setStepSound(soundTypeGravel);
