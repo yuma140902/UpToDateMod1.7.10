@@ -1,14 +1,14 @@
 package yuma140902.uptodatemod;
 
+import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
+import yuma140902.uptodatemod.blocks.BlockDoorAcacia;
+import yuma140902.uptodatemod.blocks.BlockDoorBirch;
+import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
+import yuma140902.uptodatemod.blocks.BlockDoorJungle;
+import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockObserver;
-import yuma140902.uptodatemod.blocks.CoarseDirt;
-import yuma140902.uptodatemod.blocks.DoorAcacia;
-import yuma140902.uptodatemod.blocks.DoorBirch;
-import yuma140902.uptodatemod.blocks.DoorDarkOak;
-import yuma140902.uptodatemod.blocks.DoorJungle;
-import yuma140902.uptodatemod.blocks.DoorSpruce;
-import yuma140902.uptodatemod.blocks.Stone;
+import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
 import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
@@ -75,12 +75,12 @@ public final class MyBlocks {
 		wallDarkPrismarine.register();
 	}
 	
-	public static final yuma140902.uptodatemod.blocks.Stone stone = new yuma140902.uptodatemod.blocks.Stone();
-	public static final DoorAcacia doorAcacia = new DoorAcacia();
-	public static final DoorBirch doorBirch = new DoorBirch();
-	public static final DoorDarkOak doorDarkOak = new DoorDarkOak();
-	public static final DoorJungle doorJungle = new DoorJungle();
-	public static final DoorSpruce doorSpruce = new DoorSpruce();
+	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
+	public static final BlockDoorAcacia doorAcacia = new BlockDoorAcacia();
+	public static final BlockDoorBirch doorBirch = new BlockDoorBirch();
+	public static final BlockDoorDarkOak doorDarkOak = new BlockDoorDarkOak();
+	public static final BlockDoorJungle doorJungle = new BlockDoorJungle();
+	public static final BlockDoorSpruce doorSpruce = new BlockDoorSpruce();
 	
 	public static final GenericFence fenceAcacia = new GenericFence("planks_acacia", "fence_acacia");
 	public static final GenericFence fenceBirch = new GenericFence("planks_birch", "fence_birch");
@@ -94,7 +94,7 @@ public final class MyBlocks {
 	public static final GenericFenceGate fenceGateJungle = new GenericFenceGate(Stat.PLANK_META_JUNGLE, "fence_gate_jungle");
 	public static final GenericFenceGate fenceGateSpruce = new GenericFenceGate(Stat.PLANK_META_SPRUCE, "fence_gate_spruce");
 	
-	public static final CoarseDirt coarseDirt = new CoarseDirt();
+	public static final BlockCoarseDirt coarseDirt = new BlockCoarseDirt();
 	
 	public static final BlockPrismarine prismarineBlock = new BlockPrismarine();
 	public static final BlockPrismarineBrick prismarineBrick = new BlockPrismarineBrick();
@@ -116,12 +116,12 @@ public final class MyBlocks {
 	public static final GenericButton buttonJungle = new GenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
 	public static final GenericButton buttonSpruce = new GenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
 	
-	public static final GenericWall wallAndesite = new GenericWall(MyBlocks.stone, Stone.META_ANDESITE, "wall_andesite");
-	public static final GenericWall wallDiorite = new GenericWall(MyBlocks.stone, Stone.META_DIORITE, "wall_diorite");
-	public static final GenericWall wallGranite = new GenericWall(MyBlocks.stone, Stone.META_GRANITE, "wall_granite");
-	public static final GenericWall wallSmoothAndesite = new GenericWall(MyBlocks.stone, Stone.META_SMOOTH_ANDESITE, "wall_smooth_andesite");
-	public static final GenericWall wallSmoothDiorite = new GenericWall(MyBlocks.stone, Stone.META_SMOOTH_DIORITE, "wall_smooth_diorite");
-	public static final GenericWall wallSmoothGranite = new GenericWall(MyBlocks.stone, Stone.META_SMOOTH_GRANITE, "wall_smooth_granite");
+	public static final GenericWall wallAndesite = new GenericWall(MyBlocks.stone, BlockStone.META_ANDESITE, "wall_andesite");
+	public static final GenericWall wallDiorite = new GenericWall(MyBlocks.stone, BlockStone.META_DIORITE, "wall_diorite");
+	public static final GenericWall wallGranite = new GenericWall(MyBlocks.stone, BlockStone.META_GRANITE, "wall_granite");
+	public static final GenericWall wallSmoothAndesite = new GenericWall(MyBlocks.stone, BlockStone.META_SMOOTH_ANDESITE, "wall_smooth_andesite");
+	public static final GenericWall wallSmoothDiorite = new GenericWall(MyBlocks.stone, BlockStone.META_SMOOTH_DIORITE, "wall_smooth_diorite");
+	public static final GenericWall wallSmoothGranite = new GenericWall(MyBlocks.stone, BlockStone.META_SMOOTH_GRANITE, "wall_smooth_granite");
 	
 	public static final GenericWall wallPrismarine = new GenericWall(prismarineBlock, "wall_prismarine");
 	public static final GenericWall wallPrismarineBrick = new GenericWall(prismarineBrick, "wall_prismarine_brick");
