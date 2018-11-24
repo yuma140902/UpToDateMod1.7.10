@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.blocks;
+package yuma140902.uptodatemod.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;

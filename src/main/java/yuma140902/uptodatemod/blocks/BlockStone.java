@@ -14,6 +14,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.items.ItemBlockStone;
 
 public class BlockStone extends Block implements IRegisterable {
 	public static final int META_MAX = 6;
