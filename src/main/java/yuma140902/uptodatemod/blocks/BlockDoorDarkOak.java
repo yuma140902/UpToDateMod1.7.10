@@ -11,9 +11,9 @@ import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyItems;
 
-public class DoorAcacia extends net.minecraft.block.BlockDoor implements IRegisterable {
+public class BlockDoorDarkOak extends net.minecraft.block.BlockDoor implements IRegisterable {
 	
-	public DoorAcacia() {
+	public BlockDoorDarkOak() {
 		super(Material.wood);
 		this.setHardness(3.0F);
 		this.setStepSound(soundTypeWood);
@@ -21,22 +21,22 @@ public class DoorAcacia extends net.minecraft.block.BlockDoor implements IRegist
 	}
 	
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_acacia");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_acacia");
-		GameRegistry.registerBlock(this, "door_acacia");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_dark_oak");
+		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_dark_oak");
+		GameRegistry.registerBlock(this, "door_dark_oak");
 	}
 	
 
 	@Override
 	public Item getItemDropped(int meta, Random rand, int p_149650_3_)
   {
-		return (meta & 8) != 0 ? null : MyItems.itemDoorAcacia;
+		return (meta & 8) != 0 ? null : MyItems.itemDoorDarkOak;
   }
 
 	@Override
 	@SideOnly(Side.CLIENT)
   public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
   {
-      return MyItems.itemDoorAcacia;
+      return MyItems.itemDoorDarkOak;
   }
 }

@@ -11,9 +11,9 @@ import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyItems;
 
-public class DoorBirch extends net.minecraft.block.BlockDoor implements IRegisterable {
+public class BlockDoorJungle extends net.minecraft.block.BlockDoor implements IRegisterable {
 	
-	public DoorBirch() {
+	public BlockDoorJungle() {
 		super(Material.wood);
 		this.setHardness(3.0F);
 		this.setStepSound(soundTypeWood);
@@ -21,22 +21,22 @@ public class DoorBirch extends net.minecraft.block.BlockDoor implements IRegiste
 	}
 	
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_birch");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_birch");
-		GameRegistry.registerBlock(this, "door_birch");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_jungle");
+		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_jungle");
+		GameRegistry.registerBlock(this, "door_jungle");
 	}
 	
 
 	@Override
 	public Item getItemDropped(int meta, Random rand, int p_149650_3_)
   {
-		return (meta & 8) != 0 ? null : MyItems.itemDoorBirch;
+		return (meta & 8) != 0 ? null : MyItems.itemDoorJungle;
   }
 
 	@Override
 	@SideOnly(Side.CLIENT)
   public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
   {
-      return MyItems.itemDoorBirch;
+      return MyItems.itemDoorJungle;
   }
 }
