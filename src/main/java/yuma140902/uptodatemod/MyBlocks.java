@@ -62,7 +62,7 @@ public final class MyBlocks {
 		buttonSpruce.register();
 	}
 	
-	public static final yuma140902.uptodatemod.blocks.Stone stone = new yuma140902.uptodatemod.blocks.Stone();
+	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
 	public static final DoorAcacia doorAcacia = new DoorAcacia();
 	public static final DoorBirch doorBirch = new DoorBirch();
 	public static final DoorDarkOak doorDarkOak = new DoorDarkOak();

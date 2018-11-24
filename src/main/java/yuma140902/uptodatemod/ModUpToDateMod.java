@@ -11,7 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.init.Items;
 import net.minecraftforge.common.config.Configuration;
-import yuma140902.uptodatemod.blocks.Stone;
+import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.util.Stat;
@@ -97,9 +97,9 @@ public class ModUpToDateMod {
 		proxy.registerRenderers();
 		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(config_worldGen_genStones, 33, 10, 0, 80);
 		
-		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_GRANITE, stoneConfig);
-		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_DIORITE, stoneConfig);
-		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, Stone.META_ANDESITE, stoneConfig);
+		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);
+		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_DIORITE, stoneConfig);
+		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_ANDESITE, stoneConfig);
 		WorldGenerators.register();
 		
 		proxy.registerEventHandlers();

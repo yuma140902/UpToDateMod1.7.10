@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class Stone extends Block implements IRegisterable {
+public class BlockStone extends Block implements IRegisterable {
 	public static final int META_MAX = 6;
 	public static final int META_GRANITE = 1;
 	public static final int META_SMOOTH_GRANITE = 2;
@@ -24,7 +24,7 @@ public class Stone extends Block implements IRegisterable {
 	public static final int META_ANDESITE = 5;
 	public static final int META_SMOOTH_ANDESITE = 6;
 	
-	public Stone() {
+	public BlockStone() {
 		super(Material.rock);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHardness(1.5F);
