@@ -1,11 +1,11 @@
 
 tile.uptodate.stone.0.name=Stone(UpToDateMod)
 tile.uptodate.stone.1.name=Granite
-tile.uptodate.stone.2.name=Smooth Granite
+tile.uptodate.stone.2.name=Polished Granite
 tile.uptodate.stone.3.name=Diorite
-tile.uptodate.stone.4.name=Smooth Diorite
+tile.uptodate.stone.4.name=Polished Diorite
 tile.uptodate.stone.5.name=Andesite
-tile.uptodate.stone.6.name=Smooth Andesite
+tile.uptodate.stone.6.name=Polished Andesite
 tile.uptodate.door_acacia.name=Acacia
 tile.uptodate.door_birch.name=Birch Door
 tile.uptodate.door_dark_oak.name=Dark Oak Door
