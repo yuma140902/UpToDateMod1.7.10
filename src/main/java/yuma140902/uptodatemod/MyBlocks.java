@@ -12,6 +12,7 @@ import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
 import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
+import yuma140902.uptodatemod.blocks.generics.GenericStairs;
 import yuma140902.uptodatemod.blocks.generics.GenericTrapDoor;
 import yuma140902.uptodatemod.blocks.generics.GenericWall;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
@@ -73,6 +74,13 @@ public final class MyBlocks {
 		wallPrismarine.register();
 		wallPrismarineBrick.register();
 		wallDarkPrismarine.register();
+		
+		stairsGranite.register();
+		stairsDiorite.register();
+		stairsAndesite.register();
+		stairsPolishedGranite.register();
+		stairsPolishedDiorite.register();
+		stairsPolishedAndesite.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -119,11 +127,18 @@ public final class MyBlocks {
 	public static final GenericWall wallAndesite = new GenericWall(MyBlocks.stone, BlockStone.META_ANDESITE, "wall_andesite");
 	public static final GenericWall wallDiorite = new GenericWall(MyBlocks.stone, BlockStone.META_DIORITE, "wall_diorite");
 	public static final GenericWall wallGranite = new GenericWall(MyBlocks.stone, BlockStone.META_GRANITE, "wall_granite");
-	public static final GenericWall wallSmoothAndesite = new GenericWall(MyBlocks.stone, BlockStone.META_SMOOTH_ANDESITE, "wall_smooth_andesite");
-	public static final GenericWall wallSmoothDiorite = new GenericWall(MyBlocks.stone, BlockStone.META_SMOOTH_DIORITE, "wall_smooth_diorite");
-	public static final GenericWall wallSmoothGranite = new GenericWall(MyBlocks.stone, BlockStone.META_SMOOTH_GRANITE, "wall_smooth_granite");
+	public static final GenericWall wallSmoothAndesite = new GenericWall(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "wall_smooth_andesite");
+	public static final GenericWall wallSmoothDiorite = new GenericWall(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "wall_smooth_diorite");
+	public static final GenericWall wallSmoothGranite = new GenericWall(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "wall_smooth_granite");
 	
 	public static final GenericWall wallPrismarine = new GenericWall(prismarineBlock, "wall_prismarine");
 	public static final GenericWall wallPrismarineBrick = new GenericWall(prismarineBrick, "wall_prismarine_brick");
 	public static final GenericWall wallDarkPrismarine = new GenericWall(prismarineDark, "wall_dark_prismarine");
+	
+	public static final GenericStairs stairsGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");
+	public static final GenericStairs stairsDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_DIORITE, "stairs_diorite");
+	public static final GenericStairs stairsAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_ANDESITE, "stairs_andesite");
+	public static final GenericStairs stairsPolishedGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "stairs_polished_granite");
+	public static final GenericStairs stairsPolishedDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite");
+	public static final GenericStairs stairsPolishedAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
 }
