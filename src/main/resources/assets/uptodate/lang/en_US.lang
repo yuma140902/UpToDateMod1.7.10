@@ -59,6 +59,8 @@ tile.uptodate.stairs_polished_granite.name=Granite 花崗岩 Stairs
 tile.uptodate.stairs_polished_diorite.name=Diorite 閃緑岩 Stairs
 tile.uptodate.stairs_polished_andesite.name=Andesite 安山岩 Stairs
 
+tile.uptodate.red_nether_brick.name=Red Nether Brick
+
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
 item.uptodate.item_boat_dark_oak.name=Dark Oak Boat
