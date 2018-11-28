@@ -98,19 +98,19 @@ public final class Recipes {
 	private static void registerStoneRecipes() {
 	//4つ並べて磨かれた〇〇
 			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_SMOOTH_GRANITE), 
+					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_GRANITE), 
 					"##",
 					"##",
 					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE));
 			
 			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_SMOOTH_DIORITE), 
+					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_DIORITE), 
 					"##",
 					"##",
 					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE));
 			
 			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_SMOOTH_ANDESITE), 
+					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_ANDESITE), 
 					"##",
 					"##",
 					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE));

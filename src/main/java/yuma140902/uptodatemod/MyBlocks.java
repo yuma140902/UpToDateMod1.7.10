@@ -115,7 +115,7 @@ public final class MyBlocks {
 	public static final GenericStairs stairsGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");
 	public static final GenericStairs stairsDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_DIORITE, "stairs_diorite");
 	public static final GenericStairs stairsAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_ANDESITE, "stairs_andesite");
-	public static final GenericStairs stairsPolishedGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_SMOOTH_GRANITE, "stairs_polished_granite");
-	public static final GenericStairs stairsPolishedDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_SMOOTH_DIORITE, "stairs_polished_diorite");
-	public static final GenericStairs stairsPolishedAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_SMOOTH_ANDESITE, "stairs_polished_andesite");
+	public static final GenericStairs stairsPolishedGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "stairs_polished_granite");
+	public static final GenericStairs stairsPolishedDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite");
+	public static final GenericStairs stairsPolishedAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
 }
