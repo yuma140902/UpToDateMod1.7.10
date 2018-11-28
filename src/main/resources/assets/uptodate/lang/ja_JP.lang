@@ -1,11 +1,11 @@
 
 tile.uptodate.stone.0.name=石(UpToDateMod)
 tile.uptodate.stone.1.name=花崗岩
-tile.uptodate.stone.2.name=磨いた花崗岩
+tile.uptodate.stone.2.name=磨かれた花崗岩
 tile.uptodate.stone.3.name=閃緑岩
-tile.uptodate.stone.4.name=磨いた閃緑岩
+tile.uptodate.stone.4.name=磨かれた閃緑岩
 tile.uptodate.stone.5.name=安山岩
-tile.uptodate.stone.6.name=磨いた安山岩
+tile.uptodate.stone.6.name=磨かれた安山岩
 tile.uptodate.door_acacia.name=アカシアのドア
 tile.uptodate.door_birch.name=シラカバのドア
 tile.uptodate.door_dark_oak.name=ダークオークのドア
@@ -51,6 +51,13 @@ tile.uptodate.button_birch.name=シラカバのボタン
 tile.uptodate.button_dark_oak.name=ダークオークのボタン
 tile.uptodate.button_jungle.name=ジャングルのボタン
 tile.uptodate.button_spruce.name=マツのボタン
+
+tile.uptodate.stairs_granite.name=花崗岩の階段
+tile.uptodate.stairs_diorite.name=閃緑岩の階段
+tile.uptodate.stairs_andesite.name=安山岩の階段
+tile.uptodate.stairs_polished_granite.name=磨かれた花崗岩の階段
+tile.uptodate.stairs_polished_diorite.name=磨かれた閃緑岩の階段
+tile.uptodate.stairs_polished_andesite.name=磨かれた安山岩の階段
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート

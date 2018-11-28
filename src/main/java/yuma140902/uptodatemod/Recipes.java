@@ -73,6 +73,7 @@ public final class Recipes {
 		registerFenceGateRecipes();
 		registerButtonRecipes();
 		registerBoatRecipes();
+		registerStarisRecipes();
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.coarseDirt, 4, 0),
@@ -98,19 +99,19 @@ public final class Recipes {
 	private static void registerStoneRecipes() {
 	//4つ並べて磨かれた〇〇
 			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_SMOOTH_GRANITE), 
+					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_GRANITE), 
 					"##",
 					"##",
 					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE));
 			
 			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_SMOOTH_DIORITE), 
+					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_DIORITE), 
 					"##",
 					"##",
 					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE));
 			
 			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_SMOOTH_ANDESITE), 
+					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_ANDESITE), 
 					"##",
 					"##",
 					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE));
@@ -435,6 +436,56 @@ public final class Recipes {
 				"# #",
 				"###",
 				'#', PLANK_SPRUCE
+				);
+	}
+	
+	private static void registerStarisRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsAndesite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsDiorite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsGranite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsPolishedAndesite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_ANDESITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsPolishedDiorite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_DIORITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsPolishedGranite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_GRANITE)
 				);
 	}
 }
