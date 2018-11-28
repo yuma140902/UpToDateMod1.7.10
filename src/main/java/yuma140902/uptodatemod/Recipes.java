@@ -91,6 +91,22 @@ public final class Recipes {
 				'G', Blocks.gravel
 				);
 		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redNetherBrick),
+				"WB",
+				"BW",
+				'B', Items.netherbrick,
+				'W', Items.nether_wart
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redNetherBrick),
+				"BW",
+				"WB",
+				'B', Items.netherbrick,
+				'W', Items.nether_wart
+				);
+		
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), MyBlocks.coarseDirt);
 		
 		registerOceanMonumentRecipes();
