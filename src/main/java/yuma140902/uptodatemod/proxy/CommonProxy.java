@@ -1,16 +1,18 @@
 package yuma140902.uptodatemod.proxy;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
+import net.minecraftforge.common.MinecraftForge;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.entity.item.EntityBoatAcacia;
 import yuma140902.uptodatemod.entity.item.EntityBoatBirch;
 import yuma140902.uptodatemod.entity.item.EntityBoatDarkOak;
 import yuma140902.uptodatemod.entity.item.EntityBoatJungle;
 import yuma140902.uptodatemod.entity.item.EntityBoatSpruce;
+import yuma140902.uptodatemod.event_handlers.CommonEventHandler;
 
 public class CommonProxy {
 	public void registerEventHandlers() {
-		
+		MinecraftForge.EVENT_BUS.register(CommonEventHandler.INSTANCE);
 	}
 	
 	private int id = 0;
