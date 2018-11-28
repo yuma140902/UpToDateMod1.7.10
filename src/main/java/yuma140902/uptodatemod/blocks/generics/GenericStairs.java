@@ -18,6 +18,7 @@ public class GenericStairs extends BlockStairs implements IRegisterable {
 		this.baseBlock = baseBlock;
 		this.meta = meta;
 		this.name = name;
+		this.setLightOpacity(0);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 
