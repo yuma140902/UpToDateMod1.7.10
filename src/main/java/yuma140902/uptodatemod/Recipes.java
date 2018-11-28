@@ -73,6 +73,7 @@ public final class Recipes {
 		registerFenceGateRecipes();
 		registerButtonRecipes();
 		registerBoatRecipes();
+		registerStarisRecipes();
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.coarseDirt, 4, 0),
@@ -435,6 +436,56 @@ public final class Recipes {
 				"# #",
 				"###",
 				'#', PLANK_SPRUCE
+				);
+	}
+	
+	private static void registerStarisRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsAndesite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsDiorite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsGranite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsPolishedAndesite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_ANDESITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsPolishedDiorite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_DIORITE)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stairsPolishedGranite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_GRANITE)
 				);
 	}
 }
