@@ -10,6 +10,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
@@ -39,6 +41,12 @@ public class BlockCoarseDirt extends Block implements IRegisterable {
 		this.setBlockName(ModUpToDateMod.MOD_ID + ".coarse_dirt");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":coarse_dirt");
 		GameRegistry.registerBlock(this, "coarse_dirt");
+	}
+	
+	@Override
+	public boolean
+			canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plantable) {
+		return Blocks.dirt.canSustainPlant(world, x, y, z, direction, plantable);
 	}
 	
 	@Override
