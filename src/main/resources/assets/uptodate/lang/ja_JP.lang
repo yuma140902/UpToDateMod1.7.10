@@ -60,6 +60,7 @@ tile.uptodate.stairs_polished_diorite.name=磨かれた閃緑岩の階段
 tile.uptodate.stairs_polished_andesite.name=磨かれた安山岩の階段
 
 tile.uptodate.red_nether_brick.name=赤いネザーレンガ
+tile.uptodate.nether_wart_block.name=ネザーウォートブロック
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート

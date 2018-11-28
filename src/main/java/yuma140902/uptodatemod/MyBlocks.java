@@ -7,6 +7,7 @@ import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
 import yuma140902.uptodatemod.blocks.BlockDoorJungle;
 import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
+import yuma140902.uptodatemod.blocks.BlockNetherWart;
 import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBrick;
 import yuma140902.uptodatemod.blocks.BlockStone;
@@ -72,6 +73,7 @@ public final class MyBlocks {
 		stairsPolishedAndesite.register();
 		
 		redNetherBrick.register();
+		netherWartBlock.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -123,4 +125,5 @@ public final class MyBlocks {
 	public static final GenericStairs stairsPolishedAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
 	
 	public static final BlockRedNetherBrick redNetherBrick = new BlockRedNetherBrick();
+	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();
 }

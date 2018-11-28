@@ -55,11 +55,12 @@ tile.uptodate.button_spruce.name=Spruce Button
 tile.uptodate.stairs_granite.name=Granite Stairs
 tile.uptodate.stairs_diorite.name=Diorite Stairs
 tile.uptodate.stairs_andesite.name=Andesite Stairs
-tile.uptodate.stairs_polished_granite.name=Granite 花崗岩 Stairs
-tile.uptodate.stairs_polished_diorite.name=Diorite 閃緑岩 Stairs
-tile.uptodate.stairs_polished_andesite.name=Andesite 安山岩 Stairs
+tile.uptodate.stairs_polished_granite.name=Granite Granite Stairs
+tile.uptodate.stairs_polished_diorite.name=Diorite Diorite Stairs
+tile.uptodate.stairs_polished_andesite.name=Andesite Andesite Stairs
 
 tile.uptodate.red_nether_brick.name=Red Nether Brick
+tile.uptodate.nether_wart_block.name=Nether Wart Block
 
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
