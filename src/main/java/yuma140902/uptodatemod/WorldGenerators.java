@@ -2,6 +2,7 @@ package yuma140902.uptodatemod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
+import yuma140902.uptodatemod.worldgen.UpToDateWorldGenerator;
 
 public final class WorldGenerators {
 	private WorldGenerators() {}
@@ -10,7 +11,9 @@ public final class WorldGenerators {
 	
 	public static void register() {
 		GameRegistry.registerWorldGenerator(myMinableGenerator, WORLD_GENERATOR_PRIORITY);
+		GameRegistry.registerWorldGenerator(uptodateWorldGenerator, 0);
 	}
 	
-	public static final MyMinableGenerator myMinableGenerator = new MyMinableGenerator(); 
+	public static final MyMinableGenerator myMinableGenerator = new MyMinableGenerator();
+	public static final UpToDateWorldGenerator uptodateWorldGenerator = new UpToDateWorldGenerator();
 }
