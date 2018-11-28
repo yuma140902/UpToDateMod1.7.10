@@ -1,14 +1,14 @@
 package yuma140902.uptodatemod;
 
-import net.minecraft.init.Blocks;
-import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
-import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockDoorAcacia;
 import yuma140902.uptodatemod.blocks.BlockDoorBirch;
 import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
 import yuma140902.uptodatemod.blocks.BlockDoorJungle;
 import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
+import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
+import yuma140902.uptodatemod.blocks.BlockObserver;
+import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
 import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
@@ -63,7 +63,12 @@ public final class MyBlocks {
 		buttonJungle.register();
 		buttonSpruce.register();
 		
-		stairsStone.register();
+		stairsGranite.register();
+		stairsDiorite.register();
+		stairsAndesite.register();
+		stairsPolishedGranite.register();
+		stairsPolishedDiorite.register();
+		stairsPolishedAndesite.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -107,5 +112,10 @@ public final class MyBlocks {
 	public static final GenericButton buttonJungle = new GenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
 	public static final GenericButton buttonSpruce = new GenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
 	
-	public static final GenericStairs stairsStone = new GenericStairs(Blocks.stone, 0, "stair_stone");
+	public static final GenericStairs stairsGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");
+	public static final GenericStairs stairsDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_DIORITE, "stairs_diorite");
+	public static final GenericStairs stairsAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_ANDESITE, "stairs_andesite");
+	public static final GenericStairs stairsPolishedGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_SMOOTH_GRANITE, "stairs_polished_granite");
+	public static final GenericStairs stairsPolishedDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_SMOOTH_DIORITE, "stairs_polished_diorite");
+	public static final GenericStairs stairsPolishedAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_SMOOTH_ANDESITE, "stairs_polished_andesite");
 }

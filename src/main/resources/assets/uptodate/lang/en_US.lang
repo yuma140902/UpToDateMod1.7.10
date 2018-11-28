@@ -52,6 +52,13 @@ tile.uptodate.button_dark_oak.name=Dark Oak Button
 tile.uptodate.button_jungle.name=Jungle Button
 tile.uptodate.button_spruce.name=Spruce Button
 
+tile.uptodate.stairs_granite.name=Granite Stairs
+tile.uptodate.stairs_diorite.name=Diorite Stairs
+tile.uptodate.stairs_andesite.name=Andesite Stairs
+tile.uptodate.stairs_polished_granite.name=Granite 花崗岩 Stairs
+tile.uptodate.stairs_polished_diorite.name=Diorite 閃緑岩 Stairs
+tile.uptodate.stairs_polished_andesite.name=Andesite 安山岩 Stairs
+
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
 item.uptodate.item_boat_dark_oak.name=Dark Oak Boat

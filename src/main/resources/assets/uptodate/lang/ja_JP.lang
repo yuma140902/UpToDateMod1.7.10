@@ -52,6 +52,13 @@ tile.uptodate.button_dark_oak.name=ダークオークのボタン
 tile.uptodate.button_jungle.name=ジャングルのボタン
 tile.uptodate.button_spruce.name=マツのボタン
 
+tile.uptodate.stairs_granite.name=花崗岩の階段
+tile.uptodate.stairs_diorite.name=閃緑岩の階段
+tile.uptodate.stairs_andesite.name=安山岩の階段
+tile.uptodate.stairs_polished_granite.name=磨かれた花崗岩の階段
+tile.uptodate.stairs_polished_diorite.name=磨かれた閃緑岩の階段
+tile.uptodate.stairs_polished_andesite.name=磨かれた安山岩の階段
+
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
 item.uptodate.item_boat_dark_oak.name=ダークオークのボート
