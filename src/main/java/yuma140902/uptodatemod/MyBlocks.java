@@ -6,6 +6,7 @@ import yuma140902.uptodatemod.blocks.BlockDoorBirch;
 import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
 import yuma140902.uptodatemod.blocks.BlockDoorJungle;
 import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
+import yuma140902.uptodatemod.blocks.BlockEndStoneBrick;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
 import yuma140902.uptodatemod.blocks.BlockObserver;
@@ -74,6 +75,7 @@ public final class MyBlocks {
 		
 		redNetherBrick.register();
 		netherWartBlock.register();
+		endStoneBrick.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -126,4 +128,5 @@ public final class MyBlocks {
 	
 	public static final BlockRedNetherBrick redNetherBrick = new BlockRedNetherBrick();
 	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();
+	public static final BlockEndStoneBrick endStoneBrick = new BlockEndStoneBrick();
 }
