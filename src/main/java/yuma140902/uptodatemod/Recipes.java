@@ -115,6 +115,13 @@ public final class Recipes {
 				'#', Items.nether_wart
 				);
 		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.endStoneBricks, 4),
+				"##",
+				"##",
+				'#', Blocks.end_stone
+				);
+		
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), MyBlocks.coarseDirt);
 		
 		registerOceanMonumentRecipes();
