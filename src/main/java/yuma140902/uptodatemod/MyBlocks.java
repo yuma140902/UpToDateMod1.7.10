@@ -10,6 +10,7 @@ import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
 import yuma140902.uptodatemod.blocks.BlockObserver;
+import yuma140902.uptodatemod.blocks.BlockPurpur;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
@@ -76,6 +77,7 @@ public final class MyBlocks {
 		redNetherBricks.register();
 		netherWartBlock.register();
 		endStoneBricks.register();
+		purpurBlock.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -128,5 +130,7 @@ public final class MyBlocks {
 	
 	public static final BlockRedNetherBricks redNetherBricks = new BlockRedNetherBricks();
 	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();
+	
 	public static final BlockEndStoneBricks endStoneBricks = new BlockEndStoneBricks();
+	public static final BlockPurpur purpurBlock = new BlockPurpur();
 }

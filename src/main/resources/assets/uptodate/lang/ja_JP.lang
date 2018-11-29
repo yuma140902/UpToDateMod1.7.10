@@ -61,7 +61,9 @@ tile.uptodate.stairs_polished_andesite.name=磨かれた安山岩の階段
 
 tile.uptodate.red_nether_bricks.name=赤いネザーレンガ
 tile.uptodate.nether_wart_block.name=ネザーウォートブロック
+
 tile.uptodate.end_stone_bricks.name=エンドストーンレンガ
+tile.uptodate.purpur_block.name=プルプァブロック
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
