@@ -9,6 +9,7 @@ import yuma140902.uptodatemod.blocks.BlockDoorJungle;
 import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
 import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
+import yuma140902.uptodatemod.blocks.BlockMagma;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
 import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.BlockPurpur;
@@ -78,6 +79,8 @@ public final class MyBlocks {
 		
 		redNetherBricks.register();
 		netherWartBlock.register();
+		magmaBlock.register();
+		
 		endStoneBricks.register();
 		purpurBlock.register();
 		purpurPillar.register();
@@ -135,6 +138,7 @@ public final class MyBlocks {
 	
 	public static final BlockRedNetherBricks redNetherBricks = new BlockRedNetherBricks();
 	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();
+	public static final BlockMagma magmaBlock = new BlockMagma();
 	
 	public static final BlockEndStoneBricks endStoneBricks = new BlockEndStoneBricks();
 	public static final BlockPurpur purpurBlock = new BlockPurpur();
