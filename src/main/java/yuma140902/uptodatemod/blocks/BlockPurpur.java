@@ -24,7 +24,7 @@ public class BlockPurpur extends Block implements IRegisterable {
 	public void register() {
 		setBlockName(ModUpToDateMod.MOD_ID + ".purpur_block");
 		setBlockTextureName(ModUpToDateMod.MOD_ID + ":purpur_block");
-		GameRegistry.registerBlock(this, "prismarine_brick");
+		GameRegistry.registerBlock(this, "purpur_block");
 	}
 	
 	@Override
