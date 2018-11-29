@@ -7,6 +7,12 @@ tile.uptodate.stripped_log_dark_oak.name=樹皮を剥いだダークオークの
 tile.uptodate.stripped_log_jungle.name=樹皮を剥いだジャングルの原木
 tile.uptodate.stripped_log_oak.name=樹皮を剥いだオークの原木
 tile.uptodate.stripped_log_spruce.name=樹皮を剥いだマツの原木
+tile.uptodate.stripped_log_acacia_wood.name=樹皮を剥いだアカシアの樹幹
+tile.uptodate.stripped_log_birch_wood.name=樹皮を剥いだシラカバの樹幹
+tile.uptodate.stripped_log_dark_oak_wood.name=樹皮を剥いだダークオークの樹幹
+tile.uptodate.stripped_log_jungle_wood.name=樹皮を剥いだジャングルの樹幹
+tile.uptodate.stripped_log_oak_wood.name=樹皮を剥いだオークの樹幹
+tile.uptodate.stripped_log_spruce_wood.name=樹皮を剥いだマツの樹幹
 
 tile.uptodate.stone.1.name=花崗岩
 tile.uptodate.stone.2.name=磨かれた花崗岩
