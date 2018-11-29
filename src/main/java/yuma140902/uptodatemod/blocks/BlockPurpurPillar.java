@@ -14,9 +14,9 @@ import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class BlockPurpurPiller extends BlockRotatedPillar implements IRegisterable {
+public class BlockPurpurPillar extends BlockRotatedPillar implements IRegisterable {
 	
-	public BlockPurpurPiller() {
+	public BlockPurpurPillar() {
 		super(Material.rock);
 		setHardness(1.5F);
 		setResistance(10.0F);
@@ -26,9 +26,9 @@ public class BlockPurpurPiller extends BlockRotatedPillar implements IRegisterab
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".purpur_piller");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":purpur_piller");
-		GameRegistry.registerBlock(this, "purpur_piller");
+		setBlockName(ModUpToDateMod.MOD_ID + ".purpur_pillar");
+		setBlockTextureName(ModUpToDateMod.MOD_ID + ":purpur_pillar");
+		GameRegistry.registerBlock(this, "purpur_pillar");
 	}
 	
 	@Override
