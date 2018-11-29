@@ -64,6 +64,7 @@ tile.uptodate.nether_wart_block.name=ネザーウォートブロック
 
 tile.uptodate.end_stone_bricks.name=エンドストーンレンガ
 tile.uptodate.purpur_block.name=プルプァブロック
+tile.uptodate.purpur_piller.name=柱状プルプァブロック
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
