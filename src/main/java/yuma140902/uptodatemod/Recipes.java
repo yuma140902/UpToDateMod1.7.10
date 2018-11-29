@@ -130,6 +130,13 @@ public final class Recipes {
 				'#', new ItemStack(Items.dye, 1, 15) //骨粉
 				);
 		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.magmaBlock),
+				"OO",
+				"OO",
+				'O', Items.magma_cream
+				);
+		
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(Items.dye, 9, 15),
 				MyBlocks.boneBlock
