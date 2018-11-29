@@ -1,5 +1,13 @@
 
 tile.uptodate.stone.0.name=石(UpToDateMod)
+
+tile.uptodate.stripped_log_acacia.name=樹皮を剥いだアカシアの原木
+tile.uptodate.stripped_log_birch.name=樹皮を剥いだシラカバの原木
+tile.uptodate.stripped_log_dark_oak.name=樹皮を剥いだダークオークの原木
+tile.uptodate.stripped_log_jungle.name=樹皮を剥いだジャングルの原木
+tile.uptodate.stripped_log_oak.name=樹皮を剥いだオークの原木
+tile.uptodate.stripped_log_spruce.name=樹皮を剥いだマツの原木
+
 tile.uptodate.stone.1.name=花崗岩
 tile.uptodate.stone.2.name=磨かれた花崗岩
 tile.uptodate.stone.3.name=閃緑岩

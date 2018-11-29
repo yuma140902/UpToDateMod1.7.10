@@ -16,6 +16,7 @@ import yuma140902.uptodatemod.blocks.BlockPurpur;
 import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockStone;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
 import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
@@ -32,6 +33,14 @@ public final class MyBlocks {
 	
 	public static void register() {
 		stone.register();
+		
+		strippedLogAcacia.register();
+		strippedLogBirch.register();
+		strippedLogDarkOak.register();
+		strippedLogJungle.register();
+		strippedLogOak.register();
+		strippedLogSpruce.register();
+		
 		doorAcacia.register();
 		doorBirch.register();
 		doorDarkOak.register();
@@ -89,6 +98,14 @@ public final class MyBlocks {
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
+	
+	public static final BlockGenericStrippedLog strippedLogAcacia = new BlockGenericStrippedLog("stripped_log_acacia");
+	public static final BlockGenericStrippedLog strippedLogBirch = new BlockGenericStrippedLog("stripped_log_birch");
+	public static final BlockGenericStrippedLog strippedLogDarkOak = new BlockGenericStrippedLog("stripped_log_dark_oak");
+	public static final BlockGenericStrippedLog strippedLogJungle = new BlockGenericStrippedLog("stripped_log_jungle");
+	public static final BlockGenericStrippedLog strippedLogOak = new BlockGenericStrippedLog("stripped_log_oak");
+	public static final BlockGenericStrippedLog strippedLogSpruce = new BlockGenericStrippedLog("stripped_log_spruce");
+	
 	public static final BlockDoorAcacia doorAcacia = new BlockDoorAcacia();
 	public static final BlockDoorBirch doorBirch = new BlockDoorBirch();
 	public static final BlockDoorDarkOak doorDarkOak = new BlockDoorDarkOak();
