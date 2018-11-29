@@ -6,11 +6,11 @@ import yuma140902.uptodatemod.blocks.BlockDoorBirch;
 import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
 import yuma140902.uptodatemod.blocks.BlockDoorJungle;
 import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
-import yuma140902.uptodatemod.blocks.BlockEndStoneBrick;
+import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
 import yuma140902.uptodatemod.blocks.BlockObserver;
-import yuma140902.uptodatemod.blocks.BlockRedNetherBrick;
+import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
@@ -19,7 +19,7 @@ import yuma140902.uptodatemod.blocks.generics.GenericStairs;
 import yuma140902.uptodatemod.blocks.generics.GenericTrapDoor;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
-import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBrick;
+import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBricks;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockSeaLantern;
 import yuma140902.uptodatemod.util.Stat;
 
@@ -47,7 +47,7 @@ public final class MyBlocks {
 		coarseDirt.register();
 		
 		prismarineBlock.register();
-		prismarineBrick.register();
+		prismarineBricks.register();
 		prismarineDark.register();
 		seaLantern.register();
 		
@@ -73,9 +73,9 @@ public final class MyBlocks {
 		stairsPolishedDiorite.register();
 		stairsPolishedAndesite.register();
 		
-		redNetherBrick.register();
+		redNetherBricks.register();
 		netherWartBlock.register();
-		endStoneBrick.register();
+		endStoneBricks.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -100,7 +100,7 @@ public final class MyBlocks {
 	public static final BlockCoarseDirt coarseDirt = new BlockCoarseDirt();
 	
 	public static final BlockPrismarine prismarineBlock = new BlockPrismarine();
-	public static final BlockPrismarineBrick prismarineBrick = new BlockPrismarineBrick();
+	public static final BlockPrismarineBricks prismarineBricks = new BlockPrismarineBricks();
 	public static final BlockDarkPrismarine prismarineDark = new BlockDarkPrismarine();
 	public static final BlockSeaLantern seaLantern = new BlockSeaLantern();
 	
@@ -126,7 +126,7 @@ public final class MyBlocks {
 	public static final GenericStairs stairsPolishedDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite");
 	public static final GenericStairs stairsPolishedAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
 	
-	public static final BlockRedNetherBrick redNetherBrick = new BlockRedNetherBrick();
+	public static final BlockRedNetherBricks redNetherBricks = new BlockRedNetherBricks();
 	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();
-	public static final BlockEndStoneBrick endStoneBrick = new BlockEndStoneBrick();
+	public static final BlockEndStoneBricks endStoneBricks = new BlockEndStoneBricks();
 }

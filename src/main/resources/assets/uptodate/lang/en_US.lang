@@ -35,7 +35,7 @@ tile.uptodate.coarse_dirt.name=Coarse Dirt
 item.uptodate.prismarine_crystals.name=Prismarine Crystal
 item.uptodate.prismarine_shard.name=Prismarine Shard
 tile.uptodate.prismarine_block.name=Prismarine
-tile.uptodate.prismarine_brick.name=Prismarine Brick
+tile.uptodate.prismarine_brick.name=Prismarine Bricks
 tile.uptodate.dark_prismarine_block.name=Dark Prismarine
 tile.uptodate.sea_lantern.name=Sea Lantern
 
@@ -59,9 +59,9 @@ tile.uptodate.stairs_polished_granite.name=Granite Granite Stairs
 tile.uptodate.stairs_polished_diorite.name=Diorite Diorite Stairs
 tile.uptodate.stairs_polished_andesite.name=Andesite Andesite Stairs
 
-tile.uptodate.red_nether_brick.name=Red Nether Brick
+tile.uptodate.red_nether_bricks.name=Red Nether Bricks
 tile.uptodate.nether_wart_block.name=Nether Wart Block
-tile.uptodate.end_stone_brick.name=End Stone Brick
+tile.uptodate.end_stone_bricks.name=End Stone Bricks
 
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat

@@ -7,9 +7,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class BlockEndStoneBrick extends Block implements IRegisterable{
+public class BlockEndStoneBricks extends Block implements IRegisterable{
 	
-	public BlockEndStoneBrick() {
+	public BlockEndStoneBricks() {
 		super(Material.rock);
 		setHardness(3.0F);
 		setResistance(15.0F);
@@ -19,8 +19,8 @@ public class BlockEndStoneBrick extends Block implements IRegisterable{
 	
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".end_stone_brick");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":end_stone_brick");
-		GameRegistry.registerBlock(this, "end_stone_brick");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".end_stone_bricks");
+		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":end_stone_bricks");
+		GameRegistry.registerBlock(this, "end_stone_bricks");
 	}
 }

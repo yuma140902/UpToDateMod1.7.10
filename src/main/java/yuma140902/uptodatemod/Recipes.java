@@ -92,7 +92,7 @@ public final class Recipes {
 				);
 		
 		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.redNetherBrick),
+				new ItemStack(MyBlocks.redNetherBricks),
 				"WB",
 				"BW",
 				'B', Items.netherbrick,
@@ -100,7 +100,7 @@ public final class Recipes {
 				);
 		
 		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.redNetherBrick),
+				new ItemStack(MyBlocks.redNetherBricks),
 				"BW",
 				"WB",
 				'B', Items.netherbrick,
@@ -400,7 +400,7 @@ public final class Recipes {
 				);
 		
 		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.prismarineBrick),
+				new ItemStack(MyBlocks.prismarineBricks),
 				"###",
 				"###",
 				"###",

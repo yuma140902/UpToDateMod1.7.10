@@ -7,9 +7,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class BlockRedNetherBrick extends Block implements IRegisterable {
+public class BlockRedNetherBricks extends Block implements IRegisterable {
 
-	public BlockRedNetherBrick() {
+	public BlockRedNetherBricks() {
 		super(Material.rock);
 		this.setHardness(2.0F);
 		this.setResistance(10.0F);
@@ -19,9 +19,9 @@ public class BlockRedNetherBrick extends Block implements IRegisterable {
 
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".red_nether_brick");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":red_nether_brick");
-		GameRegistry.registerBlock(this, "red_nether_brick");
+		this.setBlockName(ModUpToDateMod.MOD_ID + ".red_nether_bricks");
+		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":red_nether_bricks");
+		GameRegistry.registerBlock(this, "red_nether_bricks");
 	}
 	
 }
