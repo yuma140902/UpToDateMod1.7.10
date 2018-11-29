@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod;
 
+import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockDoorAcacia;
 import yuma140902.uptodatemod.blocks.BlockDoorBirch;
@@ -80,6 +81,8 @@ public final class MyBlocks {
 		endStoneBricks.register();
 		purpurBlock.register();
 		purpurPiller.register();
+		
+		boneBlock.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -136,4 +139,6 @@ public final class MyBlocks {
 	public static final BlockEndStoneBricks endStoneBricks = new BlockEndStoneBricks();
 	public static final BlockPurpur purpurBlock = new BlockPurpur();
 	public static final BlockPurpurPiller purpurPiller = new BlockPurpurPiller();
+	
+	public static final BlockBone boneBlock = new BlockBone();
 }

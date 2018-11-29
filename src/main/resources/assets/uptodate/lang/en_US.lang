@@ -66,6 +66,8 @@ tile.uptodate.end_stone_bricks.name=End Stone Bricks
 tile.uptodate.purpur_block.name=Purpur Block
 tile.uptodate.purpur_piller.name=Purpur Piller
 
+tile.uptodate.bone_block.name=Bone Block
+
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
 item.uptodate.item_boat_dark_oak.name=Dark Oak Boat

@@ -66,6 +66,8 @@ tile.uptodate.end_stone_bricks.name=エンドストーンレンガ
 tile.uptodate.purpur_block.name=プルプァブロック
 tile.uptodate.purpur_piller.name=柱状プルプァブロック
 
+tile.uptodate.bone_block.name=骨ブロック
+
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
 item.uptodate.item_boat_dark_oak.name=ダークオークのボート
