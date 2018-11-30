@@ -18,11 +18,11 @@ import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
-import yuma140902.uptodatemod.blocks.generics.GenericButton;
-import yuma140902.uptodatemod.blocks.generics.GenericFence;
-import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
-import yuma140902.uptodatemod.blocks.generics.GenericStairs;
-import yuma140902.uptodatemod.blocks.generics.GenericTrapDoor;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericButton;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericFence;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericFenceGate;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericStairs;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericTrapDoor;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBricks;
@@ -115,17 +115,17 @@ public final class MyBlocks {
 	public static final BlockDoorJungle doorJungle = new BlockDoorJungle();
 	public static final BlockDoorSpruce doorSpruce = new BlockDoorSpruce();
 	
-	public static final GenericFence fenceAcacia = new GenericFence("planks_acacia", "fence_acacia");
-	public static final GenericFence fenceBirch = new GenericFence("planks_birch", "fence_birch");
-	public static final GenericFence fenceDarkOak = new GenericFence("planks_big_oak", "fence_dark_oak");
-	public static final GenericFence fenceJungle = new GenericFence("planks_jungle", "fence_jungle");
-	public static final GenericFence fenceSpruce = new GenericFence("planks_spruce", "fence_spruce");
+	public static final BlockGenericFence fenceAcacia = new BlockGenericFence("planks_acacia", "fence_acacia");
+	public static final BlockGenericFence fenceBirch = new BlockGenericFence("planks_birch", "fence_birch");
+	public static final BlockGenericFence fenceDarkOak = new BlockGenericFence("planks_big_oak", "fence_dark_oak");
+	public static final BlockGenericFence fenceJungle = new BlockGenericFence("planks_jungle", "fence_jungle");
+	public static final BlockGenericFence fenceSpruce = new BlockGenericFence("planks_spruce", "fence_spruce");
 	
-	public static final GenericFenceGate fenceGateAcacia = new GenericFenceGate(Stat.PLANK_META_ACACIA, "fence_gate_acacia");
-	public static final GenericFenceGate fenceGateBirch = new GenericFenceGate(Stat.PLANK_META_BIRCH, "fence_gate_birch");
-	public static final GenericFenceGate fenceGateDarkOak = new GenericFenceGate(Stat.PLANK_META_DARKOAK, "fence_gate_dark_oak");
-	public static final GenericFenceGate fenceGateJungle = new GenericFenceGate(Stat.PLANK_META_JUNGLE, "fence_gate_jungle");
-	public static final GenericFenceGate fenceGateSpruce = new GenericFenceGate(Stat.PLANK_META_SPRUCE, "fence_gate_spruce");
+	public static final BlockGenericFenceGate fenceGateAcacia = new BlockGenericFenceGate(Stat.PLANK_META_ACACIA, "fence_gate_acacia");
+	public static final BlockGenericFenceGate fenceGateBirch = new BlockGenericFenceGate(Stat.PLANK_META_BIRCH, "fence_gate_birch");
+	public static final BlockGenericFenceGate fenceGateDarkOak = new BlockGenericFenceGate(Stat.PLANK_META_DARKOAK, "fence_gate_dark_oak");
+	public static final BlockGenericFenceGate fenceGateJungle = new BlockGenericFenceGate(Stat.PLANK_META_JUNGLE, "fence_gate_jungle");
+	public static final BlockGenericFenceGate fenceGateSpruce = new BlockGenericFenceGate(Stat.PLANK_META_SPRUCE, "fence_gate_spruce");
 	
 	public static final BlockCoarseDirt coarseDirt = new BlockCoarseDirt();
 	
@@ -136,25 +136,25 @@ public final class MyBlocks {
 	
 	public static final BlockObserver observer = ModUpToDateMod.INSTANCE.config_enable_observer ? new BlockObserver() : null;
 	
-	public static final GenericTrapDoor trapDoorAcacia = new GenericTrapDoor("trap_door_acacia", Stat.PLANK_META_ACACIA);
-	public static final GenericTrapDoor trapDoorBirch = new GenericTrapDoor("trap_door_birch", Stat.PLANK_META_BIRCH);
-	public static final GenericTrapDoor trapDoorDarkOak = new GenericTrapDoor("trap_door_dark_oak", Stat.PLANK_META_DARKOAK);
-	public static final GenericTrapDoor trapDoorJungle = new GenericTrapDoor("trap_door_jungle", Stat.PLANK_META_JUNGLE);
-	public static final GenericTrapDoor trapDoorSpruce = new GenericTrapDoor("trap_door_spruce", Stat.PLANK_META_SPRUCE);
+	public static final BlockGenericTrapDoor trapDoorAcacia = new BlockGenericTrapDoor("trap_door_acacia", Stat.PLANK_META_ACACIA);
+	public static final BlockGenericTrapDoor trapDoorBirch = new BlockGenericTrapDoor("trap_door_birch", Stat.PLANK_META_BIRCH);
+	public static final BlockGenericTrapDoor trapDoorDarkOak = new BlockGenericTrapDoor("trap_door_dark_oak", Stat.PLANK_META_DARKOAK);
+	public static final BlockGenericTrapDoor trapDoorJungle = new BlockGenericTrapDoor("trap_door_jungle", Stat.PLANK_META_JUNGLE);
+	public static final BlockGenericTrapDoor trapDoorSpruce = new BlockGenericTrapDoor("trap_door_spruce", Stat.PLANK_META_SPRUCE);
 	public static final BlockIronTrapDoor trapDoorIron = new BlockIronTrapDoor();
 	
-	public static final GenericButton buttonAcacia = new GenericButton(Stat.PLANK_META_ACACIA, "button_acacia");
-	public static final GenericButton buttonBirch = new GenericButton(Stat.PLANK_META_BIRCH, "button_birch");
-	public static final GenericButton buttonDarkOak = new GenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
-	public static final GenericButton buttonJungle = new GenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
-	public static final GenericButton buttonSpruce = new GenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
+	public static final BlockGenericButton buttonAcacia = new BlockGenericButton(Stat.PLANK_META_ACACIA, "button_acacia");
+	public static final BlockGenericButton buttonBirch = new BlockGenericButton(Stat.PLANK_META_BIRCH, "button_birch");
+	public static final BlockGenericButton buttonDarkOak = new BlockGenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
+	public static final BlockGenericButton buttonJungle = new BlockGenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
+	public static final BlockGenericButton buttonSpruce = new BlockGenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
 	
-	public static final GenericStairs stairsGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");
-	public static final GenericStairs stairsDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_DIORITE, "stairs_diorite");
-	public static final GenericStairs stairsAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_ANDESITE, "stairs_andesite");
-	public static final GenericStairs stairsPolishedGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "stairs_polished_granite");
-	public static final GenericStairs stairsPolishedDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite");
-	public static final GenericStairs stairsPolishedAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
+	public static final BlockGenericStairs stairsGranite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");
+	public static final BlockGenericStairs stairsDiorite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_DIORITE, "stairs_diorite");
+	public static final BlockGenericStairs stairsAndesite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_ANDESITE, "stairs_andesite");
+	public static final BlockGenericStairs stairsPolishedGranite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "stairs_polished_granite");
+	public static final BlockGenericStairs stairsPolishedDiorite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite");
+	public static final BlockGenericStairs stairsPolishedAndesite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
 	
 	public static final BlockRedNetherBricks redNetherBricks = new BlockRedNetherBricks();
 	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();

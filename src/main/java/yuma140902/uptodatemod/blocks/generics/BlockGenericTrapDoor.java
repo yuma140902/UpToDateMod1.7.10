@@ -13,14 +13,14 @@ import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.util.Stat;
 
-public class GenericTrapDoor extends BlockTrapDoor implements IRegisterable {
+public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable {
 	/** Set this to allow trapdoors to remain free-floating */
   private String name;
   private int plankMeta;
   
   private IIcon icon0, icon90, icon180, icon270;
 
-  public GenericTrapDoor(String name, int plankMeta)
+  public BlockGenericTrapDoor(String name, int plankMeta)
   {
       super(Material.wood);
       this.name = name;

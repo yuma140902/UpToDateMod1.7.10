@@ -3,31 +3,31 @@ package yuma140902.uptodatemod.blocks.generics;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockButtonWood;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.block.BlockFenceGate;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class GenericButton extends BlockButtonWood implements IRegisterable {
-	private int texture_plank_meta;
+public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterable {
+	private int iconSourcePlankMeta;
 	private String name;
 	
-	public GenericButton(int texture_plank_meta, String name) {
-		this.texture_plank_meta = texture_plank_meta;
-		this.setHardness(0.5F);
-		this.setStepSound(soundTypeWood);
-		this.setCreativeTab(CreativeTabs.tabRedstone);
+	public BlockGenericFenceGate(int iconSourcePlankMeta, String name) {
+		super();
+		this.iconSourcePlankMeta = iconSourcePlankMeta;
 		this.name = name;
+		setHardness(2.0F);
+		setResistance(5.0F);
+		setStepSound(soundTypeWood);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) {
-		return Blocks.planks.getIcon(1, texture_plank_meta);
+	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
+		return Blocks.planks.getIcon(p_149691_1_, iconSourcePlankMeta);
 	}
-
+	
 	@Override
 	public void register() {
 		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
