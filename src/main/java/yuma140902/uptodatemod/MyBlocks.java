@@ -15,6 +15,7 @@ import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.BlockPurpur;
 import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
+import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
@@ -95,6 +96,8 @@ public final class MyBlocks {
 		purpurPillar.register();
 		
 		boneBlock.register();
+		
+		redSandStone.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -162,4 +165,6 @@ public final class MyBlocks {
 	public static final BlockPurpurPillar purpurPillar = new BlockPurpurPillar();
 	
 	public static final BlockBone boneBlock = new BlockBone();
+	
+	public static final BlockRedSandStone redSandStone = new BlockRedSandStone();
 }
