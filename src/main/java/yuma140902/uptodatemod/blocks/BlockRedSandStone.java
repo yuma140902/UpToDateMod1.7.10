@@ -17,7 +17,9 @@ import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockRedSandStone extends BlockSandStone implements IRegisterable {
 	
-	public static final String[] names = new String[] {"", "chiseled", "cut"};
+	public static final String[] names = new String[] {"", "chiseled", "cut", "smooth"};
+	public static final int META_MAX = names.length - 1;
+	
   @SideOnly(Side.CLIENT)
   private IIcon[] sideIcons;
   @SideOnly(Side.CLIENT)
@@ -41,6 +43,10 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
+		if(meta == 3) {
+			return sideIcons[3];
+		}
+		
 		if (side != 1 && (side != 0 || meta != 1 && meta != 2)) {
 			if (side == 0) {
 				return this.bottomIcon;
@@ -58,9 +64,9 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
-		list.add(new ItemStack(item, 1, 0));
-		list.add(new ItemStack(item, 1, 1));
-		list.add(new ItemStack(item, 1, 2));
+		for(int meta = 0; meta <= META_MAX; ++meta) {
+			list.add(new ItemStack(item, 1, meta));
+		}
 	}
 	
 	@Override
