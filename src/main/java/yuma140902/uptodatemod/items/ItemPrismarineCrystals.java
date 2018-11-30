@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.items.ocean_monument;
+package yuma140902.uptodatemod.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
@@ -6,8 +6,8 @@ import net.minecraft.item.Item;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class PrismarineCrystals extends Item implements IRegisterable {
-	public PrismarineCrystals() {
+public class ItemPrismarineCrystals extends Item implements IRegisterable {
+	public ItemPrismarineCrystals() {
 		setCreativeTab(CreativeTabs.tabMaterials);
   }
   

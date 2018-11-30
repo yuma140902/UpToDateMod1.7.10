@@ -2,6 +2,7 @@ package yuma140902.uptodatemod;
 
 import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
+import yuma140902.uptodatemod.blocks.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.BlockDoorAcacia;
 import yuma140902.uptodatemod.blocks.BlockDoorBirch;
 import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
@@ -12,10 +13,13 @@ import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockMagma;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
 import yuma140902.uptodatemod.blocks.BlockObserver;
+import yuma140902.uptodatemod.blocks.BlockPrismarine;
+import yuma140902.uptodatemod.blocks.BlockPrismarineBricks;
 import yuma140902.uptodatemod.blocks.BlockPurpur;
 import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockRedSandStone;
+import yuma140902.uptodatemod.blocks.BlockSeaLantern;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericButton;
@@ -23,10 +27,6 @@ import yuma140902.uptodatemod.blocks.generics.BlockGenericFence;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFenceGate;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStairs;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericTrapDoor;
-import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
-import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
-import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBricks;
-import yuma140902.uptodatemod.blocks.ocean_monument.BlockSeaLantern;
 import yuma140902.uptodatemod.util.Stat;
 
 public final class MyBlocks {

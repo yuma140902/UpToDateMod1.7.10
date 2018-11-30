@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.blocks.ocean_monument;
+package yuma140902.uptodatemod.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -8,8 +8,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class BlockPrismarineBricks extends Block implements IRegisterable {
-	public BlockPrismarineBricks() {
+public class BlockPrismarine extends Block implements IRegisterable {
+	
+	public BlockPrismarine() {
 		super(Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setHardness(1.5F);
@@ -19,13 +20,13 @@ public class BlockPrismarineBricks extends Block implements IRegisterable {
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".prismarine_brick");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":prismarine_brick");
-		GameRegistry.registerBlock(this, "prismarine_brick");
+		setBlockName(ModUpToDateMod.MOD_ID + ".prismarine_block");
+		setBlockTextureName(ModUpToDateMod.MOD_ID + ":prismarine_block");
+		GameRegistry.registerBlock(this, "prismarine_block");
 	}
 	
 	@Override
 	public MapColor getMapColor(int p_149728_1_) {
-		return MapColor.diamondColor;
+		return MapColor.cyanColor;
 	}
 }
