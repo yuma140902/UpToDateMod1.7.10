@@ -11,8 +11,8 @@ import yuma140902.uptodatemod.items.ItemDoorBirch;
 import yuma140902.uptodatemod.items.ItemDoorDarkOak;
 import yuma140902.uptodatemod.items.ItemDoorJungle;
 import yuma140902.uptodatemod.items.ItemDoorSpruce;
-import yuma140902.uptodatemod.items.ocean_monument.PrismarineCrystals;
-import yuma140902.uptodatemod.items.ocean_monument.PrismarineShard;
+import yuma140902.uptodatemod.items.ItemPrismarineCrystals;
+import yuma140902.uptodatemod.items.ItemPrismarineShard;
 
 public final class MyItems {
 	private MyItems() {}
@@ -40,8 +40,8 @@ public final class MyItems {
 	public static final Item itemDoorJungle = new ItemDoorJungle();
 	public static final Item itemDoorSpruce = new ItemDoorSpruce();
 	
-	public static final Item prismarineCrystal = new PrismarineCrystals();
-	public static final PrismarineShard prismarineShard = new PrismarineShard();
+	public static final Item prismarineCrystal = new ItemPrismarineCrystals();
+	public static final ItemPrismarineShard prismarineShard = new ItemPrismarineShard();
 	
 	public static final ItemBoatAcacia boatAcacia = new ItemBoatAcacia();
 	public static final ItemBoatBirch boatBirch = new ItemBoatBirch();

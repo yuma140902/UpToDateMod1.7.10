@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.blocks.ocean_monument;
+package yuma140902.uptodatemod.blocks;
 
 import java.util.Random;
 import cpw.mods.fml.common.registry.GameRegistry;

@@ -7,13 +7,13 @@ import net.minecraft.creativetab.CreativeTabs;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class GenericStairs extends BlockStairs implements IRegisterable {
+public class BlockGenericStairs extends BlockStairs implements IRegisterable {
 
 	private Block baseBlock;
 	private int meta;
 	private String name;
 	
-	public GenericStairs(Block baseBlock, int meta, String name) {
+	public BlockGenericStairs(Block baseBlock, int meta, String name) {
 		super(baseBlock, meta);
 		this.baseBlock = baseBlock;
 		this.meta = meta;
