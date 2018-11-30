@@ -1,11 +1,25 @@
 
 tile.uptodate.stone.0.name=Stone(UpToDateMod)
-tile.uptodate.stone.1.name=Granite
-tile.uptodate.stone.2.name=Polished Granite
-tile.uptodate.stone.3.name=Diorite
-tile.uptodate.stone.4.name=Polished Diorite
-tile.uptodate.stone.5.name=Andesite
-tile.uptodate.stone.6.name=Polished Andesite
+tile.uptodate.stone.granite.name=Granite
+tile.uptodate.stone.polished_granite.name=Polished Granite
+tile.uptodate.stone.diorite.name=Diorite
+tile.uptodate.stone.polished_diorite.name=Polished Diorite
+tile.uptodate.stone.andesite.name=Andesite
+tile.uptodate.stone.polished_andesite.name=Polished Andesite
+
+tile.uptodate.stripped_log_acacia.name=Stripped Acacia Log
+tile.uptodate.stripped_log_birch.name=Stripped Birch Log
+tile.uptodate.stripped_log_dark_oak.name=Stripped Dark Oak Log
+tile.uptodate.stripped_log_jungle.name=Stripped Jungle Log
+tile.uptodate.stripped_log_oak.name=Stripped Oak Log
+tile.uptodate.stripped_log_spruce.name=Stripped Spruce Log
+tile.uptodate.stripped_log_acacia_wood.name=Stripped Acacia Wood
+tile.uptodate.stripped_log_birch_wood.name=Stripped Birch Wood
+tile.uptodate.stripped_log_dark_oak_wood.name=Stripped Dark Oak Wood
+tile.uptodate.stripped_log_jungle_wood.name=Stripped Jungle Wood
+tile.uptodate.stripped_log_oak_wood.name=Stripped Oak Wood
+tile.uptodate.stripped_log_spruce_wood.name=Stripped Spruce Wood
+
 tile.uptodate.door_acacia.name=Acacia
 tile.uptodate.door_birch.name=Birch Door
 tile.uptodate.door_dark_oak.name=Dark Oak Door
@@ -35,7 +49,7 @@ tile.uptodate.coarse_dirt.name=Coarse Dirt
 item.uptodate.prismarine_crystals.name=Prismarine Crystal
 item.uptodate.prismarine_shard.name=Prismarine Shard
 tile.uptodate.prismarine_block.name=Prismarine
-tile.uptodate.prismarine_brick.name=Prismarine Brick
+tile.uptodate.prismarine_brick.name=Prismarine Bricks
 tile.uptodate.dark_prismarine_block.name=Dark Prismarine
 tile.uptodate.sea_lantern.name=Sea Lantern
 
@@ -55,9 +69,23 @@ tile.uptodate.button_spruce.name=Spruce Button
 tile.uptodate.stairs_granite.name=Granite Stairs
 tile.uptodate.stairs_diorite.name=Diorite Stairs
 tile.uptodate.stairs_andesite.name=Andesite Stairs
-tile.uptodate.stairs_polished_granite.name=Granite 花崗岩 Stairs
-tile.uptodate.stairs_polished_diorite.name=Diorite 閃緑岩 Stairs
-tile.uptodate.stairs_polished_andesite.name=Andesite 安山岩 Stairs
+tile.uptodate.stairs_polished_granite.name=Granite Granite Stairs
+tile.uptodate.stairs_polished_diorite.name=Diorite Diorite Stairs
+tile.uptodate.stairs_polished_andesite.name=Andesite Andesite Stairs
+
+tile.uptodate.red_nether_bricks.name=Red Nether Bricks
+tile.uptodate.nether_wart_block.name=Nether Wart Block
+tile.uptodate.magma_block.name=Magma Block
+
+tile.uptodate.end_stone_bricks.name=End Stone Bricks
+tile.uptodate.purpur_block.name=Purpur Block
+tile.uptodate.purpur_pillar.name=Purpur Pillar
+
+tile.uptodate.bone_block.name=Bone Block
+
+tile.uptodate.red_sandstone.name=Red Sandstone
+tile.uptodate.red_sandstone.chiseled.name=Chiseled Red Sandstone
+tile.uptodate.red_sandstone.cut.name=Cut Red Sandstone
 
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat

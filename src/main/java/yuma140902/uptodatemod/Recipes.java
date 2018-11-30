@@ -91,6 +91,57 @@ public final class Recipes {
 				'G', Blocks.gravel
 				);
 		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redNetherBricks),
+				"WB",
+				"BW",
+				'B', Items.netherbrick,
+				'W', Items.nether_wart
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redNetherBricks),
+				"BW",
+				"WB",
+				'B', Items.netherbrick,
+				'W', Items.nether_wart
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.netherWartBlock),
+				"###",
+				"###",
+				"###",
+				'#', Items.nether_wart
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.endStoneBricks, 4),
+				"##",
+				"##",
+				'#', Blocks.end_stone
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.boneBlock),
+				"###",
+				"###",
+				"###",
+				'#', new ItemStack(Items.dye, 1, 15) //骨粉
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.magmaBlock),
+				"OO",
+				"OO",
+				'O', Items.magma_cream
+				);
+		
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(Items.dye, 9, 15),
+				MyBlocks.boneBlock
+				);
+		
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), MyBlocks.coarseDirt);
 		
 		registerOceanMonumentRecipes();
@@ -376,7 +427,7 @@ public final class Recipes {
 				);
 		
 		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.prismarineBrick),
+				new ItemStack(MyBlocks.prismarineBricks),
 				"###",
 				"###",
 				"###",
