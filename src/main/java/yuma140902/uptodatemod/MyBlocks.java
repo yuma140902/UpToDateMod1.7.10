@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod;
 
+import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockConcrete;
 import yuma140902.uptodatemod.blocks.BlockConcretePowder;
@@ -8,9 +9,17 @@ import yuma140902.uptodatemod.blocks.BlockDoorBirch;
 import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
 import yuma140902.uptodatemod.blocks.BlockDoorJungle;
 import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
+import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
+import yuma140902.uptodatemod.blocks.BlockMagma;
+import yuma140902.uptodatemod.blocks.BlockNetherWart;
 import yuma140902.uptodatemod.blocks.BlockObserver;
+import yuma140902.uptodatemod.blocks.BlockPurpur;
+import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
+import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
+import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockStone;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.blocks.generics.GenericButton;
 import yuma140902.uptodatemod.blocks.generics.GenericFence;
 import yuma140902.uptodatemod.blocks.generics.GenericFenceGate;
@@ -18,7 +27,7 @@ import yuma140902.uptodatemod.blocks.generics.GenericStairs;
 import yuma140902.uptodatemod.blocks.generics.GenericTrapDoor;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarine;
-import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBrick;
+import yuma140902.uptodatemod.blocks.ocean_monument.BlockPrismarineBricks;
 import yuma140902.uptodatemod.blocks.ocean_monument.BlockSeaLantern;
 import yuma140902.uptodatemod.util.Stat;
 
@@ -27,6 +36,14 @@ public final class MyBlocks {
 	
 	public static void register() {
 		stone.register();
+		
+		strippedLogAcacia.register();
+		strippedLogBirch.register();
+		strippedLogDarkOak.register();
+		strippedLogJungle.register();
+		strippedLogOak.register();
+		strippedLogSpruce.register();
+		
 		doorAcacia.register();
 		doorBirch.register();
 		doorDarkOak.register();
@@ -46,7 +63,7 @@ public final class MyBlocks {
 		coarseDirt.register();
 		
 		prismarineBlock.register();
-		prismarineBrick.register();
+		prismarineBricks.register();
 		prismarineDark.register();
 		seaLantern.register();
 		
@@ -74,9 +91,29 @@ public final class MyBlocks {
 		stairsPolishedGranite.register();
 		stairsPolishedDiorite.register();
 		stairsPolishedAndesite.register();
+		
+		redNetherBricks.register();
+		netherWartBlock.register();
+		magmaBlock.register();
+		
+		endStoneBricks.register();
+		purpurBlock.register();
+		purpurPillar.register();
+		
+		boneBlock.register();
+		
+		redSandStone.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
+	
+	public static final BlockGenericStrippedLog strippedLogAcacia = new BlockGenericStrippedLog("stripped_log_acacia");
+	public static final BlockGenericStrippedLog strippedLogBirch = new BlockGenericStrippedLog("stripped_log_birch");
+	public static final BlockGenericStrippedLog strippedLogDarkOak = new BlockGenericStrippedLog("stripped_log_dark_oak");
+	public static final BlockGenericStrippedLog strippedLogJungle = new BlockGenericStrippedLog("stripped_log_jungle");
+	public static final BlockGenericStrippedLog strippedLogOak = new BlockGenericStrippedLog("stripped_log_oak");
+	public static final BlockGenericStrippedLog strippedLogSpruce = new BlockGenericStrippedLog("stripped_log_spruce");
+	
 	public static final BlockDoorAcacia doorAcacia = new BlockDoorAcacia();
 	public static final BlockDoorBirch doorBirch = new BlockDoorBirch();
 	public static final BlockDoorDarkOak doorDarkOak = new BlockDoorDarkOak();
@@ -98,7 +135,7 @@ public final class MyBlocks {
 	public static final BlockCoarseDirt coarseDirt = new BlockCoarseDirt();
 	
 	public static final BlockPrismarine prismarineBlock = new BlockPrismarine();
-	public static final BlockPrismarineBrick prismarineBrick = new BlockPrismarineBrick();
+	public static final BlockPrismarineBricks prismarineBricks = new BlockPrismarineBricks();
 	public static final BlockDarkPrismarine prismarineDark = new BlockDarkPrismarine();
 	public static final BlockSeaLantern seaLantern = new BlockSeaLantern();
 	
@@ -126,4 +163,16 @@ public final class MyBlocks {
 	public static final GenericStairs stairsPolishedGranite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "stairs_polished_granite");
 	public static final GenericStairs stairsPolishedDiorite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite");
 	public static final GenericStairs stairsPolishedAndesite = new GenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
+	
+	public static final BlockRedNetherBricks redNetherBricks = new BlockRedNetherBricks();
+	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();
+	public static final BlockMagma magmaBlock = new BlockMagma();
+	
+	public static final BlockEndStoneBricks endStoneBricks = new BlockEndStoneBricks();
+	public static final BlockPurpur purpurBlock = new BlockPurpur();
+	public static final BlockPurpurPillar purpurPillar = new BlockPurpurPillar();
+	
+	public static final BlockBone boneBlock = new BlockBone();
+	
+	public static final BlockRedSandStone redSandStone = new BlockRedSandStone();
 }

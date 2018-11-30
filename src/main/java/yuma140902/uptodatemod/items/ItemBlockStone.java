@@ -1,16 +1,11 @@
 package yuma140902.uptodatemod.items;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlockWithMetadata;
-import net.minecraft.item.ItemStack;
+import yuma140902.uptodatemod.blocks.BlockStone;
+import yuma140902.uptodatemod.items.generics.ItemBlockMultiName;
 
-public class ItemBlockStone extends ItemBlockWithMetadata {
+public class ItemBlockStone extends ItemBlockMultiName {
 	public ItemBlockStone(Block block) {
-		super(block, block);
-	}
-	
-	@Override
-	public String getUnlocalizedName(ItemStack itemStack) {
-		return this.getUnlocalizedName() + "." + itemStack.getItemDamage();
+		super(block, BlockStone.names);
 	}
 }

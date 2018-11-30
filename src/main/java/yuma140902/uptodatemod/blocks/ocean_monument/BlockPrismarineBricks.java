@@ -8,8 +8,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class BlockPrismarineBrick extends Block implements IRegisterable {
-	public BlockPrismarineBrick() {
+public class BlockPrismarineBricks extends Block implements IRegisterable {
+	public BlockPrismarineBricks() {
 		super(Material.rock);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setHardness(1.5F);
