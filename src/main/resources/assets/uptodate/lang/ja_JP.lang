@@ -1,5 +1,11 @@
 
-tile.uptodate.stone.0.name=石(UpToDateMod)
+tile.uptodate.stone.name=石(UpToDateMod)
+tile.uptodate.stone.granite.name=花崗岩
+tile.uptodate.stone.polished_granite.name=磨かれた花崗岩
+tile.uptodate.stone.diorite.name=閃緑岩
+tile.uptodate.stone.polished_diorite.name=磨かれた閃緑岩
+tile.uptodate.stone.andesite.name=安山岩
+tile.uptodate.stone.polished_andesite.name=磨かれた安山岩
 
 tile.uptodate.stripped_log_acacia.name=樹皮を剥いだアカシアの原木
 tile.uptodate.stripped_log_birch.name=樹皮を剥いだシラカバの原木
@@ -14,12 +20,6 @@ tile.uptodate.stripped_log_jungle_wood.name=樹皮を剥いだジャングルの
 tile.uptodate.stripped_log_oak_wood.name=樹皮を剥いだオークの樹幹
 tile.uptodate.stripped_log_spruce_wood.name=樹皮を剥いだマツの樹幹
 
-tile.uptodate.stone.1.name=花崗岩
-tile.uptodate.stone.2.name=磨かれた花崗岩
-tile.uptodate.stone.3.name=閃緑岩
-tile.uptodate.stone.4.name=磨かれた閃緑岩
-tile.uptodate.stone.5.name=安山岩
-tile.uptodate.stone.6.name=磨かれた安山岩
 tile.uptodate.door_acacia.name=アカシアのドア
 tile.uptodate.door_birch.name=シラカバのドア
 tile.uptodate.door_dark_oak.name=ダークオークのドア

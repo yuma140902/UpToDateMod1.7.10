@@ -1,5 +1,11 @@
 
 tile.uptodate.stone.0.name=Stone(UpToDateMod)
+tile.uptodate.stone.granite.name=Granite
+tile.uptodate.stone.polished_granite.name=Polished Granite
+tile.uptodate.stone.diorite.name=Diorite
+tile.uptodate.stone.polished_diorite.name=Polished Diorite
+tile.uptodate.stone.andesite.name=Andesite
+tile.uptodate.stone.polished_andesite.name=Polished Andesite
 
 tile.uptodate.stripped_log_acacia.name=Stripped Acacia Log
 tile.uptodate.stripped_log_birch.name=Stripped Birch Log
@@ -14,12 +20,6 @@ tile.uptodate.stripped_log_jungle_wood.name=Stripped Jungle Wood
 tile.uptodate.stripped_log_oak_wood.name=Stripped Oak Wood
 tile.uptodate.stripped_log_spruce_wood.name=Stripped Spruce Wood
 
-tile.uptodate.stone.1.name=Granite
-tile.uptodate.stone.2.name=Polished Granite
-tile.uptodate.stone.3.name=Diorite
-tile.uptodate.stone.4.name=Polished Diorite
-tile.uptodate.stone.5.name=Andesite
-tile.uptodate.stone.6.name=Polished Andesite
 tile.uptodate.door_acacia.name=Acacia
 tile.uptodate.door_birch.name=Birch Door
 tile.uptodate.door_dark_oak.name=Dark Oak Door

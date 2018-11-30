@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.ItemBlockStone;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockStone extends Block implements IRegisterable {
 	public static final int META_MAX = 6;
@@ -24,6 +25,8 @@ public class BlockStone extends Block implements IRegisterable {
 	public static final int META_POLISHED_DIORITE = 4;
 	public static final int META_ANDESITE = 5;
 	public static final int META_POLISHED_ANDESITE = 6;
+	
+	public static final String[] names = new String[] {"", "granite", "polished_granite", "diorite", "polished_diorite", "andesite", "polished_andesite"};
 	
 	public BlockStone() {
 		super(Material.rock);
@@ -53,34 +56,7 @@ public class BlockStone extends Block implements IRegisterable {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
 		for(int i = 1; i <= META_MAX; ++i) { //メタデータ0は、ない
-			switch (i) {
-				case META_GRANITE:
-					iIcons[i] = register.registerIcon(this.getTextureName() + "_granite");
-					break;
-				case META_POLISHED_GRANITE:
-					iIcons[i] = register.registerIcon(this.getTextureName() + "_granite_smooth");
-					break;
-					
-				case META_DIORITE:
-					iIcons[i] = register.registerIcon(this.getTextureName() + "_diorite");
-					break;
-					
-				case META_POLISHED_DIORITE:
-					iIcons[i] = register.registerIcon(this.getTextureName() + "_diorite_smooth");
-					break;
-					
-				case META_ANDESITE:
-					iIcons[i] = register.registerIcon(this.getTextureName() + "_andesite");
-					break;
-					
-				case META_POLISHED_ANDESITE:
-					iIcons[i] = register.registerIcon(this.getTextureName() + "_andesite_smooth");
-					break;
-				
-				default:
-					iIcons[i] = register.registerIcon(this.getTextureName() + "-" + i);
-					break;
-			}
+			iIcons[i] = register.registerIcon(getTextureName() + StringUtil.add("_", names[i]));
 		}
 	}
 	
@@ -90,11 +66,9 @@ public class BlockStone extends Block implements IRegisterable {
 		return iIcons[meta];
 	}
 	
-	@SuppressWarnings({
-		"unchecked", "rawtypes"
-	})
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
 		for(int i = 1; i <= META_MAX; ++i) { //メタデータ0は、なし
 			list.add(new ItemStack(item, 1, i));
