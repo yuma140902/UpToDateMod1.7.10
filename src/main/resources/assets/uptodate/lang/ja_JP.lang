@@ -13,12 +13,12 @@ tile.uptodate.stripped_log_dark_oak.name=樹皮を剥いだダークオークの
 tile.uptodate.stripped_log_jungle.name=樹皮を剥いだジャングルの原木
 tile.uptodate.stripped_log_oak.name=樹皮を剥いだオークの原木
 tile.uptodate.stripped_log_spruce.name=樹皮を剥いだマツの原木
-tile.uptodate.stripped_log_acacia_wood.name=樹皮を剥いだアカシアの樹幹
-tile.uptodate.stripped_log_birch_wood.name=樹皮を剥いだシラカバの樹幹
-tile.uptodate.stripped_log_dark_oak_wood.name=樹皮を剥いだダークオークの樹幹
-tile.uptodate.stripped_log_jungle_wood.name=樹皮を剥いだジャングルの樹幹
-tile.uptodate.stripped_log_oak_wood.name=樹皮を剥いだオークの樹幹
-tile.uptodate.stripped_log_spruce_wood.name=樹皮を剥いだマツの樹幹
+tile.uptodate.stripped_log_acacia_wood.name=樹皮を剥いだアカシアの木
+tile.uptodate.stripped_log_birch_wood.name=樹皮を剥いだシラカバの木
+tile.uptodate.stripped_log_dark_oak_wood.name=樹皮を剥いだダークオークの木
+tile.uptodate.stripped_log_jungle_wood.name=樹皮を剥いだジャングルの木
+tile.uptodate.stripped_log_oak_wood.name=樹皮を剥いだオークの木
+tile.uptodate.stripped_log_spruce_wood.name=樹皮を剥いだマツの木
 
 tile.uptodate.door_acacia.name=アカシアのドア
 tile.uptodate.door_birch.name=シラカバのドア
@@ -85,7 +85,8 @@ tile.uptodate.bone_block.name=骨ブロック
 
 tile.uptodate.red_sandstone.name=赤い砂岩
 tile.uptodate.red_sandstone.chiseled.name=模様入り赤い砂岩
-tile.uptodate.red_sandstone.cut.name=滑らかな赤い砂岩
+tile.uptodate.red_sandstone.cut.name=研がれた赤い砂岩
+tile.uptodate.red_sandstone.smooth.name=滑らかな赤い砂岩
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート

@@ -86,6 +86,7 @@ tile.uptodate.bone_block.name=Bone Block
 tile.uptodate.red_sandstone.name=Red Sandstone
 tile.uptodate.red_sandstone.chiseled.name=Chiseled Red Sandstone
 tile.uptodate.red_sandstone.cut.name=Cut Red Sandstone
+tile.uptodate.red_sandstone.smooth.name=Smooth Red Sandstone
 
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
