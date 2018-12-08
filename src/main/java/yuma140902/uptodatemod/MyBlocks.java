@@ -81,13 +81,6 @@ public final class MyBlocks {
 		buttonJungle.register();
 		buttonSpruce.register();
 		
-		stairsGranite.register();
-		stairsDiorite.register();
-		stairsAndesite.register();
-		stairsPolishedGranite.register();
-		stairsPolishedDiorite.register();
-		stairsPolishedAndesite.register();
-		
 		redNetherBricks.register();
 		netherWartBlock.register();
 		magmaBlock.register();
@@ -99,6 +92,15 @@ public final class MyBlocks {
 		boneBlock.register();
 		
 		redSandStone.register();
+		
+		stairsStone.register();
+		stairsGranite.register();
+		stairsDiorite.register();
+		stairsAndesite.register();
+		stairsPolishedGranite.register();
+		stairsPolishedDiorite.register();
+		stairsPolishedAndesite.register();
+		stairsRedNetherBricks.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -150,16 +152,6 @@ public final class MyBlocks {
 	public static final BlockGenericButton buttonJungle = new BlockGenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
 	public static final BlockGenericButton buttonSpruce = new BlockGenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
 	
-	public static final BlockGenericStairs stairsStone = new BlockGenericStairs(Blocks.stone, 0, "stairs_stone");
-	public static final BlockGenericStairs stairsGranite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");
-	public static final BlockGenericStairs stairsDiorite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_DIORITE, "stairs_diorite");
-	public static final BlockGenericStairs stairsAndesite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_ANDESITE, "stairs_andesite");
-	public static final BlockGenericStairs stairsPolishedGranite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "stairs_polished_granite");
-	public static final BlockGenericStairs stairsPolishedDiorite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite");
-	public static final BlockGenericStairs stairsPolishedAndesite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
-	public static final BlockGenericStairs stairsSmoothQuartz = new BlockGenericStairs(Blocks.quartz_block, 3, "stairs_smooth_quartz");
-	public static final BlockGenericStairs stairsRedNetherBricks = new BlockGenericStairs(MyBlocks.redNetherBricks, 0, "stairs_red_nether_bricks");
-	
 	public static final BlockRedNetherBricks redNetherBricks = new BlockRedNetherBricks();
 	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();
 	public static final BlockMagma magmaBlock = new BlockMagma();
@@ -171,4 +163,14 @@ public final class MyBlocks {
 	public static final BlockBone boneBlock = new BlockBone();
 	
 	public static final BlockRedSandStone redSandStone = new BlockRedSandStone();
+	
+	public static final BlockGenericStairs stairsStone = new BlockGenericStairs(Blocks.stone, 0, "stairs_stone");
+	public static final BlockGenericStairs stairsGranite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");
+	public static final BlockGenericStairs stairsDiorite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_DIORITE, "stairs_diorite");
+	public static final BlockGenericStairs stairsAndesite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_ANDESITE, "stairs_andesite");
+	public static final BlockGenericStairs stairsPolishedGranite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "stairs_polished_granite");
+	public static final BlockGenericStairs stairsPolishedDiorite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite");
+	public static final BlockGenericStairs stairsPolishedAndesite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
+	public static final BlockGenericStairs stairsRedNetherBricks = new BlockGenericStairs(MyBlocks.redNetherBricks, 0, "stairs_red_nether_bricks");
+	
 }
