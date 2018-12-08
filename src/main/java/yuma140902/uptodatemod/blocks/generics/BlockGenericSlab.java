@@ -36,7 +36,7 @@ public class BlockGenericSlab extends BlockSlab {
 		this.slab = slab;
 		this.slabDouble = doubleSlab;
 		setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		GameRegistry.registerBlock(this, ItemGenericSlab.class, isDouble() ? "double_" : "" + name);
+		GameRegistry.registerBlock(this, ItemGenericSlab.class, (isDouble() ? "double_" : "") + name);
 	}
 	
 	public BlockGenericSlab getSlab() {
