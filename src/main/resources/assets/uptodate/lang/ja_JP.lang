@@ -66,13 +66,6 @@ tile.uptodate.button_dark_oak.name=ダークオークのボタン
 tile.uptodate.button_jungle.name=ジャングルのボタン
 tile.uptodate.button_spruce.name=マツのボタン
 
-tile.uptodate.stairs_granite.name=花崗岩の階段
-tile.uptodate.stairs_diorite.name=閃緑岩の階段
-tile.uptodate.stairs_andesite.name=安山岩の階段
-tile.uptodate.stairs_polished_granite.name=磨かれた花崗岩の階段
-tile.uptodate.stairs_polished_diorite.name=磨かれた閃緑岩の階段
-tile.uptodate.stairs_polished_andesite.name=磨かれた安山岩の階段
-
 tile.uptodate.red_nether_bricks.name=赤いネザーレンガ
 tile.uptodate.nether_wart_block.name=ネザーウォートブロック
 tile.uptodate.magma_block.name=マグマブロック
@@ -87,6 +80,23 @@ tile.uptodate.red_sandstone.name=赤い砂岩
 tile.uptodate.red_sandstone.chiseled.name=模様入り赤い砂岩
 tile.uptodate.red_sandstone.cut.name=研がれた赤い砂岩
 tile.uptodate.red_sandstone.smooth.name=滑らかな赤い砂岩
+
+tile.uptodate.stairs_stone.name=石の階段
+tile.uptodate.stairs_granite.name=花崗岩の階段
+tile.uptodate.stairs_diorite.name=閃緑岩の階段
+tile.uptodate.stairs_andesite.name=安山岩の階段
+tile.uptodate.stairs_polished_granite.name=磨かれた花崗岩の階段
+tile.uptodate.stairs_polished_diorite.name=磨かれた閃緑岩の階段
+tile.uptodate.stairs_polished_andesite.name=磨かれた安山岩の階段
+tile.uptodate.stairs_red_nether_bricks.name=赤いネザーレンガの階段
+tile.uptodate.stairs_prismarine.name=プリズマリンの階段
+tile.uptodate.stairs_prismarine_bricks.name=プリズマリンレンガの階段
+tile.uptodate.stairs_dark_prismarine.name=ダークプリズマリンの階段
+tile.uptodate.stairs_purpur.name=プルプァの階段
+tile.uptodate.stairs_red_sandstone.name=赤い砂岩の階段
+tile.uptodate.stairs_end_stone_bricks.name=エンドストーンレンガの階段
+tile.uptodate.stairs_mossy_stone_bricks.name=苔むした石レンガの階段
+tile.uptodate.stairs_mossy_stone.name=苔むした丸石の階段
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
