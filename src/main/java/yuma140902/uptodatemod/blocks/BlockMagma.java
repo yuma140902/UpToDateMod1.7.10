@@ -19,7 +19,10 @@ public class BlockMagma extends Block implements IRegisterable {
 	public BlockMagma() {
 		super(Material.rock);
 		setLightLevel(0.2F);
+		setHardness(0.5F);
+		setStepSound(soundTypeStone);
 		setTickRandomly(true);
+		
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
