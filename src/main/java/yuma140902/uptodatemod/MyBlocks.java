@@ -25,6 +25,7 @@ import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericButton;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFence;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFenceGate;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericSlab;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStairs;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericTrapDoor;
@@ -109,6 +110,11 @@ public final class MyBlocks {
 		stairsEndStoneBricks.register();
 		stairsMossyStoneBricks.register();
 		stairsMossyCobbleStone.register();
+		
+		slabRedSandstone.setSlab(slabRedSandstone, doubleSlabRedSandstone);
+		slabRedSandstone.register();
+		doubleSlabRedSandstone.setSlab(slabRedSandstone, doubleSlabRedSandstone);
+		doubleSlabRedSandstone.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -189,4 +195,6 @@ public final class MyBlocks {
 	public static final BlockGenericStairs stairsMossyStoneBricks = new BlockGenericStairs(Blocks.stonebrick, 1, "stairs_mossy_stone_bricks");
 	public static final BlockGenericStairs stairsMossyCobbleStone = new BlockGenericStairs(Blocks.mossy_cobblestone, 0, "stairs_mossy_cobblestone");
 	
+	public static final BlockGenericSlab slabRedSandstone = new BlockGenericSlab(false, MyBlocks.redSandStone, 0, "slab_red_sandstone");
+	public static final BlockGenericSlab doubleSlabRedSandstone = new BlockGenericSlab(true, MyBlocks.redSandStone, 0, "slab_red_sandstone");
 }

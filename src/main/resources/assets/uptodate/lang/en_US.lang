@@ -98,6 +98,8 @@ tile.uptodate.stairs_end_stone_bricks.name=End Stone Brick Stairs
 tile.uptodate.stairs_mossy_stone_bricks.name=Mossy Stone Brick Stairs
 tile.uptodate.stairs_mossy_stone.name=Mossy Cobble Stone Stairs
 
+tile.uptodate.slab_red_sandstone.name=Red Sandstone Slab
+
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
 item.uptodate.item_boat_dark_oak.name=Dark Oak Boat
