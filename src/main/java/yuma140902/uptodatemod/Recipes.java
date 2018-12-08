@@ -74,6 +74,7 @@ public final class Recipes {
 		registerButtonRecipes();
 		registerBoatRecipes();
 		registerStarisRecipes();
+		registerSlabRecipes();
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.coarseDirt, 4, 0),
@@ -491,52 +492,29 @@ public final class Recipes {
 	}
 	
 	private static void registerStarisRecipes() {
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stairsAndesite, 4),
-				"  #",
-				" ##",
-				"###",
-				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE)
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stairsDiorite, 4),
-				"  #",
-				" ##",
-				"###",
-				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stairsGranite, 4),
-				"  #",
-				" ##",
-				"###",
-				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE)
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stairsPolishedAndesite, 4),
-				"  #",
-				" ##",
-				"###",
-				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_ANDESITE)
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stairsPolishedDiorite, 4),
-				"  #",
-				" ##",
-				"###",
-				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_DIORITE)
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stairsPolishedGranite, 4),
-				"  #",
-				" ##",
-				"###",
-				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_GRANITE)
-				);
+		MyBlocks.stairsAndesite.registerRecipe();
+		MyBlocks.stairsDarkPrismarine.registerRecipe();
+		MyBlocks.stairsDiorite.registerRecipe();
+		MyBlocks.stairsEndStoneBricks.registerRecipe();
+		MyBlocks.stairsGranite.registerRecipe();
+		MyBlocks.stairsMossyCobbleStone.registerRecipe();
+		MyBlocks.stairsMossyStoneBricks.registerRecipe();
+		MyBlocks.stairsPolishedAndesite.registerRecipe();
+		MyBlocks.stairsPolishedDiorite.registerRecipe();
+		MyBlocks.stairsPolishedGranite.registerRecipe();
+		MyBlocks.stairsPrismarine.registerRecipe();
+		MyBlocks.stairsPrismarineBricks.registerRecipe();
+		MyBlocks.stairsPurpur.registerRecipe();
+		MyBlocks.stairsRedNetherBricks.registerRecipe();
+		MyBlocks.stairsRedSandstone.registerRecipe();
+		MyBlocks.stairsStone.registerRecipe();
+	}
+	
+	private static void registerSlabRecipes() {
+		MyBlocks.slabDarkPrismarine.registerRecipe();
+		MyBlocks.slabPrismarine.registerRecipe();
+		MyBlocks.slabPrismarineBricks.registerRecipe();
+		MyBlocks.slabPurpur.registerRecipe();
+		MyBlocks.slabRedSandstone.registerRecipe();
 	}
 }

@@ -9,11 +9,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.generics.ItemGenericSlab;
+import yuma140902.uptodatemod.util.Stat;
 
 public class BlockGenericSlab extends BlockSlab {
 
@@ -28,6 +31,8 @@ public class BlockGenericSlab extends BlockSlab {
 		this.baseBlock = baseBlock;
 		this.meta = meta;
 		this.name = name;
+    this.setStepSound(baseBlock.stepSound);
+    this.setHarvestLevel(baseBlock.getHarvestTool(0), baseBlock.getHarvestLevel(0));
 		setLightOpacity(0);
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
@@ -49,6 +54,25 @@ public class BlockGenericSlab extends BlockSlab {
 	
 	public boolean isDouble() {
 		return this.field_150004_a;
+	}
+	
+	public void registerRecipe() {
+		if(isDouble()) return;
+		GameRegistry.addRecipe(
+				new ItemStack(getSlab(), 6),
+				"###",
+				'#', new ItemStack(baseBlock, 1, meta)
+				);
+	}
+	
+	@Override
+	public float getBlockHardness(World world, int x, int y, int z) {
+		return baseBlock.getBlockHardness(world, x, y, z);
+	}
+	
+	@Override
+	public float getExplosionResistance(Entity entity) {
+		return baseBlock.getExplosionResistance(entity);
 	}
 	
 	@Override
@@ -74,7 +98,7 @@ public class BlockGenericSlab extends BlockSlab {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
-		return baseBlock.getIcon(side, (meta & 0b0001) == 0 ? this.meta : 0);
+		return baseBlock.getIcon((meta & 0b0001) == 0 ? side : Stat.SIDE_TOP, this.meta);
 	}
 
 	@Override
