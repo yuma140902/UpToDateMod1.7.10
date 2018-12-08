@@ -96,6 +96,7 @@ tile.uptodate.stairs_purpur.name=プルプァの階段
 tile.uptodate.stairs_red_sandstone.name=赤い砂岩の階段
 tile.uptodate.stairs_end_stone_bricks.name=エンドストーンレンガの階段
 tile.uptodate.stairs_mossy_stone_bricks.name=苔むした石レンガの階段
+tile.uptodate.stairs_mossy_stone.name=苔むした丸石の階段
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
