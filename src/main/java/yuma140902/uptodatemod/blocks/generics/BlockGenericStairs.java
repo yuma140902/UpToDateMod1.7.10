@@ -18,6 +18,7 @@ public class BlockGenericStairs extends BlockStairs implements IRegisterable {
 		this.baseBlock = baseBlock;
 		this.meta = meta;
 		this.name = name;
+		this.setHarvestLevel(baseBlock.getHarvestTool(0), baseBlock.getHarvestLevel(0));
 		this.setLightOpacity(0);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
