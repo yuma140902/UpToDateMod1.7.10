@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -29,8 +30,6 @@ public class BlockGenericSlab extends BlockSlab {
 		this.baseBlock = baseBlock;
 		this.meta = meta;
 		this.name = name;
-		this.setHardness(baseBlock.getBlockHardness(null, 0, 0, 0));
-    this.setResistance(baseBlock.getExplosionResistance(null) * 5.0F);
     this.setStepSound(baseBlock.stepSound);
     this.setHarvestLevel(baseBlock.getHarvestTool(0), baseBlock.getHarvestLevel(0));
 		setLightOpacity(0);
@@ -54,6 +53,16 @@ public class BlockGenericSlab extends BlockSlab {
 	
 	public boolean isDouble() {
 		return this.field_150004_a;
+	}
+	
+	@Override
+	public float getBlockHardness(World world, int x, int y, int z) {
+		return baseBlock.getBlockHardness(world, x, y, z);
+	}
+	
+	@Override
+	public float getExplosionResistance(Entity entity) {
+		return baseBlock.getExplosionResistance(entity);
 	}
 	
 	@Override
