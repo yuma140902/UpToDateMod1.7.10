@@ -66,13 +66,6 @@ tile.uptodate.button_dark_oak.name=Dark Oak Button
 tile.uptodate.button_jungle.name=Jungle Button
 tile.uptodate.button_spruce.name=Spruce Button
 
-tile.uptodate.stairs_granite.name=Granite Stairs
-tile.uptodate.stairs_diorite.name=Diorite Stairs
-tile.uptodate.stairs_andesite.name=Andesite Stairs
-tile.uptodate.stairs_polished_granite.name=Granite Granite Stairs
-tile.uptodate.stairs_polished_diorite.name=Diorite Diorite Stairs
-tile.uptodate.stairs_polished_andesite.name=Andesite Andesite Stairs
-
 tile.uptodate.red_nether_bricks.name=Red Nether Bricks
 tile.uptodate.nether_wart_block.name=Nether Wart Block
 tile.uptodate.magma_block.name=Magma Block
@@ -87,6 +80,20 @@ tile.uptodate.red_sandstone.name=Red Sandstone
 tile.uptodate.red_sandstone.chiseled.name=Chiseled Red Sandstone
 tile.uptodate.red_sandstone.cut.name=Cut Red Sandstone
 tile.uptodate.red_sandstone.smooth.name=Smooth Red Sandstone
+
+tile.uptodate.stairs_stone.name=Stone Stairs
+tile.uptodate.stairs_granite.name=Granite Stairs
+tile.uptodate.stairs_diorite.name=Diorite Stairs
+tile.uptodate.stairs_andesite.name=Andesite Stairs
+tile.uptodate.stairs_polished_granite.name=Granite Granite Stairs
+tile.uptodate.stairs_polished_diorite.name=Diorite Diorite Stairs
+tile.uptodate.stairs_polished_andesite.name=Andesite Andesite Stairs
+tile.uptodate.stairs_red_nether_bricks.name=Red Nether Brick Stairs
+tile.uptodate.stairs_prismarine.name=Prismarine Stairs
+tile.uptodate.stairs_prismarine_bricks.name=Prismarine Brick Stairs
+tile.uptodate.stairs_dark_prismarine.name=Dark Prismarine Stairs
+tile.uptodate.stairs_purpur.name=Purpur Stairs
+tile.uptodate.stairs_red_sandstone.name=Red Sandstone Stairs
 
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
