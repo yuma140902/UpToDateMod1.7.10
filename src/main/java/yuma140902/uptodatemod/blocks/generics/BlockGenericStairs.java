@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
@@ -27,5 +28,15 @@ public class BlockGenericStairs extends BlockStairs implements IRegisterable {
 	public void register() {
 		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
 		GameRegistry.registerBlock(this, name);
+	}
+	
+	public void registerRecipe() {
+		GameRegistry.addRecipe(
+				new ItemStack(this, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', new ItemStack(baseBlock, 1, meta)
+				);
 	}
 }
