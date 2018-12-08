@@ -100,6 +100,9 @@ tile.uptodate.stairs_mossy_stone.name=苔むした丸石の階段
 
 tile.uptodate.slab_red_sandstone.name=赤い砂岩のハーフブロック
 tile.uptodate.slab_purpur.name=プルプァのハーフブロック
+tile.uptodate.slab_prismarine.name=プリズマリンのハーフブロック
+tile.uptodate.slab_prismarine_bricks.name=プリズマリンレンガのハーフブロック
+tile.uptodate.slab_dark_prismairne.name=ダークプリズマリンのハーフブロック
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
