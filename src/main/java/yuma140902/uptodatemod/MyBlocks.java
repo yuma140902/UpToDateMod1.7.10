@@ -111,14 +111,10 @@ public final class MyBlocks {
 		stairsMossyStoneBricks.register();
 		stairsMossyCobbleStone.register();
 		
-		slabRedSandstone.setSlab(slabRedSandstone, doubleSlabRedSandstone);
-		slabRedSandstone.register();
-		doubleSlabRedSandstone.setSlab(slabRedSandstone, doubleSlabRedSandstone);
-		doubleSlabRedSandstone.register();
-		slabPurpur.setSlab(slabPurpur, doubleSlabPurpur);
-		slabPurpur.register();
-		doubleSlabPurpur.setSlab(slabPurpur, doubleSlabPurpur);
-		doubleSlabPurpur.register();
+		slabRedSandstone.register(slabRedSandstone, doubleSlabRedSandstone);
+		doubleSlabRedSandstone.register(slabRedSandstone, doubleSlabRedSandstone);
+		slabPurpur.register(slabPurpur, doubleSlabPurpur);
+		doubleSlabPurpur.register(slabPurpur, doubleSlabPurpur);
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();

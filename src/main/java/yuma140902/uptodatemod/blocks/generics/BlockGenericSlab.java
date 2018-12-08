@@ -12,11 +12,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.generics.ItemGenericSlab;
 
-public class BlockGenericSlab extends BlockSlab implements IRegisterable {
+public class BlockGenericSlab extends BlockSlab {
 
 	private Block baseBlock;
 	private int meta;
@@ -32,15 +31,10 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 		setLightOpacity(0);
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
-	
-	public BlockGenericSlab setSlab(BlockGenericSlab slab, BlockGenericSlab doubleSlab) {
+
+	public void register(BlockGenericSlab slab, BlockGenericSlab doubleSlab) {
 		this.slab = slab;
 		this.slabDouble = doubleSlab;
-		return this;
-	}
-
-	@Override
-	public void register() {
 		setBlockName(ModUpToDateMod.MOD_ID + "." + name);
 		GameRegistry.registerBlock(this, ItemGenericSlab.class, isDouble() ? "double_" : "" + name);
 	}
