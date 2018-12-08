@@ -69,6 +69,12 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 	}
 	
 	@Override
+	public int damageDropped(int meta) {
+		if((meta & 0b0100) == 0b0100) return 12;
+		return 0;
+	}
+	
+	@Override
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
 		if((meta & 0b0100) == 0b0100) return 12;
 		return super.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, meta);
