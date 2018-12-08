@@ -29,6 +29,10 @@ public class BlockGenericSlab extends BlockSlab {
 		this.baseBlock = baseBlock;
 		this.meta = meta;
 		this.name = name;
+		this.setHardness(baseBlock.getBlockHardness(null, 0, 0, 0));
+    this.setResistance(baseBlock.getExplosionResistance(null) * 5.0F);
+    this.setStepSound(baseBlock.stepSound);
+    this.setHarvestLevel(baseBlock.getHarvestTool(0), baseBlock.getHarvestLevel(0));
 		setLightOpacity(0);
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
