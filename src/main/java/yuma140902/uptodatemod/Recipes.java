@@ -74,6 +74,7 @@ public final class Recipes {
 		registerButtonRecipes();
 		registerBoatRecipes();
 		registerStarisRecipes();
+		registerSlabRecipes();
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.coarseDirt, 4, 0),
@@ -538,5 +539,13 @@ public final class Recipes {
 				"###",
 				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_POLISHED_GRANITE)
 				);
+	}
+	
+	private static void registerSlabRecipes() {
+		MyBlocks.slabDarkPrismarine.registerRecipe();
+		MyBlocks.slabPrismarine.registerRecipe();
+		MyBlocks.slabPrismarineBricks.registerRecipe();
+		MyBlocks.slabPurpur.registerRecipe();
+		MyBlocks.slabRedSandstone.registerRecipe();
 	}
 }

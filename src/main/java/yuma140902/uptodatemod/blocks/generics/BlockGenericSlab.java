@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.ModUpToDateMod;
@@ -53,6 +54,15 @@ public class BlockGenericSlab extends BlockSlab {
 	
 	public boolean isDouble() {
 		return this.field_150004_a;
+	}
+	
+	public void registerRecipe() {
+		if(isDouble()) return;
+		GameRegistry.addRecipe(
+				new ItemStack(getSlab(), 6),
+				"###",
+				'#', new ItemStack(baseBlock, 1, meta)
+				);
 	}
 	
 	@Override
