@@ -101,6 +101,9 @@ public final class MyBlocks {
 		stairsPolishedDiorite.register();
 		stairsPolishedAndesite.register();
 		stairsRedNetherBricks.register();
+		stairsPrismarine.register();
+		stairsPrismarineBricks.register();
+		stairsDarkPrismarine.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -172,5 +175,8 @@ public final class MyBlocks {
 	public static final BlockGenericStairs stairsPolishedDiorite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite");
 	public static final BlockGenericStairs stairsPolishedAndesite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite");
 	public static final BlockGenericStairs stairsRedNetherBricks = new BlockGenericStairs(MyBlocks.redNetherBricks, 0, "stairs_red_nether_bricks");
+	public static final BlockGenericStairs stairsPrismarine = new BlockGenericStairs(MyBlocks.prismarineBlock, 0, "stairs_prismarine");
+	public static final BlockGenericStairs stairsPrismarineBricks = new BlockGenericStairs(MyBlocks.prismarineBricks, 0, "stairs_prismarine_bricks");
+	public static final BlockGenericStairs stairsDarkPrismarine = new BlockGenericStairs(MyBlocks.prismarineDark, 0, "stairs_dark_prismarine");
 	
 }
