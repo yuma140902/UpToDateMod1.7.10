@@ -14,6 +14,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.generics.ItemGenericSlab;
+import yuma140902.uptodatemod.util.Stat;
 
 public class BlockGenericSlab extends BlockSlab {
 
@@ -74,7 +75,7 @@ public class BlockGenericSlab extends BlockSlab {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
-		return baseBlock.getIcon(side, (meta & 0b0001) == 0 ? this.meta : 0);
+		return baseBlock.getIcon((meta & 0b0001) == 0 ? side : Stat.SIDE_TOP, this.meta);
 	}
 
 	@Override
