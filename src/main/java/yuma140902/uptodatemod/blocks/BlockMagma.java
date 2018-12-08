@@ -5,6 +5,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.DamageSource;
+import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
@@ -12,9 +16,9 @@ public class BlockMagma extends Block implements IRegisterable {
 	
 	public BlockMagma() {
 		super(Material.rock);
-    setLightLevel(0.2F);
-    setTickRandomly(true);
-    setCreativeTab(CreativeTabs.tabBlock);
+		setLightLevel(0.2F);
+		setTickRandomly(true);
+		setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
 	@Override
@@ -27,5 +31,14 @@ public class BlockMagma extends Block implements IRegisterable {
 	@Override
 	public MapColor getMapColor(int p_149728_1_) {
 		return MapColor.netherrackColor;
+	}
+	
+	@Override
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+		if (!entity.isImmuneToFire() && entity instanceof EntityLivingBase) {
+			entity.attackEntityFrom(DamageSource.generic, 1.0F);
+		}
+		
+		super.onEntityWalking(world, x, y, z, entity);
 	}
 }
