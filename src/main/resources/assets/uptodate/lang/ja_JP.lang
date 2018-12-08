@@ -96,7 +96,7 @@ tile.uptodate.stairs_purpur.name=プルプァの階段
 tile.uptodate.stairs_red_sandstone.name=赤い砂岩の階段
 tile.uptodate.stairs_end_stone_bricks.name=エンドストーンレンガの階段
 tile.uptodate.stairs_mossy_stone_bricks.name=苔むした石レンガの階段
-tile.uptodate.stairs_mossy_stone.name=苔むした丸石の階段
+tile.uptodate.stairs_mossy_cobblestone.name=苔むした丸石の階段
 
 tile.uptodate.slab_red_sandstone.name=赤い砂岩のハーフブロック
 tile.uptodate.slab_purpur.name=プルプァのハーフブロック
