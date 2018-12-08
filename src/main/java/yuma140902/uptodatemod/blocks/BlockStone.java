@@ -56,7 +56,7 @@ public class BlockStone extends Block implements IRegisterable {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
 		for(int i = 1; i <= META_MAX; ++i) { //メタデータ0は、ない
-			iIcons[i] = register.registerIcon(getTextureName() + StringUtil.add("_", names[i]));
+			iIcons[i] = register.registerIcon(getTextureName() + StringUtil.surfix("_", names[i]));
 		}
 	}
 	
