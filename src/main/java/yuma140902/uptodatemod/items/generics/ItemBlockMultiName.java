@@ -16,7 +16,7 @@ public class ItemBlockMultiName extends ItemMultiTexture {
 		
 		if (meta < 0 || meta >= this.field_150942_c.length) 	meta = 0;
 		
-		return super.getUnlocalizedName() + StringUtil.add(".", this.field_150942_c[meta]);
+		return super.getUnlocalizedName() + StringUtil.surfix(".", this.field_150942_c[meta]);
 	}
 	
 }
