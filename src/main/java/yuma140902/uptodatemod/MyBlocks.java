@@ -107,6 +107,7 @@ public final class MyBlocks {
 		stairsPurpur.register();
 		stairsRedSandstone.register();
 		stairsEndStoneBricks.register();
+		stairsMossyStoneBricks.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -184,5 +185,6 @@ public final class MyBlocks {
 	public static final BlockGenericStairs stairsPurpur = new BlockGenericStairs(MyBlocks.purpurBlock, 0, "stairs_purpur");
 	public static final BlockGenericStairs stairsRedSandstone = new BlockGenericStairs(MyBlocks.redSandStone, 0, "stairs_red_sandstone");
 	public static final BlockGenericStairs stairsEndStoneBricks = new BlockGenericStairs(MyBlocks.endStoneBricks, 0, "stairs_end_stone_bricks");
+	public static final BlockGenericStairs stairsMossyStoneBricks = new BlockGenericStairs(Blocks.stonebrick, 1, "stairs_mossy_stone_bricks");
 	
 }

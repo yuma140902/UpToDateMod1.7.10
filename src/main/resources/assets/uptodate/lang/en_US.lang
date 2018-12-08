@@ -95,6 +95,7 @@ tile.uptodate.stairs_dark_prismarine.name=Dark Prismarine Stairs
 tile.uptodate.stairs_purpur.name=Purpur Stairs
 tile.uptodate.stairs_red_sandstone.name=Red Sandstone Stairs
 tile.uptodate.stairs_end_stone_bricks.name=End Stone Brick Stairs
+tile.uptodate.stairs_mossy_stone_bricks.name=Mossy Stone Brick Stairs
 
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
