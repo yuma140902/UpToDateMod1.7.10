@@ -99,6 +99,7 @@ tile.uptodate.stairs_mossy_stone_bricks.name=苔むした石レンガの階段
 tile.uptodate.stairs_mossy_stone.name=苔むした丸石の階段
 
 tile.uptodate.slab_red_sandstone.name=赤い砂岩のハーフブロック
+tile.uptodate.slab_purpur.name=プルプァのハーフブロック
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート

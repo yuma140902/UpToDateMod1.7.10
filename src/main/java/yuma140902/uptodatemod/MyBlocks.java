@@ -115,6 +115,10 @@ public final class MyBlocks {
 		slabRedSandstone.register();
 		doubleSlabRedSandstone.setSlab(slabRedSandstone, doubleSlabRedSandstone);
 		doubleSlabRedSandstone.register();
+		slabPurpur.setSlab(slabPurpur, doubleSlabPurpur);
+		slabPurpur.register();
+		doubleSlabPurpur.setSlab(slabPurpur, doubleSlabPurpur);
+		doubleSlabPurpur.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -197,4 +201,6 @@ public final class MyBlocks {
 	
 	public static final BlockGenericSlab slabRedSandstone = new BlockGenericSlab(false, MyBlocks.redSandStone, 0, "slab_red_sandstone");
 	public static final BlockGenericSlab doubleSlabRedSandstone = new BlockGenericSlab(true, MyBlocks.redSandStone, 0, "slab_red_sandstone");
+	public static final BlockGenericSlab slabPurpur = new BlockGenericSlab(false, MyBlocks.purpurBlock, 0, "slab_purpur");
+	public static final BlockGenericSlab doubleSlabPurpur = new BlockGenericSlab(true, MyBlocks.purpurBlock, 0, "slab_purpur");
 }
