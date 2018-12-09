@@ -70,7 +70,7 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 	
 	@Override
 	public int damageDropped(int meta) {
-		if((meta & 0b0100) == 0b0100) return 12;
+		if(meta == 12) return 12;
 		return 0;
 	}
 	
