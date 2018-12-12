@@ -16,7 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.items.generics.ItemGenericSlab;
+import yuma140902.uptodatemod.items.generics.ItemBlockGenericSlab;
 import yuma140902.uptodatemod.util.Stat;
 
 public class BlockGenericSlab extends BlockSlab implements IRegisterable {
@@ -56,9 +56,9 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 		slabDouble.setSlabs(this, slabDouble);
 		
 		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		GameRegistry.registerBlock(this, ItemGenericSlab.class, name);
+		GameRegistry.registerBlock(this, ItemBlockGenericSlab.class, name);
 		slabDouble.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		GameRegistry.registerBlock(slabDouble, ItemGenericSlab.class, "double_" + name);
+		GameRegistry.registerBlock(slabDouble, ItemBlockGenericSlab.class, "double_" + name);
 	}
 	
 	public BlockGenericSlab getSlab() {
