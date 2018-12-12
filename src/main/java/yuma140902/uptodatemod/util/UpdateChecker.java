@@ -102,7 +102,7 @@ public class UpdateChecker {
 		if(versionsTsv == null || versionsTsv.isEmpty()) return;
 		
 		System.out.println("versionsTsv:");
-		System.out.print(versionsTsv);
+		System.out.println(versionsTsv);
 		
 		this.versions = getVersionsTable(versionsTsv);
 		

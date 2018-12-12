@@ -14,11 +14,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.items.generics.ItemGenericSlab;
+import yuma140902.uptodatemod.items.generics.ItemBlockGenericSlab;
 import yuma140902.uptodatemod.util.Stat;
 
-public class BlockGenericSlab extends BlockSlab {
+public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 
 	private Block baseBlock;
 	private int meta;
@@ -26,7 +27,11 @@ public class BlockGenericSlab extends BlockSlab {
 	private BlockGenericSlab slab;
 	private BlockGenericSlab slabDouble;
 	
-	public BlockGenericSlab(boolean isDouble, Block baseBlock, int meta, String name) {
+	public BlockGenericSlab(Block baseBlock, int meta, String name) {
+		this(false, baseBlock, meta, name);
+	}
+	
+	protected BlockGenericSlab(boolean isDouble, Block baseBlock, int meta, String name) {
 		super(isDouble, baseBlock.getMaterial());
 		this.baseBlock = baseBlock;
 		this.meta = meta;
@@ -36,12 +41,24 @@ public class BlockGenericSlab extends BlockSlab {
 		setLightOpacity(0);
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
-
-	public void register(BlockGenericSlab slab, BlockGenericSlab doubleSlab) {
+	
+	private void setSlabs(BlockGenericSlab slab, BlockGenericSlab slabDouble) {
 		this.slab = slab;
-		this.slabDouble = doubleSlab;
-		setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		GameRegistry.registerBlock(this, ItemGenericSlab.class, (isDouble() ? "double_" : "") + name);
+		this.slabDouble = slabDouble;
+	}
+	
+	@Override
+	public void register() {
+		if(isDouble()) return;
+		
+		BlockGenericSlab slabDouble = new BlockGenericSlab(true, this.baseBlock, this.meta, this.name);
+		this.setSlabs(this, slabDouble);
+		slabDouble.setSlabs(this, slabDouble);
+		
+		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
+		GameRegistry.registerBlock(this, ItemBlockGenericSlab.class, name);
+		slabDouble.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
+		GameRegistry.registerBlock(slabDouble, ItemBlockGenericSlab.class, "double_" + name);
 	}
 	
 	public BlockGenericSlab getSlab() {

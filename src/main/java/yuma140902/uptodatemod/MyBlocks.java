@@ -113,16 +113,11 @@ public final class MyBlocks {
 		stairsMossyStoneBricks.register();
 		stairsMossyCobbleStone.register();
 		
-		slabRedSandstone.register(slabRedSandstone, doubleSlabRedSandstone);
-		doubleSlabRedSandstone.register(slabRedSandstone, doubleSlabRedSandstone);
-		slabPurpur.register(slabPurpur, doubleSlabPurpur);
-		doubleSlabPurpur.register(slabPurpur, doubleSlabPurpur);
-		slabPrismarine.register(slabPrismarine, doubleSlabPrismarine);
-		doubleSlabPrismarine.register(slabPrismarine, doubleSlabPrismarine);
-		slabPrismarineBricks.register(slabPrismarineBricks, doubleSlabPrismarineBricks);
-		doubleSlabPrismarineBricks.register(slabPrismarineBricks, doubleSlabPrismarineBricks);
-		slabDarkPrismarine.register(slabDarkPrismarine, doubleSlabDarkPrismarine);
-		doubleSlabDarkPrismarine.register(slabDarkPrismarine, doubleSlabDarkPrismarine);
+		slabRedSandstone.register();
+		slabPurpur.register();
+		slabPrismarine.register();
+		slabPrismarineBricks.register();
+		slabDarkPrismarine.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -206,14 +201,9 @@ public final class MyBlocks {
 	public static final BlockGenericStairs stairsMossyStoneBricks = new BlockGenericStairs(Blocks.stonebrick, 1, "stairs_mossy_stone_bricks");
 	public static final BlockGenericStairs stairsMossyCobbleStone = new BlockGenericStairs(Blocks.mossy_cobblestone, 0, "stairs_mossy_cobblestone");
 	
-	public static final BlockGenericSlab slabRedSandstone = new BlockGenericSlab(false, MyBlocks.redSandStone, 0, "slab_red_sandstone");
-	public static final BlockGenericSlab doubleSlabRedSandstone = new BlockGenericSlab(true, MyBlocks.redSandStone, 0, "slab_red_sandstone");
-	public static final BlockGenericSlab slabPurpur = new BlockGenericSlab(false, MyBlocks.purpurBlock, 0, "slab_purpur");
-	public static final BlockGenericSlab doubleSlabPurpur = new BlockGenericSlab(true, MyBlocks.purpurBlock, 0, "slab_purpur");
-	public static final BlockGenericSlab slabPrismarine = new BlockGenericSlab(false, MyBlocks.prismarineBlock, 0, "slab_prismarine");
-	public static final BlockGenericSlab doubleSlabPrismarine = new BlockGenericSlab(true, MyBlocks.prismarineBlock, 0, "slab_prismarine");
-	public static final BlockGenericSlab slabPrismarineBricks = new BlockGenericSlab(false, MyBlocks.prismarineBricks, 0, "slab_prismarine_bricks");
-	public static final BlockGenericSlab doubleSlabPrismarineBricks = new BlockGenericSlab(true, MyBlocks.prismarineBricks, 0, "slab_prismarine_bricks");
-	public static final BlockGenericSlab slabDarkPrismarine = new BlockGenericSlab(false, MyBlocks.prismarineDark, 0, "slab_dark_prismairne");
-	public static final BlockGenericSlab doubleSlabDarkPrismarine = new BlockGenericSlab(true, MyBlocks.prismarineDark, 0, "slab_dark_prismairne");
+	public static final BlockGenericSlab slabRedSandstone = new BlockGenericSlab(MyBlocks.redSandStone, 0, "slab_red_sandstone");
+	public static final BlockGenericSlab slabPurpur = new BlockGenericSlab(MyBlocks.purpurBlock, 0, "slab_purpur");
+	public static final BlockGenericSlab slabPrismarine = new BlockGenericSlab(MyBlocks.prismarineBlock, 0, "slab_prismarine");
+	public static final BlockGenericSlab slabPrismarineBricks = new BlockGenericSlab(MyBlocks.prismarineBricks, 0, "slab_prismarine_bricks");
+	public static final BlockGenericSlab slabDarkPrismarine = new BlockGenericSlab(MyBlocks.prismarineDark, 0, "slab_dark_prismairne");
 }
