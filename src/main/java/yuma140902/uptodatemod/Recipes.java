@@ -113,47 +113,12 @@ public final class Recipes {
 	}
 	
 	private static void registerTrapDoorRecipes() {
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorAcacia, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_ACACIA
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorBirch, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_BIRCH
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorDarkOak, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_DARK_OAK
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorJungle, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_JUNGLE
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorSpruce, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_SPRUCE
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorIron, 1, 0),
-				"##",
-				"##",
-				'#', Items.iron_ingot
-				);
+		MyBlocks.trapDoorAcacia.registerRecipes();
+		MyBlocks.trapDoorBirch.registerRecipes();
+		MyBlocks.trapDoorDarkOak.registerRecipes();
+		MyBlocks.trapDoorJungle.registerRecipes();
+		MyBlocks.trapDoorSpruce.registerRecipes();
+		MyBlocks.trapDoorIron.registerRecipes();
 	}
 	
 	private static void registerFenceRecipes() {

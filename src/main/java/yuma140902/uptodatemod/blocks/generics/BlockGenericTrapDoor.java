@@ -8,12 +8,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.util.Stat;
 
-public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable {
+public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
 	/** Set this to allow trapdoors to remain free-floating */
   private String name;
   private int plankMeta;
@@ -134,5 +136,15 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   	this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
 		GameRegistry.registerBlock(this, name);
+  }
+  
+  @Override
+  public void registerRecipes() {
+  	GameRegistry.addRecipe(
+				new ItemStack(this, 2, 0),
+				"###",
+				"###",
+				'#', new ItemStack(Blocks.planks, 1, plankMeta)
+				);
   }
 }
