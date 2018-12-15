@@ -90,8 +90,6 @@ public final class Recipes {
 		
 		MyBlocks.redSandStone.registerRecipes();
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), MyBlocks.coarseDirt);
-		
 		registerOceanMonumentRecipes();
 	}
 	
