@@ -9,22 +9,22 @@ import net.minecraft.block.BlockDragonEgg;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityFallingBlock;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.entity.item.EntityFallingConcretePowderBlock;
+import yuma140902.uptodatemod.util.ColorUtil;
 
 @SideOnly(Side.CLIENT)
 public class RenderFallingConcretePowder extends Render {
-	private final RenderBlocks field_147920_a = new RenderBlocks();
-	private static final String __OBFID = "CL_00000994";
+	private final RenderBlocks renderBlocks = new RenderBlocks();
 	
-	public RenderFallingConcretePowder()
-  {
-      this.shadowSize = 0.5F;
-  }
+	public RenderFallingConcretePowder() {
+		this.shadowSize = 0.5F;
+	}
 	
 	/**
 	 * Actually renders the given argument. This is a synthetic bridge method,
@@ -36,44 +36,44 @@ public class RenderFallingConcretePowder extends Render {
 	 * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
 	 */
 	public void doRender(
-			EntityFallingBlock p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_,
-			float p_76986_9_) {
-		World world = p_76986_1_.func_145807_e();
-		Block block = p_76986_1_.func_145805_f();
-		int i = MathHelper.floor_double(p_76986_1_.posX);
-		int j = MathHelper.floor_double(p_76986_1_.posY);
-		int k = MathHelper.floor_double(p_76986_1_.posZ);
+			EntityFallingConcretePowderBlock entity, double p_76986_2_, double p_76986_4_, double p_76986_6_,
+			float p_76986_8_, float p_76986_9_) {
+		World world = entity.func_145807_e();
+		Block block = entity.func_145805_f();
+		int i = MathHelper.floor_double(entity.posX);
+		int j = MathHelper.floor_double(entity.posY);
+		int k = MathHelper.floor_double(entity.posZ);
 		
 		if (block != null && block != world.getBlock(i, j, k)) {
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) p_76986_2_, (float) p_76986_4_, (float) p_76986_6_);
-			this.bindEntityTexture(p_76986_1_);
+			// this.bindEntityTexture(p_76986_1_);
 			GL11.glDisable(GL11.GL_LIGHTING);
 			Tessellator tessellator;
 			
 			if (block instanceof BlockAnvil) {
-				this.field_147920_a.blockAccess = world;
+				this.renderBlocks.blockAccess = world;
 				tessellator = Tessellator.instance;
 				tessellator.startDrawingQuads();
 				tessellator.setTranslation(
 						(double) ((float) (-i) - 0.5F), (double) ((float) (-j) - 0.5F), (double) ((float) (-k) - 0.5F));
-				this.field_147920_a.renderBlockAnvilMetadata((BlockAnvil) block, i, j, k, p_76986_1_.field_145814_a);
+				this.renderBlocks.renderBlockAnvilMetadata((BlockAnvil) block, i, j, k, entity.getMetadata());
 				tessellator.setTranslation(0.0D, 0.0D, 0.0D);
 				tessellator.draw();
 			}
 			else if (block instanceof BlockDragonEgg) {
-				this.field_147920_a.blockAccess = world;
+				this.renderBlocks.blockAccess = world;
 				tessellator = Tessellator.instance;
 				tessellator.startDrawingQuads();
 				tessellator.setTranslation(
 						(double) ((float) (-i) - 0.5F), (double) ((float) (-j) - 0.5F), (double) ((float) (-k) - 0.5F));
-				this.field_147920_a.renderBlockDragonEgg((BlockDragonEgg) block, i, j, k);
+				this.renderBlocks.renderBlockDragonEgg((BlockDragonEgg) block, i, j, k);
 				tessellator.setTranslation(0.0D, 0.0D, 0.0D);
 				tessellator.draw();
 			}
 			else {
-				this.field_147920_a.setRenderBoundsFromBlock(block);
-				this.field_147920_a.renderBlockSandFalling(block, world, i, j, k, p_76986_1_.field_145814_a);
+				// this.field_147920_a.setRenderBoundsFromBlock(block);
+				this.renderConcretePowderWithMetadata(block, world, i, j, k, entity.getMetadata());
 			}
 			
 			GL11.glEnable(GL11.GL_LIGHTING);
@@ -81,20 +81,54 @@ public class RenderFallingConcretePowder extends Render {
 		}
 	}
 	
-	/**
-	 * Returns the location of an entity's texture. Doesn't seem to be called
-	 * unless you call Render.bindEntityTexture.
-	 */
-	protected ResourceLocation getEntityTexture(EntityFallingBlock p_110775_1_) {
-		return TextureMap.locationBlocksTexture;
+	// RenderBlocks.renderBlockSandFallingではメタデータ込のブロック描画ができないようなので自前のメソッドを用意
+	// see: https://forum.minecraftuser.jp/viewtopic.php?f=21&t=4195#
+	// RenderBlocks.renderBlockSandFallingをコピペして改変
+	public void renderConcretePowderWithMetadata(
+			Block block, World world, int p_147749_3_, int p_147749_4_, int p_147749_5_, int meta) {
+		System.out.println("renderConcretePowderWithMetadata : " + meta);
+		this.renderBlocks.setRenderBoundsFromBlock(block);
+		float f = 0.5F;
+		float f1 = 1.0F;
+		float f2 = 0.8F;
+		float f3 = 0.6F;
+		IIcon icon = renderBlocks.getBlockIconFromSideAndMetadata(block, 0, meta);
+		Tessellator tessellator = Tessellator.instance;
+		tessellator.startDrawingQuads();
+		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, p_147749_3_, p_147749_4_, p_147749_5_));
+		tessellator.setColorOpaque_F(f, f, f);
+		renderBlocks.renderFaceYNeg(block, -0.5D, -0.5D, -0.5D, icon);
+		tessellator.setColorOpaque_F(f1, f1, f1);
+		renderBlocks.renderFaceYPos(block, -0.5D, -0.5D, -0.5D, icon);
+		tessellator.setColorOpaque_F(f2, f2, f2);
+		renderBlocks.renderFaceZNeg(block, -0.5D, -0.5D, -0.5D, icon);
+		tessellator.setColorOpaque_F(f2, f2, f2);
+		renderBlocks.renderFaceZPos(block, -0.5D, -0.5D, -0.5D, icon);
+		tessellator.setColorOpaque_F(f3, f3, f3);
+		renderBlocks.renderFaceXNeg(block, -0.5D, -0.5D, -0.5D, icon);
+		tessellator.setColorOpaque_F(f3, f3, f3);
+		renderBlocks.renderFaceXPos(block, -0.5D, -0.5D, -0.5D, icon);
+		tessellator.draw();
 	}
 	
 	/**
 	 * Returns the location of an entity's texture. Doesn't seem to be called
 	 * unless you call Render.bindEntityTexture.
 	 */
-	protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
-		return this.getEntityTexture((EntityFallingBlock) p_110775_1_);
+	protected ResourceLocation getEntityTexture(EntityFallingConcretePowderBlock entity) {
+		// return TextureMap.locationBlocksTexture;
+		System.out.println("getEntityTextre : " + ColorUtil.metaToString(entity.getMetadata()));
+		return new ResourceLocation(
+				ModUpToDateMod.MOD_ID,
+				"textures/blocks/concrete_powder_" + ColorUtil.metaToString(entity.getMetadata()) + ".png");
+	}
+	
+	/**
+	 * Returns the location of an entity's texture. Doesn't seem to be called
+	 * unless you call Render.bindEntityTexture.
+	 */
+	protected ResourceLocation getEntityTexture(Entity entity) {
+		return this.getEntityTexture((EntityFallingConcretePowderBlock) entity);
 	}
 	
 	/**
@@ -107,7 +141,8 @@ public class RenderFallingConcretePowder extends Render {
 	 * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
 	 */
 	public void doRender(
-			Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
-		this.doRender((EntityFallingBlock) p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
+			Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
+		this.doRender(
+				(EntityFallingConcretePowderBlock) entity, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
 	}
 }

@@ -25,8 +25,6 @@ import yuma140902.uptodatemod.util.ColorUtil;
 
 public class BlockConcretePowder extends BlockFalling implements IRegisterable {
 	public static final int META_MAX = 15;
-//	private static final int idWater = Block.getIdFromBlock(Blocks.water);
-//	private static final int idFlowingWater = Block.getIdFromBlock(Blocks.flowing_water);
 	
 	private IIcon[] iicons = new IIcon[META_MAX + 1];
 	public static boolean fallInstantly;
@@ -125,6 +123,7 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable {
 			if (!fallInstantly
 					&& world.checkChunksExist(x - offset, y - offset, z - offset, x + offset, y + offset, z + offset)) {
 				if (!world.isRemote) {
+					System.out.println("BlockConcretePowder#dropBlockFrom : " + world.getBlockMetadata(x, y, z));
 					EntityFallingConcretePowderBlock entityfallingblock = new EntityFallingConcretePowderBlock(
 							world, (double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), this,
 							world.getBlockMetadata(x, y, z));
