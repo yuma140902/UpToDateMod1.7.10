@@ -105,45 +105,11 @@ public final class Recipes {
 				'#', PLANK_OAK
 				);
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorAcacia, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_ACACIA
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorBirch, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_BIRCH
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorDarkOak, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_DARK_OAK
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorJungle, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_JUNGLE
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorSpruce, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_SPRUCE
-				);
+		MyItems.itemDoorAcacia.registerRecipes();
+		MyItems.itemDoorBirch.registerRecipes();
+		MyItems.itemDoorDarkOak.registerRecipes();
+		MyItems.itemDoorJungle.registerRecipes();
+		MyItems.itemDoorSpruce.registerRecipes();
 	}
 	
 	private static void registerTrapDoorRecipes() {

@@ -7,11 +7,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.Recipes;
 
-public class ItemDoorAcacia extends net.minecraft.item.ItemDoor implements IRegisterable {
+public class ItemDoorAcacia extends net.minecraft.item.ItemDoor implements IRegisterable, IHasRecipes {
   public ItemDoorAcacia()
   {
   	super(Material.wood);
@@ -22,6 +25,17 @@ public class ItemDoorAcacia extends net.minecraft.item.ItemDoor implements IRegi
 		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + ".door_acacia");
 		this.setTextureName(ModUpToDateMod.MOD_ID + ":door_acacia");
 		GameRegistry.registerItem(this, "itemDoorAcacia");
+  }
+  
+  @Override
+  public void registerRecipes() {
+  	GameRegistry.addRecipe(
+				new ItemStack(MyItems.itemDoorAcacia, 3, 0),
+				"##",
+				"##",
+				"##",
+				'#', Recipes.PLANK_ACACIA
+				);
   }
 
   /**
