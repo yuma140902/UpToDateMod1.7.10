@@ -8,11 +8,15 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyBlocks;
 
-public class BlockBone extends BlockRotatedPillar implements IRegisterable {
+public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
 	
 	public BlockBone() {
 		super(Material.rock);
@@ -44,5 +48,21 @@ public class BlockBone extends BlockRotatedPillar implements IRegisterable {
 	public void registerBlockIcons(IIconRegister register) {
 		blockIcon = register.registerIcon(getTextureName() + "_side");
 		field_150164_N = register.registerIcon(getTextureName() + "_top");
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.boneBlock),
+				"###",
+				"###",
+				"###",
+				'#', new ItemStack(Items.dye, 1, 15) //骨粉
+				);
+		
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(Items.dye, 9, 15),
+				MyBlocks.boneBlock
+				);
 	}
 }

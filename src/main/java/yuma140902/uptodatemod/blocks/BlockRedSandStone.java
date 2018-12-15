@@ -7,15 +7,18 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockSandStone;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockRedSandStone;
 import yuma140902.uptodatemod.util.StringUtil;
 
-public class BlockRedSandStone extends BlockSandStone implements IRegisterable {
+public class BlockRedSandStone extends BlockSandStone implements IRegisterable, IHasRecipes {
 	
 	public static final String[] names = new String[] {"", "chiseled", "cut", "smooth"};
 	public static final int META_MAX = names.length - 1;
@@ -80,5 +83,29 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable {
 		
 		this.topIcon = register.registerIcon(this.getTextureName() + "_top");
 		this.bottomIcon = register.registerIcon(this.getTextureName() + "_bottom");
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redSandStone, 1, 0),
+				"##",
+				"##",
+				'#', new ItemStack(Blocks.sand, 1, 1)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redSandStone, 4, 2),
+				"##",
+				"##",
+				'#', new ItemStack(MyBlocks.redSandStone, 1, 0)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redSandStone, 1, 1),
+				"H",
+				"H",
+				'H', MyBlocks.slabRedSandstone
+				);
 	}
 }

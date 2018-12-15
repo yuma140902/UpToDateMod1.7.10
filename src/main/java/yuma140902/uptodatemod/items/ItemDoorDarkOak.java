@@ -7,11 +7,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.Recipes;
 
-public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IRegisterable {
+public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IRegisterable, IHasRecipes {
   public ItemDoorDarkOak()
   {
   	super(Material.wood);
@@ -22,6 +25,17 @@ public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IReg
 		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + ".door_dark_oak");
 		this.setTextureName(ModUpToDateMod.MOD_ID + ":door_dark_oak");
 		GameRegistry.registerItem(this, "itemDoorDarkOak");
+  }
+  
+  @Override
+  public void registerRecipes() {
+  	GameRegistry.addRecipe(
+				new ItemStack(MyItems.itemDoorDarkOak, 3, 0),
+				"##",
+				"##",
+				"##",
+				'#', Recipes.PLANK_DARK_OAK
+				);
   }
 
   /**
