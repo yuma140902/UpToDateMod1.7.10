@@ -7,12 +7,15 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 
-public class BlockSeaLantern extends Block implements IRegisterable{
+public class BlockSeaLantern extends Block implements IRegisterable, IHasRecipes {
 	public BlockSeaLantern() {
 		super(Material.glass);
 		setCreativeTab(CreativeTabs.tabBlock);
@@ -51,5 +54,17 @@ public class BlockSeaLantern extends Block implements IRegisterable{
 	@Override
 	protected boolean canSilkHarvest() {
 		return true;
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.seaLantern),
+				"#C#",
+				"CCC",
+				"#C#",
+				'#', MyItems.prismarineShard,
+				'C', MyItems.prismarineCrystal
+				);
 	}
 }

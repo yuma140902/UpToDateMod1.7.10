@@ -271,38 +271,10 @@ public final class Recipes {
 	}
 
 	private static void registerOceanMonumentRecipes() {
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.prismarineBlock),
-				"##",
-				"##",
-				'#', MyItems.prismarineShard
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.prismarineBricks),
-				"###",
-				"###",
-				"###",
-				'#', MyItems.prismarineShard
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.prismarineDark),
-				"###",
-				"#I#",
-				"###",
-				'#', MyItems.prismarineShard,
-				'I', new ItemStack(Items.dye, 1, 0)
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.seaLantern),
-				"#C#",
-				"CCC",
-				"#C#",
-				'#', MyItems.prismarineShard,
-				'C', MyItems.prismarineCrystal
-				);
+		MyBlocks.prismarineBlock.registerRecipes();
+		MyBlocks.prismarineBricks.registerRecipes();
+		MyBlocks.prismarineDark.registerRecipes();
+		MyBlocks.seaLantern.registerRecipes();
 	}
 	
 	private static void registerBoatRecipes() {
