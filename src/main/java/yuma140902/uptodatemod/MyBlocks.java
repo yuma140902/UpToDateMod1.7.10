@@ -96,6 +96,9 @@ public final class MyBlocks {
 		
 		redSandStone.register();
 		
+		concreteBlock.register();
+		concretePowder.register();
+		
 		stairsStone.register();
 		stairsGranite.register();
 		stairsDiorite.register();
@@ -163,9 +166,6 @@ public final class MyBlocks {
 	public static final BlockGenericTrapDoor trapDoorSpruce = new BlockGenericTrapDoor("trap_door_spruce", Stat.PLANK_META_SPRUCE);
 	public static final BlockIronTrapDoor trapDoorIron = new BlockIronTrapDoor();
 	
-	public static final BlockConcrete blockConcrete = new BlockConcrete();
-	public static final BlockConcretePowder blockConcretePowder = new BlockConcretePowder();
-	
 	public static final BlockGenericButton buttonAcacia = new BlockGenericButton(Stat.PLANK_META_ACACIA, "button_acacia");
 	public static final BlockGenericButton buttonBirch = new BlockGenericButton(Stat.PLANK_META_BIRCH, "button_birch");
 	public static final BlockGenericButton buttonDarkOak = new BlockGenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
@@ -183,6 +183,9 @@ public final class MyBlocks {
 	public static final BlockBone boneBlock = new BlockBone();
 	
 	public static final BlockRedSandStone redSandStone = new BlockRedSandStone();
+	
+	public static final BlockConcrete concreteBlock = new BlockConcrete();
+	public static final BlockConcretePowder concretePowder = new BlockConcretePowder();
 	
 	public static final BlockGenericStairs stairsStone = new BlockGenericStairs(Blocks.stone, 0, "stairs_stone");
 	public static final BlockGenericStairs stairsGranite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");

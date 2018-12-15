@@ -100,7 +100,7 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable {
 		
 		for (int i = 0; i < 5; ++i) {
 			if (aroundBlocks[i].getMaterial() == Material.water) {
-				world.setBlock(x, y, z, MyBlocks.blockConcrete, meta, 3);
+				world.setBlock(x, y, z, MyBlocks.concreteBlock, meta, 3);
 				return true;
 			}
 		}
