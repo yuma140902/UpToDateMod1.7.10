@@ -84,22 +84,11 @@ public final class Recipes {
 		
 		MyBlocks.endStoneBricks.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.boneBlock),
-				"###",
-				"###",
-				"###",
-				'#', new ItemStack(Items.dye, 1, 15) //骨粉
-				);
+		MyBlocks.boneBlock.registerRecipes();
 		
 		MyBlocks.magmaBlock.registerRecipes();
 		
 		MyBlocks.redSandStone.registerRecipes();
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(Items.dye, 9, 15),
-				MyBlocks.boneBlock
-				);
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), MyBlocks.coarseDirt);
 		
