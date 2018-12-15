@@ -138,6 +138,27 @@ public final class Recipes {
 				'O', Items.magma_cream
 				);
 		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redSandStone, 1, 0),
+				"##",
+				"##",
+				'#', new ItemStack(Blocks.sand, 1, 1)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redSandStone, 4, 2),
+				"##",
+				"##",
+				'#', new ItemStack(MyBlocks.redSandStone, 1, 0)
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.redSandStone, 1, 1),
+				"H",
+				"H",
+				'H', MyBlocks.slabRedSandstone
+				);
+		
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(Items.dye, 9, 15),
 				MyBlocks.boneBlock
