@@ -76,37 +76,9 @@ public final class Recipes {
 		registerStarisRecipes();
 		registerSlabRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.coarseDirt, 4, 0),
-				"GD",
-				"DG",
-				'D', Blocks.dirt,
-				'G', Blocks.gravel
-				);
+		MyBlocks.coarseDirt.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.coarseDirt, 4, 0),
-				"DG",
-				"GD",
-				'D', Blocks.dirt,
-				'G', Blocks.gravel
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.redNetherBricks),
-				"WB",
-				"BW",
-				'B', Items.netherbrick,
-				'W', Items.nether_wart
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.redNetherBricks),
-				"BW",
-				"WB",
-				'B', Items.netherbrick,
-				'W', Items.nether_wart
-				);
+		MyBlocks.redNetherBricks.registerRecipes();
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.netherWartBlock),
@@ -131,12 +103,7 @@ public final class Recipes {
 				'#', new ItemStack(Items.dye, 1, 15) //骨粉
 				);
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.magmaBlock),
-				"OO",
-				"OO",
-				'O', Items.magma_cream
-				);
+		MyBlocks.magmaBlock.registerRecipes();
 		
 		MyBlocks.redSandStone.registerRecipes();
 		

@@ -8,16 +8,18 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 
-public class BlockCoarseDirt extends Block implements IRegisterable {
+public class BlockCoarseDirt extends Block implements IRegisterable, IHasRecipes {
 
 	public static void onUseHoeEvent(UseHoeEvent event) {
 		if(event.world.getBlock(event.x, event.y, event.z) == MyBlocks.coarseDirt) {
@@ -60,6 +62,25 @@ public class BlockCoarseDirt extends Block implements IRegisterable {
     }
 		
 		return super.getIcon(world, x, y, z, p_149673_5_);
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.coarseDirt, 4, 0),
+				"GD",
+				"DG",
+				'D', Blocks.dirt,
+				'G', Blocks.gravel
+				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.coarseDirt, 4, 0),
+				"DG",
+				"GD",
+				'D', Blocks.dirt,
+				'G', Blocks.gravel
+				);
 	}
 	
 }
