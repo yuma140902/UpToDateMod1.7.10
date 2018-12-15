@@ -414,30 +414,11 @@ public final class Recipes {
 				PLANK_OAK
 				);
 		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonAcacia),
-				PLANK_ACACIA
-				);
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonBirch),
-				PLANK_BIRCH
-				);
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonDarkOak),
-				PLANK_DARK_OAK
-				);
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonJungle),
-				PLANK_JUNGLE
-				);
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonSpruce),
-				PLANK_SPRUCE
-				);
+		MyBlocks.buttonAcacia.registerRecipes();
+		MyBlocks.buttonBirch.registerRecipes();
+		MyBlocks.buttonDarkOak.registerRecipes();
+		MyBlocks.buttonJungle.registerRecipes();
+		MyBlocks.buttonSpruce.registerRecipes();
 	}
 
 	private static void registerOceanMonumentRecipes() {

@@ -6,11 +6,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockButtonWood;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class BlockGenericButton extends BlockButtonWood implements IRegisterable {
+public class BlockGenericButton extends BlockButtonWood implements IRegisterable, IHasRecipes {
 	private int texture_plank_meta;
 	private String name;
 	
@@ -33,5 +35,13 @@ public class BlockGenericButton extends BlockButtonWood implements IRegisterable
 		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
 		GameRegistry.registerBlock(this, name);
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(this),
+				new ItemStack(Blocks.planks, 1, texture_plank_meta)
+				);
 	}
 }
