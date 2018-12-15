@@ -6,11 +6,15 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.boss.EntityDragon;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyBlocks;
 
-public class BlockEndStoneBricks extends Block implements IRegisterable{
+public class BlockEndStoneBricks extends Block implements IRegisterable, IHasRecipes {
 	
 	public BlockEndStoneBricks() {
 		super(Material.rock);
@@ -30,5 +34,15 @@ public class BlockEndStoneBricks extends Block implements IRegisterable{
 	@Override
 	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity) {
 		return !(entity instanceof EntityDragon);
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.endStoneBricks, 4),
+				"##",
+				"##",
+				'#', Blocks.end_stone
+				);
 	}
 }

@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
-import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.util.ListUtils;
 
 public final class Recipes {
@@ -76,120 +75,25 @@ public final class Recipes {
 		registerStarisRecipes();
 		registerSlabRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.coarseDirt, 4, 0),
-				"GD",
-				"DG",
-				'D', Blocks.dirt,
-				'G', Blocks.gravel
-				);
+		MyBlocks.coarseDirt.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.coarseDirt, 4, 0),
-				"DG",
-				"GD",
-				'D', Blocks.dirt,
-				'G', Blocks.gravel
-				);
+		MyBlocks.redNetherBricks.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.redNetherBricks),
-				"WB",
-				"BW",
-				'B', Items.netherbrick,
-				'W', Items.nether_wart
-				);
+		MyBlocks.netherWartBlock.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.redNetherBricks),
-				"BW",
-				"WB",
-				'B', Items.netherbrick,
-				'W', Items.nether_wart
-				);
+		MyBlocks.endStoneBricks.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.netherWartBlock),
-				"###",
-				"###",
-				"###",
-				'#', Items.nether_wart
-				);
+		MyBlocks.boneBlock.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.endStoneBricks, 4),
-				"##",
-				"##",
-				'#', Blocks.end_stone
-				);
+		MyBlocks.magmaBlock.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.boneBlock),
-				"###",
-				"###",
-				"###",
-				'#', new ItemStack(Items.dye, 1, 15) //骨粉
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.magmaBlock),
-				"OO",
-				"OO",
-				'O', Items.magma_cream
-				);
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(Items.dye, 9, 15),
-				MyBlocks.boneBlock
-				);
-		
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.dirt), MyBlocks.coarseDirt);
+		MyBlocks.redSandStone.registerRecipes();
 		
 		registerOceanMonumentRecipes();
 	}
 	
 	private static void registerStoneRecipes() {
-	//4つ並べて磨かれた〇〇
-			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_GRANITE), 
-					"##",
-					"##",
-					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE));
-			
-			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_DIORITE), 
-					"##",
-					"##",
-					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE));
-			
-			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_ANDESITE), 
-					"##",
-					"##",
-					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE));
-			
-			//丸石+ネザー水晶->閃緑岩
-			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 2, BlockStone.META_DIORITE),
-					"SN",
-					"NS",
-					'S', Blocks.cobblestone,
-					'N', Items.quartz
-					);
-			
-			//閃緑岩+丸石->安山岩
-			GameRegistry.addShapelessRecipe(
-					new ItemStack(MyBlocks.stone, 2, BlockStone.META_ANDESITE),
-					Blocks.cobblestone,
-					new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
-					);
-			
-			//閃緑岩+ネザー水晶->花崗岩
-			GameRegistry.addShapelessRecipe(
-					new ItemStack(MyBlocks.stone, 2, BlockStone.META_GRANITE),
-					Items.quartz,
-					new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
-					);
+		MyBlocks.stone.registerRecipes();
 	}
 
 	private static void registerDoorRecipes() {
@@ -201,89 +105,20 @@ public final class Recipes {
 				'#', PLANK_OAK
 				);
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorAcacia, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_ACACIA
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorBirch, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_BIRCH
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorDarkOak, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_DARK_OAK
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorJungle, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_JUNGLE
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.itemDoorSpruce, 3, 0),
-				"##",
-				"##",
-				"##",
-				'#', PLANK_SPRUCE
-				);
+		MyItems.itemDoorAcacia.registerRecipes();
+		MyItems.itemDoorBirch.registerRecipes();
+		MyItems.itemDoorDarkOak.registerRecipes();
+		MyItems.itemDoorJungle.registerRecipes();
+		MyItems.itemDoorSpruce.registerRecipes();
 	}
 	
 	private static void registerTrapDoorRecipes() {
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorAcacia, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_ACACIA
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorBirch, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_BIRCH
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorDarkOak, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_DARK_OAK
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorJungle, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_JUNGLE
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorSpruce, 2, 0),
-				"###",
-				"###",
-				'#', PLANK_SPRUCE
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.trapDoorIron, 1, 0),
-				"##",
-				"##",
-				'#', Items.iron_ingot
-				);
+		MyBlocks.trapDoorAcacia.registerRecipes();
+		MyBlocks.trapDoorBirch.registerRecipes();
+		MyBlocks.trapDoorDarkOak.registerRecipes();
+		MyBlocks.trapDoorJungle.registerRecipes();
+		MyBlocks.trapDoorSpruce.registerRecipes();
+		MyBlocks.trapDoorIron.registerRecipes();
 	}
 	
 	private static void registerFenceRecipes() {
@@ -393,102 +228,26 @@ public final class Recipes {
 				PLANK_OAK
 				);
 		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonAcacia),
-				PLANK_ACACIA
-				);
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonBirch),
-				PLANK_BIRCH
-				);
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonDarkOak),
-				PLANK_DARK_OAK
-				);
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonJungle),
-				PLANK_JUNGLE
-				);
-		
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.buttonSpruce),
-				PLANK_SPRUCE
-				);
+		MyBlocks.buttonAcacia.registerRecipes();
+		MyBlocks.buttonBirch.registerRecipes();
+		MyBlocks.buttonDarkOak.registerRecipes();
+		MyBlocks.buttonJungle.registerRecipes();
+		MyBlocks.buttonSpruce.registerRecipes();
 	}
 
 	private static void registerOceanMonumentRecipes() {
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.prismarineBlock),
-				"##",
-				"##",
-				'#', MyItems.prismarineShard
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.prismarineBricks),
-				"###",
-				"###",
-				"###",
-				'#', MyItems.prismarineShard
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.prismarineDark),
-				"###",
-				"#I#",
-				"###",
-				'#', MyItems.prismarineShard,
-				'I', new ItemStack(Items.dye, 1, 0)
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.seaLantern),
-				"#C#",
-				"CCC",
-				"#C#",
-				'#', MyItems.prismarineShard,
-				'C', MyItems.prismarineCrystal
-				);
+		MyBlocks.prismarineBlock.registerRecipes();
+		MyBlocks.prismarineBricks.registerRecipes();
+		MyBlocks.prismarineDark.registerRecipes();
+		MyBlocks.seaLantern.registerRecipes();
 	}
 	
 	private static void registerBoatRecipes() {
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatAcacia),
-				"# #",
-				"###",
-				'#', PLANK_ACACIA
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatBirch),
-				"# #",
-				"###",
-				'#', PLANK_BIRCH
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatDarkOak),
-				"# #",
-				"###",
-				'#', PLANK_DARK_OAK
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatJungle),
-				"# #",
-				"###",
-				'#', PLANK_JUNGLE
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatSpruce),
-				"# #",
-				"###",
-				'#', PLANK_SPRUCE
-				);
+		MyItems.boatAcacia.registerRecipes();
+		MyItems.boatBirch.registerRecipes();
+		MyItems.boatDarkOak.registerRecipes();
+		MyItems.boatJungle.registerRecipes();
+		MyItems.boatSpruce.registerRecipes();
 	}
 	
 	private static void registerStarisRecipes() {

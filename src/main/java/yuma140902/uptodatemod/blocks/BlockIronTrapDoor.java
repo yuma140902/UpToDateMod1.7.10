@@ -3,10 +3,14 @@ package yuma140902.uptodatemod.blocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyBlocks;
 
-public class BlockIronTrapDoor extends BlockTrapDoor implements IRegisterable {
+public class BlockIronTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
 
 	public BlockIronTrapDoor() {
 		super(Material.iron);
@@ -19,6 +23,16 @@ public class BlockIronTrapDoor extends BlockTrapDoor implements IRegisterable {
 		this.setBlockName(ModUpToDateMod.MOD_ID + ".trap_door_iron");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":trap_door_iron");
 		GameRegistry.registerBlock(this, "trap_door_iron");
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.trapDoorIron, 1, 0),
+				"##",
+				"##",
+				'#', Items.iron_ingot
+				);
 	}
 	
 }

@@ -9,12 +9,16 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyBlocks;
 
-public class BlockMagma extends Block implements IRegisterable {
+public class BlockMagma extends Block implements IRegisterable, IHasRecipes {
 	
 	public BlockMagma() {
 		super(Material.rock);
@@ -59,4 +63,13 @@ public class BlockMagma extends Block implements IRegisterable {
     }
 	}
 	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.magmaBlock),
+				"OO",
+				"OO",
+				'O', Items.magma_cream
+				);
+	}
 }

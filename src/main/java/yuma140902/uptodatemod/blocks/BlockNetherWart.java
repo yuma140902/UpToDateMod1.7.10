@@ -5,10 +5,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyBlocks;
 
-public class BlockNetherWart extends Block implements IRegisterable {
+public class BlockNetherWart extends Block implements IRegisterable, IHasRecipes {
 
 	public BlockNetherWart() {
 		super(Material.grass);
@@ -27,6 +31,17 @@ public class BlockNetherWart extends Block implements IRegisterable {
 	@Override
 	public MapColor getMapColor(int p_149728_1_) {
 		return MapColor.redColor;
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.netherWartBlock),
+				"###",
+				"###",
+				"###",
+				'#', Items.nether_wart
+				);
 	}
 	
 }
