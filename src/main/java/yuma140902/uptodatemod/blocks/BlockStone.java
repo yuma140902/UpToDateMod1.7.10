@@ -8,16 +8,20 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockStone;
 import yuma140902.uptodatemod.util.StringUtil;
 
-public class BlockStone extends Block implements IRegisterable {
+public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	public static final int META_MAX = 6;
 	public static final int META_GRANITE = 1;
 	public static final int META_POLISHED_GRANITE = 2;
@@ -78,5 +82,50 @@ public class BlockStone extends Block implements IRegisterable {
 	@Override
 	public int damageDropped(int meta) {
 		return meta;
+	}
+	
+	@Override
+	public void registerRecipes() {
+		//4つ並べて磨かれた〇〇
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_GRANITE), 
+				"##",
+				"##",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE));
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_DIORITE), 
+				"##",
+				"##",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE));
+		
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_ANDESITE), 
+				"##",
+				"##",
+				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE));
+		
+		//丸石+ネザー水晶->閃緑岩
+		GameRegistry.addRecipe(
+				new ItemStack(MyBlocks.stone, 2, BlockStone.META_DIORITE),
+				"SN",
+				"NS",
+				'S', Blocks.cobblestone,
+				'N', Items.quartz
+				);
+		
+		//閃緑岩+丸石->安山岩
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(MyBlocks.stone, 2, BlockStone.META_ANDESITE),
+				Blocks.cobblestone,
+				new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
+				);
+		
+		//閃緑岩+ネザー水晶->花崗岩
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(MyBlocks.stone, 2, BlockStone.META_GRANITE),
+				Items.quartz,
+				new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
+				);
 	}
 }

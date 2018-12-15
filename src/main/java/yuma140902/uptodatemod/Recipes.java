@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
-import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.util.ListUtils;
 
 public final class Recipes {
@@ -94,47 +93,7 @@ public final class Recipes {
 	}
 	
 	private static void registerStoneRecipes() {
-	//4つ並べて磨かれた〇〇
-			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_GRANITE), 
-					"##",
-					"##",
-					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE));
-			
-			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_DIORITE), 
-					"##",
-					"##",
-					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE));
-			
-			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_ANDESITE), 
-					"##",
-					"##",
-					'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE));
-			
-			//丸石+ネザー水晶->閃緑岩
-			GameRegistry.addRecipe(
-					new ItemStack(MyBlocks.stone, 2, BlockStone.META_DIORITE),
-					"SN",
-					"NS",
-					'S', Blocks.cobblestone,
-					'N', Items.quartz
-					);
-			
-			//閃緑岩+丸石->安山岩
-			GameRegistry.addShapelessRecipe(
-					new ItemStack(MyBlocks.stone, 2, BlockStone.META_ANDESITE),
-					Blocks.cobblestone,
-					new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
-					);
-			
-			//閃緑岩+ネザー水晶->花崗岩
-			GameRegistry.addShapelessRecipe(
-					new ItemStack(MyBlocks.stone, 2, BlockStone.META_GRANITE),
-					Items.quartz,
-					new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
-					);
+		MyBlocks.stone.registerRecipes();
 	}
 
 	private static void registerDoorRecipes() {
