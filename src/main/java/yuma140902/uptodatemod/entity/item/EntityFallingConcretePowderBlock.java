@@ -19,10 +19,11 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.MyBlocks;
 
 public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	
-	private Block field_145811_e = Blocks.air;
+	private Block field_145811_e = MyBlocks.concretePowder;
 	public int field_145814_a;
 	public int field_145812_b;
 	public boolean field_145813_c;
