@@ -41,7 +41,7 @@ public class BlockMagma extends Block implements IRegisterable {
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
 		if (!entity.isImmuneToFire() && entity instanceof EntityLivingBase) {
-			entity.attackEntityFrom(DamageSource.generic, 1.0F);
+			entity.attackEntityFrom(DamageSource.onFire, 1.0F);
 		}
 		
 		super.onEntityWalking(world, x, y, z, entity);
