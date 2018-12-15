@@ -80,13 +80,7 @@ public final class Recipes {
 		
 		MyBlocks.redNetherBricks.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.netherWartBlock),
-				"###",
-				"###",
-				"###",
-				'#', Items.nether_wart
-				);
+		MyBlocks.netherWartBlock.registerRecipes();
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.endStoneBricks, 4),
