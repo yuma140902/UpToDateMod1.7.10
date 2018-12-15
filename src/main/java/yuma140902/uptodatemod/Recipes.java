@@ -306,40 +306,11 @@ public final class Recipes {
 	}
 	
 	private static void registerBoatRecipes() {
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatAcacia),
-				"# #",
-				"###",
-				'#', PLANK_ACACIA
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatBirch),
-				"# #",
-				"###",
-				'#', PLANK_BIRCH
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatDarkOak),
-				"# #",
-				"###",
-				'#', PLANK_DARK_OAK
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatJungle),
-				"# #",
-				"###",
-				'#', PLANK_JUNGLE
-				);
-		
-		GameRegistry.addRecipe(
-				new ItemStack(MyItems.boatSpruce),
-				"# #",
-				"###",
-				'#', PLANK_SPRUCE
-				);
+		MyItems.boatAcacia.registerRecipes();
+		MyItems.boatBirch.registerRecipes();
+		MyItems.boatDarkOak.registerRecipes();
+		MyItems.boatJungle.registerRecipes();
+		MyItems.boatSpruce.registerRecipes();
 	}
 	
 	private static void registerStarisRecipes() {

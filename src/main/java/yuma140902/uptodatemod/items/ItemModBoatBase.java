@@ -18,12 +18,14 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.Recipes;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 
-public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable {
+public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable, IHasRecipes {
 	
 	protected abstract String getName();
 	
@@ -84,6 +86,27 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable 
 		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + "." + getName());
 		this.setTextureName(ModUpToDateMod.MOD_ID + ":" + getName());
 		GameRegistry.registerItem(this, getName());
+	}
+	
+	@Override
+	public void registerRecipes() {
+		EntityModBoatBase.Type type = getType();
+		ItemStack plank;
+		switch (type) {
+			case ACACIA: plank = Recipes.PLANK_ACACIA; break;
+			case BIRCH: plank = Recipes.PLANK_BIRCH; break;
+			case DARK_OAK: plank = Recipes.PLANK_DARK_OAK; break;
+			case JUNGLE: plank = Recipes.PLANK_JUNGLE; break;
+			case SPRUCE: plank = Recipes.PLANK_SPRUCE; break;
+			default: return;
+		}
+		
+		GameRegistry.addRecipe(
+				new ItemStack(this),
+				"# #",
+				"###",
+				'#', plank
+				);
 	}
 	
 	/**
