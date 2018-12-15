@@ -82,12 +82,7 @@ public final class Recipes {
 		
 		MyBlocks.netherWartBlock.registerRecipes();
 		
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.endStoneBricks, 4),
-				"##",
-				"##",
-				'#', Blocks.end_stone
-				);
+		MyBlocks.endStoneBricks.registerRecipes();
 		
 		GameRegistry.addRecipe(
 				new ItemStack(MyBlocks.boneBlock),
