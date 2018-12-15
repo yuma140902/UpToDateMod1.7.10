@@ -1,6 +1,5 @@
 package yuma140902.uptodatemod;
 
-import net.minecraft.item.Item;
 import yuma140902.uptodatemod.items.ItemBoatAcacia;
 import yuma140902.uptodatemod.items.ItemBoatBirch;
 import yuma140902.uptodatemod.items.ItemBoatDarkOak;
@@ -18,13 +17,13 @@ public final class MyItems {
 	private MyItems() {}
 	
 	public static void register() {
-		((IRegisterable) itemDoorAcacia).register();
-		((IRegisterable) itemDoorBirch).register();
-		((IRegisterable) itemDoorDarkOak).register();
-		((IRegisterable) itemDoorJungle).register();
-		((IRegisterable) itemDoorSpruce).register();
+		itemDoorAcacia.register();
+		itemDoorBirch.register();
+		itemDoorDarkOak.register();
+		itemDoorJungle.register();
+		itemDoorSpruce.register();
 		
-		((IRegisterable) prismarineCrystal).register();
+		prismarineCrystal.register();
 		prismarineShard.register();
 		
 		boatAcacia.register();
@@ -34,13 +33,13 @@ public final class MyItems {
 		boatSpruce.register();
 	}
 	
-	public static final Item itemDoorAcacia = new ItemDoorAcacia();
-	public static final Item itemDoorBirch = new ItemDoorBirch();
-	public static final Item itemDoorDarkOak = new ItemDoorDarkOak();
-	public static final Item itemDoorJungle = new ItemDoorJungle();
-	public static final Item itemDoorSpruce = new ItemDoorSpruce();
+	public static final ItemDoorAcacia itemDoorAcacia = new ItemDoorAcacia();
+	public static final ItemDoorBirch itemDoorBirch = new ItemDoorBirch();
+	public static final ItemDoorDarkOak itemDoorDarkOak = new ItemDoorDarkOak();
+	public static final ItemDoorJungle itemDoorJungle = new ItemDoorJungle();
+	public static final ItemDoorSpruce itemDoorSpruce = new ItemDoorSpruce();
 	
-	public static final Item prismarineCrystal = new ItemPrismarineCrystals();
+	public static final ItemPrismarineCrystals prismarineCrystal = new ItemPrismarineCrystals();
 	public static final ItemPrismarineShard prismarineShard = new ItemPrismarineShard();
 	
 	public static final ItemBoatAcacia boatAcacia = new ItemBoatAcacia();
