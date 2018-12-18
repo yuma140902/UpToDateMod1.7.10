@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod;
 
 import net.minecraft.init.Blocks;
+import yuma140902.uptodatemod.blocks.BlockBarrel;
 import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockDarkPrismarine;
@@ -116,6 +117,8 @@ public final class MyBlocks {
 		slabPrismarine.register();
 		slabPrismarineBricks.register();
 		slabDarkPrismarine.register();
+		
+		barrel.register();
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
@@ -201,4 +204,6 @@ public final class MyBlocks {
 	public static final BlockGenericSlab slabPrismarine = new BlockGenericSlab(MyBlocks.prismarineBlock, 0, "slab_prismarine");
 	public static final BlockGenericSlab slabPrismarineBricks = new BlockGenericSlab(MyBlocks.prismarineBricks, 0, "slab_prismarine_bricks");
 	public static final BlockGenericSlab slabDarkPrismarine = new BlockGenericSlab(MyBlocks.prismarineDark, 0, "slab_dark_prismairne");
+	
+	public static final BlockBarrel barrel = new BlockBarrel();
 }

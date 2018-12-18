@@ -87,6 +87,7 @@ public class ModUpToDateMod {
 		tweakVanilla();
 		MyBlocks.register();
 		MyItems.register();
+		MyGuis.INSTANCE.register();
 	}
 	
 	@EventHandler

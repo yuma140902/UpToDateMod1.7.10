@@ -90,6 +90,8 @@ public final class Recipes {
 		MyBlocks.redSandStone.registerRecipes();
 		
 		registerOceanMonumentRecipes();
+		
+		MyBlocks.barrel.registerRecipes();
 	}
 	
 	private static void registerStoneRecipes() {
