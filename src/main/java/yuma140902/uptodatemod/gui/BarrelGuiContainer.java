@@ -9,14 +9,14 @@ public class BarrelGuiContainer extends GuiContainer {
 
 	public BarrelGuiContainer(int x, int y, int z) {
 		super(new BarrelContainer(x, y, z));
+		this.xSize = 176;
+		this.ySize = 166;
 	}
 	
 	/*GUIの文字等の描画処理*/
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		int xStart = (this.width - this.xSize) / 2;
-    int yStart = (this.height - this.ySize) / 2;
-		this.fontRendererObj.drawString("Barrel", xStart, yStart, 0, false);
+		this.fontRendererObj.drawString("Barrel", 12, 8, 0, false);
 	}
 
 	/*GUIの背景の描画処理*/
