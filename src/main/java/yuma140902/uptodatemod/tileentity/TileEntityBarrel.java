@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.Constants.NBT;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
 public class TileEntityBarrel extends TileEntity implements IInventory {
@@ -31,7 +32,7 @@ public class TileEntityBarrel extends TileEntity implements IInventory {
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		NBTTagList itemNbtList = new NBTTagList();
+		NBTTagList itemNbtList = nbt.getTagList(NBT_KEY_ITEMS, NBT.TAG_COMPOUND);
 		inventory = new ItemStack[INVENTORY_SIZE];
 		for(int i = 0; i < INVENTORY_SIZE; ++i) {
 			NBTTagCompound itemNbt = itemNbtList.getCompoundTagAt(i);
