@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
@@ -9,8 +10,8 @@ public class BarrelGuiContainer extends GuiContainer {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/gui/barrel.png");
 	private TileEntityBarrel tileEntity;
 
-	public BarrelGuiContainer(TileEntityBarrel tileEntity) {
-		super(new BarrelContainer(tileEntity));
+	public BarrelGuiContainer(EntityPlayer player, TileEntityBarrel tileEntity) {
+		super(new BarrelContainer(player, tileEntity));
 		this.tileEntity = tileEntity;
 		this.xSize = 176;
 		this.ySize = 166;

@@ -8,7 +8,7 @@ public class BarrelContainer extends Container {
 
 	private TileEntityBarrel tileEntity;
   
-  public BarrelContainer(TileEntityBarrel tileEntity) {
+  public BarrelContainer(EntityPlayer player, TileEntityBarrel tileEntity) {
       this.tileEntity = tileEntity;
   }
 

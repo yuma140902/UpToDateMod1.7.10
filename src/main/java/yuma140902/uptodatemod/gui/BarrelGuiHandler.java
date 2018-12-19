@@ -16,7 +16,7 @@ public class BarrelGuiHandler implements IGuiHandler {
 		}
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
 		if(tileEntity instanceof TileEntityBarrel) {
-			return new BarrelContainer((TileEntityBarrel) tileEntity);
+			return new BarrelContainer(player, (TileEntityBarrel) tileEntity);
 		}
 		return null;
 	}
@@ -28,7 +28,7 @@ public class BarrelGuiHandler implements IGuiHandler {
 		}
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
 		if(tileEntity instanceof TileEntityBarrel) {
-			return new BarrelGuiContainer((TileEntityBarrel) tileEntity);
+			return new BarrelGuiContainer(player, (TileEntityBarrel) tileEntity);
 		}
 		return null;
 	}
