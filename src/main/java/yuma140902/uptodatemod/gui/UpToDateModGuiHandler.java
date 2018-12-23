@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyGuis;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
 
-public class BarrelGuiHandler implements IGuiHandler {
+public class UpToDateModGuiHandler implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
