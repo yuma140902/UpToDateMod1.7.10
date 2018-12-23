@@ -116,4 +116,6 @@ entity.uptodate.boat_dark_oak.name=Dark Oak Boat
 entity.uptodate.boat_jungle.name=Jungle Boat
 entity.uptodate.boat_spruce.name=Spruce Boat
 
+container.uptodate.barrel=Barrel
+
 text.uptodate.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark_green"},{"text":" There is a new version available: v%s ["},{"text":"Click to open download URL","underlined":true,"color":"green","clickEvent":{"action":"open_url","value":"%s"}},{"text":"]"}]
