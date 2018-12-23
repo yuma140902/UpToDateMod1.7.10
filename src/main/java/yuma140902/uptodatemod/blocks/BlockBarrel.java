@@ -23,8 +23,6 @@ import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
 import yuma140902.uptodatemod.util.DirectionUtil;
 
 public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvider, IRegisterable, IHasRecipes {
-	public static final int GUI_ID = MyGuis.INSTANCE.getNextGuiId();
-	
 	private Random random = new Random();
 	private IIcon iconBottom;
 	
@@ -78,7 +76,7 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	@Override
 	public boolean onBlockActivated(
 			World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		player.openGui(ModUpToDateMod.INSTANCE, BlockBarrel.GUI_ID, world, x, y, z);
+		player.openGui(ModUpToDateMod.INSTANCE, MyGuis.ID_BARREL, world, x, y, z);
 		return true;
 	}
 	
