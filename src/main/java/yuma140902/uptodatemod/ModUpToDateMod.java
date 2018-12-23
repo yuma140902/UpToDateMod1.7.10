@@ -88,7 +88,7 @@ public class ModUpToDateMod {
 		MyBlocks.register();
 		MyItems.register();
 		MyTileEntities.register();
-		MyGuis.INSTANCE.register();
+		MyGuis.register();
 	}
 	
 	@EventHandler
