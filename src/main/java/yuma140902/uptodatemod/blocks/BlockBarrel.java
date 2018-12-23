@@ -3,25 +3,30 @@ package yuma140902.uptodatemod.blocks;
 import java.util.Random;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyGuis;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
+import yuma140902.uptodatemod.util.DirectionUtil;
 
-public class BlockBarrel extends Block implements ITileEntityProvider, IRegisterable, IHasRecipes {
+public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvider, IRegisterable, IHasRecipes {
 	public static final int GUI_ID = MyGuis.INSTANCE.getNextGuiId();
 	
 	private Random random = new Random();
+	private IIcon iconBottom;
 	
 	public BlockBarrel() {
 		super(Material.wood);
@@ -31,8 +36,7 @@ public class BlockBarrel extends Block implements ITileEntityProvider, IRegister
 	
 	public void register() {
 		setBlockName(ModUpToDateMod.MOD_ID + ".barrel");
-		// setBlockTextureName(ModUpToDateMod.MOD_ID + ":barrel");
-		setBlockTextureName("log_oak_top");
+		setBlockTextureName(ModUpToDateMod.MOD_ID + ":barrel");
 		GameRegistry.registerBlock(this, "barrel");
 	}
 	
@@ -41,6 +45,28 @@ public class BlockBarrel extends Block implements ITileEntityProvider, IRegister
 		// TODO 自動生成されたメソッド・スタブ
 		
 	}
+	
+	@Override
+	protected IIcon getSideIcon(int p_150163_1_) {
+		return blockIcon;
+	}
+	
+	@Override
+	public void registerBlockIcons(IIconRegister register) {
+		blockIcon = register.registerIcon(getTextureName() + "_side");
+		field_150164_N = register.registerIcon(getTextureName() + "_top");
+		iconBottom = register.registerIcon(getTextureName() + "_bottom");
+	}
+	
+	@Override
+	public IIcon getIcon(int side, int meta) {
+		return meta == DirectionUtil.getBack(side) ? field_150164_N : meta == side ? iconBottom : blockIcon;
+	}
+	
+	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
+  {
+    return DirectionUtil.getBack(side);
+  }
 	
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
