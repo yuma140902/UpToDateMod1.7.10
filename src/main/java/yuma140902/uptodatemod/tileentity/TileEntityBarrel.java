@@ -20,9 +20,11 @@ public class TileEntityBarrel extends TileEntity implements IInventory {
 		super.writeToNBT(nbt);
 		NBTTagList itemNbtList = new NBTTagList();
 		for(int i = 0; i < INVENTORY_SIZE; ++i) {
+			System.out.println("write to NBT . slot : " + i);
 			if(inventory[i] == null) continue;
 			NBTTagCompound itemNbt = new NBTTagCompound();
 			itemNbt.setByte(NBT_KEY_SLOT, (byte)i);
+			System.out.println(i + " : " + inventory[i].getDisplayName());
 			inventory[i].writeToNBT(itemNbt);
 			itemNbtList.appendTag(itemNbt);
 		}
@@ -35,10 +37,13 @@ public class TileEntityBarrel extends TileEntity implements IInventory {
 		NBTTagList itemNbtList = nbt.getTagList(NBT_KEY_ITEMS, NBT.TAG_COMPOUND);
 		inventory = new ItemStack[INVENTORY_SIZE];
 		for(int i = 0; i < INVENTORY_SIZE; ++i) {
+			System.out.println("read from NBT . slot : " + i);
 			NBTTagCompound itemNbt = itemNbtList.getCompoundTagAt(i);
 			byte slot = itemNbt.getByte(NBT_KEY_SLOT);
 			if(0 <= slot && slot < INVENTORY_SIZE) {
 				inventory[slot] = ItemStack.loadItemStackFromNBT(itemNbt);
+				if(inventory[slot] != null)
+					System.out.println(slot + " : " + inventory[slot].getDisplayName());
 			}
 		}
 	}
