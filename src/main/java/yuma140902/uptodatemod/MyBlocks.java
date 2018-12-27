@@ -3,6 +3,8 @@ package yuma140902.uptodatemod;
 import net.minecraft.init.Blocks;
 import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
+import yuma140902.uptodatemod.blocks.BlockConcrete;
+import yuma140902.uptodatemod.blocks.BlockConcretePowder;
 import yuma140902.uptodatemod.blocks.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.BlockDoorAcacia;
 import yuma140902.uptodatemod.blocks.BlockDoorBirch;
