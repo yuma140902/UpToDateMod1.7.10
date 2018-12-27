@@ -74,6 +74,7 @@ public final class Recipes {
 		registerBoatRecipes();
 		registerStarisRecipes();
 		registerSlabRecipes();
+		registerWallRecipes();
 		
 		MyBlocks.coarseDirt.registerRecipes();
 		
@@ -288,5 +289,22 @@ public final class Recipes {
 		MyBlocks.slabPrismarineBricks.registerRecipe();
 		MyBlocks.slabPurpur.registerRecipe();
 		MyBlocks.slabRedSandstone.registerRecipe();
+	}
+	
+	private static void registerWallRecipes() {
+		MyBlocks.wallBricks.registerRecipes();
+		MyBlocks.wallStoneBricks.registerRecipes();
+		MyBlocks.wallMossyStoneBricks.registerRecipes();
+		MyBlocks.wallSandstone.registerRecipes();
+		MyBlocks.wallRedSandstone.registerRecipes();
+		MyBlocks.wallNetherBricks.registerRecipes();
+		MyBlocks.wallRedNetherBricks.registerRecipes();
+		MyBlocks.wallEndStoneBricks.registerRecipes();
+		MyBlocks.wallAndesite.registerRecipes();
+		MyBlocks.wallDiorite.registerRecipes();
+		MyBlocks.wallGranite.registerRecipes();
+		MyBlocks.wallPrismarine.registerRecipes();
+		MyBlocks.wallPrismarineBrick.registerRecipes();
+		MyBlocks.wallDarkPrismarine.registerRecipes();
 	}
 }

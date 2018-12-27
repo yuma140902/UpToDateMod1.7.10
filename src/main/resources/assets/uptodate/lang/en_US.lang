@@ -118,6 +118,21 @@ tile.uptodate.slab_prismarine.name=Prismarine Slab
 tile.uptodate.slab_prismarine_bricks.name=Prismarine Brick Slab
 tile.uptodate.slab_dark_prismairne.name=Dark Prismarine Slab
 
+tile.uptodate.wall_bricks.name=Brick Wall
+tile.uptodate.wall_stone_bricks.name=Stone Brick Wall
+tile.uptodate.wall_mossy_stone_bricks.name=Mossy Stone Brick Wall
+tile.uptodate.wall_sandstone.name=Sandstone Wall
+tile.uptodate.wall_red_sandstone.name=Red Sandstone Wall
+tile.uptodate.wall_nether_bricks.name=Nether Brick Wall
+tile.uptodate.wall_red_nether_bricks.name=Red Nether Brick Wall
+tile.uptodate.wall_end_stone_bricks.name=End Stone Brick Wall
+tile.uptodate.wall_andesite.name=Andesite Wall
+tile.uptodate.wall_diorite.name=Diorite Wall
+tile.uptodate.wall_granite.name=Granite Wall
+tile.uptodate.wall_prismarine.name=Prismarine Wall
+tile.uptodate.wall_prismarine_brick.name=Prismarine Brick Wall
+tile.uptodate.wall_dark_prismarine.name=Dark Prismarine Wall
+
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
 item.uptodate.item_boat_dark_oak.name=Dark Oak Boat
