@@ -123,6 +123,17 @@ public final class MyBlocks {
 		stairsMossyStoneBricks.register();
 		stairsMossyCobbleStone.register();
 		
+		slabStone.register();
+		slabGranite.register();
+		slabDiorite.register();
+		slabAndesite.register();
+		slabPolishedGranite.register();
+		slabPolishedDiorite.register();
+		slabPolishedAndesite.register();
+		slabRedNetherBricks.register();
+		slabEndStoneBricks.register();
+		slabMossyStoneBricks.register();
+		slabMossyCobbleStone.register();
 		slabRedSandstone.register();
 		slabPurpur.register();
 		slabPrismarine.register();
@@ -173,6 +184,12 @@ public final class MyBlocks {
 	public static final BlockGenericTrapDoor trapDoorSpruce = new BlockGenericTrapDoor("trap_door_spruce", Stat.PLANK_META_SPRUCE);
 	public static final BlockIronTrapDoor trapDoorIron = new BlockIronTrapDoor();
 	
+	public static final BlockGenericButton buttonAcacia = new BlockGenericButton(Stat.PLANK_META_ACACIA, "button_acacia");
+	public static final BlockGenericButton buttonBirch = new BlockGenericButton(Stat.PLANK_META_BIRCH, "button_birch");
+	public static final BlockGenericButton buttonDarkOak = new BlockGenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
+	public static final BlockGenericButton buttonJungle = new BlockGenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
+	public static final BlockGenericButton buttonSpruce = new BlockGenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
+	
 	public static final GenericWall wallAndesite = new GenericWall(MyBlocks.stone, BlockStone.META_ANDESITE, "wall_andesite");
 	public static final GenericWall wallDiorite = new GenericWall(MyBlocks.stone, BlockStone.META_DIORITE, "wall_diorite");
 	public static final GenericWall wallGranite = new GenericWall(MyBlocks.stone, BlockStone.META_GRANITE, "wall_granite");
@@ -183,12 +200,6 @@ public final class MyBlocks {
 	public static final GenericWall wallPrismarine = new GenericWall(prismarineBlock, "wall_prismarine");
 	public static final GenericWall wallPrismarineBrick = new GenericWall(prismarineBricks, "wall_prismarine_brick");
 	public static final GenericWall wallDarkPrismarine = new GenericWall(prismarineDark, "wall_dark_prismarine");
-
-	public static final BlockGenericButton buttonAcacia = new BlockGenericButton(Stat.PLANK_META_ACACIA, "button_acacia");
-	public static final BlockGenericButton buttonBirch = new BlockGenericButton(Stat.PLANK_META_BIRCH, "button_birch");
-	public static final BlockGenericButton buttonDarkOak = new BlockGenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
-	public static final BlockGenericButton buttonJungle = new BlockGenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
-	public static final BlockGenericButton buttonSpruce = new BlockGenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
 	
 	public static final BlockRedNetherBricks redNetherBricks = new BlockRedNetherBricks();
 	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();
@@ -219,6 +230,17 @@ public final class MyBlocks {
 	public static final BlockGenericStairs stairsMossyStoneBricks = new BlockGenericStairs(Blocks.stonebrick, 1, "stairs_mossy_stone_bricks");
 	public static final BlockGenericStairs stairsMossyCobbleStone = new BlockGenericStairs(Blocks.mossy_cobblestone, 0, "stairs_mossy_cobblestone");
 	
+	public static final BlockGenericSlab slabStone = new BlockGenericSlab(Blocks.stone, 0, "slab_stone");
+	public static final BlockGenericSlab slabGranite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_GRANITE, "slab_granite");
+	public static final BlockGenericSlab slabDiorite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_DIORITE, "slab_diorite");
+	public static final BlockGenericSlab slabAndesite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_ANDESITE, "slab_andesite");
+	public static final BlockGenericSlab slabPolishedGranite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "slab_polished_granite");
+	public static final BlockGenericSlab slabPolishedDiorite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "slab_polished_diorite");
+	public static final BlockGenericSlab slabPolishedAndesite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "slab_polished_andesite");
+	public static final BlockGenericSlab slabRedNetherBricks = new BlockGenericSlab(MyBlocks.redNetherBricks, 0, "slab_red_nether_bricks");
+	public static final BlockGenericSlab slabEndStoneBricks = new BlockGenericSlab(MyBlocks.endStoneBricks, 0, "slab_end_stone_bricks");
+	public static final BlockGenericSlab slabMossyStoneBricks = new BlockGenericSlab(Blocks.stonebrick, 1, "slab_mossy_stone_bricks");
+	public static final BlockGenericSlab slabMossyCobbleStone = new BlockGenericSlab(Blocks.mossy_cobblestone, 0, "slab_mossy_cobblestone");
 	public static final BlockGenericSlab slabRedSandstone = new BlockGenericSlab(MyBlocks.redSandStone, 0, "slab_red_sandstone");
 	public static final BlockGenericSlab slabPurpur = new BlockGenericSlab(MyBlocks.purpurBlock, 0, "slab_purpur");
 	public static final BlockGenericSlab slabPrismarine = new BlockGenericSlab(MyBlocks.prismarineBlock, 0, "slab_prismarine");

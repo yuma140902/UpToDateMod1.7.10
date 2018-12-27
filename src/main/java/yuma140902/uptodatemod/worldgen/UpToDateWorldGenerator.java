@@ -12,7 +12,7 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 	@Override
 	public void generate(
 			Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+		if(world.provider.dimensionId == 1) generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 	}
 	
 	private void generateCoarseDirt(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
