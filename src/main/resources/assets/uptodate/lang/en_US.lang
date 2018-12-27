@@ -98,6 +98,17 @@ tile.uptodate.stairs_end_stone_bricks.name=End Stone Brick Stairs
 tile.uptodate.stairs_mossy_stone_bricks.name=Mossy Stone Brick Stairs
 tile.uptodate.stairs_mossy_cobblestone.name=Mossy Cobble Stone Stairs
 
+tile.uptodate.slab_stone.name=Stone Slab
+tile.uptodate.slab_granite.name=Granite Slab
+tile.uptodate.slab_diorite.name=Diorite Slab
+tile.uptodate.slab_andesite.name=Andesite Slab
+tile.uptodate.slab_polished_granite.name=Polished Granite Slab
+tile.uptodate.slab_polished_diorite.name=Polished Diorite Slab
+tile.uptodate.slab_polished_andesite.name=Polished Andesite Slab
+tile.uptodate.slab_red_nether_bricks.name=Red Nether Brick Slab
+tile.uptodate.slab_end_stone_bricks.name=End Stone Brick Slab
+tile.uptodate.slab_mossy_stone_bricks.name=Mossy Stone Brick Slab
+tile.uptodate.slab_mossy_cobblestone.name=Mossy Cobblestone Slab
 tile.uptodate.slab_red_sandstone.name=Red Sandstone Slab
 tile.uptodate.slab_purpur.name=Purpur Slab
 tile.uptodate.slab_prismarine.name=Prismarine Slab

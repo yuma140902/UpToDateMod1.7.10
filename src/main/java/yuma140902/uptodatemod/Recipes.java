@@ -272,6 +272,17 @@ public final class Recipes {
 	}
 	
 	private static void registerSlabRecipes() {
+		MyBlocks.slabStone.registerRecipe();
+		MyBlocks.slabGranite.registerRecipe();
+		MyBlocks.slabDiorite.registerRecipe();
+		MyBlocks.slabAndesite.registerRecipe();
+		MyBlocks.slabPolishedGranite.registerRecipe();
+		MyBlocks.slabPolishedDiorite.registerRecipe();
+		MyBlocks.slabPolishedAndesite.registerRecipe();
+		MyBlocks.slabRedNetherBricks.registerRecipe();
+		MyBlocks.slabEndStoneBricks.registerRecipe();
+		MyBlocks.slabMossyStoneBricks.registerRecipe();
+		MyBlocks.slabMossyCobbleStone.registerRecipe();
 		MyBlocks.slabDarkPrismarine.registerRecipe();
 		MyBlocks.slabPrismarine.registerRecipe();
 		MyBlocks.slabPrismarineBricks.registerRecipe();
