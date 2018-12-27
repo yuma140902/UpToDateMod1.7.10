@@ -14,7 +14,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class GenericWall extends BlockWall implements IRegisterable {
+public class BlockGenericWall extends BlockWall implements IRegisterable {
 
 	public static final int METADATA_NEUTRAL = OreDictionary.WILDCARD_VALUE;
 	
@@ -22,11 +22,11 @@ public class GenericWall extends BlockWall implements IRegisterable {
 	private int meta;
 	private String name;
 	
-	public GenericWall(Block block, String name) {
+	public BlockGenericWall(Block block, String name) {
 		this(block, METADATA_NEUTRAL, name);
 	}
 	
-	public GenericWall(Block block, int meta, String name) {
+	public BlockGenericWall(Block block, int meta, String name) {
 		super(block);
 		this.block = block;
 		this.meta = meta;
