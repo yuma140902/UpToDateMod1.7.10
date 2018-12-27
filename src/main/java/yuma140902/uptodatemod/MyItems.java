@@ -5,6 +5,7 @@ import yuma140902.uptodatemod.items.ItemBoatBirch;
 import yuma140902.uptodatemod.items.ItemBoatDarkOak;
 import yuma140902.uptodatemod.items.ItemBoatJungle;
 import yuma140902.uptodatemod.items.ItemBoatSpruce;
+import yuma140902.uptodatemod.items.ItemCookedMutton;
 import yuma140902.uptodatemod.items.ItemDoorAcacia;
 import yuma140902.uptodatemod.items.ItemDoorBirch;
 import yuma140902.uptodatemod.items.ItemDoorDarkOak;
@@ -12,6 +13,7 @@ import yuma140902.uptodatemod.items.ItemDoorJungle;
 import yuma140902.uptodatemod.items.ItemDoorSpruce;
 import yuma140902.uptodatemod.items.ItemPrismarineCrystals;
 import yuma140902.uptodatemod.items.ItemPrismarineShard;
+import yuma140902.uptodatemod.items.ItemRawMutton;
 
 public final class MyItems {
 	private MyItems() {}
@@ -31,6 +33,9 @@ public final class MyItems {
 		boatDarkOak.register();
 		boatJungle.register();
 		boatSpruce.register();
+		
+		rawMutton.register();
+		cookedMutton.register();
 	}
 	
 	public static final ItemDoorAcacia itemDoorAcacia = new ItemDoorAcacia();
@@ -47,4 +52,7 @@ public final class MyItems {
 	public static final ItemBoatDarkOak boatDarkOak = new ItemBoatDarkOak();
 	public static final ItemBoatJungle boatJungle = new ItemBoatJungle();
 	public static final ItemBoatSpruce boatSpruce = new ItemBoatSpruce();
+	
+	public static final ItemRawMutton rawMutton = new ItemRawMutton();
+	public static final ItemCookedMutton cookedMutton = new ItemCookedMutton();
 }

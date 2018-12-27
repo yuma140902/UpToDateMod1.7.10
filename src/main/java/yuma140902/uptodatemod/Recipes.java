@@ -92,6 +92,9 @@ public final class Recipes {
 		registerOceanMonumentRecipes();
 		
 		MyBlocks.barrel.registerRecipes();
+		
+		MyItems.cookedMutton.registerRecipes();
+		
 	}
 	
 	private static void registerStoneRecipes() {
