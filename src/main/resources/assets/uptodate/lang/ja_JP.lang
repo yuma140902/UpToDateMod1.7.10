@@ -98,6 +98,17 @@ tile.uptodate.stairs_end_stone_bricks.name=エンドストーンレンガの階�
 tile.uptodate.stairs_mossy_stone_bricks.name=苔むした石レンガの階段
 tile.uptodate.stairs_mossy_cobblestone.name=苔むした丸石の階段
 
+tile.uptodate.slab_stone.name=石のハーフブロック
+tile.uptodate.slab_granite.name=花崗岩のハーフブロック
+tile.uptodate.slab_diorite.name=閃緑岩のハーフブロック
+tile.uptodate.slab_andesite.name=安山岩のハーフブロック
+tile.uptodate.slab_polished_granite.name=磨かれた花崗岩のハーフブロック
+tile.uptodate.slab_polished_diorite.name=磨かれた閃緑岩のハーフブロック
+tile.uptodate.slab_polished_andesite.name=磨かれた安山岩のハーフブロック
+tile.uptodate.slab_red_nether_bricks.name=赤いネザーレンガのハーフブロック
+tile.uptodate.slab_end_stone_bricks.name=エンドストーンレンガのハーフブロック
+tile.uptodate.slab_mossy_stone_bricks.name=苔むした石レンガのハーフブロック
+tile.uptodate.slab_mossy_cobblestone.name=苔むした丸石のハーフブロック
 tile.uptodate.slab_red_sandstone.name=赤い砂岩のハーフブロック
 tile.uptodate.slab_purpur.name=プルプァのハーフブロック
 tile.uptodate.slab_prismarine.name=プリズマリンのハーフブロック
