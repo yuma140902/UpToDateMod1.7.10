@@ -81,6 +81,9 @@ tile.uptodate.red_sandstone.chiseled.name=Chiseled Red Sandstone
 tile.uptodate.red_sandstone.cut.name=Cut Red Sandstone
 tile.uptodate.red_sandstone.smooth.name=Smooth Red Sandstone
 
+item.uptodate.raw_mutton.name=Raw Mutton
+item.uptodate.cooked_mutton.name=Cooked Mutton
+
 tile.uptodate.stairs_stone.name=Stone Stairs
 tile.uptodate.stairs_granite.name=Granite Stairs
 tile.uptodate.stairs_diorite.name=Diorite Stairs
