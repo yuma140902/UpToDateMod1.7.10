@@ -118,6 +118,21 @@ tile.uptodate.slab_prismarine.name=プリズマリンのハーフブロック
 tile.uptodate.slab_prismarine_bricks.name=プリズマリンレンガのハーフブロック
 tile.uptodate.slab_dark_prismairne.name=ダークプリズマリンのハーフブロック
 
+tile.uptodate.wall_bricks.name=レンガの壁
+tile.uptodate.wall_stone_bricks.name=石レンガの壁
+tile.uptodate.wall_mossy_stone_bricks.name=苔むした石レンガの壁
+tile.uptodate.wall_sandstone.name=砂岩の壁
+tile.uptodate.wall_red_sandstone.name=赤い砂岩の壁
+tile.uptodate.wall_nether_bricks.name=ネザーレンガの壁
+tile.uptodate.wall_red_nether_bricks.name=赤いネザーレンガの壁
+tile.uptodate.wall_end_stone_bricks.name=エンドストーンレンガの壁
+tile.uptodate.wall_andesite.name=安山岩の壁
+tile.uptodate.wall_diorite.name=閃緑岩の壁
+tile.uptodate.wall_granite.name=花崗岩の壁
+tile.uptodate.wall_prismarine.name=プリズマリンの壁
+tile.uptodate.wall_prismarine_brick.name=プリズマリンレンガの壁
+tile.uptodate.wall_dark_prismarine.name=ダークプリズマリンの壁
+
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
 item.uptodate.item_boat_dark_oak.name=ダークオークのボート
