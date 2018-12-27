@@ -81,6 +81,9 @@ tile.uptodate.red_sandstone.chiseled.name=模様入り赤い砂岩
 tile.uptodate.red_sandstone.cut.name=研がれた赤い砂岩
 tile.uptodate.red_sandstone.smooth.name=滑らかな赤い砂岩
 
+item.uptodate.raw_mutton.name=生の羊肉
+item.uptodate.cooked_mutton.name=焼き羊肉
+
 tile.uptodate.stairs_stone.name=石の階段
 tile.uptodate.stairs_granite.name=花崗岩の階段
 tile.uptodate.stairs_diorite.name=閃緑岩の階段
