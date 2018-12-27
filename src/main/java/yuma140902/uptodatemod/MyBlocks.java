@@ -129,12 +129,20 @@ public final class MyBlocks {
 		slabPrismarineBricks.register();
 		slabDarkPrismarine.register();
 		
+		wallBricks.register();
+		wallStoneBricks.register();
+		wallMossyStoneBricks.register();
+		wallSandstone.register();
+		wallRedSandstone.register();
+		wallNetherBricks.register();
+		wallRedNetherBricks.register();
+		wallEndStoneBricks.register();
 		wallAndesite.register();
 		wallDiorite.register();
 		wallGranite.register();
-		wallSmoothAndesite.register();
-		wallSmoothDiorite.register();
-		wallSmoothGranite.register();
+		wallPolishedAndesite.register();
+		wallPolishedDiorite.register();
+		wallPolishedGranite.register();
 		wallPrismarine.register();
 		wallPrismarineBrick.register();
 		wallDarkPrismarine.register();
@@ -235,12 +243,20 @@ public final class MyBlocks {
 	public static final BlockGenericSlab slabPrismarineBricks = new BlockGenericSlab(MyBlocks.prismarineBricks, 0, "slab_prismarine_bricks");
 	public static final BlockGenericSlab slabDarkPrismarine = new BlockGenericSlab(MyBlocks.prismarineDark, 0, "slab_dark_prismairne");
 	
+	public static final BlockGenericWall wallBricks = new BlockGenericWall(Blocks.brick_block, 0, "wall_bricks");
+	public static final BlockGenericWall wallStoneBricks = new BlockGenericWall(Blocks.stonebrick, 0, "wall_stone_bricks");
+	public static final BlockGenericWall wallMossyStoneBricks = new BlockGenericWall(Blocks.stonebrick, 1, "wall_mossy_stone_bricks");
+	public static final BlockGenericWall wallSandstone = new BlockGenericWall(Blocks.sandstone, 0, "wall_sandstone");
+	public static final BlockGenericWall wallRedSandstone = new BlockGenericWall(MyBlocks.redSandStone, 0, "wall_red_sandstone");
+	public static final BlockGenericWall wallNetherBricks = new BlockGenericWall(Blocks.nether_brick, 0, "wall_nether_bricks");
+	public static final BlockGenericWall wallRedNetherBricks = new BlockGenericWall(MyBlocks.redNetherBricks, 0, "wall_red_nether_bricks");
+	public static final BlockGenericWall wallEndStoneBricks = new BlockGenericWall(MyBlocks.endStoneBricks, 0, "wall_end_stone_bricks");
 	public static final BlockGenericWall wallAndesite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_ANDESITE, "wall_andesite");
 	public static final BlockGenericWall wallDiorite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_DIORITE, "wall_diorite");
 	public static final BlockGenericWall wallGranite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_GRANITE, "wall_granite");
-	public static final BlockGenericWall wallSmoothAndesite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "wall_smooth_andesite");
-	public static final BlockGenericWall wallSmoothDiorite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "wall_smooth_diorite");
-	public static final BlockGenericWall wallSmoothGranite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "wall_smooth_granite");
+	public static final BlockGenericWall wallPolishedAndesite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "wall_polished_andesite");
+	public static final BlockGenericWall wallPolishedDiorite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "wall_polished_diorite");
+	public static final BlockGenericWall wallPolishedGranite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "wall_polished_granite");
 	public static final BlockGenericWall wallPrismarine = new BlockGenericWall(prismarineBlock, "wall_prismarine");
 	public static final BlockGenericWall wallPrismarineBrick = new BlockGenericWall(prismarineBricks, "wall_prismarine_brick");
 	public static final BlockGenericWall wallDarkPrismarine = new BlockGenericWall(prismarineDark, "wall_dark_prismarine");
