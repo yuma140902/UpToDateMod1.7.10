@@ -140,9 +140,6 @@ public final class MyBlocks {
 		wallAndesite.register();
 		wallDiorite.register();
 		wallGranite.register();
-		wallPolishedAndesite.register();
-		wallPolishedDiorite.register();
-		wallPolishedGranite.register();
 		wallPrismarine.register();
 		wallPrismarineBrick.register();
 		wallDarkPrismarine.register();
@@ -254,9 +251,6 @@ public final class MyBlocks {
 	public static final BlockGenericWall wallAndesite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_ANDESITE, "wall_andesite");
 	public static final BlockGenericWall wallDiorite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_DIORITE, "wall_diorite");
 	public static final BlockGenericWall wallGranite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_GRANITE, "wall_granite");
-	public static final BlockGenericWall wallPolishedAndesite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "wall_polished_andesite");
-	public static final BlockGenericWall wallPolishedDiorite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "wall_polished_diorite");
-	public static final BlockGenericWall wallPolishedGranite = new BlockGenericWall(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "wall_polished_granite");
 	public static final BlockGenericWall wallPrismarine = new BlockGenericWall(prismarineBlock, "wall_prismarine");
 	public static final BlockGenericWall wallPrismarineBrick = new BlockGenericWall(prismarineBricks, "wall_prismarine_brick");
 	public static final BlockGenericWall wallDarkPrismarine = new BlockGenericWall(prismarineDark, "wall_dark_prismarine");
