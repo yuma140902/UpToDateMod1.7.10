@@ -10,21 +10,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
 public class BlockGenericWall extends BlockWall implements IRegisterable {
 
-	public static final int METADATA_NEUTRAL = OreDictionary.WILDCARD_VALUE;
-	
 	private Block block;
 	private int meta;
 	private String name;
-	
-	public BlockGenericWall(Block block, String name) {
-		this(block, METADATA_NEUTRAL, name);
-	}
 	
 	public BlockGenericWall(Block block, int meta, String name) {
 		super(block);
@@ -36,7 +29,7 @@ public class BlockGenericWall extends BlockWall implements IRegisterable {
 	
 	@Override
 	public IIcon getIcon(int side, int meta) {
-		return this.meta == METADATA_NEUTRAL ? block.getIcon(side, meta) : block.getIcon(side, this.meta);
+		return block.getIcon(side, this.meta);
 	}
 
 	@Override
