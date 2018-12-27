@@ -10,10 +10,11 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class BlockGenericWall extends BlockWall implements IRegisterable {
+public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRecipes {
 
 	private Block block;
 	private int meta;
@@ -42,5 +43,14 @@ public class BlockGenericWall extends BlockWall implements IRegisterable {
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs craetiveTab, List list) {
 		list.add(new ItemStack(item));
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(this, 6),
+				"###",
+				"###",
+				'#', new ItemStack(this.block, 1, this.meta));
 	}
 }
