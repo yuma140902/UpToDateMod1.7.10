@@ -23,7 +23,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(EntityBoatDarkOak.class, "boat_dark_oak", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityBoatJungle.class, "boat_jungle", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityBoatSpruce.class, "boat_spruce", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityArmorStand.class, "entity_armor_stand", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
+		EntityRegistry.registerModEntity(EntityArmorStand.class, "armor_stand", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
 	}
 	
 	public void registerRenderers() { }
