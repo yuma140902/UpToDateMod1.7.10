@@ -15,7 +15,7 @@ public class EntityArmorStand extends EntityLivingBase {
 	
 	public EntityArmorStand(World world, int x, int y, int z) {
 		this(world);
-		this.setPosition(x, y, z);
+		this.setPosition(x + 0.5, y, z + 0.5);
 	}
 
 	@Override
