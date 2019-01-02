@@ -1,11 +1,11 @@
 package yuma140902.uptodatemod.entity.item;
 
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-public class EntityArmorStand extends EntityLivingBase {
+public class EntityArmorStand extends EntityLiving {
 
 	public EntityArmorStand(World world) {
 		super(world);
@@ -23,7 +23,19 @@ public class EntityArmorStand extends EntityLivingBase {
 		// TODO 自動生成されたメソッド・スタブ
 		super.entityInit();
 	}
-
+	
+	@Override
+	public void onUpdate() {
+		// TODO 自動生成されたメソッド・スタブ
+		super.onUpdate();
+		this.rotationYaw = 0;
+	}
+	
+	@Override
+	public boolean canBeCollidedWith() {
+		return !this.isDead;
+	}
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		// TODO 自動生成されたメソッド・スタブ
