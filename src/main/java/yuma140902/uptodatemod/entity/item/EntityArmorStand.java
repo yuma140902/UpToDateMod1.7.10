@@ -1,5 +1,7 @@
 package yuma140902.uptodatemod.entity.item;
 
+import java.util.List;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -28,12 +30,34 @@ public class EntityArmorStand extends EntityLiving {
 	public void onUpdate() {
 		// TODO 自動生成されたメソッド・スタブ
 		super.onUpdate();
-		this.rotationYaw = 0;
 	}
 	
 	@Override
 	public boolean canBeCollidedWith() {
 		return !this.isDead;
+	}
+	
+	@Override
+	public boolean canBePushed() {
+		return false;
+	}
+	
+	@Override
+	protected void collideWithEntity(Entity entity) {}
+	
+	@Override
+	protected void collideWithNearbyEntities() {
+		List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.getBoundingBox());
+
+    for (int i = 0; i < list.size(); ++i)
+    {
+        Entity entity = (Entity) list.get(i);
+
+        if (this.getDistanceSq(entity.posX, entity.posY, entity.posZ) <= 0.2D)
+        {
+            entity.applyEntityCollision(this);
+        }
+    }
 	}
 	
 	@Override
