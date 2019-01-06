@@ -81,6 +81,8 @@ tile.uptodate.red_sandstone.chiseled.name=模様入り赤い砂岩
 tile.uptodate.red_sandstone.cut.name=研がれた赤い砂岩
 tile.uptodate.red_sandstone.smooth.name=滑らかな赤い砂岩
 
+tile.uptodate.grass_path.name=草の道
+
 item.uptodate.raw_mutton.name=生の羊肉
 item.uptodate.cooked_mutton.name=焼き羊肉
 

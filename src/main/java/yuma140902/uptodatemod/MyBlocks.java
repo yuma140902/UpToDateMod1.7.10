@@ -11,6 +11,7 @@ import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
 import yuma140902.uptodatemod.blocks.BlockDoorJungle;
 import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
 import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
+import yuma140902.uptodatemod.blocks.BlockGrassPath;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockMagma;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
@@ -95,6 +96,8 @@ public final class MyBlocks {
 		boneBlock.register();
 		
 		redSandStone.register();
+		
+		grassPath.register();
 		
 		stairsStone.register();
 		stairsGranite.register();
@@ -208,6 +211,8 @@ public final class MyBlocks {
 	public static final BlockBone boneBlock = new BlockBone();
 	
 	public static final BlockRedSandStone redSandStone = new BlockRedSandStone();
+	
+	public static final BlockGrassPath grassPath = new BlockGrassPath();
 	
 	public static final BlockGenericStairs stairsStone = new BlockGenericStairs(Blocks.stone, 0, "stairs_stone");
 	public static final BlockGenericStairs stairsGranite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");
