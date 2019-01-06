@@ -76,6 +76,7 @@ public final class Recipes {
 		registerStarisRecipes();
 		registerSlabRecipes();
 		registerWallRecipes();
+		registerWoodRecipes();
 		
 		MyBlocks.coarseDirt.registerRecipes();
 		
@@ -95,6 +96,15 @@ public final class Recipes {
 		
 		MyItems.cookedMutton.registerRecipes();
 		MyItems.armorStand.registerRecipes();
+	}
+	
+	private static void registerWoodRecipes() {
+		MyBlocks.strippedLogAcacia.registerRecipes();
+		MyBlocks.strippedLogBirch.registerRecipes();
+		MyBlocks.strippedLogDarkOak.registerRecipes();
+		MyBlocks.strippedLogJungle.registerRecipes();
+		MyBlocks.strippedLogOak.registerRecipes();
+		MyBlocks.strippedLogSpruce.registerRecipes();
 	}
 	
 	private static void registerStoneRecipes() {

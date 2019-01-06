@@ -26,16 +26,25 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 	private String name;
 	private BlockGenericSlab slab;
 	private BlockGenericSlab slabDouble;
+	private boolean useSpecialSideTexture = false;
+	private String specialSideTexureName = null;
+	private IIcon specialSideTexture = null;
 	
 	public BlockGenericSlab(Block baseBlock, int meta, String name) {
-		this(false, baseBlock, meta, name);
+		this(false, baseBlock, meta, name, false, null);
 	}
 	
-	protected BlockGenericSlab(boolean isDouble, Block baseBlock, int meta, String name) {
+	public BlockGenericSlab(Block baseBlock, int meta, String name, String specialSideTextureName) {
+		this(false, baseBlock, meta, name, true, specialSideTextureName);
+	}
+	
+	protected BlockGenericSlab(boolean isDouble, Block baseBlock, int meta, String name, boolean useSpecialSideTexture, String specialSideTextureName) {
 		super(isDouble, baseBlock.getMaterial());
 		this.baseBlock = baseBlock;
 		this.meta = meta;
 		this.name = name;
+		this.useSpecialSideTexture = useSpecialSideTexture;
+		this.specialSideTexureName = specialSideTextureName;
     this.setStepSound(baseBlock.stepSound);
     this.setHarvestLevel(baseBlock.getHarvestTool(0), baseBlock.getHarvestLevel(0));
 		setLightOpacity(0);
@@ -51,7 +60,7 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 	public void register() {
 		if(isDouble()) return;
 		
-		BlockGenericSlab slabDouble = new BlockGenericSlab(true, this.baseBlock, this.meta, this.name);
+		BlockGenericSlab slabDouble = new BlockGenericSlab(true, this.baseBlock, this.meta, this.name, this.useSpecialSideTexture, this.specialSideTexureName);
 		this.setSlabs(this, slabDouble);
 		slabDouble.setSlabs(this, slabDouble);
 		
@@ -115,6 +124,15 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
+		if(this.useSpecialSideTexture) {
+			switch(side) {
+				case Stat.SIDE_TOP:
+				case Stat.SIDE_BOTTOM:
+					return baseBlock.getIcon(side, this.meta);
+				default:
+					return specialSideTexture;
+			}
+		}
 		return baseBlock.getIcon((meta & 0b0001) == 0 ? side : Stat.SIDE_TOP, this.meta);
 	}
 
@@ -127,6 +145,7 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
+		if(this.useSpecialSideTexture) this.specialSideTexture = reg.registerIcon(this.specialSideTexureName);
 	}
 
 	@Override
