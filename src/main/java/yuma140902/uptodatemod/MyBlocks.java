@@ -253,9 +253,9 @@ public final class MyBlocks {
 	public static final BlockGenericSlab slabGranite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_GRANITE, "slab_granite");
 	public static final BlockGenericSlab slabDiorite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_DIORITE, "slab_diorite");
 	public static final BlockGenericSlab slabAndesite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_ANDESITE, "slab_andesite");
-	public static final BlockGenericSlab slabPolishedGranite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "slab_polished_granite");
-	public static final BlockGenericSlab slabPolishedDiorite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "slab_polished_diorite");
-	public static final BlockGenericSlab slabPolishedAndesite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "slab_polished_andesite");
+	public static final BlockGenericSlab slabPolishedGranite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "slab_polished_granite", ModUpToDateMod.MOD_ID + ":polished_granite_slab_side");
+	public static final BlockGenericSlab slabPolishedDiorite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "slab_polished_diorite", ModUpToDateMod.MOD_ID + ":polished_diorite_slab_side");
+	public static final BlockGenericSlab slabPolishedAndesite = new BlockGenericSlab(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "slab_polished_andesite", ModUpToDateMod.MOD_ID + ":polished_andesite_slab_side");
 	public static final BlockGenericSlab slabRedNetherBricks = new BlockGenericSlab(MyBlocks.redNetherBricks, 0, "slab_red_nether_bricks");
 	public static final BlockGenericSlab slabEndStoneBricks = new BlockGenericSlab(MyBlocks.endStoneBricks, 0, "slab_end_stone_bricks");
 	public static final BlockGenericSlab slabMossyStoneBricks = new BlockGenericSlab(Blocks.stonebrick, 1, "slab_mossy_stone_bricks");
