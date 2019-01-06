@@ -14,11 +14,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.generics.ItemBlockGenericStrippedLog;
 
-public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegisterable {
+public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
 	
 	private String name;
 	
@@ -36,6 +37,16 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 		setBlockName(ModUpToDateMod.MOD_ID + "." + name);
 		setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
 		GameRegistry.registerBlock(this, ItemBlockGenericStrippedLog.class, name);
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addRecipe(
+				new ItemStack(this, 3, 12),
+				"##",
+				"##",
+				'#', this
+				);
 	}
 	
 	@Override
