@@ -66,6 +66,7 @@ public class ItemDoorBirch extends net.minecraft.item.ItemDoor implements IRegis
                   int i1 = MathHelper.floor_double((double)((p_77648_2_.rotationYaw + 180.0F) * 4.0F / 360.0F) - 0.5D) & 3;
                   placeDoorBlock(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, i1, block);
                   --p_77648_1_.stackSize;
+                  p_77648_3_.playSoundEffect(p_77648_4_ + 0.5D, p_77648_5_ + 0.5D, p_77648_6_ + 0.5D, "dig.wood", 1.0F, p_77648_3_.rand.nextFloat() * 0.1F + 0.9F);
                   return true;
               }
           }
