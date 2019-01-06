@@ -71,6 +71,7 @@ public final class Recipes {
 		registerFenceRecipes();
 		registerFenceGateRecipes();
 		registerButtonRecipes();
+		registerPressurePlateRecipes();
 		registerBoatRecipes();
 		registerStarisRecipes();
 		registerSlabRecipes();
@@ -236,6 +237,14 @@ public final class Recipes {
 		MyBlocks.buttonDarkOak.registerRecipes();
 		MyBlocks.buttonJungle.registerRecipes();
 		MyBlocks.buttonSpruce.registerRecipes();
+	}
+	
+	private static void registerPressurePlateRecipes() {
+		MyBlocks.pressurePlateAcacia.registerRecipes();
+		MyBlocks.pressurePlateBirch.registerRecipes();
+		MyBlocks.pressurePlateDarkOak.registerRecipes();
+		MyBlocks.pressurePlateJungle.registerRecipes();
+		MyBlocks.pressurePlateSpruce.registerRecipes();
 	}
 
 	private static void registerOceanMonumentRecipes() {

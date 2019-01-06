@@ -66,6 +66,12 @@ tile.uptodate.button_dark_oak.name=ダークオークのボタン
 tile.uptodate.button_jungle.name=ジャングルのボタン
 tile.uptodate.button_spruce.name=マツのボタン
 
+tile.uptodate.pressure_plate_acacia.name=アカシアの感圧板
+tile.uptodate.pressure_plate_birch.name=シラカバの感圧板
+tile.uptodate.pressure_plate_dark_oak.name=ダークオークの感圧板
+tile.uptodate.pressure_plate_jungle.name=ジャングルの感圧板
+tile.uptodate.pressure_plate_spruce.name=マツの感圧板
+
 tile.uptodate.red_nether_bricks.name=赤いネザーレンガ
 tile.uptodate.nether_wart_block.name=ネザーウォートブロック
 tile.uptodate.magma_block.name=マグマブロック

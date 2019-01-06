@@ -28,6 +28,7 @@ import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericButton;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFence;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFenceGate;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericPressurePlate;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericSlab;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStairs;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
@@ -85,6 +86,12 @@ public final class MyBlocks {
 		buttonDarkOak.register();
 		buttonJungle.register();
 		buttonSpruce.register();
+		
+		pressurePlateAcacia.register();
+		pressurePlateBirch.register();
+		pressurePlateDarkOak.register();
+		pressurePlateJungle.register();
+		pressurePlateSpruce.register();
 		
 		redNetherBricks.register();
 		netherWartBlock.register();
@@ -201,6 +208,12 @@ public final class MyBlocks {
 	public static final BlockGenericButton buttonDarkOak = new BlockGenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak");
 	public static final BlockGenericButton buttonJungle = new BlockGenericButton(Stat.PLANK_META_JUNGLE, "button_jungle");
 	public static final BlockGenericButton buttonSpruce = new BlockGenericButton(Stat.PLANK_META_SPRUCE, "button_spruce");
+	
+	public static final BlockGenericPressurePlate pressurePlateAcacia = new BlockGenericPressurePlate(Stat.PLANK_META_ACACIA, "pressure_plate_acacia");
+	public static final BlockGenericPressurePlate pressurePlateBirch = new BlockGenericPressurePlate(Stat.PLANK_META_BIRCH, "pressure_plate_birch");
+	public static final BlockGenericPressurePlate pressurePlateDarkOak = new BlockGenericPressurePlate(Stat.PLANK_META_DARKOAK, "pressure_plate_dark_oak");
+	public static final BlockGenericPressurePlate pressurePlateJungle = new BlockGenericPressurePlate(Stat.PLANK_META_JUNGLE, "pressure_plate_jungle");
+	public static final BlockGenericPressurePlate pressurePlateSpruce = new BlockGenericPressurePlate(Stat.PLANK_META_SPRUCE, "pressure_plate_spruce");
 	
 	public static final BlockRedNetherBricks redNetherBricks = new BlockRedNetherBricks();
 	public static final BlockNetherWart netherWartBlock = new BlockNetherWart();
