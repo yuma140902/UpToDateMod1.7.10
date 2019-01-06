@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.util.Facing;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IRegisterable;
@@ -51,9 +50,9 @@ public class BlockGrassPath extends Block implements IRegisterable {
 	public boolean shouldSideBeRendered(	IBlockAccess world, int x, int y, int z, int side) {
 		if(side == Stat.SIDE_TOP) return true;
 		
-		int nextX = x + Facing.offsetsXForSide[side];
-		int nextY = y + Facing.offsetsYForSide[side];
-		int nextZ = z + Facing.offsetsZForSide[side];
+		int nextX = x;// + Facing.offsetsXForSide[side];
+		int nextY = y;// + Facing.offsetsYForSide[side];
+		int nextZ = z;// + Facing.offsetsZForSide[side]; //これでいいのかよくわからない
 		Block nextBlock = world.getBlock(nextX, nextY, nextZ);
 		return !nextBlock.isOpaqueCube() && nextBlock != MyBlocks.grassPath;
 	}
