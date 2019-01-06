@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
@@ -64,6 +65,11 @@ public class BlockGrassPath extends Block implements IRegisterable {
 		if(blockAbove != null && blockAbove.isOpaqueCube()) {
 			world.setBlock(x, y, z, Blocks.dirt);
 		}
+	}
+	
+	@Override
+	public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
+		return false;
 	}
 	
 	@Override
