@@ -66,6 +66,12 @@ tile.uptodate.button_dark_oak.name=Dark Oak Button
 tile.uptodate.button_jungle.name=Jungle Button
 tile.uptodate.button_spruce.name=Spruce Button
 
+tile.uptodate.pressure_plate_acacia.name=Acacia Pressure Plate
+tile.uptodate.pressure_plate_birch.name=Birch Pressure Plate
+tile.uptodate.pressure_plate_dark_oak.name=Dark Oak Pressure Plate
+tile.uptodate.pressure_plate_jungle.name=Jungle Pressure Plate
+tile.uptodate.pressure_plate_spruce.name=Spruce Pressure Plate
+
 tile.uptodate.red_nether_bricks.name=Red Nether Bricks
 tile.uptodate.nether_wart_block.name=Nether Wart Block
 tile.uptodate.magma_block.name=Magma Block
