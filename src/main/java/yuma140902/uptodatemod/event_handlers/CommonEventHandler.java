@@ -63,6 +63,9 @@ public class CommonEventHandler {
 		if(heldItem == null) return;
 		
 		if(isShovel(heldItem.getItem()) && world.getBlock(x, y, z) == Blocks.grass) {
+			Block blockAbove = world.getBlock(x, y + 1, z);
+			if(blockAbove != null && blockAbove.isOpaqueCube()) return;
+			
 			world.setBlock(x, y, z, MyBlocks.grassPath);
 			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "dig.grass", 1.0F, world.rand.nextFloat() * 0.1F + 0.9F);
 		}
