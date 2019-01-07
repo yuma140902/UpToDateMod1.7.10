@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod.event_handlers;
 
+import java.util.Random;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -33,12 +34,14 @@ public class CommonEventHandler {
 	@SubscribeEvent
 	public void onLivingDrop(LivingDropsEvent event) {
 		Entity entity = event.entityLiving;
+		Random rand = event.entityLiving.worldObj.rand;
+		
 		if(entity instanceof EntitySheep) {
 			if(entity.isBurning()) {
-				event.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, new ItemStack(MyItems.cookedMutton)));
+				event.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, new ItemStack(MyItems.cookedMutton, rand.nextInt(2) + 1)));
 			}
 			else {
-				event.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, new ItemStack(MyItems.rawMutton)));
+				event.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, new ItemStack(MyItems.rawMutton, rand.nextInt(2) + 1)));
 			}
 		}
 	}
