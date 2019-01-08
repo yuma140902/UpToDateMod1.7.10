@@ -18,7 +18,7 @@ import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
 
-@Mod(modid = ModUpToDateMod.MOD_ID, useMetadata = true)
+@Mod(modid = ModUpToDateMod.MOD_ID, version = ModUpToDateMod.MOD_VERSION, useMetadata = true)
 public class ModUpToDateMod {
 	@Mod.Metadata
 	public static ModMetadata modMetadata;
