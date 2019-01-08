@@ -17,7 +17,7 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 	public void generate(
 			Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.dimensionId == 0) {
-			generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+			if(ModUpToDateMod.INSTANCE.config_worldGen_genCoarseDirt) generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 			if(ModUpToDateMod.INSTANCE.config_worldGen_genFossiles) generateFossile(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
 	}
@@ -28,7 +28,7 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 			for(int z = chunkZ * 16; z < chunkZ * 16 + 16; ++z) {
 				for(int y = 0; y < heightMax; ++y) {
 					if(world.getBlock(x, y, z) == Blocks.dirt && world.getBlockMetadata(x, y, z) == 1) { //メタデータ1の土を粗い土に置き換え
-						world.setBlock(x, y, z, MyBlocks.coarseDirt);
+						world.setBlock(x, y, z, MyBlocks.coarseDirt, 0, 2);
 					}
 				}
 			}
