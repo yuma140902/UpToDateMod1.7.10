@@ -35,6 +35,10 @@ public class DirectionUtil {
 		}
 	}
 	
+	public static final int[] rightSides = new int[] {Stat.SIDE_NORTH, Stat.SIDE_SOUTH, Stat.SIDE_EAST, Stat.SIDE_WEST, Stat.SIDE_NORTH, Stat.SIDE_SOUTH };
+	
+	public static final int[] leftSides = new int[] {Stat.SIDE_SOUTH, Stat.SIDE_NORTH, Stat.SIDE_WEST, Stat.SIDE_EAST, Stat.SIDE_SOUTH, Stat.SIDE_NORTH };
+	
 	//座標(x, y, z)のブロックのside側の隣の座標を返します
 	public static BlockCoordinate3 getCoordBySide(int side, int x, int y, int z) {
 		switch (side) {
