@@ -37,6 +37,7 @@ public class ModUpToDateMod {
 	public static final String CONFIG_FILE_NAME = "config\\" + MOD_NAME + ".cfg";
 	
 	public boolean config_worldGen_genStones;
+	public boolean config_worldGen_genFossiles;
 	public boolean config_recipeRemove_oldFenceRecipe;
 	public boolean config_enable_observer;
 	
@@ -55,6 +56,7 @@ public class ModUpToDateMod {
 		try {
 			cfg.load();
 			config_worldGen_genStones = cfg.getBoolean("genStones", "worldgen", true, "Generate Granite, Diorite, Andesite in Overworld or not | 花崗岩、閃緑岩、安山岩をワールドに生成するか否か");
+			config_worldGen_genFossiles = cfg.getBoolean("genFossiles", "worldgen", true, "Generate fossiles in Overworld or not | 化石を生成するか否か");
 			config_recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", "recipe", false, "Delete the recipe from 6 sticks to 2 fences | 棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)");
 			config_enable_observer = cfg.getBoolean("enableObserver", "experimental", false, "Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】");
 			EntityModBoatBase.boatCrashWhenCollide = cfg.getBoolean("boatCrashWhenCollide", "entity", false, "Boat added by this mod will crash when collision | このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)");

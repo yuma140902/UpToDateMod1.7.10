@@ -4,7 +4,11 @@ import java.util.Random;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenDesert;
+import net.minecraft.world.biome.BiomeGenSwamp;
 import net.minecraft.world.chunk.IChunkProvider;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 
 public class UpToDateWorldGenerator implements IWorldGenerator{
@@ -12,7 +16,10 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 	@Override
 	public void generate(
 			Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(world.provider.dimensionId == 1) generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+		if(world.provider.dimensionId == 0) {
+			generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+			if(ModUpToDateMod.INSTANCE.config_worldGen_genFossiles) generateFossile(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+		}
 	}
 	
 	private void generateCoarseDirt(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -25,6 +32,29 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 					}
 				}
 			}
+		}
+	}
+	
+	private void generateFossile(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+		if(random.nextInt(64) != 0) return;
+		BiomeGenBase biome = world.provider.getBiomeGenForCoords(chunkX * 16, chunkZ * 16);
+		if(biome instanceof BiomeGenDesert || biome instanceof BiomeGenSwamp) {
+			int x = chunkX * 16 + random.nextInt(16);
+			int y;
+			int z = chunkZ * 16 + random.nextInt(16);
+			
+			for(y = 255; y >= 0; --y) {
+				if(world.isAirBlock(x, y, z)) {
+					continue;
+				}else {
+					break;
+				}
+			}
+			
+			int fossileType = random.nextInt(8);
+			Fossiles fossile = Fossiles.getFossileByType(fossileType);
+			System.out.println("generate at: x=" + x + ", z=" + z);
+			fossile.spawnAt(world, x, y - random.nextInt(20), z, random);
 		}
 	}
 }
