@@ -14,7 +14,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.util.Stat;
 
 public class BlockGrassPath extends Block implements IRegisterable {
@@ -56,7 +55,7 @@ public class BlockGrassPath extends Block implements IRegisterable {
 		int nextY = y;// + Facing.offsetsYForSide[side];
 		int nextZ = z;// + Facing.offsetsZForSide[side]; //これでいいのかよくわからない
 		Block nextBlock = world.getBlock(nextX, nextY, nextZ);
-		return !nextBlock.isOpaqueCube() && nextBlock != MyBlocks.grassPath;
+		return !nextBlock.isOpaqueCube();
 	}
 	
 	@Override
