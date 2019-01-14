@@ -293,7 +293,7 @@ public final class Recipes {
 	}
 	
 	private static void registerSlabRecipes() {
-		MyBlocks.slabStone.registerRecipe();
+		if(ModUpToDateMod.INSTANCE.config_addRecipe_stoneSlab) MyBlocks.slabStone.registerRecipe();
 		MyBlocks.slabGranite.registerRecipe();
 		MyBlocks.slabDiorite.registerRecipe();
 		MyBlocks.slabAndesite.registerRecipe();
