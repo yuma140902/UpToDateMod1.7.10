@@ -22,6 +22,6 @@ public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRec
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addSmelting(this, new ItemStack(MyItems.rawMutton), 5);
+		GameRegistry.addSmelting(new ItemStack(MyItems.rawMutton), new ItemStack(this), 5);
 	}
 }
