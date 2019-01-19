@@ -101,8 +101,10 @@ public class UpdateChecker {
 		String versionsTsv = getFromUrl(ModUpToDateMod.MOD_VERSIONS_TSV_URL);
 		if(versionsTsv == null || versionsTsv.isEmpty()) return;
 		
-		System.out.println("versionsTsv:");
-		System.out.println(versionsTsv);
+		if(ModUpToDateMod.INSTANCE.config_debug_mode) {
+			System.out.println("versionsTsv:");
+			System.out.println(versionsTsv);
+		}
 		
 		this.versions = getVersionsTable(versionsTsv);
 		
