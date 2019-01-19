@@ -42,6 +42,7 @@ public class ModUpToDateMod {
 	public boolean config_recipeRemove_oldFenceRecipe;
 	public boolean config_addRecipe_stoneSlab;
 	public boolean config_enable_observer;
+	public boolean config_debug_mode;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = MOD_ID;
@@ -57,13 +58,18 @@ public class ModUpToDateMod {
 		Configuration cfg = new Configuration(new File(CONFIG_FILE_NAME));
 		try {
 			cfg.load();
-			config_worldGen_genStones = cfg.getBoolean("genStones", "worldgen", true, "Generate Granite, Diorite, Andesite in Overworld or not | 花崗岩、閃緑岩、安山岩をワールドに生成するか否か");
-			config_worldGen_genFossiles = cfg.getBoolean("genFossiles", "worldgen", true, "Generate fossiles in Overworld or not | 化石を生成するか否か");
 			config_worldGen_genCoarseDirt = cfg.getBoolean("genCoarseDirt", "worldgen", true, "Generate coarse dirt in Overworld or not | 粗い土を生成するか否か");
-			config_recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", "recipe", false, "Delete the recipe from 6 sticks to 2 fences | 棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)");
+			config_worldGen_genFossiles = cfg.getBoolean("genFossiles", "worldgen", true, "Generate fossiles in Overworld or not | 化石を生成するか否か");
+			config_worldGen_genStones = cfg.getBoolean("genStones", "worldgen", true, "Generate Granite, Diorite, Andesite in Overworld or not | 花崗岩、閃緑岩、安山岩をワールドに生成するか否か");
+			
 			config_addRecipe_stoneSlab = cfg.getBoolean("addStoneSlabRecipe", "recipe", false, "add Stone Slab recipe | 石のハーフブロックのレシピを追加するかどうか");
+			config_recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", "recipe", false, "Delete the recipe from 6 sticks to 2 fences | 棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)");
+			
 			config_enable_observer = cfg.getBoolean("enableObserver", "experimental", false, "Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】");
+			
 			EntityModBoatBase.boatCrashWhenCollide = cfg.getBoolean("boatCrashWhenCollide", "entity", false, "Boat added by this mod will crash when collision | このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)");
+			
+			config_debug_mode = cfg.getBoolean("enableDebugMode", "misc", false, "");
 			UpdateChecker.INSTANCE.config_updateChannel = cfg.getString("updateChannel", "misc", UpdateChecker.INSTANCE.config_updateChannel, "Channel of update checking| アップデートのチャンネル", new String[] {UpdateChecker.RECOMMENDED_STR, UpdateChecker.LATEST_STR});
 			UpdateChecker.INSTANCE.config_doCheckUpdate = cfg.getBoolean("doUpdateChecking", "misc", UpdateChecker.INSTANCE.config_doCheckUpdate, "If true, the mod will check for updates automatically | アップデートを自動で確認するかどうか");
 		}
