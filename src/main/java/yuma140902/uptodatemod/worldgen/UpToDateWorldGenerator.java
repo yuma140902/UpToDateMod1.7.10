@@ -53,7 +53,6 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 			
 			int fossileType = random.nextInt(8);
 			Fossiles fossile = Fossiles.getFossileByType(fossileType);
-			System.out.println("generate at: x=" + x + ", z=" + z);
 			fossile.spawnAt(world, x, y - random.nextInt(20), z, random);
 		}
 	}

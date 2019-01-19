@@ -16,7 +16,6 @@ private ClientEventHandler() {}
 	private boolean hasNotifiedAboutUpdate = false;
 	@SubscribeEvent
 	public void onWorldLoaded(WorldEvent.Load event) {
-		System.out.println("イベント: WorldEvent.Load");
 		if(!event.world.isRemote || !UpdateChecker.INSTANCE.config_doCheckUpdate || hasNotifiedAboutUpdate) {
 			return;
 		}
