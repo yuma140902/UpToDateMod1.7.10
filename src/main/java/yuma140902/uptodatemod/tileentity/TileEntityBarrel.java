@@ -70,6 +70,7 @@ public class TileEntityBarrel extends TileEntity implements IInventory {
 		if(inventory[slot].stackSize <= amount) {
 			itemStack = inventory[slot];
 			inventory[slot] = null;
+			this.markDirty();
 			return itemStack;
 		}
 		
@@ -77,6 +78,7 @@ public class TileEntityBarrel extends TileEntity implements IInventory {
 		if(inventory[slot].stackSize < 1) {
 			inventory[slot] = null;
 		}
+		this.markDirty();
 		return itemStack;
 	}
 	
@@ -86,6 +88,8 @@ public class TileEntityBarrel extends TileEntity implements IInventory {
 		if(itemStack != null && itemStack.stackSize > this.getInventoryStackLimit()) {
 			itemStack.stackSize = this.getInventoryStackLimit();
 		}
+		
+		this.markDirty();
 	}
 	
 	@Override
