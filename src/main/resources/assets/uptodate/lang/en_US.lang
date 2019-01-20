@@ -168,10 +168,16 @@ config.uptodate.category.worldgen=World Generation
 config.uptodate.category.worldgen.tooltip=Settings about world generation
 config.uptodate.prop.generate_stones=Generate the stones
 config.uptodate.prop.generate_stones.tooltip=Whether to generate Andesite, Granite, and Diorite in world
+config.uptodate.prop.generate_stones_blacklist=Black list of stones generation
+config.uptodate.prop.generate_stones_blacklist.tooltip=Dimension IDs in which stones should not generated
 config.uptodate.prop.generate_fossiles=Generate fossiles
 config.uptodate.prop.generate_fossiles.tooltip=Whether to generate fossiles underground in desert and swampland.
+config.uptodate.prop.generate_fossiles_blacklist=Black list of fossiles generation
+config.uptodate.prop.generate_fossiles_blacklist.tooltip=Dimension IDs in which fossiles should not generated
 config.uptodate.prop.generate_coarse_dirt=Generate coarse dirt
 config.uptodate.prop.generate_coarse_dirt.tooltip=Coarse dirt will spawn replacing dirt block with metadata 1.
+config.uptodate.prop.generate_coarse_dirt_blacklist=Black list of coarse dirt generation
+config.uptodate.prop.generate_coarse_dirt_blacklist.tooltip=Dimension IDs in which coarse dirt should not generated
 
 config.uptodate.category.recipe=Recipes
 config.uptodate.category.recipe.tooltip=Settings about recipes

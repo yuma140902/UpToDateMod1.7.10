@@ -168,10 +168,16 @@ config.uptodate.category.worldgen=ワールド生成
 config.uptodate.category.worldgen.tooltip=ワールド生成に関する設定
 config.uptodate.prop.generate_stones=各種石の生成
 config.uptodate.prop.generate_stones.tooltip=花崗岩、閃緑岩、安山岩を生成するか否か
+config.uptodate.prop.generate_stones_blacklist=各種石の生成のブラックリスト
+config.uptodate.prop.generate_stones_blacklist.tooltip=各種石を生成しないディメンションのIDを指定します。
 config.uptodate.prop.generate_fossiles=化石の生成
 config.uptodate.prop.generate_fossiles.tooltip=化石を砂漠と湿地に生成するか否か
+config.uptodate.prop.generate_fossiles_blacklist=化石の生成のブラックリスト
+config.uptodate.prop.generate_fossiles_blacklist.tooltip=化石を生成しないディメンションのIDを指定します。
 config.uptodate.prop.generate_coarse_dirt=粗い土の生成
 config.uptodate.prop.generate_coarse_dirt.tooltip=粗い土はメタデータ1の土を置き換える形で生成されます
+config.uptodate.prop.generate_coarse_dirt_blacklist=粗い土の生成のブラックリスト
+config.uptodate.prop.generate_coarse_dirt_blacklist.tooltip=粗い土を生成しないディメンションのIDを指定します。
 
 config.uptodate.category.recipe=レシピ
 config.uptodate.category.recipe.tooltip=レシピに関する設定
