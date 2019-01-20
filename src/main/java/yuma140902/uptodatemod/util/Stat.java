@@ -29,5 +29,6 @@ public final class Stat {
 	
 	public static final String
 		PROXY_CLIENT = "yuma140902.uptodatemod.proxy.ClientProxy",
-		PROXY_SERVER = "yuma140902.uptodatemod.proxy.ServerProxy";
+		PROXY_SERVER = "yuma140902.uptodatemod.proxy.ServerProxy",
+		MOD_CONFIG_GUI_FACTORY = "yuma140902.uptodatemod.gui.ModConfigGuiFactory";
 }

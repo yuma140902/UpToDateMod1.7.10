@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod.event_handlers;
 
 import java.util.Random;
+import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -16,9 +17,11 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
+import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.util.Stat;
 
 public class CommonEventHandler {
@@ -97,5 +100,11 @@ public class CommonEventHandler {
 			world.setBlockMetadataWithNotify(x, y, z, axis << 2, 3);
 			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "dig.cloth", 1.0F, world.rand.nextFloat() * 0.1F + 0.9F);
 		}
+	}
+	
+	@SubscribeEvent
+	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
+		if(ModUpToDateMod.MOD_ID.equals(event.modID))
+			ModConfigCore.syncConfig();
 	}
 }

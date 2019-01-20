@@ -8,8 +8,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenDesert;
 import net.minecraft.world.biome.BiomeGenSwamp;
 import net.minecraft.world.chunk.IChunkProvider;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.config.ModConfigCore;
 
 public class UpToDateWorldGenerator implements IWorldGenerator{
 
@@ -17,8 +17,8 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 	public void generate(
 			Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.dimensionId == 0) {
-			if(ModUpToDateMod.INSTANCE.config_worldGen_genCoarseDirt) generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
-			if(ModUpToDateMod.INSTANCE.config_worldGen_genFossiles) generateFossile(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+			if(ModConfigCore.worldGen_genCoarseDirt) generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+			if(ModConfigCore.worldGen_genFossiles) generateFossile(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
 	}
 	
@@ -53,7 +53,6 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 			
 			int fossileType = random.nextInt(8);
 			Fossiles fossile = Fossiles.getFossileByType(fossileType);
-			System.out.println("generate at: x=" + x + ", z=" + z);
 			fossile.spawnAt(world, x, y - random.nextInt(20), z, random);
 		}
 	}

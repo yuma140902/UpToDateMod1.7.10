@@ -32,6 +32,7 @@ import yuma140902.uptodatemod.blocks.generics.BlockGenericStairs;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericTrapDoor;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericWall;
+import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.util.Stat;
 
 public final class MyBlocks {
@@ -70,7 +71,7 @@ public final class MyBlocks {
 		prismarineDark.register();
 		seaLantern.register();
 		
-		if(ModUpToDateMod.INSTANCE.config_enable_observer) observer.register();
+		if(ModConfigCore.enable_observer) observer.register();
 		
 		trapDoorAcacia.register();
 		trapDoorBirch.register();
@@ -189,7 +190,7 @@ public final class MyBlocks {
 	public static final BlockDarkPrismarine prismarineDark = new BlockDarkPrismarine();
 	public static final BlockSeaLantern seaLantern = new BlockSeaLantern();
 	
-	public static final BlockObserver observer = ModUpToDateMod.INSTANCE.config_enable_observer ? new BlockObserver() : null;
+	public static final BlockObserver observer = ModConfigCore.enable_observer ? new BlockObserver() : null;
 	
 	public static final BlockGenericTrapDoor trapDoorAcacia = new BlockGenericTrapDoor("trap_door_acacia", Stat.PLANK_META_ACACIA);
 	public static final BlockGenericTrapDoor trapDoorBirch = new BlockGenericTrapDoor("trap_door_birch", Stat.PLANK_META_BIRCH);
