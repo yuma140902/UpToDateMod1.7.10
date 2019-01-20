@@ -12,13 +12,14 @@ import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.init.Items;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.blocks.BlockStone;
+import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
 
-@Mod(modid = ModUpToDateMod.MOD_ID, version = ModUpToDateMod.MOD_VERSION, useMetadata = true)
+@Mod(modid = ModUpToDateMod.MOD_ID, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY)
 public class ModUpToDateMod {
 	@Mod.Metadata
 	public static ModMetadata modMetadata;
@@ -88,6 +89,7 @@ public class ModUpToDateMod {
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
 		loadConfig();
+		ModConfigCore.loadConfig(event);
 		try {
 			UpdateChecker.INSTANCE.checkForUpdates();
 		}
