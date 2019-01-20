@@ -104,9 +104,7 @@ public class CommonEventHandler {
 	
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-		System.out.println("onConfigChanged!!");
 		if(ModUpToDateMod.MOD_ID.equals(event.modID))
-			System.out.println("  Config sync!!");
 			ModConfigCore.syncConfig();
 	}
 }

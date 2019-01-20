@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
+import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.util.ListUtils;
 
 public final class Recipes {
@@ -28,7 +29,7 @@ public final class Recipes {
 	public static void removeVanillaRecipes() {
 		List<String> removeRecipesOutputNameList = new ArrayList<>();
 		removeRecipesOutputNameList.add("minecraft:wooden_door");
-		if(ModUpToDateMod.INSTANCE.config_recipeRemove_oldFenceRecipe)
+		if(ModConfigCore.recipeRemove_oldFenceRecipe)
 			removeRecipesOutputNameList.add("minecraft:fence");
 		removeRecipesOutputNameList.add("minecraft:fence_gate");
 		removeRecipesOutputNameList.add("minecraft:wooden_button");
@@ -292,7 +293,7 @@ public final class Recipes {
 	}
 	
 	private static void registerSlabRecipes() {
-		if(ModUpToDateMod.INSTANCE.config_addRecipe_stoneSlab) MyBlocks.slabStone.registerRecipe();
+		if(ModConfigCore.addRecipe_stoneSlab) MyBlocks.slabStone.registerRecipe();
 		MyBlocks.slabGranite.registerRecipe();
 		MyBlocks.slabDiorite.registerRecipe();
 		MyBlocks.slabAndesite.registerRecipe();
