@@ -14,8 +14,13 @@ private ClientEventHandler() {}
 	public static final ClientEventHandler INSTANCE = new ClientEventHandler();
 	
 	private boolean hasNotifiedAboutUpdate = false;
+	
 	@SubscribeEvent
 	public void onWorldLoaded(WorldEvent.Load event) {
+		updateNotify(event);
+	}
+	
+	private void updateNotify(WorldEvent.Load event) {
 		if(!event.world.isRemote || !UpdateChecker.INSTANCE.config_doCheckUpdate || hasNotifiedAboutUpdate) {
 			return;
 		}
