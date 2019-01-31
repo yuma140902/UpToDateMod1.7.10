@@ -159,21 +159,27 @@ text.uptodate.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark
 
 config.uptodate.category.general=General
 config.uptodate.category.general.tooltip=General settings of UpToDateMod
-config.uptodate.prop.do_check_update=Check for updates
-config.uptodate.prop.do_check_update.tooltip=Whether to checks for the updates
-config.uptodate.prop.update_channel=Channel of updates
-config.uptodate.prop.update_channel.tooltip=Recommended or Latest
+config.uptodate.prop.do_check_update=Update checking
+config.uptodate.prop.do_check_update.tooltip=Whether to check for the updates
+config.uptodate.prop.update_channel=Channel of update
+config.uptodate.prop.update_channel.tooltip=Stable version ('Recommended') or unstable version ('Latest')
 config.uptodate.prop.debug_mode=Debug Mode
 config.uptodate.prop.debug_mode.tooltip=Detailed log will be outputed. Users are recommended to set this property 'false'
 
 config.uptodate.category.worldgen=World Generation
 config.uptodate.category.worldgen.tooltip=Settings about world generation
-config.uptodate.prop.generate_stones=Generate the stones
+config.uptodate.prop.generate_stones=Stones generation
 config.uptodate.prop.generate_stones.tooltip=Whether to generate Andesite, Granite, and Diorite in world
-config.uptodate.prop.generate_fossiles=Generate fossiles
+config.uptodate.prop.generate_stones_blacklist=Blacklist of stones generation
+config.uptodate.prop.generate_stones_blacklist.tooltip=Dimension IDs in which stones should not be generated
+config.uptodate.prop.generate_fossiles=Fossiles generation
 config.uptodate.prop.generate_fossiles.tooltip=Whether to generate fossiles underground in desert and swampland.
-config.uptodate.prop.generate_coarse_dirt=Generate coarse dirt
+config.uptodate.prop.generate_fossiles_blacklist=Blacklist of fossiles generation
+config.uptodate.prop.generate_fossiles_blacklist.tooltip=Dimension IDs in which fossiles should not be generated
+config.uptodate.prop.generate_coarse_dirt=Coarse dirt generation
 config.uptodate.prop.generate_coarse_dirt.tooltip=Coarse dirt will spawn replacing dirt block with metadata 1.
+config.uptodate.prop.generate_coarse_dirt_blacklist=Blacklist of coarse dirt generation
+config.uptodate.prop.generate_coarse_dirt_blacklist.tooltip=Dimension IDs in which coarse dirt should not be generated
 
 config.uptodate.category.recipe=Recipes
 config.uptodate.category.recipe.tooltip=Settings about recipes
