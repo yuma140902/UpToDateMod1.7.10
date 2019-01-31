@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.worldgen;
+package yuma140902.uptodatemod.world.generation;
 
 import java.util.Random;
 import net.minecraft.init.Blocks;
@@ -259,11 +259,6 @@ public abstract class Fossiles {
 				ribXRight += Facing.offsetsXForSide[right];
 				ribZRight += Facing.offsetsZForSide[right];
 				generatePillar(world, ribXRight, y - 1, ribZRight, 2, Stat.SIDE_BOTTOM, random); // :を生成
-				
-				int ribXLeft = ribX;
-				int ribZLeft = ribZ;
-				ribXLeft += Facing.offsetsXForSide[left];
-				ribZLeft += Facing.offsetsZForSide[left];
 				
 				ribX += Facing.offsetsXForSide[facing] * 2;
 				ribZ += Facing.offsetsZForSide[facing] * 2;
