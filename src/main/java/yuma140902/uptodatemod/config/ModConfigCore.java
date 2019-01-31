@@ -20,8 +20,11 @@ public class ModConfigCore {
 	public static Configuration cfg;
 	
 	public static boolean worldGen_genStones;
+	public static int[] worldGen_genStones_blackList;
 	public static boolean worldGen_genFossiles;
+	public static int[] worldGen_genFossiles_blackList;
 	public static boolean worldGen_genCoarseDirt;
+	public static int[] worldGen_genCoarseDirt_blackList;
 	public static boolean recipeRemove_oldFenceRecipe;
 	public static boolean addRecipe_stoneSlab;
 	public static boolean enable_observer;
@@ -75,12 +78,21 @@ public class ModConfigCore {
 		worldGen_genStones = cfg.getBoolean("genStones", CATEGORY_WORLDGEN, true, 
 				"Generate Granite, Diorite, Andesite in Overworld or not | 花崗岩、閃緑岩、安山岩をワールドに生成するか否か",
 				CONFIG_PROP_LANGKEY + "generate_stones");
+		worldGen_genStones_blackList = stringListToIntList(cfg.getStringList("genStonesDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
+				"Granite, Diorite, and Andesite generation dimension black list", (String[])null,
+				CONFIG_PROP_LANGKEY + "generate_stones_blacklist"));
 		worldGen_genFossiles = cfg.getBoolean("genFossiles", CATEGORY_WORLDGEN, true, 
 				"Generate fossiles in Overworld or not | 化石を生成するか否か",
 				CONFIG_PROP_LANGKEY + "generate_fossiles");
+		worldGen_genFossiles_blackList = stringListToIntList(cfg.getStringList("genFossilesDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
+				"Fossile generation dimension black list", (String[])null,
+				CONFIG_PROP_LANGKEY + "generate_fossiles_blacklist"));
 		worldGen_genCoarseDirt = cfg.getBoolean("genCoarseDirt", CATEGORY_WORLDGEN, true, 
 				"Generate coarse dirt in Overworld or not | 粗い土を生成するか否か",
 				CONFIG_PROP_LANGKEY + "generate_coarse_dirt");
+		worldGen_genCoarseDirt_blackList = stringListToIntList(cfg.getStringList("genCoarseDirtDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
+				"Coarse Dirt generation dimension black list", (String[])null,
+				CONFIG_PROP_LANGKEY + "generate_coarse_dirt_blacklist"));
 		
 		// Recipe
 		recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", CATEGORY_RECIPE, false, 
@@ -101,5 +113,20 @@ public class ModConfigCore {
 				CONFIG_PROP_LANGKEY + "observer");
 		
 		cfg.save();
+	}
+	
+	private static int[] stringListToIntList(String[] strList) {
+		int[] list = new int[strList.length];
+		for(int srcIdx = 0, dstIdx = 0; srcIdx < strList.length; ++srcIdx) {
+			try{
+				list[dstIdx] = Integer.parseInt(strList[srcIdx]);
+				++dstIdx;
+			}
+			catch (NumberFormatException e) {
+				System.out.println("Config error: The value '" + strList[srcIdx] + "' cannot be parsed into integer.");
+				continue;
+			}
+		}
+		return list;
 	}
 }
