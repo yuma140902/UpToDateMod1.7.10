@@ -40,7 +40,7 @@ public class UpdateChecker {
 			conn.connect();
 		
 			is = conn.getInputStream();
-			isr = new InputStreamReader(is);
+			isr = new InputStreamReader(is, "UTF8");
 			br = new BufferedReader(isr);
 		
 			String line = null;
