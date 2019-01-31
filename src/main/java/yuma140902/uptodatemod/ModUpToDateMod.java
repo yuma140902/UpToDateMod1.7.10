@@ -14,7 +14,7 @@ import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.UpdateChecker;
-import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
+import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY)
 public class ModUpToDateMod {

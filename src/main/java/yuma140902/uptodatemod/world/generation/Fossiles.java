@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.worldgen;
+package yuma140902.uptodatemod.world.generation;
 
 import java.util.Random;
 import net.minecraft.init.Blocks;
