@@ -2,7 +2,6 @@ package yuma140902.uptodatemod.client.renderer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBoat;
 import net.minecraft.client.renderer.entity.RenderBoat;
 import net.minecraft.entity.Entity;
@@ -21,8 +20,6 @@ public class RenderModBoat extends RenderBoat {
 	private static final ResourceLocation spruceBoatTextures = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/boat_spruce.png");
 	
 	private Type type;
-	/** instance of ModelBoat for rendering */
-	protected ModelBase modelBoat;
 	
 	public RenderModBoat(Type type) {
 		this.type = type;
