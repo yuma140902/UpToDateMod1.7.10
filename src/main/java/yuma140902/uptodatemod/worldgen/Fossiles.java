@@ -260,11 +260,6 @@ public abstract class Fossiles {
 				ribZRight += Facing.offsetsZForSide[right];
 				generatePillar(world, ribXRight, y - 1, ribZRight, 2, Stat.SIDE_BOTTOM, random); // :を生成
 				
-				int ribXLeft = ribX;
-				int ribZLeft = ribZ;
-				ribXLeft += Facing.offsetsXForSide[left];
-				ribZLeft += Facing.offsetsZForSide[left];
-				
 				ribX += Facing.offsetsXForSide[facing] * 2;
 				ribZ += Facing.offsetsZForSide[facing] * 2;
 			}
