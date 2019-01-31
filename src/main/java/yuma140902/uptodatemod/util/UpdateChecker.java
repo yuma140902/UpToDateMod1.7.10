@@ -48,6 +48,9 @@ public class UpdateChecker {
 				sb.append(line).append('\n');
 			}
 		}
+		catch(RuntimeException e) {
+			throw e;
+		}
 		catch (Exception e) {
 			e.printStackTrace();
 			hasError = true;
