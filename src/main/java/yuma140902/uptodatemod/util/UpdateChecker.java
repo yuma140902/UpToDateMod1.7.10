@@ -26,6 +26,7 @@ public class UpdateChecker {
 	public HashMap<String, String> versions = null;
 	
 	private static String getFromUrl(String urlStr) {
+		boolean hasError = false;
 		InputStream is = null;
 		InputStreamReader isr = null;
 		BufferedReader br = null;
@@ -39,7 +40,7 @@ public class UpdateChecker {
 			conn.connect();
 		
 			is = conn.getInputStream();
-			isr = new InputStreamReader(is);
+			isr = new InputStreamReader(is, "UTF8");
 			br = new BufferedReader(isr);
 		
 			String line = null;
@@ -47,9 +48,12 @@ public class UpdateChecker {
 				sb.append(line).append('\n');
 			}
 		}
+		catch(RuntimeException e) {
+			throw e;
+		}
 		catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			hasError = true;
 		}
 		finally {
 			try {
@@ -57,25 +61,25 @@ public class UpdateChecker {
 			}
 			catch (Exception e) {
 				e.printStackTrace();
-				return null;
+				hasError = true;
 			}
 			try {
 				isr.close();
 			}
 			catch (Exception e) {
 				e.printStackTrace();
-				return null;
+				hasError = true;
 			}
 			try {
 				br.close();
 			}
 			catch (Exception e) {
 				e.printStackTrace();
-				return null;
+				hasError = true;
 			}
 		}
 		
-		return sb.toString();
+		return hasError ? null : sb.toString();
 	}
 	
 	

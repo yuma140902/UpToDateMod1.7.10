@@ -1,8 +1,8 @@
 package yuma140902.uptodatemod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import yuma140902.uptodatemod.worldgen.MyMinableGenerator;
-import yuma140902.uptodatemod.worldgen.UpToDateWorldGenerator;
+import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
+import yuma140902.uptodatemod.world.generation.UpToDateWorldGenerator;
 
 public final class WorldGenerators {
 	private WorldGenerators() {}

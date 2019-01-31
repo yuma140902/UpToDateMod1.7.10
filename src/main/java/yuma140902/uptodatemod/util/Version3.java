@@ -11,7 +11,7 @@ public class Version3 {
 		this.c = c;
 	}
 	
-	public static Version3 FromString(String str) {
+	public static Version3 fromString(String str) {
 		if(str == null || str.isEmpty()) return new Version3(0, 0, 0);
 		
 		int a = 0, b = 0, c = 0;
@@ -44,8 +44,8 @@ public class Version3 {
 	}
 	
 	public static boolean isLaterThan(String verA, String verB) {
-		Version3 versionA = FromString(verA);
-		Version3 versionB = FromString(verB);
+		Version3 versionA = fromString(verA);
+		Version3 versionB = fromString(verB);
 		return versionA.isLaterThan(versionB);
 	}
 	
