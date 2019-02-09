@@ -21,13 +21,13 @@ public class CommonProxy {
 	
 	private int id = 0;
 	public void registerEntities() {
-		EntityRegistry.registerModEntity(EntityBoatAcacia.class, "boat_acacia", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityBoatBirch.class, "boat_birch", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityBoatDarkOak.class, "boat_dark_oak", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityBoatJungle.class, "boat_jungle", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityBoatSpruce.class, "boat_spruce", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityArmorStand.class, "wooden_armorstand", id++, ModUpToDateMod.INSTANCE, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityFallingConcretePowderBlock.class, "falling_concrete_powder_block", id++, ModUpToDateMod.INSTANCE, 512, 1, true);
+		EntityRegistry.registerModEntity(EntityBoatAcacia.class, "boat_acacia", 0, ModUpToDateMod.INSTANCE, 128, 5, true);
+		EntityRegistry.registerModEntity(EntityBoatBirch.class, "boat_birch", 1, ModUpToDateMod.INSTANCE, 128, 5, true);
+		EntityRegistry.registerModEntity(EntityBoatDarkOak.class, "boat_dark_oak", 2, ModUpToDateMod.INSTANCE, 128, 5, true);
+		EntityRegistry.registerModEntity(EntityBoatJungle.class, "boat_jungle", 3, ModUpToDateMod.INSTANCE, 128, 5, true);
+		EntityRegistry.registerModEntity(EntityBoatSpruce.class, "boat_spruce", 4, ModUpToDateMod.INSTANCE, 128, 5, true);
+		EntityRegistry.registerModEntity(EntityArmorStand.class, "wooden_armorstand", 6, ModUpToDateMod.INSTANCE, 64, 1, true);
+		EntityRegistry.registerModEntity(EntityFallingConcretePowderBlock.class, "falling_concrete_powder_block", 7, ModUpToDateMod.INSTANCE, 512, 1, true);
 	}
 	
 	public void registerRenderers() { }
