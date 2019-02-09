@@ -4,6 +4,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.entity.item.EntityArmorStand;
 import yuma140902.uptodatemod.entity.item.EntityBoatAcacia;
 import yuma140902.uptodatemod.entity.item.EntityBoatBirch;
 import yuma140902.uptodatemod.entity.item.EntityBoatDarkOak;
@@ -25,6 +26,7 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(EntityBoatDarkOak.class, "boat_dark_oak", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityBoatJungle.class, "boat_jungle", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityBoatSpruce.class, "boat_spruce", id++, ModUpToDateMod.INSTANCE, 128, 5, true);
+		EntityRegistry.registerModEntity(EntityArmorStand.class, "wooden_armorstand", id++, ModUpToDateMod.INSTANCE, 64, 1, true);
 		EntityRegistry.registerModEntity(EntityFallingConcretePowderBlock.class, "falling_concrete_powder_block", id++, ModUpToDateMod.INSTANCE, 512, 1, true);
 	}
 	
