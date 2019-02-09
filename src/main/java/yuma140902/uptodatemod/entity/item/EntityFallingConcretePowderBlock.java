@@ -71,16 +71,19 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	 * walk on. used for spiders and wolves to
 	 * prevent them from trampling crops
 	 */
+	@Override
 	protected boolean canTriggerWalking() {
 		return false;
 	}
 	
+	@Override
 	protected void entityInit() {}
 	
 	/**
 	 * Returns true if other Entities should be prevented from moving through this
 	 * Entity.
 	 */
+	@Override
 	public boolean canBeCollidedWith() {
 		return !this.isDead;
 	}
@@ -88,6 +91,7 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	/**
 	 * Called to update the entity's position/logic.
 	 */
+	@Override
 	public void onUpdate() {
 		if (this.block.getMaterial() == Material.air) {
 			this.setDead();
@@ -153,6 +157,8 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	/**
 	 * Called when the mob is falling. Calculates and applies fall damage.
 	 */
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	@Override
 	protected void fall(float p_70069_1_) {
 		if (this.canHurtEntities) {
 			int i = MathHelper.ceiling_float_int(p_70069_1_ - 1.0F);
@@ -175,6 +181,7 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	/**
 	 * (abstract) Protected helper method to write subclass entity data to NBT.
 	 */
+	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		nbt.setByte("Tile", (byte) Block.getIdFromBlock(this.block));
 		nbt.setInteger("TileID", Block.getIdFromBlock(this.block));
@@ -193,6 +200,7 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	/**
 	 * (abstract) Protected helper method to read subclass entity data from NBT.
 	 */
+	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbt) {
 		if (nbt.hasKey("TileID", 99)) {
 			this.block = Block.getBlockById(nbt.getInteger("TileID"));
@@ -226,10 +234,12 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 		}
 	}
 	
+	@Override
 	public void func_145806_a(boolean p_145806_1_) {
 		this.canHurtEntities = p_145806_1_;
 	}
 	
+	@Override
 	public void addEntityCrashInfo(CrashReportCategory crashReportCategory) {
 		super.addEntityCrashInfo(crashReportCategory);
 		crashReportCategory.addCrashSection("Immitating block ID", Integer.valueOf(Block.getIdFromBlock(this.block)));
@@ -254,6 +264,7 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 		return false;
 	}
 	
+	@Override
 	public Block func_145805_f() {
 		return this.block;
 	}
