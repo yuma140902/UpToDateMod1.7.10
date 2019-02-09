@@ -96,6 +96,7 @@ public final class Recipes {
 		registerOceanMonumentRecipes();
 		
 		MyItems.cookedMutton.registerRecipes();
+		MyItems.armorStand.registerRecipes();
 	}
 	
 	private static void registerWoodRecipes() {

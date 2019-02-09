@@ -141,6 +141,8 @@ tile.uptodate.wall_prismarine.name=Prismarine Wall
 tile.uptodate.wall_prismarine_brick.name=Prismarine Brick Wall
 tile.uptodate.wall_dark_prismarine.name=Dark Prismarine Wall
 
+item.uptodate.armor_stand.name=Armor Stand
+
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
 item.uptodate.item_boat_dark_oak.name=Dark Oak Boat

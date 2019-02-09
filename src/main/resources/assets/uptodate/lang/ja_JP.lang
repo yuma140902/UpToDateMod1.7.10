@@ -141,6 +141,8 @@ tile.uptodate.wall_prismarine.name=プリズマリンの壁
 tile.uptodate.wall_prismarine_brick.name=プリズマリンレンガの壁
 tile.uptodate.wall_dark_prismarine.name=ダークプリズマリンの壁
 
+item.uptodate.armor_stand.name=防具立て
+
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
 item.uptodate.item_boat_dark_oak.name=ダークオークのボート

@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod;
 
+import yuma140902.uptodatemod.items.ItemArmorStand;
 import yuma140902.uptodatemod.items.ItemBoatAcacia;
 import yuma140902.uptodatemod.items.ItemBoatBirch;
 import yuma140902.uptodatemod.items.ItemBoatDarkOak;
@@ -36,6 +37,8 @@ public final class MyItems {
 		
 		rawMutton.register();
 		cookedMutton.register();
+		
+		armorStand.register();
 	}
 	
 	public static final ItemDoorAcacia itemDoorAcacia = new ItemDoorAcacia();
@@ -55,4 +58,6 @@ public final class MyItems {
 	
 	public static final ItemRawMutton rawMutton = new ItemRawMutton();
 	public static final ItemCookedMutton cookedMutton = new ItemCookedMutton();
+	
+	public static final ItemArmorStand armorStand = new ItemArmorStand();
 }
