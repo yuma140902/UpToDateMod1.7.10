@@ -20,6 +20,25 @@ import yuma140902.uptodatemod.util.ColorUtil;
 
 @SideOnly(Side.CLIENT)
 public class RenderFallingConcretePowder extends Render {
+	private static final ResourceLocation[] TEXTURES = new ResourceLocation[] {
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(0) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(1) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(2) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(3) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(4) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(5) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(6) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(7) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(8) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(9) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(10) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(11) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(12) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(13) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(14) + ".png"),
+		new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/blocks/concrete_powder_" + ColorUtil.metaToString(15) + ".png"),
+	};
+	
 	private final RenderBlocks renderBlocks = new RenderBlocks();
 	
 	public RenderFallingConcretePowder() {
@@ -47,7 +66,7 @@ public class RenderFallingConcretePowder extends Render {
 		if (block != null && block != world.getBlock(i, j, k)) {
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) p_76986_2_, (float) p_76986_4_, (float) p_76986_6_);
-			// this.bindEntityTexture(p_76986_1_);
+			this.bindEntityTexture(entity);
 			GL11.glDisable(GL11.GL_LIGHTING);
 			Tessellator tessellator;
 			
@@ -86,7 +105,7 @@ public class RenderFallingConcretePowder extends Render {
 	// RenderBlocks.renderBlockSandFallingをコピペして改変
 	public void renderConcretePowderWithMetadata(
 			Block block, World world, int p_147749_3_, int p_147749_4_, int p_147749_5_, int meta) {
-		System.out.println("renderConcretePowderWithMetadata : " + meta);
+		System.out.println("metadata : " + meta);
 		this.renderBlocks.setRenderBoundsFromBlock(block);
 		float f = 0.5F;
 		float f1 = 1.0F;
@@ -118,15 +137,14 @@ public class RenderFallingConcretePowder extends Render {
 	protected ResourceLocation getEntityTexture(EntityFallingConcretePowderBlock entity) {
 		// return TextureMap.locationBlocksTexture;
 		System.out.println("getEntityTextre : " + ColorUtil.metaToString(entity.getMetadata()));
-		return new ResourceLocation(
-				ModUpToDateMod.MOD_ID,
-				"textures/blocks/concrete_powder_" + ColorUtil.metaToString(entity.getMetadata()) + ".png");
+		return TEXTURES[entity.getMetadata()];
 	}
 	
 	/**
 	 * Returns the location of an entity's texture. Doesn't seem to be called
 	 * unless you call Render.bindEntityTexture.
 	 */
+	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		return this.getEntityTexture((EntityFallingConcretePowderBlock) entity);
 	}
@@ -140,6 +158,7 @@ public class RenderFallingConcretePowder extends Render {
 	 * func_76986_a(T entity, double d, double d1,
 	 * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
 	 */
+	@Override
 	public void doRender(
 			Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
 		this.doRender(
