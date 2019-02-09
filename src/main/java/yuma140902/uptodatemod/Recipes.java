@@ -98,7 +98,8 @@ public final class Recipes {
 		MyBlocks.barrel.registerRecipes();
 		
 		MyItems.cookedMutton.registerRecipes();
-		
+
+		MyItems.armorStand.registerRecipes();
 	}
 	
 	private static void registerWoodRecipes() {
