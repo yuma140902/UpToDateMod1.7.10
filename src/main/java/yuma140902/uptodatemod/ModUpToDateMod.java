@@ -16,6 +16,8 @@ import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
+import yuma140902.uptodatemod.network.FallingConcretePowderHandler;
+import yuma140902.uptodatemod.network.FallingConcretePowderMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.UpdateChecker;
@@ -74,6 +76,7 @@ public class ModUpToDateMod {
 		
 		networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
 		networkWrapper.registerMessage(ArmorStandInteractHandler.class, ArmorStandInteractMessage.class, 0, Side.SERVER);
+		networkWrapper.registerMessage(FallingConcretePowderHandler.class, FallingConcretePowderMessage.class, 1, Side.CLIENT);
 	}
 	
 	@EventHandler
