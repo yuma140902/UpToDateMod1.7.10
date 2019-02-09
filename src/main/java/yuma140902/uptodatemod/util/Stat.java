@@ -20,6 +20,22 @@ public final class Stat {
 		LOG2_META_DARK_OAK = 1;
 	
 	public static final int
+		META_STAIRS_EAST = 0,
+		META_STAIRS_WEST = 1,
+		META_STAIRS_SOUTH = 2,
+		META_STAIRS_NORTH = 3;
+	
+	public static final int
+		META_STAIRS_LOWER = 0b0000,
+		META_STAIRS_UPPER = 0b0100;
+	
+	public static final int
+		META_PILLAR_UP_DOWN = 0b0000,
+		META_PILLAR_WEST_EAST = 0b0100,
+		META_PILLAR_NORTH_SOUTH = 0b1000,
+		META_PILLAR_AXIS_NONE = 0b1100;
+	
+	public static final int
 		SIDE_BOTTOM = 0,
 		SIDE_TOP = 1,
 		SIDE_NORTH = 2,

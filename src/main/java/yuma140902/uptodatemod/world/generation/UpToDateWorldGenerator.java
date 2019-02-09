@@ -11,6 +11,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.util.ListUtils;
+import yuma140902.uptodatemod.world.generation.woodland_mansion.WoodlandMansion;
 
 public class UpToDateWorldGenerator implements IWorldGenerator{
 
@@ -23,6 +24,7 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 		if(!ListUtils.contains(ModConfigCore.worldGen_genFossiles_blackList, world.provider.dimensionId)) {
 			if(ModConfigCore.worldGen_genFossiles) generateFossile(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
+		generateWoodlandMansion(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 	}
 	
 	private void generateCoarseDirt(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -57,6 +59,12 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 			int fossileType = random.nextInt(8);
 			Fossiles fossile = Fossiles.getFossileByType(fossileType);
 			fossile.spawnAt(world, x, y - random.nextInt(20), z, random);
+		}
+	}
+	
+	private void generateWoodlandMansion(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+		if(WoodlandMansion.canSpawnAt(chunkX, chunkZ)) {
+			new WoodlandMansion().generateAt(world, rand, chunkX, chunkZ);
 		}
 	}
 }
