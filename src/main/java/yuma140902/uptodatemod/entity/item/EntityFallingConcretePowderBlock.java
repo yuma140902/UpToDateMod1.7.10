@@ -15,8 +15,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockConcretePowder;
+import yuma140902.uptodatemod.network.FallingConcretePowderMessage;
 
 public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	
@@ -25,6 +27,10 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	
 	public int getMetadata() {
 		return this.metadata;
+	}
+	public void setMetadata(int meta) {
+		System.out.println(this.getEntityId() + " : setmeta : " + meta);
+		this.metadata = meta;
 	}
 	
 	public int time;
@@ -97,7 +103,7 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 			this.setDead();
 		}
 		else {
-			System.out.println("EntityFallingConcretePowder#onUpdate : " + this.metadata);
+			System.out.println(this.getEntityId() + " : meta : " + this.metadata);
 			this.prevPosX = this.posX;
 			this.prevPosY = this.posY;
 			this.prevPosZ = this.posZ;
@@ -109,6 +115,8 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 			this.motionZ *= 0.9800000190734863D;
 			
 			if (!this.worldObj.isRemote) {
+				System.out.println("sendToAll : sent a message : meta=" + metadata);
+				ModUpToDateMod.networkWrapper.sendToAll(new FallingConcretePowderMessage(metadata, this));
 				int x = MathHelper.floor_double(this.posX);
 				int y = MathHelper.floor_double(this.posY);
 				int z = MathHelper.floor_double(this.posZ);
