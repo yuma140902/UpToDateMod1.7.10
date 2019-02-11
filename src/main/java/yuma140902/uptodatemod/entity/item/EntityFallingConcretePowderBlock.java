@@ -15,22 +15,20 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockConcretePowder;
-import yuma140902.uptodatemod.network.FallingConcretePowderMessage;
 
 public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	
+	private static final int METADATA_KEY = 2;
+	
 	private Block block = MyBlocks.concretePowder;
-	private int metadata;
 	
 	public int getMetadata() {
-		return this.metadata;
+		return dataWatcher.getWatchableObjectInt(METADATA_KEY);
 	}
 	public void setMetadata(int meta) {
-		System.out.println(this.getEntityId() + " : setmeta : " + meta);
-		this.metadata = meta;
+		dataWatcher.updateObject(METADATA_KEY, Integer.valueOf(meta));
 	}
 	
 	public int time;
@@ -49,16 +47,11 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	}
 	
 	public EntityFallingConcretePowderBlock(World world, double posX, double posY, double posZ, Block block) {
-		this(world, posX, posY, posZ, block, 0);
-	}
-	
-	public EntityFallingConcretePowderBlock(World world, double posX, double posY, double posZ, Block block, int meta) {
-		super(world, posX, posY, posZ, block, meta);
+		super(world, posX, posY, posZ, block, 0);
 		this.canDropItem = true;
 		this.fallHurtMax = 40;
 		this.fallHurtAmount = 2.0F;
 		this.block = block;
-		this.metadata = meta;
 		this.preventEntitySpawning = true;
 		this.setSize(1F, 1F);
 		this.yOffset = this.height / 2.0F;
@@ -83,7 +76,9 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	}
 	
 	@Override
-	protected void entityInit() {}
+	protected void entityInit() {
+		dataWatcher.addObject(METADATA_KEY, Integer.valueOf(0));
+	}
 	
 	/**
 	 * Returns true if other Entities should be prevented from moving through this
@@ -103,7 +98,6 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 			this.setDead();
 		}
 		else {
-			System.out.println(this.getEntityId() + " : meta : " + this.metadata);
 			this.prevPosX = this.posX;
 			this.prevPosY = this.posY;
 			this.prevPosZ = this.posZ;
@@ -115,8 +109,6 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 			this.motionZ *= 0.9800000190734863D;
 			
 			if (!this.worldObj.isRemote) {
-				System.out.println("sendToAll : sent a message : meta=" + metadata);
-				ModUpToDateMod.networkWrapper.sendToAll(new FallingConcretePowderMessage(metadata, this));
 				int x = MathHelper.floor_double(this.posX);
 				int y = MathHelper.floor_double(this.posY);
 				int z = MathHelper.floor_double(this.posZ);
@@ -141,19 +133,19 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 						if (!this.field_145808_f
 								&& this.worldObj.canPlaceEntityOnSide(this.block, x, y, z, true, 1, (Entity) null, (ItemStack) null)
 								&& !BlockConcretePowder.func_149831_e(this.worldObj, x, y - 1, z)
-								&& this.worldObj.setBlock(x, y, z, this.block, this.metadata, 3)) {
+								&& this.worldObj.setBlock(x, y, z, this.block, this.getMetadata(), 3)) {
 							if (this.block instanceof BlockConcretePowder) {
-								((BlockConcretePowder) this.block).func_149828_a(this.worldObj, x, y, z, this.metadata);
+								((BlockConcretePowder) this.block).func_149828_a(this.worldObj, x, y, z, this.getMetadata());
 							}
 						}
 						else if (this.canDropItem && !this.field_145808_f) {
-							this.entityDropItem(new ItemStack(this.block, 1, this.metadata), 0.0F);
+							this.entityDropItem(new ItemStack(this.block, 1, this.getMetadata()), 0.0F);
 						}
 					}
 				}
 				else if (this.time > 100 && !this.worldObj.isRemote && (y < 1 || y > 256) || this.time > 600) {
 					if (this.canDropItem) {
-						this.entityDropItem(new ItemStack(this.block, 1, this.metadata), 0.0F);
+						this.entityDropItem(new ItemStack(this.block, 1, this.getMetadata()), 0.0F);
 					}
 					
 					this.setDead();
@@ -193,7 +185,7 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	protected void writeEntityToNBT(NBTTagCompound nbt) {
 		nbt.setByte("Tile", (byte) Block.getIdFromBlock(this.block));
 		nbt.setInteger("TileID", Block.getIdFromBlock(this.block));
-		nbt.setByte("Data", (byte) this.metadata);
+		nbt.setByte("Data", (byte) this.getMetadata());
 		nbt.setByte("Time", (byte) this.time);
 		nbt.setBoolean("DropItem", this.canDropItem);
 		nbt.setBoolean("HurtEntities", this.canHurtEntities);
@@ -217,7 +209,7 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 			this.block = Block.getBlockById(nbt.getByte("Tile") & 255);
 		}
 		
-		this.metadata = nbt.getByte("Data") & 255;
+		this.setMetadata(nbt.getByte("Data") & 255);
 		this.time = nbt.getByte("Time") & 255;
 		
 		if (nbt.hasKey("HurtEntities", 99)) {
@@ -251,7 +243,7 @@ public class EntityFallingConcretePowderBlock extends EntityFallingBlock {
 	public void addEntityCrashInfo(CrashReportCategory crashReportCategory) {
 		super.addEntityCrashInfo(crashReportCategory);
 		crashReportCategory.addCrashSection("Immitating block ID", Integer.valueOf(Block.getIdFromBlock(this.block)));
-		crashReportCategory.addCrashSection("Immitating block data", Integer.valueOf(this.metadata));
+		crashReportCategory.addCrashSection("Immitating block data", Integer.valueOf(getMetadata()));
 	}
 	
 	@SideOnly(Side.CLIENT)

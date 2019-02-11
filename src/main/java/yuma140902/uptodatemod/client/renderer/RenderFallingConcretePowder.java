@@ -105,7 +105,6 @@ public class RenderFallingConcretePowder extends Render {
 	// RenderBlocks.renderBlockSandFallingをコピペして改変
 	public void renderConcretePowderWithMetadata(
 			Block block, World world, int p_147749_3_, int p_147749_4_, int p_147749_5_, int meta) {
-		System.out.println("metadata : " + meta);
 		this.renderBlocks.setRenderBoundsFromBlock(block);
 		float f = 0.5F;
 		float f1 = 1.0F;
@@ -135,8 +134,6 @@ public class RenderFallingConcretePowder extends Render {
 	 * unless you call Render.bindEntityTexture.
 	 */
 	protected ResourceLocation getEntityTexture(EntityFallingConcretePowderBlock entity) {
-		// return TextureMap.locationBlocksTexture;
-		System.out.println("getEntityTextre : " + ColorUtil.metaToString(entity.getMetadata()));
 		return TEXTURES[entity.getMetadata()];
 	}
 	
