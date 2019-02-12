@@ -119,13 +119,15 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable {
 	
 	private void dropBlockFrom(World world, int x, int y, int z) {
 		if (func_149831_e(world, x, y - 1, z) && y >= 0) {
-			byte offset = 32;
+			byte range = 32;
 			
-			if (!fallInstantly
-					&& world.checkChunksExist(x - offset, y - offset, z - offset, x + offset, y + offset, z + offset)) {
+			if (!fallInstantly && world.checkChunksExist(x-range, y-range, z-range, x+range, y+range, z+range)) {
 				if (!world.isRemote) {
-					EntityFallingConcretePowderBlock entityfallingblock = new EntityFallingConcretePowderBlock(
-							world, (double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), world.getBlockMetadata(x, y, z));
+					double posX = (double) ((float) x + 0.5F);
+					double posY = (double) ((float) y + 0.5F);
+					double posZ = (double) ((float) z + 0.5F);
+					int meta = world.getBlockMetadata(x, y, z);
+					EntityFallingConcretePowderBlock entityfallingblock = new EntityFallingConcretePowderBlock(world, posX, posY, posZ, meta);
 					func_149829_a(entityfallingblock);
 					world.spawnEntityInWorld(entityfallingblock);
 				}
