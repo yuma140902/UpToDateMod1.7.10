@@ -5,39 +5,57 @@ import net.minecraft.block.material.MapColor;
 public class ColorUtil {
 	private ColorUtil() {}
 	
+	public static final int
+		META_WHITE = 0,
+		META_ORANGE = 1,
+		META_MAGENTA = 2,
+		META_LIGHT_BLUE = 3,
+		META_YELLOW = 4,
+		META_LIME = 5,
+		META_PINK = 6,
+		META_GRAY = 7,
+		META_LIGHT_GRAY = 8,
+		META_CYAN = 9,
+		META_PURPLE = 10,
+		META_BLUE = 11,
+		META_BROWN = 12,
+		META_GREEN = 13,
+		META_RED = 14,
+		META_BLACK = 15;
+	
 	public static String metaToString(int meta) {
 		switch(meta) {
-			case Stat.COLOR_META_BLACK:
+			case META_BLACK:
 				return "black";
-			case Stat.COLOR_META_BLUE:
+			case META_BLUE:
 				return "blue";
-			case Stat.COLOR_META_BROWN:
+			case META_BROWN:
 				return "brown";
-			case Stat.COLOR_META_CYAN:
+			case META_CYAN:
 				return "cyan";
-			case Stat.COLOR_META_GRAY:
+			case META_GRAY:
 				return "gray";
-			case Stat.COLOR_META_GREEN:
+			case META_GREEN:
 				return "green";
-			case Stat.COLOR_META_LIGHT_BLUE:
+			case META_LIGHT_BLUE:
 				return "light_blue";
-			case Stat.COLOR_META_LIME:
+			case META_LIME:
 				return "lime";
-			case Stat.COLOR_META_MAGENTA:
+			case META_MAGENTA:
 				return "magenta";
-			case Stat.COLOR_META_ORANGE:
+			case META_ORANGE:
 				return "orange";
-			case Stat.COLOR_META_PINK:
+			case META_PINK:
 				return "pink";
-			case Stat.COLOR_META_PURPLE:
+			case META_PURPLE:
 				return "purple";
-			case Stat.COLOR_META_RED:
+			case META_RED:
 				return "red";
-			case Stat.COLOR_META_LIGHT_GRAY:
+			case META_LIGHT_GRAY:
 				return "light_gray";
-			case Stat.COLOR_META_WHITE:
+			case META_WHITE:
 				return "white";
-			case Stat.COLOR_META_YELLOW:
+			case META_YELLOW:
 				return "yellow";
 				
 			default: return "unknown_color";
@@ -46,37 +64,37 @@ public class ColorUtil {
 	
 	public static MapColor metaToMapColor(int meta) {
 		switch(meta) {
-			case Stat.COLOR_META_BLACK:
+			case META_BLACK:
 				return MapColor.blackColor;
-			case Stat.COLOR_META_BLUE:
+			case META_BLUE:
 				return MapColor.blueColor;
-			case Stat.COLOR_META_BROWN:
+			case META_BROWN:
 				return MapColor.brownColor;
-			case Stat.COLOR_META_CYAN:
+			case META_CYAN:
 				return MapColor.cyanColor;
-			case Stat.COLOR_META_GRAY:
+			case META_GRAY:
 				return MapColor.grayColor;
-			case Stat.COLOR_META_GREEN:
+			case META_GREEN:
 				return MapColor.greenColor;
-			case Stat.COLOR_META_LIGHT_BLUE:
+			case META_LIGHT_BLUE:
 				return MapColor.lightBlueColor;
-			case Stat.COLOR_META_LIME:
+			case META_LIME:
 				return MapColor.limeColor;
-			case Stat.COLOR_META_MAGENTA:
+			case META_MAGENTA:
 				return MapColor.magentaColor;
-			case Stat.COLOR_META_ORANGE:
+			case META_ORANGE:
 				return MapColor.adobeColor;
-			case Stat.COLOR_META_PINK:
+			case META_PINK:
 				return MapColor.pinkColor;
-			case Stat.COLOR_META_PURPLE:
+			case META_PURPLE:
 				return MapColor.purpleColor;
-			case Stat.COLOR_META_RED:
+			case META_RED:
 				return MapColor.redColor;
-			case Stat.COLOR_META_LIGHT_GRAY:
+			case META_LIGHT_GRAY:
 				return MapColor.ironColor;
-			case Stat.COLOR_META_WHITE:
+			case META_WHITE:
 				return MapColor.snowColor;
-			case Stat.COLOR_META_YELLOW:
+			case META_YELLOW:
 				return MapColor.yellowColor;
 				
 			default: return MapColor.airColor;

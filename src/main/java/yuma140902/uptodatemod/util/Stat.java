@@ -27,24 +27,6 @@ public final class Stat {
 		SIDE_WEST = 4,
 		SIDE_EAST = 5;
 	
-	public static final int
-		COLOR_META_WHITE = 0,
-		COLOR_META_ORANGE = 1,
-		COLOR_META_MAGENTA = 2,
-		COLOR_META_LIGHT_BLUE = 3,
-		COLOR_META_YELLOW = 4,
-		COLOR_META_LIME = 5,
-		COLOR_META_PINK = 6,
-		COLOR_META_GRAY = 7,
-		COLOR_META_LIGHT_GRAY = 8,
-		COLOR_META_CYAN = 9,
-		COLOR_META_PURPLE = 10,
-		COLOR_META_BLUE = 11,
-		COLOR_META_BROWN = 12,
-		COLOR_META_GREEN = 13,
-		COLOR_META_RED = 14,
-		COLOR_META_BLACK = 15;
-	
 	public static final String
 		PROXY_CLIENT = "yuma140902.uptodatemod.proxy.ClientProxy",
 		PROXY_SERVER = "yuma140902.uptodatemod.proxy.ServerProxy",
