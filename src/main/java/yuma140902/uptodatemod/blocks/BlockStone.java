@@ -14,6 +14,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
@@ -31,6 +33,7 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	public static final int META_POLISHED_ANDESITE = 6;
 	
 	public static final String[] names = new String[] {"", "granite", "polished_granite", "diorite", "polished_diorite", "andesite", "polished_andesite"};
+	public static final String[] oredicNames = new String[] {"", "Granite", "GranitePolished", "Diorite", "DioritePolished", "Andesite", "AndesitePolished"};
 	
 	public BlockStone() {
 		super(Material.rock);
@@ -52,6 +55,10 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 		this.setBlockName(ModUpToDateMod.MOD_ID + ".stone");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":stone");
 		GameRegistry.registerBlock(this, ItemBlockStone.class, "stone");
+		
+		for(int meta = 1; meta <= META_MAX; ++meta) {
+			OreDictionary.registerOre("stone" + oredicNames[meta], new ItemStack(this, 1, meta));
+		}
 	}
 	
 	private IIcon[] iIcons = new IIcon[META_MAX + 1];
@@ -87,23 +94,30 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	@Override
 	public void registerRecipes() {
 		//4つ並べて磨かれた〇〇
-		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_GRANITE), 
-				"##",
-				"##",
-				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE));
 		
 		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_DIORITE), 
+			new ShapedOreRecipe(new ItemStack(this, 4, META_POLISHED_ANDESITE),
 				"##",
 				"##",
-				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE));
+				'#', "stoneAndesite"
+			)
+		);
 		
 		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stone, 4, BlockStone.META_POLISHED_ANDESITE), 
-				"##",
-				"##",
-				'#', new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE));
+				new ShapedOreRecipe(new ItemStack(this, 4, META_POLISHED_DIORITE),
+					"##",
+					"##",
+					'#', "stoneDiorite"
+				)
+			);
+		
+		GameRegistry.addRecipe(
+				new ShapedOreRecipe(new ItemStack(this, 4, META_POLISHED_GRANITE),
+					"##",
+					"##",
+					'#', "stoneGranite"
+				)
+			);
 		
 		//丸石+ネザー水晶->閃緑岩
 		GameRegistry.addRecipe(
