@@ -205,52 +205,64 @@ public final class Recipes {
 
 	private static void registerFenceGateRecipes() {
 		GameRegistry.addRecipe(
+			new ShapedOreRecipe(
 				new ItemStack(Blocks.fence_gate),
 				"|#|",
 				"|#|",
 				'#', PLANK_OAK,
-				'|', Items.stick
-				);
+				'|', "stickWood"
+			)
+		);
 		
 		GameRegistry.addRecipe(
+			new ShapedOreRecipe(
 				new ItemStack(MyBlocks.fenceGateAcacia),
 				"|#|",
 				"|#|",
 				'#', PLANK_ACACIA,
-				'|', Items.stick
-				);
+				'|', "stickWood"
+			)
+		);
 		
 		GameRegistry.addRecipe(
+			new ShapedOreRecipe(
 				new ItemStack(MyBlocks.fenceGateBirch),
 				"|#|",
 				"|#|",
 				'#', PLANK_BIRCH,
-				'|', Items.stick
-				);
+				'|', "stickWood"
+			)
+		);
 		
 		GameRegistry.addRecipe(
+			new ShapedOreRecipe(
 				new ItemStack(MyBlocks.fenceGateDarkOak),
 				"|#|",
 				"|#|",
 				'#', PLANK_DARK_OAK,
-				'|', Items.stick
-				);
+				'|', "stickWood"
+			)
+		);
 		
 		GameRegistry.addRecipe(
+			new ShapedOreRecipe(
 				new ItemStack(MyBlocks.fenceGateJungle),
 				"|#|",
 				"|#|",
 				'#', PLANK_JUNGLE,
-				'|', Items.stick
-				);
+				'|', "stickWood"
+			)
+		);
 		
 		GameRegistry.addRecipe(
+			new ShapedOreRecipe(
 				new ItemStack(MyBlocks.fenceGateSpruce),
 				"|#|",
 				"|#|",
 				'#', PLANK_SPRUCE,
-				'|', Items.stick
-				);
+				'|', "stickWood"
+			)
+		);
 	}
 	
 	private static void registerButtonRecipes() {
