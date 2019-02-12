@@ -4,6 +4,8 @@ import net.minecraft.init.Blocks;
 import yuma140902.uptodatemod.blocks.BlockBarrel;
 import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
+import yuma140902.uptodatemod.blocks.BlockConcrete;
+import yuma140902.uptodatemod.blocks.BlockConcretePowder;
 import yuma140902.uptodatemod.blocks.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.BlockDoorAcacia;
 import yuma140902.uptodatemod.blocks.BlockDoorBirch;
@@ -104,6 +106,9 @@ public final class MyBlocks {
 		boneBlock.register();
 		
 		redSandStone.register();
+		
+		concreteBlock.register();
+		concretePowder.register();
 		
 		grassPath.register();
 		
@@ -225,6 +230,9 @@ public final class MyBlocks {
 	public static final BlockBone boneBlock = new BlockBone();
 	
 	public static final BlockRedSandStone redSandStone = new BlockRedSandStone();
+	
+	public static final BlockConcrete concreteBlock = new BlockConcrete();
+	public static final BlockConcretePowder concretePowder = new BlockConcretePowder();
 	
 	public static final BlockGrassPath grassPath = new BlockGrassPath();
 	
