@@ -6,6 +6,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
@@ -27,6 +28,7 @@ public class BlockPrismarine extends Block implements IRegisterable, IHasRecipes
 		setBlockName(ModUpToDateMod.MOD_ID + ".prismarine_block");
 		setBlockTextureName(ModUpToDateMod.MOD_ID + ":prismarine_block");
 		GameRegistry.registerBlock(this, "prismarine_block");
+		OreDictionary.registerOre("blockPrismarine", this);
 	}
 	
 	@Override
