@@ -62,6 +62,45 @@ public class ColorUtil {
 		}
 	}
 	
+	public static String metaToDyeName(int meta) {
+		switch(meta) {
+			case META_BLACK:
+				return "Black";
+			case META_BLUE:
+				return "Blue";
+			case META_BROWN:
+				return "Brown";
+			case META_CYAN:
+				return "Cyan";
+			case META_GRAY:
+				return "Gray";
+			case META_GREEN:
+				return "Green";
+			case META_LIGHT_BLUE:
+				return "LightBlue";
+			case META_LIME:
+				return "Lime";
+			case META_MAGENTA:
+				return "Magenta";
+			case META_ORANGE:
+				return "Orange";
+			case META_PINK:
+				return "Pink";
+			case META_PURPLE:
+				return "Purple";
+			case META_RED:
+				return "Red";
+			case META_LIGHT_GRAY:
+				return "LightGray";
+			case META_WHITE:
+				return "White";
+			case META_YELLOW:
+				return "Yellow";
+				
+			default: return "UnknownColor";
+		}
+	}
+	
 	public static MapColor metaToMapColor(int meta) {
 		switch(meta) {
 			case META_BLACK:

@@ -16,6 +16,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
@@ -23,7 +25,7 @@ import yuma140902.uptodatemod.entity.item.EntityFallingConcretePowderBlock;
 import yuma140902.uptodatemod.items.ItemBlockColored;
 import yuma140902.uptodatemod.util.ColorUtil;
 
-public class BlockConcretePowder extends BlockFalling implements IRegisterable {
+public class BlockConcretePowder extends BlockFalling implements IRegisterable, IHasRecipes {
 	public static final int META_MAX = 15;
 	
 	private IIcon[] iicons = new IIcon[META_MAX + 1];
@@ -41,6 +43,19 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable {
 		this.setBlockName(ModUpToDateMod.MOD_ID + ".concrete_powder");
 		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":concrete_powder");
 		GameRegistry.registerBlock(this, ItemBlockColored.class, "concrete_powder");
+	}
+	
+	@Override
+	public void registerRecipes() {
+		Block gravel = Blocks.gravel;
+		
+		for(int meta = 0; meta <= META_MAX; ++meta) {
+			GameRegistry.addRecipe(
+					new ShapelessOreRecipe(new ItemStack(this, 8, meta), 
+							"sand", "sand", "sand", "sand", gravel, gravel, gravel, gravel, "dye" + ColorUtil.metaToDyeName(meta)
+					)
+			);
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)
