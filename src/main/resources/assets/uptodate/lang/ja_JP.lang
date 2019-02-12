@@ -155,6 +155,40 @@ entity.uptodate.boat_dark_oak.name=ダークオークのボート
 entity.uptodate.boat_jungle.name=ジャングルのボート
 entity.uptodate.boat_spruce.name=マツのボート
 
+tile.uptodate.concrete.black.name=黒色のコンクリート
+tile.uptodate.concrete.blue.name=青色のコンクリート
+tile.uptodate.concrete.brown.name=茶色のコンクリート
+tile.uptodate.concrete.cyan.name=青緑色のコンクリート
+tile.uptodate.concrete.gray.name=灰色のコンクリート
+tile.uptodate.concrete.green.name=緑色のコンクリート
+tile.uptodate.concrete.light_blue.name=空色のコンクリート
+tile.uptodate.concrete.lime.name=黄緑色のコンクリート
+tile.uptodate.concrete.magenta.name=赤紫色のコンクリート
+tile.uptodate.concrete.orange.name=橙色のコンクリート
+tile.uptodate.concrete.pink.name=桃色のコンクリート
+tile.uptodate.concrete.purple.name=紫色のコンクリート
+tile.uptodate.concrete.red.name=赤色のコンクリート
+tile.uptodate.concrete.light_gray.name=薄灰色のコンクリート
+tile.uptodate.concrete.white.name=白色のコンクリート
+tile.uptodate.concrete.yellow.name=黄色のコンクリート
+
+tile.uptodate.concrete_powder.black.name=黒色のコンクリートパウダー
+tile.uptodate.concrete_powder.blue.name=青色のコンクリートパウダー
+tile.uptodate.concrete_powder.brown.name=茶色のコンクリートパウダー
+tile.uptodate.concrete_powder.cyan.name=青緑色のコンクリートパウダー
+tile.uptodate.concrete_powder.gray.name=灰色のコンクリートパウダー
+tile.uptodate.concrete_powder.green.name=緑色のコンクリートパウダー
+tile.uptodate.concrete_powder.light_blue.name=空色のコンクリートパウダー
+tile.uptodate.concrete_powder.lime.name=黄緑色のコンクリートパウダー
+tile.uptodate.concrete_powder.magenta.name=赤紫色のコンクリートパウダー
+tile.uptodate.concrete_powder.orange.name=橙色のコンクリートパウダー
+tile.uptodate.concrete_powder.pink.name=桃色のコンクリートパウダー
+tile.uptodate.concrete_powder.purple.name=紫色のコンクリートパウダー
+tile.uptodate.concrete_powder.red.name=赤色のコンクリートパウダー
+tile.uptodate.concrete_powder.light_gray.name=薄灰色のコンクリートパウダー
+tile.uptodate.concrete_powder.white.name=白色のコンクリートパウダー
+tile.uptodate.concrete_powder.yellow.name=黄色のコンクリートパウダー
+
 text.uptodate.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark_green"},{"text":" \u65b0\u3057\u3044\u30d0\u30fc\u30b8\u30e7\u30f3\u304c\u3042\u308a\u307e\u3059: v%s ["},{"text":"Click to open download URL","underlined":true,"color":"green","clickEvent":{"action":"open_url","value":"%s"}},{"text":"]"}]
 
 config.uptodate.category.general=全般

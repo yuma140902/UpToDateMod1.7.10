@@ -155,6 +155,40 @@ entity.uptodate.boat_dark_oak.name=Dark Oak Boat
 entity.uptodate.boat_jungle.name=Jungle Boat
 entity.uptodate.boat_spruce.name=Spruce Boat
 
+tile.uptodate.concrete.black.name=Black Concrete
+tile.uptodate.concrete.blue.name=Blue Concrete
+tile.uptodate.concrete.brown.name=Brown Concrete
+tile.uptodate.concrete.cyan.name=Cyan Concrete
+tile.uptodate.concrete.gray.name=Gray Concrete
+tile.uptodate.concrete.green.name=Green Concrete
+tile.uptodate.concrete.light_blue.name=Light Blue Concrete
+tile.uptodate.concrete.lime.name=Lime Concrete
+tile.uptodate.concrete.magenta.name=Magenta Concrete
+tile.uptodate.concrete.orange.name=Orange Concrete
+tile.uptodate.concrete.pink.name=Pink Concrete
+tile.uptodate.concrete.purple.name=Purple Concrete
+tile.uptodate.concrete.red.name=Red Concrete
+tile.uptodate.concrete.light_gray.name=Light Gray Concrete
+tile.uptodate.concrete.white.name=White Concrete
+tile.uptodate.concrete.yellow.name=Yellow Concrete
+
+tile.uptodate.concrete_powder.black.name=Black Concrete Powder
+tile.uptodate.concrete_powder.blue.name=Blue Concrete Powder
+tile.uptodate.concrete_powder.brown.name=Brown Concrete Powder
+tile.uptodate.concrete_powder.cyan.name=Cyan Concrete Powder
+tile.uptodate.concrete_powder.gray.name=Gray Concrete Powder
+tile.uptodate.concrete_powder.green.name=Green Concrete Powder
+tile.uptodate.concrete_powder.light_blue.name=Light Blue Concrete Powder
+tile.uptodate.concrete_powder.lime.name=Lime Concrete Powder
+tile.uptodate.concrete_powder.magenta.name=Magenta Concrete Powder
+tile.uptodate.concrete_powder.orange.name=Orange Concrete Powder
+tile.uptodate.concrete_powder.pink.name=Pink Concrete Powder
+tile.uptodate.concrete_powder.purple.name=Purple Concrete Powder
+tile.uptodate.concrete_powder.red.name=Red Concrete Powder
+tile.uptodate.concrete_powder.light_gray.name=Light Gray Concrete Powder
+tile.uptodate.concrete_powder.white.name=White Concrete Powder
+tile.uptodate.concrete_powder.yellow.name=Yellow Concrete Powder
+
 text.uptodate.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark_green"},{"text":" There is a new version available: v%s ["},{"text":"Click to open download URL","underlined":true,"color":"green","clickEvent":{"action":"open_url","value":"%s"}},{"text":"]"}]
 
 config.uptodate.category.general=General
