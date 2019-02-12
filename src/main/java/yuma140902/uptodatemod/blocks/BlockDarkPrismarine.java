@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
@@ -27,6 +28,7 @@ public class BlockDarkPrismarine extends Block implements IRegisterable, IHasRec
 		setBlockName(ModUpToDateMod.MOD_ID + ".dark_prismarine_block");
 		setBlockTextureName(ModUpToDateMod.MOD_ID + ":dark_prismarine_block");
 		GameRegistry.registerBlock(this, "dark_prismarine_block");
+		OreDictionary.registerOre("blockPrismarineDark", this);
 	}
 	
 	@Override
