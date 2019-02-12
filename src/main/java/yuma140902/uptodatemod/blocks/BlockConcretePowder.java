@@ -118,15 +118,14 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable {
 	}
 	
 	private void dropBlockFrom(World world, int x, int y, int z) {
-		if (shouldNotStopFalling(world, x, y - 1, z) && y >= 0) {
+		if (func_149831_e(world, x, y - 1, z) && y >= 0) {
 			byte offset = 32;
 			
 			if (!fallInstantly
 					&& world.checkChunksExist(x - offset, y - offset, z - offset, x + offset, y + offset, z + offset)) {
 				if (!world.isRemote) {
 					EntityFallingConcretePowderBlock entityfallingblock = new EntityFallingConcretePowderBlock(
-							world, (double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), this);
-					entityfallingblock.setMetadata(world.getBlockMetadata(x, y, z));
+							world, (double) ((float) x + 0.5F), (double) ((float) y + 0.5F), (double) ((float) z + 0.5F), this, world.getBlockMetadata(x, y, z));
 					func_149829_a(entityfallingblock);
 					world.spawnEntityInWorld(entityfallingblock);
 				}
@@ -134,7 +133,7 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable {
 			else {
 				world.setBlockToAir(x, y, z);
 				
-				while (shouldNotStopFalling(world, x, y - 1, z) && y > 0) {
+				while (func_149831_e(world, x, y - 1, z) && y > 0) {
 					--y;
 				}
 				
@@ -143,14 +142,6 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable {
 				}
 			}
 		}
-	}
-	
-	/**
-	 * How many world ticks before ticking
-	 */
-	@Override
-	public int tickRate(World p_149738_1_) {
-		return 2;
 	}
 	
 	public static boolean shouldNotStopFalling(World world, int x, int y, int z) {

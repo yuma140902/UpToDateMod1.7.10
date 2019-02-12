@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraftforge.common.MinecraftForge;
 import yuma140902.uptodatemod.client.renderer.RenderArmorStand;
-import yuma140902.uptodatemod.client.renderer.RenderFallingConcretePowder;
 import yuma140902.uptodatemod.client.renderer.RenderModBoat;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
 import yuma140902.uptodatemod.entity.item.EntityBoatAcacia;
@@ -13,7 +12,6 @@ import yuma140902.uptodatemod.entity.item.EntityBoatBirch;
 import yuma140902.uptodatemod.entity.item.EntityBoatDarkOak;
 import yuma140902.uptodatemod.entity.item.EntityBoatJungle;
 import yuma140902.uptodatemod.entity.item.EntityBoatSpruce;
-import yuma140902.uptodatemod.entity.item.EntityFallingConcretePowderBlock;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 import yuma140902.uptodatemod.event_handlers.ClientEventHandler;
 
@@ -35,6 +33,5 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBoatJungle.class, new RenderModBoat(Type.JUNGLE));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBoatSpruce.class, new RenderModBoat(Type.SPRUCE));
 		RenderingRegistry.registerEntityRenderingHandler(EntityArmorStand.class, new RenderArmorStand());
-		RenderingRegistry.registerEntityRenderingHandler(EntityFallingConcretePowderBlock.class, new RenderFallingConcretePowder());
 	}
 }
