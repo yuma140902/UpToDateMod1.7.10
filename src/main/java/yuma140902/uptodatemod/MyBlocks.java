@@ -12,6 +12,7 @@ import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
 import yuma140902.uptodatemod.blocks.BlockDoorJungle;
 import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
 import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
+import yuma140902.uptodatemod.blocks.BlockGlazedTerracotta;
 import yuma140902.uptodatemod.blocks.BlockGrassPath;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockMagma;
@@ -35,6 +36,7 @@ import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericTrapDoor;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericWall;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.Stat;
 
 public final class MyBlocks {
@@ -108,6 +110,23 @@ public final class MyBlocks {
 		
 		concreteBlock.register();
 		concretePowder.register();
+		
+		glazedTerracottaBlack.register();
+		glazedTerracottaBlue.register();
+		glazedTerracottaBrown.register();
+		glazedTerracottaCyan.register();
+		glazedTerracottaGray.register();
+		glazedTerracottaGreen.register();
+		glazedTerracottaLightBlue.register();
+		glazedTerracottaLightGray.register();
+		glazedTerracottaLime.register();
+		glazedTerracottaMagenta.register();
+		glazedTerracottaOrange.register();
+		glazedTerracottaPink.register();
+		glazedTerracottaPurple.register();
+		glazedTerracottaRed.register();
+		glazedTerracottaWhite.register();
+		glazedTerracottaYellow.register();
 		
 		grassPath.register();
 		
@@ -230,6 +249,23 @@ public final class MyBlocks {
 	
 	public static final BlockConcrete concreteBlock = new BlockConcrete();
 	public static final BlockConcretePowder concretePowder = new BlockConcretePowder();
+	
+	public static final BlockGlazedTerracotta glazedTerracottaBlack = new BlockGlazedTerracotta(ColorUtil.META_BLACK);
+	public static final BlockGlazedTerracotta glazedTerracottaBlue = new BlockGlazedTerracotta(ColorUtil.META_BLUE);
+	public static final BlockGlazedTerracotta glazedTerracottaBrown = new BlockGlazedTerracotta(ColorUtil.META_BROWN);
+	public static final BlockGlazedTerracotta glazedTerracottaCyan = new BlockGlazedTerracotta(ColorUtil.META_CYAN);
+	public static final BlockGlazedTerracotta glazedTerracottaGray = new BlockGlazedTerracotta(ColorUtil.META_GRAY);
+	public static final BlockGlazedTerracotta glazedTerracottaGreen = new BlockGlazedTerracotta(ColorUtil.META_GREEN);
+	public static final BlockGlazedTerracotta glazedTerracottaLightBlue = new BlockGlazedTerracotta(ColorUtil.META_LIGHT_BLUE);
+	public static final BlockGlazedTerracotta glazedTerracottaLightGray = new BlockGlazedTerracotta(ColorUtil.META_LIGHT_GRAY);
+	public static final BlockGlazedTerracotta glazedTerracottaLime = new BlockGlazedTerracotta(ColorUtil.META_LIME);
+	public static final BlockGlazedTerracotta glazedTerracottaMagenta = new BlockGlazedTerracotta(ColorUtil.META_MAGENTA);
+	public static final BlockGlazedTerracotta glazedTerracottaOrange = new BlockGlazedTerracotta(ColorUtil.META_ORANGE);
+	public static final BlockGlazedTerracotta glazedTerracottaPink = new BlockGlazedTerracotta(ColorUtil.META_PINK);
+	public static final BlockGlazedTerracotta glazedTerracottaPurple = new BlockGlazedTerracotta(ColorUtil.META_PURPLE);
+	public static final BlockGlazedTerracotta glazedTerracottaRed = new BlockGlazedTerracotta(ColorUtil.META_RED);
+	public static final BlockGlazedTerracotta glazedTerracottaWhite = new BlockGlazedTerracotta(ColorUtil.META_WHITE);
+	public static final BlockGlazedTerracotta glazedTerracottaYellow = new BlockGlazedTerracotta(ColorUtil.META_YELLOW);
 	
 	public static final BlockGrassPath grassPath = new BlockGrassPath();
 	
