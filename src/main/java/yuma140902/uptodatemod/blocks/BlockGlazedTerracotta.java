@@ -14,6 +14,8 @@ import yuma140902.uptodatemod.util.ColorUtil;
 
 public class BlockGlazedTerracotta extends Block implements IRegisterable {
 
+	public static final int META_NORTH = 2, META_EAST = 3, META_SOUTH = 0, META_WEST = 1;
+	
 	private int colorMeta;
 	
 	public BlockGlazedTerracotta(int colorMeta) {
