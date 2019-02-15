@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraftforge.common.MinecraftForge;
 import yuma140902.uptodatemod.client.renderer.RenderArmorStand;
+import yuma140902.uptodatemod.client.renderer.RenderBlockGlazedTerracotta;
 import yuma140902.uptodatemod.client.renderer.RenderModBoat;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
 import yuma140902.uptodatemod.entity.item.EntityBoatAcacia;
@@ -24,6 +25,11 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	@Override
+	public int getNewRenderId() {
+		return RenderingRegistry.getNextAvailableRenderId();
+	}
+	
+	@Override
 	public void registerRenderers() {
 		super.registerRenderers();
 		RenderingRegistry.registerEntityRenderingHandler(EntityBoatAcacia.class, new RenderModBoat(Type.ACACIA));
@@ -33,5 +39,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBoatJungle.class, new RenderModBoat(Type.JUNGLE));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBoatSpruce.class, new RenderModBoat(Type.SPRUCE));
 		RenderingRegistry.registerEntityRenderingHandler(EntityArmorStand.class, new RenderArmorStand());
+		
+		RenderingRegistry.registerBlockHandler(new RenderBlockGlazedTerracotta());
 	}
 }
