@@ -42,21 +42,6 @@ public class BlockGlazedTerracotta extends Block implements IRegisterable {
 	}
 	
 	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-	
-	@Override
-	public boolean isOpaqueCube() {
-		return true;
-	}
-	
-	@Override
-	public boolean isNormalCube() {
-		return true;
-	}
-	
-	@Override
 	public int getRenderType() {
 		return ModUpToDateMod.glazedTerracottaRenderId;
 	}
