@@ -18,7 +18,6 @@ public class CommonProxy {
 		FMLCommonHandler.instance().bus().register(CommonEventHandler.INSTANCE);
 	}
 	
-	private int id = 0;
 	public void registerEntities() {
 		EntityRegistry.registerModEntity(EntityBoatAcacia.class, "boat_acacia", 0, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityBoatBirch.class, "boat_birch", 1, ModUpToDateMod.INSTANCE, 128, 5, true);
@@ -26,6 +25,10 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(EntityBoatJungle.class, "boat_jungle", 3, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityBoatSpruce.class, "boat_spruce", 4, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityArmorStand.class, "wooden_armorstand", 5, ModUpToDateMod.INSTANCE, 64, 1, true);
+	}
+	
+	public int getNewRenderId() {
+		return -1;
 	}
 	
 	public void registerRenderers() { }
