@@ -37,7 +37,7 @@ public class ModUpToDateMod {
 	public static final String MOD_ID = "uptodate";
 	public static final String MOD_NAME = "UpToDateMod";
 	public static final String MINECRAFT_VERSION = "1.7.10";
-	public static final String MOD_VERSION = "1.4.0";
+	public static final String MOD_VERSION = "1.4.1";
 	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
 	
 	public static int glazedTerracottaRenderId;
