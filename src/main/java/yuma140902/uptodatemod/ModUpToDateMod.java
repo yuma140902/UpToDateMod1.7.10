@@ -37,8 +37,10 @@ public class ModUpToDateMod {
 	public static final String MOD_ID = "uptodate";
 	public static final String MOD_NAME = "UpToDateMod";
 	public static final String MINECRAFT_VERSION = "1.7.10";
-	public static final String MOD_VERSION = "1.3.0";
+	public static final String MOD_VERSION = "1.4.0";
 	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
+	
+	public static int glazedTerracottaRenderId;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = MOD_ID;
@@ -80,8 +82,12 @@ public class ModUpToDateMod {
 	public void init(FMLInitializationEvent event) {
 		Recipes.removeVanillaRecipes();
 		Recipes.register();
+		
 		proxy.registerEntities();
+		glazedTerracottaRenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();
+		
+		
 		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.worldGen_genStones, 33, 10, 0, 80, ModConfigCore.worldGen_genStones_blackList);
 		
 		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);
