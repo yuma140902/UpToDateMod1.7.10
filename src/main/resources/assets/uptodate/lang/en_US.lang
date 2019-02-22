@@ -142,6 +142,8 @@ tile.uptodate.wall_prismarine_brick.name=Prismarine Brick Wall
 tile.uptodate.wall_dark_prismarine.name=Dark Prismarine Wall
 
 item.uptodate.armor_stand.name=Armor Stand
+entity.uptodate.wooden_armorstand.name=Armor Stand
+
 
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
@@ -188,6 +190,23 @@ tile.uptodate.concrete_powder.red.name=Red Concrete Powder
 tile.uptodate.concrete_powder.light_gray.name=Light Gray Concrete Powder
 tile.uptodate.concrete_powder.white.name=White Concrete Powder
 tile.uptodate.concrete_powder.yellow.name=Yellow Concrete Powder
+
+tile.uptodate.glazed_terracotta.black.name=Black Glazed Terracotta
+tile.uptodate.glazed_terracotta.blue.name=Blue Glazed Terracotta
+tile.uptodate.glazed_terracotta.brown.name=Brown Glazed Terracotta
+tile.uptodate.glazed_terracotta.cyan.name=Cyan Glazed Terracotta
+tile.uptodate.glazed_terracotta.gray.name=Gray Glazed Terracotta
+tile.uptodate.glazed_terracotta.green.name=Green Glazed Terracotta
+tile.uptodate.glazed_terracotta.light_blue.name=Light Blue Glazed Terracotta
+tile.uptodate.glazed_terracotta.lime.name=Lime Glazed Terracotta
+tile.uptodate.glazed_terracotta.magenta.name=Magenta Glazed Terracotta
+tile.uptodate.glazed_terracotta.orange.name=Orange Glazed Terracotta
+tile.uptodate.glazed_terracotta.pink.name=Pink Glazed Terracotta
+tile.uptodate.glazed_terracotta.purple.name=Purple Glazed Terracotta
+tile.uptodate.glazed_terracotta.red.name=Red Glazed Terracotta
+tile.uptodate.glazed_terracotta.light_gray.name=Light Gray Glazed Terracotta
+tile.uptodate.glazed_terracotta.white.name=White Glazed Terracotta
+tile.uptodate.glazed_terracotta.yellow.name=Yellow Glazed Terracotta
 
 text.uptodate.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark_green"},{"text":" There is a new version available: v%s ["},{"text":"Click to open download URL","underlined":true,"color":"green","clickEvent":{"action":"open_url","value":"%s"}},{"text":"]"}]
 

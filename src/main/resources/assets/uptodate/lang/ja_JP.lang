@@ -142,6 +142,7 @@ tile.uptodate.wall_prismarine_brick.name=プリズマリンレンガの壁
 tile.uptodate.wall_dark_prismarine.name=ダークプリズマリンの壁
 
 item.uptodate.armor_stand.name=防具立て
+entity.uptodate.wooden_armorstand.name=防具立て
 
 item.uptodate.item_boat_acacia.name=アカシアのボート
 item.uptodate.item_boat_birch.name=シラカバのボート
@@ -188,6 +189,23 @@ tile.uptodate.concrete_powder.red.name=赤色のコンクリートパウダー
 tile.uptodate.concrete_powder.light_gray.name=薄灰色のコンクリートパウダー
 tile.uptodate.concrete_powder.white.name=白色のコンクリートパウダー
 tile.uptodate.concrete_powder.yellow.name=黄色のコンクリートパウダー
+
+tile.uptodate.glazed_terracotta.black.name=黒色の採油テラコッタ
+tile.uptodate.glazed_terracotta.blue.name=青色の採油テラコッタ
+tile.uptodate.glazed_terracotta.brown.name=茶色の採油テラコッタ
+tile.uptodate.glazed_terracotta.cyan.name=青緑色の採油テラコッタ
+tile.uptodate.glazed_terracotta.gray.name=灰色の採油テラコッタ
+tile.uptodate.glazed_terracotta.green.name=緑色の採油テラコッタ
+tile.uptodate.glazed_terracotta.light_blue.name=空色の採油テラコッタ
+tile.uptodate.glazed_terracotta.lime.name=黄緑色の採油テラコッタ
+tile.uptodate.glazed_terracotta.magenta.name=赤紫色の採油テラコッタ
+tile.uptodate.glazed_terracotta.orange.name=橙色の採油テラコッタ
+tile.uptodate.glazed_terracotta.pink.name=桃色の採油テラコッタ
+tile.uptodate.glazed_terracotta.purple.name=紫色の採油テラコッタ
+tile.uptodate.glazed_terracotta.red.name=赤色の採油テラコッタ
+tile.uptodate.glazed_terracotta.light_gray.name=薄灰色の採油テラコッタ
+tile.uptodate.glazed_terracotta.white.name=白色の採油テラコッタ
+tile.uptodate.glazed_terracotta.yellow.name=黄色の採油テラコッタ
 
 text.uptodate.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark_green"},{"text":" \u65b0\u3057\u3044\u30d0\u30fc\u30b8\u30e7\u30f3\u304c\u3042\u308a\u307e\u3059: v%s ["},{"text":"Click to open download URL","underlined":true,"color":"green","clickEvent":{"action":"open_url","value":"%s"}},{"text":"]"}]
 
