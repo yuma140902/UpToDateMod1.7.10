@@ -31,7 +31,7 @@ public class BlockGlazedTerracotta extends Block implements IRegisterable {
 	public void register() {
 		String colorName = ColorUtil.metaToString(colorMeta);
 		this.setBlockName(ModUpToDateMod.MOD_ID + ".glazed_terracotta_" + colorName);
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":glazed_terracotta." + colorName);
+		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":glazed_terracotta_" + colorName);
 		GameRegistry.registerBlock(this, "glazed_terracotta_" + colorName);
 	}
 	
