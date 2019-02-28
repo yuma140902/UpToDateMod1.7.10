@@ -148,7 +148,7 @@ public class WoodlandMansion {
 						x += ROOM_LENGTH;
 						break;
 					case wall:
-						gridFirstFloor[index] = get
+						//gridFirstFloor[index] = get
 				}
 				gridRoof1[index] = getAppropriateRoof1(world, rand, x, y + ROOM_HEIGHT + ROOM_HEIGHT, z, i, j);
 				gridRoof2[index] = getAppropriateRoof2(world, rand, x, y + ROOM_HEIGHT + ROOM_HEIGHT + ROOF_HEIGHT + ROOM_HEIGHT, z, i, j);
