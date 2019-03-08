@@ -1,25 +1,25 @@
 package yuma140902.uptodatemod.world.generation.woodland_mansion_B;
 
 /**
- * 東西南北の方角を表す
+ * 上下左右の方向を表す
  * @author yuma1
- * @see Direction2D
  * @see Rotation2D
+ * @see Facing2D
  */
-public final class Facing2D {
-
-	public static final int
-			NORTH_VALUE = 0,
-			WEST_VALUE = 1,
-			SOUTH_VALUE = 2,
-			EAST_VALUE = 3;
+public final class Direction2D {
 	
-	public static final Facing2D
-			NORTH = new Facing2D(NORTH_VALUE),
-			WEST = new Facing2D(WEST_VALUE),
-			SOUTH = new Facing2D(SOUTH_VALUE),
-			EAST = new Facing2D(EAST_VALUE);
-
+	public static final int
+			UP_VALUE = Facing2D.NORTH_VALUE,
+			LEFT_VALUE = Facing2D.WEST_VALUE,
+			DOWN_VALUE = Facing2D.SOUTH_VALUE,
+			RIGHT_VALUE = Facing2D.EAST_VALUE;
+	
+	public static final Direction2D
+			UP = new Direction2D(UP_VALUE),
+			LEFT = new Direction2D(LEFT_VALUE),
+			DOWN = new Direction2D(DOWN_VALUE),
+			RIGHT = new Direction2D(RIGHT_VALUE);
+	
 	/*
 	 * z座標の減る方向がマイクラ世界での北である
 	 * 	
@@ -36,8 +36,7 @@ public final class Facing2D {
 	 */
 	
 	
-	
-	private Facing2D(int value) {
+	private Direction2D(int value) {
 		this.value = value;
 	}
 	
@@ -46,5 +45,4 @@ public final class Facing2D {
 	public int getValue() {
 		return value;
 	}
-	
 }

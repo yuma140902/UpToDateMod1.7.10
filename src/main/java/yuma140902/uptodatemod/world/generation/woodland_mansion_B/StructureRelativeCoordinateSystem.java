@@ -17,17 +17,47 @@ public class StructureRelativeCoordinateSystem {
 	/**
 	 * 相対位置の基準となるx,y,z座標
 	 */
-	public int originX, originY, originZ;
-	
-	/**
-	 * ブロックの設置先のワールド
-	 */
-	public World world;
+	private int originX, originY, originZ;
 	
 	/**
 	 * 相対座標軸の絶対座標系に対する向き。これによってxとz座標の方向が変わる
 	 */
-	public int rotationYaw = Facing2D.DEG_0;
+	private Rotation2D rotationYaw = Rotation2D.DEG0;
+	
+	/**
+	 * ブロックの設置先のワールド
+	 */
+	private World world;
+
+	
+	public int getOriginX() {
+		return originX;
+	}
+	
+	public int getOriginY() {
+		return originY;
+	}
+	
+	public int getOriginZ() {
+		return originZ;
+	}
+	
+	public Rotation2D getRotationYaw() {
+		return rotationYaw;
+	}
+	
+	public World getWorld() {
+		return world;
+	}
+	
+	public StructureRelativeCoordinateSystem(int originX, int originY, int originZ, Rotation2D rotationYaw, World world) {
+		this.originX = originX;
+		this.originY = originY;
+		this.originZ = originZ;
+		this.rotationYaw = rotationYaw;
+		this.world = world;
+	}
+	
 	
 	public void setBlock(int relX, int relY, int relZ, Block block) {
 		setBlockAndMeta(relX, relY, relZ, block, 0);
@@ -38,22 +68,22 @@ public class StructureRelativeCoordinateSystem {
 		final int absY = originY + relY;
 		int absZ = originZ;
 		
-		switch(rotationYaw) {
-			case Facing2D.DEG_0:
-				absX = relX;
-				absZ = relZ;
+		switch(rotationYaw.getValue()) {
+			case Rotation2D.DEG0_VALUE:
+				absX = originX + relX;
+				absZ = originZ + relZ;
 				break;
-			case Facing2D.DEG_90:
-				absX = relZ;
-				absZ = -relX;
+			case Rotation2D.DEG90_VALUE:
+				absX = originZ + relZ;
+				absZ = originX - relX;
 				break;
-			case Facing2D.DEG_180:
-				absX = -relX;
-				absZ = -relZ;
+			case Rotation2D.DEG180_VALUE:
+				absX = originX - relX;
+				absZ = originZ - relZ;
 				break;
-			case Facing2D.DEG_270:
-				absX = -relZ;
-				absZ = relX;
+			case Rotation2D.DEG270_VALUE:
+				absX = originZ - relZ;
+				absZ = originX + relX;
 				break;
 		}
 		
@@ -101,20 +131,20 @@ public class StructureRelativeCoordinateSystem {
 		int direction = originMeta & 0b0011;
 		final int lowOrUp = originMeta & 0b0100;
 		
-		switch(rotationYaw) {
-			case Facing2D.DEG_90:
+		switch(rotationYaw.getValue()) {
+			case Rotation2D.DEG90_VALUE:
 				direction = (direction == NORTH) ? WEST : 
 					          (direction == WEST) ? SOUTH : 
 					          (direction == SOUTH) ? EAST : 
 					          	                     NORTH;
 				break;
-			case Facing2D.DEG_180:
+			case Rotation2D.DEG180_VALUE:
 				direction = (direction == NORTH) ? SOUTH :
 					          (direction == WEST)  ? EAST :
 					          (direction == SOUTH) ? NORTH :
 					          	                     WEST;
 				break;
-			case Facing2D.DEG_270:
+			case Rotation2D.DEG270_VALUE:
 				direction = (direction == NORTH) ? EAST :
 					          (direction == WEST) ? NORTH :
 					          (direction == SOUTH) ? WEST :
@@ -150,7 +180,8 @@ public class StructureRelativeCoordinateSystem {
 		 */
 		
 		
-		if(rotationYaw == Facing2D.DEG_90 || rotationYaw == Facing2D.DEG_270) {
+		int rotaion = rotationYaw.getValue();
+		if(rotaion == Rotation2D.DEG90_VALUE || rotaion == Rotation2D.DEG270_VALUE) {
 				//8の位と4の位の数字を入れ替える
 				int _8 = (originMeta & 0b1000) >>> 3;
 				int _4 = (originMeta & 0b0100) >>> 2;
