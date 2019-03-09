@@ -220,4 +220,63 @@ public class StructureRelativeCoordinateSystem {
 		
 		return originMeta;
 	}
+	
+	
+	/**
+	 * はしごのメタデータを回転する。
+	 * @param originMeta 北を基準としたときのはしごブロックのメタデータ
+	 * @return
+	 */
+	public int getRotatedLadderMeta(int originMeta) {
+		if(rotationYaw.getValue() == Rotation2D.DEG90_VALUE) {
+			switch(originMeta) {
+				case Stat.META_LADDER_NORTH:
+					return Stat.META_LADDER_WEST;
+					
+				case Stat.META_LADDER_WEST:
+					return Stat.META_LADDER_SOUTH;
+					
+				case Stat.META_LADDER_SOUTH:
+					return Stat.META_LADDER_EAST;
+					
+				case Stat.META_LADDER_EAST:
+					return Stat.META_LADDER_NORTH;
+			}
+		}
+		
+		else if(rotationYaw.getValue() == Rotation2D.DEG180_VALUE) {
+			switch(originMeta) {
+				case Stat.META_LADDER_NORTH:
+					return Stat.META_LADDER_SOUTH;
+
+				case Stat.META_LADDER_SOUTH:
+					return Stat.META_LADDER_NORTH;
+
+				case Stat.META_LADDER_EAST:
+					return Stat.META_LADDER_WEST;
+
+				case Stat.META_LADDER_WEST:
+					return Stat.META_LADDER_EAST;
+			}
+		}
+		
+		else if(rotationYaw.getValue() == Rotation2D.DEG270_VALUE) {
+			switch(originMeta) {
+				case Stat.META_LADDER_NORTH:
+					return Stat.META_LADDER_EAST;
+					
+				case Stat.META_LADDER_EAST:
+					return Stat.META_LADDER_SOUTH;
+					
+				case Stat.META_LADDER_SOUTH:
+					return Stat.META_LADDER_WEST;
+					
+				case Stat.META_LADDER_WEST:
+					return Stat.META_LADDER_NORTH;
+					
+			}
+		}
+		
+		return originMeta;
+	}
 }
