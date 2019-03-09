@@ -186,7 +186,7 @@ public class StructureRelativeCoordinateSystem {
 		int direction = originMeta & 0b0011;
 		final int lowOrUp = originMeta & 0b0100;
 		
-		direction = getRotatedMetaWithCustomDirections(originMeta, META_STAIRS_NORTH, META_STAIRS_WEST, META_STAIRS_SOUTH, META_STAIRS_EAST);
+		direction = getRotatedMetaWithCustomDirections(direction, META_STAIRS_NORTH, META_STAIRS_WEST, META_STAIRS_SOUTH, META_STAIRS_EAST);
 		
 		return lowOrUp | direction;
 	}
