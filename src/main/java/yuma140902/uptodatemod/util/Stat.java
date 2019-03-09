@@ -37,9 +37,9 @@ public final class Stat {
 	
 	public static final int
 		META_DIRECTIONAL_NORTH = 0,
-		META_DIRECTIONAL_WEST = 1,
+		META_DIRECTIONAL_EAST = 1,
 		META_DIRECTIONAL_SOUTH = 2,
-		META_DIRECTIONAL_EAST = 3;
+		META_DIRECTIONAL_WEST = 3;
 	
 	public static final int
 		META_LADDER_NORTH = 2,
