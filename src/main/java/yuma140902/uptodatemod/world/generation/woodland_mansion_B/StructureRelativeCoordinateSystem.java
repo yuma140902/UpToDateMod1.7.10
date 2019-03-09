@@ -267,7 +267,7 @@ public class StructureRelativeCoordinateSystem {
 		return originMeta;
 	}
 	
-	public void setBlockAndMetaWithNotify(int relX, int relY, int relZ, Block block, int meta) {
+	public void setBlockWithNotify(int relX, int relY, int relZ, Block block, int meta) {
 		operateToAbsoluteCoord(Operation.PLACE_BLOCK, relX, relY, relZ, block, null, meta, 3);
 	}
 	
