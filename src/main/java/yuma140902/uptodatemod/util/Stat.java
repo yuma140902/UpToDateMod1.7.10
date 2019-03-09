@@ -42,8 +42,8 @@ public final class Stat {
 		META_PUMPKIN_WEST = 3;
 	
 	public static final int
-		META_LADDER_NORTH = 2,
-		META_LADDER_SOUTH = 3,
+		META_LADDER_SOUTH = 2,
+		META_LADDER_NORTH = 3,
 		META_LADDER_EAST = 4,
 		META_LADDER_WEST = 5;
 	
