@@ -185,8 +185,8 @@ public class StructureRelativeCoordinateSystem {
 	
 	
 	/**
-	 * BlockRotatedPillargブロックのメタデータを回転する。
-	 * @param originMeta 北を基準としたときのBlockRotatedPillargブロックのメタデータ
+	 * BlockRotatedPillarブロックのメタデータを回転する。
+	 * @param originMeta 北を基準としたときのBlockRotatedPillarブロックのメタデータ
 	 * @return
 	 */
 	public int getRotatedPillarMeta(int originMeta) {
