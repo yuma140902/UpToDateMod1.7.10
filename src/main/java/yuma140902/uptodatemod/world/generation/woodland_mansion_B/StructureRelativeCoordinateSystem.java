@@ -135,15 +135,47 @@ public class StructureRelativeCoordinateSystem {
 	}
 	
 	/**
+	 * 汎用のメタデータ回転メソッド。東西南北の四方向のメタデータをそれぞれ指定する
+	 * @param originMeta
+	 * @param north
+	 * @param west
+	 * @param south
+	 * @param east
+	 * @return
+	 */
+	private int getRotatedMetaWithCustomDirections(int originMeta, int north, int west, int south, int east) {
+		switch(rotationYaw.getValue()) {
+			case Rotation2D.DEG90_VALUE:
+				return (originMeta == north) ? west :
+					      (originMeta == west) ? south :
+					      (originMeta == south) ? east :
+					      	north;
+			
+			case Rotation2D.DEG180_VALUE:
+				return (originMeta == north) ? south :
+					      (originMeta == south) ? north :
+					      (originMeta == west) ? east :
+					      	west;
+				
+			case Rotation2D.DEG270_VALUE:
+				return (originMeta == north) ? east :
+					      (originMeta == east) ? south :
+					      (originMeta == south) ? west :
+					      	north;
+			
+			default:
+				return originMeta;
+		}
+	}
+	
+	/**
 	 * 階段のメタデータを回転する。
 	 * @param originMeta 北を基準としたときの階段ブロックのメタデータ
 	 * @return
 	 */
 	public int getRotatedStairsMeta(final int originMeta) {
-		//TODO:
-		final int EAST = META_STAIRS_EAST, WEST = META_STAIRS_WEST, SOUTH = META_STAIRS_SOUTH, NORTH = META_STAIRS_NORTH;
 		/*
-		 * 階段ブロックのメタデータの使用
+		 * 階段ブロックのメタデータの仕様
 		 * 
 		 * 0abb (2進数)
 		 * 
@@ -154,26 +186,7 @@ public class StructureRelativeCoordinateSystem {
 		int direction = originMeta & 0b0011;
 		final int lowOrUp = originMeta & 0b0100;
 		
-		switch(rotationYaw.getValue()) {
-			case Rotation2D.DEG90_VALUE:
-				direction = (direction == NORTH) ? WEST : 
-					          (direction == WEST) ? SOUTH : 
-					          (direction == SOUTH) ? EAST : 
-					          	                     NORTH;
-				break;
-			case Rotation2D.DEG180_VALUE:
-				direction = (direction == NORTH) ? SOUTH :
-					          (direction == WEST)  ? EAST :
-					          (direction == SOUTH) ? NORTH :
-					          	                     WEST;
-				break;
-			case Rotation2D.DEG270_VALUE:
-				direction = (direction == NORTH) ? EAST :
-					          (direction == WEST) ? NORTH :
-					          (direction == SOUTH) ? WEST :
-					          	                    SOUTH;
-				break;
-		}
+		direction = getRotatedMetaWithCustomDirections(originMeta, META_STAIRS_NORTH, META_STAIRS_WEST, META_STAIRS_SOUTH, META_STAIRS_EAST);
 		
 		return lowOrUp | direction;
 	}
@@ -186,7 +199,7 @@ public class StructureRelativeCoordinateSystem {
 	 */
 	public int getRotatedPillarMeta(int originMeta) {
 		/*
-		 * BlockRotatedPillarのメタデータの使用
+		 * BlockRotatedPillarのメタデータの仕様
 		 * 
 		 * aabb (2進数)
 		 * 
@@ -223,56 +236,7 @@ public class StructureRelativeCoordinateSystem {
 	 * @return
 	 */
 	public int getRotatedLadderMeta(int originMeta) {
-		if(rotationYaw.getValue() == Rotation2D.DEG90_VALUE) {
-			switch(originMeta) {
-				case META_LADDER_NORTH:
-					return META_LADDER_WEST;
-					
-				case META_LADDER_WEST:
-					return META_LADDER_SOUTH;
-					
-				case META_LADDER_SOUTH:
-					return META_LADDER_EAST;
-					
-				case META_LADDER_EAST:
-					return META_LADDER_NORTH;
-			}
-		}
-		
-		else if(rotationYaw.getValue() == Rotation2D.DEG180_VALUE) {
-			switch(originMeta) {
-				case META_LADDER_NORTH:
-					return META_LADDER_SOUTH;
-
-				case META_LADDER_SOUTH:
-					return META_LADDER_NORTH;
-
-				case META_LADDER_EAST:
-					return META_LADDER_WEST;
-
-				case META_LADDER_WEST:
-					return META_LADDER_EAST;
-			}
-		}
-		
-		else if(rotationYaw.getValue() == Rotation2D.DEG270_VALUE) {
-			switch(originMeta) {
-				case META_LADDER_NORTH:
-					return META_LADDER_EAST;
-					
-				case META_LADDER_EAST:
-					return META_LADDER_SOUTH;
-					
-				case META_LADDER_SOUTH:
-					return META_LADDER_WEST;
-					
-				case META_LADDER_WEST:
-					return META_LADDER_NORTH;
-					
-			}
-		}
-		
-		return originMeta;
+		return getRotatedMetaWithCustomDirections(originMeta, META_LADDER_NORTH, META_LADDER_WEST, META_LADDER_SOUTH, META_LADDER_EAST);
 	}
 	
 	/**
@@ -281,30 +245,7 @@ public class StructureRelativeCoordinateSystem {
 	 * @return
 	 */
 	public int getRotatedDirectionalMeta(int originMeta) {
-		final int NORTH = META_DIRECTIONAL_NORTH, WEST = META_DIRECTIONAL_WEST, SOUTH = META_DIRECTIONAL_SOUTH, EAST = META_DIRECTIONAL_EAST;
-		
-		switch(rotationYaw.getValue()) {
-			case Rotation2D.DEG90_VALUE:
-				return (originMeta == NORTH) ? WEST :
-					      (originMeta == WEST) ? SOUTH :
-					      (originMeta == SOUTH) ? EAST :
-					      	NORTH;
-			
-			case Rotation2D.DEG180_VALUE:
-				return (originMeta == NORTH) ? SOUTH :
-					      (originMeta == SOUTH) ? NORTH :
-					      (originMeta == WEST) ? EAST :
-					      	WEST;
-				
-			case Rotation2D.DEG270_VALUE:
-				return (originMeta == NORTH) ? EAST :
-					      (originMeta == EAST) ? SOUTH :
-					      (originMeta == SOUTH) ? WEST :
-					      	NORTH;
-			
-			default:
-				return originMeta;
-		}
+		return getRotatedMetaWithCustomDirections(originMeta, META_DIRECTIONAL_NORTH, META_DIRECTIONAL_WEST, META_DIRECTIONAL_SOUTH, META_DIRECTIONAL_EAST);
 	}
 	
 	public void setBlockWithNotify(int relX, int relY, int relZ, Block block, int meta) {
