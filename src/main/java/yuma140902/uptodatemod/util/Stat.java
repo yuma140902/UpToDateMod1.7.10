@@ -36,10 +36,10 @@ public final class Stat {
 		META_PILLAR_AXIS_NONE = 0b1100;
 	
 	public static final int
-		META_DIRECTIONAL_NORTH = 0,
-		META_DIRECTIONAL_EAST = 1,
-		META_DIRECTIONAL_SOUTH = 2,
-		META_DIRECTIONAL_WEST = 3;
+		META_PUMPKIN_NORTH = 0,
+		META_PUMPKIN_EAST = 1,
+		META_PUMPKIN_SOUTH = 2,
+		META_PUMPKIN_WEST = 3;
 	
 	public static final int
 		META_LADDER_NORTH = 2,

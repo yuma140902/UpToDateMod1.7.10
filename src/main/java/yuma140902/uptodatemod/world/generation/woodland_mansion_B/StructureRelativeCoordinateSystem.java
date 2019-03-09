@@ -2,8 +2,8 @@ package yuma140902.uptodatemod.world.generation.woodland_mansion_B;
 
 import static yuma140902.uptodatemod.util.Stat.*;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.BlockLadder;
+import net.minecraft.block.BlockPumpkin;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.tileentity.TileEntity;
@@ -127,8 +127,8 @@ public class StructureRelativeCoordinateSystem {
 		else if(block instanceof BlockLadder) {
 			rotatedMeta = getRotatedLadderMeta(originMeta);
 		}
-		else if(block instanceof BlockDirectional) {
-			rotatedMeta = getRotatedDirectionalMeta(originMeta);
+		else if(block instanceof BlockPumpkin) {
+			rotatedMeta = getRotatedPumpkinMeta(originMeta);
 		}
 		
 		setBlockAndMeta(relX, relY, relZ, block, rotatedMeta);
@@ -240,12 +240,12 @@ public class StructureRelativeCoordinateSystem {
 	}
 	
 	/**
-	 * BlockDirectinalブロックのメタデータを回転する。
-	 * @param originMeta 北を基準としたときのBlockDirectinalブロックのメタデータ
+	 * カボチャのメタデータを回転する。
+	 * @param originMeta 北を基準としたときのカボチャのメタデータ
 	 * @return
 	 */
-	public int getRotatedDirectionalMeta(int originMeta) {
-		return getRotatedMetaWithCustomDirections(originMeta, META_DIRECTIONAL_NORTH, META_DIRECTIONAL_WEST, META_DIRECTIONAL_SOUTH, META_DIRECTIONAL_EAST);
+	public int getRotatedPumpkinMeta(int originMeta) {
+		return getRotatedMetaWithCustomDirections(originMeta, META_PUMPKIN_NORTH, META_PUMPKIN_WEST, META_PUMPKIN_SOUTH, META_PUMPKIN_EAST);
 	}
 	
 	public void setBlockWithNotify(int relX, int relY, int relZ, Block block, int meta) {
