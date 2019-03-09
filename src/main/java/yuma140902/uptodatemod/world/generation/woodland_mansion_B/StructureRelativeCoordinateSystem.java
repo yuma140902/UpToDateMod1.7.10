@@ -3,6 +3,7 @@ package yuma140902.uptodatemod.world.generation.woodland_mansion_B;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.util.Stat;
 
@@ -88,6 +89,33 @@ public class StructureRelativeCoordinateSystem {
 		}
 		
 		world.setBlock(absX, absY, absZ, block, meta, 2);
+	}
+	
+	public void setTileEntity(int relX, int relY, int relZ, TileEntity tileentity) {
+		int absX = originX;
+		final int absY = originY + relY;
+		int absZ = originZ;
+		
+		switch(rotationYaw.getValue()) {
+			case Rotation2D.DEG0_VALUE:
+				absX = originX + relX;
+				absZ = originZ + relZ;
+				break;
+			case Rotation2D.DEG90_VALUE:
+				absX = originZ + relZ;
+				absZ = originX - relX;
+				break;
+			case Rotation2D.DEG180_VALUE:
+				absX = originX - relX;
+				absZ = originZ - relZ;
+				break;
+			case Rotation2D.DEG270_VALUE:
+				absX = originZ - relZ;
+				absZ = originX + relX;
+				break;
+		}
+		
+		world.setTileEntity(absX, absY, absZ, tileentity);
 	}
 	
 	/**
