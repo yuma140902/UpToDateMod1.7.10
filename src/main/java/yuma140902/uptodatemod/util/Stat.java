@@ -35,6 +35,12 @@ public final class Stat {
 		META_PILLAR_NORTH_SOUTH = 0b1000,
 		META_PILLAR_AXIS_NONE = 0b1100;
 	
+	public static final int
+		META_LADDER_NORTH = 2,
+		META_LADDER_SOUTH = 3,
+		META_LADDER_EAST = 4,
+		META_LADDER_WEST = 5;
+	
 	/**
 	 * ポピー
 	 */
