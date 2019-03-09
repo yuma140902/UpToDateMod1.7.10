@@ -15,6 +15,11 @@ import net.minecraft.world.World;
  */
 public class StructureRelativeCoordinateSystem {
 	
+	private static enum Operation {
+		PLACE_BLOCK,
+		SET_TILEENTITY
+	}
+	
 	/**
 	 * 相対位置の基準となるx,y,z座標
 	 */
@@ -64,34 +69,11 @@ public class StructureRelativeCoordinateSystem {
 		setBlockAndMeta(relX, relY, relZ, block, 0);
 	}
 	
-	public void setBlockAndMeta(final int relX, final int relY, final int relZ, Block block, int meta) {
-		int absX = originX;
-		final int absY = originY + relY;
-		int absZ = originZ;
-		
-		switch(rotationYaw.getValue()) {
-			case Rotation2D.DEG0_VALUE:
-				absX = originX + relX;
-				absZ = originZ + relZ;
-				break;
-			case Rotation2D.DEG90_VALUE:
-				absX = originZ + relZ;
-				absZ = originX - relX;
-				break;
-			case Rotation2D.DEG180_VALUE:
-				absX = originX - relX;
-				absZ = originZ - relZ;
-				break;
-			case Rotation2D.DEG270_VALUE:
-				absX = originZ - relZ;
-				absZ = originX + relX;
-				break;
-		}
-		
-		world.setBlock(absX, absY, absZ, block, meta, 2);
+	public void setBlockAndMeta(int relX, int relY, int relZ, Block block, int meta) {
+		operateToAbsoluteCoord(Operation.PLACE_BLOCK, relX, relY, relZ, block, null, meta, 2);
 	}
 	
-	public void setTileEntity(int relX, int relY, int relZ, TileEntity tileentity) {
+	private void operateToAbsoluteCoord(Operation operation, int relX, int relY, int relZ, Block block, TileEntity tileEntity, int meta, int flag) {
 		int absX = originX;
 		final int absY = originY + relY;
 		int absZ = originZ;
@@ -115,7 +97,12 @@ public class StructureRelativeCoordinateSystem {
 				break;
 		}
 		
-		world.setTileEntity(absX, absY, absZ, tileentity);
+		if(operation == Operation.SET_TILEENTITY) {
+			world.setTileEntity(absX, absY, absZ, tileEntity);
+		}
+		else {
+			world.setBlock(absX, absY, absZ, block, meta, flag);
+		}
 	}
 	
 	/**
@@ -278,5 +265,9 @@ public class StructureRelativeCoordinateSystem {
 		}
 		
 		return originMeta;
+	}
+	
+	public void setTileEntity(int relX, int relY, int relZ, TileEntity tileentity) {
+		operateToAbsoluteCoord(Operation.SET_TILEENTITY, relX, relY, relZ, null, tileentity, 0, 0);
 	}
 }
