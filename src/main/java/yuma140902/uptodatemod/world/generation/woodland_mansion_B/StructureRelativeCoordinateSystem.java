@@ -2,6 +2,8 @@ package yuma140902.uptodatemod.world.generation.woodland_mansion_B;
 
 import static yuma140902.uptodatemod.util.Stat.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirectional;
+import net.minecraft.block.BlockLadder;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.tileentity.TileEntity;
@@ -121,6 +123,12 @@ public class StructureRelativeCoordinateSystem {
 		}
 		else if(block instanceof BlockRotatedPillar) {
 			rotatedMeta = getRotatedPillarMeta(originMeta);
+		}
+		else if(block instanceof BlockLadder) {
+			rotatedMeta = getRotatedLadderMeta(originMeta);
+		}
+		else if(block instanceof BlockDirectional) {
+			rotatedMeta = getRotatedDirectionalMeta(originMeta);
 		}
 		
 		setBlockAndMeta(relX, relY, relZ, block, rotatedMeta);
@@ -265,6 +273,38 @@ public class StructureRelativeCoordinateSystem {
 		}
 		
 		return originMeta;
+	}
+	
+	/**
+	 * BlockDirectinalブロックのメタデータを回転する。
+	 * @param originMeta 北を基準としたときのBlockDirectinalブロックのメタデータ
+	 * @return
+	 */
+	public int getRotatedDirectionalMeta(int originMeta) {
+		final int NORTH = META_DIRECTIONAL_NORTH, WEST = META_DIRECTIONAL_WEST, SOUTH = META_DIRECTIONAL_SOUTH, EAST = META_DIRECTIONAL_EAST;
+		
+		switch(rotationYaw.getValue()) {
+			case Rotation2D.DEG90_VALUE:
+				return (originMeta == NORTH) ? WEST :
+					      (originMeta == WEST) ? SOUTH :
+					      (originMeta == SOUTH) ? EAST :
+					      	NORTH;
+			
+			case Rotation2D.DEG180_VALUE:
+				return (originMeta == NORTH) ? SOUTH :
+					      (originMeta == SOUTH) ? NORTH :
+					      (originMeta == WEST) ? EAST :
+					      	WEST;
+				
+			case Rotation2D.DEG270_VALUE:
+				return (originMeta == NORTH) ? EAST :
+					      (originMeta == EAST) ? SOUTH :
+					      (originMeta == SOUTH) ? WEST :
+					      	NORTH;
+			
+			default:
+				return originMeta;
+		}
 	}
 	
 	public void setBlockWithNotify(int relX, int relY, int relZ, Block block, int meta) {
