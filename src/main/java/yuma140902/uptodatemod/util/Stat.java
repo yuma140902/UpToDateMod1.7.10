@@ -35,6 +35,37 @@ public final class Stat {
 		META_PILLAR_NORTH_SOUTH = 0b1000,
 		META_PILLAR_AXIS_NONE = 0b1100;
 	
+	/**
+	 * ポピー
+	 */
+	public static final int META_REDFLOWER_POPPY = 0;
+	
+	/**
+	 * ヒスイラン
+	 */
+	public static final int META_REDFLOWER_BLUE_ORCHID = 1;
+	
+	/**
+	 * レンゲソウ
+	 */
+	public static final int META_REDFLOWER_ALLIUM = 2;
+	
+	/**
+	 * ヒナソウ
+	 */
+	public static final int META_REDFLOWER_HOUSTONIA = 3;
+	
+	public static final int META_REDFLOWER_RED_TULIP= 4;
+	public static final int META_REDFLOWER_ORANGE_TULIP = 5;
+	public static final int META_REDFLOWER_WHITE_TULIP = 6;
+	public static final int META_REDFLOWER_PINK_TULIP = 7;
+	
+	/**
+	 * フランスギク
+	 */
+	public static final int META_REDFLOWER_OXEYE_DAISY= 8;
+	
+	
 	public static final int
 		SIDE_BOTTOM = 0,
 		SIDE_TOP = 1,
