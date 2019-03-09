@@ -82,20 +82,20 @@ public class StructureRelativeCoordinateSystem {
 		
 		switch(rotationYaw.getValue()) {
 			case Rotation2D.DEG0_VALUE:
-				absX = originX + relX;
-				absZ = originZ + relZ;
+				absX += relX;
+				absZ += relZ;
 				break;
 			case Rotation2D.DEG90_VALUE:
-				absX = originZ + relZ;
-				absZ = originX - relX;
+				absX += relZ;
+				absZ -= relX;
 				break;
 			case Rotation2D.DEG180_VALUE:
-				absX = originX - relX;
-				absZ = originZ - relZ;
+				absX -= relX;
+				absZ -= relZ;
 				break;
 			case Rotation2D.DEG270_VALUE:
-				absX = originZ - relZ;
-				absZ = originX + relX;
+				absX -= relZ;
+				absZ += relX;
 				break;
 		}
 		
