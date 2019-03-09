@@ -1,11 +1,11 @@
 package yuma140902.uptodatemod.world.generation.woodland_mansion_B;
 
+import static yuma140902.uptodatemod.util.Stat.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.util.Stat;
 
 
 /**
@@ -146,7 +146,7 @@ public class StructureRelativeCoordinateSystem {
 	 */
 	public int getRotatedStairsMeta(final int originMeta) {
 		//TODO:
-		final int EAST = Stat.META_STAIRS_EAST, WEST = Stat.META_STAIRS_WEST, SOUTH = Stat.META_STAIRS_SOUTH, NORTH = Stat.META_STAIRS_NORTH;
+		final int EAST = META_STAIRS_EAST, WEST = META_STAIRS_WEST, SOUTH = META_STAIRS_SOUTH, NORTH = META_STAIRS_NORTH;
 		/*
 		 * 階段ブロックのメタデータの使用
 		 * 
@@ -230,49 +230,49 @@ public class StructureRelativeCoordinateSystem {
 	public int getRotatedLadderMeta(int originMeta) {
 		if(rotationYaw.getValue() == Rotation2D.DEG90_VALUE) {
 			switch(originMeta) {
-				case Stat.META_LADDER_NORTH:
-					return Stat.META_LADDER_WEST;
+				case META_LADDER_NORTH:
+					return META_LADDER_WEST;
 					
-				case Stat.META_LADDER_WEST:
-					return Stat.META_LADDER_SOUTH;
+				case META_LADDER_WEST:
+					return META_LADDER_SOUTH;
 					
-				case Stat.META_LADDER_SOUTH:
-					return Stat.META_LADDER_EAST;
+				case META_LADDER_SOUTH:
+					return META_LADDER_EAST;
 					
-				case Stat.META_LADDER_EAST:
-					return Stat.META_LADDER_NORTH;
+				case META_LADDER_EAST:
+					return META_LADDER_NORTH;
 			}
 		}
 		
 		else if(rotationYaw.getValue() == Rotation2D.DEG180_VALUE) {
 			switch(originMeta) {
-				case Stat.META_LADDER_NORTH:
-					return Stat.META_LADDER_SOUTH;
+				case META_LADDER_NORTH:
+					return META_LADDER_SOUTH;
 
-				case Stat.META_LADDER_SOUTH:
-					return Stat.META_LADDER_NORTH;
+				case META_LADDER_SOUTH:
+					return META_LADDER_NORTH;
 
-				case Stat.META_LADDER_EAST:
-					return Stat.META_LADDER_WEST;
+				case META_LADDER_EAST:
+					return META_LADDER_WEST;
 
-				case Stat.META_LADDER_WEST:
-					return Stat.META_LADDER_EAST;
+				case META_LADDER_WEST:
+					return META_LADDER_EAST;
 			}
 		}
 		
 		else if(rotationYaw.getValue() == Rotation2D.DEG270_VALUE) {
 			switch(originMeta) {
-				case Stat.META_LADDER_NORTH:
-					return Stat.META_LADDER_EAST;
+				case META_LADDER_NORTH:
+					return META_LADDER_EAST;
 					
-				case Stat.META_LADDER_EAST:
-					return Stat.META_LADDER_SOUTH;
+				case META_LADDER_EAST:
+					return META_LADDER_SOUTH;
 					
-				case Stat.META_LADDER_SOUTH:
-					return Stat.META_LADDER_WEST;
+				case META_LADDER_SOUTH:
+					return META_LADDER_WEST;
 					
-				case Stat.META_LADDER_WEST:
-					return Stat.META_LADDER_NORTH;
+				case META_LADDER_WEST:
+					return META_LADDER_NORTH;
 					
 			}
 		}
