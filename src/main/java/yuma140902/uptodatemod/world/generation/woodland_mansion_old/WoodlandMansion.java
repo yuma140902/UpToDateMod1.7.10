@@ -3,7 +3,7 @@ package yuma140902.uptodatemod.world.generation.woodland_mansion_old;
 import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.world.generation.structure.IStructureComponent;
+import yuma140902.uptodatemod.world.generation.structure_old.IStructureComponent;
 
 public class WoodlandMansion {
 	private static final int GRID_WIDTH_MAX = 15;

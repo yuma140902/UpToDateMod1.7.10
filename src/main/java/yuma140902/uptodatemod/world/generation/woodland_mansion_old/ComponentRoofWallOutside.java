@@ -2,7 +2,7 @@ package yuma140902.uptodatemod.world.generation.woodland_mansion_old;
 
 import java.util.Random;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.world.generation.structure.StructureComponentBase;
+import yuma140902.uptodatemod.world.generation.structure_old.StructureComponentBase;
 
 // 壁と外の間にある屋根
 public class ComponentRoofWallOutside extends StructureComponentBase {
