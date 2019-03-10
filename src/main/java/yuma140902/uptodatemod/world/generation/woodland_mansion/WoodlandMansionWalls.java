@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.world.generation.woodland_mansion_B;
+package yuma140902.uptodatemod.world.generation.woodland_mansion;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -9,20 +9,18 @@ final class WoodlandMansionWalls {
 	private WoodlandMansionWalls() {};
 	
 	/**
-	 * 2階と3階に使われている壁を生成する
+	 * 2階と3階に使われている外壁を生成する
 	 * @param startX 壁の左(壁を外から見たとき)下手前のx座標
 	 * @param startY 壁の左下手前のy座標
 	 * @param startZ 壁の左下手前のz座標
-	 * @param rotationYaw 回転。Facing2Dで定義される値にすること
+	 * @param rotationYaw 回転
 	 * @param world
 	 */
-	public static void generateWallType1(int startX, int startY, int startZ, int rotaionYaw, World world) {
-		StructureRelativeCoordinateSystem relCoord = new StructureRelativeCoordinateSystem();
-		relCoord.originX = startX;
-		relCoord.originY = startY;
-		relCoord.originZ = startZ;
-		relCoord.rotationYaw = rotaionYaw;
-		relCoord.world = world;
+	public static void generateOuterWallType1(int startX, int startY, int startZ, Rotation2D rotationYaw, World world) {
+		StructureRelativeCoordinateSystem relCoord
+			= new StructureRelativeCoordinateSystem(startX, startY, startZ, rotationYaw, world);
+		
+//		System.out.println(String.format("WallType1 will spawn at (%d, %d, %d) = (%d, %d, %d)", startX, startY, startZ, relCoord.originX, relCoord.originY, relCoord.originZ));
 		
 		
 		// 手前の層
@@ -37,7 +35,7 @@ final class WoodlandMansionWalls {
 		
 		relCoord.setBlockAndRotatedMeta(0, 6, 0, Blocks.stone_stairs, Stat.META_STAIRS_NORTH | Stat.META_STAIRS_UPPER);
 		relCoord.setBlockAndRotatedMeta(1, 6, 0, Blocks.stone_stairs, Stat.META_STAIRS_WEST | Stat.META_STAIRS_UPPER);
-		relCoord.setBlockAndRotatedMeta(5, 6, 0, Blocks.stone_stairs, Stat.META_STAIRS_WEST | Stat.META_STAIRS_UPPER);
+		relCoord.setBlockAndRotatedMeta(5, 6, 0, Blocks.stone_stairs, Stat.META_STAIRS_EAST | Stat.META_STAIRS_UPPER);
 		relCoord.setBlockAndRotatedMeta(6, 6, 0, Blocks.stone_stairs, Stat.META_STAIRS_NORTH | Stat.META_STAIRS_UPPER);
 		
 		final int west_east_darkoak = relCoord.getRotatedPillarMeta(Stat.LOG2_META_DARK_OAK | Stat.META_PILLAR_WEST_EAST);
@@ -58,7 +56,7 @@ final class WoodlandMansionWalls {
 		
 		for(int x = 0; x <= 6; ++x) {
 			for(int y = 0; y <= 6; ++y) {
-				relCoord.setBlockAndMeta(x, y, 1, Blocks.planks, Stat.PLANK_META_DARKOAK);
+				relCoord.setBlockAndMeta(x, y, -1, Blocks.planks, Stat.PLANK_META_DARKOAK);
 			}
 		}
 		
@@ -86,5 +84,47 @@ final class WoodlandMansionWalls {
 				relCoord.setBlock(x, y, -1, Blocks.glass_pane);
 			}
 		}
+	}
+	
+	/**
+	 * 1階に使われている外壁を生成する
+	 * @param startX 壁の左(壁を外から見たとき)下手前のx座標
+	 * @param startY 壁の左下手前のy座標
+	 * @param startZ 壁の左下手前のz座標
+	 * @param rotationYaw 回転
+	 * @param world
+	 */
+	public static void generateOuterWallType2(int startX, int startY, int startZ, Rotation2D rotationYaw, World world) {
+		StructureRelativeCoordinateSystem relCoord
+			= new StructureRelativeCoordinateSystem(startX, startY, startZ, rotationYaw, world);
+		
+//		System.out.println(String.format("WallType2 will spawn at (%d, %d, %d) = (%d, %d, %d)", startX, startY, startZ, relCoord.originX, relCoord.originY, relCoord.originZ));
+		
+		
+		
+		// 手前の層
+		
+		relCoord.setBlock(0, 0, 0, Blocks.cobblestone_wall);
+		relCoord.setBlock(6, 0, 0, Blocks.cobblestone_wall);
+		
+		relCoord.setBlockAndRotatedMeta(0, 6, 0, Blocks.stone_stairs, Stat.META_STAIRS_NORTH | Stat.META_STAIRS_UPPER);
+		relCoord.setBlockAndRotatedMeta(1, 6, 0, Blocks.stone_stairs, Stat.META_STAIRS_WEST | Stat.META_STAIRS_UPPER);
+		relCoord.setBlockAndRotatedMeta(5, 6, 0, Blocks.stone_stairs, Stat.META_STAIRS_EAST | Stat.META_STAIRS_UPPER);
+		relCoord.setBlockAndRotatedMeta(6, 6, 0, Blocks.stone_stairs, Stat.META_STAIRS_NORTH | Stat.META_STAIRS_UPPER);
+		
+		
+		// 奥の層
+		
+		for(int x = 0; x <= 6; ++x) {
+			for(int y = 0; y <= 6; ++y) {
+				relCoord.setBlockAndMeta(x, y, 1, Blocks.planks, Stat.PLANK_META_DARKOAK);
+			}
+		}
+		
+		int north_south_darkoak = relCoord.getRotatedPillarMeta(Stat.LOG2_META_DARK_OAK | Stat.META_PILLAR_NORTH_SOUTH);
+		relCoord.setBlockAndMeta(2, 3, 1, Blocks.log2, north_south_darkoak);
+		relCoord.setBlockAndMeta(3, 2, 1, Blocks.log2, north_south_darkoak);
+		relCoord.setBlockAndMeta(4, 3, 1, Blocks.log2, north_south_darkoak);
+		relCoord.setBlockAndMeta(3, 4, 1, Blocks.log2, north_south_darkoak);
 	}
 }

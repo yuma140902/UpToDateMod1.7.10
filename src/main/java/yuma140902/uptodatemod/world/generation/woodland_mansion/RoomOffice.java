@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.world.generation.woodland_mansion_B;
+package yuma140902.uptodatemod.world.generation.woodland_mansion;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;

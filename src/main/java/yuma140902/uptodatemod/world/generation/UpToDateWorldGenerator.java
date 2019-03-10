@@ -11,8 +11,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.util.ListUtils;
-import yuma140902.uptodatemod.world.generation.woodland_mansion_B.WoodlandMansionB;
-import yuma140902.uptodatemod.world.generation.woodland_mansion_B.WoodlandMansionGrid;
+import yuma140902.uptodatemod.world.generation.woodland_mansion.WoodlandMansionB;
+import yuma140902.uptodatemod.world.generation.woodland_mansion.WoodlandMansionGrid;
 
 public class UpToDateWorldGenerator implements IWorldGenerator{
 
