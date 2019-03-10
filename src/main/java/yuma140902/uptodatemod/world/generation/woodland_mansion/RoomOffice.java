@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityFlowerPot;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
 
 //事務所 1x1_a3
 public class RoomOffice implements IStructureComponentB {

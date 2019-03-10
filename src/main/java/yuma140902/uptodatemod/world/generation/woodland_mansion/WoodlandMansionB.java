@@ -4,6 +4,8 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.world.generation.structure.Rotation2D;
+import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
 
 public final class WoodlandMansionB {
 	private WoodlandMansionB() {}

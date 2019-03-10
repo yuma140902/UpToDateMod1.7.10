@@ -4,6 +4,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.world.generation.structure.Rotation2D;
+import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
 
 final class WoodlandMansionWalls {
 	private WoodlandMansionWalls() {};

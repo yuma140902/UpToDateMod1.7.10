@@ -4,6 +4,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityFlowerPot;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
 
 //1x1_a1
 public class RoomFlowerPot implements IStructureComponentB {

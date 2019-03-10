@@ -1,5 +1,7 @@
 package yuma140902.uptodatemod.world.generation.woodland_mansion;
 
+import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
+
 public interface IStructureComponentB {
 	
 	void generate(StructureRelativeCoordinateSystem relCoord);

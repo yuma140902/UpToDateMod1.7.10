@@ -2,6 +2,7 @@ package yuma140902.uptodatemod.world.generation.woodland_mansion;
 
 import net.minecraft.init.Blocks;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
 
 //レールとはしごの部屋 1x1_a2
 public class RoomRailLadder implements IStructureComponentB {

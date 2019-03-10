@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.world.generation.woodland_mansion;
+package yuma140902.uptodatemod.world.generation.structure;
 
 import static yuma140902.uptodatemod.util.Stat.*;
 import net.minecraft.block.Block;

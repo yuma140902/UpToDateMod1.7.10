@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.world.generation.woodland_mansion;
+package yuma140902.uptodatemod.world.generation.structure;
 
 /**
  * 平面上の回転を表す

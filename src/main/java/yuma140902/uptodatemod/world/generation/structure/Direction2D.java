@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.world.generation.woodland_mansion;
+package yuma140902.uptodatemod.world.generation.structure;
 
 /**
  * 上下左右の方向を表す
