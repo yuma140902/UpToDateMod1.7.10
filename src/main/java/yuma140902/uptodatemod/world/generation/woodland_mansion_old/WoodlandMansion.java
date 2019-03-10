@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.world.generation.woodland_mansion;
+package yuma140902.uptodatemod.world.generation.woodland_mansion_old;
 
 import java.util.Random;
 import net.minecraft.block.Block;
