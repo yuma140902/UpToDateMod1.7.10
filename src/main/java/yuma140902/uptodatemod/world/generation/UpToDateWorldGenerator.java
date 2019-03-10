@@ -11,7 +11,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.util.ListUtils;
-import yuma140902.uptodatemod.world.generation.woodland_mansion.WoodlandMansionB;
+import yuma140902.uptodatemod.world.generation.woodland_mansion.WoodlandMansion;
 import yuma140902.uptodatemod.world.generation.woodland_mansion.WoodlandMansionGrid;
 
 public class UpToDateWorldGenerator implements IWorldGenerator{
@@ -64,9 +64,9 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 	}
 	
 	private void generateWoodlandMansion(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(WoodlandMansionB.canSpawnAt(chunkX, chunkZ)) {
-			WoodlandMansionGrid grid = WoodlandMansionB.prepairArrangement(world, rand, chunkX, chunkZ);
-			WoodlandMansionB.generate(grid);
+		if(WoodlandMansion.canSpawnAt(chunkX, chunkZ)) {
+			WoodlandMansionGrid grid = WoodlandMansion.prepairArrangement(world, rand, chunkX, chunkZ);
+			WoodlandMansion.generate(grid);
 		}
 	}
 }

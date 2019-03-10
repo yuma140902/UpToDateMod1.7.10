@@ -7,8 +7,8 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.world.generation.structure.Rotation2D;
 import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
 
-public final class WoodlandMansionB {
-	private WoodlandMansionB() {}
+public final class WoodlandMansion {
+	private WoodlandMansion() {}
 	
 	/**
 	 * 指定した場所に森の洋館が生成できるかどうかを返します
