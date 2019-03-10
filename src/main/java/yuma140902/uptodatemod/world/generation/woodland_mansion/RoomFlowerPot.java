@@ -7,7 +7,7 @@ import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
 
 //1x1_a1
-public class RoomFlowerPot implements IStructureComponentB {
+public class RoomFlowerPot implements IStructureComponent {
 
 	@Override
 	public void generate(StructureRelativeCoordinateSystem relCoord) {

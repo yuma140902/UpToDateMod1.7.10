@@ -38,17 +38,17 @@ public class WoodlandMansionGrid {
 		return random;
 	}
 	
-	private IStructureComponentB[] grid = new IStructureComponentB[GRID_X_MAX * GRID_Z_MAX];
+	private IStructureComponent[] grid = new IStructureComponent[GRID_X_MAX * GRID_Z_MAX];
 	
-	public IStructureComponentB getAt(int gridX, int gridZ) {
+	public IStructureComponent getAt(int gridX, int gridZ) {
 		return grid[gridX * GRID_X_MAX + gridZ];
 	}
 	
-	public IStructureComponentB[] getArray() {
+	public IStructureComponent[] getArray() {
 		return grid;
 	}
 	
-	public void placeAt(int gridX, int gridZ, IStructureComponentB component) {
+	public void placeAt(int gridX, int gridZ, IStructureComponent component) {
 		grid[gridX * GRID_X_MAX + gridZ] = component;
 	}
 }
