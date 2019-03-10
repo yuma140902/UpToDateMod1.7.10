@@ -11,6 +11,11 @@ import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordi
 public class RoomOffice implements IStructureComponent {
 
 	@Override
+	public String getName() {
+		return "1x1_a3";
+	}
+	
+	@Override
 	public void generate(StructureRelativeCoordinateSystem relCoord) {
 		int south_stairs = relCoord.getRotatedStairsMeta(Stat.META_STAIRS_SOUTH);
 		int north_upper_stairs = relCoord.getRotatedStairsMeta(Stat.META_STAIRS_NORTH | Stat.META_STAIRS_UPPER);

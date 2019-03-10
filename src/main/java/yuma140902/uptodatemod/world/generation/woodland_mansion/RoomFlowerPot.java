@@ -10,6 +10,11 @@ import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordi
 public class RoomFlowerPot implements IStructureComponent {
 
 	@Override
+	public String getName() {
+		return "1x1_a1";
+	}
+	
+	@Override
 	public void generate(StructureRelativeCoordinateSystem relCoord) {
 		relCoord.setBlock(0, 0, 0, Blocks.cobblestone);
 		relCoord.setBlock(1, 0, 0, Blocks.cobblestone);

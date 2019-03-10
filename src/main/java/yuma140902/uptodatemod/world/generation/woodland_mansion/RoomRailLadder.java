@@ -8,6 +8,11 @@ import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordi
 public class RoomRailLadder implements IStructureComponent {
 
 	@Override
+	public String getName() {
+		return "1x1_a2";
+	}
+	
+	@Override
 	public void generate(StructureRelativeCoordinateSystem relCoord) {
 		int stairs_east = relCoord.getRotatedStairsMeta(Stat.META_STAIRS_EAST);
 		int stairs_west = relCoord.getRotatedStairsMeta(Stat.META_STAIRS_WEST);
