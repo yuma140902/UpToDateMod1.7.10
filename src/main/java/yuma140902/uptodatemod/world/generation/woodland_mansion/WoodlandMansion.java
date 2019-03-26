@@ -64,16 +64,16 @@ public final class WoodlandMansion {
 		int y = grid.getYCoord();
 		World world = grid.getWorld();
 		
-		new RoomOffice().generate(new StructureRelativeCoordinateSystem(0, y, 0, Rotation2D.DEG0, world));
+		new Room1x1a3_Office().generate(new StructureRelativeCoordinateSystem(0, y, 0, Rotation2D.DEG0, world));
 		new StructureRelativeCoordinateSystem(0, y, 0, Rotation2D.DEG0, world).setBlock(0, 9, 0, Blocks.coal_block);
 		
-		new RoomOffice().generate(new StructureRelativeCoordinateSystem(16, y, 0, Rotation2D.DEG90, world));
+		new Room1x1a3_Office().generate(new StructureRelativeCoordinateSystem(16, y, 0, Rotation2D.DEG90, world));
 		new StructureRelativeCoordinateSystem(16, y, 0, Rotation2D.DEG90, world).setBlock(0, 9, 0, Blocks.iron_block);
 		
-		new RoomOffice().generate(new StructureRelativeCoordinateSystem(16, y, 16, Rotation2D.DEG180, world));
+		new Room1x1a3_Office().generate(new StructureRelativeCoordinateSystem(16, y, 16, Rotation2D.DEG180, world));
 		new StructureRelativeCoordinateSystem(16, y, 16, Rotation2D.DEG180, world).setBlock(0, 9, 0, Blocks.redstone_block);
 		
-		new RoomOffice().generate(new StructureRelativeCoordinateSystem(0, y, 16, Rotation2D.DEG270, world));
+		new Room1x1a3_Office().generate(new StructureRelativeCoordinateSystem(0, y, 16, Rotation2D.DEG270, world));
 		new StructureRelativeCoordinateSystem(0, y, 16, Rotation2D.DEG270, world).setBlock(0, 9, 0, Blocks.diamond_block);
 		
 	}

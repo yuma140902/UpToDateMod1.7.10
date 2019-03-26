@@ -5,7 +5,7 @@ import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
 
 //レールとはしごの部屋 1x1_a2
-public class RoomRailLadder implements IStructureComponent {
+public class Room1x1a2_RailLadder implements IStructureComponent {
 
 	@Override
 	public String getName() {

@@ -8,7 +8,7 @@ import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.world.generation.structure.StructureRelativeCoordinateSystem;
 
 //事務所 1x1_a3
-public class RoomOffice implements IStructureComponent {
+public class Room1x1a3_Office implements IStructureComponent {
 
 	@Override
 	public String getName() {
