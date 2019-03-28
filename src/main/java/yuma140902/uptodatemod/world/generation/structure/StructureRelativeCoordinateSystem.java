@@ -2,6 +2,7 @@ package yuma140902.uptodatemod.world.generation.structure;
 
 import static yuma140902.uptodatemod.util.Stat.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockChest;
 import net.minecraft.block.BlockLadder;
 import net.minecraft.block.BlockPumpkin;
 import net.minecraft.block.BlockRotatedPillar;
@@ -130,6 +131,9 @@ public class StructureRelativeCoordinateSystem {
 		else if(block instanceof BlockPumpkin) {
 			rotatedMeta = getRotatedPumpkinMeta(originMeta);
 		}
+		else if(block instanceof BlockChest) {
+			rotatedMeta = getRotatedChestMeta(originMeta);
+		}
 		
 		setBlockAndMeta(relX, relY, relZ, block, rotatedMeta);
 	}
@@ -246,6 +250,15 @@ public class StructureRelativeCoordinateSystem {
 	 */
 	public int getRotatedPumpkinMeta(int originMeta) {
 		return getRotatedMetaWithCustomDirections(originMeta, META_PUMPKIN_NORTH, META_PUMPKIN_WEST, META_PUMPKIN_SOUTH, META_PUMPKIN_EAST);
+	}
+	
+	/**
+	 * チェストのメタデータを回転する。
+	 * @param originMeta 北を基準としたときのチェストのメタデータ
+	 * @return
+	 */
+	public int getRotatedChestMeta(int originMeta) {
+		return getRotatedMetaWithCustomDirections(originMeta, META_CHEST_NORTH, META_CHEST_WEST, META_CHEST_SOUTH, META_CHEST_EAST);
 	}
 	
 	public void setBlockWithNotify(int relX, int relY, int relZ, Block block, int meta) {

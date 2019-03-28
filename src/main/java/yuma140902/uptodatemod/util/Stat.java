@@ -47,6 +47,12 @@ public final class Stat {
 		META_LADDER_EAST = 4,
 		META_LADDER_WEST = 5;
 	
+	public static final int
+		META_CHEST_SOUTH = 2,
+		META_CHEST_NORTH = 3,
+		META_CHEST_EAST = 4,
+		META_CHEST_WEST = 5;
+	
 	/**
 	 * ポピー
 	 */
