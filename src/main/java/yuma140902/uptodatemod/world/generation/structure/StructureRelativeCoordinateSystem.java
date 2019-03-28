@@ -20,6 +20,7 @@ public class StructureRelativeCoordinateSystem {
 	
 	private static enum Operation {
 		PLACE_BLOCK,
+		SET_METADATA,
 		SET_TILEENTITY
 	}
 	
@@ -102,6 +103,9 @@ public class StructureRelativeCoordinateSystem {
 		
 		if(operation == Operation.SET_TILEENTITY) {
 			world.setTileEntity(absX, absY, absZ, tileEntity);
+		}
+		else if(operation == Operation.SET_METADATA) {
+			world.setBlockMetadataWithNotify(absX, absY, absZ, meta, flag);
 		}
 		else {
 			world.setBlock(absX, absY, absZ, block, meta, flag);
@@ -263,6 +267,10 @@ public class StructureRelativeCoordinateSystem {
 	
 	public void setBlockWithNotify(int relX, int relY, int relZ, Block block, int meta) {
 		operateToAbsoluteCoord(Operation.PLACE_BLOCK, relX, relY, relZ, block, null, meta, 3);
+	}
+	
+	public void setMetadataWithNotify(int relX, int relY, int relZ, int meta) {
+		operateToAbsoluteCoord(Operation.SET_METADATA, relX, relY, relZ, null, null, meta, 3);
 	}
 	
 	public void setTileEntity(int relX, int relY, int relZ, TileEntity tileentity) {
