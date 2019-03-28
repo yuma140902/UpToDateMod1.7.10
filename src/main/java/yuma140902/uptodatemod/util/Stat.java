@@ -53,6 +53,20 @@ public final class Stat {
 		META_CHEST_EAST = 4,
 		META_CHEST_WEST = 5;
 	
+	public static final int
+		META_SLAB_STONE = 0,
+		META_SLAB_SANDSTONE = 1,
+		META_SLAB_ROCKPLANK = 2,
+		META_SLAB_COBBLESTONE = 3,
+		META_SLAB_BRICKS = 4,
+		META_SLAB_STONEBRICKS = 5,
+		META_SLAB_NETHERBRICKS = 6,
+		META_SLAB_QUARTZ = 7;
+	
+	public static final int
+		META_SLAB_LOWER = 0b0000,
+		META_SLAB_UPPER = 0b1000;
+	
 	/**
 	 * ポピー
 	 */
