@@ -54,10 +54,8 @@ public class WoodlandMansionChestGen {
 		return list;
 	}*/
 	
-	public TileEntityChest setLoot(TileEntityChest tileentity, Random random) {
+	public void setLoot(TileEntityChest tileentity, Random random) {
 		ChestGenHooks loottable = ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST);
 		WeightedRandomChestContent.generateChestContents(random, loottable.getItems(random), tileentity, loottable.getCount(random));
-		
-		return tileentity;
 	}
 }

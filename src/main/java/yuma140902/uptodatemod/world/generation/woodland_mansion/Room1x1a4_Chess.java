@@ -62,7 +62,7 @@ public class Room1x1a4_Chess implements IStructureComponent {
 		relCoord.setBlock(3, 5, 0, Blocks.chest);
 		relCoord.setMetadataWithNotify(3, 5, 0, chestMeta);
 		TileEntityChest tileentity = new TileEntityChest();
-		tileentity = WoodlandMansionChestGen.instance.setLoot(tileentity, relCoord.getWorld().rand);
+		WoodlandMansionChestGen.instance.setLoot(tileentity, relCoord.getWorld().rand);
 		relCoord.setTileEntity(3, 5, 0, tileentity);
 		
 		// 左上の横柱
