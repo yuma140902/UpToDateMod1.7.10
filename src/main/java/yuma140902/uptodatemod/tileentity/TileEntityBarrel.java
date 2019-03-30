@@ -1,5 +1,7 @@
 package yuma140902.uptodatemod.tileentity;
 
+import java.util.Random;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -9,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.Constants.NBT;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class TileEntityBarrel extends TileEntity implements IInventory {
+public class TileEntityBarrel extends TileEntity implements IInventory, ITileEntityDropable {
 	protected static final int INVENTORY_SIZE = 27;
 	protected static final String NBT_KEY_SLOT = "Slot";
 	protected static final String NBT_KEY_ITEMS = "Items";
@@ -18,13 +20,12 @@ public class TileEntityBarrel extends TileEntity implements IInventory {
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
+		
 		NBTTagList itemNbtList = new NBTTagList();
 		for(int i = 0; i < INVENTORY_SIZE; ++i) {
-			System.out.println("write to NBT . slot : " + i);
 			if(inventory[i] == null) continue;
 			NBTTagCompound itemNbt = new NBTTagCompound();
 			itemNbt.setByte(NBT_KEY_SLOT, (byte)i);
-			System.out.println(i + " : " + inventory[i].getDisplayName());
 			inventory[i].writeToNBT(itemNbt);
 			itemNbtList.appendTag(itemNbt);
 		}
@@ -37,16 +38,45 @@ public class TileEntityBarrel extends TileEntity implements IInventory {
 		NBTTagList itemNbtList = nbt.getTagList(NBT_KEY_ITEMS, NBT.TAG_COMPOUND);
 		inventory = new ItemStack[INVENTORY_SIZE];
 		for(int i = 0; i < INVENTORY_SIZE; ++i) {
-			System.out.println("read from NBT . slot : " + i);
 			NBTTagCompound itemNbt = itemNbtList.getCompoundTagAt(i);
 			byte slot = itemNbt.getByte(NBT_KEY_SLOT);
 			if(0 <= slot && slot < INVENTORY_SIZE) {
-				inventory[slot] = ItemStack.loadItemStackFromNBT(itemNbt);
-				if(inventory[slot] != null)
-					System.out.println(slot + " : " + inventory[slot].getDisplayName());
+				ItemStack tmp = ItemStack.loadItemStackFromNBT(itemNbt);
+				if(tmp != null) {
+					inventory[slot] = tmp;
+				}
 			}
 		}
 	}
+	
+	
+	// ================= ITileEntityDropable ここから =================
+	
+	@Override
+	public void drop() {
+		for(int i = 0; i < INVENTORY_SIZE; ++i) {
+			ItemStack itemstack = this.inventory[i];
+			if(itemstack != null && !worldObj.isRemote) {
+				Random rand = worldObj.rand;
+				float xDiff = rand.nextFloat() * 0.6F + 0.1F;
+				float yDiff = rand.nextFloat() * 0.6F + 0.1F;
+				float zDiff = rand.nextFloat() * 0.6F + 0.1F;
+				
+				EntityItem entityItem = new EntityItem(worldObj, xCoord + xDiff, yCoord + yDiff, zCoord + zDiff, itemstack.copy());
+				float motionScale = 0.025F;
+				entityItem.motionX = (float) rand.nextGaussian() * motionScale;
+				entityItem.motionY = (float) rand.nextGaussian() * motionScale + 0.1F;
+				entityItem.motionZ = (float) rand.nextGaussian() * motionScale;
+				worldObj.spawnEntityInWorld(entityItem);
+			}
+		}
+	}
+	
+	// ================= ITileEntityDropable ここまで =================
+	
+	
+	
+	// ================= IInventory ここから =================
 	
 	@Override
 	public int getSizeInventory() {
@@ -123,4 +153,6 @@ public class TileEntityBarrel extends TileEntity implements IInventory {
 	public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
 		return true;
 	}
+	
+	// ================= IInventory ここまで =================
 }
