@@ -12,6 +12,8 @@ import net.minecraftforge.common.util.Constants.NBT;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
 public class TileEntityBarrel extends TileEntity implements IInventory, ITileEntityDropable {
+	public static final String tileEntityId = ModUpToDateMod.MOD_ID + ".barrel";
+	
 	protected static final int INVENTORY_SIZE = 27;
 	protected static final String NBT_KEY_SLOT = "Slot";
 	protected static final String NBT_KEY_ITEMS = "Items";

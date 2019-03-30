@@ -75,6 +75,7 @@ public class ModUpToDateMod {
 		MyItems.register();
 		
 		MyTileEntities.register();
+		proxy.registerTileEntities();
 		MyGuis.register();
 		
 		networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
