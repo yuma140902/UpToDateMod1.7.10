@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod.event_handlers;
 
 import java.util.Random;
+import java.util.Set;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
@@ -8,9 +9,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemAxe;
-import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -49,12 +47,20 @@ public class CommonEventHandler {
 		}
 	}
 	
-	private boolean isShovel(Item item) {
-		return item instanceof ItemSpade;
+	private boolean isShovel(ItemStack itemstack) {
+		if(itemstack != null && itemstack.getItem() != null) {
+			Set<String> toolClasses = itemstack.getItem().getToolClasses(itemstack);
+			return toolClasses != null && toolClasses.contains("shovel");
+		}
+		return false;
 	}
 	
-	private boolean isAxe(Item item) {
-		return item instanceof ItemAxe;
+	private boolean isAxe(ItemStack itemstack) {
+		if(itemstack != null && itemstack.getItem() != null) {
+			Set<String> toolClasses = itemstack.getItem().getToolClasses(itemstack);
+			return toolClasses != null && toolClasses.contains("axe");
+		}
+		return false;
 	}
 	
 	@SubscribeEvent
@@ -68,7 +74,7 @@ public class CommonEventHandler {
 		ItemStack heldItem = event.entityPlayer.getHeldItem();
 		if(heldItem == null) return;
 		
-		if(isShovel(heldItem.getItem()) && world.getBlock(x, y, z) == Blocks.grass) {
+		if(isShovel(heldItem) && world.getBlock(x, y, z) == Blocks.grass) {
 			Block blockAbove = world.getBlock(x, y + 1, z);
 			if(blockAbove != null && blockAbove.isOpaqueCube()) return;
 			
@@ -76,7 +82,7 @@ public class CommonEventHandler {
 			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "dig.grass", 1.0F, world.rand.nextFloat() * 0.1F + 0.9F);
 		}
 		
-		if(isAxe(heldItem.getItem())) {
+		if(isAxe(heldItem)) {
 			Block block = world.getBlock(x, y, z);
 			int log =  block == Blocks.log ? 1 : block == Blocks.log2 ? 2 : 0;
 			if(log == 0) return;
