@@ -136,6 +136,7 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 		return baseBlock.getIcon((meta & 0b0001) == 0 ? side : Stat.SIDE_TOP, this.meta);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
 		if(!isDouble())
