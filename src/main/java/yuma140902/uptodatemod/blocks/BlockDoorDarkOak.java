@@ -8,8 +8,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockDoorDarkOak extends net.minecraft.block.BlockDoor implements IRegisterable {
 	
@@ -21,8 +21,8 @@ public class BlockDoorDarkOak extends net.minecraft.block.BlockDoor implements I
 	}
 	
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_dark_oak");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_dark_oak");
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("door_dark_oak"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("door_dark_oak"));
 		GameRegistry.registerBlock(this, "door_dark_oak");
 	}
 	

@@ -8,8 +8,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockDoorAcacia extends net.minecraft.block.BlockDoor implements IRegisterable {
 	
@@ -21,8 +21,8 @@ public class BlockDoorAcacia extends net.minecraft.block.BlockDoor implements IR
 	}
 	
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_acacia");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_acacia");
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("door_acacia"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("door_acacia"));
 		GameRegistry.registerBlock(this, "door_acacia");
 	}
 	

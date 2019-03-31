@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericButton extends BlockButtonWood implements IRegisterable, IHasRecipes {
 	private int texture_plank_meta;
@@ -32,8 +32,8 @@ public class BlockGenericButton extends BlockButtonWood implements IRegisterable
 
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	

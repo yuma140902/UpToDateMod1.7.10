@@ -13,8 +13,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGrassPath extends Block implements IRegisterable {
 	
@@ -31,8 +31,8 @@ public class BlockGrassPath extends Block implements IRegisterable {
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".grass_path");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":grass_path");
+		setBlockName(StringUtil.getDomainedUnlocalizedName("grass_path"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("grass_path"));
 		GameRegistry.registerBlock(this, "grass_path");
 	}
 	

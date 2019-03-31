@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockDarkPrismarine extends Block implements IRegisterable, IHasRecipes {
 	public BlockDarkPrismarine() {
@@ -25,8 +25,8 @@ public class BlockDarkPrismarine extends Block implements IRegisterable, IHasRec
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".dark_prismarine_block");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":dark_prismarine_block");
+		setBlockName(StringUtil.getDomainedUnlocalizedName("dark_prismarine_block"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("dark_prismarine_block"));
 		GameRegistry.registerBlock(this, "dark_prismarine_block");
 		OreDictionary.registerOre("blockPrismarineDark", this);
 	}

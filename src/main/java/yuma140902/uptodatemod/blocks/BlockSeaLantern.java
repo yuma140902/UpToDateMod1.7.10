@@ -11,9 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockSeaLantern extends Block implements IRegisterable, IHasRecipes {
 	public BlockSeaLantern() {
@@ -26,8 +26,8 @@ public class BlockSeaLantern extends Block implements IRegisterable, IHasRecipes
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".sea_lantern");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":sea_lantern");
+		setBlockName(StringUtil.getDomainedUnlocalizedName("sea_lantern"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("sea_lantern"));
 		GameRegistry.registerBlock(this, "sea_lantern");
 	}
 	

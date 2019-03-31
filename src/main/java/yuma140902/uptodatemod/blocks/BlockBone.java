@@ -13,8 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
 	
@@ -27,8 +27,8 @@ public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHas
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".bone_block");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":bone_block");
+		setBlockName(StringUtil.getDomainedUnlocalizedName("bone_block"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("bone_block"));
 		GameRegistry.registerBlock(this, "bone_block");
 	}
 	

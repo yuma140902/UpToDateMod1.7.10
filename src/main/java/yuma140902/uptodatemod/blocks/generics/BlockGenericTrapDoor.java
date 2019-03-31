@@ -12,8 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
 	/** Set this to allow trapdoors to remain free-floating */
@@ -35,7 +35,7 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   @Override
   public void registerBlockIcons(IIconRegister register) {
   	super.registerBlockIcons(register);
-  	String texture_name = ModUpToDateMod.MOD_ID + ":" + name;
+  	String texture_name = StringUtil.getDomainedTextureName(name);
   	icon0 = register.registerIcon(texture_name);
   	icon90 = register.registerIcon(texture_name + "_90");
   	icon180 = register.registerIcon(texture_name + "_180");
@@ -133,8 +133,8 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   
   @Override
   public void register() {
-  	this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
+  	this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName(name));
 		GameRegistry.registerBlock(this, name);
   }
   

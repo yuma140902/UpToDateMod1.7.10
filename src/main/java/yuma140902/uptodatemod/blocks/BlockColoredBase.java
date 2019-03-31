@@ -13,9 +13,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.ItemBlockColored;
 import yuma140902.uptodatemod.util.ColorUtil;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public abstract class BlockColoredBase extends Block implements IRegisterable {
 	public static final int META_MAX = 15;
@@ -30,8 +30,8 @@ public abstract class BlockColoredBase extends Block implements IRegisterable {
 	
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName(name));
 		GameRegistry.registerBlock(this, ItemBlockColored.class, name);
 	}
 	

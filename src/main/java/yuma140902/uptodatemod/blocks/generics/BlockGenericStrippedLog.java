@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.generics.ItemBlockGenericStrippedLog;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
 	
@@ -35,8 +35,8 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
+		setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		setBlockTextureName(StringUtil.getDomainedTextureName(name));
 		GameRegistry.registerBlock(this, ItemBlockGenericStrippedLog.class, name);
 		OreDictionary.registerOre("logWood", this);
 	}
