@@ -17,6 +17,7 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyGuis;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
 import yuma140902.uptodatemod.util.DirectionUtil;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvider, IRegisterable, IHasRecipes {
 	private IIcon iconBottom;
@@ -30,8 +31,8 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	}
 	
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".barrel");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":barrel");
+		setBlockName(StringUtil.getDomainedUnlocalizedName("barrel"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("barrel"));
 		GameRegistry.registerBlock(this, "barrel");
 	}
 	
