@@ -11,6 +11,11 @@ public class ItemBoatBirch extends ItemModBoatBase {
 	protected String getName() {
 		return "item_boat_birch";
 	}
+	
+	@Override
+	protected String getNameForTexture() {
+		return "birch_boat";
+	}
 
 	@Override
 	protected Type getType() {

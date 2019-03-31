@@ -13,6 +13,11 @@ public class ItemBoatSpruce extends ItemModBoatBase {
 	}
 
 	@Override
+	protected String getNameForTexture() {
+		return "spruce_boat";
+	}
+	
+	@Override
 	protected Type getType() {
 		return Type.SPRUCE;
 	}

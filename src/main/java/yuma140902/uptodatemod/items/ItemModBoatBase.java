@@ -29,6 +29,8 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable,
 	
 	protected abstract String getName();
 	
+	protected abstract String getNameForTexture();
+	
 	protected abstract Type getType();
 	
 	protected abstract EntityModBoatBase getNewEntityModBoat(World world, double d1, double d2, double d3);
@@ -84,7 +86,7 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable,
 			}
 		});
 		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName(getName()));
-		this.setTextureName(StringUtil.getDomainedTextureName(getName()));
+		this.setTextureName(StringUtil.getDomainedMCTextureName(getNameForTexture()));
 		GameRegistry.registerItem(this, getName());
 	}
 	

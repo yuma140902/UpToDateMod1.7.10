@@ -11,6 +11,11 @@ public class ItemBoatAcacia extends ItemModBoatBase {
 	protected String getName() {
 		return "item_boat_acacia";
 	}
+	
+	@Override
+	protected String getNameForTexture() {
+		return "acacia_boat";
+	}
 
 	@Override
 	protected Type getType() {
