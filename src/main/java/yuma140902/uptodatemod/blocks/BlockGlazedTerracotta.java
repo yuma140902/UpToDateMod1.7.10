@@ -32,7 +32,7 @@ public class BlockGlazedTerracotta extends Block implements IRegisterable {
 	public void register() {
 		String colorName = ColorUtil.metaToString(colorMeta);
 		this.setBlockName(StringUtil.getDomainedUnlocalizedName("glazed_terracotta." + colorName));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("glazed_terracotta_" + colorName));
+		this.setBlockTextureName(StringUtil.getDomainedMCTextureName(colorName + "_glazed_terracotta"));
 		GameRegistry.registerBlock(this, "glazed_terracotta_" + colorName);
 	}
 	

@@ -27,7 +27,7 @@ public class BlockSeaLantern extends Block implements IRegisterable, IHasRecipes
 	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("sea_lantern"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("sea_lantern"));
+		setBlockTextureName(StringUtil.getDomainedMCTextureName("sea_lantern"));
 		GameRegistry.registerBlock(this, "sea_lantern");
 	}
 	

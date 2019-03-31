@@ -27,7 +27,7 @@ public class BlockEndStoneBricks extends Block implements IRegisterable, IHasRec
 	@Override
 	public void register() {
 		this.setBlockName(StringUtil.getDomainedUnlocalizedName("end_stone_bricks"));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("end_stone_bricks"));
+		this.setBlockTextureName(StringUtil.getDomainedMCTextureName("end_stone_bricks"));
 		GameRegistry.registerBlock(this, "end_stone_bricks");
 	}
 	

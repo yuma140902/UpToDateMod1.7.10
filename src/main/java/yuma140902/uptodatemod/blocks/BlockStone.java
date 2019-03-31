@@ -52,7 +52,6 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	@Override
 	public void register() {
 		this.setBlockName(StringUtil.getDomainedUnlocalizedName("stone"));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("stone"));
 		GameRegistry.registerBlock(this, ItemBlockStone.class, "stone");
 		
 		for(int meta = 1; meta <= META_MAX; ++meta) {
@@ -65,9 +64,12 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
-		for(int i = 1; i <= META_MAX; ++i) { //メタデータ0は、ない
-			iIcons[i] = register.registerIcon(getTextureName() + StringUtil.surfix("_", names[i]));
-		}
+		iIcons[META_GRANITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("granite"));
+		iIcons[META_POLISHED_GRANITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("polished_granite"));
+		iIcons[META_DIORITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("diorite"));
+		iIcons[META_POLISHED_DIORITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("polished_diorite"));
+		iIcons[META_ANDESITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("andesite"));
+		iIcons[META_POLISHED_ANDESITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("polished_andesite"));
 	}
 	
 	@Override
