@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericPressurePlate extends BlockPressurePlate implements IRegisterable, IHasRecipes {
 
@@ -30,7 +30,7 @@ public class BlockGenericPressurePlate extends BlockPressurePlate implements IRe
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + "." + name);
+		setBlockName(StringUtil.getDomainedUnlocalizedName(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	

@@ -13,9 +13,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.ItemBlockColored;
 import yuma140902.uptodatemod.util.ColorUtil;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockConcrete extends Block implements IRegisterable {
 	public static final int META_MAX = 15;
@@ -32,8 +32,8 @@ public class BlockConcrete extends Block implements IRegisterable {
 
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".concrete");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":concrete");
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("concrete"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("concrete"));
 		GameRegistry.registerBlock(this, ItemBlockColored.class, "concrete");
 	}
 	
@@ -51,7 +51,7 @@ public class BlockConcrete extends Block implements IRegisterable {
 		return iicons[meta];
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {

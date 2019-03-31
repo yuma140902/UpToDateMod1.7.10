@@ -16,8 +16,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockCoarseDirt extends Block implements IRegisterable, IHasRecipes {
 
@@ -40,8 +40,8 @@ public class BlockCoarseDirt extends Block implements IRegisterable, IHasRecipes
 	
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".coarse_dirt");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":coarse_dirt");
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("coarse_dirt"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("coarse_dirt"));
 		GameRegistry.registerBlock(this, "coarse_dirt");
 	}
 	

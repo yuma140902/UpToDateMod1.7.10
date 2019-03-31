@@ -9,9 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockPrismarineBricks extends Block implements IRegisterable, IHasRecipes {
 	public BlockPrismarineBricks() {
@@ -24,8 +24,8 @@ public class BlockPrismarineBricks extends Block implements IRegisterable, IHasR
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".prismarine_brick");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":prismarine_brick");
+		setBlockName(StringUtil.getDomainedUnlocalizedName("prismarine_brick"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("prismarine_brick"));
 		GameRegistry.registerBlock(this, "prismarine_brick");
 		OreDictionary.registerOre("blockPrismarineBrick", this);
 	}
