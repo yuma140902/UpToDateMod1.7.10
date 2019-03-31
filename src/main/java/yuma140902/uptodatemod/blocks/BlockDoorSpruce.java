@@ -1,10 +1,12 @@
 package yuma140902.uptodatemod.blocks;
 
+import java.util.List;
 import java.util.Random;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
@@ -39,4 +41,8 @@ public class BlockDoorSpruce extends net.minecraft.block.BlockDoor implements IR
   {
       return MyItems.itemDoorSpruce;
   }
+	
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs tab, List list) {}
 }
