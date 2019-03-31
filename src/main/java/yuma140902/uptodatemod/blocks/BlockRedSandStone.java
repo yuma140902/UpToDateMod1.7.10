@@ -13,7 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockRedSandStone;
 import yuma140902.uptodatemod.util.StringUtil;
@@ -38,8 +37,8 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".red_sandstone");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":red_sandstone");
+		setBlockName(StringUtil.getDomainedUnlocalizedName("red_sandstone"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("red_sandstone"));
 		GameRegistry.registerBlock(this, ItemBlockRedSandStone.class, "red_sandstone");
 	}
 	
@@ -64,6 +63,7 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 		}
 	}
 	
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {

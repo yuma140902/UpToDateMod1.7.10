@@ -12,7 +12,7 @@ import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockPurpurPillar extends BlockRotatedPillar implements IRegisterable {
 	
@@ -26,8 +26,8 @@ public class BlockPurpurPillar extends BlockRotatedPillar implements IRegisterab
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".purpur_pillar");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":purpur_pillar");
+		setBlockName(StringUtil.getDomainedUnlocalizedName("purpur_pillar"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("purpur_pillar"));
 		GameRegistry.registerBlock(this, "purpur_pillar");
 	}
 	

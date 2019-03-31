@@ -9,10 +9,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.Recipes;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IRegisterable, IHasRecipes {
   public ItemDoorDarkOak()
@@ -22,8 +22,8 @@ public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IReg
   }
   
   public void register() {
-		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + ".door_dark_oak");
-		this.setTextureName(ModUpToDateMod.MOD_ID + ":door_dark_oak");
+		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("door_dark_oak"));
+		this.setTextureName(StringUtil.getDomainedTextureName("door_dark_oak"));
 		GameRegistry.registerItem(this, "itemDoorDarkOak");
   }
   

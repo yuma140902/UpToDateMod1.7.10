@@ -9,6 +9,7 @@ import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -17,16 +18,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.generics.ItemBlockGenericStrippedLog;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
 	
 	private String name;
+	private int plank;
 	
-	public BlockGenericStrippedLog(String name) {
+	public BlockGenericStrippedLog(String name, int plankMeta) {
 		super(Material.wood);
 		this.name = name;
+		this.plank = plankMeta;
 		
 		setHardness(2.0F);
 		setStepSound(soundTypeWood);
@@ -35,8 +38,8 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
+		setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		setBlockTextureName(StringUtil.getDomainedTextureName(name));
 		GameRegistry.registerBlock(this, ItemBlockGenericStrippedLog.class, name);
 		OreDictionary.registerOre("logWood", this);
 	}
@@ -49,8 +52,16 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 				"##",
 				'#', this
 				);
+		
+		GameRegistry.addRecipe(
+				new ItemStack(Blocks.planks, 4, this.plank),
+				"#",
+				'#', new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE)
+				);
+		
 	}
 	
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
