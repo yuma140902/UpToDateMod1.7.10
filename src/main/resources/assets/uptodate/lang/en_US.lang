@@ -158,7 +158,7 @@ entity.uptodate.boat_jungle.name=Jungle Boat
 entity.uptodate.boat_spruce.name=Spruce Boat
 
 container.uptodate.barrel=Barrel
-tile.uptodate.barrel=Barrel
+tile.uptodate.barrel.name=Barrel
 
 tile.uptodate.concrete.black.name=Black Concrete
 tile.uptodate.concrete.blue.name=Blue Concrete
