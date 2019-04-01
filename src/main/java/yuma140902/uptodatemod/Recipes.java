@@ -100,6 +100,8 @@ public final class Recipes {
 		MyItems.armorStand.registerRecipes();
 		
 		MyBlocks.concretePowder.registerRecipes();
+		
+		registerGlazedTerracottaRecipes();
 	}
 	
 	private static void registerWoodRecipes() {
@@ -354,5 +356,24 @@ public final class Recipes {
 		MyBlocks.wallPrismarine.registerRecipes();
 		MyBlocks.wallPrismarineBrick.registerRecipes();
 		MyBlocks.wallDarkPrismarine.registerRecipes();
+	}
+	
+	private static void registerGlazedTerracottaRecipes() {
+		MyBlocks.glazedTerracottaBlack.registerRecipes();
+		MyBlocks.glazedTerracottaBlue.registerRecipes();
+		MyBlocks.glazedTerracottaBrown.registerRecipes();
+		MyBlocks.glazedTerracottaCyan.registerRecipes();
+		MyBlocks.glazedTerracottaGray.registerRecipes();
+		MyBlocks.glazedTerracottaGreen.registerRecipes();
+		MyBlocks.glazedTerracottaLightBlue.registerRecipes();
+		MyBlocks.glazedTerracottaLightGray.registerRecipes();
+		MyBlocks.glazedTerracottaLime.registerRecipes();
+		MyBlocks.glazedTerracottaMagenta.registerRecipes();
+		MyBlocks.glazedTerracottaOrange.registerRecipes();
+		MyBlocks.glazedTerracottaPink.registerRecipes();
+		MyBlocks.glazedTerracottaPurple.registerRecipes();
+		MyBlocks.glazedTerracottaRed.registerRecipes();
+		MyBlocks.glazedTerracottaWhite.registerRecipes();
+		MyBlocks.glazedTerracottaYellow.registerRecipes();
 	}
 }
