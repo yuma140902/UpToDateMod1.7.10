@@ -58,6 +58,7 @@ public class ModUpToDateMod {
 		Items.wooden_door.setMaxStackSize(64);
 		Items.iron_door.setMaxStackSize(64);
 		BlockTrapDoor.disableValidation = true;
+		Items.blaze_rod.setFull3D();
 	}
 	
 	@EventHandler
