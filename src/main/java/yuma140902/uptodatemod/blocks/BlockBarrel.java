@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
@@ -38,8 +39,13 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	
 	@Override
 	public void registerRecipes() {
-		// TODO 自動生成されたメソッド・スタブ
-		
+		GameRegistry.addRecipe(new ShapedOreRecipe(this,
+				"#_#",
+				"# #",
+				"#_#",
+				'#', "plankWood",
+				'_', "slabWood"
+				));
 	}
 	
 	@Override
