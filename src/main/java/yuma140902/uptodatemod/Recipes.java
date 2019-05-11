@@ -317,9 +317,27 @@ public final class Recipes {
 		MyBlocks.stairsGranite.registerRecipe();
 		MyBlocks.stairsMossyCobbleStone.registerRecipe();
 		MyBlocks.stairsMossyStoneBricks.registerRecipe();
-		MyBlocks.stairsPolishedAndesite.registerRecipe();
-		MyBlocks.stairsPolishedDiorite.registerRecipe();
-		MyBlocks.stairsPolishedGranite.registerRecipe();
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.stairsPolishedAndesite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', "stoneAndesitePolished"
+		));
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.stairsPolishedDiorite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', "stoneDioritePolished"
+		));
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.stairsPolishedGranite, 4),
+				"  #",
+				" ##",
+				"###",
+				'#', "stoneGranitePolished"
+		));
 		MyBlocks.stairsPrismarine.registerRecipe();
 		MyBlocks.stairsPrismarineBricks.registerRecipe();
 		MyBlocks.stairsPurpur.registerRecipe();
@@ -330,12 +348,36 @@ public final class Recipes {
 	
 	private static void registerSlabRecipes() {
 		if(ModConfigCore.addRecipe_stoneSlab) MyBlocks.slabStone.registerRecipe();
-		MyBlocks.slabGranite.registerRecipe();
-		MyBlocks.slabDiorite.registerRecipe();
-		MyBlocks.slabAndesite.registerRecipe();
-		MyBlocks.slabPolishedGranite.registerRecipe();
-		MyBlocks.slabPolishedDiorite.registerRecipe();
-		MyBlocks.slabPolishedAndesite.registerRecipe();
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.slabGranite, 6),
+				"###",
+				'#', "stoneGranite"
+		));
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.slabDiorite, 6),
+				"###",
+				'#', "stoneDiorite"
+		));
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.slabAndesite, 6),
+				"###",
+				'#', "stoneAndesite"
+		));
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.slabPolishedGranite, 6),
+				"###",
+				'#', "stoneGranitePolished"
+		));
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.slabPolishedDiorite, 6),
+				"###",
+				'#', "stoneDioritePolished"
+		));
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.slabPolishedAndesite, 6),
+				"###",
+				'#', "stoneAndesitePolished"
+		));
 		MyBlocks.slabRedNetherBricks.registerRecipe();
 		MyBlocks.slabEndStoneBricks.registerRecipe();
 		MyBlocks.slabMossyStoneBricks.registerRecipe();
@@ -356,9 +398,24 @@ public final class Recipes {
 		MyBlocks.wallNetherBricks.registerRecipes();
 		MyBlocks.wallRedNetherBricks.registerRecipes();
 		MyBlocks.wallEndStoneBricks.registerRecipes();
-		MyBlocks.wallAndesite.registerRecipes();
-		MyBlocks.wallDiorite.registerRecipes();
-		MyBlocks.wallGranite.registerRecipes();
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.wallAndesite, 6),
+				"###",
+				"###",
+				'#', "stoneAndesite"
+		));
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.wallDiorite, 6),
+				"###",
+				"###",
+				'#', "stoneDiorite"
+		));
+		GameRegistry.addRecipe(new ShapedOreRecipe(
+				new ItemStack(MyBlocks.wallGranite, 6),
+				"###",
+				"###",
+				'#', "stoneGranite"
+		));
 		MyBlocks.wallPrismarine.registerRecipes();
 		MyBlocks.wallPrismarineBrick.registerRecipes();
 		MyBlocks.wallDarkPrismarine.registerRecipes();
