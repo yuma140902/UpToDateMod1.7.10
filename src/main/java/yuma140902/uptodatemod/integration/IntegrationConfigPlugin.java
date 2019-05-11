@@ -38,6 +38,7 @@ public class IntegrationConfigPlugin implements IConfigurablePlugin {
 	
 	public List<String> getNamesToRemoveFromRecipe() {
 		List<String> list = new ArrayList<>();
+		PluginEtFuturum.INSTANCE.getNamesToRemoveFromRecipe(list);
 		return list;
 	}
 }

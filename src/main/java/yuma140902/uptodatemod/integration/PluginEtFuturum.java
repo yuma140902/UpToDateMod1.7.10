@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod.integration;
 
+import java.util.List;
 import javax.annotation.Nullable;
 import cpw.mods.fml.common.Loader;
 import net.minecraftforge.common.config.Configuration;
@@ -65,5 +66,39 @@ public class PluginEtFuturum implements IPlugin, IConfigurablePlugin {
 	}
 	
 	// ================= IConfigurablePlugin ここまで =================
+	
+	public void getNamesToRemoveFromRecipe(List<String> list) {
+		if(!isIntegrationEnabled()) {
+			return;
+		}
+		list.add("etfuturum:stone");
+		list.add("etfuturum:stone");
+		list.add("etfuturum:stone");
+		list.add("etfuturum:stone");
+		list.add("etfuturum:stone");
+		list.add("etfuturum:stone");
+		list.add("etfuturum:iron_trapdoor");
+		list.add("etfuturum:red_sandstone");
+		list.add("etfuturum:coarse_dirt");
+		list.add("etfuturum:end_bricks");
+		list.add("etfuturum:door_spruce");
+		list.add("etfuturum:door_birch");
+		list.add("etfuturum:door_jungle");
+		list.add("etfuturum:door_acacia");
+		list.add("etfuturum:door_dark_oak");
+		list.add("etfuturum:fence_oak");
+		list.add("etfuturum:fence_oak");
+		list.add("etfuturum:fence_spruce");
+		list.add("etfuturum:fence_birch");
+		list.add("etfuturum:fence_jungle");
+		list.add("etfuturum:fence_acacia");
+		list.add("etfuturum:fence_dark_oak");
+		list.add("etfuturum:fence_gate_spruce");
+		list.add("etfuturum:fence_gate_birch");
+		list.add("etfuturum:fence_gate_jungle");
+		list.add("etfuturum:fence_gate_acacia");
+		list.add("etfuturum:fence_gate_dark_oak");
+		list.add("etfuturum:wooden_armorstand");
+	}
 	
 }
