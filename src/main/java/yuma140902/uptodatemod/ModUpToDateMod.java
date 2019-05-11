@@ -21,7 +21,9 @@ import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 
-@Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY)
+@Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY,
+			dependencies = "after:etfuturum"
+		)
 public class ModUpToDateMod {
 	@Mod.Metadata
 	public static ModMetadata modMetadata;
@@ -84,6 +86,7 @@ public class ModUpToDateMod {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		Recipes.removeVanillaRecipes();
+		Recipes.removeOtherModsRecipes();
 		Recipes.register();
 		
 		proxy.registerEntities();
