@@ -1,5 +1,7 @@
 package yuma140902.uptodatemod;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
@@ -8,10 +10,14 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
@@ -61,6 +67,30 @@ public class ModUpToDateMod {
 		Items.iron_door.setMaxStackSize(64);
 		BlockTrapDoor.disableValidation = true;
 		Items.blaze_rod.setFull3D();
+		
+		Blocks.trapped_chest.setCreativeTab(CreativeTabs.tabRedstone);
+		
+		setFinalField(ItemFood.class, Items.carrot, 3, "healAmount", "field_77853_b");
+		setFinalField(ItemFood.class, Items.baked_potato, 5, "healAmount", "field_77853_b");
+		
+		Blocks.packed_ice.setHarvestLevel("pickaxe", 0);
+		Blocks.ladder.setHarvestLevel("axe", 0);
+		Blocks.melon_block.setHarvestLevel("axe", 0);
+	}
+	
+	private void setFinalField(Class<?> clazz, Object that, Object newValue, String... fieldNames) {
+		try {
+			Field field = ReflectionHelper.findField(clazz, fieldNames);
+			field.setAccessible(true);
+
+			Field modifiersField = Field.class.getDeclaredField("modifiers");
+			modifiersField.setAccessible(true);
+			modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+
+			field.set(that, newValue);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@EventHandler
