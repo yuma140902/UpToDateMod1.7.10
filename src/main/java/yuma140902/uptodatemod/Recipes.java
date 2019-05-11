@@ -14,6 +14,7 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.integration.IntegrationConfigPlugin;
 import yuma140902.uptodatemod.util.ListUtils;
 
 public final class Recipes {
@@ -38,8 +39,13 @@ public final class Recipes {
 		removeRecipesByOutputName(removeRecipesOutputNameList);
 	}
 	
+	public static void removeOtherModsRecipes() {
+		removeRecipesByOutputName(IntegrationConfigPlugin.INSTANCE.getNamesToRemoveFromRecipe());
+	}
+	
 	//クラフト結果のアイテムの内部名称によって削除するレシピを指定します。
 	//レシピは最初に見つかった一つだけが削除されます。
+	@SuppressWarnings("unchecked")
 	private static void removeRecipesByOutputName(List<String> outputNameList) {
 		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
 		List<IRecipe> removeList = new ArrayList<IRecipe>();
