@@ -37,4 +37,17 @@ private ClientEventHandler() {}
 		
 		hasNotifiedAboutUpdate = true;
 	}
+	
+	///////////////////////
+	/*
+	@SubscribeEvent
+	public void onTooltipShown(ItemTooltipEvent event) {
+		ItemStack itemstack = event.itemStack;
+		int[] oreIDs = OreDictionary.getOreIDs(itemstack);
+		
+		for(int i = 0; i < oreIDs.length; ++i) {
+			event.toolTip.add(OreDictionary.getOreName(oreIDs[i]));
+		}
+	}
+	*/
 }
