@@ -2,6 +2,8 @@ package yuma140902.uptodatemod;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
@@ -50,6 +52,7 @@ public class ModUpToDateMod {
 	public static final String MINECRAFT_VERSION = "1.7.10";
 	public static final String MOD_VERSION = "1.4.2";
 	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
+	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 	
 	public static int glazedTerracottaRenderId;
 	
@@ -90,6 +93,7 @@ public class ModUpToDateMod {
 
 			field.set(that, newValue);
 		} catch (Exception e) {
+			LOGGER.warn("Failed to tweak a property.");
 			e.printStackTrace();
 		}
 	}
@@ -98,13 +102,14 @@ public class ModUpToDateMod {
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
 		ModConfigCore.loadConfig(event);
+		LOGGER.info("preInit");
 		try {
 			UpdateChecker.INSTANCE.checkForUpdates();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(UpdateChecker.INSTANCE.hasNewVersionAvailable() ? "UpToDateMod: There is a new version available. - v" + UpdateChecker.INSTANCE.availableNewVersion + ". Visit " + UpdateChecker.INSTANCE.getNewVersionUrl() : "UpToDateMod is now up-to-date.");
+		LOGGER.info(UpdateChecker.INSTANCE.hasNewVersionAvailable() ? "There is a new version available. - v" + UpdateChecker.INSTANCE.availableNewVersion + ". Visit " + UpdateChecker.INSTANCE.getNewVersionUrl() : "UpToDateMod is now up-to-date.");
 		
 		tweakVanilla();
 		MyBlocks.register();
@@ -116,6 +121,7 @@ public class ModUpToDateMod {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		LOGGER.info("init");
 		Recipes.removeVanillaRecipes();
 		Recipes.removeOtherModsRecipes();
 		Recipes.register();

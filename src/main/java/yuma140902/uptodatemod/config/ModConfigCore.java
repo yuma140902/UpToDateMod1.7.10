@@ -2,6 +2,7 @@ package yuma140902.uptodatemod.config;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.util.UpdateChecker;
@@ -133,7 +134,7 @@ public class ModConfigCore {
 				++dstIdx;
 			}
 			catch (NumberFormatException e) {
-				System.out.println("Config error: The value '" + strList[srcIdx] + "' cannot be parsed into integer.");
+				ModUpToDateMod.LOGGER.warn("Config error: The value '" + strList[srcIdx] + "' cannot be parsed into integer.");
 				continue;
 			}
 		}
