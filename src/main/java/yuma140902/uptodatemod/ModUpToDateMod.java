@@ -20,6 +20,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.integration.Plugins;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
@@ -132,5 +133,7 @@ public class ModUpToDateMod {
 		WorldGenerators.register();
 		
 		proxy.registerEventHandlers();
+		
+		Plugins.tweakMods();
 	}
 }
