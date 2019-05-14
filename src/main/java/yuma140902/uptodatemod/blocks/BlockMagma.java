@@ -15,8 +15,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockMagma extends Block implements IRegisterable, IHasRecipes {
 	
@@ -32,8 +32,8 @@ public class BlockMagma extends Block implements IRegisterable, IHasRecipes {
 	
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".magma_block");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":magma_block");
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("magma_block"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("magma_block"));
 		GameRegistry.registerBlock(this, "magma_block");
 	}
 	

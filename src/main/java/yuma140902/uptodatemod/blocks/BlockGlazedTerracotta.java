@@ -13,6 +13,7 @@ import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.util.ColorUtil;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGlazedTerracotta extends Block implements IRegisterable, IHasRecipes {
 
@@ -32,8 +33,8 @@ public class BlockGlazedTerracotta extends Block implements IRegisterable, IHasR
 	@Override
 	public void register() {
 		String colorName = ColorUtil.metaToString(colorMeta);
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".glazed_terracotta." + colorName);
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":glazed_terracotta_" + colorName);
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("glazed_terracotta." + colorName));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("glazed_terracotta_" + colorName));
 		GameRegistry.registerBlock(this, "glazed_terracotta_" + colorName);
 	}
 	

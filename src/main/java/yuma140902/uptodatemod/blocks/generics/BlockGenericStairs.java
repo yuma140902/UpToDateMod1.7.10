@@ -6,7 +6,7 @@ import net.minecraft.block.BlockStairs;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericStairs extends BlockStairs implements IRegisterable {
 
@@ -26,7 +26,7 @@ public class BlockGenericStairs extends BlockStairs implements IRegisterable {
 
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	

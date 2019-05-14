@@ -11,8 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockEndStoneBricks extends Block implements IRegisterable, IHasRecipes {
 	
@@ -26,8 +26,8 @@ public class BlockEndStoneBricks extends Block implements IRegisterable, IHasRec
 	
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".end_stone_bricks");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":end_stone_bricks");
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("end_stone_bricks"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("end_stone_bricks"));
 		GameRegistry.registerBlock(this, "end_stone_bricks");
 	}
 	

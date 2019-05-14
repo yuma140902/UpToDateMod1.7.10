@@ -15,7 +15,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRecipes {
 
@@ -38,10 +38,11 @@ public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRe
 
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs craetiveTab, List list) {

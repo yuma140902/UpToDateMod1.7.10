@@ -182,12 +182,12 @@ public final class MyBlocks {
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone = new yuma140902.uptodatemod.blocks.BlockStone();
 	
-	public static final BlockGenericStrippedLog strippedLogAcacia = new BlockGenericStrippedLog("stripped_log_acacia");
-	public static final BlockGenericStrippedLog strippedLogBirch = new BlockGenericStrippedLog("stripped_log_birch");
-	public static final BlockGenericStrippedLog strippedLogDarkOak = new BlockGenericStrippedLog("stripped_log_dark_oak");
-	public static final BlockGenericStrippedLog strippedLogJungle = new BlockGenericStrippedLog("stripped_log_jungle");
-	public static final BlockGenericStrippedLog strippedLogOak = new BlockGenericStrippedLog("stripped_log_oak");
-	public static final BlockGenericStrippedLog strippedLogSpruce = new BlockGenericStrippedLog("stripped_log_spruce");
+	public static final BlockGenericStrippedLog strippedLogAcacia = new BlockGenericStrippedLog("stripped_log_acacia", Stat.PLANK_META_ACACIA);
+	public static final BlockGenericStrippedLog strippedLogBirch = new BlockGenericStrippedLog("stripped_log_birch", Stat.PLANK_META_BIRCH);
+	public static final BlockGenericStrippedLog strippedLogDarkOak = new BlockGenericStrippedLog("stripped_log_dark_oak", Stat.PLANK_META_DARKOAK);
+	public static final BlockGenericStrippedLog strippedLogJungle = new BlockGenericStrippedLog("stripped_log_jungle", Stat.PLANK_META_JUNGLE);
+	public static final BlockGenericStrippedLog strippedLogOak = new BlockGenericStrippedLog("stripped_log_oak", Stat.PLANK_META_OAK);
+	public static final BlockGenericStrippedLog strippedLogSpruce = new BlockGenericStrippedLog("stripped_log_spruce", Stat.PLANK_META_SPRUCE);
 	
 	public static final BlockDoorAcacia doorAcacia = new BlockDoorAcacia();
 	public static final BlockDoorBirch doorBirch = new BlockDoorBirch();

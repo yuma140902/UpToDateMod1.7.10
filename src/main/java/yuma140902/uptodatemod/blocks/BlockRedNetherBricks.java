@@ -8,8 +8,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockRedNetherBricks extends Block implements IRegisterable, IHasRecipes {
 
@@ -23,8 +23,8 @@ public class BlockRedNetherBricks extends Block implements IRegisterable, IHasRe
 
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".red_nether_bricks");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":red_nether_bricks");
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("red_nether_bricks"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("red_nether_bricks"));
 		GameRegistry.registerBlock(this, "red_nether_bricks");
 	}
 	

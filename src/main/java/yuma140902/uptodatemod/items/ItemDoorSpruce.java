@@ -9,10 +9,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.Recipes;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemDoorSpruce extends net.minecraft.item.ItemDoor implements IRegisterable, IHasRecipes {
   public ItemDoorSpruce()
@@ -22,8 +22,8 @@ public class ItemDoorSpruce extends net.minecraft.item.ItemDoor implements IRegi
   }
   
   public void register() {
-		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + ".door_spruce");
-		this.setTextureName(ModUpToDateMod.MOD_ID + ":door_spruce");
+		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("door_spruce"));
+		this.setTextureName(StringUtil.getDomainedTextureName("door_spruce"));
 		GameRegistry.registerItem(this, "itemDoorSpruce");
   }
   

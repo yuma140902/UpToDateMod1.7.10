@@ -5,8 +5,8 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRecipes {
 	public ItemCookedMutton() {
@@ -15,8 +15,8 @@ public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRec
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + ".cooked_mutton");
-		this.setTextureName(ModUpToDateMod.MOD_ID + ":cooked_mutton");
+		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("cooked_mutton"));
+		this.setTextureName(StringUtil.getDomainedTextureName("cooked_mutton"));
 		GameRegistry.registerItem(this, "cooked_mutton");
 	}
 	

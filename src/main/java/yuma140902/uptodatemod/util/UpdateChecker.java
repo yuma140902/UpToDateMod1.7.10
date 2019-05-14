@@ -107,8 +107,8 @@ public class UpdateChecker {
 		if(versionsTsv == null || versionsTsv.isEmpty()) return;
 		
 		if(ModConfigCore.debug_mode) {
-			System.out.println("versionsTsv:");
-			System.out.println(versionsTsv);
+			ModUpToDateMod.LOGGER.info("versionsTsv:");
+			ModUpToDateMod.LOGGER.info(versionsTsv);
 		}
 		
 		this.versions = getVersionsTable(versionsTsv);

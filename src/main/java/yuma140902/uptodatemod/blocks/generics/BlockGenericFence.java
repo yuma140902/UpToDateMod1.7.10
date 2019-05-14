@@ -7,7 +7,7 @@ import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericFence extends BlockFence implements IRegisterable {
 	private String name;
@@ -44,8 +44,8 @@ public class BlockGenericFence extends BlockFence implements IRegisterable {
 
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName(name));
 		GameRegistry.registerBlock(this, name);
 	}
 }
