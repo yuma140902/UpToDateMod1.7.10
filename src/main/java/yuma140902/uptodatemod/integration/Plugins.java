@@ -33,8 +33,8 @@ public final class Plugins {
 	
 	public static void tweakModsPost() {
 		for (IPlugin plugin : plugins) {
-			if(plugin.isIntegrationEnabled() && plugin instanceof ITweakingPlugin) {
-				((ITweakingPlugin)plugin).tweakModPost();
+			if(plugin.isIntegrationEnabled() && plugin instanceof ITweakingPostPlugin) {
+				((ITweakingPostPlugin)plugin).tweakModPost();
 			}
 		}
 	}

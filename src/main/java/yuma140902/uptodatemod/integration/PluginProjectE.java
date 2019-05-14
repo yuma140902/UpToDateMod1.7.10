@@ -32,7 +32,4 @@ public static final PluginProjectE INSTANCE = new PluginProjectE();
 		System.out.println("registered EMC!!");
 	}
 	
-	@Override
-	public void tweakModPost() {
-	}
 }
