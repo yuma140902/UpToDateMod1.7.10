@@ -8,14 +8,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
@@ -122,25 +121,31 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 		
 		//丸石+ネザー水晶->閃緑岩
 		GameRegistry.addRecipe(
-				new ItemStack(MyBlocks.stone, 2, BlockStone.META_DIORITE),
-				"SN",
-				"NS",
-				'S', Blocks.cobblestone,
-				'N', Items.quartz
-				);
+				new ShapedOreRecipe(
+					new ItemStack(MyBlocks.stone, 2, BlockStone.META_DIORITE),
+					"SN",
+					"NS",
+					'S', "cobblestone",
+					'N', "gemQuartz"
+				)
+			);
 		
 		//閃緑岩+丸石->安山岩
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.stone, 2, BlockStone.META_ANDESITE),
-				Blocks.cobblestone,
-				new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
-				);
+		GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					new ItemStack(MyBlocks.stone, 2, BlockStone.META_ANDESITE),
+					"cobblestone",
+					"stoneDiorite"
+				)
+			);
 		
 		//閃緑岩+ネザー水晶->花崗岩
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(MyBlocks.stone, 2, BlockStone.META_GRANITE),
-				Items.quartz,
-				new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE)
-				);
+		GameRegistry.addRecipe(
+				new ShapelessOreRecipe(
+					new ItemStack(MyBlocks.stone, 2, BlockStone.META_GRANITE),
+					"gemQuartz",
+					"stoneDiorite"
+				)
+			);
 	}
 }
