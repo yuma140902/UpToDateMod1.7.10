@@ -6,7 +6,7 @@ import cpw.mods.fml.common.Loader;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.config.ModConfigCore;
 
-public class PluginEtFuturum implements IPlugin, IConfigurablePlugin {
+public class PluginEtFuturum implements IConfiguratingPlugin {
 	private PluginEtFuturum() {}
 	
 	public static final PluginEtFuturum INSTANCE = new PluginEtFuturum();
@@ -27,7 +27,7 @@ public class PluginEtFuturum implements IPlugin, IConfigurablePlugin {
 	}
 	
 	
-	// ================= IConfigurablePlugin ここから =================
+	// ================= IConfiguratingPlugin ここから =================
 	
 	public static final String CATEGORY = ModConfigCore.getSubCategory("Integration.EtFuturum");
 	
@@ -65,12 +65,9 @@ public class PluginEtFuturum implements IPlugin, IConfigurablePlugin {
 		
 	}
 	
-	// ================= IConfigurablePlugin ここまで =================
+	// ================= IConfiguratingPlugin ここまで =================
 	
 	public void getNamesToRemoveFromRecipe(List<String> list) {
-		if(!isIntegrationEnabled()) {
-			return;
-		}
 		list.add("etfuturum:stone");
 		list.add("etfuturum:stone");
 		list.add("etfuturum:stone");
