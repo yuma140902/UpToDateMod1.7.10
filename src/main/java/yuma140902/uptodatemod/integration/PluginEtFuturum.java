@@ -13,6 +13,16 @@ public class PluginEtFuturum implements IConfiguratingPlugin {
 	
 	public static final String MOD_ID = "etfuturum";
 	
+	@Override
+	public String getModId() {
+		return MOD_ID;
+	}
+	
+	@Override
+	public String getModName() {
+		return "Et Futurum";
+	}
+	
 	@Nullable
 	private Boolean _isModLoadedCache = null;
 	public boolean isModLoaded() {
