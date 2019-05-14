@@ -19,11 +19,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.entity.item.EntityFallingConcretePowderBlock;
 import yuma140902.uptodatemod.items.ItemBlockColored;
 import yuma140902.uptodatemod.util.ColorUtil;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockConcretePowder extends BlockFalling implements IRegisterable, IHasRecipes {
 	public static final int META_MAX = 15;
@@ -40,8 +40,8 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable, 
 	
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".concrete_powder");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":concrete_powder");
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("concrete_powder"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("concrete_powder"));
 		GameRegistry.registerBlock(this, ItemBlockColored.class, "concrete_powder");
 	}
 	
@@ -72,7 +72,7 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable, 
 		return iicons[meta];
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {

@@ -15,9 +15,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.items.generics.ItemBlockGenericSlab;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 
@@ -64,9 +64,9 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 		this.setSlabs(this, slabDouble);
 		slabDouble.setSlabs(this, slabDouble);
 		
-		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
 		GameRegistry.registerBlock(this, ItemBlockGenericSlab.class, name);
-		slabDouble.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
+		slabDouble.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
 		GameRegistry.registerBlock(slabDouble, ItemBlockGenericSlab.class, "double_" + name);
 	}
 	
@@ -136,6 +136,7 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 		return baseBlock.getIcon((meta & 0b0001) == 0 ? side : Stat.SIDE_TOP, this.meta);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
 		if(!isDouble())
@@ -150,6 +151,6 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 
 	@Override
 	public String func_150002_b(int p_150002_1_) {
-		return ModUpToDateMod.MOD_ID + "." + name;
+		return StringUtil.getDomainedUnlocalizedName(name);
 	}
 }

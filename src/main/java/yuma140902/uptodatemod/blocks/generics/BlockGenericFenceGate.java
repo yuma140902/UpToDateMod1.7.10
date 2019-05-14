@@ -7,7 +7,7 @@ import net.minecraft.block.BlockFenceGate;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterable {
 	private int iconSourcePlankMeta;
@@ -30,8 +30,8 @@ public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterab
 	
 	@Override
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + "." + name);
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":" + name);
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName(name));
 		GameRegistry.registerBlock(this, name);
 	}
 }

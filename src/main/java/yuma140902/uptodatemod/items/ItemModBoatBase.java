@@ -20,10 +20,10 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.Recipes;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable, IHasRecipes {
 	
@@ -83,8 +83,8 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable,
 				p_82485_1_.getWorld().playAuxSFX(1000, p_82485_1_.getXInt(), p_82485_1_.getYInt(), p_82485_1_.getZInt(), 0);
 			}
 		});
-		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + "." + getName());
-		this.setTextureName(ModUpToDateMod.MOD_ID + ":" + getName());
+		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName(getName()));
+		this.setTextureName(StringUtil.getDomainedTextureName(getName()));
 		GameRegistry.registerItem(this, getName());
 	}
 	
@@ -139,6 +139,7 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable,
 			Vec3 vec32 = p_77659_3_.getLook(f);
 			boolean flag = false;
 			float f9 = 1.0F;
+			@SuppressWarnings("rawtypes")
 			List list = p_77659_2_.getEntitiesWithinAABBExcludingEntity(
 					p_77659_3_, p_77659_3_.boundingBox.addCoord(vec32.xCoord * d3, vec32.yCoord * d3, vec32.zCoord * d3)
 							.expand((double) f9, (double) f9, (double) f9));

@@ -1,15 +1,17 @@
 package yuma140902.uptodatemod.blocks;
 
+import java.util.List;
 import java.util.Random;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockDoorSpruce extends net.minecraft.block.BlockDoor implements IRegisterable {
 	
@@ -21,8 +23,8 @@ public class BlockDoorSpruce extends net.minecraft.block.BlockDoor implements IR
 	}
 	
 	public void register() {
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".door_spruce");
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":door_spruce");
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("door_spruce"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("door_spruce"));
 		GameRegistry.registerBlock(this, "door_spruce");
 	}
 	
@@ -39,4 +41,8 @@ public class BlockDoorSpruce extends net.minecraft.block.BlockDoor implements IR
   {
       return MyItems.itemDoorSpruce;
   }
+	
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs tab, List list) {}
 }

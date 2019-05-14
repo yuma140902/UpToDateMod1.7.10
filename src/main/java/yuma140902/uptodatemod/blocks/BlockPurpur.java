@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockPurpur extends Block implements IRegisterable {
 	
@@ -22,8 +22,8 @@ public class BlockPurpur extends Block implements IRegisterable {
 	
 	@Override
 	public void register() {
-		setBlockName(ModUpToDateMod.MOD_ID + ".purpur_block");
-		setBlockTextureName(ModUpToDateMod.MOD_ID + ":purpur_block");
+		setBlockName(StringUtil.getDomainedUnlocalizedName("purpur_block"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("purpur_block"));
 		GameRegistry.registerBlock(this, "purpur_block");
 	}
 	

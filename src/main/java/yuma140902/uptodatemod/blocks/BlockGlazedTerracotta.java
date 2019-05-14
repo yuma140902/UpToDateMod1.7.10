@@ -5,14 +5,17 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.util.ColorUtil;
+import yuma140902.uptodatemod.util.StringUtil;
 
-public class BlockGlazedTerracotta extends Block implements IRegisterable {
+public class BlockGlazedTerracotta extends Block implements IRegisterable, IHasRecipes {
 
 	public static final int META_NORTH = 2, META_EAST = 3, META_SOUTH = 0, META_WEST = 1;
 	
@@ -30,9 +33,14 @@ public class BlockGlazedTerracotta extends Block implements IRegisterable {
 	@Override
 	public void register() {
 		String colorName = ColorUtil.metaToString(colorMeta);
-		this.setBlockName(ModUpToDateMod.MOD_ID + ".glazed_terracotta." + colorName);
-		this.setBlockTextureName(ModUpToDateMod.MOD_ID + ":glazed_terracotta_" + colorName);
+		this.setBlockName(StringUtil.getDomainedUnlocalizedName("glazed_terracotta." + colorName));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("glazed_terracotta_" + colorName));
 		GameRegistry.registerBlock(this, "glazed_terracotta_" + colorName);
+	}
+	
+	@Override
+	public void registerRecipes() {
+		GameRegistry.addSmelting(new ItemStack(Blocks.stained_hardened_clay, 1, colorMeta), new ItemStack(this), 0.3F);
 	}
 	
 	@Override

@@ -18,10 +18,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.entity.Rotations;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 
@@ -32,8 +32,8 @@ public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(ModUpToDateMod.MOD_ID + ".armor_stand");
-		this.setTextureName(ModUpToDateMod.MOD_ID + ":armor_stand");
+		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("armor_stand"));
+		this.setTextureName(StringUtil.getDomainedTextureName("armor_stand"));
 		GameRegistry.registerItem(this, "armor_stand");
 	}
 	
