@@ -3,7 +3,7 @@ package yuma140902.uptodatemod.config;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
-import yuma140902.uptodatemod.integration.IntegrationConfigPlugin;
+import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.util.UpdateChecker;
 
 public class ModConfigCore {
@@ -62,7 +62,7 @@ public class ModConfigCore {
 		cfg.setCategoryLanguageKey(CATEGORY_EXPERIMENTAL, CONFIG_CATEGORY_LANGKEY + "experimental");
 		cfg.setCategoryRequiresMcRestart(CATEGORY_EXPERIMENTAL, true);
 		
-		IntegrationConfigPlugin.INSTANCE.initConfig(cfg);
+		IntegrationConfigs.initConfig(cfg);
 	}
 	
 	public static void syncConfig() {
@@ -116,13 +116,13 @@ public class ModConfigCore {
 				"Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】",
 				CONFIG_PROP_LANGKEY + "observer");
 		
-		IntegrationConfigPlugin.INSTANCE.syncConfig(cfg);
+		IntegrationConfigs.syncConfig(cfg);
 		
 		cfg.save();
 	}
 	
 	private static void wrapConfig() {
-		IntegrationConfigPlugin.INSTANCE.wrapConfig(cfg);
+		IntegrationConfigs.wrapConfig(cfg);
 	}
 	
 	private static int[] stringListToIntList(String[] strList) {
