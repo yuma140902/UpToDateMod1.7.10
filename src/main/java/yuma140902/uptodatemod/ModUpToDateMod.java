@@ -2,11 +2,14 @@ package yuma140902.uptodatemod;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -20,6 +23,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.integration.Plugins;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
@@ -28,7 +32,7 @@ import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY,
-			dependencies = "after:etfuturum"
+			dependencies = "after:etfuturum;after:ProjectE"
 		)
 public class ModUpToDateMod {
 	@Mod.Metadata
@@ -47,8 +51,9 @@ public class ModUpToDateMod {
 	public static final String MOD_TEXTURE_DOMAIN = "uptodate";
 	public static final String MOD_UNLOCALIZED_ENTRY_DOMAIN = "uptodate";
 	public static final String MINECRAFT_VERSION = "1.7.10";
-	public static final String MOD_VERSION = "1.4.2";
+	public static final String MOD_VERSION = "1.5.0";
 	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
+	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 	
 	public static int glazedTerracottaRenderId;
 	
@@ -89,6 +94,7 @@ public class ModUpToDateMod {
 
 			field.set(that, newValue);
 		} catch (Exception e) {
+			LOGGER.warn("Failed to tweak a property.");
 			e.printStackTrace();
 		}
 	}
@@ -97,13 +103,14 @@ public class ModUpToDateMod {
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
 		ModConfigCore.loadConfig(event);
+		LOGGER.info("preInit");
 		try {
 			UpdateChecker.INSTANCE.checkForUpdates();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(UpdateChecker.INSTANCE.hasNewVersionAvailable() ? "UpToDateMod: There is a new version available. - v" + UpdateChecker.INSTANCE.availableNewVersion + ". Visit " + UpdateChecker.INSTANCE.getNewVersionUrl() : "UpToDateMod is now up-to-date.");
+		LOGGER.info(UpdateChecker.INSTANCE.hasNewVersionAvailable() ? "There is a new version available. - v" + UpdateChecker.INSTANCE.availableNewVersion + ". Visit " + UpdateChecker.INSTANCE.getNewVersionUrl() : "UpToDateMod is now up-to-date.");
 		
 		tweakVanilla();
 		MyBlocks.register();
@@ -115,6 +122,7 @@ public class ModUpToDateMod {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		LOGGER.info("init");
 		Recipes.removeVanillaRecipes();
 		Recipes.removeOtherModsRecipes();
 		Recipes.register();
@@ -132,5 +140,14 @@ public class ModUpToDateMod {
 		WorldGenerators.register();
 		
 		proxy.registerEventHandlers();
+		
+		Plugins.tweakMods();
+	}
+	
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event) {
+		LOGGER.info("postInit");
+		Plugins.tweakModsPost();
+		Plugins.logPluginStats();
 	}
 }
