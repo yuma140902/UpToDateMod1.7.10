@@ -3,6 +3,7 @@ package yuma140902.uptodatemod.config;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
+import yuma140902.uptodatemod.integration.IntegrationConfigPlugin;
 import yuma140902.uptodatemod.util.UpdateChecker;
 
 public class ModConfigCore {
@@ -34,6 +35,7 @@ public class ModConfigCore {
 		cfg = new Configuration(event.getSuggestedConfigurationFile(), true);
 		initConfig();
 		syncConfig();
+		wrapConfig();
 	}
 	
 	private static void initConfig() {
@@ -59,6 +61,8 @@ public class ModConfigCore {
 		cfg.addCustomCategoryComment(CATEGORY_EXPERIMENTAL, "Settings about experimental features. They may have a serious bug.");
 		cfg.setCategoryLanguageKey(CATEGORY_EXPERIMENTAL, CONFIG_CATEGORY_LANGKEY + "experimental");
 		cfg.setCategoryRequiresMcRestart(CATEGORY_EXPERIMENTAL, true);
+		
+		IntegrationConfigPlugin.INSTANCE.initConfig(cfg);
 	}
 	
 	public static void syncConfig() {
@@ -112,7 +116,13 @@ public class ModConfigCore {
 				"Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】",
 				CONFIG_PROP_LANGKEY + "observer");
 		
+		IntegrationConfigPlugin.INSTANCE.syncConfig(cfg);
+		
 		cfg.save();
+	}
+	
+	private static void wrapConfig() {
+		IntegrationConfigPlugin.INSTANCE.wrapConfig(cfg);
 	}
 	
 	private static int[] stringListToIntList(String[] strList) {
@@ -128,5 +138,18 @@ public class ModConfigCore {
 			}
 		}
 		return list;
+	}
+	
+	
+	public static String getSubCategory(String subCategory) {
+		return CATEGORY_GENERAL + "." + subCategory;
+	}
+	
+	public static String getCategoryLangkey(String key) {
+		return CONFIG_CATEGORY_LANGKEY + key;
+	}
+	
+	public static String getPropertyLangkey(String key) {
+		return CONFIG_PROP_LANGKEY + key;
 	}
 }
