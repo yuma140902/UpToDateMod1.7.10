@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Loader;
 import moze_intel.projecte.api.ProjectEAPI;
+import moze_intel.projecte.api.proxy.IEMCProxy;
 import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
@@ -43,9 +44,15 @@ class PluginProjectE implements ITweakingPlugin {
 	@Override
 	public void tweakMod() {
 		try {
-			ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE), 16);
-			ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE), 16);
-			ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE), 16);
+			IEMCProxy emcProxy = ProjectEAPI.getEMCProxy();
+			emcProxy.registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE), 16);
+			emcProxy.registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE), 16);
+			emcProxy.registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE), 16);
+			for(int meta = 0; meta <= 15; ++meta) {
+				emcProxy.registerCustomEMC(new ItemStack(MyBlocks.concretePowder, 1, meta), 4);
+				emcProxy.registerCustomEMC(new ItemStack(MyBlocks.concreteBlock, 1, meta), 4);
+			}
+			
 			logger.info("Registered EMC");
 		}
 		catch(Exception ex) {
