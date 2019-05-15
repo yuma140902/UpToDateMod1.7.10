@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.Recipes;
 
 public final class Plugins {
 	private Plugins() {}
@@ -35,6 +36,8 @@ public final class Plugins {
 	}
 	
 	public static void tweakMods() {
+		removeOtherModsRecipes();
+		
 		for (IPlugin plugin : plugins) {
 			if(plugin.isIntegrationEnabled() && plugin instanceof ITweakingPlugin) {
 				((ITweakingPlugin)plugin).tweakMod();
@@ -50,10 +53,10 @@ public final class Plugins {
 		}
 	}
 	
-	
-	public static List<String> getNamesToRemoveFromRecipe() {
+	private static void removeOtherModsRecipes() {
 		List<String> list = new ArrayList<>();
 		if(PluginEtFuturum.INSTANCE.isIntegrationEnabled()) PluginEtFuturum.INSTANCE.getNamesToRemoveFromRecipe(list);
-		return list;
+		Recipes.removeRecipesByOutputName(list);
 	}
+	
 }

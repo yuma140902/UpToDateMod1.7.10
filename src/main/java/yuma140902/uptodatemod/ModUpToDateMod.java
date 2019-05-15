@@ -124,7 +124,6 @@ public class ModUpToDateMod {
 	public void init(FMLInitializationEvent event) {
 		LOGGER.info("init");
 		Recipes.removeVanillaRecipes();
-		Recipes.removeOtherModsRecipes();
 		Recipes.register();
 		
 		proxy.registerEntities();
