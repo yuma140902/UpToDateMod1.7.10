@@ -6,7 +6,7 @@ import cpw.mods.fml.common.Loader;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.config.ModConfigCore;
 
-public class PluginEtFuturum implements IConfiguratingPlugin {
+class PluginEtFuturum implements IConfiguratingPlugin {
 	private PluginEtFuturum() {}
 	
 	public static final PluginEtFuturum INSTANCE = new PluginEtFuturum();

@@ -10,7 +10,7 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockStone;
 
-public class PluginProjectE implements ITweakingPlugin {
+class PluginProjectE implements ITweakingPlugin {
 
 	public static final PluginProjectE INSTANCE = new PluginProjectE();
 	
@@ -42,10 +42,16 @@ public class PluginProjectE implements ITweakingPlugin {
 	
 	@Override
 	public void tweakMod() {
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE), 16);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE), 16);
-		ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE), 16);
-		logger.info("Registered EMC");
+		try {
+			ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE), 16);
+			ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE), 16);
+			ProjectEAPI.getEMCProxy().registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE), 16);
+			logger.info("Registered EMC");
+		}
+		catch(Exception ex) {
+			logger.error("Failed to register EMC");
+			ex.printStackTrace();
+		}
 	}
 	
 }
