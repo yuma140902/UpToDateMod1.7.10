@@ -10,7 +10,7 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockStone;
 
-public class PluginProjectE implements ITweakingPlugin {
+class PluginProjectE implements ITweakingPlugin {
 
 	public static final PluginProjectE INSTANCE = new PluginProjectE();
 	
