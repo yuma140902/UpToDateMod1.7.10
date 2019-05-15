@@ -2,12 +2,15 @@ package yuma140902.uptodatemod.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -62,13 +65,14 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	
 	@Override
 	public IIcon getIcon(int side, int meta) {
-		return meta == DirectionUtil.getBack(side) ? field_150164_N : meta == side ? iconBottom : blockIcon;
+		return meta == DirectionUtil.getBack(side) ? iconBottom : meta == side ? field_150164_N : blockIcon;
 	}
 	
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
-  {
-    return DirectionUtil.getBack(side);
-  }
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemstack) {
+		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
+    world.setBlockMetadataWithNotify(x, y, z, l, 2);
+	}
 	
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
