@@ -96,6 +96,7 @@ public final class Recipes {
 		MyBlocks.redSandStone.registerRecipes();
 		
 		registerOceanMonumentRecipes();
+		MyItems.ironNugget.registerRecipes();
 		
 		MyBlocks.barrel.registerRecipes();
 		

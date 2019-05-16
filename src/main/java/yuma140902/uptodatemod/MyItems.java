@@ -12,6 +12,7 @@ import yuma140902.uptodatemod.items.ItemDoorBirch;
 import yuma140902.uptodatemod.items.ItemDoorDarkOak;
 import yuma140902.uptodatemod.items.ItemDoorJungle;
 import yuma140902.uptodatemod.items.ItemDoorSpruce;
+import yuma140902.uptodatemod.items.ItemIronNugget;
 import yuma140902.uptodatemod.items.ItemPrismarineCrystals;
 import yuma140902.uptodatemod.items.ItemPrismarineShard;
 import yuma140902.uptodatemod.items.ItemRawMutton;
@@ -28,6 +29,8 @@ public final class MyItems {
 		
 		prismarineCrystal.register();
 		prismarineShard.register();
+		
+		ironNugget.register();
 		
 		boatAcacia.register();
 		boatBirch.register();
@@ -49,6 +52,8 @@ public final class MyItems {
 	
 	public static final ItemPrismarineCrystals prismarineCrystal = new ItemPrismarineCrystals();
 	public static final ItemPrismarineShard prismarineShard = new ItemPrismarineShard();
+	
+	public static final ItemIronNugget ironNugget = new ItemIronNugget();
 	
 	public static final ItemBoatAcacia boatAcacia = new ItemBoatAcacia();
 	public static final ItemBoatBirch boatBirch = new ItemBoatBirch();
