@@ -1,10 +1,15 @@
 package yuma140902.uptodatemod.config;
 
+import java.util.ArrayList;
+import java.util.List;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
+import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
+import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.UpdateChecker;
 
 public class ModConfigCore {
@@ -13,7 +18,8 @@ public class ModConfigCore {
 		CATEGORY_WORLDGEN = CATEGORY_GENERAL + ".WorldGen",
 		CATEGORY_RECIPE = CATEGORY_GENERAL + ".Recipe",
 		CATEGORY_EXPERIMENTAL = CATEGORY_GENERAL + ".Experimental",
-		CATEGORY_ENTITY = CATEGORY_GENERAL + ".Entity";
+		CATEGORY_ENTITY = CATEGORY_GENERAL + ".Entity",
+		CATEGORY_DISABLE_FEATURES = CATEGORY_GENERAL + ".DisableFeatures";
 	
 	public static final String
 		CONFIG_PROP_LANGKEY = "config.uptodate.prop.",
@@ -63,10 +69,15 @@ public class ModConfigCore {
 		cfg.setCategoryLanguageKey(CATEGORY_EXPERIMENTAL, CONFIG_CATEGORY_LANGKEY + "experimental");
 		cfg.setCategoryRequiresMcRestart(CATEGORY_EXPERIMENTAL, true);
 		
+		// DisableFeatures
+		cfg.setCategoryRequiresMcRestart(CATEGORY_DISABLE_FEATURES, true);
+		
 		IntegrationConfigs.initConfig(cfg);
 	}
 	
 	public static void syncConfig() {
+		ModUpToDateMod.LOGGER.info("Loading config");
+		
 		// General
 		UpdateChecker.INSTANCE.config_doCheckUpdate = cfg.getBoolean("doUpdateChecking", CATEGORY_GENERAL, 
 				UpdateChecker.INSTANCE.config_doCheckUpdate, 
@@ -117,9 +128,30 @@ public class ModConfigCore {
 				"Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】",
 				CONFIG_PROP_LANGKEY + "observer");
 		
+		// DisableFeatures
+		syncDisableableFeaturesConfig(cfg);
+		
 		IntegrationConfigs.syncConfig(cfg);
 		
 		cfg.save();
+	}
+	
+	private static void syncDisableableFeaturesConfig(Configuration cfg) {
+		List<String> orderedPropNameList = new ArrayList<String>();
+		for(EnumDisableableFeatures feature : EnumDisableableFeatures.values()) {
+			String propName = "enable " + feature.toString();
+			orderedPropNameList.add(propName);
+			
+			String comment = feature.getComment();
+			Property prop = (comment == null) 
+					? cfg.get(CATEGORY_DISABLE_FEATURES, propName, true) 
+					: cfg.get(CATEGORY_DISABLE_FEATURES, propName, true, comment);
+			if(!prop.getBoolean()) {
+				DisabledFeaturesRegistry.INSTANCE.setDisabled(feature);
+			}
+		}
+		
+		cfg.setCategoryPropertyOrder(CATEGORY_DISABLE_FEATURES, orderedPropNameList); //カテゴリ内での並び順を設定
 	}
 	
 	private static void wrapConfig() {
