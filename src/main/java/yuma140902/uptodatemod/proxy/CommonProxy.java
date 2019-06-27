@@ -12,6 +12,8 @@ import yuma140902.uptodatemod.entity.item.EntityBoatDarkOak;
 import yuma140902.uptodatemod.entity.item.EntityBoatJungle;
 import yuma140902.uptodatemod.entity.item.EntityBoatSpruce;
 import yuma140902.uptodatemod.event_handlers.CommonEventHandler;
+import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
+import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
 
 public class CommonProxy {
@@ -21,12 +23,16 @@ public class CommonProxy {
 	}
 	
 	public void registerEntities() {
-		EntityRegistry.registerModEntity(EntityBoatAcacia.class, "boat_acacia", 0, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityBoatBirch.class, "boat_birch", 1, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityBoatDarkOak.class, "boat_dark_oak", 2, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityBoatJungle.class, "boat_jungle", 3, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityBoatSpruce.class, "boat_spruce", 4, ModUpToDateMod.INSTANCE, 128, 5, true);
-		EntityRegistry.registerModEntity(EntityArmorStand.class, "wooden_armorstand", 5, ModUpToDateMod.INSTANCE, 64, 1, true);
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.boats)) {
+			EntityRegistry.registerModEntity(EntityBoatAcacia.class, "boat_acacia", 0, ModUpToDateMod.INSTANCE, 128, 5, true);
+			EntityRegistry.registerModEntity(EntityBoatBirch.class, "boat_birch", 1, ModUpToDateMod.INSTANCE, 128, 5, true);
+			EntityRegistry.registerModEntity(EntityBoatDarkOak.class, "boat_dark_oak", 2, ModUpToDateMod.INSTANCE, 128, 5, true);
+			EntityRegistry.registerModEntity(EntityBoatJungle.class, "boat_jungle", 3, ModUpToDateMod.INSTANCE, 128, 5, true);
+			EntityRegistry.registerModEntity(EntityBoatSpruce.class, "boat_spruce", 4, ModUpToDateMod.INSTANCE, 128, 5, true);
+		}
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.armorStand)) {
+			EntityRegistry.registerModEntity(EntityArmorStand.class, "wooden_armorstand", 5, ModUpToDateMod.INSTANCE, 64, 1, true);
+		}
 	}
 	
 	public void registerTileEntities() {
