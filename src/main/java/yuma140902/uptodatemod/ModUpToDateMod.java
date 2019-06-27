@@ -133,7 +133,8 @@ public class ModUpToDateMod {
 		Recipes.register();
 		
 		proxy.registerEntities();
-		glazedTerracottaRenderId = proxy.getNewRenderId();
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
+			glazedTerracottaRenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();
 		
 		
