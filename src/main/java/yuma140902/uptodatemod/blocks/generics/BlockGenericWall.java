@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod.blocks.generics;
 
 import java.util.List;
+import javax.annotation.Nullable;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -19,6 +20,10 @@ import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRecipes {
 
+	public static @Nullable BlockGenericWall constructIfNotNull(@Nullable Block block, int meta, String name) {
+		return (block == null) ? null : new BlockGenericWall(block, meta, name);
+	}
+	
 	private Block block;
 	private int meta;
 	private String name;

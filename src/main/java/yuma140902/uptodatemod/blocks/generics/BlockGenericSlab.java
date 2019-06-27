@@ -21,6 +21,14 @@ import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 
+	public static BlockGenericSlab constructIfNotNull(Block baseBlock, int meta, String name) {
+		return (baseBlock == null) ? null : new BlockGenericSlab(baseBlock, meta, name);
+	}
+	
+	public static BlockGenericSlab constructIfNotNull(Block baseBlock, int meta, String name, String specialSideTextureName) {
+		return (baseBlock == null) ? null : new BlockGenericSlab(baseBlock, meta, name, specialSideTextureName);
+	}
+	
 	private Block baseBlock;
 	private int meta;
 	private String name;
