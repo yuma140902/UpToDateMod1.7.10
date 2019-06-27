@@ -1,5 +1,10 @@
 package yuma140902.uptodatemod;
 
+import static yuma140902.uptodatemod.registry.EnumDisableableFeatures.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import javax.annotation.Nullable;
+import net.minecraft.item.Item;
 import yuma140902.uptodatemod.items.ItemArmorStand;
 import yuma140902.uptodatemod.items.ItemBoatAcacia;
 import yuma140902.uptodatemod.items.ItemBoatBirch;
@@ -16,53 +21,111 @@ import yuma140902.uptodatemod.items.ItemIronNugget;
 import yuma140902.uptodatemod.items.ItemPrismarineCrystals;
 import yuma140902.uptodatemod.items.ItemPrismarineShard;
 import yuma140902.uptodatemod.items.ItemRawMutton;
+import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
+import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 
 public final class MyItems {
 	private MyItems() {}
 	
-	public static void register() {
-		itemDoorAcacia.register();
-		itemDoorBirch.register();
-		itemDoorDarkOak.register();
-		itemDoorJungle.register();
-		itemDoorSpruce.register();
-		
-		prismarineCrystal.register();
-		prismarineShard.register();
-		
-		ironNugget.register();
-		
-		boatAcacia.register();
-		boatBirch.register();
-		boatDarkOak.register();
-		boatJungle.register();
-		boatSpruce.register();
-		
-		rawMutton.register();
-		cookedMutton.register();
-		
-		armorStand.register();
+	private static boolean isEnabled(EnumDisableableFeatures feature) {
+		return DisabledFeaturesRegistry.INSTANCE.isEnabled(feature);
 	}
 	
-	public static final ItemDoorAcacia itemDoorAcacia = new ItemDoorAcacia();
-	public static final ItemDoorBirch itemDoorBirch = new ItemDoorBirch();
-	public static final ItemDoorDarkOak itemDoorDarkOak = new ItemDoorDarkOak();
-	public static final ItemDoorJungle itemDoorJungle = new ItemDoorJungle();
-	public static final ItemDoorSpruce itemDoorSpruce = new ItemDoorSpruce();
+	private static void add(@Nullable Item item) {
+		if(item != null) list.add(item);
+	}
 	
-	public static final ItemPrismarineCrystals prismarineCrystal = new ItemPrismarineCrystals();
-	public static final ItemPrismarineShard prismarineShard = new ItemPrismarineShard();
+	private static HashSet<Item> list = new HashSet<Item>();
 	
-	public static final ItemIronNugget ironNugget = new ItemIronNugget();
+	public static Iterator<Item> iterator(){
+		return list.iterator();
+	}
 	
-	public static final ItemBoatAcacia boatAcacia = new ItemBoatAcacia();
-	public static final ItemBoatBirch boatBirch = new ItemBoatBirch();
-	public static final ItemBoatDarkOak boatDarkOak = new ItemBoatDarkOak();
-	public static final ItemBoatJungle boatJungle = new ItemBoatJungle();
-	public static final ItemBoatSpruce boatSpruce = new ItemBoatSpruce();
+	public static void register() {
+		Iterator<Item> iterator = iterator();
+		while (iterator.hasNext()) {
+			Item item = iterator.next();
+			if(item instanceof IRegisterable) {
+				((IRegisterable) item).register();
+			}
+		}
+	}
 	
-	public static final ItemRawMutton rawMutton = new ItemRawMutton();
-	public static final ItemCookedMutton cookedMutton = new ItemCookedMutton();
+	public static final ItemDoorAcacia itemDoorAcacia;
+	public static final ItemDoorBirch itemDoorBirch;
+	public static final ItemDoorDarkOak itemDoorDarkOak;
+	public static final ItemDoorJungle itemDoorJungle;
+	public static final ItemDoorSpruce itemDoorSpruce;
 	
-	public static final ItemArmorStand armorStand = new ItemArmorStand();
+	public static final ItemPrismarineCrystals prismarineCrystal;
+	public static final ItemPrismarineShard prismarineShard;
+	
+	public static final ItemBoatAcacia boatAcacia;
+	public static final ItemBoatBirch boatBirch;
+	public static final ItemBoatDarkOak boatDarkOak;
+	public static final ItemBoatJungle boatJungle;
+	public static final ItemBoatSpruce boatSpruce;
+	
+	public static final ItemIronNugget ironNugget;
+	
+	public static final ItemRawMutton rawMutton;
+	public static final ItemCookedMutton cookedMutton;
+	
+	public static final ItemArmorStand armorStand;
+	
+	static {
+		ModUpToDateMod.LOGGER.info("Items init");
+		
+		if(isEnabled(doors)) {
+			add(itemDoorAcacia = new ItemDoorAcacia());
+			add(itemDoorBirch = new ItemDoorBirch());
+			add(itemDoorDarkOak = new ItemDoorDarkOak());
+			add(itemDoorJungle = new ItemDoorJungle());
+			add(itemDoorSpruce = new ItemDoorSpruce());
+		}
+		else {
+			itemDoorAcacia = null;
+			itemDoorBirch = null;
+			itemDoorDarkOak = null;
+			itemDoorJungle = null;
+			itemDoorSpruce = null;
+		}
+		
+		if(isEnabled(prismarineStuffs)) {
+			add(prismarineCrystal = new ItemPrismarineCrystals());
+			add(prismarineShard = new ItemPrismarineShard());
+		}
+		else {
+			prismarineCrystal = null;
+			prismarineShard = null;
+		}
+		
+		if(isEnabled(boats)) {
+			add(boatAcacia = new ItemBoatAcacia());
+			add(boatBirch = new ItemBoatBirch());
+			add(boatDarkOak = new ItemBoatDarkOak());
+			add(boatJungle = new ItemBoatJungle());
+			add(boatSpruce = new ItemBoatSpruce());
+		}
+		else {
+			boatAcacia = null;
+			boatBirch = null;
+			boatDarkOak = null;
+			boatJungle = null;
+			boatSpruce = null;
+		}
+		
+		add(ironNugget = new ItemIronNugget());
+		
+		if(isEnabled(mutton)) {
+			add(rawMutton = new ItemRawMutton());
+			add(cookedMutton = new ItemCookedMutton());
+		}
+		else {
+			rawMutton = null;
+			cookedMutton = null;
+		}
+		
+		add(armorStand = isEnabled(EnumDisableableFeatures.armorStand) ? new ItemArmorStand() : null);
+	}
 }
