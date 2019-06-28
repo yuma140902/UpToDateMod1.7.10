@@ -2,10 +2,12 @@ package yuma140902.uptodatemod;
 
 import static yuma140902.uptodatemod.util.Stat.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -68,60 +70,32 @@ public final class Recipes {
 	}
 	
 	public static void register() {
-		registerStoneRecipes();
+		Iterator<Block> blocks = MyBlocks.iterator();
+		while (blocks.hasNext()) {
+			Block block = blocks.next();
+			if(block instanceof IHasRecipes) {
+				((IHasRecipes) block).registerRecipes();
+			}
+		}
+		
+		Iterator<Item> items = MyItems.iterator();
+		while (items.hasNext()) {
+			Item item = items.next();
+			if(item instanceof IHasRecipes) {
+				((IHasRecipes) item).registerRecipes();
+			}
+		}
+		
 		registerDoorRecipes();
-		registerTrapDoorRecipes();
 		registerFenceRecipes();
 		registerFenceGateRecipes();
 		registerButtonRecipes();
-		registerPressurePlateRecipes();
-		registerBoatRecipes();
 		registerStarisRecipes();
 		registerSlabRecipes();
 		registerWallRecipes();
-		registerWoodRecipes();
 		
-		MyBlocks.coarseDirt.registerRecipes();
-		
-		MyBlocks.redNetherBricks.registerRecipes();
-		
-		MyBlocks.netherWartBlock.registerRecipes();
-		
-		MyBlocks.endStoneBricks.registerRecipes();
-		
-		MyBlocks.boneBlock.registerRecipes();
-		
-		MyBlocks.magmaBlock.registerRecipes();
-		
-		MyBlocks.redSandStone.registerRecipes();
-		
-		registerOceanMonumentRecipes();
-		MyItems.ironNugget.registerRecipes();
-		
-		MyBlocks.barrel.registerRecipes();
-		
-		MyItems.cookedMutton.registerRecipes();
-
-		MyItems.armorStand.registerRecipes();
-		
-		MyBlocks.concretePowder.registerRecipes();
-		
-		registerGlazedTerracottaRecipes();
 	}
 	
-	private static void registerWoodRecipes() {
-		MyBlocks.strippedLogAcacia.registerRecipes();
-		MyBlocks.strippedLogBirch.registerRecipes();
-		MyBlocks.strippedLogDarkOak.registerRecipes();
-		MyBlocks.strippedLogJungle.registerRecipes();
-		MyBlocks.strippedLogOak.registerRecipes();
-		MyBlocks.strippedLogSpruce.registerRecipes();
-	}
-	
-	private static void registerStoneRecipes() {
-		MyBlocks.stone.registerRecipes();
-	}
-
 	private static void registerDoorRecipes() {
 		GameRegistry.addRecipe(
 				new ItemStack(Items.wooden_door, 3, 0),
@@ -130,22 +104,8 @@ public final class Recipes {
 				"##",
 				'#', PLANK_OAK
 				);
-		
-		MyItems.itemDoorAcacia.registerRecipes();
-		MyItems.itemDoorBirch.registerRecipes();
-		MyItems.itemDoorDarkOak.registerRecipes();
-		MyItems.itemDoorJungle.registerRecipes();
-		MyItems.itemDoorSpruce.registerRecipes();
 	}
 	
-	private static void registerTrapDoorRecipes() {
-		MyBlocks.trapDoorAcacia.registerRecipes();
-		MyBlocks.trapDoorBirch.registerRecipes();
-		MyBlocks.trapDoorDarkOak.registerRecipes();
-		MyBlocks.trapDoorJungle.registerRecipes();
-		MyBlocks.trapDoorSpruce.registerRecipes();
-		MyBlocks.trapDoorIron.registerRecipes();
-	}
 	
 	private static void registerFenceRecipes() {
 		GameRegistry.addRecipe(
@@ -278,44 +238,9 @@ public final class Recipes {
 				PLANK_OAK
 				);
 		
-		MyBlocks.buttonAcacia.registerRecipes();
-		MyBlocks.buttonBirch.registerRecipes();
-		MyBlocks.buttonDarkOak.registerRecipes();
-		MyBlocks.buttonJungle.registerRecipes();
-		MyBlocks.buttonSpruce.registerRecipes();
-	}
-	
-	private static void registerPressurePlateRecipes() {
-		MyBlocks.pressurePlateAcacia.registerRecipes();
-		MyBlocks.pressurePlateBirch.registerRecipes();
-		MyBlocks.pressurePlateDarkOak.registerRecipes();
-		MyBlocks.pressurePlateJungle.registerRecipes();
-		MyBlocks.pressurePlateSpruce.registerRecipes();
-	}
-
-	private static void registerOceanMonumentRecipes() {
-		MyBlocks.prismarineBlock.registerRecipes();
-		MyBlocks.prismarineBricks.registerRecipes();
-		MyBlocks.prismarineDark.registerRecipes();
-		MyBlocks.seaLantern.registerRecipes();
-	}
-	
-	private static void registerBoatRecipes() {
-		MyItems.boatAcacia.registerRecipes();
-		MyItems.boatBirch.registerRecipes();
-		MyItems.boatDarkOak.registerRecipes();
-		MyItems.boatJungle.registerRecipes();
-		MyItems.boatSpruce.registerRecipes();
 	}
 	
 	private static void registerStarisRecipes() {
-		MyBlocks.stairsAndesite.registerRecipe();
-		MyBlocks.stairsDarkPrismarine.registerRecipe();
-		MyBlocks.stairsDiorite.registerRecipe();
-		MyBlocks.stairsEndStoneBricks.registerRecipe();
-		MyBlocks.stairsGranite.registerRecipe();
-		MyBlocks.stairsMossyCobbleStone.registerRecipe();
-		MyBlocks.stairsMossyStoneBricks.registerRecipe();
 		GameRegistry.addRecipe(new ShapedOreRecipe(
 				new ItemStack(MyBlocks.stairsPolishedAndesite, 4),
 				"  #",
@@ -337,16 +262,9 @@ public final class Recipes {
 				"###",
 				'#', "stoneGranitePolished"
 		));
-		MyBlocks.stairsPrismarine.registerRecipe();
-		MyBlocks.stairsPrismarineBricks.registerRecipe();
-		MyBlocks.stairsPurpur.registerRecipe();
-		MyBlocks.stairsRedNetherBricks.registerRecipe();
-		MyBlocks.stairsRedSandstone.registerRecipe();
-		MyBlocks.stairsStone.registerRecipe();
 	}
 	
 	private static void registerSlabRecipes() {
-		if(ModConfigCore.addRecipe_stoneSlab) MyBlocks.slabStone.registerRecipe();
 		GameRegistry.addRecipe(new ShapedOreRecipe(
 				new ItemStack(MyBlocks.slabGranite, 6),
 				"###",
@@ -377,26 +295,9 @@ public final class Recipes {
 				"###",
 				'#', "stoneAndesitePolished"
 		));
-		MyBlocks.slabRedNetherBricks.registerRecipe();
-		MyBlocks.slabEndStoneBricks.registerRecipe();
-		MyBlocks.slabMossyStoneBricks.registerRecipe();
-		MyBlocks.slabMossyCobbleStone.registerRecipe();
-		MyBlocks.slabDarkPrismarine.registerRecipe();
-		MyBlocks.slabPrismarine.registerRecipe();
-		MyBlocks.slabPrismarineBricks.registerRecipe();
-		MyBlocks.slabPurpur.registerRecipe();
-		MyBlocks.slabRedSandstone.registerRecipe();
 	}
 	
 	private static void registerWallRecipes() {
-		MyBlocks.wallBricks.registerRecipes();
-		MyBlocks.wallStoneBricks.registerRecipes();
-		MyBlocks.wallMossyStoneBricks.registerRecipes();
-		MyBlocks.wallSandstone.registerRecipes();
-		MyBlocks.wallRedSandstone.registerRecipes();
-		MyBlocks.wallNetherBricks.registerRecipes();
-		MyBlocks.wallRedNetherBricks.registerRecipes();
-		MyBlocks.wallEndStoneBricks.registerRecipes();
 		GameRegistry.addRecipe(new ShapedOreRecipe(
 				new ItemStack(MyBlocks.wallAndesite, 6),
 				"###",
@@ -415,27 +316,6 @@ public final class Recipes {
 				"###",
 				'#', "stoneGranite"
 		));
-		MyBlocks.wallPrismarine.registerRecipes();
-		MyBlocks.wallPrismarineBrick.registerRecipes();
-		MyBlocks.wallDarkPrismarine.registerRecipes();
 	}
 	
-	private static void registerGlazedTerracottaRecipes() {
-		MyBlocks.glazedTerracottaBlack.registerRecipes();
-		MyBlocks.glazedTerracottaBlue.registerRecipes();
-		MyBlocks.glazedTerracottaBrown.registerRecipes();
-		MyBlocks.glazedTerracottaCyan.registerRecipes();
-		MyBlocks.glazedTerracottaGray.registerRecipes();
-		MyBlocks.glazedTerracottaGreen.registerRecipes();
-		MyBlocks.glazedTerracottaLightBlue.registerRecipes();
-		MyBlocks.glazedTerracottaLightGray.registerRecipes();
-		MyBlocks.glazedTerracottaLime.registerRecipes();
-		MyBlocks.glazedTerracottaMagenta.registerRecipes();
-		MyBlocks.glazedTerracottaOrange.registerRecipes();
-		MyBlocks.glazedTerracottaPink.registerRecipes();
-		MyBlocks.glazedTerracottaPurple.registerRecipes();
-		MyBlocks.glazedTerracottaRed.registerRecipes();
-		MyBlocks.glazedTerracottaWhite.registerRecipes();
-		MyBlocks.glazedTerracottaYellow.registerRecipes();
-	}
 }
