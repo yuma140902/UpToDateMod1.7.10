@@ -31,6 +31,7 @@ import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockSeaLantern;
 import yuma140902.uptodatemod.blocks.BlockStone;
+import yuma140902.uptodatemod.blocks.BlockStoneSlab;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericButton;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFence;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFenceGate;
@@ -442,7 +443,7 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(allKindsOfSlabs)) {
-			add(slabStone = BlockGenericSlab.constructIfNotNull(Blocks.stone, 0, "slab_stone"));
+			add(slabStone = new BlockStoneSlab());
 			add(slabGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_GRANITE, "slab_granite"));
 			add(slabDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_DIORITE, "slab_diorite"));
 			add(slabAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_ANDESITE, "slab_andesite"));
