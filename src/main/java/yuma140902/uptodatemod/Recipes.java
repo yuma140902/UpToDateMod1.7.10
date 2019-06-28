@@ -16,6 +16,8 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
+import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ListUtils;
 
 public final class Recipes {
@@ -31,11 +33,18 @@ public final class Recipes {
 	
 	public static void removeVanillaRecipes() {
 		List<String> removeRecipesOutputNameList = new ArrayList<>();
-		removeRecipesOutputNameList.add("minecraft:wooden_door");
-		if(ModConfigCore.recipeRemove_oldFenceRecipe)
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.doors)) {
+			removeRecipesOutputNameList.add("minecraft:wooden_door");
+		}
+		if(ModConfigCore.recipeRemove_oldFenceRecipe || DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fences)) {
 			removeRecipesOutputNameList.add("minecraft:fence");
-		removeRecipesOutputNameList.add("minecraft:fence_gate");
-		removeRecipesOutputNameList.add("minecraft:wooden_button");
+		}
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fenceGates)) {
+			removeRecipesOutputNameList.add("minecraft:fence_gate");
+		}
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.buttons)) {
+			removeRecipesOutputNameList.add("minecraft:wooden_button");
+		}
 		
 		removeRecipesByOutputName(removeRecipesOutputNameList);
 	}
