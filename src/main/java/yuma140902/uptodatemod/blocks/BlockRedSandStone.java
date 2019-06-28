@@ -15,6 +15,7 @@ import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockRedSandStone;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockRedSandStone extends BlockSandStone implements IRegisterable, IHasRecipes {
@@ -87,21 +88,21 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.redSandStone, 1, 0),
 				"##",
 				"##",
 				'#', new ItemStack(Blocks.sand, 1, 1)
 				);
 		
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.redSandStone, 4, 2),
 				"##",
 				"##",
 				'#', new ItemStack(MyBlocks.redSandStone, 1, 0)
 				);
 		
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.redSandStone, 1, 1),
 				"H",
 				"H",

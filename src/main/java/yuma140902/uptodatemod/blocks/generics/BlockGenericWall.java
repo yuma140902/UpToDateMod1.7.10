@@ -16,6 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRecipes {
@@ -56,7 +57,7 @@ public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRe
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(this, 6),
 				"###",
 				"###",

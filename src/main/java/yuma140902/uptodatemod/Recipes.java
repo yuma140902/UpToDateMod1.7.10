@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import cpw.mods.fml.common.registry.GameData;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -14,10 +13,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ListUtils;
 
 public final class Recipes {
@@ -106,7 +105,7 @@ public final class Recipes {
 	}
 	
 	private static void registerDoorRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(Items.wooden_door, 3, 0),
 				"##",
 				"##",
@@ -117,132 +116,108 @@ public final class Recipes {
 	
 	
 	private static void registerFenceRecipes() {
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
-				new ItemStack(Blocks.fence, 3, 0),
+		RecipeRegister.addShapedOre(
+			new ItemStack(Blocks.fence, 3, 0),
 				"#|#",
 				"#|#",
 				'#', PLANK_OAK,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
-				new ItemStack(MyBlocks.fenceAcacia, 3, 0),
+		RecipeRegister.addShapedOre(
+			new ItemStack(MyBlocks.fenceAcacia, 3, 0),
 				"#|#",
 				"#|#",
 				'#', PLANK_ACACIA,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.fenceBirch, 3, 0),
 				"#|#",
 				"#|#",
 				'#', PLANK_BIRCH,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.fenceDarkOak, 3, 0),
 				"#|#",
 				"#|#",
 				'#', PLANK_DARK_OAK,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.fenceJungle, 3, 0),
 				"#|#",
 				"#|#",
 				'#', PLANK_JUNGLE,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.fenceSpruce, 3, 0),
 				"#|#",
 				"#|#",
 				'#', PLANK_SPRUCE,
 				'|', "stickWood"
-			)
 		);
 		
 	}
 
 	private static void registerFenceGateRecipes() {
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(Blocks.fence_gate),
 				"|#|",
 				"|#|",
 				'#', PLANK_OAK,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.fenceGateAcacia),
 				"|#|",
 				"|#|",
 				'#', PLANK_ACACIA,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.fenceGateBirch),
 				"|#|",
 				"|#|",
 				'#', PLANK_BIRCH,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.fenceGateDarkOak),
 				"|#|",
 				"|#|",
 				'#', PLANK_DARK_OAK,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.fenceGateJungle),
 				"|#|",
 				"|#|",
 				'#', PLANK_JUNGLE,
 				'|', "stickWood"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.fenceGateSpruce),
 				"|#|",
 				"|#|",
 				'#', PLANK_SPRUCE,
 				'|', "stickWood"
-			)
 		);
 	}
 	
 	private static void registerButtonRecipes() {
-		GameRegistry.addShapelessRecipe(
+		RecipeRegister.addShapeless(
 				new ItemStack(Blocks.wooden_button),
 				PLANK_OAK
 				);
@@ -250,81 +225,81 @@ public final class Recipes {
 	}
 	
 	private static void registerStarisRecipes() {
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.stairsPolishedAndesite, 4),
 				"  #",
 				" ##",
 				"###",
 				'#', "stoneAndesitePolished"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		);
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.stairsPolishedDiorite, 4),
 				"  #",
 				" ##",
 				"###",
 				'#', "stoneDioritePolished"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		);
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.stairsPolishedGranite, 4),
 				"  #",
 				" ##",
 				"###",
 				'#', "stoneGranitePolished"
-		));
+		);
 	}
 	
 	private static void registerSlabRecipes() {
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.slabGranite, 6),
 				"###",
 				'#', "stoneGranite"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		);
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.slabDiorite, 6),
 				"###",
 				'#', "stoneDiorite"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		);
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.slabAndesite, 6),
 				"###",
 				'#', "stoneAndesite"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		);
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.slabPolishedGranite, 6),
 				"###",
 				'#', "stoneGranitePolished"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		);
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.slabPolishedDiorite, 6),
 				"###",
 				'#', "stoneDioritePolished"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		);
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.slabPolishedAndesite, 6),
 				"###",
 				'#', "stoneAndesitePolished"
-		));
+		);
 	}
 	
 	private static void registerWallRecipes() {
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.wallAndesite, 6),
 				"###",
 				"###",
 				'#', "stoneAndesite"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		);
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.wallDiorite, 6),
 				"###",
 				"###",
 				'#', "stoneDiorite"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
+		);
+		RecipeRegister.addShapedOre(
 				new ItemStack(MyBlocks.wallGranite, 6),
 				"###",
 				"###",
 				'#', "stoneGranite"
-		));
+		);
 	}
 	
 }

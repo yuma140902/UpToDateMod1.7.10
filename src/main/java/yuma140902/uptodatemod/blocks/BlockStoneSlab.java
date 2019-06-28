@@ -12,7 +12,7 @@ public class BlockStoneSlab extends BlockGenericSlab {
 	
 	
 	@Override
-	public void registerRecipe() {
-		if(ModConfigCore.addRecipe_stoneSlab) super.registerRecipe();
+	public void registerRecipes() {
+		if(ModConfigCore.addRecipe_stoneSlab) super.registerRecipes();
 	}
 }

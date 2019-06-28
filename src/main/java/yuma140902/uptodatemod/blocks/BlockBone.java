@@ -14,6 +14,7 @@ import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
@@ -52,7 +53,7 @@ public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHas
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.boneBlock),
 				"###",
 				"###",
@@ -60,7 +61,7 @@ public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHas
 				'#', new ItemStack(Items.dye, 1, 15) //骨粉
 				);
 		
-		GameRegistry.addShapelessRecipe(
+		RecipeRegister.addShapeless(
 				new ItemStack(Items.dye, 9, 15),
 				MyBlocks.boneBlock
 				);

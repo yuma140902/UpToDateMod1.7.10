@@ -6,10 +6,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
-public class BlockGenericStairs extends BlockStairs implements IRegisterable {
+public class BlockGenericStairs extends BlockStairs implements IRegisterable, IHasRecipes {
 
 	public static @Nullable BlockGenericStairs constructIfNotNull(@Nullable Block baseBlock, int meta, String name) {
 		return (baseBlock == null) ? null : new BlockGenericStairs(baseBlock, meta, name);
@@ -35,8 +37,8 @@ public class BlockGenericStairs extends BlockStairs implements IRegisterable {
 		GameRegistry.registerBlock(this, name);
 	}
 	
-	public void registerRecipe() {
-		GameRegistry.addRecipe(
+	public void registerRecipes() {
+		RecipeRegister.addShaped(
 				new ItemStack(this, 4),
 				"  #",
 				" ##",

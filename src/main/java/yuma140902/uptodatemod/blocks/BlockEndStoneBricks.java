@@ -12,6 +12,7 @@ import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockEndStoneBricks extends Block implements IRegisterable, IHasRecipes {
@@ -38,7 +39,7 @@ public class BlockEndStoneBricks extends Block implements IRegisterable, IHasRec
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.endStoneBricks, 4),
 				"##",
 				"##",

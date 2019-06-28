@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRecipes {
@@ -22,6 +23,6 @@ public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRec
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addSmelting(new ItemStack(MyItems.rawMutton), new ItemStack(this), 5);
+		RecipeRegister.addSmelting(new ItemStack(MyItems.rawMutton), new ItemStack(this), 5);
 	}
 }

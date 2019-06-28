@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.StringUtil;
 
@@ -40,7 +41,7 @@ public class BlockGlazedTerracotta extends Block implements IRegisterable, IHasR
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addSmelting(new ItemStack(Blocks.stained_hardened_clay, 1, colorMeta), new ItemStack(this), 0.3F);
+		RecipeRegister.addSmelting(new ItemStack(Blocks.stained_hardened_clay, 1, colorMeta), new ItemStack(this), 0.3F);
 	}
 	
 	@Override

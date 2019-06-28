@@ -16,12 +16,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.entity.item.EntityFallingConcretePowderBlock;
 import yuma140902.uptodatemod.items.ItemBlockColored;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.StringUtil;
 
@@ -50,10 +50,9 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable, 
 		Block gravel = Blocks.gravel;
 		
 		for(int meta = 0; meta <= META_MAX; ++meta) {
-			GameRegistry.addRecipe(
-					new ShapelessOreRecipe(new ItemStack(this, 8, meta), 
+			RecipeRegister.addShapelessOre(
+					new ItemStack(this, 8, meta), 
 							"sand", "sand", "sand", "sand", gravel, gravel, gravel, gravel, "dye" + ColorUtil.metaToDyeName(meta)
-					)
 			);
 		}
 	}
