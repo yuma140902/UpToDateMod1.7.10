@@ -27,6 +27,8 @@ import yuma140902.uptodatemod.integration.Plugins;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
+import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
+import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
@@ -135,11 +137,13 @@ public class ModUpToDateMod {
 		proxy.registerRenderers();
 		
 		
-		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.worldGen_genStones, 33, 10, 0, 80, ModConfigCore.worldGen_genStones_blackList);
-		
-		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);
-		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_DIORITE, stoneConfig);
-		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_ANDESITE, stoneConfig);
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stones)) {
+			MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.worldGen_genStones, 33, 10, 0, 80, ModConfigCore.worldGen_genStones_blackList);
+			
+			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);
+			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_DIORITE, stoneConfig);
+			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_ANDESITE, stoneConfig);
+		}
 		WorldGenerators.register();
 		
 		proxy.registerEventHandlers();
