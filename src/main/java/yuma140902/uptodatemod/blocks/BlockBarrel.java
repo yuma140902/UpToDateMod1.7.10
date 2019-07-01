@@ -14,11 +14,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyGuis;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
 import yuma140902.uptodatemod.util.DirectionUtil;
 import yuma140902.uptodatemod.util.StringUtil;
@@ -42,13 +42,13 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(new ShapedOreRecipe(this,
+		RecipeRegister.addShapedOre(new ItemStack(this),
 				"#_#",
 				"# #",
 				"#_#",
 				'#', "plankWood",
 				'_', "slabWood"
-				));
+				);
 	}
 	
 	@Override
