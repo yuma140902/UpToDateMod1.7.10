@@ -1,0 +1,11 @@
+{
+	"note.xylobone": {
+		"category": "master",
+		"sounds": [
+			{
+				"name": "note/xylobone",
+				"stream": false
+			}
+		]
+	}
+}

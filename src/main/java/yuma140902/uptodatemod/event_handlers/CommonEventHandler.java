@@ -15,9 +15,11 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
+import net.minecraftforge.event.world.NoteBlockEvent;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
@@ -110,6 +112,23 @@ public class CommonEventHandler {
 			world.setBlock(x, y, z, strippedLog);
 			world.setBlockMetadataWithNotify(x, y, z, axis << 2, 3);
 			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "dig.cloth", 1.0F, world.rand.nextFloat() * 0.1F + 0.9F);
+		}
+	}
+	
+	@SubscribeEvent
+	public void onNoteBlockPlay(NoteBlockEvent.Play event) {
+		World world = event.world;
+		int x = event.x;
+		int y = event.y;
+		int z = event.z;
+		
+		Block blockUnder = world.getBlock(x, y-1, z);
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.boneBlockAndFossile) && blockUnder instanceof BlockBone) {
+			
+			int noteId = event.getVanillaNoteId();
+			world.addBlockEvent(x, y-1, z, MyBlocks.boneBlock, 0, noteId);
+			
+			event.setCanceled(true);
 		}
 	}
 	
