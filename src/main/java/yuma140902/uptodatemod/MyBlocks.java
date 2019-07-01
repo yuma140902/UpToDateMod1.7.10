@@ -512,7 +512,7 @@ public final class MyBlocks {
 			wallDarkPrismarine = null;
 		}
 		
-		add(barrel = new BlockBarrel());
+		add(barrel = isEnabled(EnumDisableableFeatures.barrel) ? new BlockBarrel() : null);
 		
 	}
 }

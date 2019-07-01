@@ -28,6 +28,7 @@ public enum EnumDisableableFeatures {
 	concreteAndConcretePowder,
 	glazedTerracotta,
 	ironNugget,
+	barrel,
 	allKindsOfStairs,
 	allKindsOfSlabs,
 	allKindsOfWalls;
