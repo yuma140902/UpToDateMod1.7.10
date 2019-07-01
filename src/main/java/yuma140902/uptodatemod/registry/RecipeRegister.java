@@ -1,6 +1,8 @@
 package yuma140902.uptodatemod.registry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
@@ -54,6 +56,18 @@ public class RecipeRegister {
 		}
 		
 		GameRegistry.addRecipe(new ShapelessOreRecipe(output, params));
+	}
+	
+	public static void addSmelting(Block input, ItemStack output, float exp) {
+		if(input == null) return;
+		
+		addSmelting(new ItemStack(input), output, exp);
+	}
+	
+	public static void addSmelting(Item input, ItemStack output, float exp) {
+		if(input == null) return;
+		
+		addSmelting(new ItemStack(input), output, exp);
 	}
 	
 	public static void addSmelting(ItemStack input, ItemStack output, float exp) {
