@@ -115,7 +115,7 @@ public final class MyItems {
 			boatSpruce = null;
 		}
 		
-		add(ironNugget = new ItemIronNugget());
+		add(ironNugget = isEnabled(EnumDisableableFeatures.ironNugget) ? new ItemIronNugget() : null);
 		
 		if(isEnabled(mutton)) {
 			add(rawMutton = new ItemRawMutton());
