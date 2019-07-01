@@ -2,6 +2,8 @@ package yuma140902.uptodatemod.config;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -26,6 +28,8 @@ public class ModConfigCore {
 		CONFIG_CATEGORY_LANGKEY = "config.uptodate.category.";
 	
 	public static Configuration cfg;
+	
+	private static final Logger logger = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-Config");
 	
 	public static boolean worldGen_genStones;
 	public static int[] worldGen_genStones_blackList;
@@ -137,7 +141,10 @@ public class ModConfigCore {
 	}
 	
 	private static void syncDisableableFeaturesConfig(Configuration cfg) {
+		logger.info("== Features Status ==");
+		
 		List<String> orderedPropNameList = new ArrayList<String>();
+		
 		for(EnumDisableableFeatures feature : EnumDisableableFeatures.values()) {
 			String propName = "enable " + feature.toString();
 			orderedPropNameList.add(propName);
@@ -149,9 +156,12 @@ public class ModConfigCore {
 			if(!prop.getBoolean()) {
 				DisabledFeaturesRegistry.INSTANCE.setDisabled(feature);
 			}
+			
+			logger.info(feature + " : " + (prop.getBoolean() ? "Enabled" : "Disabled"));
 		}
 		
 		cfg.setCategoryPropertyOrder(CATEGORY_DISABLE_FEATURES, orderedPropNameList); //カテゴリ内での並び順を設定
+		
 	}
 	
 	private static void wrapConfig() {
@@ -166,7 +176,7 @@ public class ModConfigCore {
 				++dstIdx;
 			}
 			catch (NumberFormatException e) {
-				ModUpToDateMod.LOGGER.warn("Config error: The value '" + strList[srcIdx] + "' cannot be parsed into integer.");
+				logger.warn("Config error: The value '" + strList[srcIdx] + "' cannot be parsed into integer.");
 				continue;
 			}
 		}
