@@ -6,11 +6,10 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemIronNugget extends Item implements IRegisterable, IHasRecipes {
@@ -30,38 +29,38 @@ public class ItemIronNugget extends Item implements IRegisterable, IHasRecipes {
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(new ShapelessOreRecipe(
+		RecipeRegister.addShapelessOre(
 				new ItemStack(this, 9),
 				"ingotIron"
-		));
-		GameRegistry.addRecipe(new ShapedOreRecipe(
-				Items.iron_ingot,
+		);
+		RecipeRegister.addShapedOre(
+				new ItemStack(this),
 				"###",
 				"###",
 				"###",
 				'#', "nuggetIron"
-		));
+		);
 		
 		final float xp = 1.0F;
-		GameRegistry.addSmelting(Items.iron_door, new ItemStack(this), xp);
-		GameRegistry.addSmelting(MyBlocks.trapDoorIron, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.iron_horse_armor, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_door, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(MyBlocks.trapDoorIron, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_horse_armor, new ItemStack(this), xp);
 		
-		GameRegistry.addSmelting(Items.iron_axe, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.iron_hoe, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.iron_pickaxe, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.iron_shovel, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.iron_sword, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_axe, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_hoe, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_pickaxe, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_shovel, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_sword, new ItemStack(this), xp);
 		
-		GameRegistry.addSmelting(Items.iron_helmet, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.iron_chestplate, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.iron_leggings, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.iron_boots, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_helmet, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_chestplate, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_leggings, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.iron_boots, new ItemStack(this), xp);
 		
-		GameRegistry.addSmelting(Items.chainmail_helmet, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.chainmail_chestplate, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.chainmail_leggings, new ItemStack(this), xp);
-		GameRegistry.addSmelting(Items.chainmail_boots, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.chainmail_helmet, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.chainmail_chestplate, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.chainmail_leggings, new ItemStack(this), xp);
+		RecipeRegister.addSmelting(Items.chainmail_boots, new ItemStack(this), xp);
 	}
 	
 }
