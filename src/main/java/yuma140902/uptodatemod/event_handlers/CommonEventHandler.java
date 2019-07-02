@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Set;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -19,11 +20,12 @@ import net.minecraftforge.event.world.NoteBlockEvent;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
-import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.registry.EnumNoteBlockInstrument;
 import yuma140902.uptodatemod.util.Stat;
 
 public class CommonEventHandler {
@@ -121,15 +123,28 @@ public class CommonEventHandler {
 		int x = event.x;
 		int y = event.y;
 		int z = event.z;
+		int dimId = world.provider.dimensionId;
+		int noteId = event.getVanillaNoteId();
+		EnumNoteBlockInstrument instrument = null;
 		
 		Block blockUnder = world.getBlock(x, y-1, z);
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.boneBlockAndFossile) && blockUnder instanceof BlockBone) {
-			
-			int noteId = event.getVanillaNoteId();
-			world.addBlockEvent(x, y-1, z, MyBlocks.boneBlock, 0, noteId);
-			
-			event.setCanceled(true);
+		
+		boolean matched = false;
+		for(int i = 0; i < EnumNoteBlockInstrument.getLength(); ++i) {
+			instrument = EnumNoteBlockInstrument.fromId(i);
+			if(instrument.matches(blockUnder)) {
+				matched = true;
+				break;
+			}
 		}
+		
+		if(!matched) {
+			return;
+		}
+		
+		ModUpToDateMod.networkWrapper.sendToAllAround(new NoteBlockPlayMessage(instrument, noteId, dimId, x, y, z), new TargetPoint(dimId, x, y, z, 32));
+		
+		event.setCanceled(true);
 	}
 	
 	@SubscribeEvent

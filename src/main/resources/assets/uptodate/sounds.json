@@ -7,5 +7,41 @@
 				"stream": false
 			}
 		]
+	},
+	"note.guitar": {
+		"category": "master",
+		"sounds": [
+			{
+				"name": "note/guitar",
+				"stream": false
+			}
+		]
+	},
+	"note.bell": {
+		"category": "master",
+		"sounds": [
+			{
+				"name": "note/bell",
+				"stream": false
+			}
+		]
+	},
+	"note.icechime": {
+		"category": "master",
+		"sounds": [
+			{
+				"name": "note/icechime",
+				"stream": false
+			}
+		]
+	},
+	"note.flute": {
+		"category": "master",
+		"sounds": [
+			{
+				"name": "note/flute",
+				"stream": false
+			}
+		]
 	}
 }

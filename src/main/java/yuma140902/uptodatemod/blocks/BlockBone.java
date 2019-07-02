@@ -11,7 +11,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
@@ -68,12 +67,4 @@ public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHas
 				);
 	}
 	
-	@Override
-	public boolean onBlockEventReceived(World world, int x, int y, int z, int instrument, int noteId) {
-		float f = (float)Math.pow(2.0D, (double)(noteId - 12) / 12.0D);
-		world.playSoundEffect((double)x + 0.5D, (double)y + 1.5D, (double)z + 0.5D, "uptodate:note.xylobone", 3.0F, f);
-		world.spawnParticle("note", (double)x + 0.5D, (double)y + 2.2D, (double)z + 0.5D, (double)noteId / 24.0D, 0.0D, 0.0D);
-		
-    return true;
-	}
 }
