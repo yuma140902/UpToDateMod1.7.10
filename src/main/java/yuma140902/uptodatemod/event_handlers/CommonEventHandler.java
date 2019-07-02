@@ -119,6 +119,10 @@ public class CommonEventHandler {
 	
 	@SubscribeEvent
 	public void onNoteBlockPlay(NoteBlockEvent.Play event) {
+		if(!DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.newNoteBlockInstruments)) {
+			return;
+		}
+		
 		World world = event.world;
 		int x = event.x;
 		int y = event.y;
