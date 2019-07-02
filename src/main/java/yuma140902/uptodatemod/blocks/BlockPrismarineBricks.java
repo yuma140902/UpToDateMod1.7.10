@@ -11,6 +11,7 @@ import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockPrismarineBricks extends Block implements IRegisterable, IHasRecipes {
@@ -37,7 +38,7 @@ public class BlockPrismarineBricks extends Block implements IRegisterable, IHasR
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.prismarineBricks),
 				"###",
 				"###",

@@ -17,6 +17,7 @@ import net.minecraftforge.event.entity.player.UseHoeEvent;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockCoarseDirt extends Block implements IRegisterable, IHasRecipes {
@@ -66,7 +67,7 @@ public class BlockCoarseDirt extends Block implements IRegisterable, IHasRecipes
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.coarseDirt, 4, 0),
 				"GD",
 				"DG",
@@ -74,7 +75,7 @@ public class BlockCoarseDirt extends Block implements IRegisterable, IHasRecipes
 				'G', Blocks.gravel
 				);
 		
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.coarseDirt, 4, 0),
 				"DG",
 				"GD",

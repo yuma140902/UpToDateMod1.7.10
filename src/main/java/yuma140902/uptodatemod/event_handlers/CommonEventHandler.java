@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Set;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -15,11 +16,16 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
+import net.minecraftforge.event.world.NoteBlockEvent;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
+import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
+import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.registry.EnumNoteBlockInstrument;
 import yuma140902.uptodatemod.util.Stat;
 
 public class CommonEventHandler {
@@ -37,7 +43,8 @@ public class CommonEventHandler {
 		Entity entity = event.entityLiving;
 		Random rand = event.entityLiving.worldObj.rand;
 		
-		if(entity instanceof EntitySheep) {
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.mutton) && 
+				entity instanceof EntitySheep) {
 			if(entity.isBurning()) {
 				event.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, new ItemStack(MyItems.cookedMutton, rand.nextInt(2) + 1)));
 			}
@@ -74,7 +81,8 @@ public class CommonEventHandler {
 		ItemStack heldItem = event.entityPlayer.getHeldItem();
 		if(heldItem == null) return;
 		
-		if(isShovel(heldItem) && world.getBlock(x, y, z) == Blocks.grass) {
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.grassPath) &&
+				isShovel(heldItem) && world.getBlock(x, y, z) == Blocks.grass) {
 			Block blockAbove = world.getBlock(x, y + 1, z);
 			if(blockAbove != null && blockAbove.isOpaqueCube()) return;
 			
@@ -82,7 +90,8 @@ public class CommonEventHandler {
 			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "dig.grass", 1.0F, world.rand.nextFloat() * 0.1F + 0.9F);
 		}
 		
-		if(isAxe(heldItem)) {
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.strippedLogs) &&
+				isAxe(heldItem)) {
 			Block block = world.getBlock(x, y, z);
 			int log =  block == Blocks.log ? 1 : block == Blocks.log2 ? 2 : 0;
 			if(log == 0) return;
@@ -106,6 +115,40 @@ public class CommonEventHandler {
 			world.setBlockMetadataWithNotify(x, y, z, axis << 2, 3);
 			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "dig.cloth", 1.0F, world.rand.nextFloat() * 0.1F + 0.9F);
 		}
+	}
+	
+	@SubscribeEvent
+	public void onNoteBlockPlay(NoteBlockEvent.Play event) {
+		if(!DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.newNoteBlockInstruments)) {
+			return;
+		}
+		
+		World world = event.world;
+		int x = event.x;
+		int y = event.y;
+		int z = event.z;
+		int dimId = world.provider.dimensionId;
+		int noteId = event.getVanillaNoteId();
+		EnumNoteBlockInstrument instrument = null;
+		
+		Block blockUnder = world.getBlock(x, y-1, z);
+		
+		boolean matched = false;
+		for(int i = 0; i < EnumNoteBlockInstrument.getLength(); ++i) {
+			instrument = EnumNoteBlockInstrument.fromId(i);
+			if(instrument.matches(blockUnder)) {
+				matched = true;
+				break;
+			}
+		}
+		
+		if(!matched) {
+			return;
+		}
+		
+		ModUpToDateMod.networkWrapper.sendToAllAround(new NoteBlockPlayMessage(instrument, noteId, dimId, x, y, z), new TargetPoint(dimId, x, y, z, 32));
+		
+		event.setCanceled(true);
 	}
 	
 	@SubscribeEvent

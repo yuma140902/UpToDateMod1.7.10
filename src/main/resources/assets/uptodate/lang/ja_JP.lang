@@ -53,6 +53,8 @@ tile.uptodate.prismarine_brick.name=プリズマリンレンガ
 tile.uptodate.dark_prismarine_block.name=ダークプリズマリン
 tile.uptodate.sea_lantern.name=シーランタン
 
+item.uptodate.iron_nugget.name=鉄塊
+
 tile.uptodate.trap_door_acacia.name=アカシアのトラップドア
 tile.uptodate.trap_door_birch.name=シラカバのトラップドア
 tile.uptodate.trap_door_dark_oak.name=ダークオークのトラップドア
@@ -155,6 +157,9 @@ entity.uptodate.boat_birch.name=シラカバのボート
 entity.uptodate.boat_dark_oak.name=ダークオークのボート
 entity.uptodate.boat_jungle.name=ジャングルのボート
 entity.uptodate.boat_spruce.name=マツのボート
+
+container.uptodate.barrel=樽
+tile.uptodate.barrel.name=樽
 
 tile.uptodate.concrete.black.name=黒色のコンクリート
 tile.uptodate.concrete.blue.name=青色のコンクリート

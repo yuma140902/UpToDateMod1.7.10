@@ -53,6 +53,8 @@ tile.uptodate.prismarine_brick.name=Prismarine Bricks
 tile.uptodate.dark_prismarine_block.name=Dark Prismarine
 tile.uptodate.sea_lantern.name=Sea Lantern
 
+item.uptodate.iron_nugget.name=Iron Nugget
+
 tile.uptodate.trap_door_acacia.name=Acacia Trapdoor
 tile.uptodate.trap_door_birch.name=Birch Trapdoor
 tile.uptodate.trap_door_dark_oak.name=Dark Oak Trapdoor
@@ -156,6 +158,9 @@ entity.uptodate.boat_birch.name=Birch Boat
 entity.uptodate.boat_dark_oak.name=Dark Oak Boat
 entity.uptodate.boat_jungle.name=Jungle Boat
 entity.uptodate.boat_spruce.name=Spruce Boat
+
+container.uptodate.barrel=Barrel
+tile.uptodate.barrel.name=Barrel
 
 tile.uptodate.concrete.black.name=Black Concrete
 tile.uptodate.concrete.blue.name=Blue Concrete

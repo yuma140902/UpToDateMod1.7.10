@@ -19,6 +19,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.items.generics.ItemBlockGenericStrippedLog;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
@@ -46,14 +47,14 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(this, 3, 12),
 				"##",
 				"##",
 				'#', this
 				);
 		
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(Blocks.planks, 4, this.plank),
 				"#",
 				'#', new ItemStack(this, 1, OreDictionary.WILDCARD_VALUE)
