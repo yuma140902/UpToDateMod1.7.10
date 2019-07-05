@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 
@@ -140,7 +141,7 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   
   @Override
   public void registerRecipes() {
-  	GameRegistry.addRecipe(
+  	RecipeRegister.addShaped(
 				new ItemStack(this, 2, 0),
 				"###",
 				"###",

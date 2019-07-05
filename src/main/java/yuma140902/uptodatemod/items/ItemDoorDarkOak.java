@@ -12,6 +12,7 @@ import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.Recipes;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IRegisterable, IHasRecipes {
@@ -29,7 +30,7 @@ public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IReg
   
   @Override
   public void registerRecipes() {
-  	GameRegistry.addRecipe(
+  	RecipeRegister.addShaped(
 				new ItemStack(MyItems.itemDoorDarkOak, 3, 0),
 				"##",
 				"##",
