@@ -18,6 +18,14 @@ public class RenderBlockGlazedTerracotta implements ISimpleBlockRenderingHandler
 			
       renderer.setRenderBoundsFromBlock(block);
 //      GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
+      
+      renderer.uvRotateTop = 1;
+      renderer.uvRotateBottom = 1;
+      renderer.uvRotateNorth = 2;
+      renderer.uvRotateEast = 3;
+      renderer.uvRotateSouth = 1;
+      renderer.uvRotateWest = 3;
+
       GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
       
       tessellator.startDrawingQuads();
@@ -51,6 +59,14 @@ public class RenderBlockGlazedTerracotta implements ISimpleBlockRenderingHandler
       tessellator.draw();
       
       GL11.glTranslatef(0.5F, 0.5F, 0.5F);
+      
+      renderer.uvRotateTop = 0;
+      renderer.uvRotateBottom = 0;
+      renderer.uvRotateNorth = 0;
+      renderer.uvRotateEast = 0;
+      renderer.uvRotateSouth = 0;
+      renderer.uvRotateWest = 0;
+
 		}
 	}
 
@@ -58,9 +74,6 @@ public class RenderBlockGlazedTerracotta implements ISimpleBlockRenderingHandler
 	public boolean 	renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
 		if(modelId == this.getRenderId()) {
 			int meta = world.getBlockMetadata(x, y, z);
-			
-			
-			//0:↑とすると, 1:→, 2:←, 3:↓
 			
 			if(meta == BlockGlazedTerracotta.META_NORTH) {
 				renderer.uvRotateTop = 0;
@@ -73,7 +86,7 @@ public class RenderBlockGlazedTerracotta implements ISimpleBlockRenderingHandler
 			}
 			else if(meta == BlockGlazedTerracotta.META_EAST) {
 				renderer.uvRotateTop = 1;
-				renderer.uvRotateBottom = 2;
+				renderer.uvRotateBottom = 1;
 				
 				renderer.uvRotateNorth = 2;
 				renderer.uvRotateEast = 0;
@@ -91,7 +104,7 @@ public class RenderBlockGlazedTerracotta implements ISimpleBlockRenderingHandler
 			}
 			else {
 				renderer.uvRotateTop = 2;
-				renderer.uvRotateBottom = 1;
+				renderer.uvRotateBottom = 2;
 				
 				renderer.uvRotateNorth = 1;
 				renderer.uvRotateEast = 3;
