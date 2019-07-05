@@ -6,6 +6,7 @@ import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.util.StringUtil;
 
@@ -18,6 +19,11 @@ public class BlockGenericFence extends BlockFence implements IRegisterable {
 		setHardness(2.0F);
 		setResistance(5.0F);
 		setStepSound(soundTypeWood);
+	}
+	
+	@Override
+	public boolean canPlaceTorchOnTop(World world, int x, int y, int z) {
+		return true;
 	}
 	
 	/**
