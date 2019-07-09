@@ -34,7 +34,7 @@ public class ItemIronNugget extends Item implements IRegisterable, IHasRecipes {
 				"ingotIron"
 		);
 		RecipeRegister.addShapedOre(
-				new ItemStack(this),
+				new ItemStack(Items.iron_ingot),
 				"###",
 				"###",
 				"###",
