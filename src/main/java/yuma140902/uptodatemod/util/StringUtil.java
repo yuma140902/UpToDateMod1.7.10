@@ -13,7 +13,7 @@ public class StringUtil {
 		return value.isEmpty() ? "" : value + sep;
 	}
 	
-	public static String getDomainedTextureName(String name) {
+	public static String getDomainedModTextureName(String name) {
 		return ModUpToDateMod.MOD_TEXTURE_DOMAIN + ":" + name;
 	}
 	
