@@ -51,7 +51,7 @@ public class BlockGenericFence extends BlockFence implements IRegisterable {
 	@Override
 	public void register() {
 		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName(name));
+		this.setBlockTextureName(StringUtil.getDomainedModTextureName(name));
 		GameRegistry.registerBlock(this, name);
 	}
 }

@@ -42,7 +42,7 @@ public class BlockCoarseDirt extends Block implements IRegisterable, IHasRecipes
 	@Override
 	public void register() {
 		this.setBlockName(StringUtil.getDomainedUnlocalizedName("coarse_dirt"));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("coarse_dirt"));
+		this.setBlockTextureName(StringUtil.getDomainedMCTextureName("coarse_dirt"));
 		GameRegistry.registerBlock(this, "coarse_dirt");
 	}
 	

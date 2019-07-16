@@ -26,7 +26,7 @@ public class BlockPrismarineBricks extends Block implements IRegisterable, IHasR
 	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("prismarine_brick"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("prismarine_brick"));
+		setBlockTextureName(StringUtil.getDomainedMCTextureName("prismarine_bricks"));
 		GameRegistry.registerBlock(this, "prismarine_brick");
 		OreDictionary.registerOre("blockPrismarineBrick", this);
 	}

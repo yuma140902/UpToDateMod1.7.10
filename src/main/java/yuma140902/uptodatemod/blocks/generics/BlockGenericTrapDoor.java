@@ -36,7 +36,7 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   @Override
   public void registerBlockIcons(IIconRegister register) {
   	super.registerBlockIcons(register);
-  	String texture_name = StringUtil.getDomainedTextureName(name);
+  	String texture_name = StringUtil.getDomainedModTextureName(name);
   	icon0 = register.registerIcon(texture_name);
   	icon90 = register.registerIcon(texture_name + "_90");
   	icon180 = register.registerIcon(texture_name + "_180");
@@ -135,7 +135,7 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   @Override
   public void register() {
   	this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName(name));
+		this.setBlockTextureName(StringUtil.getDomainedModTextureName(name));
 		GameRegistry.registerBlock(this, name);
   }
   

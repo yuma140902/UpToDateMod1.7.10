@@ -24,7 +24,7 @@ public class ItemDoorAcacia extends net.minecraft.item.ItemDoor implements IRegi
   
   public void register() {
 		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("door_acacia"));
-		this.setTextureName(StringUtil.getDomainedTextureName("door_acacia"));
+		this.setTextureName(StringUtil.getDomainedMCTextureName("acacia_door"));
 		GameRegistry.registerItem(this, "itemDoorAcacia");
   }
   

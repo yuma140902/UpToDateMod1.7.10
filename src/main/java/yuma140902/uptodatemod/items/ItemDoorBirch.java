@@ -24,7 +24,7 @@ public class ItemDoorBirch extends net.minecraft.item.ItemDoor implements IRegis
   
   public void register() {
 		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("door_birch"));
-		this.setTextureName(StringUtil.getDomainedTextureName("door_birch"));
+		this.setTextureName(StringUtil.getDomainedMCTextureName("birch_door"));
 		GameRegistry.registerItem(this, "itemDoorBirch");
   }
   

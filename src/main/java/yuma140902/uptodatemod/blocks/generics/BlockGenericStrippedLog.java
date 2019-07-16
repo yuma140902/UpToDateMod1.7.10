@@ -25,11 +25,13 @@ import yuma140902.uptodatemod.util.StringUtil;
 public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
 	
 	private String name;
+	private String nameForTexture;
 	private int plank;
 	
-	public BlockGenericStrippedLog(String name, int plankMeta) {
+	public BlockGenericStrippedLog(String name, String nameForTexture, int plankMeta) {
 		super(Material.wood);
 		this.name = name;
+		this.nameForTexture = nameForTexture;
 		this.plank = plankMeta;
 		
 		setHardness(2.0F);
@@ -40,7 +42,7 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName(name));
-		setBlockTextureName(StringUtil.getDomainedTextureName(name));
+		setBlockTextureName(StringUtil.getDomainedMCTextureName(nameForTexture));
 		GameRegistry.registerBlock(this, ItemBlockGenericStrippedLog.class, name);
 		OreDictionary.registerOre("logWood", this);
 	}
