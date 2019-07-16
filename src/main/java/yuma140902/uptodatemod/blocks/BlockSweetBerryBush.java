@@ -102,7 +102,7 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 	}
 	
 	public static boolean canFertilizeSweetBerryBush(int meta) {
-		return meta <= META_MAX;
+		return meta < META_MAX;
 	}
 	
 	public static void fertilizeSweetBerryBush(World world, int x, int y, int z) {
