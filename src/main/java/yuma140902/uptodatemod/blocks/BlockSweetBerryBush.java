@@ -30,8 +30,10 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 	public static final int META_MAX = 3;
 	
 	public BlockSweetBerryBush() {
+		setStepSound(soundTypeGrass);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		setTickRandomly(true);
+		setCreativeTab(null);
 	}
 	
 	@Override
