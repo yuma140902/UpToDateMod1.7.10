@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockRedNetherBricks extends Block implements IRegisterable, IHasRecipes {
@@ -30,7 +31,7 @@ public class BlockRedNetherBricks extends Block implements IRegisterable, IHasRe
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.redNetherBricks),
 				"WB",
 				"BW",
@@ -38,7 +39,7 @@ public class BlockRedNetherBricks extends Block implements IRegisterable, IHasRe
 				'W', Items.nether_wart
 				);
 		
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.redNetherBricks),
 				"BW",
 				"WB",

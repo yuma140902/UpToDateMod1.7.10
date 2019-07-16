@@ -21,6 +21,7 @@ import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.entity.Rotations;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
@@ -39,7 +40,7 @@ public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(this),
 				"III",
 				" I ",
@@ -48,7 +49,7 @@ public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 				'O', new ItemStack(Blocks.stone_slab, 1, 0)
 				);
 		
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(this),
 				"III",
 				" I ",

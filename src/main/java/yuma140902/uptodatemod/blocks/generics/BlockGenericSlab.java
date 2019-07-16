@@ -14,13 +14,23 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.items.generics.ItemBlockGenericSlab;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 
-public class BlockGenericSlab extends BlockSlab implements IRegisterable {
+public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRecipes {
 
+	public static BlockGenericSlab constructIfNotNull(Block baseBlock, int meta, String name) {
+		return (baseBlock == null) ? null : new BlockGenericSlab(baseBlock, meta, name);
+	}
+	
+	public static BlockGenericSlab constructIfNotNull(Block baseBlock, int meta, String name, String specialSideTextureName) {
+		return (baseBlock == null) ? null : new BlockGenericSlab(baseBlock, meta, name, specialSideTextureName);
+	}
+	
 	private Block baseBlock;
 	private int meta;
 	private String name;
@@ -82,9 +92,9 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable {
 		return this.field_150004_a;
 	}
 	
-	public void registerRecipe() {
+	public void registerRecipes() {
 		if(isDouble()) return;
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(getSlab(), 6),
 				"###",
 				'#', new ItemStack(baseBlock, 1, meta)

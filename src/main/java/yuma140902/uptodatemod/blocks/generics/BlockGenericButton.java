@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericButton extends BlockButtonWood implements IRegisterable, IHasRecipes {
@@ -39,7 +40,7 @@ public class BlockGenericButton extends BlockButtonWood implements IRegisterable
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addShapelessRecipe(
+		RecipeRegister.addShapeless(
 				new ItemStack(this),
 				new ItemStack(Blocks.planks, 1, texture_plank_meta)
 				);

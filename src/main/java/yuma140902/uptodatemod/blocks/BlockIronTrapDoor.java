@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockIronTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
@@ -27,7 +28,7 @@ public class BlockIronTrapDoor extends BlockTrapDoor implements IRegisterable, I
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.trapDoorIron, 1, 0),
 				"##",
 				"##",

@@ -13,6 +13,7 @@ import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockSeaLantern extends Block implements IRegisterable, IHasRecipes {
@@ -58,7 +59,7 @@ public class BlockSeaLantern extends Block implements IRegisterable, IHasRecipes
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(MyBlocks.seaLantern),
 				"#C#",
 				"CCC",

@@ -26,7 +26,11 @@ import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.integration.Plugins;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
+import yuma140902.uptodatemod.network.NoteBlockPlayHandler;
+import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
+import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
+import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
@@ -51,7 +55,7 @@ public class ModUpToDateMod {
 	public static final String MOD_TEXTURE_DOMAIN = "uptodate";
 	public static final String MOD_UNLOCALIZED_ENTRY_DOMAIN = "uptodate";
 	public static final String MINECRAFT_VERSION = "1.7.10";
-	public static final String MOD_VERSION = "1.5.0";
+	public static final String MOD_VERSION = "1.6.1";
 	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
 	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 	
@@ -116,27 +120,35 @@ public class ModUpToDateMod {
 		MyBlocks.register();
 		MyItems.register();
 		
+		MyTileEntities.register();
+		proxy.registerTileEntities();
+		MyGuis.register();
+		
 		networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
 		networkWrapper.registerMessage(ArmorStandInteractHandler.class, ArmorStandInteractMessage.class, 0, Side.SERVER);
+//		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.SERVER);
+		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.CLIENT);
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		LOGGER.info("init");
 		Recipes.removeVanillaRecipes();
-		Recipes.removeOtherModsRecipes();
 		Recipes.register();
 		
 		proxy.registerEntities();
-		glazedTerracottaRenderId = proxy.getNewRenderId();
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
+			glazedTerracottaRenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();
 		
 		
-		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.worldGen_genStones, 33, 10, 0, 80, ModConfigCore.worldGen_genStones_blackList);
-		
-		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);
-		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_DIORITE, stoneConfig);
-		WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_ANDESITE, stoneConfig);
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stones)) {
+			MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.worldGen_genStones, 33, 10, 0, 80, ModConfigCore.worldGen_genStones_blackList);
+			
+			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);
+			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_DIORITE, stoneConfig);
+			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_ANDESITE, stoneConfig);
+		}
 		WorldGenerators.register();
 		
 		proxy.registerEventHandlers();

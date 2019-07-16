@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericPressurePlate extends BlockPressurePlate implements IRegisterable, IHasRecipes {
@@ -36,7 +37,7 @@ public class BlockGenericPressurePlate extends BlockPressurePlate implements IRe
 	
 	@Override
 	public void registerRecipes() {
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(this),
 				"##",
 				'#', new ItemStack(Blocks.planks, 1, plankMeta)

@@ -13,12 +13,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockStone;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockStone extends Block implements IRegisterable, IHasRecipes {
@@ -95,57 +94,48 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	public void registerRecipes() {
 		//4つ並べて磨かれた〇〇
 		
-		GameRegistry.addRecipe(
-			new ShapedOreRecipe(new ItemStack(this, 4, META_POLISHED_ANDESITE),
+		RecipeRegister.addShapedOre(
+			new ItemStack(this, 4, META_POLISHED_ANDESITE),
 				"##",
 				"##",
 				'#', "stoneAndesite"
-			)
 		);
 		
-		GameRegistry.addRecipe(
-				new ShapedOreRecipe(new ItemStack(this, 4, META_POLISHED_DIORITE),
-					"##",
-					"##",
-					'#', "stoneDiorite"
-				)
-			);
+		RecipeRegister.addShapedOre(
+			new ItemStack(this, 4, META_POLISHED_DIORITE),
+				"##",
+				"##",
+				'#', "stoneDiorite"
+		);
 		
-		GameRegistry.addRecipe(
-				new ShapedOreRecipe(new ItemStack(this, 4, META_POLISHED_GRANITE),
-					"##",
-					"##",
-					'#', "stoneGranite"
-				)
-			);
+		RecipeRegister.addShapedOre(
+			new ItemStack(this, 4, META_POLISHED_GRANITE),
+				"##",
+				"##",
+				'#', "stoneGranite"
+		);
 		
 		//丸石+ネザー水晶->閃緑岩
-		GameRegistry.addRecipe(
-				new ShapedOreRecipe(
-					new ItemStack(MyBlocks.stone, 2, BlockStone.META_DIORITE),
-					"SN",
-					"NS",
-					'S', "cobblestone",
-					'N', "gemQuartz"
-				)
-			);
+		RecipeRegister.addShapedOre(
+			new ItemStack(MyBlocks.stone, 2, BlockStone.META_DIORITE),
+				"SN",
+				"NS",
+				'S', "cobblestone",
+				'N', "gemQuartz"
+		);
 		
 		//閃緑岩+丸石->安山岩
-		GameRegistry.addRecipe(
-				new ShapelessOreRecipe(
-					new ItemStack(MyBlocks.stone, 2, BlockStone.META_ANDESITE),
-					"cobblestone",
-					"stoneDiorite"
-				)
-			);
+		RecipeRegister.addShapelessOre(
+			new ItemStack(MyBlocks.stone, 2, BlockStone.META_ANDESITE),
+				"cobblestone",
+				"stoneDiorite"
+		);
 		
 		//閃緑岩+ネザー水晶->花崗岩
-		GameRegistry.addRecipe(
-				new ShapelessOreRecipe(
-					new ItemStack(MyBlocks.stone, 2, BlockStone.META_GRANITE),
-					"gemQuartz",
-					"stoneDiorite"
-				)
-			);
+		RecipeRegister.addShapelessOre(
+				new ItemStack(MyBlocks.stone, 2, BlockStone.META_GRANITE),
+				"gemQuartz",
+				"stoneDiorite"
+		);
 	}
 }

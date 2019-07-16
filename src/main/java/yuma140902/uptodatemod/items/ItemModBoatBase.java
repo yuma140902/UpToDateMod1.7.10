@@ -23,6 +23,7 @@ import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.Recipes;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable, IHasRecipes {
@@ -103,7 +104,7 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable,
 			default: return;
 		}
 		
-		GameRegistry.addRecipe(
+		RecipeRegister.addShaped(
 				new ItemStack(this),
 				"# #",
 				"###",
