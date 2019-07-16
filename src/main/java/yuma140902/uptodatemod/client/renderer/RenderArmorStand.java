@@ -16,7 +16,7 @@ import yuma140902.uptodatemod.client.model.ModelArmorStandArmor;
 public class RenderArmorStand extends RenderBiped {
 
 	//private static final ResourceLocation TEXTURE_ARMOUR_STAND = new ResourceLocation("textures/entity/armorstand/wood.png");
-	private static final ResourceLocation TEXTURE_ARMOR_STAND = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/entity/armor_stand.png");
+	private static final ResourceLocation TEXTURE_ARMOR_STAND = new ResourceLocation(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "textures/entity/armor_stand.png");
 
 	public RenderArmorStand() {
 		super(new ModelArmorStand(), 0.0F);

@@ -9,7 +9,7 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
 
 public class BarrelGuiContainer extends GuiContainer {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/gui/barrel.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "textures/gui/barrel.png");
 	private TileEntityBarrel tileEntity;
 
 	public BarrelGuiContainer(EntityPlayer player, TileEntityBarrel tileEntity) {
