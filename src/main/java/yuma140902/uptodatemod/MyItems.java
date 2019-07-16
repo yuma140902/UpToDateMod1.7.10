@@ -21,9 +21,9 @@ import yuma140902.uptodatemod.items.ItemIronNugget;
 import yuma140902.uptodatemod.items.ItemPrismarineCrystals;
 import yuma140902.uptodatemod.items.ItemPrismarineShard;
 import yuma140902.uptodatemod.items.ItemRawMutton;
+import yuma140902.uptodatemod.items.ItemSweetBerries;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.uptodatemod.items.ItemSweetBerries;
 
 public final class MyItems {
 	private MyItems() {}
@@ -130,7 +130,7 @@ public final class MyItems {
 		}
 		
 		add(armorStand = isEnabled(EnumDisableableFeatures.armorStand) ? new ItemArmorStand() : null);
-		add(sweetBerries = new ItemSweetBerries());
+		add(sweetBerries = isEnabled(sweetBerry) ? new ItemSweetBerries() : null);
 	}
 
 }

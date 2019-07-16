@@ -518,7 +518,7 @@ public final class MyBlocks {
 		
 		add(barrel = isEnabled(EnumDisableableFeatures.barrel) ? new BlockBarrel() : null);
 		
-		add(sweetBerryBush = new BlockSweetBerryBush());
+		add(sweetBerryBush = isEnabled(sweetBerry) ? new BlockSweetBerryBush() : null);
 	}
 	
 }
