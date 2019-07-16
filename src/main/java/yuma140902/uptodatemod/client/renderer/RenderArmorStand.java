@@ -8,15 +8,14 @@ import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.client.model.ModelArmorStand;
 import yuma140902.uptodatemod.client.model.ModelArmorStandArmor;
 
 @SideOnly(Side.CLIENT)
 public class RenderArmorStand extends RenderBiped {
 
-	//private static final ResourceLocation TEXTURE_ARMOUR_STAND = new ResourceLocation("textures/entity/armorstand/wood.png");
-	private static final ResourceLocation TEXTURE_ARMOR_STAND = new ResourceLocation(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "textures/entity/armor_stand.png");
+	private static final ResourceLocation TEXTURE_ARMOR_STAND = new ResourceLocation("textures/entity/armorstand/wood.png");
+	//private static final ResourceLocation TEXTURE_ARMOR_STAND = new ResourceLocation(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "textures/entity/armor_stand.png");
 
 	public RenderArmorStand() {
 		super(new ModelArmorStand(), 0.0F);
