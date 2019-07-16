@@ -122,7 +122,7 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 		if(meta == META_MAX) {
 			dropSweetBerries(world, x, y, z);
 			world.setBlockMetadataWithNotify(x, y, z, META_MAX-2, 3);
-			return false;
+			return true;
 		}
 		
 		if(holdingFertilizer(player)) {
