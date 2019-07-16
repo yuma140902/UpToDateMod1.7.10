@@ -8,6 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockBush;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -192,6 +193,9 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 		entity.motionX *= 0.5D;
 		entity.motionY *= 0.6D;
 		entity.motionZ *= 0.5D;
+		if(!(entity instanceof EntityLivingBase)) {
+			return;
+		}
 		if (world.getBlockMetadata(x, y, z) > 0 && (entity.lastTickPosX != entity.posX || entity.lastTickPosZ != entity.posZ)) {
       double dx = Math.abs(entity.posX - entity.lastTickPosX);
       double dz = Math.abs(entity.posZ - entity.lastTickPosZ);
