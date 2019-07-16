@@ -23,6 +23,7 @@ import yuma140902.uptodatemod.items.ItemPrismarineShard;
 import yuma140902.uptodatemod.items.ItemRawMutton;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.items.ItemSweetBerries;
 
 public final class MyItems {
 	private MyItems() {}
@@ -72,6 +73,8 @@ public final class MyItems {
 	public static final ItemCookedMutton cookedMutton;
 	
 	public static final ItemArmorStand armorStand;
+	
+	public static final ItemSweetBerries sweetBerries;
 	
 	static {
 		ModUpToDateMod.LOGGER.info("Items init");
@@ -127,5 +130,7 @@ public final class MyItems {
 		}
 		
 		add(armorStand = isEnabled(EnumDisableableFeatures.armorStand) ? new ItemArmorStand() : null);
+		add(sweetBerries = new ItemSweetBerries());
 	}
+
 }
