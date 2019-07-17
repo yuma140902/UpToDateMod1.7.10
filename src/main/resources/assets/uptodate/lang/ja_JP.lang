@@ -94,6 +94,9 @@ tile.uptodate.grass_path.name=草の道
 item.uptodate.raw_mutton.name=生の羊肉
 item.uptodate.cooked_mutton.name=焼き羊肉
 
+item.uptodate.sweet_berries.name=スイートベリー
+tile.uptodate.sweet_berry_bush.name=スイートベリーの茂み
+
 tile.uptodate.stairs_stone.name=石の階段
 tile.uptodate.stairs_granite.name=花崗岩の階段
 tile.uptodate.stairs_diorite.name=閃緑岩の階段

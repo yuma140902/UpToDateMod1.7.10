@@ -29,6 +29,7 @@ public enum EnumDisableableFeatures {
 	glazedTerracotta,
 	ironNugget,
 	barrel,
+	sweetBerry,
 	newNoteBlockInstruments,
 	allKindsOfStairs,
 	allKindsOfSlabs,

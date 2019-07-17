@@ -94,6 +94,9 @@ tile.uptodate.grass_path.name=Grass Path
 item.uptodate.raw_mutton.name=Raw Mutton
 item.uptodate.cooked_mutton.name=Cooked Mutton
 
+item.uptodate.sweet_berries.name=Sweet Berries
+tile.uptodate.sweet_berry_bush.name=Sweet Berry Bush
+
 tile.uptodate.stairs_stone.name=Stone Stairs
 tile.uptodate.stairs_granite.name=Granite Stairs
 tile.uptodate.stairs_diorite.name=Diorite Stairs
