@@ -38,6 +38,7 @@ public class ModConfigCore {
 	public static boolean worldGen_genCoarseDirt;
 	public static int[] worldGen_genCoarseDirt_blackList;
 	public static boolean recipeRemove_oldFenceRecipe;
+	public static boolean useOldSmoothStoneSlabRecipe;
 	public static boolean enable_observer;
 	public static boolean debug_mode;
 	
@@ -118,6 +119,7 @@ public class ModConfigCore {
 				"Delete the recipe from 6 sticks to 2 fences | 棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)",
 				CONFIG_PROP_LANGKEY + "remove_old_fence_recipe");
 		cfg.getCategory(CATEGORY_RECIPE).remove("addStoneSlabRecipe");
+		useOldSmoothStoneSlabRecipe = cfg.getBoolean("useOldSmoothStoneSlabRecipe", CATEGORY_RECIPE, false, "If set to true, adds old smooth stone slab recipe.");
 		
 		// Entity
 		EntityModBoatBase.boatCrashWhenCollide = cfg.getBoolean("boatCrashWhenCollide", CATEGORY_ENTITY, false, 
