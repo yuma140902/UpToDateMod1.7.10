@@ -247,8 +247,6 @@ config.uptodate.category.recipe=レシピ
 config.uptodate.category.recipe.tooltip=レシピに関する設定
 config.uptodate.prop.remove_old_fence_recipe=古いフェンスのレシピの削除
 config.uptodate.prop.remove_old_fence_recipe.tooltip=棒6本からフェンス2個を作るフェンスの古いレシピを削除するかどうか
-config.uptodate.prop.add_stoneslab_recipe=石のハーフブロックのレシピの追加
-config.uptodate.prop.add_stoneslab_recipe.tooltip=バニラの石ハーフのレシピとかぶっている
 
 config.uptodate.category.entity=エンティティ・モブ
 config.uptodate.category.entity.tooltip=エンティティやモブに関する設定
