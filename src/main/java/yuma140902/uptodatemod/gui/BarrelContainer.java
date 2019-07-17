@@ -1,11 +1,13 @@
 package yuma140902.uptodatemod.gui;
 
+import invtweaks.api.container.ChestContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
 
+@ChestContainer
 public class BarrelContainer extends Container {
 	
 	private TileEntityBarrel tileEntity;
