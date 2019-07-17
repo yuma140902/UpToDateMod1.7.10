@@ -7,6 +7,8 @@ tile.uptodate.stone.polished_diorite.name=Polished Diorite
 tile.uptodate.stone.andesite.name=Andesite
 tile.uptodate.stone.polished_andesite.name=Polished Andesite
 
+tile.uptodate.smooth_stone.name=Smooth Stone
+
 tile.uptodate.stripped_log_acacia.name=Stripped Acacia Log
 tile.uptodate.stripped_log_birch.name=Stripped Birch Log
 tile.uptodate.stripped_log_dark_oak.name=Stripped Dark Oak Log

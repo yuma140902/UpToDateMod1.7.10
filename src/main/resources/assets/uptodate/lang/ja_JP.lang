@@ -7,6 +7,8 @@ tile.uptodate.stone.polished_diorite.name=磨かれた閃緑岩
 tile.uptodate.stone.andesite.name=安山岩
 tile.uptodate.stone.polished_andesite.name=磨かれた安山岩
 
+tile.uptodate.smooth_stone.name=滑らかな石
+
 tile.uptodate.stripped_log_acacia.name=樹皮を剥いだアカシアの原木
 tile.uptodate.stripped_log_birch.name=樹皮を剥いだシラカバの原木
 tile.uptodate.stripped_log_dark_oak.name=樹皮を剥いだダークオークの原木
