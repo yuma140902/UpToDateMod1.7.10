@@ -7,6 +7,8 @@ tile.uptodate.stone.polished_diorite.name=Polished Diorite
 tile.uptodate.stone.andesite.name=Andesite
 tile.uptodate.stone.polished_andesite.name=Polished Andesite
 
+tile.uptodate.smooth_stone.name=Smooth Stone
+
 tile.uptodate.stripped_log_acacia.name=Stripped Acacia Log
 tile.uptodate.stripped_log_birch.name=Stripped Birch Log
 tile.uptodate.stripped_log_dark_oak.name=Stripped Dark Oak Log
@@ -246,8 +248,6 @@ config.uptodate.category.recipe=Recipes
 config.uptodate.category.recipe.tooltip=Settings about recipes
 config.uptodate.prop.remove_old_fence_recipe=Remove old fence recipe
 config.uptodate.prop.remove_old_fence_recipe.tooltip=Whether to remove the old fence recipe (6 sticks to 2 fences).
-config.uptodate.prop.add_stoneslab_recipe=Add stone slab recipe
-config.uptodate.prop.add_stoneslab_recipe.tooltip=This mod's stone slab recipe is overlaps with vanilla's one
 
 config.uptodate.category.entity=Entities and Mobs
 config.uptodate.category.entity.tooltip=Settings about entities and mobs

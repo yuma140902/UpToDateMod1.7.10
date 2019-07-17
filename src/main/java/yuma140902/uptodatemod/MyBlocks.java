@@ -30,6 +30,7 @@ import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockSeaLantern;
+import yuma140902.uptodatemod.blocks.BlockSmoothStone;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.BlockStoneSlab;
 import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
@@ -77,6 +78,7 @@ public final class MyBlocks {
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone;
+	public static final BlockSmoothStone smoothStone;
 	
 	public static final BlockGenericStrippedLog strippedLogAcacia;
 	public static final BlockGenericStrippedLog strippedLogBirch;
@@ -223,6 +225,7 @@ public final class MyBlocks {
 		ModUpToDateMod.LOGGER.info("Blocks init");
 		
 		add(stone = isEnabled(stones) ? new yuma140902.uptodatemod.blocks.BlockStone() : null);
+		add(smoothStone = isEnabled(EnumDisableableFeatures.smoothStone) ? new BlockSmoothStone() : null);
 		
 		if(isEnabled(strippedLogs)) {
 			add(strippedLogAcacia =  new BlockGenericStrippedLog("stripped_log_acacia",    "stripped_acacia_log",   Stat.PLANK_META_ACACIA));

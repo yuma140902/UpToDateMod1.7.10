@@ -13,6 +13,6 @@ public class BlockStoneSlab extends BlockGenericSlab {
 	
 	@Override
 	public void registerRecipes() {
-		if(ModConfigCore.addRecipe_stoneSlab) super.registerRecipes();
+		if(!ModConfigCore.useOldSmoothStoneSlabRecipe) super.registerRecipes();
 	}
 }
