@@ -166,6 +166,7 @@ entity.uptodate.boat_spruce.name=Spruce Boat
 
 container.uptodate.barrel=Barrel
 tile.uptodate.barrel.name=Barrel
+tile.uptodate.stonecutter.name=Stonecutter
 
 tile.uptodate.concrete.black.name=Black Concrete
 tile.uptodate.concrete.blue.name=Blue Concrete

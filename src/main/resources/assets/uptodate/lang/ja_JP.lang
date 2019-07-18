@@ -165,6 +165,7 @@ entity.uptodate.boat_spruce.name=マツのボート
 
 container.uptodate.barrel=樽
 tile.uptodate.barrel.name=樽
+tile.uptodate.stonecutter.name=石切台
 
 tile.uptodate.concrete.black.name=黒色のコンクリート
 tile.uptodate.concrete.blue.name=青色のコンクリート

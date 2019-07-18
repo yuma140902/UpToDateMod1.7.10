@@ -33,6 +33,7 @@ import yuma140902.uptodatemod.blocks.BlockSeaLantern;
 import yuma140902.uptodatemod.blocks.BlockSmoothStone;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.BlockStoneSlab;
+import yuma140902.uptodatemod.blocks.BlockStonecutter;
 import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericButton;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFence;
@@ -217,6 +218,7 @@ public final class MyBlocks {
 	public static final BlockGenericWall wallDarkPrismarine;
 	
 	public static final BlockBarrel barrel;
+	public static final BlockStonecutter stonecutter;
 
 	public static final BlockSweetBerryBush sweetBerryBush;
 	
@@ -520,6 +522,7 @@ public final class MyBlocks {
 		}
 		
 		add(barrel = isEnabled(EnumDisableableFeatures.barrel) ? new BlockBarrel() : null);
+		add(stonecutter = isEnabled(EnumDisableableFeatures.stonecutter) ? new BlockStonecutter() : null);
 		
 		add(sweetBerryBush = isEnabled(sweetBerry) ? new BlockSweetBerryBush() : null);
 	}
