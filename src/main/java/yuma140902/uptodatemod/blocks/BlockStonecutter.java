@@ -15,6 +15,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 
@@ -23,7 +24,7 @@ public class BlockStonecutter extends Block/*Container*/ implements IRegisterabl
 	public static final int META_NORTH = 2, META_EAST = 3, META_SOUTH = 0, META_WEST = 1;
 	
 	@SideOnly(Side.CLIENT)
-	private IIcon iconTop, iconTop90, iconBottom, iconSide, iconSaw;
+	private IIcon iconTop, iconBottom, iconSide, iconSaw;
 	
 	public BlockStonecutter() {
 		super(Material.rock);
@@ -51,7 +52,6 @@ public class BlockStonecutter extends Block/*Container*/ implements IRegisterabl
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		iconTop = register.registerIcon(getTextureName() + "_top");
-		iconTop90 = register.registerIcon(getTextureName() + "_top90");
 		iconBottom = register.registerIcon(getTextureName() + "_bottom");
 		iconSide = register.registerIcon(getTextureName() + "_side");
 		iconSaw = register.registerIcon(getTextureName() + "_saw");
@@ -71,8 +71,7 @@ public class BlockStonecutter extends Block/*Container*/ implements IRegisterabl
 	@Override
 	public IIcon getIcon(int side, int meta) {
 		return
-				side == Stat.SIDE_TOP && (meta == META_NORTH || meta == META_SOUTH) ? iconTop :
-				 side == Stat.SIDE_TOP && (meta == META_EAST || meta == META_WEST) ? iconTop90 :
+				 side == Stat.SIDE_TOP ? iconTop :
 				 side == Stat.SIDE_BOTTOM ? iconBottom :
 				 iconSide;
 	}
@@ -80,6 +79,20 @@ public class BlockStonecutter extends Block/*Container*/ implements IRegisterabl
 	@Override
 	public boolean isOpaqueCube() {
 		return false;
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
+	
+	@Override
+	public int getRenderType() {
+		return ModUpToDateMod.stonecutterRenderId;
+	}
+	
+	public IIcon getIconSaw() {
+		return iconSaw;
 	}
 	
 	// ================= 描画処理 ここまで =================

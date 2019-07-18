@@ -62,6 +62,7 @@ public class ModUpToDateMod {
 	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 	
 	public static int glazedTerracottaRenderId;
+	public static int stonecutterRenderId;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = MOD_ID;
@@ -142,6 +143,8 @@ public class ModUpToDateMod {
 		proxy.registerEntities();
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
 			glazedTerracottaRenderId = proxy.getNewRenderId();
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stonecutter))
+			stonecutterRenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();
 		
 		

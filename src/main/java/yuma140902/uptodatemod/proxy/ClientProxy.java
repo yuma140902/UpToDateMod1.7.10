@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraftforge.common.MinecraftForge;
 import yuma140902.uptodatemod.client.renderer.RenderArmorStand;
 import yuma140902.uptodatemod.client.renderer.RenderBlockGlazedTerracotta;
+import yuma140902.uptodatemod.client.renderer.RenderBlockStonecutter;
 import yuma140902.uptodatemod.client.renderer.RenderModBoat;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
 import yuma140902.uptodatemod.entity.item.EntityBoatAcacia;
@@ -48,5 +49,7 @@ public class ClientProxy extends CommonProxy {
 		
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
 			RenderingRegistry.registerBlockHandler(new RenderBlockGlazedTerracotta());
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stonecutter))
+			RenderingRegistry.registerBlockHandler(new RenderBlockStonecutter());
 	}
 }
