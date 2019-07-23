@@ -15,6 +15,7 @@ import yuma140902.uptodatemod.event_handlers.CommonEventHandler;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
+import yuma140902.uptodatemod.tileentity.TileEntityStonecutter;
 
 public class CommonProxy {
 	public void registerEventHandlers() {
@@ -34,9 +35,10 @@ public class CommonProxy {
 			EntityRegistry.registerModEntity(EntityArmorStand.class, "wooden_armorstand", 5, ModUpToDateMod.INSTANCE, 64, 1, true);
 		}
 	}
-	
+
 	public void registerTileEntities() {
 		GameRegistry.registerTileEntity(TileEntityBarrel.class, TileEntityBarrel.tileEntityId);
+		GameRegistry.registerTileEntity(TileEntityStonecutter.class, TileEntityStonecutter.tileEntityId);
 	}
 	
 	public int getNewRenderId() {
