@@ -6,6 +6,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyGuis;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
+import yuma140902.uptodatemod.tileentity.TileEntityStonecutter;
 
 public class UpToDateModGuiHandler implements IGuiHandler {
 
@@ -15,6 +16,8 @@ public class UpToDateModGuiHandler implements IGuiHandler {
 		switch(ID) {
 			case MyGuis.ID_BARREL:
 				return new BarrelContainer(player, (TileEntityBarrel) tileEntity);
+			case MyGuis.ID_STONECUTTER:
+				return new StonecutterContainer(player, (TileEntityStonecutter) tileEntity);
 				
 			default: return null;
 		}
@@ -26,6 +29,8 @@ public class UpToDateModGuiHandler implements IGuiHandler {
 		switch(ID) {
 			case MyGuis.ID_BARREL:
 				return new BarrelGuiContainer(player, (TileEntityBarrel) tileEntity);
+			case MyGuis.ID_STONECUTTER:
+				return new StonecutterGuiContainer(player, (TileEntityStonecutter) tileEntity);
 				
 			default: return null;
 		}

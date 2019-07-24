@@ -8,6 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -17,6 +18,7 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.MyGuis;
 import yuma140902.uptodatemod.tileentity.TileEntityStonecutter;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
@@ -112,5 +114,11 @@ public class BlockStonecutter extends BlockContainer implements IRegisterable, I
 		
 		int rotation = MathHelper.floor_double((double)(player.rotationYaw * 4.0F / 360.0F) + 2.5D) & 3;
     world.setBlockMetadataWithNotify(x, y, z, rotation, 2);
+	}
+	
+	@Override
+	public boolean onBlockActivated(	World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
+		player.openGui(ModUpToDateMod.INSTANCE, MyGuis.ID_STONECUTTER, world, x, y, z);
+		return true;
 	}
 }

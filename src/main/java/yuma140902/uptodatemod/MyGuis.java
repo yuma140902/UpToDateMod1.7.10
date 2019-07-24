@@ -7,6 +7,7 @@ public final class MyGuis {
 	private MyGuis() {}
 	
 	public static final int ID_BARREL = 0;
+	public static final int ID_STONECUTTER = 1;
 	
 	public static void register() {
 		NetworkRegistry.INSTANCE.registerGuiHandler(ModUpToDateMod.INSTANCE, new UpToDateModGuiHandler());
