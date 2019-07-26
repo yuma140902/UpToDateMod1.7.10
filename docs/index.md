@@ -1,3 +1,5 @@
-# Github Pages Test
+# Information for developers
 
-abcdefghijklmn
+English: [en](en/)
+
+日本語: [ja](ja/)
