@@ -5,25 +5,23 @@
 [![Forge 10.13.4.1558](https://img.shields.io/badge/Forge-10.13.4.1558-blue.svg)](https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html)
 [![Forge 10.13.4.1614](https://img.shields.io/badge/Forge-10.13.4.1614-blue.svg)](https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html)
 
-Minecraft1.7.10に1.8以降のバニラの要素を追加するMODです。
+A Forge mod which backports new Minecraft (1.8.0 and later) features to Minecraft 1.7.10
 
-mobの追加、ブロックの追加、レシピの変更、構造物の追加、mobのAI変更などをする予定です。
-
-**Minecraftのバージョン** : `1.7.10` \
-**前提MOD** : Forge (`10.13.4.1558`で開発、`10.13.4.1558`および`10.13.4.1614`で動作を確認しています) \
-**導入方法** : `mods`フォルダにjarファイルを入れる
+**Minecraft version** : `1.7.10` \
+**Required** : Forge (Developed with  `10.13.4.1558`, checked with `10.13.4.1558` and `10.13.4.1614) \
+**Installation** : Put the jar file into `mods` folder
 
 ## Links
  - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/uptodatemod)
- - [CurseForge 日本語サポートフォーム](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/pages/for-japanese/support)
+ - [CurseForge (Japanese-Support)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/pages/for-japanese/support)
  - https://yuma140902.github.io/en/uptodatemod.html
  - https://yuma140902.github.io/uptodatemod.html
- 
+
  
 
 ## ChangeLog
- https://github.com/yuma140902/UpToDateMod1.7.10/releases を参照
+ See https://github.com/yuma140902/UpToDateMod1.7.10/releases
 
 ## License
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際 ライセンス</a>の下に提供されています。
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
