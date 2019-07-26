@@ -8,7 +8,7 @@
 A Forge mod which backports new Minecraft (1.8.0 and later) features to Minecraft 1.7.10
 
 **Minecraft version** : `1.7.10` \
-**Required** : Forge (Developed with  `10.13.4.1558`, checked with `10.13.4.1558` and `10.13.4.1614) \
+**Required** : Forge (Developed with  `10.13.4.1558`, checked with `10.13.4.1558` and `10.13.4.1614`) \
 **Installation** : Put the jar file into `mods` folder
 
 ## Links
