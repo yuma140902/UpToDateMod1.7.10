@@ -1,12 +1,18 @@
 package yuma140902.uptodatemod.gui.widgets;
 
+import java.util.Iterator;
 import cpw.mods.fml.client.config.GuiButtonExt;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SoundHandler;
+import yuma140902.uptodatemod.gui.event.IEvent;
+import yuma140902.uptodatemod.gui.event.IEventHandler;
+import yuma140902.uptodatemod.gui.event.IEventProvider;
 import yuma140902.uptodatemod.gui.util.GuiUtils;
 import yuma140902.uptodatemod.gui.util.IResourceLocationPart;
+import yuma140902.uptodatemod.gui.widgets.GuiScrollBar.ScrollChangeEvent;
+import yuma140902.uptodatemod.util.registry.GenericRegistry;
 
-public class GuiScrollBar extends GuiButtonExt {
+public class GuiScrollBar extends GuiButtonExt implements IEventProvider<ScrollChangeEvent> {
 
 	private static final int mouseHovering = 2;
 	
@@ -107,6 +113,8 @@ public class GuiScrollBar extends GuiButtonExt {
 		this.isScrolling = false;
 		this.prevMouseX = -1;
 		this.prevMouseY = -1;
+		
+		fireEvent();
 	}
 	
 	public int getMaxValue() {
@@ -141,6 +149,46 @@ public class GuiScrollBar extends GuiButtonExt {
 		
 		this.gripYPosition = Math.round((float)currentValue * heightScrollArea / (scrollMax+1)) + this.yPosition + 1;
 		sanitizeGripYPosition();
+		
+		fireEvent();
 	}
 	
+	
+	
+	// ================= IEventProvider<ScrollChangeEvent> ここから =================
+	
+	private GenericRegistry<IEventHandler<ScrollChangeEvent>> scrollChangeEventHandlers = new GenericRegistry<>();
+	
+	@Override
+	public void subscribe(IEventHandler<ScrollChangeEvent> handler) {
+		scrollChangeEventHandlers.register(handler);
+	}
+
+	@Override
+	public void unregister(IEventHandler<ScrollChangeEvent> handler) {
+		scrollChangeEventHandlers.remove(handler);
+	}
+
+	@Override
+	public void fireEvent() {
+		ScrollChangeEvent event = new ScrollChangeEvent(getCurrentValue());
+		
+		Iterator<IEventHandler<ScrollChangeEvent>> iterator = scrollChangeEventHandlers.iterator();
+		while (iterator.hasNext()) {
+			IEventHandler<ScrollChangeEvent> eventHandler = iterator.next();
+			eventHandler.onFire(event);
+		}
+	}
+	
+	// ================= IEventProvider<ScrollChangeEvent> ここまで =================
+	
+	
+	
+	public static class ScrollChangeEvent implements IEvent {
+		public int scrollValue;
+		
+		public ScrollChangeEvent(int scrollValue) {
+			this.scrollValue = scrollValue;
+		}
+	}
 }
