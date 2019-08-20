@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.Constants.NBT;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
-public class TileEntityBarrel extends TileEntity implements IInventory, ITileEntityDropable {
+public class TileEntityBarrel extends TileEntity implements IInventory, ITileEntityDroppable {
 	public static final String tileEntityId = ModUpToDateMod.MOD_ID + ".barrel";
 	
 	protected static final int INVENTORY_SIZE = 27;
@@ -52,7 +52,7 @@ public class TileEntityBarrel extends TileEntity implements IInventory, ITileEnt
 	}
 	
 	
-	// ================= ITileEntityDropable ここから =================
+	// ================= ITileEntityDroppable ここから =================
 	
 	@Override
 	public void drop() {
@@ -74,7 +74,7 @@ public class TileEntityBarrel extends TileEntity implements IInventory, ITileEnt
 		}
 	}
 	
-	// ================= ITileEntityDropable ここまで =================
+	// ================= ITileEntityDroppable ここまで =================
 	
 	
 	

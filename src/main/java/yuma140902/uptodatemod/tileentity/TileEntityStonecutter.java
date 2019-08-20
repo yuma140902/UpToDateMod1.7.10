@@ -12,7 +12,7 @@ import net.minecraftforge.common.util.Constants.NBT;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.util.Stat;
 
-public class TileEntityStonecutter extends TileEntity implements ISidedInventory, ITileEntityDropable {
+public class TileEntityStonecutter extends TileEntity implements ISidedInventory, ITileEntityDroppable {
 	public static final String tileEntityId = ModUpToDateMod.MOD_ID + ".stonecutter";
 	
 	private static final int INVENTORY_SIZE = 2;
@@ -90,7 +90,7 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 	
 	
 	
-	//================= ITileEntityDropable ここから =================
+	//================= ITileEntityDroppable ここから =================
 	
 	@Override
 	public void drop() {
@@ -112,7 +112,7 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 		}
 	}
 	
-	// ================= ITileEntityDropable ここまで =================
+	// ================= ITileEntityDroppable ここまで =================
 	
 	
 	
