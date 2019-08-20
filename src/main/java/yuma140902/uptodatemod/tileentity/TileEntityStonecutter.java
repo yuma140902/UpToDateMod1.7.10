@@ -12,9 +12,9 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 	
 	private static final int INVENTORY_SIZE = 2;
 	public static final int SLOT_MATERIAL = 0, SLOT_PRODUCT = 1;
-	private static final int[] slotsSide = new int[] { SLOT_MATERIAL };
-	private static final int[] slotsTop = new int[] { SLOT_PRODUCT };
 	
+	private static final int[] slotsSideTop = new int[] { SLOT_MATERIAL };
+	private static final int[] slotsBottom = new int[] { SLOT_PRODUCT };
 	private ItemStack[] inventory = new ItemStack[2];
 	
 	// ================= ISidedInventory ここから =================
@@ -97,8 +97,8 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 
 	@Override
 	public int[] getAccessibleSlotsFromSide(int side) {
-		if(side == Stat.SIDE_TOP || side == Stat.SIDE_BOTTOM) return slotsTop;
-		else return slotsSide;
+		if(side == Stat.SIDE_BOTTOM) return slotsBottom;
+		else return slotsSideTop;
 	}
 
 	@Override
