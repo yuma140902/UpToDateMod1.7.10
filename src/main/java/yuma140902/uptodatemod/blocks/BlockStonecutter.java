@@ -3,6 +3,7 @@ package yuma140902.uptodatemod.blocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -120,5 +121,14 @@ public class BlockStonecutter extends BlockContainer implements IRegisterable, I
 	public boolean onBlockActivated(	World world, int x, int y, int z, EntityPlayer player, int meta, float hitX, float hitY, float hitZ) {
 		player.openGui(ModUpToDateMod.INSTANCE, MyGuis.ID_STONECUTTER, world, x, y, z);
 		return true;
+	}
+	
+	@Override
+	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+		TileEntityStonecutter tileentity = (TileEntityStonecutter) world.getTileEntity(x, y, z);
+		if (tileentity != null) {
+			tileentity.drop();
+		}
+		super.breakBlock(world, x, y, z, block, meta);
 	}
 }
