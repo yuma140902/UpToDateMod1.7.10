@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import yuma140902.uptodatemod.tileentity.SlotStonecutterProduct;
 import yuma140902.uptodatemod.tileentity.TileEntityStonecutter;
 
 @ChestContainer
@@ -33,7 +34,7 @@ public class StonecutterContainer extends Container {
 		
 		// Stonecutterのインベントリを設定
 		this.addSlotToContainer(new Slot(tileentity, TileEntityStonecutter.SLOT_MATERIAL, 20, 33));
-		this.addSlotToContainer(new Slot(tileentity, TileEntityStonecutter.SLOT_PRODUCT, 143, 33));
+		this.addSlotToContainer(new SlotStonecutterProduct(tileentity, TileEntityStonecutter.SLOT_PRODUCT, 143, 33));
 		
 		// プレイヤーのインベントリを設定
 		for (int y = 0; y < 3; ++y) {
