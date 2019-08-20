@@ -1,7 +1,5 @@
 package yuma140902.uptodatemod.tileentity;
 
-import java.util.Random;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -56,22 +54,7 @@ public class TileEntityBarrel extends TileEntity implements IInventory, ITileEnt
 	
 	@Override
 	public void drop() {
-		for(int i = 0; i < INVENTORY_SIZE; ++i) {
-			ItemStack itemstack = this.inventory[i];
-			if(itemstack != null && !worldObj.isRemote) {
-				Random rand = worldObj.rand;
-				float xDiff = rand.nextFloat() * 0.6F + 0.1F;
-				float yDiff = rand.nextFloat() * 0.6F + 0.1F;
-				float zDiff = rand.nextFloat() * 0.6F + 0.1F;
-				
-				EntityItem entityItem = new EntityItem(worldObj, xCoord + xDiff, yCoord + yDiff, zCoord + zDiff, itemstack.copy());
-				float motionScale = 0.025F;
-				entityItem.motionX = (float) rand.nextGaussian() * motionScale;
-				entityItem.motionY = (float) rand.nextGaussian() * motionScale + 0.1F;
-				entityItem.motionZ = (float) rand.nextGaussian() * motionScale;
-				worldObj.spawnEntityInWorld(entityItem);
-			}
-		}
+		TileEntityUtils.dropItems(this, worldObj, xCoord, yCoord, zCoord);
 	}
 	
 	// ================= ITileEntityDroppable ここまで =================
