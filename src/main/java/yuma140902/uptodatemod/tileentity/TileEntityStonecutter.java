@@ -3,7 +3,10 @@ package yuma140902.uptodatemod.tileentity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.Constants.NBT;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.util.Stat;
 
@@ -15,7 +18,73 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 	
 	private static final int[] slotsSideTop = new int[] { SLOT_MATERIAL };
 	private static final int[] slotsBottom = new int[] { SLOT_PRODUCT };
+	
+	private static final String KEY_RECIPE_INDEX = "RecipeIndex";
+	private static final String KEY_SLOT = "Slot";
+	
 	private ItemStack[] inventory = new ItemStack[2];
+	
+	private int guiScroll;
+	
+	public int getGuiScroll() {
+		return guiScroll;
+	}
+	
+	public void setGuiScroll(int guiScroll) {
+		this.guiScroll = guiScroll;
+	}
+	
+	private int selectedRecipeIndex;
+	
+	public int getSelectedRecipeIndex() {
+		return selectedRecipeIndex;
+	}
+	
+	public void setRecipeIndex(int selectedRecipeIndex) {
+		this.selectedRecipeIndex = selectedRecipeIndex;
+		this.markDirty();
+	}
+	
+	// ================= NBT ここから =================
+	
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
+		
+		tag.setInteger(KEY_RECIPE_INDEX, selectedRecipeIndex);
+		
+		NBTTagList itemNbtList = new NBTTagList();
+		for(int i = 0; i < INVENTORY_SIZE; ++i) {
+			if(inventory[i] == null) continue;
+			NBTTagCompound itemNbt = new NBTTagCompound();
+			itemNbt.setByte(KEY_SLOT, (byte)i);
+			inventory[i].writeToNBT(itemNbt);
+			itemNbtList.appendTag(itemNbt);
+		}
+		tag.setTag(KEY_SLOT, itemNbtList);
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+		super.readFromNBT(tag);
+		
+		selectedRecipeIndex = tag.getInteger(KEY_RECIPE_INDEX);
+		
+		NBTTagList itemNbtList = tag.getTagList(KEY_SLOT, NBT.TAG_COMPOUND);
+		inventory = new ItemStack[INVENTORY_SIZE];
+		for(int i = 0; i < INVENTORY_SIZE; ++i) {
+			NBTTagCompound itemNbt = itemNbtList.getCompoundTagAt(i);
+			byte slot = itemNbt.getByte(KEY_SLOT);
+			if(0 <= slot && slot < INVENTORY_SIZE) {
+				ItemStack tmp = ItemStack.loadItemStackFromNBT(itemNbt);
+				if(tmp != null) {
+					inventory[slot] = tmp;
+				}
+			}
+		}
+	}
+	
+	// ================= NBT ここまで =================
 	
 	// ================= ISidedInventory ここから =================
 	
