@@ -34,7 +34,7 @@ public class ItemStackUtil {
 	}
 	
 	/**
-	 * アイテムとメタデータが等しいかどうか比較
+	 * アイテムとメタデータが等しいかどうか比較<br>
 	 * メタデータがWILDCARD_VALUEだったらtrue
 	 * Item: 見る<br>
 	 * Meta: 見る<br>
@@ -55,7 +55,7 @@ public class ItemStackUtil {
 	}
 	
 	/**
-	 * アイテムとメタデータとNBTが等しいかどうか比較
+	 * アイテムとメタデータとNBTが等しいかどうか比較<br>
 	 * Item: 見る<br>
 	 * Meta: 見る<br>
 	 * NBT:  見る<br>
