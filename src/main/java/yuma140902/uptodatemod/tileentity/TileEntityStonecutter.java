@@ -1,5 +1,7 @@
 package yuma140902.uptodatemod.tileentity;
 
+import java.util.Iterator;
+import javax.annotation.Nullable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -8,6 +10,9 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.Constants.NBT;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.api.UpToDateModAPI;
+import yuma140902.uptodatemod.api.recipes.IStonecutterRecipe;
+import yuma140902.uptodatemod.util.ItemStackUtil;
 import yuma140902.uptodatemod.util.Stat;
 
 public class TileEntityStonecutter extends TileEntity implements ISidedInventory, ITileEntityDroppable {
@@ -21,6 +26,12 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 	
 	private static final String KEY_RECIPE_INDEX = "RecipeIndex";
 	private static final String KEY_SLOT = "Slot";
+	private static final String KEY_STATUS = "Status";
+	
+	private static final int STAT_IDLE = 0;
+	private static final int STAT_CRAFTING = 1;
+	
+	private int status = STAT_IDLE;
 	
 	private ItemStack[] inventory = new ItemStack[2];
 	
@@ -34,7 +45,7 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 		this.guiScroll = guiScroll;
 	}
 	
-	private int selectedRecipeIndex;
+	private int selectedRecipeIndex = 0;
 	
 	public int getSelectedRecipeIndex() {
 		return selectedRecipeIndex;
@@ -52,6 +63,7 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 		super.writeToNBT(tag);
 		
 		tag.setInteger(KEY_RECIPE_INDEX, selectedRecipeIndex);
+		tag.setInteger(KEY_STATUS, status);
 		
 		NBTTagList itemNbtList = new NBTTagList();
 		for(int i = 0; i < INVENTORY_SIZE; ++i) {
@@ -69,6 +81,7 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 		super.readFromNBT(tag);
 		
 		selectedRecipeIndex = tag.getInteger(KEY_RECIPE_INDEX);
+		status = tag.getInteger(KEY_STATUS);
 		
 		NBTTagList itemNbtList = tag.getTagList(KEY_SLOT, NBT.TAG_COMPOUND);
 		inventory = new ItemStack[INVENTORY_SIZE];
@@ -85,6 +98,91 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 	}
 	
 	// ================= NBT ここまで =================
+	
+	
+	
+	// ================= レシピ処理 ここから =================
+	
+	@Override
+	public void updateEntity() {
+		if(status == STAT_IDLE) {
+			ItemStack material = inventory[SLOT_MATERIAL];
+			if(material == null) {
+				return;
+			}
+			else {
+				IStonecutterRecipe recipe = getRecipe(material, selectedRecipeIndex);
+				if(recipe == null) {
+					return;
+				}
+				if(material.stackSize < recipe.getMaterialNum()) {
+					return;
+				}
+				ItemStack product = recipe.getProduct();
+				int productNum = recipe.getProductNum();
+				if(inventory[SLOT_PRODUCT] == null) {
+					status = STAT_CRAFTING;
+					return;
+				}
+				else if(ItemStackUtil.equalsItemNbtMeta(product, inventory[SLOT_PRODUCT]) && inventory[SLOT_PRODUCT].stackSize + productNum <= 64) {
+					status = STAT_CRAFTING;
+					return;
+				}
+			}
+		}
+		
+		else {
+			ItemStack material = inventory[SLOT_MATERIAL];
+			IStonecutterRecipe recipe = getRecipe(material, selectedRecipeIndex);
+			if(recipe == null) {
+				status = STAT_IDLE;
+				return;
+			}
+			ItemStack materialBak = material.copy();
+			ItemStack product = recipe.getCraftingResult(material);
+			if(material.stackSize <= 0) {
+				material = null;
+			}
+			if(product == null) {
+				status = STAT_IDLE;
+				return;
+			}
+			int productNum = product.stackSize;
+			if(inventory[SLOT_PRODUCT] == null) {
+				inventory[SLOT_PRODUCT] = product;
+				inventory[SLOT_MATERIAL] = material;
+				return;
+			}
+			else if(ItemStackUtil.equalsItemNbtMeta(product, inventory[SLOT_PRODUCT]) && inventory[SLOT_PRODUCT].stackSize + productNum <= 64) {
+				inventory[SLOT_PRODUCT].stackSize += productNum;
+				inventory[SLOT_MATERIAL] = material;
+				return;
+			}
+			else {
+				inventory[SLOT_MATERIAL] = materialBak;
+				status = STAT_IDLE;
+				return;
+			}
+		}
+	}
+	
+	@Nullable
+	private IStonecutterRecipe getRecipe(ItemStack material, int selectedRecipeIndex) {
+		int cnt = 0;
+		Iterator<IStonecutterRecipe> recipes = UpToDateModAPI.getStonecutterRecipeRegistry().getRecipes(material);
+		while (recipes.hasNext()) {
+			IStonecutterRecipe recipe = recipes.next();
+			if(!recipe.matches(material)) {
+				continue;
+			}
+			else if(cnt++ == selectedRecipeIndex) {
+				return recipe;
+			}
+		}
+		return null;
+	}
+	
+	// ================= レシピ処理 ここまで =================
 	
 	
 	
