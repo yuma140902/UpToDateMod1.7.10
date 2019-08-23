@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.api.recipes.IStonecutterRecipe;
 import yuma140902.uptodatemod.api.register.IStonecutterRecipeRegistry;
+import yuma140902.uptodatemod.util.ItemStackUtil;
 
 public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
 	private StonecutterRecipeRegistry() {}
@@ -55,11 +56,11 @@ public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
 		}
 	}
 	
-	private void removeSingleRecipe(IStonecutterRecipe recipe) {
+	private void removeSingleRecipe(final IStonecutterRecipe recipe) {
 		if(recipe == null) {
 			return;
 		}
-		list.remove(recipe);
+		list.removeIf(arg->areEqual(arg, recipe));
 		
 		ItemStack material = recipe.getMaterial();
 		if(material == null) 	return;
@@ -67,7 +68,7 @@ public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
 		if(!listByMaterial.containsKey(materialItem)) {
 			return;
 		}
-		listByMaterial.get(materialItem).remove(recipe);
+		listByMaterial.get(materialItem).removeIf(arg->areEqual(arg, recipe));
 	}
 	
 	@Override
@@ -101,6 +102,13 @@ public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
 			return emptyIterator;
 		}
 		return recipes.iterator();
+	}
+	
+	public boolean areEqual(IStonecutterRecipe a, IStonecutterRecipe b) {
+		return a.getMaterialNum() == b.getMaterialNum()
+				&& a.getProductNum() == b.getProductNum()
+				&& ItemStackUtil.equalsItemNbtMeta(a.getMaterial(), b.getMaterial())
+				&& ItemStackUtil.equalsItemNbtMeta(a.getProduct(), b.getProduct());
 	}
 	
 }
