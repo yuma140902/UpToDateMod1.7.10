@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.api.recipes.IStonecutterRecipe;
 import yuma140902.uptodatemod.api.register.IStonecutterRecipeRegistry;
+import yuma140902.uptodatemod.recipes.StonecutterRecipe;
 import yuma140902.uptodatemod.util.ItemStackUtil;
 
 public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
@@ -32,6 +33,20 @@ public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
 		}
 	}
 	
+	@Override
+	public void addRecipe(ItemStack material, int materialNum, ItemStack product, int productNum) {
+		addRecipe(material, materialNum, product, productNum, true);
+	}
+	
+	@Override
+	public void addRecipe(ItemStack material, int materialNum, ItemStack product, int productNum, boolean addReverseRecipe) {
+		IStonecutterRecipe recipe = createRecipeObj(material, materialNum, product, productNum);
+		addSingleRecipe(recipe);
+		if(addReverseRecipe && recipe.hasReverseRecipe()) {
+			addSingleRecipe(recipe.getReverseRecipe());
+		}
+	}
+	
 	private void addSingleRecipe(IStonecutterRecipe recipe) {
 		if(recipe == null) {
 			return;
@@ -46,6 +61,11 @@ public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
 			listByMaterial.put(materialItem, new ArrayList<IStonecutterRecipe>());
 		}
 		listByMaterial.get(materialItem).add(recipe);
+	}
+	
+	@Override
+	public IStonecutterRecipe createRecipeObj(ItemStack material, int materialNum, ItemStack product, int productNum) {
+		return new StonecutterRecipe(material, materialNum, product, productNum);
 	}
 	
 	@Override
@@ -91,7 +111,6 @@ public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
 	}
 	
 	@Override
-	@SuppressWarnings("null")
 	public Iterator<IStonecutterRecipe> getRecipes(ItemStack material) {
 		if(material == null) {
 			return emptyIterator;
@@ -104,6 +123,7 @@ public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
 		return recipes.iterator();
 	}
 	
+	@Override
 	public boolean areEqual(IStonecutterRecipe a, IStonecutterRecipe b) {
 		return a.getMaterialNum() == b.getMaterialNum()
 				&& a.getProductNum() == b.getProductNum()
