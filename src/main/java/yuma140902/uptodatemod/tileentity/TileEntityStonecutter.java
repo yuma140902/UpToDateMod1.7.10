@@ -168,6 +168,9 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 	
 	@Nullable
 	private IStonecutterRecipe getRecipe(ItemStack material, int selectedRecipeIndex) {
+		if(selectedRecipeIndex < 0) {
+			return null;
+		}
 		int cnt = 0;
 		Iterator<IStonecutterRecipe> recipes = UpToDateModAPI.getStonecutterRecipeRegistry().getRecipes(material);
 		while (recipes.hasNext()) {
