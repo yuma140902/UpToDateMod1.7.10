@@ -172,10 +172,7 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 		Iterator<IStonecutterRecipe> recipes = UpToDateModAPI.getStonecutterRecipeRegistry().getRecipes(material);
 		while (recipes.hasNext()) {
 			IStonecutterRecipe recipe = recipes.next();
-			if(!recipe.matches(material)) {
-				continue;
-			}
-			else if(cnt++ == selectedRecipeIndex) {
+			if(cnt++ == selectedRecipeIndex) {
 				return recipe;
 			}
 		}

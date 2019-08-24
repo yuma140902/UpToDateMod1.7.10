@@ -120,7 +120,7 @@ public class StonecutterRecipeRegistry implements IStonecutterRecipeRegistry {
 		if(recipes == null) {
 			return emptyIterator;
 		}
-		return recipes.iterator();
+		return recipes.stream().filter(recipe->recipe.matches(material)).iterator();
 	}
 	
 	@Override
