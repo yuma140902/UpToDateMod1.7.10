@@ -13,9 +13,7 @@ A Forge mod which backports new Minecraft (1.8.0 and later) features to Minecraf
 
 ## Links
  - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/uptodatemod)
- - [CurseForge (Japanese-Support)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/pages/for-japanese/support)
- - https://yuma140902.github.io/en/uptodatemod.html
- - https://yuma140902.github.io/uptodatemod.html
+ - [Minecraft Japan Forum](https://forum.civa.jp/viewtopic.php?f=3&t=90)
 
  
 
