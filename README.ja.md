@@ -15,9 +15,7 @@ mobの追加、ブロックの追加、レシピの変更、構造物の追加�
 
 ## Links
  - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/uptodatemod)
- - [CurseForge 日本語サポートフォーム](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/pages/for-japanese/support)
- - https://yuma140902.github.io/en/uptodatemod.html
- - https://yuma140902.github.io/uptodatemod.html
+ - [Minecraft Japan Forum](https://forum.civa.jp/viewtopic.php?f=3&t=90)
  
  
 
