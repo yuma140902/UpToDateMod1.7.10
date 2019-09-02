@@ -4,5 +4,5 @@ public interface IEventProvider<T extends IEvent> {
 	void subscribe(IEventHandler<T> handler);
 	void unregister(IEventHandler<T> handler);
 	
-	void fireEvent();
+	void fireEvent(T event);
 }

@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod.gui.widgets;
 
 import java.util.Iterator;
+import javax.annotation.Nonnull;
 import cpw.mods.fml.client.config.GuiButtonExt;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SoundHandler;
@@ -114,7 +115,7 @@ public class GuiScrollBar extends GuiButtonExt implements IEventProvider<ScrollC
 		this.prevMouseX = -1;
 		this.prevMouseY = -1;
 		
-		fireEvent();
+		fireEvent(ScrollChangeEvent.CreateNew(this));
 	}
 	
 	public int getMaxValue() {
@@ -150,7 +151,7 @@ public class GuiScrollBar extends GuiButtonExt implements IEventProvider<ScrollC
 		this.gripYPosition = Math.round((float)currentValue * heightScrollArea / (scrollMax+1)) + this.yPosition + 1;
 		sanitizeGripYPosition();
 		
-		fireEvent();
+		fireEvent(ScrollChangeEvent.CreateNew(this));
 	}
 	
 	
@@ -170,9 +171,7 @@ public class GuiScrollBar extends GuiButtonExt implements IEventProvider<ScrollC
 	}
 
 	@Override
-	public void fireEvent() {
-		ScrollChangeEvent event = new ScrollChangeEvent(getCurrentValue());
-		
+	public void fireEvent(ScrollChangeEvent event) {
 		Iterator<IEventHandler<ScrollChangeEvent>> iterator = scrollChangeEventHandlers.iterator();
 		while (iterator.hasNext()) {
 			IEventHandler<ScrollChangeEvent> eventHandler = iterator.next();
@@ -189,6 +188,11 @@ public class GuiScrollBar extends GuiButtonExt implements IEventProvider<ScrollC
 		
 		public ScrollChangeEvent(int scrollValue) {
 			this.scrollValue = scrollValue;
+		}
+		
+		@Nonnull
+		public static ScrollChangeEvent CreateNew(@Nonnull GuiScrollBar scrollBar) {
+			return new ScrollChangeEvent(scrollBar.getCurrentValue());
 		}
 	}
 }
