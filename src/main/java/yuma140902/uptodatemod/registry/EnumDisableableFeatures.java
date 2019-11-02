@@ -31,6 +31,7 @@ public enum EnumDisableableFeatures {
 	ironNugget,
 	barrel,
 	sweetBerry,
+	witherRose,
 	newNoteBlockInstruments,
 	allKindsOfStairs,
 	allKindsOfSlabs,
