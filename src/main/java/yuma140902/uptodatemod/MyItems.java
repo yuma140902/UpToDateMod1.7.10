@@ -134,7 +134,7 @@ public final class MyItems {
 		
 		add(armorStand = isEnabled(EnumDisableableFeatures.armorStand) ? new ItemArmorStand() : null);
 		add(sweetBerries = isEnabled(sweetBerry) ? new ItemSweetBerries() : null);
-		add(dye = isEnabled(newDye) ? new ItemPlainDye() : null);
+		add(dye = isEnabled(plainDye) ? new ItemPlainDye() : null);
 	}
 
 }
