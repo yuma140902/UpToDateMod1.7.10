@@ -12,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -20,6 +21,9 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.MyItems;
+import yuma140902.uptodatemod.items.ItemPlainDye;
+import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockWitherRose extends BlockBush implements IRegisterable, IHasRecipes {
@@ -41,11 +45,8 @@ public class BlockWitherRose extends BlockBush implements IRegisterable, IHasRec
 	
 	@Override
 	public void registerRecipes() {
-		// TODO 自動生成されたメソッド・スタブ
-		
+		RecipeRegister.addShapeless(new ItemStack(MyItems.dye, 1, ItemPlainDye.BLACK), this);
 	}
-	
-	
 	
 	
 	
