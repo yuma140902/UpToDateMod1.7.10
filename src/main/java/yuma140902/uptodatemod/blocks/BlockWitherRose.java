@@ -17,11 +17,12 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.util.StringUtil;
 
-public class BlockWitherRose extends BlockBush implements IRegisterable {
+public class BlockWitherRose extends BlockBush implements IRegisterable, IHasRecipes {
 	
 	public BlockWitherRose() {
 		super(Material.plants);
@@ -36,6 +37,12 @@ public class BlockWitherRose extends BlockBush implements IRegisterable {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("wither_rose"));
 		setBlockTextureName(StringUtil.getDomainedMCTextureName("wither_rose"));
 		GameRegistry.registerBlock(this, "wither_rose");
+	}
+	
+	@Override
+	public void registerRecipes() {
+		// TODO 自動生成されたメソッド・スタブ
+		
 	}
 	
 	

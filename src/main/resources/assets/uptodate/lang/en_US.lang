@@ -168,6 +168,10 @@ tile.uptodate.barrel.name=Barrel
 
 tile.uptodate.wither_rose.name=Wither Rose
 
+item.uptodate.dye.blue.name=Blue Dye
+item.uptodate.dye.white.name=White Dye
+item.uptodate.dye.black.name=Black Dye
+
 tile.uptodate.concrete.black.name=Black Concrete
 tile.uptodate.concrete.blue.name=Blue Concrete
 tile.uptodate.concrete.brown.name=Brown Concrete
