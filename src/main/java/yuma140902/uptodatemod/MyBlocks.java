@@ -34,6 +34,7 @@ import yuma140902.uptodatemod.blocks.BlockSmoothStone;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.BlockStoneSlab;
 import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
+import yuma140902.uptodatemod.blocks.BlockUnlimitedPot;
 import yuma140902.uptodatemod.blocks.BlockWitherRose;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericButton;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFence;
@@ -222,6 +223,7 @@ public final class MyBlocks {
 	public static final BlockSweetBerryBush sweetBerryBush;
 	
 	public static final BlockWitherRose witherRose;
+	public static final BlockUnlimitedPot unlimitedPot;
 	
 	
 	static {
@@ -527,6 +529,7 @@ public final class MyBlocks {
 		add(sweetBerryBush = isEnabled(sweetBerry) ? new BlockSweetBerryBush() : null);
 		
 		add(witherRose = isEnabled(EnumDisableableFeatures.witherRose) ? new BlockWitherRose() : null);
+		add(unlimitedPot = new BlockUnlimitedPot());
 	}
 	
 }

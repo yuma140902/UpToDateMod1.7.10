@@ -10,6 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -40,7 +41,7 @@ public class BlockWitherRose extends BlockBush implements IRegisterable, IHasRec
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("wither_rose"));
 		setBlockTextureName(StringUtil.getDomainedMCTextureName("wither_rose"));
-		GameRegistry.registerBlock(this, "wither_rose");
+		GameRegistry.registerBlock(this, ItemBlock.class, "wither_rose");
 	}
 	
 	@Override
@@ -140,6 +141,25 @@ public class BlockWitherRose extends BlockBush implements IRegisterable, IHasRec
 	
 	private static boolean canPlace(World world, int x, int y, int z) {
 		Block block = world.getBlock(x, y-1, z);
-		return block.isSideSolid(world, x, y-1, z, ForgeDirection.UP) || block == Blocks.farmland;
+		return block.isSideSolid(world, x, y-1, z, ForgeDirection.UP) || block == Blocks.farmland || block.isFlowerPot();
+	}
+	
+	public static class ItemBlock extends net.minecraft.item.ItemBlock {
+
+		public ItemBlock(Block block) {
+			super(block);
+		}
+		
+		@Override
+		public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+			@SuppressWarnings("null")
+			boolean success = MyBlocks.unlimitedPot.putItemIn(itemstack, player, world, x, y, z);
+			if(success) {
+				return true;
+			}else {
+				return super.onItemUse(itemstack, player, world, x, y, z, side, hitX, hitY, hitZ);
+			}
+		}
+		
 	}
 }
