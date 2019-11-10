@@ -90,7 +90,7 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 		return false;
 	}
 	
-	private static void dropSweetBerries(World world, int x, int y, int z) {
+	private static void dropSweetBerries(World world, int x, int y, int z, int num) {
 		if(world.isRemote) {
 			return;
 		}
@@ -100,7 +100,7 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 		float yDiff = rand.nextFloat() * 0.6F + 0.1F;
 		float zDiff = rand.nextFloat() * 0.6F + 0.1F;
 		
-		EntityItem entityItem = new EntityItem(world, x + xDiff, y + yDiff, z + zDiff, new ItemStack(MyItems.sweetBerries, 1));
+		EntityItem entityItem = new EntityItem(world, x + xDiff, y + yDiff, z + zDiff, new ItemStack(MyItems.sweetBerries, num));
 		float motionScale = 0.025F;
 		entityItem.motionX = (float) rand.nextGaussian() * motionScale;
 		entityItem.motionY = (float) rand.nextGaussian() * motionScale + 0.1F;
@@ -126,9 +126,13 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 		meta &= 0b0011;
 		
 		if(meta == META_MAX) {
-			dropSweetBerries(world, x, y, z);
+			dropSweetBerries(world, x, y, z, 2 + world.rand.nextInt(2));
 			world.setBlockMetadataWithNotify(x, y, z, META_MAX-2, 3);
 			return true;
+		}
+		else if(meta == META_MAX-1) {
+			dropSweetBerries(world, x, y, z, 1 + world.rand.nextInt(2));
+			world.setBlockMetadataWithNotify(x, y, z, META_MAX-2, 3);
 		}
 		
 		if(holdingFertilizer(player)) {
@@ -181,11 +185,11 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		ArrayList<ItemStack> list = new ArrayList<ItemStack>();
 		if(metadata == META_MAX) {
-			int count = world.rand.nextInt(1) + 2 + fortune;
+			int count = world.rand.nextInt(2) + 2 + fortune;
 			list.add(new ItemStack(MyItems.sweetBerries, count));
 		}
 		else if(metadata == META_MAX - 1) {
-			int count = world.rand.nextInt(1) + 1 + fortune;
+			int count = world.rand.nextInt(2) + 1 + fortune;
 			list.add(new ItemStack(MyItems.sweetBerries, count));
 		}
 		return list;
