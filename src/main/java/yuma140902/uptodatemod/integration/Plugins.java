@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.Recipes;
+import yuma140902.uptodatemod.config.IConfigBridge;
 
 public final class Plugins {
 	private Plugins() {}
@@ -49,6 +50,30 @@ public final class Plugins {
 		for (IPlugin plugin : plugins) {
 			if(plugin.isIntegrationEnabled() && plugin instanceof ITweakingPostPlugin) {
 				((ITweakingPostPlugin)plugin).tweakModPost();
+			}
+		}
+	}
+	
+	public static void initConfig(IConfigBridge cfg) {
+		for (IPlugin plugin : plugins) {
+			if(plugin.isIntegrationEnabled() && plugin instanceof IConfiguratingPlugin) {
+				((IConfiguratingPlugin)plugin).initConfig(cfg);
+			}
+		}
+	}
+	
+	public static void syncConfig(IConfigBridge cfg) {
+		for (IPlugin plugin : plugins) {
+			if(plugin.isIntegrationEnabled() && plugin instanceof IConfiguratingPlugin) {
+				((IConfiguratingPlugin)plugin).syncConfig(cfg);
+			}
+		}
+	}
+	
+	public static void wrapConfig(IConfigBridge cfg) {
+		for (IPlugin plugin : plugins) {
+			if(plugin.isIntegrationEnabled() && plugin instanceof IConfiguratingPlugin) {
+				((IConfiguratingPlugin)plugin).wrapConfig(cfg);
 			}
 		}
 	}

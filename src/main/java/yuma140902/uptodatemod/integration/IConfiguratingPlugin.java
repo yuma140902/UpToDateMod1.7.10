@@ -1,9 +1,9 @@
 package yuma140902.uptodatemod.integration;
 
-import net.minecraftforge.common.config.Configuration;
+import yuma140902.uptodatemod.config.IConfigBridge;
 
 public interface IConfiguratingPlugin extends IPlugin {
-	void initConfig(Configuration cfg);
-	void syncConfig(Configuration cfg);
-	void wrapConfig(Configuration cfg);
+	void initConfig(IConfigBridge cfg);
+	void syncConfig(IConfigBridge cfg);
+	void wrapConfig(IConfigBridge cfg);
 }

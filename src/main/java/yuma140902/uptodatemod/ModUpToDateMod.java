@@ -23,6 +23,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.config.NewCore;
 import yuma140902.uptodatemod.integration.Plugins;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
@@ -51,6 +52,8 @@ public class ModUpToDateMod {
 	public static CommonProxy proxy;
 	
 	public static SimpleNetworkWrapper networkWrapper;
+	
+	public static NewCore configCore;
 	
 	public static final String MOD_ID = "uptodate";
 	public static final String MOD_NAME = "UpToDateMod";
@@ -108,7 +111,8 @@ public class ModUpToDateMod {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
-		ModConfigCore.loadConfig(event);
+		configCore = new NewCore();
+		configCore.loadConfig(event);
 		LOGGER.info("preInit");
 		try {
 			UpdateChecker.INSTANCE.checkForUpdates();

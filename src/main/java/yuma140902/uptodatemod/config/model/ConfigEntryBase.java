@@ -2,11 +2,12 @@ package yuma140902.uptodatemod.config.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import yuma140902.uptodatemod.util.l10n.L10nString;
 
-public class ConfigEntryBase<FluentAPI extends ConfigEntryBase<?>> implements IConfigEntry<FluentAPI> {
-
+public abstract class ConfigEntryBase implements IConfigEntry {
 	ConfigEntryBase(@Nullable IConfigCategory category, @Nonnull String name) {
 		this.category = category;
 		this.name = name;
@@ -18,8 +19,9 @@ public class ConfigEntryBase<FluentAPI extends ConfigEntryBase<?>> implements IC
 	@Nonnull
 	protected final String name;
 	@Nonnull
-	protected final List<String> comments = new ArrayList<String>();
+	protected final List<L10nString> comments = new ArrayList<L10nString>();
 	protected boolean requireMcRestart = false;
+	protected boolean requireWorldRestart = false;
 	
 	
 	@Override
@@ -34,7 +36,7 @@ public class ConfigEntryBase<FluentAPI extends ConfigEntryBase<?>> implements IC
 
 	@Override
 	public String comment() {
-		String comment = String.join("\n", this.comments);
+		String comment = this.comments.stream().map(cmnt -> cmnt.message()).collect(Collectors.joining("\n"));
 		return comment != null ? comment : "";
 	}
 	
@@ -42,17 +44,24 @@ public class ConfigEntryBase<FluentAPI extends ConfigEntryBase<?>> implements IC
 	public boolean requireMcRestart() {
 		return this.requireMcRestart;
 	}
-
+	
 	@Override
-	public FluentAPI addCommentLine(String comment) {
+	public boolean requireWorldRestart() {
+		return this.requireWorldRestart;
+	}
+	
+	@Override
+	public void addCommentLine(L10nString comment) {
 		this.comments.add(comment);
-		return this;
 	}
 
 	@Override
-	public FluentAPI setRequiresMcRestart() {
+	public void setRequiresMcRestart() {
 		this.requireMcRestart = true;
-		return this;
 	}
-
+	
+	@Override
+	public void setRequiresWorldRestart() {
+		this.requireWorldRestart = true;
+	}
 }

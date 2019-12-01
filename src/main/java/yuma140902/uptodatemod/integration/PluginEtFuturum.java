@@ -1,12 +1,17 @@
 package yuma140902.uptodatemod.integration;
 
 import java.util.List;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import cpw.mods.fml.common.Loader;
-import net.minecraftforge.common.config.Configuration;
-import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.config.IConfigBridge;
+import yuma140902.uptodatemod.config.model.ConfigCategoryBase;
+import yuma140902.uptodatemod.config.model.IConfigCategory;
+import yuma140902.uptodatemod.config.model.IConfigProp;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.util.l10n.EnumLanguage;
+import yuma140902.uptodatemod.util.l10n.L10nString;
 
 class PluginEtFuturum implements IConfiguratingPlugin {
 	private PluginEtFuturum() {}
@@ -35,40 +40,45 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 	}
 	
 	public boolean isIntegrationEnabled() {
-		return isModLoaded() && config_integrateWithEtFuturum;
+		return isModLoaded() && integrateWithEtFuturum.get();
 	}
 	
 	
 	// ================= IConfiguratingPlugin ここから =================
 	
-	public static final String CATEGORY = ModConfigCore.getSubCategory("Integration.EtFuturum");
+	@Nonnull
+	public static final String CATEGORY_NAME = "EtFuturum";
 	
-	public boolean config_integrateWithEtFuturum = true;
+	public IConfigProp<Boolean> integrateWithEtFuturum;
 	
 	@Override
-	public void initConfig(Configuration cfg) {
+	public void initConfig(IConfigBridge cfg) {
 		if(!isModLoaded()) {
 			return;
 		}
 		
-		cfg.addCustomCategoryComment(CATEGORY, "Settings to cooperate with EtFuturum");
-		cfg.setCategoryLanguageKey(CATEGORY, ModConfigCore.getCategoryLangkey("integration.etfuturum"));
-		cfg.setCategoryRequiresMcRestart(CATEGORY, true);
+		IConfigCategory catEtFuturum = IntegrationConfigs.category.addSubCategory(_category -> new ConfigCategoryBase(_category, CATEGORY_NAME));
+		catEtFuturum.addCommentLine(L10nString.ml().put(EnumLanguage.en_US, "Settings to cooperate with EtFuturum").put(EnumLanguage.ja_JP, "EtFuturumとの連携の設定").nonnull());
+		catEtFuturum.setRequiresMcRestart();
+		
+		cfg.initCategory(catEtFuturum);
+		
+		integrateWithEtFuturum = catEtFuturum.addSubValue("integrate");
+		integrateWithEtFuturum.setDefault(true);
+		integrateWithEtFuturum.set(true);
+		
 	}
 
 	@Override
-	public void syncConfig(Configuration cfg) {
+	public void syncConfig(IConfigBridge cfg) {
 		if(!isModLoaded()) {
 			return;
 		}
 		
-		config_integrateWithEtFuturum = cfg.getBoolean("integrate", CATEGORY, true, 
-				"Cooperate with EtFuturum or not | EtFuturumと連携するかどうか",
-				ModConfigCore.getPropertyLangkey("integrate"));
-		
+		cfg.getBoolean(integrateWithEtFuturum);
 	}
 	
-	public void wrapConfig(Configuration cfg) {
+	public void wrapConfig(IConfigBridge cfg) {
 		// TODO
 		if(!isModLoaded()) {
 			return;

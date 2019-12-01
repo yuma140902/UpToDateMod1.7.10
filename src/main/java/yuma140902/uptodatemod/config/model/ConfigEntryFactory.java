@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 @FunctionalInterface
-public interface ICategoryEntryFactory<FluentAPI> {
+public interface ConfigEntryFactory {
 	@Nonnull
-	IConfigEntry<FluentAPI> build(@Nullable IConfigCategory category, @Nonnull String name);
+	IConfigEntry build(@Nullable IConfigCategory category, @Nonnull String name);
 }
