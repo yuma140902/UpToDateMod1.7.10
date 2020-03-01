@@ -25,6 +25,7 @@ public class UpToDateModResourcePack implements IResourcePack {
 
 	@Override
 	public InputStream getInputStream(ResourceLocation location) throws IOException {
+		System.out.println(location.getResourceDomain() + ":" + location.getResourcePath());
 		return new BufferedInputStream(new FileInputStream(resourceLocationToPath(location).toFile()));
 	}
 
@@ -36,6 +37,7 @@ public class UpToDateModResourcePack implements IResourcePack {
 		return Files.exists(resourceLocationToPath(location));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Set getResourceDomains() {
 		return ImmutableSet.of(ModUpToDateMod.MOD_TEXTURE_DOMAIN);
@@ -43,13 +45,11 @@ public class UpToDateModResourcePack implements IResourcePack {
 
 	@Override
 	public IMetadataSection getPackMetadata(IMetadataSerializer metadataSerializer, String p_135058_2_) throws IOException {
-		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
 
 	@Override
 	public BufferedImage getPackImage() throws IOException {
-		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
 

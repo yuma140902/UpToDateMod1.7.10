@@ -26,7 +26,7 @@ public class SoundDownloaderWithDisplay implements ISoundDownloader {
 	}
 	
 	@Override
-	public void downloadSounds(List<Sound> sounds) throws IOException {
+	public void downloadSounds(List<Sound> sounds) {
 		JDialog dialog = this.display.getDialog();
 		dialog.setVisible(true);
 		
@@ -34,7 +34,12 @@ public class SoundDownloaderWithDisplay implements ISoundDownloader {
 		
 		for(Sound sound : sounds) {
 			display.startNewSound(sound);
-			handle(sound);
+			try {
+				handle(sound);
+			} catch (IOException e) {
+				e.printStackTrace();
+				display.showErrorDialog(sound);
+			}
 		}
 		
 		dialog.dispose();

@@ -38,12 +38,10 @@ public class VanillaResourceLoader {
 		Class<ModUpToDateMod> clazz = ModUpToDateMod.class;
 		String settingFileName = "/settings.json";
 		InputStreamReader reader = new InputStreamReader(clazz.getResourceAsStream(settingFileName));
-		//String file = "Z:\\dev\\mcmod\\UpToDateMod\\hotfix-eula-docs\\settings.json";
 		
 		Gson gson = new Gson();
 		Setting setting = gson.fromJson(reader, Setting.class);
 		
-		// TODO: throws IOException せずに showError(..)を使うようにする
 		if(needUpdate(assets, clazz.getResourceAsStream(settingFileName))) {
 			Files.createDirectories(caches);
 			Files.createDirectories(archives);
@@ -52,7 +50,6 @@ public class VanillaResourceLoader {
 			download(setting, caches, archives);
 			registerArchives(setting, archives);
 			organize(setting, assets);
-			//TODO: Jarファイルにoggファイルが同梱されていなくてもIResourcePack経由でsounds.jsonを反映してくれるのか確認
 			setupSounds(setting, caches, assets);
 			
 			makeVersionCheckFile(assets, clazz.getResourceAsStream(settingFileName));
@@ -84,7 +81,7 @@ public class VanillaResourceLoader {
 		Files.write(assetsDir.resolve("settings.json.sha512"), lines, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
 	}
 	
-	private static void download(Setting setting, Path caches, Path archives) throws IOException {
+	private static void download(Setting setting, Path caches, Path archives) {
 		List<DownloadCandidate> candidates = new LinkedList<DownloadCandidate>();
 		for(Archive archive : setting.archives) {
 			candidates.add(new DownloadCandidate(archive));
@@ -108,14 +105,14 @@ public class VanillaResourceLoader {
 		}
 	}
 	
-	private static void organize(Setting setting, Path assets) throws IOException {
+	private static void organize(Setting setting, Path assets) {
 		IOrganizeDisplay display = new SwingOrganizeDisplay();
 		
 		IOrganizer organizer = new OrganizerWithDisplay(display, assets);
 		organizer.organize(setting.copies);
 	}
 	
-	private static void setupSounds(Setting setting, Path caches, Path assets) throws IOException {
+	private static void setupSounds(Setting setting, Path caches, Path assets) {
 		ISoundDownloadDisplay display = new SwingSoundDownloadDisplay();
 		
 		ISoundDownloader downloader = new SoundDownloaderWithDisplay(display, caches, assets);

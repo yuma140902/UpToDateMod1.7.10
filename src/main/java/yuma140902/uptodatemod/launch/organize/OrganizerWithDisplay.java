@@ -23,7 +23,7 @@ public class OrganizerWithDisplay implements IOrganizer {
 	}
 	
 	@Override
-	public void organize(List<Copy> copies) throws IOException {
+	public void organize(List<Copy> copies) {
 		JDialog dialog = this.display.getDialog();
 		dialog.setVisible(true);
 		
@@ -31,7 +31,12 @@ public class OrganizerWithDisplay implements IOrganizer {
 		
 		for(Copy copy : copies) {
 			display.startNewCopy(copy);
-			handle(copy);
+			try {
+				handle(copy);
+			} catch (IOException e) {
+				e.printStackTrace();
+				display.showErrorDialog(copy);
+			}
 		}
 		
 		dialog.dispose();
