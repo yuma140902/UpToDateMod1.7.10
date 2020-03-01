@@ -17,6 +17,28 @@
       "cache": "true"
     }
   ],
+  "sounds": [
+    {
+      "url": "https://resources.download.minecraft.net/df/dffb5d6066ba89a4d3a609eb0c607606d4a524e2",
+      "dest": "sounds/note/bell.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a7/a7f05f19c3e553c61deb61e5e8123a82cdbec758",
+      "dest": "sounds/note/guitar.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/3e/3ea516355b5ec2bef08d9e6aa3ebc6626acb583b",
+      "dest": "sounds/note/guitar.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/56/562f63e81572019a66cf795cea914ed6910edb53",
+      "dest": "sounds/note/icechime.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b7/b7cf6b6ff19146fae41a39025ab709ea90bcc439",
+      "dest": "sounds/note/xylobone.ogg"
+    }
+  ],
   "copies": [
     {
       "ar": "mc15",

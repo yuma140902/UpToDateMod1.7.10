@@ -4,5 +4,6 @@ import java.util.List;
 
 public class Setting {
 	public List<Archive> archives;
+	public List<Sound> sounds;
 	public List<Copy> copies;
 }
