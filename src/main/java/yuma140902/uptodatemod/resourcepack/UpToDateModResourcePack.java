@@ -25,7 +25,6 @@ public class UpToDateModResourcePack implements IResourcePack {
 
 	@Override
 	public InputStream getInputStream(ResourceLocation location) throws IOException {
-		System.out.println(location.getResourceDomain() + ":" + location.getResourcePath());
 		return new BufferedInputStream(new FileInputStream(resourceLocationToPath(location).toFile()));
 	}
 

@@ -82,7 +82,6 @@ public class OrganizerWithDisplay implements IOrganizer {
 		
 		function.handle(src, dest);
 		
-		VanillaResourceLoader.log.info(String.format("%s -> %s", src, dest));
 	}
 	
 }
