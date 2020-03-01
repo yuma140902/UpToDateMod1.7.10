@@ -1,7 +1,10 @@
 package yuma140902.uptodatemod;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Mod;
@@ -24,6 +27,7 @@ import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.integration.Plugins;
+import yuma140902.uptodatemod.launch.VanillaResourceLoader;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
 import yuma140902.uptodatemod.network.NoteBlockPlayHandler;
@@ -58,6 +62,8 @@ public class ModUpToDateMod {
 	public static final String MOD_VERSION = "1.6.1";
 	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
 	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
+	
+	public Path uptodatemodDirectory;
 	
 	public static int glazedTerracottaRenderId;
 	
@@ -115,6 +121,17 @@ public class ModUpToDateMod {
 			e.printStackTrace();
 		}
 		LOGGER.info(UpdateChecker.INSTANCE.hasNewVersionAvailable() ? "There is a new version available. - v" + UpdateChecker.INSTANCE.availableNewVersion + ". Visit " + UpdateChecker.INSTANCE.getNewVersionUrl() : "UpToDateMod is now up-to-date.");
+		
+		this.uptodatemodDirectory = Paths.get("uptodatemod").toAbsolutePath();
+		try {
+			Path caches = Paths.get("uptodatemod/dl-cache");
+			Path archives = Paths.get("uptodatemod/client-jars");
+			Path assets = Paths.get("uptodatemod/assets/uptodate");
+			
+			VanillaResourceLoader.load(caches, archives, assets);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		tweakVanilla();
 		MyBlocks.register();
