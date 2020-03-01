@@ -16,6 +16,7 @@ import javax.swing.JProgressBar;
 import javax.swing.WindowConstants;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
+import cpw.mods.fml.common.FMLCommonHandler;
 import yuma140902.uptodatemod.ModUpToDateMod;
 
 public class SwingDialogWithProgressBar extends JOptionPane {
@@ -61,10 +62,10 @@ public class SwingDialogWithProgressBar extends JOptionPane {
 	protected void requestClose(String message) {
 		int shouldClose = JOptionPane.showConfirmDialog(
 				container, message, "Are you sure you want to stop?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-		if (shouldClose == JOptionPane.YES_OPTION)
+		if (shouldClose == JOptionPane.YES_OPTION) {
 			container.dispose();
-		System.exit(0);
-		//throw new StoppedByUserException(String.format("Download stopped by user. Downloading %s from %s (%d / %d KB)", fileName, url, downloadedKb, fullSizeKb));
+			FMLCommonHandler.instance().exitJava(0, false);
+		}
 	}
 	
 	private Box createProgressPanel() {
