@@ -15,7 +15,7 @@ public class BlockUnlimitedPot extends BlockFlowerPot implements IRegisterable {
 	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("unlimited_pot"));
-		setBlockTextureName(StringUtil.getDomainedMCTextureName("flower_pot"));
+		setBlockTextureName("minecraft:flower_pot");
 		GameRegistry.registerBlock(this, "unlimited_pot");
 	}
 	

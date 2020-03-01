@@ -27,7 +27,7 @@ public class BlockDarkPrismarine extends Block implements IRegisterable, IHasRec
 	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("dark_prismarine_block"));
-		setBlockTextureName(StringUtil.getDomainedMCTextureName("dark_prismarine"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("dark_prismarine_block"));
 		GameRegistry.registerBlock(this, "dark_prismarine_block");
 		OreDictionary.registerOre("blockPrismarineDark", this);
 	}

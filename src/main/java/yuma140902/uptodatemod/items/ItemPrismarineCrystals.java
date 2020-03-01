@@ -13,7 +13,7 @@ public class ItemPrismarineCrystals extends Item implements IRegisterable {
   
   public void register() {
 		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("prismarine_crystals"));
-		this.setTextureName(StringUtil.getDomainedMCTextureName("prismarine_crystals"));
+		this.setTextureName(StringUtil.getDomainedTextureName("prismarine_crystals"));
 		GameRegistry.registerItem(this, "prismarine_crystals");
   }
 }

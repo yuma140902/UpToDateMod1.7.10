@@ -34,7 +34,7 @@ public class BlockMagma extends Block implements IRegisterable, IHasRecipes {
 	@Override
 	public void register() {
 		this.setBlockName(StringUtil.getDomainedUnlocalizedName("magma_block"));
-		this.setBlockTextureName(StringUtil.getDomainedMCTextureName("magma"));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName("magma_block"));
 		GameRegistry.registerBlock(this, "magma_block");
 	}
 	

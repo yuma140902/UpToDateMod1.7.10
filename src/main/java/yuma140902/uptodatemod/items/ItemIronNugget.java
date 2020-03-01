@@ -22,7 +22,7 @@ public class ItemIronNugget extends Item implements IRegisterable, IHasRecipes {
 	@Override
 	public void register() {
 		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("iron_nugget"));
-		this.setTextureName(StringUtil.getDomainedMCTextureName("iron_nugget"));
+		this.setTextureName(StringUtil.getDomainedTextureName("iron_nugget"));
 		GameRegistry.registerItem(this, "iron_nugget");
 		OreDictionary.registerOre("nuggetIron", this);
 	}

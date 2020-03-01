@@ -14,7 +14,7 @@ public class ItemRawMutton extends ItemFood implements IRegisterable {
 	@Override
 	public void register() {
 		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("raw_mutton"));
-		this.setTextureName(StringUtil.getDomainedMCTextureName("mutton"));
+		this.setTextureName(StringUtil.getDomainedTextureName("raw_mutton"));
 		GameRegistry.registerItem(this, "raw_mutton");
 	}
 	

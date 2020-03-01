@@ -40,7 +40,7 @@ public class BlockConcrete extends Block implements IRegisterable {
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		for(int meta = 0; meta <= META_MAX; ++meta) {
-			iicons[meta] = register.registerIcon(StringUtil.getDomainedMCTextureName(ColorUtil.metaToString(meta) + "_" + "concrete"));
+			iicons[meta] = register.registerIcon(StringUtil.getDomainedTextureName("concrete_" + ColorUtil.metaToString(meta)));
 		}
 	}
 	

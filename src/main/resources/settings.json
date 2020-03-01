@@ -243,52 +243,52 @@
     {
       "ar": "mc12",
       "src": "textures/blocks/door_acacia_lower.png",
-      "dest": "textures/blocks/door_acacia_lower.png"
+      "dest": "textures/blocks/acacia_door_bottom.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/door_acacia_upper.png",
-      "dest": "textures/blocks/door_acacia_upper.png"
+      "dest": "textures/blocks/acacia_door_top.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/door_birch_lower.png",
-      "dest": "textures/blocks/door_birch_lower.png"
+      "dest": "textures/blocks/birch_door_bottom.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/door_birch_upper.png",
-      "dest": "textures/blocks/door_birch_upper.png"
+      "dest": "textures/blocks/birch_door_top.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/door_dark_oak_lower.png",
-      "dest": "textures/blocks/door_dark_oak_lower.png"
+      "dest": "textures/blocks/dark_oak_door_bottom.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/door_dark_oak_upper.png",
-      "dest": "textures/blocks/door_dark_oak_upper.png"
+      "dest": "textures/blocks/dark_oak_door_top.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/door_jungle_lower.png",
-      "dest": "textures/blocks/door_jungle_lower.png"
+      "dest": "textures/blocks/jungle_door_bottom.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/door_jungle_upper.png",
-      "dest": "textures/blocks/door_jungle_upper.png"
+      "dest": "textures/blocks/jungle_door_top.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/door_spruce_lower.png",
-      "dest": "textures/blocks/door_spruce_lower.png"
+      "dest": "textures/blocks/spruce_door_bottom.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/door_spruce_upper.png",
-      "dest": "textures/blocks/door_spruce_upper.png"
+      "dest": "textures/blocks/spruce_door_top.png"
     },
     {
       "ar": "mc12",
@@ -524,17 +524,17 @@
     {
       "ar": "mc12",
       "src": "textures/blocks/prismarine_rough.png",
-      "dest": "textures/blocks/prismarine_block.png"
+      "dest": "textures/blocks/prismarine.png"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/prismarine_rough.png.mcmeta",
-      "dest": "textures/blocks/prismarine_block.png.mcmeta"
+      "dest": "textures/blocks/prismarine.png.mcmeta"
     },
     {
       "ar": "mc12",
       "src": "textures/blocks/prismarine_bricks.png",
-      "dest": "textures/blocks/prismarine_brick.png"
+      "dest": "textures/blocks/prismarine_bricks.png"
     },
     {
       "ar": "mc12",
@@ -593,6 +593,11 @@
     },
     {
       "ar": "mc12",
+      "src": "textures/blocks/sea_lantern.png.mcmeta",
+      "dest": "textures/blocks/sea_lantern.png.mcmeta"
+    },
+    {
+      "ar": "mc12",
       "src": "textures/blocks/stone_andesite.png",
       "dest": "textures/blocks/stone_andesite.png"
     },
@@ -624,62 +629,62 @@
     {
       "ar": "mc15",
       "src": "textures/block/stripped_acacia_log.png",
-      "dest": "textures/blocks/stripped_log_acacia.png"
+      "dest": "textures/blocks/stripped_acacia_log.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_acacia_log_top.png",
-      "dest": "textures/blocks/stripped_log_acacia_top.png"
+      "dest": "textures/blocks/stripped_acacia_log_top.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_birch_log.png",
-      "dest": "textures/blocks/stripped_log_birch.png"
+      "dest": "textures/blocks/stripped_birch_log.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_birch_log_top.png",
-      "dest": "textures/blocks/stripped_log_birch_top.png"
+      "dest": "textures/blocks/stripped_birch_log_top.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_dark_oak_log.png",
-      "dest": "textures/blocks/stripped_log_dark_oak.png"
+      "dest": "textures/blocks/stripped_dark_oak_log.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_dark_oak_log_top.png",
-      "dest": "textures/blocks/stripped_log_dark_oak_top.png"
+      "dest": "textures/blocks/stripped_dark_oak_log_top.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_jungle_log.png",
-      "dest": "textures/blocks/stripped_log_jungle.png"
+      "dest": "textures/blocks/stripped_jungle_log.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_jungle_log_top.png",
-      "dest": "textures/blocks/stripped_log_jungle_top.png"
+      "dest": "textures/blocks/stripped_jungle_log_top.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_oak_log.png",
-      "dest": "textures/blocks/stripped_log_oak.png"
+      "dest": "textures/blocks/stripped_oak_log.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_oak_log_top.png",
-      "dest": "textures/blocks/stripped_log_oak_top.png"
+      "dest": "textures/blocks/stripped_oak_log_top.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_spruce_log.png",
-      "dest": "textures/blocks/stripped_log_spruce.png"
+      "dest": "textures/blocks/stripped_spruce_log.png"
     },
     {
       "ar": "mc15",
       "src": "textures/block/stripped_spruce_log_top.png",
-      "dest": "textures/blocks/stripped_log_spruce_top.png"
+      "dest": "textures/blocks/stripped_spruce_log_top.png"
     },
     {
       "ar": "mc15",
@@ -802,6 +807,31 @@
       "func": "rotate90"
     },
     {
+      "ar": "mc15",
+      "src": "textures/block/wither_rose.png",
+      "dest": "textures/blocks/wither_rose.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/sweet_berry_bush_stage0.png",
+      "dest": "textures/blocks/sweet_berry_bush_stage0.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/sweet_berry_bush_stage1.png",
+      "dest": "textures/blocks/sweet_berry_bush_stage1.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/sweet_berry_bush_stage2.png",
+      "dest": "textures/blocks/sweet_berry_bush_stage2.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/sweet_berry_bush_stage3.png",
+      "dest": "textures/blocks/sweet_berry_bush_stage3.png"
+    },
+    {
       "ar": "mc12",
       "src": "textures/items/wooden_armorstand.png",
       "dest": "textures/items/armor_stand.png"
@@ -814,27 +844,27 @@
     {
       "ar": "mc12",
       "src": "textures/items/door_acacia.png",
-      "dest": "textures/items/door_acacia.png"
+      "dest": "textures/items/acacia_door.png"
     },
     {
       "ar": "mc12",
       "src": "textures/items/door_birch.png",
-      "dest": "textures/items/door_birch.png"
+      "dest": "textures/items/birch_door.png"
     },
     {
       "ar": "mc12",
       "src": "textures/items/door_dark_oak.png",
-      "dest": "textures/items/door_dark_oak.png"
+      "dest": "textures/items/dark_oak_door.png"
     },
     {
       "ar": "mc12",
       "src": "textures/items/door_jungle.png",
-      "dest": "textures/items/door_jungle.png"
+      "dest": "textures/items/jungle_door.png"
     },
     {
       "ar": "mc12",
       "src": "textures/items/door_spruce.png",
-      "dest": "textures/items/door_spruce.png"
+      "dest": "textures/items/spruce_door.png"
     },
     {
       "ar": "mc12",
@@ -855,6 +885,21 @@
       "ar": "mc12",
       "src": "textures/items/mutton_raw.png",
       "dest": "textures/items/raw_mutton.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/item/white_dye.png",
+      "dest": "textures/items/white_dye.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/item/blue_dye.png",
+      "dest": "textures/items/blue_dye.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/item/black_dye.png",
+      "dest": "textures/items/black_dye.png"
     },
     {
       "ar": "mc12",

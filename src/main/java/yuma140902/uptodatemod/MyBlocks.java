@@ -459,9 +459,9 @@ public final class MyBlocks {
 			add(slabGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_GRANITE, "slab_granite"));
 			add(slabDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_DIORITE, "slab_diorite"));
 			add(slabAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_ANDESITE, "slab_andesite"));
-			add(slabPolishedGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "slab_polished_granite", StringUtil.getDomainedModTextureName("polished_granite_slab_side")));
-			add(slabPolishedDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "slab_polished_diorite", StringUtil.getDomainedModTextureName("polished_diorite_slab_side")));
-			add(slabPolishedAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "slab_polished_andesite", StringUtil.getDomainedModTextureName("polished_andesite_slab_side")));
+			add(slabPolishedGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "slab_polished_granite", StringUtil.getDomainedTextureName("polished_granite_slab_side")));
+			add(slabPolishedDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "slab_polished_diorite", StringUtil.getDomainedTextureName("polished_diorite_slab_side")));
+			add(slabPolishedAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "slab_polished_andesite", StringUtil.getDomainedTextureName("polished_andesite_slab_side")));
 			add(slabRedNetherBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.redNetherBricks, 0, "slab_red_nether_bricks"));
 			add(slabEndStoneBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.endStoneBricks, 0, "slab_end_stone_bricks"));
 			add(slabMossyStoneBricks = BlockGenericSlab.constructIfNotNull(Blocks.stonebrick, 1, "slab_mossy_stone_bricks"));

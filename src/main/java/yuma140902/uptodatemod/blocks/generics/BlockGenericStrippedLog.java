@@ -42,7 +42,7 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName(name));
-		setBlockTextureName(StringUtil.getDomainedMCTextureName(nameForTexture));
+		setBlockTextureName(StringUtil.getDomainedTextureName(nameForTexture));
 		GameRegistry.registerBlock(this, ItemBlockGenericStrippedLog.class, name);
 		OreDictionary.registerOre("logWood", this);
 	}

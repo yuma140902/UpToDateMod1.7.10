@@ -62,12 +62,12 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
-		iIcons[META_GRANITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("stone_granite"));
-		iIcons[META_POLISHED_GRANITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("stone_polished_granite"));
-		iIcons[META_DIORITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("stone_diorite"));
-		iIcons[META_POLISHED_DIORITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("stone_polished_diorite"));
-		iIcons[META_ANDESITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("stone_andesite"));
-		iIcons[META_POLISHED_ANDESITE] = register.registerIcon(StringUtil.getDomainedMCTextureName("stone_polished_andesite"));
+		iIcons[META_GRANITE] = register.registerIcon(StringUtil.getDomainedTextureName("stone_granite"));
+		iIcons[META_POLISHED_GRANITE] = register.registerIcon(StringUtil.getDomainedTextureName("stone_polished_granite"));
+		iIcons[META_DIORITE] = register.registerIcon(StringUtil.getDomainedTextureName("stone_diorite"));
+		iIcons[META_POLISHED_DIORITE] = register.registerIcon(StringUtil.getDomainedTextureName("stone_polished_diorite"));
+		iIcons[META_ANDESITE] = register.registerIcon(StringUtil.getDomainedTextureName("stone_andesite"));
+		iIcons[META_POLISHED_ANDESITE] = register.registerIcon(StringUtil.getDomainedTextureName("stone_polished_andesite"));
 	}
 	
 	@Override

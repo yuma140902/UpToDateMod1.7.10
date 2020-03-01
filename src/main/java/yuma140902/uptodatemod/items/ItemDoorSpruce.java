@@ -24,7 +24,7 @@ public class ItemDoorSpruce extends net.minecraft.item.ItemDoor implements IRegi
   
   public void register() {
 		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("door_spruce"));
-		this.setTextureName(StringUtil.getDomainedMCTextureName("spruce_door"));
+		this.setTextureName(StringUtil.getDomainedTextureName("spruce_door"));
 		GameRegistry.registerItem(this, "itemDoorSpruce");
   }
   

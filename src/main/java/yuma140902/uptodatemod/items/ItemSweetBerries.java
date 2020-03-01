@@ -23,7 +23,7 @@ public class ItemSweetBerries extends ItemSeedFood implements IRegisterable {
 	@Override
 	public void register() {
 		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("sweet_berries"));
-		this.setTextureName(StringUtil.getDomainedModTextureName("sweet_berries"));
+		this.setTextureName(StringUtil.getDomainedTextureName("sweet_berries"));
 		GameRegistry.registerItem(this, "sweet_berries");
 	}
 	

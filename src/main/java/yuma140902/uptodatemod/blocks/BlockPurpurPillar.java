@@ -27,7 +27,7 @@ public class BlockPurpurPillar extends BlockRotatedPillar implements IRegisterab
 	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("purpur_pillar"));
-		setBlockTextureName(StringUtil.getDomainedMCTextureName("purpur_pillar"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("purpur_pillar"));
 		GameRegistry.registerBlock(this, "purpur_pillar");
 	}
 	

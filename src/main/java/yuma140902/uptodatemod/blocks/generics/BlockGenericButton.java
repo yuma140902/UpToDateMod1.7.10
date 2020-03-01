@@ -34,7 +34,7 @@ public class BlockGenericButton extends BlockButtonWood implements IRegisterable
 	@Override
 	public void register() {
 		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
-		this.setBlockTextureName(StringUtil.getDomainedModTextureName(name));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	

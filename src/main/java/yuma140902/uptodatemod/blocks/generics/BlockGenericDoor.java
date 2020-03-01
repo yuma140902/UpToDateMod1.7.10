@@ -101,7 +101,7 @@ public abstract class BlockGenericDoor extends BlockDoor implements IRegisterabl
 	@Override
 	public void register() {
 		this.setBlockName(StringUtil.getDomainedUnlocalizedName(getName()));
-		this.setBlockTextureName(StringUtil.getDomainedMCTextureName(getNameForTexture()));
+		this.setBlockTextureName(StringUtil.getDomainedTextureName(getNameForTexture()));
 		GameRegistry.registerBlock(this, getName());
 	}
 	

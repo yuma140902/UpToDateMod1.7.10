@@ -15,30 +15,22 @@ public class StringUtil {
 		return value.isEmpty() ? "" : value + sep;
 	}
 	
-	public static String getDomainedModTextureName(String name) {
+	public static String getDomainedTextureName(String name) {
 		return ModUpToDateMod.MOD_TEXTURE_DOMAIN + ":" + name;
-	}
-	
-	public static String getDomainedMCTextureName(String name) {
-		return "minecraft:" + name;
 	}
 	
 	public static String getDomainedUnlocalizedName(String name) {
 		return ModUpToDateMod.MOD_UNLOCALIZED_ENTRY_DOMAIN + "." + name;
 	}
 	
+	
 	@Nonnull
-	public static String[] domainedModTextureNames(String... names) {
-		return domainedTextureNames(ModUpToDateMod.MOD_TEXTURE_DOMAIN, names);
+	public static String[] domainedTextureNames(String... names) {
+		return _domainedTextureNames(ModUpToDateMod.MOD_TEXTURE_DOMAIN, names);
 	}
 	
 	@Nonnull
-	public static String[] domainedMCTextureNames(String... names) {
-		return domainedTextureNames("minecraft", names);
-	}
-	
-	@Nonnull
-	private static String[] domainedTextureNames(String textureDomain, @Nullable String... names) {
+	private static String[] _domainedTextureNames(String textureDomain, @Nullable String... names) {
 		if(names == null) return new String[0];
 		
 		String[] ret = new String[names.length];

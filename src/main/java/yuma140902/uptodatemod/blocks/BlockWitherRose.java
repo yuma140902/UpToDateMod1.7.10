@@ -40,7 +40,7 @@ public class BlockWitherRose extends BlockBush implements IRegisterable, IHasRec
 	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("wither_rose"));
-		setBlockTextureName(StringUtil.getDomainedMCTextureName("wither_rose"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("wither_rose"));
 		GameRegistry.registerBlock(this, ItemBlock.class, "wither_rose");
 	}
 	

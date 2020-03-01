@@ -39,7 +39,7 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("sweet_berry_bush"));
-		setBlockTextureName(StringUtil.getDomainedModTextureName("sweet_berry_bush_stage"));
+		setBlockTextureName(StringUtil.getDomainedTextureName("sweet_berry_bush_stage"));
 		GameRegistry.registerBlock(this, "sweet_berry_bush");
 		
 		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.dye, new DispenseBehaviorFertilize());

@@ -60,7 +60,7 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable, 
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		for (int meta = 0; meta <= META_MAX; ++meta) {
-			iicons[meta] = register.registerIcon(StringUtil.getDomainedMCTextureName(ColorUtil.metaToString(meta) + "_" + "concrete_powder"));
+			iicons[meta] = register.registerIcon(StringUtil.getDomainedTextureName("concrete_powder_" + ColorUtil.metaToString(meta)));
 		}
 	}
 	
