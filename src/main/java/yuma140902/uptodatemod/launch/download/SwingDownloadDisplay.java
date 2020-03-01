@@ -37,7 +37,7 @@ public class SwingDownloadDisplay implements IDownloadDisplay {
 		String html =
 				"<html>" + ModUpToDateMod.MOD_NAME + " was unable to download required resources " + name
 						+ "<br>Check your internet connection and try restarting or download it manually from" + "<br><a href=\""
-						+ url + "\">" + url + "</a> and put it in the mods folder"
+						+ url + "\">" + url + "</a> and put it in uptodatemod/dl-cache/" + name
 						+ "</html>";
 		String title = "A download error has occured";
 		

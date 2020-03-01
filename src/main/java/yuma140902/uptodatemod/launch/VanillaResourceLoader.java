@@ -25,6 +25,10 @@ import yuma140902.uptodatemod.launch.organize.IOrganizeDisplay;
 import yuma140902.uptodatemod.launch.organize.IOrganizer;
 import yuma140902.uptodatemod.launch.organize.OrganizerWithDisplay;
 import yuma140902.uptodatemod.launch.organize.SwingOrganizeDisplay;
+import yuma140902.uptodatemod.launch.sounddownload.ISoundDownloadDisplay;
+import yuma140902.uptodatemod.launch.sounddownload.ISoundDownloader;
+import yuma140902.uptodatemod.launch.sounddownload.SoundDownloaderWithDisplay;
+import yuma140902.uptodatemod.launch.sounddownload.SwingSoundDownloadDisplay;
 
 public class VanillaResourceLoader {
 	
@@ -39,6 +43,7 @@ public class VanillaResourceLoader {
 		Gson gson = new Gson();
 		Setting setting = gson.fromJson(reader, Setting.class);
 		
+		// TODO: throws IOException せずに showError(..)を使うようにする
 		if(needUpdate(assets, clazz.getResourceAsStream(settingFileName))) {
 			Files.createDirectories(caches);
 			Files.createDirectories(archives);
@@ -47,6 +52,8 @@ public class VanillaResourceLoader {
 			download(setting, caches, archives);
 			registerArchives(setting, archives);
 			organize(setting, assets);
+			//TODO: Jarファイルにoggファイルが同梱されていなくてもIResourcePack経由でsounds.jsonを反映してくれるのか確認
+			setupSounds(setting, caches, assets);
 			
 			makeVersionCheckFile(assets, clazz.getResourceAsStream(settingFileName));
 		}
@@ -106,5 +113,12 @@ public class VanillaResourceLoader {
 		
 		IOrganizer organizer = new OrganizerWithDisplay(display, assets);
 		organizer.organize(setting.copies);
+	}
+	
+	private static void setupSounds(Setting setting, Path caches, Path assets) throws IOException {
+		ISoundDownloadDisplay display = new SwingSoundDownloadDisplay();
+		
+		ISoundDownloader downloader = new SoundDownloaderWithDisplay(display, caches, assets);
+		downloader.downloadSounds(setting.sounds);
 	}
 }

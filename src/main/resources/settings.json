@@ -843,31 +843,6 @@
     },
     {
       "ar": "mc12",
-      "src": "textures/items/acacia_boat.png",
-      "dest": "textures/items/item_boat_acacia.png"
-    },
-    {
-      "ar": "mc12",
-      "src": "textures/items/birch_boat.png",
-      "dest": "textures/items/item_boat_birch.png"
-    },
-    {
-      "ar": "mc12",
-      "src": "textures/items/dark_oak_boat.png",
-      "dest": "textures/items/item_boat_dark_oak.png"
-    },
-    {
-      "ar": "mc12",
-      "src": "textures/items/jungle_boat.png",
-      "dest": "textures/items/item_boat_jungle.png"
-    },
-    {
-      "ar": "mc12",
-      "src": "textures/items/spruce_boat.png",
-      "dest": "textures/items/item_boat_spruce.png"
-    },
-    {
-      "ar": "mc12",
       "src": "textures/items/prismarine_crystals.png",
       "dest": "textures/items/prismarine_crystals.png"
     },
