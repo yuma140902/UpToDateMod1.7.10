@@ -1,12 +1,17 @@
 package yuma140902.uptodatemod;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -17,6 +22,8 @@ import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -24,13 +31,17 @@ import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.integration.Plugins;
+import yuma140902.uptodatemod.launch.VanillaResourceLoader;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
 import yuma140902.uptodatemod.network.NoteBlockPlayHandler;
 import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
+import yuma140902.uptodatemod.network.SpawnFertilizingParticleHandler;
+import yuma140902.uptodatemod.network.SpawnFertilizingParticleMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.resourcepack.UpToDateModResourcePack;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
@@ -55,9 +66,11 @@ public class ModUpToDateMod {
 	public static final String MOD_TEXTURE_DOMAIN = "uptodate";
 	public static final String MOD_UNLOCALIZED_ENTRY_DOMAIN = "uptodate";
 	public static final String MINECRAFT_VERSION = "1.7.10";
-	public static final String MOD_VERSION = "1.6.1";
+	public static final String MOD_VERSION = "2.0.0";
 	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
 	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
+	
+	public Path uptodatemodDirectory;
 	
 	public static int glazedTerracottaRenderId;
 	
@@ -116,6 +129,21 @@ public class ModUpToDateMod {
 		}
 		LOGGER.info(UpdateChecker.INSTANCE.hasNewVersionAvailable() ? "There is a new version available. - v" + UpdateChecker.INSTANCE.availableNewVersion + ". Visit " + UpdateChecker.INSTANCE.getNewVersionUrl() : "UpToDateMod is now up-to-date.");
 		
+		this.uptodatemodDirectory = Paths.get("uptodatemod").toAbsolutePath();
+		try {
+			Path caches = Paths.get("uptodatemod/dl-cache");
+			Path archives = Paths.get("uptodatemod/client-jars");
+			Path assets = Paths.get("uptodatemod/assets/uptodate");
+			
+			VanillaResourceLoader.load(caches, archives, assets);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), "defaultResourcePacks", "field_110449_ao");
+    defaultResourcePacks.add(new UpToDateModResourcePack());
+		
+		
 		tweakVanilla();
 		MyBlocks.register();
 		MyItems.register();
@@ -128,6 +156,7 @@ public class ModUpToDateMod {
 		networkWrapper.registerMessage(ArmorStandInteractHandler.class, ArmorStandInteractMessage.class, 0, Side.SERVER);
 //		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.SERVER);
 		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.CLIENT);
+		networkWrapper.registerMessage(SpawnFertilizingParticleHandler.class, SpawnFertilizingParticleMessage.class, 2, Side.CLIENT);
 	}
 	
 	@EventHandler

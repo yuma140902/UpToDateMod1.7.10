@@ -30,8 +30,12 @@ import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockSeaLantern;
+import yuma140902.uptodatemod.blocks.BlockSmoothStone;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.BlockStoneSlab;
+import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
+import yuma140902.uptodatemod.blocks.BlockUnlimitedPot;
+import yuma140902.uptodatemod.blocks.BlockWitherRose;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericButton;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFence;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericFenceGate;
@@ -46,6 +50,7 @@ import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.util.StringUtil;
 
 public final class MyBlocks {
 	private MyBlocks() {}
@@ -75,6 +80,7 @@ public final class MyBlocks {
 	}
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone;
+	public static final BlockSmoothStone smoothStone;
 	
 	public static final BlockGenericStrippedLog strippedLogAcacia;
 	public static final BlockGenericStrippedLog strippedLogBirch;
@@ -213,20 +219,26 @@ public final class MyBlocks {
 	public static final BlockGenericWall wallDarkPrismarine;
 	
 	public static final BlockBarrel barrel;
+
+	public static final BlockSweetBerryBush sweetBerryBush;
+	
+	public static final BlockWitherRose witherRose;
+	public static final BlockUnlimitedPot unlimitedPot;
 	
 	
 	static {
 		ModUpToDateMod.LOGGER.info("Blocks init");
 		
 		add(stone = isEnabled(stones) ? new yuma140902.uptodatemod.blocks.BlockStone() : null);
+		add(smoothStone = isEnabled(EnumDisableableFeatures.smoothStone) ? new BlockSmoothStone() : null);
 		
 		if(isEnabled(strippedLogs)) {
-			add(strippedLogAcacia = new BlockGenericStrippedLog("stripped_log_acacia", Stat.PLANK_META_ACACIA));
-			add(strippedLogBirch = new BlockGenericStrippedLog("stripped_log_birch", Stat.PLANK_META_BIRCH));
-			add(strippedLogDarkOak = new BlockGenericStrippedLog("stripped_log_dark_oak", Stat.PLANK_META_DARKOAK));
-			add(strippedLogJungle = new BlockGenericStrippedLog("stripped_log_jungle", Stat.PLANK_META_JUNGLE));
-			add(strippedLogOak = new BlockGenericStrippedLog("stripped_log_oak", Stat.PLANK_META_OAK));
-			add(strippedLogSpruce = new BlockGenericStrippedLog("stripped_log_spruce", Stat.PLANK_META_SPRUCE));
+			add(strippedLogAcacia =  new BlockGenericStrippedLog("stripped_log_acacia",    "stripped_acacia_log",   Stat.PLANK_META_ACACIA));
+			add(strippedLogBirch =   new BlockGenericStrippedLog("stripped_log_birch",      "stripped_birch_log",    Stat.PLANK_META_BIRCH));
+			add(strippedLogDarkOak = new BlockGenericStrippedLog("stripped_log_dark_oak", "stripped_dark_oak_log", Stat.PLANK_META_DARKOAK));
+			add(strippedLogJungle =  new BlockGenericStrippedLog("stripped_log_jungle",    "stripped_jungle_log",   Stat.PLANK_META_JUNGLE));
+			add(strippedLogOak =     new BlockGenericStrippedLog("stripped_log_oak",          "stripped_oak_log",      Stat.PLANK_META_OAK));
+			add(strippedLogSpruce =  new BlockGenericStrippedLog("stripped_log_spruce",    "stripped_spruce_log",   Stat.PLANK_META_SPRUCE));
 		}
 		else {
 			strippedLogAcacia = null;
@@ -447,9 +459,9 @@ public final class MyBlocks {
 			add(slabGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_GRANITE, "slab_granite"));
 			add(slabDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_DIORITE, "slab_diorite"));
 			add(slabAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_ANDESITE, "slab_andesite"));
-			add(slabPolishedGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "slab_polished_granite", ModUpToDateMod.MOD_ID + ":polished_granite_slab_side"));
-			add(slabPolishedDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "slab_polished_diorite", ModUpToDateMod.MOD_ID + ":polished_diorite_slab_side"));
-			add(slabPolishedAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "slab_polished_andesite", ModUpToDateMod.MOD_ID + ":polished_andesite_slab_side"));
+			add(slabPolishedGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "slab_polished_granite", StringUtil.getDomainedTextureName("polished_granite_slab_side")));
+			add(slabPolishedDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "slab_polished_diorite", StringUtil.getDomainedTextureName("polished_diorite_slab_side")));
+			add(slabPolishedAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "slab_polished_andesite", StringUtil.getDomainedTextureName("polished_andesite_slab_side")));
 			add(slabRedNetherBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.redNetherBricks, 0, "slab_red_nether_bricks"));
 			add(slabEndStoneBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.endStoneBricks, 0, "slab_end_stone_bricks"));
 			add(slabMossyStoneBricks = BlockGenericSlab.constructIfNotNull(Blocks.stonebrick, 1, "slab_mossy_stone_bricks"));
@@ -514,5 +526,10 @@ public final class MyBlocks {
 		
 		add(barrel = isEnabled(EnumDisableableFeatures.barrel) ? new BlockBarrel() : null);
 		
+		add(sweetBerryBush = isEnabled(sweetBerry) ? new BlockSweetBerryBush() : null);
+		
+		add(witherRose = isEnabled(EnumDisableableFeatures.witherRose) ? new BlockWitherRose() : null);
+		add(unlimitedPot = new BlockUnlimitedPot());
 	}
+	
 }

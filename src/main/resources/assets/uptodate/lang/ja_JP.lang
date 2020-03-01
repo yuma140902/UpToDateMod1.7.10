@@ -7,6 +7,8 @@ tile.uptodate.stone.polished_diorite.name=磨かれた閃緑岩
 tile.uptodate.stone.andesite.name=安山岩
 tile.uptodate.stone.polished_andesite.name=磨かれた安山岩
 
+tile.uptodate.smooth_stone.name=滑らかな石
+
 tile.uptodate.stripped_log_acacia.name=樹皮を剥いだアカシアの原木
 tile.uptodate.stripped_log_birch.name=樹皮を剥いだシラカバの原木
 tile.uptodate.stripped_log_dark_oak.name=樹皮を剥いだダークオークの原木
@@ -94,6 +96,9 @@ tile.uptodate.grass_path.name=草の道
 item.uptodate.raw_mutton.name=生の羊肉
 item.uptodate.cooked_mutton.name=焼き羊肉
 
+item.uptodate.sweet_berries.name=スイートベリー
+tile.uptodate.sweet_berry_bush.name=スイートベリーの茂み
+
 tile.uptodate.stairs_stone.name=石の階段
 tile.uptodate.stairs_granite.name=花崗岩の階段
 tile.uptodate.stairs_diorite.name=閃緑岩の階段
@@ -160,6 +165,12 @@ entity.uptodate.boat_spruce.name=マツのボート
 
 container.uptodate.barrel=樽
 tile.uptodate.barrel.name=樽
+
+tile.uptodate.wither_rose.name=ウィザーローズ
+
+item.uptodate.dye.blue.name=青色の染料
+item.uptodate.dye.white.name=白色の染料
+item.uptodate.dye.black.name=黒色の染料
 
 tile.uptodate.concrete.black.name=黒色のコンクリート
 tile.uptodate.concrete.blue.name=青色のコンクリート
@@ -242,8 +253,6 @@ config.uptodate.category.recipe=レシピ
 config.uptodate.category.recipe.tooltip=レシピに関する設定
 config.uptodate.prop.remove_old_fence_recipe=古いフェンスのレシピの削除
 config.uptodate.prop.remove_old_fence_recipe.tooltip=棒6本からフェンス2個を作るフェンスの古いレシピを削除するかどうか
-config.uptodate.prop.add_stoneslab_recipe=石のハーフブロックのレシピの追加
-config.uptodate.prop.add_stoneslab_recipe.tooltip=バニラの石ハーフのレシピとかぶっている
 
 config.uptodate.category.entity=エンティティ・モブ
 config.uptodate.category.entity.tooltip=エンティティやモブに関する設定

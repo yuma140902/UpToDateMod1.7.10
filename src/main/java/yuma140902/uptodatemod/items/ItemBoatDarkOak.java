@@ -13,6 +13,11 @@ public class ItemBoatDarkOak extends ItemModBoatBase {
 	}
 
 	@Override
+	protected String getNameForTexture() {
+		return "dark_oak_boat";
+	}
+	
+	@Override
 	protected Type getType() {
 		return Type.DARK_OAK;
 	}

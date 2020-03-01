@@ -18,9 +18,11 @@ import yuma140902.uptodatemod.items.ItemDoorDarkOak;
 import yuma140902.uptodatemod.items.ItemDoorJungle;
 import yuma140902.uptodatemod.items.ItemDoorSpruce;
 import yuma140902.uptodatemod.items.ItemIronNugget;
+import yuma140902.uptodatemod.items.ItemPlainDye;
 import yuma140902.uptodatemod.items.ItemPrismarineCrystals;
 import yuma140902.uptodatemod.items.ItemPrismarineShard;
 import yuma140902.uptodatemod.items.ItemRawMutton;
+import yuma140902.uptodatemod.items.ItemSweetBerries;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 
@@ -72,6 +74,10 @@ public final class MyItems {
 	public static final ItemCookedMutton cookedMutton;
 	
 	public static final ItemArmorStand armorStand;
+	
+	public static final ItemSweetBerries sweetBerries;
+	
+	public static final ItemPlainDye dye;
 	
 	static {
 		ModUpToDateMod.LOGGER.info("Items init");
@@ -127,5 +133,8 @@ public final class MyItems {
 		}
 		
 		add(armorStand = isEnabled(EnumDisableableFeatures.armorStand) ? new ItemArmorStand() : null);
+		add(sweetBerries = isEnabled(sweetBerry) ? new ItemSweetBerries() : null);
+		add(dye = isEnabled(plainDye) ? new ItemPlainDye() : null);
 	}
+
 }

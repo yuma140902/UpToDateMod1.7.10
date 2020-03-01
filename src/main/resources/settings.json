@@ -1,0 +1,910 @@
+{
+  "archives": [
+    {
+      "slug": "mc12",
+      "urls": [
+        "https://launcher.mojang.com/v1/objects/0f275bc1547d01fa5f56ba34bdc87d981ee12daf/client.jar"
+      ],
+      "filename": "minecraft-client-1.12.2.jar",
+      "cache": "true"
+    },
+    {
+      "slug": "mc15",
+      "urls": [
+        "https://launcher.mojang.com/v1/objects/e3f78cd16f9eb9a52307ed96ebec64241cc5b32d/client.jar"
+      ],
+      "filename": "minecraft-client-1.15.2.jar",
+      "cache": "true"
+    }
+  ],
+  "sounds": [
+    {
+      "url": "https://resources.download.minecraft.net/df/dffb5d6066ba89a4d3a609eb0c607606d4a524e2",
+      "dest": "sounds/note/bell.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a7/a7f05f19c3e553c61deb61e5e8123a82cdbec758",
+      "dest": "sounds/note/flute.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/3e/3ea516355b5ec2bef08d9e6aa3ebc6626acb583b",
+      "dest": "sounds/note/guitar.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/56/562f63e81572019a66cf795cea914ed6910edb53",
+      "dest": "sounds/note/icechime.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b7/b7cf6b6ff19146fae41a39025ab709ea90bcc439",
+      "dest": "sounds/note/xylobone.ogg"
+    }
+  ],
+  "copies": [
+    {
+      "ar": "mc15",
+      "src": "textures/block/barrel_bottom.png",
+      "dest": "textures/blocks/barrel_bottom.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/barrel_side.png",
+      "dest": "textures/blocks/barrel_side.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/barrel_top.png",
+      "dest": "textures/blocks/barrel_top.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/barrel_top_open.png",
+      "dest": "textures/blocks/barrel_top_open.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/bone_block_side.png",
+      "dest": "textures/blocks/bone_block_side.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/bone_block_top.png",
+      "dest": "textures/blocks/bone_block_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/coarse_dirt.png",
+      "dest": "textures/blocks/coarse_dirt.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_black.png",
+      "dest": "textures/blocks/concrete_black.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_blue.png",
+      "dest": "textures/blocks/concrete_blue.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_brown.png",
+      "dest": "textures/blocks/concrete_brown.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_cyan.png",
+      "dest": "textures/blocks/concrete_cyan.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_gray.png",
+      "dest": "textures/blocks/concrete_gray.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_green.png",
+      "dest": "textures/blocks/concrete_green.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_light_blue.png",
+      "dest": "textures/blocks/concrete_light_blue.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_silver.png",
+      "dest": "textures/blocks/concrete_light_gray.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_lime.png",
+      "dest": "textures/blocks/concrete_lime.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_magenta.png",
+      "dest": "textures/blocks/concrete_magenta.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_orange.png",
+      "dest": "textures/blocks/concrete_orange.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_pink.png",
+      "dest": "textures/blocks/concrete_pink.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_black.png",
+      "dest": "textures/blocks/concrete_powder_black.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_blue.png",
+      "dest": "textures/blocks/concrete_powder_blue.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_brown.png",
+      "dest": "textures/blocks/concrete_powder_brown.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_cyan.png",
+      "dest": "textures/blocks/concrete_powder_cyan.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_gray.png",
+      "dest": "textures/blocks/concrete_powder_gray.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_green.png",
+      "dest": "textures/blocks/concrete_powder_green.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_light_blue.png",
+      "dest": "textures/blocks/concrete_powder_light_blue.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_silver.png",
+      "dest": "textures/blocks/concrete_powder_light_gray.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_lime.png",
+      "dest": "textures/blocks/concrete_powder_lime.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_magenta.png",
+      "dest": "textures/blocks/concrete_powder_magenta.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_orange.png",
+      "dest": "textures/blocks/concrete_powder_orange.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_pink.png",
+      "dest": "textures/blocks/concrete_powder_pink.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_purple.png",
+      "dest": "textures/blocks/concrete_powder_purple.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_red.png",
+      "dest": "textures/blocks/concrete_powder_red.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_white.png",
+      "dest": "textures/blocks/concrete_powder_white.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_powder_yellow.png",
+      "dest": "textures/blocks/concrete_powder_yellow.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_purple.png",
+      "dest": "textures/blocks/concrete_purple.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_red.png",
+      "dest": "textures/blocks/concrete_red.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_white.png",
+      "dest": "textures/blocks/concrete_white.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/concrete_yellow.png",
+      "dest": "textures/blocks/concrete_yellow.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/prismarine_dark.png",
+      "dest": "textures/blocks/dark_prismarine_block.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_acacia_lower.png",
+      "dest": "textures/blocks/acacia_door_bottom.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_acacia_upper.png",
+      "dest": "textures/blocks/acacia_door_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_birch_lower.png",
+      "dest": "textures/blocks/birch_door_bottom.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_birch_upper.png",
+      "dest": "textures/blocks/birch_door_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_dark_oak_lower.png",
+      "dest": "textures/blocks/dark_oak_door_bottom.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_dark_oak_upper.png",
+      "dest": "textures/blocks/dark_oak_door_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_jungle_lower.png",
+      "dest": "textures/blocks/jungle_door_bottom.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_jungle_upper.png",
+      "dest": "textures/blocks/jungle_door_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_spruce_lower.png",
+      "dest": "textures/blocks/spruce_door_bottom.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/door_spruce_upper.png",
+      "dest": "textures/blocks/spruce_door_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/end_bricks.png",
+      "dest": "textures/blocks/end_stone_bricks.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_black.png",
+      "dest": "textures/blocks/glazed_terracotta_black.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_black.png",
+      "dest": "textures/blocks/glazed_terracotta_black_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_blue.png",
+      "dest": "textures/blocks/glazed_terracotta_blue.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_blue.png",
+      "dest": "textures/blocks/glazed_terracotta_blue_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_brown.png",
+      "dest": "textures/blocks/glazed_terracotta_brown.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_brown.png",
+      "dest": "textures/blocks/glazed_terracotta_brown_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_cyan.png",
+      "dest": "textures/blocks/glazed_terracotta_cyan.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_cyan.png",
+      "dest": "textures/blocks/glazed_terracotta_cyan_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_gray.png",
+      "dest": "textures/blocks/glazed_terracotta_gray.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_gray.png",
+      "dest": "textures/blocks/glazed_terracotta_gray_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_green.png",
+      "dest": "textures/blocks/glazed_terracotta_green.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_green.png",
+      "dest": "textures/blocks/glazed_terracotta_green_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_light_blue.png",
+      "dest": "textures/blocks/glazed_terracotta_light_blue.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_light_blue.png",
+      "dest": "textures/blocks/glazed_terracotta_light_blue_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_silver.png",
+      "dest": "textures/blocks/glazed_terracotta_light_gray.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_silver.png",
+      "dest": "textures/blocks/glazed_terracotta_light_gray_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_lime.png",
+      "dest": "textures/blocks/glazed_terracotta_lime.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_lime.png",
+      "dest": "textures/blocks/glazed_terracotta_lime_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_magenta.png",
+      "dest": "textures/blocks/glazed_terracotta_magenta.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_magenta.png",
+      "dest": "textures/blocks/glazed_terracotta_magenta_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_orange.png",
+      "dest": "textures/blocks/glazed_terracotta_orange.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_orange.png",
+      "dest": "textures/blocks/glazed_terracotta_orange_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_pink.png",
+      "dest": "textures/blocks/glazed_terracotta_pink.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_pink.png",
+      "dest": "textures/blocks/glazed_terracotta_pink_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_purple.png",
+      "dest": "textures/blocks/glazed_terracotta_purple.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_purple.png",
+      "dest": "textures/blocks/glazed_terracotta_purple_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_red.png",
+      "dest": "textures/blocks/glazed_terracotta_red.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_red.png",
+      "dest": "textures/blocks/glazed_terracotta_red_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_white.png",
+      "dest": "textures/blocks/glazed_terracotta_white.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_white.png",
+      "dest": "textures/blocks/glazed_terracotta_white_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_yellow.png",
+      "dest": "textures/blocks/glazed_terracotta_yellow.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/glazed_terracotta_yellow.png",
+      "dest": "textures/blocks/glazed_terracotta_yellow_flip.png",
+      "func": "flip"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/grass_path_side.png",
+      "dest": "textures/blocks/grass_path_side.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/grass_path_top.png",
+      "dest": "textures/blocks/grass_path_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/magma.png",
+      "dest": "textures/blocks/magma_block.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/magma.png.mcmeta",
+      "dest": "textures/blocks/magma_block.png.mcmeta"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/nether_wart_block.png",
+      "dest": "textures/blocks/nether_wart_block.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/observer_back.png",
+      "dest": "textures/blocks/observer_back.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/observer_back_lit.png",
+      "dest": "textures/blocks/observer_back_on.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/observer_front.png",
+      "dest": "textures/blocks/observer_front.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/observer_side.png",
+      "dest": "textures/blocks/observer_side.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/observer_top.png",
+      "dest": "textures/blocks/observer_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/prismarine_rough.png",
+      "dest": "textures/blocks/prismarine.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/prismarine_rough.png.mcmeta",
+      "dest": "textures/blocks/prismarine.png.mcmeta"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/prismarine_bricks.png",
+      "dest": "textures/blocks/prismarine_bricks.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/purpur_block.png",
+      "dest": "textures/blocks/purpur_block.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/purpur_pillar.png",
+      "dest": "textures/blocks/purpur_pillar.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/purpur_pillar_top.png",
+      "dest": "textures/blocks/purpur_pillar_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/red_nether_brick.png",
+      "dest": "textures/blocks/red_nether_bricks.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/red_sandstone_normal.png",
+      "dest": "textures/blocks/red_sandstone.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/red_sandstone_bottom.png",
+      "dest": "textures/blocks/red_sandstone_bottom.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/red_sandstone_carved.png",
+      "dest": "textures/blocks/red_sandstone_chiseled.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/red_sandstone_carved.png",
+      "dest": "textures/blocks/red_sandstone_cut.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/red_sandstone_smooth.png",
+      "dest": "textures/blocks/red_sandstone_smooth.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/red_sandstone_top.png",
+      "dest": "textures/blocks/red_sandstone_top.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/sea_lantern.png",
+      "dest": "textures/blocks/sea_lantern.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/sea_lantern.png.mcmeta",
+      "dest": "textures/blocks/sea_lantern.png.mcmeta"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/stone_andesite.png",
+      "dest": "textures/blocks/stone_andesite.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/stone_diorite.png",
+      "dest": "textures/blocks/stone_diorite.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/stone_granite.png",
+      "dest": "textures/blocks/stone_granite.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/stone_andesite_smooth.png",
+      "dest": "textures/blocks/stone_polished_andesite.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/stone_diorite_smooth.png",
+      "dest": "textures/blocks/stone_polished_diorite.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/stone_granite_smooth.png",
+      "dest": "textures/blocks/stone_polished_granite.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_acacia_log.png",
+      "dest": "textures/blocks/stripped_acacia_log.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_acacia_log_top.png",
+      "dest": "textures/blocks/stripped_acacia_log_top.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_birch_log.png",
+      "dest": "textures/blocks/stripped_birch_log.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_birch_log_top.png",
+      "dest": "textures/blocks/stripped_birch_log_top.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_dark_oak_log.png",
+      "dest": "textures/blocks/stripped_dark_oak_log.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_dark_oak_log_top.png",
+      "dest": "textures/blocks/stripped_dark_oak_log_top.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_jungle_log.png",
+      "dest": "textures/blocks/stripped_jungle_log.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_jungle_log_top.png",
+      "dest": "textures/blocks/stripped_jungle_log_top.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_oak_log.png",
+      "dest": "textures/blocks/stripped_oak_log.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_oak_log_top.png",
+      "dest": "textures/blocks/stripped_oak_log_top.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_spruce_log.png",
+      "dest": "textures/blocks/stripped_spruce_log.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/stripped_spruce_log_top.png",
+      "dest": "textures/blocks/stripped_spruce_log_top.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/acacia_trapdoor.png",
+      "dest": "textures/blocks/trap_door_acacia.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/acacia_trapdoor.png",
+      "dest": "textures/blocks/trap_door_acacia_180.png",
+      "func": "rotate180"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/acacia_trapdoor.png",
+      "dest": "textures/blocks/trap_door_acacia_270.png",
+      "func": "rotate270"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/acacia_trapdoor.png",
+      "dest": "textures/blocks/trap_door_acacia_90.png",
+      "func": "rotate90"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/birch_trapdoor.png",
+      "dest": "textures/blocks/trap_door_birch.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/birch_trapdoor.png",
+      "dest": "textures/blocks/trap_door_birch_180.png",
+      "func": "rotate180"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/birch_trapdoor.png",
+      "dest": "textures/blocks/trap_door_birch_270.png",
+      "func": "rotate270"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/birch_trapdoor.png",
+      "dest": "textures/blocks/trap_door_birch_90.png",
+      "func": "rotate90"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/dark_oak_trapdoor.png",
+      "dest": "textures/blocks/trap_door_dark_oak.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/dark_oak_trapdoor.png",
+      "dest": "textures/blocks/trap_door_dark_oak_180.png",
+      "func": "rotate180"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/dark_oak_trapdoor.png",
+      "dest": "textures/blocks/trap_door_dark_oak_270.png",
+      "func": "rotate270"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/dark_oak_trapdoor.png",
+      "dest": "textures/blocks/trap_door_dark_oak_90.png",
+      "func": "rotate90"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/iron_trapdoor.png",
+      "dest": "textures/blocks/trap_door_iron.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/jungle_trapdoor.png",
+      "dest": "textures/blocks/trap_door_jungle.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/jungle_trapdoor.png",
+      "dest": "textures/blocks/trap_door_jungle_180.png",
+      "func": "rotate180"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/jungle_trapdoor.png",
+      "dest": "textures/blocks/trap_door_jungle_270.png",
+      "func": "rotate270"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/jungle_trapdoor.png",
+      "dest": "textures/blocks/trap_door_jungle_90.png",
+      "func": "rotate90"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/spruce_trapdoor.png",
+      "dest": "textures/blocks/trap_door_spruce.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/spruce_trapdoor.png",
+      "dest": "textures/blocks/trap_door_spruce_180.png",
+      "func": "rotate180"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/spruce_trapdoor.png",
+      "dest": "textures/blocks/trap_door_spruce_270.png",
+      "func": "rotate270"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/spruce_trapdoor.png",
+      "dest": "textures/blocks/trap_door_spruce_90.png",
+      "func": "rotate90"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/wither_rose.png",
+      "dest": "textures/blocks/wither_rose.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/sweet_berry_bush_stage0.png",
+      "dest": "textures/blocks/sweet_berry_bush_stage0.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/sweet_berry_bush_stage1.png",
+      "dest": "textures/blocks/sweet_berry_bush_stage1.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/sweet_berry_bush_stage2.png",
+      "dest": "textures/blocks/sweet_berry_bush_stage2.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/sweet_berry_bush_stage3.png",
+      "dest": "textures/blocks/sweet_berry_bush_stage3.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/wooden_armorstand.png",
+      "dest": "textures/items/armor_stand.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/mutton_cooked.png",
+      "dest": "textures/items/cooked_mutton.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/door_acacia.png",
+      "dest": "textures/items/acacia_door.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/door_birch.png",
+      "dest": "textures/items/birch_door.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/door_dark_oak.png",
+      "dest": "textures/items/dark_oak_door.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/door_jungle.png",
+      "dest": "textures/items/jungle_door.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/door_spruce.png",
+      "dest": "textures/items/spruce_door.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/iron_nugget.png",
+      "dest": "textures/items/iron_nugget.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/prismarine_crystals.png",
+      "dest": "textures/items/prismarine_crystals.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/prismarine_shard.png",
+      "dest": "textures/items/prismarine_shard.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/items/mutton_raw.png",
+      "dest": "textures/items/raw_mutton.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/item/white_dye.png",
+      "dest": "textures/items/white_dye.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/item/blue_dye.png",
+      "dest": "textures/items/blue_dye.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/item/black_dye.png",
+      "dest": "textures/items/black_dye.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/entity/armorstand/wood.png",
+      "dest": "textures/entity/armor_stand.png"
+    }
+  ]
+}

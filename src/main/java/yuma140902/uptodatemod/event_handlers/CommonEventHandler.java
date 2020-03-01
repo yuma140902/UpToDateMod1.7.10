@@ -12,21 +12,25 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.world.NoteBlockEvent;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
+import yuma140902.uptodatemod.blocks.BlockWitherRose;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.EnumNoteBlockInstrument;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.world.generation.biome.BiomeDecorators;
 
 public class CommonEventHandler {
 	private CommonEventHandler() {}
@@ -51,6 +55,13 @@ public class CommonEventHandler {
 			else {
 				event.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, new ItemStack(MyItems.rawMutton, rand.nextInt(2) + 1)));
 			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void onLivingDeath(LivingDeathEvent event) {
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.witherRose)) {
+			BlockWitherRose.onLivingDeathEvent(event);
 		}
 	}
 	
@@ -150,6 +161,21 @@ public class CommonEventHandler {
 		
 		event.setCanceled(true);
 	}
+	
+	
+	@SubscribeEvent
+	public void onBiomeDecoration(DecorateBiomeEvent.Pre event) {
+		World world = event.world;
+		int chunkX = event.chunkX;
+		int chunkZ = event.chunkZ;
+		Random random = event.rand;
+		
+		if(world == null || random == null) {
+			return;
+		}
+		BiomeDecorators.decorate(world, chunkX, chunkZ, random);
+	}
+	
 	
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {

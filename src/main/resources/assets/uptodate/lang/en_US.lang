@@ -7,6 +7,8 @@ tile.uptodate.stone.polished_diorite.name=Polished Diorite
 tile.uptodate.stone.andesite.name=Andesite
 tile.uptodate.stone.polished_andesite.name=Polished Andesite
 
+tile.uptodate.smooth_stone.name=Smooth Stone
+
 tile.uptodate.stripped_log_acacia.name=Stripped Acacia Log
 tile.uptodate.stripped_log_birch.name=Stripped Birch Log
 tile.uptodate.stripped_log_dark_oak.name=Stripped Dark Oak Log
@@ -94,6 +96,9 @@ tile.uptodate.grass_path.name=Grass Path
 item.uptodate.raw_mutton.name=Raw Mutton
 item.uptodate.cooked_mutton.name=Cooked Mutton
 
+item.uptodate.sweet_berries.name=Sweet Berries
+tile.uptodate.sweet_berry_bush.name=Sweet Berry Bush
+
 tile.uptodate.stairs_stone.name=Stone Stairs
 tile.uptodate.stairs_granite.name=Granite Stairs
 tile.uptodate.stairs_diorite.name=Diorite Stairs
@@ -146,7 +151,6 @@ tile.uptodate.wall_dark_prismarine.name=Dark Prismarine Wall
 item.uptodate.armor_stand.name=Armor Stand
 entity.uptodate.wooden_armorstand.name=Armor Stand
 
-
 item.uptodate.item_boat_acacia.name=Acacia Boat
 item.uptodate.item_boat_birch.name=Birch Boat
 item.uptodate.item_boat_dark_oak.name=Dark Oak Boat
@@ -161,6 +165,12 @@ entity.uptodate.boat_spruce.name=Spruce Boat
 
 container.uptodate.barrel=Barrel
 tile.uptodate.barrel.name=Barrel
+
+tile.uptodate.wither_rose.name=Wither Rose
+
+item.uptodate.dye.blue.name=Blue Dye
+item.uptodate.dye.white.name=White Dye
+item.uptodate.dye.black.name=Black Dye
 
 tile.uptodate.concrete.black.name=Black Concrete
 tile.uptodate.concrete.blue.name=Blue Concrete
@@ -243,8 +253,6 @@ config.uptodate.category.recipe=Recipes
 config.uptodate.category.recipe.tooltip=Settings about recipes
 config.uptodate.prop.remove_old_fence_recipe=Remove old fence recipe
 config.uptodate.prop.remove_old_fence_recipe.tooltip=Whether to remove the old fence recipe (6 sticks to 2 fences).
-config.uptodate.prop.add_stoneslab_recipe=Add stone slab recipe
-config.uptodate.prop.add_stoneslab_recipe.tooltip=This mod's stone slab recipe is overlaps with vanilla's one
 
 config.uptodate.category.entity=Entities and Mobs
 config.uptodate.category.entity.tooltip=Settings about entities and mobs

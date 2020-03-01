@@ -131,7 +131,7 @@ public class TileEntityBarrel extends TileEntity implements IInventory, ITileEnt
 	
 	@Override
 	public String getInventoryName() {
-		return "container." + ModUpToDateMod.MOD_ID + ".barrel";
+		return "container." + ModUpToDateMod.MOD_UNLOCALIZED_ENTRY_DOMAIN + ".barrel";
 	}
 	
 	@Override

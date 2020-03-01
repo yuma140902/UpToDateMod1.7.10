@@ -9,20 +9,20 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
 
 public class BarrelGuiContainer extends GuiContainer {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ModUpToDateMod.MOD_ID, "textures/gui/barrel.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "textures/gui/barrel.png");
 	private TileEntityBarrel tileEntity;
 
 	public BarrelGuiContainer(EntityPlayer player, TileEntityBarrel tileEntity) {
 		super(new BarrelContainer(player, tileEntity));
 		this.tileEntity = tileEntity;
-		this.ySize = 168;
+		this.ySize = 166;
 	}
 	
 	/*GUIの文字等の描画処理*/
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		fontRendererObj.drawString(StatCollector.translateToLocal(tileEntity.getInventoryName()), 8, 6, 4210752);
-		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 96 + 1, 4210752);
+		fontRendererObj.drawString(StatCollector.translateToLocal(tileEntity.getInventoryName()), 8, 7, 4210752);
+		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 94 + 1, 4210752);
 	}
 
 	/*GUIの背景の描画処理*/

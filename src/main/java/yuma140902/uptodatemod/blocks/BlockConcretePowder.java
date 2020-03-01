@@ -41,7 +41,6 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable, 
 	@Override
 	public void register() {
 		this.setBlockName(StringUtil.getDomainedUnlocalizedName("concrete_powder"));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("concrete_powder"));
 		GameRegistry.registerBlock(this, ItemBlockColored.class, "concrete_powder");
 	}
 	
@@ -61,7 +60,7 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable, 
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		for (int meta = 0; meta <= META_MAX; ++meta) {
-			iicons[meta] = register.registerIcon(this.getTextureName() + "_" + ColorUtil.metaToString(meta));
+			iicons[meta] = register.registerIcon(StringUtil.getDomainedTextureName("concrete_powder_" + ColorUtil.metaToString(meta)));
 		}
 	}
 	
