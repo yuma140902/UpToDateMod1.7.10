@@ -20,9 +20,9 @@ import yuma140902.uptodatemod.util.StringUtil;
 public abstract class BlockGenericDoor extends BlockDoor implements IRegisterable {
 	
 	@SideOnly(Side.CLIENT)
-	protected IIcon[] iconTop = new IIcon[2];
+	protected IIcon[] iconTop;
 	@SideOnly(Side.CLIENT)
-	protected IIcon[] iconBottom = new IIcon[2];
+	protected IIcon[] iconBottom;
 	
 	public BlockGenericDoor() {
 		super(Material.wood);
@@ -105,8 +105,11 @@ public abstract class BlockGenericDoor extends BlockDoor implements IRegisterabl
 		GameRegistry.registerBlock(this, getName());
 	}
 	
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
+		this.iconTop = new IIcon[2];
+		this.iconBottom = new IIcon[2];
 		this.iconTop[0] = register.registerIcon(this.getTextureName() + "_top");
     this.iconBottom[0] = register.registerIcon(this.getTextureName() + "_bottom");
     this.iconTop[1] = new IconFlipped(this.iconTop[0], true, false);

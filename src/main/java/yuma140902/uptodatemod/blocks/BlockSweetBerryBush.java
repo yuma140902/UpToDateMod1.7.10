@@ -116,7 +116,7 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 		int meta = world.getBlockMetadata(x, y, z) & 0b0011;
 		
 		++meta;
-		ItemDye.func_150918_a(world, x, y, z, 6); //パーティクルを表示
+		if(world.isRemote) ItemDye.func_150918_a(world, x, y, z, 6); //パーティクルを表示(クライアントのみ)
 		world.setBlockMetadataWithNotify(x, y, z, meta, 3);
 	}
 	
@@ -154,8 +154,8 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 		super.updateTick(world, x, y, z, rand);
 		
 		int meta = world.getBlockMetadata(x, y, z);
-		if(meta < META_MAX && rand.nextInt(5) == 0 && world.getBlockLightValue(x, y, z) >= 9) {
-			world.setBlockMetadataWithNotify(x, y, z, meta, 2);
+		if(meta < META_MAX && rand.nextInt(12) == 0 && world.getBlockLightValue(x, y, z) >= 9) {
+			world.setBlockMetadataWithNotify(x, y, z, meta+1, 2);
 		}
 	}
 	
