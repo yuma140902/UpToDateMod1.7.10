@@ -154,7 +154,7 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 		super.updateTick(world, x, y, z, rand);
 		
 		int meta = world.getBlockMetadata(x, y, z);
-		if(meta < META_MAX && rand.nextInt(5) == 0 && world.getBlockLightValue(x, y, z) >= 9) {
+		if(meta < META_MAX && rand.nextInt(12) == 0 && world.getBlockLightValue(x, y, z) >= 9) {
 			world.setBlockMetadataWithNotify(x, y, z, meta+1, 2);
 		}
 	}
