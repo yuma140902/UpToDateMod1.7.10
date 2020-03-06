@@ -116,7 +116,7 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 		int meta = world.getBlockMetadata(x, y, z) & 0b0011;
 		
 		++meta;
-		ItemDye.func_150918_a(world, x, y, z, 6); //パーティクルを表示
+		if(world.isRemote) ItemDye.func_150918_a(world, x, y, z, 6); //パーティクルを表示(クライアントのみ)
 		world.setBlockMetadataWithNotify(x, y, z, meta, 3);
 	}
 	
