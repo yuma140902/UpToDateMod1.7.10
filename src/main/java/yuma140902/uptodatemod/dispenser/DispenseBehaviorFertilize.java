@@ -1,12 +1,15 @@
 package yuma140902.uptodatemod.dispenser;
 
 import javax.annotation.Nonnull;
+import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
+import yuma140902.uptodatemod.network.SpawnFertilizingParticleMessage;
 
 public class DispenseBehaviorFertilize extends DispenseBehaviorBase {
 
@@ -24,6 +27,8 @@ public class DispenseBehaviorFertilize extends DispenseBehaviorBase {
 			boolean canFertilize = BlockSweetBerryBush.canFertilizeSweetBerryBush(meta);
 			if(canFertilize) {
 				BlockSweetBerryBush.fertilizeSweetBerryBush(world, targetX, targetY, targetZ);
+				ModUpToDateMod.networkWrapper.sendToAllAround(new SpawnFertilizingParticleMessage(dimId, targetX, targetY, targetZ), 
+						new TargetPoint(dimId, targetX, targetY, targetZ, 32));
 			}
 			return canFertilize;
 		}
