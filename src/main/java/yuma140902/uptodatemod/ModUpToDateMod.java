@@ -30,8 +30,6 @@ import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
 import yuma140902.uptodatemod.network.NoteBlockPlayHandler;
 import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
-import yuma140902.uptodatemod.network.SpawnFertilizingParticleHandler;
-import yuma140902.uptodatemod.network.SpawnFertilizingParticleMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
@@ -138,7 +136,6 @@ public class ModUpToDateMod {
 		networkWrapper.registerMessage(ArmorStandInteractHandler.class, ArmorStandInteractMessage.class, 0, Side.SERVER);
 //		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.SERVER);
 		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.CLIENT);
-		networkWrapper.registerMessage(SpawnFertilizingParticleHandler.class, SpawnFertilizingParticleMessage.class, 2, Side.CLIENT);
 	}
 	
 	@EventHandler
