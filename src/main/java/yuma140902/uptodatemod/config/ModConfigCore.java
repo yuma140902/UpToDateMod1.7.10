@@ -39,6 +39,12 @@ public class ModConfigCore {
 	public static int[] worldGen_genCoarseDirt_blackList;
 	public static boolean recipeRemove_oldFenceRecipe;
 	public static boolean useOldSmoothStoneSlabRecipe;
+	public static int idBoatAcacia;
+	public static int idBoatBirch;
+	public static int idBoatDarkOak;
+	public static int idBoatJungle;
+	public static int idBoatSpruce;
+	public static int idArmorStand;
 	public static boolean enable_observer;
 	public static boolean debug_mode;
 	
@@ -67,6 +73,7 @@ public class ModConfigCore {
 		// Entity
 		cfg.addCustomCategoryComment(CATEGORY_ENTITY, "Settings about entities and mobs");
 		cfg.setCategoryLanguageKey(CATEGORY_ENTITY, CONFIG_CATEGORY_LANGKEY + "entity");
+		cfg.setCategoryRequiresMcRestart(CATEGORY_ENTITY, true);
 		
 		// Experimental
 		cfg.addCustomCategoryComment(CATEGORY_EXPERIMENTAL, "Settings about experimental features. They may have a serious bug.");
@@ -125,6 +132,12 @@ public class ModConfigCore {
 		EntityModBoatBase.boatCrashWhenCollide = cfg.getBoolean("boatCrashWhenCollide", CATEGORY_ENTITY, false, 
 				"Boat added by this mod will crash when collision | このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)",
 				CONFIG_PROP_LANGKEY + "boat_crash_when_collide");
+		idBoatAcacia = 		cfg.getInt("idBoatAcacia", 		CATEGORY_ENTITY, 0, 0, Integer.MAX_VALUE, "Entity ID for Acacia Boat");
+		idBoatBirch = 		cfg.getInt("idBoatBirch", 		CATEGORY_ENTITY, 1, 0, Integer.MAX_VALUE, "Entity ID for Birch Boat");
+		idBoatDarkOak = 	cfg.getInt("idBoatDarkOak", 	CATEGORY_ENTITY, 2, 0, Integer.MAX_VALUE, "Entity ID for Dark Oak Boat");
+		idBoatJungle = 		cfg.getInt("idBoatJungle", 		CATEGORY_ENTITY, 3, 0, Integer.MAX_VALUE, "Entity ID for Jungle Boat");
+		idBoatSpruce = 		cfg.getInt("idBoatSpruce", 		CATEGORY_ENTITY, 4, 0, Integer.MAX_VALUE, "Entity ID for Spruce Boat");
+		idArmorStand = 		cfg.getInt("idArmorStand", 		CATEGORY_ENTITY, 5, 0, Integer.MAX_VALUE, "Entity ID for Armorstand");
 		
 		// Experimental
 		enable_observer = cfg.getBoolean("enableObserver", CATEGORY_EXPERIMENTAL, false, 
