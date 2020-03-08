@@ -902,6 +902,11 @@
       "dest": "textures/items/black_dye.png"
     },
     {
+      "ar": "mc15",
+      "src": "textures/item/brown_dye.png",
+      "dest": "textures/items/brown_dye.png"
+    },
+    {
       "ar": "mc12",
       "src": "textures/entity/armorstand/wood.png",
       "dest": "textures/entity/armor_stand.png"

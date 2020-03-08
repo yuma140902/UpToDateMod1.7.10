@@ -171,6 +171,7 @@ tile.uptodate.wither_rose.name=ウィザーローズ
 item.uptodate.dye.blue.name=青色の染料
 item.uptodate.dye.white.name=白色の染料
 item.uptodate.dye.black.name=黒色の染料
+item.uptodate.dye.brown.name=茶色の染料
 
 tile.uptodate.concrete.black.name=黒色のコンクリート
 tile.uptodate.concrete.blue.name=青色のコンクリート
