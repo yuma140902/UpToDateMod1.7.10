@@ -5,6 +5,8 @@
 [![Forge 10.13.4.1558](https://img.shields.io/badge/Forge-10.13.4.1558-blue.svg)](https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html)
 [![Forge 10.13.4.1614](https://img.shields.io/badge/Forge-10.13.4.1614-blue.svg)](https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html)
 
+[![All Blocks and Items as of v2.0.1](https://yuma140902.github.io/img/uptodatemod-allitems.png)](#)
+
 A Forge mod which backports new Minecraft (1.8.0 and later) features to Minecraft 1.7.10
 
 **Minecraft version** : `1.7.10` \
