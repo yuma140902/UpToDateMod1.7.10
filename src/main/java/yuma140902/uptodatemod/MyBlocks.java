@@ -22,6 +22,7 @@ import yuma140902.uptodatemod.blocks.BlockGrassPath;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockMagma;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
+import yuma140902.uptodatemod.blocks.BlockNewFlower;
 import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.BlockPrismarine;
 import yuma140902.uptodatemod.blocks.BlockPrismarineBricks;
@@ -223,6 +224,7 @@ public final class MyBlocks {
 	public static final BlockSweetBerryBush sweetBerryBush;
 	
 	public static final BlockWitherRose witherRose;
+	public static final BlockNewFlower flower;
 	public static final BlockUnlimitedPot unlimitedPot;
 	
 	
@@ -529,6 +531,7 @@ public final class MyBlocks {
 		add(sweetBerryBush = isEnabled(sweetBerry) ? new BlockSweetBerryBush() : null);
 		
 		add(witherRose = isEnabled(EnumDisableableFeatures.witherRose) ? new BlockWitherRose() : null);
+		add(flower = isEnabled(EnumDisableableFeatures.flower) ? new BlockNewFlower() : null);
 		add(unlimitedPot = new BlockUnlimitedPot());
 	}
 	

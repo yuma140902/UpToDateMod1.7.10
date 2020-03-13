@@ -167,6 +167,8 @@ container.uptodate.barrel=樽
 tile.uptodate.barrel.name=樽
 
 tile.uptodate.wither_rose.name=ウィザーローズ
+tile.uptodate.flower.cornflower.name=ヤグルマギク
+tile.uptodate.flower.lily_of_the_valley.name=スズラン
 
 item.uptodate.dye.blue.name=青色の染料
 item.uptodate.dye.white.name=白色の染料

@@ -32,6 +32,7 @@ public enum EnumDisableableFeatures {
 	barrel,
 	sweetBerry,
 	witherRose,
+	flower,
 	plainDye,
 	suspiciousStew,
 	newNoteBlockInstruments,
