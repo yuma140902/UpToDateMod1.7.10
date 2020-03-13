@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.blocks.generics;
+package yuma140902.mcmodlib.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -6,7 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
-import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.mcmodlib.IRegisterable;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterable {

@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.items.generics;
+package yuma140902.mcmodlib.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemMultiTexture;

@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.blocks.generics;
+package yuma140902.mcmodlib.blocks;
 
 import javax.annotation.Nullable;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -6,8 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import yuma140902.uptodatemod.IHasRecipes;
-import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.mcmodlib.IHasRecipes;
+import yuma140902.mcmodlib.IRegisterable;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 

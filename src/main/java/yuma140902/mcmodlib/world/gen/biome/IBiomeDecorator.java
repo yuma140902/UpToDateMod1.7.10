@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.world.generation.biome;
+package yuma140902.mcmodlib.world.gen.biome;
 
 import java.util.Random;
 import javax.annotation.Nonnull;

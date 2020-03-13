@@ -1,9 +1,9 @@
-package yuma140902.uptodatemod.items.generics;
+package yuma140902.mcmodlib.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
-import yuma140902.uptodatemod.blocks.generics.BlockGenericSlab;
+import yuma140902.mcmodlib.blocks.BlockGenericSlab;
 
 public class ItemBlockGenericSlab extends ItemSlab {
 	

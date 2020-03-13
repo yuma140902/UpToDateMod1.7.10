@@ -3,9 +3,9 @@ package yuma140902.uptodatemod.items;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import yuma140902.uptodatemod.IHasRecipes;
-import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.items.generics.ItemMultiMeta;
+import yuma140902.mcmodlib.IHasRecipes;
+import yuma140902.mcmodlib.IRegisterable;
+import yuma140902.mcmodlib.items.ItemMultiMeta;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 

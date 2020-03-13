@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.items.generics;
+package yuma140902.mcmodlib.items;
 
 import java.util.List;
 import javax.annotation.Nonnull;
@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.mcmodlib.IRegisterable;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemMultiMeta extends Item implements IRegisterable {
