@@ -813,6 +813,16 @@
     },
     {
       "ar": "mc15",
+      "src": "textures/block/cornflower.png",
+      "dest": "textures/blocks/flower_cornflower.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/lily_of_the_valley.png",
+      "dest": "textures/blocks/flower_lily_of_the_valley.png"
+    },
+    {
+      "ar": "mc15",
       "src": "textures/block/sweet_berry_bush_stage0.png",
       "dest": "textures/blocks/sweet_berry_bush_stage0.png"
     },
@@ -905,6 +915,11 @@
       "ar": "mc15",
       "src": "textures/item/brown_dye.png",
       "dest": "textures/items/brown_dye.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/item/suspicious_stew.png",
+      "dest": "textures/items/suspicious_stew.png"
     },
     {
       "ar": "mc12",
