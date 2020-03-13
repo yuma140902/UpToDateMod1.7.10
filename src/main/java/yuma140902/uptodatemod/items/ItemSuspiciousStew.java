@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
 import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.blocks.BlockNewFlower;
 import yuma140902.uptodatemod.items.generics.ItemFoodMultiMeta;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.Stat;
@@ -64,8 +65,8 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 		redFlower(2, Stat.META_REDFLOWER_ALLIUM);
 		redFlower(3, Stat.META_REDFLOWER_HOUSTONIA);
 		addStewRecipe(4, new ItemStack(Blocks.yellow_flower));
-		//redFlower(5, Stat.META_REDFLOWER);  // この2行は新しい花の追加が必要
-		//redFlower(6, Stat.META_REDFLOWER);
+		addStewRecipe(5, new ItemStack(MyBlocks.flower, 1, BlockNewFlower.LILY));
+		addStewRecipe(6, new ItemStack(MyBlocks.flower, 1, BlockNewFlower.CORNFLOWER));
 		redFlower(7, Stat.META_REDFLOWER_RED_TULIP);
 		redFlower(7, Stat.META_REDFLOWER_WHITE_TULIP);
 		redFlower(7, Stat.META_REDFLOWER_PINK_TULIP);
