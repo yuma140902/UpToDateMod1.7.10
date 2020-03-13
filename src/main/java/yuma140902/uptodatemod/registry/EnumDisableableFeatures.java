@@ -33,6 +33,7 @@ public enum EnumDisableableFeatures {
 	sweetBerry,
 	witherRose,
 	plainDye,
+	suspiciousStew,
 	newNoteBlockInstruments,
 	allKindsOfStairs,
 	allKindsOfSlabs,

@@ -173,6 +173,8 @@ item.uptodate.dye.white.name=白色の染料
 item.uptodate.dye.black.name=黒色の染料
 item.uptodate.dye.brown.name=茶色の染料
 
+item.uptodate.suspicious_stew.name=怪しげなシチュー
+
 tile.uptodate.concrete.black.name=黒色のコンクリート
 tile.uptodate.concrete.blue.name=青色のコンクリート
 tile.uptodate.concrete.brown.name=茶色のコンクリート

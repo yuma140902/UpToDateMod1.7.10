@@ -173,6 +173,8 @@ item.uptodate.dye.white.name=White Dye
 item.uptodate.dye.black.name=Black Dye
 item.uptodate.dye.brown.name=Brown Dye
 
+item.uptodate.suspicious_stew.name=Suspicious Stew
+
 tile.uptodate.concrete.black.name=Black Concrete
 tile.uptodate.concrete.blue.name=Blue Concrete
 tile.uptodate.concrete.brown.name=Brown Concrete

@@ -907,6 +907,11 @@
       "dest": "textures/items/brown_dye.png"
     },
     {
+      "ar": "mc15",
+      "src": "textures/item/suspicious_stew.png",
+      "dest": "textures/items/suspicious_stew.png"
+    },
+    {
       "ar": "mc12",
       "src": "textures/entity/armorstand/wood.png",
       "dest": "textures/entity/armor_stand.png"
