@@ -1,8 +1,8 @@
 package yuma140902.uptodatemod.blocks;
 
 import net.minecraft.item.Item;
+import yuma140902.mcmodlib.blocks.BlockGenericDoor;
 import yuma140902.uptodatemod.MyItems;
-import yuma140902.uptodatemod.blocks.generics.BlockGenericDoor;
 
 public class BlockDoorJungle extends BlockGenericDoor {
 	

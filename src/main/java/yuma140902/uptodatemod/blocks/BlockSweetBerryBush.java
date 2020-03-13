@@ -20,7 +20,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.mcmodlib.IRegisterable;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.dispenser.DispenseBehaviorFertilize;
 import yuma140902.uptodatemod.util.StringUtil;

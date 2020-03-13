@@ -7,6 +7,7 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import yuma140902.mcmodlib.world.gen.biome.IBiomeDecorator;
 
 public class BiomeDecorators {
 	

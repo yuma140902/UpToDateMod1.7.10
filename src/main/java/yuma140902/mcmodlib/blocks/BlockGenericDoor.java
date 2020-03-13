@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.blocks.generics;
+package yuma140902.mcmodlib.blocks;
 
 import java.util.List;
 import java.util.Random;
@@ -14,7 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.mcmodlib.IRegisterable;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public abstract class BlockGenericDoor extends BlockDoor implements IRegisterable {

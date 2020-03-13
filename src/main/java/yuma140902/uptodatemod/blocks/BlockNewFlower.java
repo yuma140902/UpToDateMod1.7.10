@@ -14,12 +14,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.IHasRecipes;
-import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.mcmodlib.IHasRecipes;
+import yuma140902.mcmodlib.IRegisterable;
+import yuma140902.mcmodlib.items.ItemBlockMultiName;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.items.ItemPlainDye;
-import yuma140902.uptodatemod.items.generics.ItemBlockMultiName;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 

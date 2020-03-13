@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.item.Item;
+import yuma140902.mcmodlib.IRegisterable;
 import yuma140902.uptodatemod.items.ItemArmorStand;
 import yuma140902.uptodatemod.items.ItemBoatAcacia;
 import yuma140902.uptodatemod.items.ItemBoatBirch;

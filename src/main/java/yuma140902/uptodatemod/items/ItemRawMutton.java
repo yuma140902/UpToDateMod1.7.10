@@ -2,7 +2,7 @@ package yuma140902.uptodatemod.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemFood;
-import yuma140902.uptodatemod.IRegisterable;
+import yuma140902.mcmodlib.IRegisterable;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class ItemRawMutton extends ItemFood implements IRegisterable {

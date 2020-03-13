@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.blocks.generics;
+package yuma140902.mcmodlib.blocks;
 
 import java.util.List;
 import java.util.Random;
@@ -14,9 +14,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.IHasRecipes;
-import yuma140902.uptodatemod.IRegisterable;
-import yuma140902.uptodatemod.items.generics.ItemBlockGenericSlab;
+import yuma140902.mcmodlib.IHasRecipes;
+import yuma140902.mcmodlib.IRegisterable;
+import yuma140902.mcmodlib.items.ItemBlockGenericSlab;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
