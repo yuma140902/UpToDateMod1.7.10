@@ -17,10 +17,15 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 
 // see: https://mcmodding.jp/modding/index.php/1.7%E4%BB%A5%E9%99%8D%E3%81%AEIResourcePack%E3%81%AE%E5%88%A9%E7%94%A8
 public class UpToDateModResourcePack implements IResourcePack {
-	public UpToDateModResourcePack() {}
+	
+	private Path assetsPath;
+	
+	public UpToDateModResourcePack() {
+		this.assetsPath = ModUpToDateMod.INSTANCE.uptodatemodDirectory.resolve("assets/uptodate").toAbsolutePath();
+	}
 	
 	private Path resourceLocationToPath(ResourceLocation location) {
-		return ModUpToDateMod.INSTANCE.uptodatemodDirectory.resolve("assets/uptodate").resolve(location.getResourcePath()).toAbsolutePath();
+		return this.assetsPath.resolve(location.getResourcePath());
 	}
 
 	@Override
