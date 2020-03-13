@@ -1,8 +1,9 @@
 package yuma140902.uptodatemod;
 
 import static yuma140902.uptodatemod.registry.EnumDisableableFeatures.*;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import yuma140902.uptodatemod.blocks.BlockBarrel;
@@ -64,7 +65,7 @@ public final class MyBlocks {
 		if(block != null) list.add(block);
 	}
 	
-	private static HashSet<Block> list = new HashSet<Block>();
+	private static List<Block> list = new ArrayList<Block>();
 	
 	public static Iterator<Block> iterator(){
 		return list.iterator();

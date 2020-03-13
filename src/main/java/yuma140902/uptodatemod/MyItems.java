@@ -1,8 +1,9 @@
 package yuma140902.uptodatemod;
 
 import static yuma140902.uptodatemod.registry.EnumDisableableFeatures.*;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.item.Item;
 import yuma140902.uptodatemod.items.ItemArmorStand;
@@ -38,7 +39,7 @@ public final class MyItems {
 		if(item != null) list.add(item);
 	}
 	
-	private static HashSet<Item> list = new HashSet<Item>();
+	private static List<Item> list = new ArrayList<Item>();
 	
 	public static Iterator<Item> iterator(){
 		return list.iterator();
