@@ -573,12 +573,12 @@
     },
     {
       "ar": "mc12",
-      "src": "textures/blocks/red_sandstone_carved.png",
+      "src": "textures/blocks/red_sandstone_smooth.png",
       "dest": "textures/blocks/red_sandstone_cut.png"
     },
     {
       "ar": "mc12",
-      "src": "textures/blocks/red_sandstone_smooth.png",
+      "src": "textures/blocks/red_sandstone_top.png",
       "dest": "textures/blocks/red_sandstone_smooth.png"
     },
     {
