@@ -11,7 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-import yuma140902.mcmodlib.IRegisterable;
+import yuma140902.mcmodlib.api.IRegisterable;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockPurpurPillar extends BlockRotatedPillar implements IRegisterable {

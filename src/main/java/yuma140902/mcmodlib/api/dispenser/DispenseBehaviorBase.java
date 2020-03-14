@@ -1,4 +1,4 @@
-package yuma140902.mcmodlib.dispenser;
+package yuma140902.mcmodlib.api.dispenser;
 
 import javax.annotation.Nonnull;
 import net.minecraft.block.BlockDispenser;

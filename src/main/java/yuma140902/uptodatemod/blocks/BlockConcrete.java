@@ -12,8 +12,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import yuma140902.mcmodlib.IRegisterable;
-import yuma140902.mcmodlib.items.ItemBlockColored;
+import yuma140902.mcmodlib.api.IRegisterable;
+import yuma140902.mcmodlib.api.items.ItemBlockColored;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.StringUtil;
 
