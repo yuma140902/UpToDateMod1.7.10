@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import yuma140902.mcmodlib.IRegisterable;
+import yuma140902.mcmodlib.api.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.util.StringUtil;
 

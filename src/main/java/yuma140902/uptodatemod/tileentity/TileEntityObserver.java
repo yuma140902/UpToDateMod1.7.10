@@ -3,7 +3,7 @@ package yuma140902.uptodatemod.tileentity;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import yuma140902.mcmodlib.IRegisterable;
+import yuma140902.mcmodlib.api.IRegisterable;
 
 public class TileEntityObserver extends TileEntity implements IRegisterable {
 	private int targetId;
