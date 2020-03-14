@@ -7,9 +7,10 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import yuma140902.mcmodlib.config.YumaLibConfigCore;
 import yuma140902.mcmodlib.proxy.CommonProxy;
 
-@Mod(modid = YumaLibConstants.MOD_ID, name = YumaLibConstants.MOD_NAME, version = YumaLibConstants.MOD_VERSION, useMetadata = true)
+@Mod(modid = YumaLibConstants.MOD_ID, name = YumaLibConstants.MOD_NAME, version = YumaLibConstants.MOD_VERSION, useMetadata = true, guiFactory = YumaLibConstants.CONFIG_GUI_FACTORY)
 public class ModYumaLib {
 	
 	public static final Logger LOGGER = LogManager.getLogger(YumaLibConstants.MOD_NAME);
@@ -36,6 +37,7 @@ public class ModYumaLib {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
+		YumaLibConfigCore.loadConfig(event);
 		proxy.registerEventHandlers();
 	}
 }
