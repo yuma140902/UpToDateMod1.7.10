@@ -12,9 +12,9 @@ public class YumaLibConfigCore {
 		
 		public static final String CAT_NAME = "Tooltip";
 		
-		public static boolean showOreDic = false;
-		public static boolean showModName = false;
-		public static boolean showRegistryName = false;
+		public static EnumTooltip showOreDic = EnumTooltip.Never;
+		public static EnumTooltip showRegistryName = EnumTooltip.Never;
+		public static EnumTooltip showBlockMaterialInfo = EnumTooltip.Never;
 	}
 	
 	public static Configuration cfg;
@@ -36,17 +36,17 @@ public class YumaLibConfigCore {
 	public static void syncConfig() {
 		ModYumaLib.LOGGER.info("Loading config");
 		
-		Property showOreDic = cfg.get(Tooltip.CAT_NAME, "showOreDic", Tooltip.showOreDic);
-		showOreDic.setDefaultValue(Tooltip.showOreDic);
-		Tooltip.showOreDic = showOreDic.getBoolean();
+		Property showOreDic = cfg.get(Tooltip.CAT_NAME, "showOreDic", Tooltip.showOreDic.toString());
+		showOreDic.setValidValues(EnumTooltip.stringValues());
+		Tooltip.showOreDic = EnumTooltip.valueOf(showOreDic.getString());
 		
-		Property showModName = cfg.get(Tooltip.CAT_NAME, "showModName", Tooltip.showModName);
-		showModName.setDefaultValue(Tooltip.showModName);
-		Tooltip.showModName = showModName.getBoolean();
+		Property showRegistryName = cfg.get(Tooltip.CAT_NAME, "showRegitrsyName", Tooltip.showRegistryName.toString());
+		showRegistryName.setValidValues(EnumTooltip.stringValues());
+		Tooltip.showRegistryName = EnumTooltip.valueOf(showRegistryName.getString());
 		
-		Property showRegistryName = cfg.get(Tooltip.CAT_NAME, "showRegitrsyName", Tooltip.showRegistryName);
-		showRegistryName.setDefaultValue(Tooltip.showRegistryName);
-		Tooltip.showRegistryName = showRegistryName.getBoolean();
+		Property showBlockMat = cfg.get(Tooltip.CAT_NAME, "showBlockMaterialInfo", Tooltip.showBlockMaterialInfo.toString());
+		showBlockMat.setValidValues(EnumTooltip.stringValues());
+		Tooltip.showBlockMaterialInfo = EnumTooltip.valueOf(showBlockMat.getString());
 		
 		cfg.save();
 	}
