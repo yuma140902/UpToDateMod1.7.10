@@ -33,7 +33,7 @@ public class BlockUnlimitedPot extends BlockFlowerPot implements IRegisterable {
 		if(world.getBlock(x, y, z).isFlowerPot()) {
 			world.setBlock(x, y, z, MyBlocks.unlimitedPot);
 			TileEntityFlowerPot tile = new TileEntityFlowerPot();
-			tile.func_145964_a(itemstack.getItem(), 0);
+			tile.func_145964_a(itemstack.getItem(), itemstack.getItemDamage());
 			tile.markDirty();
 			world.setTileEntity(x, y, z, tile);
 			world.markBlockForUpdate(x, y, z);
