@@ -38,16 +38,16 @@ import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY,
-			dependencies = "after:etfuturum;after:ProjectE"
+			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib0"
 		)
 public class ModUpToDateMod {
-	@Mod.Metadata
+	@Mod.Metadata(ModUpToDateMod.MOD_ID)
 	public static ModMetadata modMetadata;
 	
-	@Mod.Instance
+	@Mod.Instance(ModUpToDateMod.MOD_ID)
 	public static ModUpToDateMod INSTANCE;
 	
-	@SidedProxy(clientSide = Stat.PROXY_CLIENT, serverSide = Stat.PROXY_SERVER)
+	@SidedProxy(modId = ModUpToDateMod.MOD_ID, clientSide = Stat.PROXY_CLIENT, serverSide = Stat.PROXY_SERVER)
 	public static CommonProxy proxy;
 	
 	public static SimpleNetworkWrapper networkWrapper;
