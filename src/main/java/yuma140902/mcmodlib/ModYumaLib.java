@@ -5,7 +5,9 @@ import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import yuma140902.mcmodlib.proxy.CommonProxy;
 
 @Mod(modid = YumaLibConstants.MOD_ID, name = YumaLibConstants.MOD_NAME, version = YumaLibConstants.MOD_VERSION, useMetadata = true)
 public class ModYumaLib {
@@ -17,6 +19,9 @@ public class ModYumaLib {
 	
 	@Mod.Instance(YumaLibConstants.MOD_ID)
 	public static ModYumaLib INSTANCE;
+	
+	@SidedProxy(modId = YumaLibConstants.MOD_ID, clientSide = YumaLibConstants.PROXY_CLIENT, serverSide = YumaLibConstants.PROXY_COMMON)
+	public static CommonProxy proxy;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = YumaLibConstants.MOD_ID;
@@ -31,5 +36,6 @@ public class ModYumaLib {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
+		proxy.registerEventHandlers();
 	}
 }
