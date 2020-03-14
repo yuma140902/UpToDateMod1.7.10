@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import yuma140902.mcmodlib.IRegisterable;
 import yuma140902.mcmodlib.blocks.BlockGenericButton;
+import yuma140902.mcmodlib.blocks.BlockGenericDoor;
 import yuma140902.mcmodlib.blocks.BlockGenericFence;
 import yuma140902.mcmodlib.blocks.BlockGenericFenceGate;
 import yuma140902.mcmodlib.blocks.BlockGenericPressurePlate;
@@ -21,11 +22,6 @@ import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockConcrete;
 import yuma140902.uptodatemod.blocks.BlockConcretePowder;
 import yuma140902.uptodatemod.blocks.BlockDarkPrismarine;
-import yuma140902.uptodatemod.blocks.BlockDoorAcacia;
-import yuma140902.uptodatemod.blocks.BlockDoorBirch;
-import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
-import yuma140902.uptodatemod.blocks.BlockDoorJungle;
-import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
 import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
 import yuma140902.uptodatemod.blocks.BlockGlazedTerracotta;
 import yuma140902.uptodatemod.blocks.BlockGrassPath;
@@ -92,11 +88,11 @@ public final class MyBlocks {
 	public static final BlockGenericStrippedLog strippedLogOak;
 	public static final BlockGenericStrippedLog strippedLogSpruce;
 	
-	public static final BlockDoorAcacia doorAcacia;
-	public static final BlockDoorBirch doorBirch;
-	public static final BlockDoorDarkOak doorDarkOak;
-	public static final BlockDoorJungle doorJungle;
-	public static final BlockDoorSpruce doorSpruce;
+	public static final BlockGenericDoor doorAcacia;
+	public static final BlockGenericDoor doorBirch;
+	public static final BlockGenericDoor doorDarkOak;
+	public static final BlockGenericDoor doorJungle;
+	public static final BlockGenericDoor doorSpruce;
 	
 	public static final BlockGenericFence fenceAcacia;
 	public static final BlockGenericFence fenceBirch;
@@ -254,11 +250,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(doors)) {
-			add(doorAcacia = new BlockDoorAcacia());
-			add(doorBirch = new BlockDoorBirch());
-			add(doorDarkOak = new BlockDoorDarkOak());
-			add(doorJungle = new BlockDoorJungle());
-			add(doorSpruce = new BlockDoorSpruce());
+			add(doorAcacia = 	new BlockGenericDoor("door_acacia", 		"acacia_door", 		MyItems.itemDoorAcacia));
+			add(doorBirch = 		new BlockGenericDoor("door_birch", 			"birch_door", 		MyItems.itemDoorBirch));
+			add(doorDarkOak = 	new BlockGenericDoor("door_dark_oak", 	"dark_oak_door", 	MyItems.itemDoorDarkOak));
+			add(doorJungle = 	new BlockGenericDoor("door_jungle", 		"jungle_door", 		MyItems.itemDoorJungle));
+			add(doorSpruce = 	new BlockGenericDoor("door_spruce", 		"spruce_door", 		MyItems.itemDoorSpruce));
 		}
 		else {
 			doorAcacia = null;
