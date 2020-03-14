@@ -21,7 +21,9 @@ public class ItemPlainDye extends ItemMultiMeta implements IRegisterable, IHasRe
 	@Override
 	public void register() {
 		super.register();
-		OreDictionary.registerOre("dye", this);
+		for(int i=0; i<4; ++i) {
+			OreDictionary.registerOre("dye", new ItemStack(this, 1, i));
+		}
 		OreDictionary.registerOre("dyeBlue", new ItemStack(this, 1, BLUE));
 		OreDictionary.registerOre("dyeWhite", new ItemStack(this, 1, WHITE));
 		OreDictionary.registerOre("dyeBlack", new ItemStack(this, 1, BLACK));
