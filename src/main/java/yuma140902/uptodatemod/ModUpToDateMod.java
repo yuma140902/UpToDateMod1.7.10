@@ -23,6 +23,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
+import yuma140902.mcmodlib.api.update.IUpdateChecker;
+import yuma140902.mcmodlib.api.update.TsvUpdateChecker;
+import yuma140902.mcmodlib.api.update.UpdateCheckerRegistry;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.integration.Plugins;
@@ -34,7 +37,6 @@ import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.Stat;
-import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY,
@@ -112,13 +114,10 @@ public class ModUpToDateMod {
 		loadModMetadata(modMetadata);
 		ModConfigCore.loadConfig(event);
 		LOGGER.info("preInit");
-		try {
-			UpdateChecker.INSTANCE.checkForUpdates();
+		if(ModConfigCore.doCheckUpdate) {
+			IUpdateChecker updateChecker = new TsvUpdateChecker("https://www.curseforge.com/minecraft/mc-mods/uptodatemod", MOD_VERSIONS_TSV_URL, MOD_VERSION, ModConfigCore.updateChannel);
+			UpdateCheckerRegistry.INSTANCE.register(updateChecker);
 		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		LOGGER.info(UpdateChecker.INSTANCE.hasNewVersionAvailable() ? "There is a new version available. - v" + UpdateChecker.INSTANCE.availableNewVersion + ". Visit " + UpdateChecker.INSTANCE.getNewVersionUrl() : "UpToDateMod is now up-to-date.");
 		
 		this.uptodatemodDirectory = Paths.get("uptodatemod").toAbsolutePath();
 		proxy.loadVanillaResources();

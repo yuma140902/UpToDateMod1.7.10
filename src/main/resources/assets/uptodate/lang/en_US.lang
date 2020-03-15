@@ -228,8 +228,6 @@ tile.uptodate.glazed_terracotta.light_gray.name=Light Gray Glazed Terracotta
 tile.uptodate.glazed_terracotta.white.name=White Glazed Terracotta
 tile.uptodate.glazed_terracotta.yellow.name=Yellow Glazed Terracotta
 
-text.uptodate.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark_green"},{"text":" There is a new version available: v%s ["},{"text":"Click to open download URL","underlined":true,"color":"green","clickEvent":{"action":"open_url","value":"%s"}},{"text":"]"}]
-
 config.uptodate.category.general=General
 config.uptodate.category.general.tooltip=General settings of UpToDateMod
 config.uptodate.prop.do_check_update=Update checking

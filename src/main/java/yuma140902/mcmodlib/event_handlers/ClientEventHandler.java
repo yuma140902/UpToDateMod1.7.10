@@ -4,16 +4,51 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameData;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.command.server.CommandMessageRaw;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.integrated.IntegratedServer;
+import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.oredict.OreDictionary;
+import yuma140902.mcmodlib.api.update.IUpdateChecker;
+import yuma140902.mcmodlib.api.update.UpdateCheckerRegistry;
 import yuma140902.mcmodlib.config.YumaLibConfigCore;
 
 public class ClientEventHandler {
 	private ClientEventHandler() {}
 	
 	public static final ClientEventHandler INSTANCE = new ClientEventHandler();
+	
+	
+	private boolean hasNotifiedAboutUpdate = false;
+	
+	private void updateNotify(WorldEvent.Load event) {
+		if(!event.world.isRemote || hasNotifiedAboutUpdate) {
+			return;
+		}
+		IntegratedServer integratedServer = Minecraft.getMinecraft().getIntegratedServer();
+		if(integratedServer == null) {
+			return;
+		}
+		
+		for(IUpdateChecker updateChecker : UpdateCheckerRegistry.INSTANCE.list()) {
+			if(!updateChecker.hasNewVersionAvailable()) {
+				continue;
+			}
+			String msgRaw = StatCollector.translateToLocalFormatted("text.yumalib.update_notify", updateChecker.getAvailableNewVersion(), updateChecker.getNewVersionUrl());
+			new CommandMessageRaw().processCommand(integratedServer, new String[] {"@a", msgRaw});
+		}
+		
+		hasNotifiedAboutUpdate = true;
+	}
+	
+	@SubscribeEvent
+	public void onWorldLoaded(WorldEvent.Load event) {
+		updateNotify(event);
+	}
 	
 	@SubscribeEvent
 	public void onTooltipShown(ItemTooltipEvent event) {

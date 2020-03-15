@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.util;
+package yuma140902.mcmodlib.api.update;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -9,21 +9,29 @@ import java.util.HashMap;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.config.ModConfigCore;
 
-public class UpdateChecker {
-	private UpdateChecker() {}
-	
-	public static final UpdateChecker INSTANCE = new UpdateChecker();
-	
+public class TsvUpdateChecker implements IUpdateChecker {
 	public static final String LATEST_STR = "latest";
 	public static final String RECOMMENDED_STR = "recommended";
-	public static final String homePage = "https://minecraft.curseforge.com/projects/uptodatemod";
 	
-	public String config_updateChannel = RECOMMENDED_STR;
-	public boolean config_doCheckUpdate = true;
+	//public String config_updateChannel = RECOMMENDED_STR;
+	//public boolean config_doCheckUpdate = true;
 	
-	public String currentVersion = ModUpToDateMod.MOD_VERSION;
-	public String availableNewVersion = ModUpToDateMod.MOD_VERSION;
+	public String homePageUrl;
+	public String versionsTsvUrl;
+	
+	public String updateChannel;
+	
+	public String currentVersion;
+	public String availableNewVersion;
 	public HashMap<String, String> versions = null;
+	
+	public TsvUpdateChecker(String homePageUrl, String versionsTsvUrl, String currentVersion, String updateChannel) {
+		this.homePageUrl = homePageUrl;
+		this.versionsTsvUrl = versionsTsvUrl;
+		this.currentVersion = currentVersion;
+		this.availableNewVersion = currentVersion;
+		this.updateChannel = updateChannel;
+	}
 	
 	private static String getFromUrl(String urlStr) {
 		boolean hasError = false;
@@ -98,12 +106,9 @@ public class UpdateChecker {
 		return hashMap;
 	}
 	
+	@Override
 	public void checkForUpdates() {
-		if(!config_doCheckUpdate) {
-			return;
-		}
-		
-		String versionsTsv = getFromUrl(ModUpToDateMod.MOD_VERSIONS_TSV_URL);
+		String versionsTsv = getFromUrl(this.versionsTsvUrl);
 		if(versionsTsv == null || versionsTsv.isEmpty()) return;
 		
 		if(ModConfigCore.debug_mode) {
@@ -113,7 +118,7 @@ public class UpdateChecker {
 		
 		this.versions = getVersionsTable(versionsTsv);
 		
-		String newestVersionStr = LATEST_STR.equals(config_updateChannel) ? LATEST_STR : RECOMMENDED_STR;
+		String newestVersionStr = LATEST_STR.equals(this.updateChannel) ? LATEST_STR : RECOMMENDED_STR;
 		
 		if(versions.keySet().contains(newestVersionStr)) {
 			String newestVersion = versions.get(newestVersionStr);
@@ -129,11 +134,16 @@ public class UpdateChecker {
 	}
 	
 	public String getNewVersionUrl() {
-		if(versions == null) return homePage;
+		if(versions == null) return homePageUrl;
 		
 		if(versions.keySet().contains(availableNewVersion)) {
 			return versions.get(availableNewVersion);
 		}
-		else return homePage;
+		else return homePageUrl;
+	}
+
+	@Override
+	public String getAvailableNewVersion() {
+		return this.availableNewVersion;
 	}
 }

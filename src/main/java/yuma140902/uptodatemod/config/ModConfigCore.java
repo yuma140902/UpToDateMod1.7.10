@@ -7,12 +7,12 @@ import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import yuma140902.mcmodlib.api.update.TsvUpdateChecker;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.uptodatemod.util.UpdateChecker;
 
 public class ModConfigCore {
 	public static final String
@@ -31,6 +31,8 @@ public class ModConfigCore {
 	
 	private static final Logger logger = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-Config");
 	
+	public static String updateChannel = TsvUpdateChecker.RECOMMENDED_STR;
+	public static boolean doCheckUpdate = true;
 	public static boolean worldGen_genStones;
 	public static int[] worldGen_genStones_blackList;
 	public static boolean worldGen_genFossiles;
@@ -90,13 +92,13 @@ public class ModConfigCore {
 		ModUpToDateMod.LOGGER.info("Loading config");
 		
 		// General
-		UpdateChecker.INSTANCE.config_doCheckUpdate = cfg.getBoolean("doUpdateChecking", CATEGORY_GENERAL, 
-				UpdateChecker.INSTANCE.config_doCheckUpdate, 
+		doCheckUpdate = cfg.getBoolean("doUpdateChecking", CATEGORY_GENERAL, 
+				doCheckUpdate, 
 				"If true, the mod will check for updates automatically | アップデートを自動で確認するかどうか",
 				CONFIG_PROP_LANGKEY + "do_check_update");
-		UpdateChecker.INSTANCE.config_updateChannel = cfg.getString("updateChannel", CATEGORY_GENERAL, 
-				UpdateChecker.INSTANCE.config_updateChannel, 
-				"Channel of update checking | アップデートのチャンネル", new String[] {UpdateChecker.RECOMMENDED_STR, UpdateChecker.LATEST_STR},
+		updateChannel = cfg.getString("updateChannel", CATEGORY_GENERAL, 
+				updateChannel,
+				"Channel of update checking | アップデートのチャンネル", new String[] {TsvUpdateChecker.RECOMMENDED_STR, TsvUpdateChecker.LATEST_STR},
 				CONFIG_PROP_LANGKEY + "update_channel"
 				);
 		debug_mode = cfg.getBoolean("enableDebugMode", CATEGORY_GENERAL, false, "", CONFIG_PROP_LANGKEY + "debug_mode");
