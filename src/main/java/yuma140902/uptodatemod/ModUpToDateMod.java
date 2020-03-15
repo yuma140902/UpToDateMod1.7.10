@@ -38,7 +38,7 @@ import yuma140902.uptodatemod.util.UpdateChecker;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY,
-			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib0"
+			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib_ee"
 		)
 public class ModUpToDateMod {
 	@Mod.Metadata(ModUpToDateMod.MOD_ID)
