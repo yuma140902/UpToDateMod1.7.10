@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.util;
+package yuma140902.mcmodlib.api.update;
 
 public class Version3 {
 	public int a = 0;

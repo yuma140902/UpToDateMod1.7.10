@@ -6,7 +6,10 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import yuma140902.mcmodlib.api.update.IUpdateChecker;
+import yuma140902.mcmodlib.api.update.UpdateCheckerRegistry;
 import yuma140902.mcmodlib.config.YumaLibConfigCore;
 import yuma140902.mcmodlib.proxy.CommonProxy;
 
@@ -40,5 +43,18 @@ public class ModYumaLib {
 		loadModMetadata(modMetadata);
 		YumaLibConfigCore.loadConfig(event);
 		proxy.registerEventHandlers();
+	}
+	
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event) {
+		for(IUpdateChecker updateChecker : UpdateCheckerRegistry.INSTANCE.list()) {
+			try {
+				updateChecker.checkForUpdates();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 }
