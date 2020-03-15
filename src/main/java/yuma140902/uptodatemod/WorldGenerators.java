@@ -2,12 +2,12 @@ package yuma140902.uptodatemod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.biome.BiomeGenBase;
+import yuma140902.mcmodlib.api.world.gen.biome.BiomeDecorators;
 import yuma140902.uptodatemod.blocks.BlockNewFlower;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 import yuma140902.uptodatemod.world.generation.UpToDateWorldGenerator;
-import yuma140902.uptodatemod.world.generation.biome.BiomeDecorators;
 import yuma140902.uptodatemod.world.generation.biome.FlowerGenerator;
 import yuma140902.uptodatemod.world.generation.biome.SweetBerryGenerator;
 
