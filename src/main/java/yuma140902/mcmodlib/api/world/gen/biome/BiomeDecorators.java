@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.world.generation.biome;
+package yuma140902.mcmodlib.api.world.gen.biome;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -7,7 +7,6 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import yuma140902.mcmodlib.api.world.gen.biome.IBiomeDecorator;
 
 public class BiomeDecorators {
 	
