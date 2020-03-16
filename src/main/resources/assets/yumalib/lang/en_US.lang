@@ -1,1 +1,1 @@
-text.yumalib.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark_green"},{"text":" There is a new version available: v%s ["},{"text":"Click to open download URL","underlined":true,"color":"green","clickEvent":{"action":"open_url","value":"%s"}},{"text":"]"}]
+text.yumalib.update_notify=["",{"text":"%s:","bold":true,"color":"dark_green"},{"text":" There is a new version available: v%s ["},{"text":"Click to open download URL","underlined":true,"color":"green","clickEvent":{"action":"open_url","value":"%s"}},{"text":"]"}]

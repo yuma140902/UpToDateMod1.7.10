@@ -16,6 +16,7 @@ public class TsvUpdateChecker implements IUpdateChecker {
 	//public String config_updateChannel = RECOMMENDED_STR;
 	//public boolean config_doCheckUpdate = true;
 	
+	public String modName;
 	public String homePageUrl;
 	public String versionsTsvUrl;
 	
@@ -25,7 +26,8 @@ public class TsvUpdateChecker implements IUpdateChecker {
 	public String availableNewVersion;
 	public HashMap<String, String> versions = null;
 	
-	public TsvUpdateChecker(String homePageUrl, String versionsTsvUrl, String currentVersion, String updateChannel) {
+	public TsvUpdateChecker(String modName, String homePageUrl, String versionsTsvUrl, String currentVersion, String updateChannel) {
+		this.modName = modName;
 		this.homePageUrl = homePageUrl;
 		this.versionsTsvUrl = versionsTsvUrl;
 		this.currentVersion = currentVersion;
@@ -145,5 +147,10 @@ public class TsvUpdateChecker implements IUpdateChecker {
 	@Override
 	public String getAvailableNewVersion() {
 		return this.availableNewVersion;
+	}
+	
+	@Override
+	public String getModName() {
+		return this.modName;
 	}
 }

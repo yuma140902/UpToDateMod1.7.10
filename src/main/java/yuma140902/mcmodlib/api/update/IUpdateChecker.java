@@ -5,4 +5,5 @@ public interface IUpdateChecker {
 	boolean hasNewVersionAvailable();
 	String getNewVersionUrl();
 	String getAvailableNewVersion();
+	String getModName();
 }
