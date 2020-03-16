@@ -38,7 +38,7 @@ public class ClientEventHandler {
 			if(!updateChecker.hasNewVersionAvailable()) {
 				continue;
 			}
-			String msgRaw = StatCollector.translateToLocalFormatted("text.yumalib.update_notify", updateChecker.getAvailableNewVersion(), updateChecker.getNewVersionUrl());
+			String msgRaw = StatCollector.translateToLocalFormatted("text.yumalib.update_notify", updateChecker.getModName(), updateChecker.getAvailableNewVersion(), updateChecker.getNewVersionUrl());
 			new CommandMessageRaw().processCommand(integratedServer, new String[] {"@a", msgRaw});
 		}
 		

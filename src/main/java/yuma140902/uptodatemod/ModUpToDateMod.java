@@ -115,7 +115,7 @@ public class ModUpToDateMod {
 		ModConfigCore.loadConfig(event);
 		LOGGER.info("preInit");
 		if(ModConfigCore.doCheckUpdate) {
-			IUpdateChecker updateChecker = new TsvUpdateChecker("https://www.curseforge.com/minecraft/mc-mods/uptodatemod", MOD_VERSIONS_TSV_URL, MOD_VERSION, ModConfigCore.updateChannel);
+			IUpdateChecker updateChecker = new TsvUpdateChecker(MOD_NAME, "https://www.curseforge.com/minecraft/mc-mods/uptodatemod", MOD_VERSIONS_TSV_URL, MOD_VERSION, ModConfigCore.updateChannel);
 			UpdateCheckerRegistry.INSTANCE.register(updateChecker);
 		}
 		
