@@ -16,14 +16,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import yuma140902.mcmodlib.api.IHasRecipes;
-import yuma140902.mcmodlib.api.IRegisterable;
-import yuma140902.mcmodlib.api.items.ItemBlockColored;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.entity.item.EntityFallingConcretePowderBlock;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.yumalib_ee.api.IHasRecipes;
+import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib_ee.api.items.ItemBlockColored;
 
 public class BlockConcretePowder extends BlockFalling implements IRegisterable, IHasRecipes {
 	public static final int META_MAX = 15;

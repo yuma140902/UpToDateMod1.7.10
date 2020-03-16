@@ -14,12 +14,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import yuma140902.mcmodlib.api.IRegisterable;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.tileentity.TileEntityObserver;
 import yuma140902.uptodatemod.util.BlockCoordinate3;
 import yuma140902.uptodatemod.util.DirectionUtil;
 import yuma140902.uptodatemod.util.Stat;
+import yuma140902.yumalib_ee.api.IRegisterable;
 
 public class BlockObserver extends BlockContainer implements IRegisterable {
 	

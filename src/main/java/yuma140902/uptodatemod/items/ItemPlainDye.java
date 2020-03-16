@@ -3,11 +3,11 @@ package yuma140902.uptodatemod.items;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import yuma140902.mcmodlib.api.IHasRecipes;
-import yuma140902.mcmodlib.api.IRegisterable;
-import yuma140902.mcmodlib.api.items.ItemMultiMeta;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.yumalib_ee.api.IHasRecipes;
+import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib_ee.api.items.ItemMultiMeta;
 
 public class ItemPlainDye extends ItemMultiMeta implements IRegisterable, IHasRecipes {
 

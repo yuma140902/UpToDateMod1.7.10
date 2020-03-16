@@ -13,12 +13,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
-import yuma140902.mcmodlib.api.IHasRecipes;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ListUtils;
+import yuma140902.yumalib_ee.api.IHasRecipes;
 
 public final class Recipes {
 	private Recipes() {}

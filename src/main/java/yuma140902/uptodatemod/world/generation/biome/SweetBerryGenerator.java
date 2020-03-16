@@ -5,8 +5,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenTaiga;
 import net.minecraftforge.common.util.ForgeDirection;
-import yuma140902.mcmodlib.api.world.gen.biome.IBiomeDecorator;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.yumalib_ee.api.world.gen.biome.IBiomeDecorator;
 
 public class SweetBerryGenerator implements IBiomeDecorator {
 

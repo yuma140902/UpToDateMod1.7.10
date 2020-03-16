@@ -1,8 +1,8 @@
 package yuma140902.uptodatemod.blocks;
 
 import net.minecraft.init.Blocks;
-import yuma140902.mcmodlib.api.blocks.BlockGenericSlab;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericSlab;
 
 public class BlockStoneSlab extends BlockGenericSlab {
 	

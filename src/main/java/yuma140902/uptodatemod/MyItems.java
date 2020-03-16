@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.item.Item;
-import yuma140902.mcmodlib.api.IRegisterable;
 import yuma140902.uptodatemod.items.ItemArmorStand;
 import yuma140902.uptodatemod.items.ItemBoatAcacia;
 import yuma140902.uptodatemod.items.ItemBoatBirch;
@@ -28,6 +27,7 @@ import yuma140902.uptodatemod.items.ItemSuspiciousStew;
 import yuma140902.uptodatemod.items.ItemSweetBerries;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.yumalib_ee.api.IRegisterable;
 
 public final class MyItems {
 	private MyItems() {}
