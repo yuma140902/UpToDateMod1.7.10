@@ -15,12 +15,12 @@ import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.yumalib_ee.api.update.IUpdateChecker;
 import yuma140902.yumalib_ee.api.update.UpdateCheckerRegistry;
-import yuma140902.yumalib_ee.config.YumaLibConfigCore;
+import yuma140902.yumalib_ee.config.YLConfigCore;
 
-public class ClientEventHandler {
-	private ClientEventHandler() {}
+public class YLClientEventHandler {
+	private YLClientEventHandler() {}
 	
-	public static final ClientEventHandler INSTANCE = new ClientEventHandler();
+	public static final YLClientEventHandler INSTANCE = new YLClientEventHandler();
 	
 	
 	private boolean hasNotifiedAboutUpdate = false;
@@ -55,7 +55,7 @@ public class ClientEventHandler {
 		boolean isInAdvancedMode = event.showAdvancedItemTooltips;
 		ItemStack itemstack = event.itemStack;
 		
-		if(YumaLibConfigCore.Tooltip.showOreDic.toBoolean(isInAdvancedMode)) {
+		if(YLConfigCore.Tooltip.showOreDic.toBoolean(isInAdvancedMode)) {
 			int[] oreIDs = OreDictionary.getOreIDs(itemstack);
 			
 			for(int i = 0; i < oreIDs.length; ++i) {
@@ -63,7 +63,7 @@ public class ClientEventHandler {
 			}
 		}
 		
-		if(YumaLibConfigCore.Tooltip.showBlockMaterialInfo.toBoolean(isInAdvancedMode)) {
+		if(YLConfigCore.Tooltip.showBlockMaterialInfo.toBoolean(isInAdvancedMode)) {
 			Block block = Block.getBlockFromItem(itemstack.getItem());
 			if(block != null && block != Blocks.air) {
 				Material material = block.getMaterial();
@@ -76,7 +76,7 @@ public class ClientEventHandler {
 			}
 		}
 		
-		if(YumaLibConfigCore.Tooltip.showRegistryName.toBoolean(isInAdvancedMode)) {
+		if(YLConfigCore.Tooltip.showRegistryName.toBoolean(isInAdvancedMode)) {
 			String registyName = GameData.getItemRegistry().getNameForObject(itemstack.getItem());
 			event.toolTip.add(registyName);
 		}

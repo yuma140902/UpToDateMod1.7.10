@@ -6,7 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import yuma140902.yumalib_ee.ModYumaLib;
 
-public class YumaLibConfigCore {
+public class YLConfigCore {
 	
 	public static class Tooltip {
 		
