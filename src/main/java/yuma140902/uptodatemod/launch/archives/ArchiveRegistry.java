@@ -18,4 +18,16 @@ public class ArchiveRegistry {
 	public static FileSystem getArchive(String id) {
 		return registry.get(id);
 	}
+	
+	public static void closeAll() {
+		for(FileSystem archive : registry.values()) {
+			try {
+				archive.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		registry.clear();
+	}
 }

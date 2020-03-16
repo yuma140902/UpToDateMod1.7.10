@@ -35,25 +35,35 @@ public class VanillaResourceLoader {
 	public static final Logger log = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-ResourceLoader");
 	
 	public static void load(Path caches, Path archives, Path assets) throws IOException {
+		log.info("Starting loading vanilla resources");
+		
 		Class<ModUpToDateMod> clazz = ModUpToDateMod.class;
 		String settingFileName = "/settings.json";
-		InputStreamReader reader = new InputStreamReader(clazz.getResourceAsStream(settingFileName));
-		
-		Gson gson = new Gson();
-		Setting setting = gson.fromJson(reader, Setting.class);
 		
 		if(needUpdate(assets, clazz.getResourceAsStream(settingFileName))) {
+			log.info("Loading settings.json");
+			
+			Gson gson = new Gson();
+			InputStreamReader reader = new InputStreamReader(clazz.getResourceAsStream(settingFileName));
+			Setting setting = gson.fromJson(reader, Setting.class);
+			log.info("Successfully loaded settings.json");
+			
 			Files.createDirectories(caches);
 			Files.createDirectories(archives);
 			Files.createDirectories(assets);
 			
+			log.info("Starting jar downloader");
 			download(setting, caches, archives);
 			registerArchives(setting, archives);
+			log.info("Starting organizer");
 			organize(setting, assets);
+			log.info("Starting sound downloader");
 			setupSounds(setting, caches, assets);
+			ArchiveRegistry.closeAll();
 			
 			makeVersionCheckFile(assets, clazz.getResourceAsStream(settingFileName));
 		}
+		log.info("Finished loading vanilla resources");
 	}
 	
 	private static boolean needUpdate(Path assetsDir, InputStream settingJson) throws IOException {
