@@ -7,13 +7,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import yuma140902.mcmodlib.api.IHasRecipes;
-import yuma140902.mcmodlib.api.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.Recipes;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.yumalib_ee.api.IHasRecipes;
+import yuma140902.yumalib_ee.api.IRegisterable;
 
 public class ItemDoorSpruce extends net.minecraft.item.ItemDoor implements IRegisterable, IHasRecipes {
   public ItemDoorSpruce()

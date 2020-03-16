@@ -11,13 +11,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import yuma140902.mcmodlib.api.IHasRecipes;
-import yuma140902.mcmodlib.api.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockRedSandStone;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.yumalib_ee.api.IHasRecipes;
+import yuma140902.yumalib_ee.api.IRegisterable;
 
 public class BlockRedSandStone extends BlockSandStone implements IRegisterable, IHasRecipes {
 	

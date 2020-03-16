@@ -6,16 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import yuma140902.mcmodlib.api.IRegisterable;
-import yuma140902.mcmodlib.api.blocks.BlockGenericButton;
-import yuma140902.mcmodlib.api.blocks.BlockGenericDoor;
-import yuma140902.mcmodlib.api.blocks.BlockGenericFence;
-import yuma140902.mcmodlib.api.blocks.BlockGenericFenceGate;
-import yuma140902.mcmodlib.api.blocks.BlockGenericPressurePlate;
-import yuma140902.mcmodlib.api.blocks.BlockGenericSlab;
-import yuma140902.mcmodlib.api.blocks.BlockGenericStairs;
-import yuma140902.mcmodlib.api.blocks.BlockGenericTrapDoor;
-import yuma140902.mcmodlib.api.blocks.BlockGenericWall;
 import yuma140902.uptodatemod.blocks.BlockBarrel;
 import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
@@ -50,6 +40,16 @@ import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericButton;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericDoor;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericFence;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericFenceGate;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericPressurePlate;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericSlab;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericStairs;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericTrapDoor;
+import yuma140902.yumalib_ee.api.blocks.BlockGenericWall;
 
 public final class MyBlocks {
 	private MyBlocks() {}

@@ -8,14 +8,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import yuma140902.mcmodlib.api.IHasRecipes;
-import yuma140902.mcmodlib.api.IRegisterable;
-import yuma140902.mcmodlib.api.items.ItemFoodMultiMeta;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockNewFlower;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.yumalib_ee.api.IHasRecipes;
+import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib_ee.api.items.ItemFoodMultiMeta;
 
 public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterable, IHasRecipes {
 	
