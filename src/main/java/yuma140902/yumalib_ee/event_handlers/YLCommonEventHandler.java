@@ -5,14 +5,14 @@ import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import yuma140902.yumalib_ee.YumaLibConstants;
+import yuma140902.yumalib_ee.YTConstants;
 import yuma140902.yumalib_ee.api.world.gen.biome.BiomeDecorators;
-import yuma140902.yumalib_ee.config.YumaLibConfigCore;
+import yuma140902.yumalib_ee.config.YLConfigCore;
 
-public class CommonEventHandler {
-private CommonEventHandler() {}
+public class YLCommonEventHandler {
+private YLCommonEventHandler() {}
 	
-	public static final CommonEventHandler INSTANCE = new CommonEventHandler();
+	public static final YLCommonEventHandler INSTANCE = new YLCommonEventHandler();
 	
 	
 	@SubscribeEvent
@@ -31,7 +31,7 @@ private CommonEventHandler() {}
 	
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-		if(YumaLibConstants.MOD_ID.equals(event.modID))
-			YumaLibConfigCore.syncConfig();
+		if(YTConstants.MOD_ID.equals(event.modID))
+			YLConfigCore.syncConfig();
 	}
 }

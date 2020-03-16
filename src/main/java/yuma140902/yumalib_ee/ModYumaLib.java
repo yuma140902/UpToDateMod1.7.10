@@ -10,27 +10,27 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import yuma140902.yumalib_ee.api.update.IUpdateChecker;
 import yuma140902.yumalib_ee.api.update.UpdateCheckerRegistry;
-import yuma140902.yumalib_ee.config.YumaLibConfigCore;
-import yuma140902.yumalib_ee.proxy.CommonProxy;
+import yuma140902.yumalib_ee.config.YLConfigCore;
+import yuma140902.yumalib_ee.proxy.YLCommonProxy;
 
-@Mod(modid = YumaLibConstants.MOD_ID, name = YumaLibConstants.MOD_NAME, version = YumaLibConstants.MOD_VERSION, useMetadata = true, guiFactory = YumaLibConstants.CONFIG_GUI_FACTORY)
+@Mod(modid = YTConstants.MOD_ID, name = YTConstants.MOD_NAME, version = YTConstants.MOD_VERSION, useMetadata = true, guiFactory = YTConstants.CONFIG_GUI_FACTORY)
 public class ModYumaLib {
 	
-	public static final Logger LOGGER = LogManager.getLogger(YumaLibConstants.MOD_NAME);
+	public static final Logger LOGGER = LogManager.getLogger(YTConstants.MOD_NAME);
 	
-	@Mod.Metadata(YumaLibConstants.MOD_ID)
+	@Mod.Metadata(YTConstants.MOD_ID)
 	public static ModMetadata modMetadata;
 	
-	@Mod.Instance(YumaLibConstants.MOD_ID)
+	@Mod.Instance(YTConstants.MOD_ID)
 	public static ModYumaLib INSTANCE;
 	
-	@SidedProxy(modId = YumaLibConstants.MOD_ID, clientSide = YumaLibConstants.PROXY_CLIENT, serverSide = YumaLibConstants.PROXY_COMMON)
-	public static CommonProxy proxy;
+	@SidedProxy(modId = YTConstants.MOD_ID, clientSide = YTConstants.PROXY_CLIENT, serverSide = YTConstants.PROXY_COMMON)
+	public static YLCommonProxy proxy;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
-		modMetadata.modId = YumaLibConstants.MOD_ID;
-		modMetadata.name = YumaLibConstants.MOD_NAME;
-		modMetadata.version = YumaLibConstants.MOD_VERSION;
+		modMetadata.modId = YTConstants.MOD_ID;
+		modMetadata.name = YTConstants.MOD_NAME;
+		modMetadata.version = YTConstants.MOD_VERSION;
 		modMetadata.authorList.add("yuma140902");
 		modMetadata.description = "Library for UpToDateMod";
 		//modMetadata.url = "https://www.curseforge.com/minecraft/mc-mods/yumalib";
@@ -41,7 +41,7 @@ public class ModYumaLib {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
-		YumaLibConfigCore.loadConfig(event);
+		YLConfigCore.loadConfig(event);
 		proxy.registerEventHandlers();
 	}
 	
