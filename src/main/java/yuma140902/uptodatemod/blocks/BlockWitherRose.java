@@ -1,5 +1,7 @@
 package yuma140902.uptodatemod.blocks;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Random;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -97,8 +99,23 @@ public class BlockWitherRose extends BlockBush implements IRegisterable, IHasRec
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if(entity instanceof EntityLivingBase) {
 			EntityLivingBase entityLiving = (EntityLivingBase) entity;
-			entityLiving.addPotionEffect(new PotionEffect(Potion.wither.id, 60, 0, true));
+			if(!hasWitherEffect(entityLiving.getActivePotionEffects())) {
+				entityLiving.addPotionEffect(new PotionEffect(Potion.wither.id, 60, 0, true));
+			}
 		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	private boolean hasWitherEffect(Collection potionEffects) {
+		Iterator iterator = potionEffects.iterator();
+		while (iterator.hasNext()) {
+			Object obj = iterator.next();
+			if(obj instanceof PotionEffect) {
+				PotionEffect effect = (PotionEffect) obj;
+				if(effect.getPotionID() == Potion.wither.id) return true;
+			}
+		}
+		return false;
 	}
 	
 	public static void onLivingDeathEvent(LivingDeathEvent event) {
