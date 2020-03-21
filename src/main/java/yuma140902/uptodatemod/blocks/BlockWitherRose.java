@@ -141,7 +141,7 @@ public class BlockWitherRose extends BlockBush implements IRegisterable, IHasRec
 	
 	private static boolean canPlace(World world, int x, int y, int z) {
 		Block block = world.getBlock(x, y-1, z);
-		return block.isSideSolid(world, x, y-1, z, ForgeDirection.UP) || block == Blocks.farmland || block.isFlowerPot();
+		return block.isSideSolid(world, x, y-1, z, ForgeDirection.UP) || block == Blocks.farmland || block == Blocks.flower_pot || block == MyBlocks.unlimitedPot;
 	}
 	
 	public static class ItemBlock extends net.minecraft.item.ItemBlock {
