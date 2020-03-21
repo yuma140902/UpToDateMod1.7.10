@@ -10,6 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -51,7 +52,7 @@ public class BlockNewFlower extends BlockBush implements IRegisterable, IHasReci
 	
 	@Override
 	protected boolean canPlaceBlockOn(Block block) {
-		return super.canPlaceBlockOn(block) || block.isFlowerPot();
+		return super.canPlaceBlockOn(block) || block == Blocks.flower_pot || block == MyBlocks.unlimitedPot;
 	}
 	
 	
