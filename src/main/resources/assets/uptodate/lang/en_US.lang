@@ -167,10 +167,15 @@ container.uptodate.barrel=Barrel
 tile.uptodate.barrel.name=Barrel
 
 tile.uptodate.wither_rose.name=Wither Rose
+tile.uptodate.flower.cornflower.name=Cornflower
+tile.uptodate.flower.lily_of_the_valley.name=Lily of the Valley
 
 item.uptodate.dye.blue.name=Blue Dye
 item.uptodate.dye.white.name=White Dye
 item.uptodate.dye.black.name=Black Dye
+item.uptodate.dye.brown.name=Brown Dye
+
+item.uptodate.suspicious_stew.name=Suspicious Stew
 
 tile.uptodate.concrete.black.name=Black Concrete
 tile.uptodate.concrete.blue.name=Blue Concrete

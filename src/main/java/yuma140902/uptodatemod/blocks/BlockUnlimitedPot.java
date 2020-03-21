@@ -2,8 +2,10 @@ package yuma140902.uptodatemod.blocks;
 
 import javax.annotation.Nonnull;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFlowerPot;
 import net.minecraft.world.World;
@@ -30,10 +32,11 @@ public class BlockUnlimitedPot extends BlockFlowerPot implements IRegisterable {
 	 * @return アイテムの設置に成功したらtrue
 	 */
 	public boolean putItemIn(@Nonnull ItemStack itemstack, @Nonnull EntityPlayer player, @Nonnull World world, int x, int y, int z) {
-		if(world.getBlock(x, y, z).isFlowerPot()) {
+		Block block = world.getBlock(x, y, z);
+		if(block == Blocks.flower_pot || block == MyBlocks.unlimitedPot) {
 			world.setBlock(x, y, z, MyBlocks.unlimitedPot);
 			TileEntityFlowerPot tile = new TileEntityFlowerPot();
-			tile.func_145964_a(itemstack.getItem(), 0);
+			tile.func_145964_a(itemstack.getItem(), itemstack.getItemDamage());
 			tile.markDirty();
 			world.setTileEntity(x, y, z, tile);
 			world.markBlockForUpdate(x, y, z);

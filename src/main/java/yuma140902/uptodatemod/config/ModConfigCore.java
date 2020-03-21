@@ -21,7 +21,8 @@ public class ModConfigCore {
 		CATEGORY_RECIPE = CATEGORY_GENERAL + ".Recipe",
 		CATEGORY_EXPERIMENTAL = CATEGORY_GENERAL + ".Experimental",
 		CATEGORY_ENTITY = CATEGORY_GENERAL + ".Entity",
-		CATEGORY_DISABLE_FEATURES = CATEGORY_GENERAL + ".DisableFeatures";
+		CATEGORY_DISABLE_FEATURES = CATEGORY_GENERAL + ".DisableFeatures",
+		CATEGORY_DEPRECATED = "Deprecated"; // GeneralのサブカテゴリではないのでGUIには表示されない
 	
 	public static final String
 		CONFIG_PROP_LANGKEY = "config.uptodate.prop.",
@@ -39,6 +40,12 @@ public class ModConfigCore {
 	public static int[] worldGen_genCoarseDirt_blackList;
 	public static boolean recipeRemove_oldFenceRecipe;
 	public static boolean useOldSmoothStoneSlabRecipe;
+	public static int idBoatAcacia;
+	public static int idBoatBirch;
+	public static int idBoatDarkOak;
+	public static int idBoatJungle;
+	public static int idBoatSpruce;
+	public static int idArmorStand;
 	public static boolean enable_observer;
 	public static boolean debug_mode;
 	
@@ -67,6 +74,7 @@ public class ModConfigCore {
 		// Entity
 		cfg.addCustomCategoryComment(CATEGORY_ENTITY, "Settings about entities and mobs");
 		cfg.setCategoryLanguageKey(CATEGORY_ENTITY, CONFIG_CATEGORY_LANGKEY + "entity");
+		cfg.setCategoryRequiresMcRestart(CATEGORY_ENTITY, true);
 		
 		// Experimental
 		cfg.addCustomCategoryComment(CATEGORY_EXPERIMENTAL, "Settings about experimental features. They may have a serious bug.");
@@ -75,6 +83,10 @@ public class ModConfigCore {
 		
 		// DisableFeatures
 		cfg.setCategoryRequiresMcRestart(CATEGORY_DISABLE_FEATURES, true);
+		
+		// Deprecated
+		cfg.addCustomCategoryComment(CATEGORY_DEPRECATED, "You do not have to change the configurations in Deprecated section.");
+		cfg.setCategoryRequiresMcRestart(CATEGORY_DEPRECATED, true);
 		
 		IntegrationConfigs.initConfig(cfg);
 	}
@@ -133,6 +145,14 @@ public class ModConfigCore {
 		
 		// DisableFeatures
 		syncDisableableFeaturesConfig(cfg);
+		
+		// Deprecated
+		idBoatAcacia = 		cfg.getInt("idBoatAcacia", 		CATEGORY_DEPRECATED, 0, 0, Integer.MAX_VALUE, "Entity ID for Acacia Boat");
+		idBoatBirch = 		cfg.getInt("idBoatBirch", 		CATEGORY_DEPRECATED, 1, 0, Integer.MAX_VALUE, "Entity ID for Birch Boat");
+		idBoatDarkOak = 	cfg.getInt("idBoatDarkOak", 	CATEGORY_DEPRECATED, 2, 0, Integer.MAX_VALUE, "Entity ID for Dark Oak Boat");
+		idBoatJungle = 		cfg.getInt("idBoatJungle", 		CATEGORY_DEPRECATED, 3, 0, Integer.MAX_VALUE, "Entity ID for Jungle Boat");
+		idBoatSpruce = 		cfg.getInt("idBoatSpruce", 		CATEGORY_DEPRECATED, 4, 0, Integer.MAX_VALUE, "Entity ID for Spruce Boat");
+		idArmorStand = 		cfg.getInt("idArmorStand", 		CATEGORY_DEPRECATED, 5, 0, Integer.MAX_VALUE, "Entity ID for Armorstand");
 		
 		IntegrationConfigs.syncConfig(cfg);
 		

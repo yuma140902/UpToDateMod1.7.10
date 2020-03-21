@@ -16,6 +16,7 @@ import yuma140902.uptodatemod.IRegisterable;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockRedSandStone;
 import yuma140902.uptodatemod.registry.RecipeRegister;
+import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 
 public class BlockRedSandStone extends BlockSandStone implements IRegisterable, IHasRecipes {
@@ -47,20 +48,17 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		if(meta == 3) {
-			return sideIcons[3];
+			return topIcon;
 		}
-		
-		if (side != 1 && (side != 0 || meta != 1 && meta != 2)) {
-			if (side == 0) {
-				return this.bottomIcon;
-			}
-			else {
-				if (meta < 0 || meta >= this.sideIcons.length) meta = 0;
-				return this.sideIcons[meta];
-			}
+		else if(side == Stat.SIDE_TOP) {
+			return topIcon;
+		}
+		else if(side == Stat.SIDE_BOTTOM) {
+			return bottomIcon;
 		}
 		else {
-			return this.topIcon;
+			if(meta < 0 || this.sideIcons.length <= meta) meta = 0;
+			return this.sideIcons[meta];
 		}
 	}
 	

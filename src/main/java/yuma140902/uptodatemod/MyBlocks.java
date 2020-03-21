@@ -1,8 +1,9 @@
 package yuma140902.uptodatemod;
 
 import static yuma140902.uptodatemod.registry.EnumDisableableFeatures.*;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import yuma140902.uptodatemod.blocks.BlockBarrel;
@@ -22,6 +23,7 @@ import yuma140902.uptodatemod.blocks.BlockGrassPath;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockMagma;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
+import yuma140902.uptodatemod.blocks.BlockNewFlower;
 import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.BlockPrismarine;
 import yuma140902.uptodatemod.blocks.BlockPrismarineBricks;
@@ -63,7 +65,7 @@ public final class MyBlocks {
 		if(block != null) list.add(block);
 	}
 	
-	private static HashSet<Block> list = new HashSet<Block>();
+	private static List<Block> list = new ArrayList<Block>();
 	
 	public static Iterator<Block> iterator(){
 		return list.iterator();
@@ -223,6 +225,7 @@ public final class MyBlocks {
 	public static final BlockSweetBerryBush sweetBerryBush;
 	
 	public static final BlockWitherRose witherRose;
+	public static final BlockNewFlower flower;
 	public static final BlockUnlimitedPot unlimitedPot;
 	
 	
@@ -529,6 +532,7 @@ public final class MyBlocks {
 		add(sweetBerryBush = isEnabled(sweetBerry) ? new BlockSweetBerryBush() : null);
 		
 		add(witherRose = isEnabled(EnumDisableableFeatures.witherRose) ? new BlockWitherRose() : null);
+		add(flower = isEnabled(EnumDisableableFeatures.flower) ? new BlockNewFlower() : null);
 		add(unlimitedPot = new BlockUnlimitedPot());
 	}
 	

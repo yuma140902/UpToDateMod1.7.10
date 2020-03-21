@@ -1,8 +1,9 @@
 package yuma140902.uptodatemod;
 
 import static yuma140902.uptodatemod.registry.EnumDisableableFeatures.*;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.item.Item;
 import yuma140902.uptodatemod.items.ItemArmorStand;
@@ -22,6 +23,7 @@ import yuma140902.uptodatemod.items.ItemPlainDye;
 import yuma140902.uptodatemod.items.ItemPrismarineCrystals;
 import yuma140902.uptodatemod.items.ItemPrismarineShard;
 import yuma140902.uptodatemod.items.ItemRawMutton;
+import yuma140902.uptodatemod.items.ItemSuspiciousStew;
 import yuma140902.uptodatemod.items.ItemSweetBerries;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
@@ -37,7 +39,7 @@ public final class MyItems {
 		if(item != null) list.add(item);
 	}
 	
-	private static HashSet<Item> list = new HashSet<Item>();
+	private static List<Item> list = new ArrayList<Item>();
 	
 	public static Iterator<Item> iterator(){
 		return list.iterator();
@@ -78,6 +80,8 @@ public final class MyItems {
 	public static final ItemSweetBerries sweetBerries;
 	
 	public static final ItemPlainDye dye;
+	
+	public static final ItemSuspiciousStew suspiciousStew;
 	
 	static {
 		ModUpToDateMod.LOGGER.info("Items init");
@@ -135,6 +139,7 @@ public final class MyItems {
 		add(armorStand = isEnabled(EnumDisableableFeatures.armorStand) ? new ItemArmorStand() : null);
 		add(sweetBerries = isEnabled(sweetBerry) ? new ItemSweetBerries() : null);
 		add(dye = isEnabled(plainDye) ? new ItemPlainDye() : null);
+		add(suspiciousStew = isEnabled(EnumDisableableFeatures.suspiciousStew) ? new ItemSuspiciousStew() : null);
 	}
 
 }

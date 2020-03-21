@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "mc1.7.10-2.0.1"
+version = "mc1.7.10-2.1.0"
 group= "yuma140902.uptodatemod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "UpToDateMod"
 
@@ -25,6 +25,9 @@ minecraft {
     version = "1.7.10-10.13.4.1558-1.7.10"
     runDir = "eclipse"
 }
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 [compileJava, compileTestJava].each {
     it.options.encoding = 'UTF-8'
