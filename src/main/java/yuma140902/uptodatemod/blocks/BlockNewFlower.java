@@ -55,6 +55,11 @@ public class BlockNewFlower extends BlockBush implements IRegisterable, IHasReci
 		return super.canPlaceBlockOn(block) || block == Blocks.flower_pot || block == MyBlocks.unlimitedPot;
 	}
 	
+	@Override
+	public int damageDropped(int meta) {
+		return meta % 2;
+	}
+	
 	
 	@Override
 	public void registerRecipes() {
