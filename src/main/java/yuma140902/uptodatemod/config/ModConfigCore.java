@@ -54,6 +54,72 @@ public class ModConfigCore {
 	public static boolean enable_observer;
 	public static boolean debug_mode;
 	
+	public static class Generic {
+		private static boolean doCheckUpdate;
+		private static String updateChannel;
+		private static boolean debugMode;
+		
+		public static boolean doCheckUpdate() {return doCheckUpdate;}
+		public static String updateChannel() {return updateChannel;}
+		public static boolean debugMode() {return debugMode;}
+	}
+	
+	public static class WorldGen {
+		private static boolean genStones;
+		private static int[] stonesBlackList;
+		private static boolean genFossiles;
+		private static int[] fossilesBlackList;
+		private static boolean genCoarseDirt;
+		private static int[] coarseDirtBlackList;
+		private static boolean genMagmaBlock;
+		private static int[] magmaBlockBlackList;
+		
+		public static boolean genStones() {return genStones;}
+		public static int[] stonesBlackList() {return stonesBlackList;}
+		public static boolean genFossiles() {return genFossiles;}
+		public static int[] fossilesBlackList() {return fossilesBlackList;}
+		public static boolean genCoarseDirt() {return genCoarseDirt;}
+		public static int[] coarseDirtBlackList() {return coarseDirtBlackList;}
+		public static boolean genMagmaBlock() {return genMagmaBlock;}
+		public static int[] magmaBlockBlackList() {return magmaBlockBlackList;}
+	}
+	
+	public static class Recipe {
+		private static boolean removeOldFenceRecipe;
+		private static boolean useOldSmoothStoneSlabRecipe;
+		
+		public static boolean removeOldFenceRecipe() {return removeOldFenceRecipe;}
+		public static boolean useOldSmoothStoneSlabRecipe() {return useOldSmoothStoneSlabRecipe;}
+	}
+	
+	public static class Entity {
+		private static boolean boatCrashWhenCollide;
+		
+		public static boolean boatCrashWhenCollide() {return boatCrashWhenCollide;}
+	}
+	
+	public static class Experimental {
+		private static boolean enableObserver;
+		
+		public static boolean enableObserver() {return enableObserver;}
+	}
+	
+	public static class Deprecated {
+		private static int idBoatAcacia;
+		private static int idBoatBirch;
+		private static int idBoatDarkOak;
+		private static int idBoatJungle;
+		private static int idBoatSpruce;
+		private static int idArmorStand;
+		
+		public static int idBoatAcacia() {return idBoatAcacia;}
+		public static int idBoatBirch() {return idBoatBirch;}
+		public static int idBoatDarkOak() {return idBoatDarkOak;}
+		public static int idBoatJungle() {return idBoatJungle;}
+		public static int idBoatSpruce() {return idBoatSpruce;}
+		public static int idArmorStand() {return idArmorStand;}
+	}
+	
 	public static void loadConfig(FMLPreInitializationEvent event) {
 		cfg = new Configuration(event.getSuggestedConfigurationFile(), true);
 		initConfig();
