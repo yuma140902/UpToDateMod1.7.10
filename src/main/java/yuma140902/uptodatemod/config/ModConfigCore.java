@@ -38,6 +38,8 @@ public class ModConfigCore {
 	public static int[] worldGen_genFossiles_blackList;
 	public static boolean worldGen_genCoarseDirt;
 	public static int[] worldGen_genCoarseDirt_blackList;
+	public static boolean worldGen_genMagmaBlock;
+	public static int[] worldGen_genMagmaBlock_blackList;
 	public static boolean recipeRemove_oldFenceRecipe;
 	public static boolean useOldSmoothStoneSlabRecipe;
 	public static int idBoatAcacia;
@@ -125,6 +127,8 @@ public class ModConfigCore {
 		worldGen_genCoarseDirt_blackList = stringListToIntList(cfg.getStringList("genCoarseDirtDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
 				"Coarse Dirt generation dimension black list", (String[])null,
 				CONFIG_PROP_LANGKEY + "generate_coarse_dirt_blacklist"));
+		worldGen_genMagmaBlock = cfg.getBoolean("genMagmaBlock", CATEGORY_WORLDGEN, true, "");
+		worldGen_genMagmaBlock_blackList = stringListToIntList(cfg.getStringList("genMagmaBlockDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"0", "1"}, ""));
 		
 		// Recipe
 		recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", CATEGORY_RECIPE, false, 
