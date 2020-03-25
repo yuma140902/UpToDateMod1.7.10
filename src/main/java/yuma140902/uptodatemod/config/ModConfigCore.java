@@ -22,6 +22,7 @@ public class ModConfigCore {
 		CATEGORY_EXPERIMENTAL = CATEGORY_GENERAL + ".Experimental",
 		CATEGORY_ENTITY = CATEGORY_GENERAL + ".Entity",
 		CATEGORY_DISABLE_FEATURES = CATEGORY_GENERAL + ".DisableFeatures",
+		CATEGORY_ALTERNATIVE = CATEGORY_GENERAL + ".Alternative",
 		CATEGORY_DEPRECATED = "Deprecated"; // GeneralのサブカテゴリではないのでGUIには表示されない
 	
 	public static final String
@@ -86,6 +87,9 @@ public class ModConfigCore {
 		// DisableFeatures
 		cfg.setCategoryRequiresMcRestart(CATEGORY_DISABLE_FEATURES, true);
 		
+		// Alternative
+		cfg.setCategoryComment(CATEGORY_ALTERNATIVE, "Alternative ways to get items");
+		
 		// Deprecated
 		cfg.addCustomCategoryComment(CATEGORY_DEPRECATED, "You do not have to change the configurations in Deprecated section.");
 		cfg.setCategoryRequiresMcRestart(CATEGORY_DEPRECATED, true);
@@ -149,6 +153,9 @@ public class ModConfigCore {
 		
 		// DisableFeatures
 		syncDisableableFeaturesConfig(cfg);
+		
+		// Alternative
+		
 		
 		// Deprecated
 		idBoatAcacia = 		cfg.getInt("idBoatAcacia", 		CATEGORY_DEPRECATED, 0, 0, Integer.MAX_VALUE, "Entity ID for Acacia Boat");
