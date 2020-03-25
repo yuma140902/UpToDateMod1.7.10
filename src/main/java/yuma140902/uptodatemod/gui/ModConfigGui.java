@@ -9,6 +9,7 @@ import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.ConfigElement;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.integration.IntegrationConfigs;
 
 public class ModConfigGui extends GuiConfig {
 	
@@ -26,7 +27,7 @@ public class ModConfigGui extends GuiConfig {
 		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(ModConfigCore.CATEGORY_DISABLE_FEATURES)));
 		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(ModConfigCore.CATEGORY_ALTERNATIVE)));
 		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(ModConfigCore.CATEGORY_EXPERIMENTAL)));
-		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(ModConfigCore.CATEGORY_INTEGRATION)));
+		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(IntegrationConfigs.CATEGORY_INTEGRATION)));
 		return list;
 	}
 	
