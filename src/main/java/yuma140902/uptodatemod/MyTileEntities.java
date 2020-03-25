@@ -7,7 +7,7 @@ public class MyTileEntities {
 	private MyTileEntities() {}
 	
 	public static void register() {
-		if(ModConfigCore.enable_observer) observer.register();
+		if(ModConfigCore.Experimental.enableObserver()) observer.register();
 	}
 	
 	public static final TileEntityObserver observer = new TileEntityObserver();

@@ -35,7 +35,7 @@ public final class Recipes {
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.doors)) {
 			removeRecipesOutputNameList.add("minecraft:wooden_door");
 		}
-		if(ModConfigCore.recipeRemove_oldFenceRecipe || DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fences)) {
+		if(ModConfigCore.Recipe.removeOldFenceRecipe() || DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fences)) {
 			removeRecipesOutputNameList.add("minecraft:fence");
 		}
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fenceGates)) {

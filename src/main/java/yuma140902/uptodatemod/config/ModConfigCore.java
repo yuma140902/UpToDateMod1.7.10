@@ -10,7 +10,6 @@ import net.minecraftforge.common.config.Property;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.config.model.CategoryBuilder;
 import yuma140902.uptodatemod.config.model.MultiLingualString;
-import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
@@ -35,29 +34,10 @@ public class ModConfigCore {
 	
 	private static final Logger logger = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-Config");
 	
-	public static boolean worldGen_genStones;
-	public static int[] worldGen_genStones_blackList;
-	public static boolean worldGen_genFossiles;
-	public static int[] worldGen_genFossiles_blackList;
-	public static boolean worldGen_genCoarseDirt;
-	public static int[] worldGen_genCoarseDirt_blackList;
-	public static boolean worldGen_genMagmaBlock;
-	public static int[] worldGen_genMagmaBlock_blackList;
-	public static boolean recipeRemove_oldFenceRecipe;
-	public static boolean useOldSmoothStoneSlabRecipe;
-	public static int idBoatAcacia;
-	public static int idBoatBirch;
-	public static int idBoatDarkOak;
-	public static int idBoatJungle;
-	public static int idBoatSpruce;
-	public static int idArmorStand;
-	public static boolean enable_observer;
-	public static boolean debug_mode;
-	
-	public static class Generic {
-		private static boolean doCheckUpdate;
-		private static String updateChannel;
-		private static boolean debugMode;
+	public static class General {
+		private static boolean doCheckUpdate = true;
+		private static String updateChannel = UpdateChecker.RECOMMENDED_STR;
+		private static boolean debugMode = false;
 		
 		public static boolean doCheckUpdate() {return doCheckUpdate;}
 		public static String updateChannel() {return updateChannel;}
@@ -65,14 +45,14 @@ public class ModConfigCore {
 	}
 	
 	public static class WorldGen {
-		private static boolean genStones;
-		private static int[] stonesBlackList;
-		private static boolean genFossiles;
-		private static int[] fossilesBlackList;
-		private static boolean genCoarseDirt;
-		private static int[] coarseDirtBlackList;
-		private static boolean genMagmaBlock;
-		private static int[] magmaBlockBlackList;
+		private static boolean genStones = true;
+		private static int[] stonesBlackList = new int[] {1, -1};
+		private static boolean genFossiles = true;
+		private static int[] fossilesBlackList = new int[] {1, -1};
+		private static boolean genCoarseDirt = true;
+		private static int[] coarseDirtBlackList = new int[] {1, -1};
+		private static boolean genMagmaBlock = true;
+		private static int[] magmaBlockBlackList = new int[] {0, 1};
 		
 		public static boolean genStones() {return genStones;}
 		public static int[] stonesBlackList() {return stonesBlackList;}
@@ -85,32 +65,32 @@ public class ModConfigCore {
 	}
 	
 	public static class Recipe {
-		private static boolean removeOldFenceRecipe;
-		private static boolean useOldSmoothStoneSlabRecipe;
+		private static boolean removeOldFenceRecipe = false;
+		private static boolean useOldSmoothStoneSlabRecipe = false;
 		
 		public static boolean removeOldFenceRecipe() {return removeOldFenceRecipe;}
 		public static boolean useOldSmoothStoneSlabRecipe() {return useOldSmoothStoneSlabRecipe;}
 	}
 	
 	public static class Entity {
-		private static boolean boatCrashWhenCollide;
+		private static boolean boatCrashWhenCollide = false;
 		
 		public static boolean boatCrashWhenCollide() {return boatCrashWhenCollide;}
 	}
 	
 	public static class Experimental {
-		private static boolean enableObserver;
+		private static boolean enableObserver = false;
 		
 		public static boolean enableObserver() {return enableObserver;}
 	}
 	
 	public static class Deprecated {
-		private static int idBoatAcacia;
-		private static int idBoatBirch;
-		private static int idBoatDarkOak;
-		private static int idBoatJungle;
-		private static int idBoatSpruce;
-		private static int idArmorStand;
+		private static int idBoatAcacia = 0;
+		private static int idBoatBirch = 1;
+		private static int idBoatDarkOak = 2;
+		private static int idBoatJungle = 3;
+		private static int idBoatSpruce = 4;
+		private static int idArmorStand = 5;
 		
 		public static int idBoatAcacia() {return idBoatAcacia;}
 		public static int idBoatBirch() {return idBoatBirch;}
@@ -129,54 +109,54 @@ public class ModConfigCore {
 	
 	private static void initConfig() {
 		// General
-		new CategoryBuilder(CATEGORY_GENERAL)
+		CategoryBuilder generalCategory = new CategoryBuilder(CATEGORY_GENERAL)
 			.comment(MultiLingualString.single("Settings of UpToDateMod"))
 			.langKey(getCategoryLangkey("general"))
-			.requireMcRestart()
-			.registerToForge(cfg);
+			.requireMcRestart();
+		generalCategory.registerToForge(cfg);
 		
 		// WorldGen
-		new CategoryBuilder(CATEGORY_WORLDGEN)
+		CategoryBuilder worldGenCategory = new CategoryBuilder(CATEGORY_WORLDGEN)
 			.comment(MultiLingualString.single("Settings about world generation"))
-			.langKey(getCategoryLangkey("worldgen"))
-			.registerToForge(cfg);
+			.langKey(getCategoryLangkey("worldgen"));
+		worldGenCategory.registerToForge(cfg);
 		
 		// Recipe
-		new CategoryBuilder(CATEGORY_RECIPE)
+		CategoryBuilder recipeCategory = new CategoryBuilder(CATEGORY_RECIPE)
 			.comment(MultiLingualString.single("Settings about recipes"))
 			.langKey(getCategoryLangkey("recipe"))
-			.requireMcRestart()
-			.registerToForge(cfg);
+			.requireMcRestart();
+		recipeCategory.registerToForge(cfg);
 		
 		// Entity
-		new CategoryBuilder(CATEGORY_ENTITY)
+		CategoryBuilder entityCategory = new CategoryBuilder(CATEGORY_ENTITY)
 			.comment(MultiLingualString.single("Settings about entities and mobs"))
 			.langKey(getCategoryLangkey("entity"))
-			.requireMcRestart()
-			.registerToForge(cfg);
+			.requireMcRestart();
+		entityCategory.registerToForge(cfg);
 		
 		// DisableFeatures
-		new CategoryBuilder(CATEGORY_DISABLE_FEATURES)
-			.requireMcRestart()
-			.registerToForge(cfg);
+		CategoryBuilder disableFeaturesCategory = new CategoryBuilder(CATEGORY_DISABLE_FEATURES)
+			.requireMcRestart();
+		disableFeaturesCategory.registerToForge(cfg);
 		
 		// Alternative
-		new CategoryBuilder(CATEGORY_ALTERNATIVE)
-			.comment(MultiLingualString.single("Alternative ways to get items"))
-			.registerToForge(cfg);
+		CategoryBuilder alternativeCategory = new CategoryBuilder(CATEGORY_ALTERNATIVE)
+			.comment(MultiLingualString.single("Alternative ways to get items"));
+		alternativeCategory.registerToForge(cfg);
 		
 		// Experimental
-		new CategoryBuilder(CATEGORY_EXPERIMENTAL)
+		CategoryBuilder experimentalCategory = new CategoryBuilder(CATEGORY_EXPERIMENTAL)
 			.comment(MultiLingualString.single("Settings about experimental features. They may have a serious bug."))
 			.langKey(getCategoryLangkey("experimental"))
-			.requireMcRestart()
-			.registerToForge(cfg);
+			.requireMcRestart();
+		experimentalCategory.registerToForge(cfg);
 		
 		// Deprecated
-		new CategoryBuilder(CATEGORY_DEPRECATED)
+		CategoryBuilder deprecatedCategory = new CategoryBuilder(CATEGORY_DEPRECATED)
 			.comment(MultiLingualString.single("You do not have to change the configurations in Deprecated section."))
-			.requireMcRestart()
-			.registerToForge(cfg);
+			.requireMcRestart();
+		deprecatedCategory.registerToForge(cfg);
 		
 		IntegrationConfigs.initConfig(cfg);
 	}
@@ -186,48 +166,48 @@ public class ModConfigCore {
 		// TODO ここの書き換え及びテスト
 		
 		// General
-		UpdateChecker.INSTANCE.config_doCheckUpdate = cfg.getBoolean("doUpdateChecking", CATEGORY_GENERAL, 
-				UpdateChecker.INSTANCE.config_doCheckUpdate, 
+		General.doCheckUpdate = cfg.getBoolean("doUpdateChecking", CATEGORY_GENERAL, 
+				General.doCheckUpdate, 
 				"If true, the mod will check for updates automatically | アップデートを自動で確認するかどうか",
 				CONFIG_PROP_LANGKEY + "do_check_update");
-		UpdateChecker.INSTANCE.config_updateChannel = cfg.getString("updateChannel", CATEGORY_GENERAL, 
-				UpdateChecker.INSTANCE.config_updateChannel, 
+		General.updateChannel = cfg.getString("updateChannel", CATEGORY_GENERAL, 
+				General.updateChannel, 
 				"Channel of update checking | アップデートのチャンネル", new String[] {UpdateChecker.RECOMMENDED_STR, UpdateChecker.LATEST_STR},
 				CONFIG_PROP_LANGKEY + "update_channel"
 				);
-		debug_mode = cfg.getBoolean("enableDebugMode", CATEGORY_GENERAL, false, "", CONFIG_PROP_LANGKEY + "debug_mode");
+		General.debugMode = cfg.getBoolean("enableDebugMode", CATEGORY_GENERAL, General.debugMode, "", CONFIG_PROP_LANGKEY + "debug_mode");
 		
 		// WorldGen
-		worldGen_genStones = cfg.getBoolean("genStones", CATEGORY_WORLDGEN, true, 
+		WorldGen.genStones = cfg.getBoolean("genStones", CATEGORY_WORLDGEN, WorldGen.genStones, 
 				"Generate Granite, Diorite, Andesite in Overworld or not | 花崗岩、閃緑岩、安山岩をワールドに生成するか否か",
 				CONFIG_PROP_LANGKEY + "generate_stones");
-		worldGen_genStones_blackList = stringListToIntList(cfg.getStringList("genStonesDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
+		WorldGen.stonesBlackList = stringListToIntList(cfg.getStringList("genStonesDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
 				"Granite, Diorite, and Andesite generation dimension black list", (String[])null,
 				CONFIG_PROP_LANGKEY + "generate_stones_blacklist"));
-		worldGen_genFossiles = cfg.getBoolean("genFossiles", CATEGORY_WORLDGEN, true, 
+		WorldGen.genFossiles = cfg.getBoolean("genFossiles", CATEGORY_WORLDGEN, WorldGen.genFossiles, 
 				"Generate fossiles in Overworld or not | 化石を生成するか否か",
 				CONFIG_PROP_LANGKEY + "generate_fossiles");
-		worldGen_genFossiles_blackList = stringListToIntList(cfg.getStringList("genFossilesDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
+		WorldGen.fossilesBlackList = stringListToIntList(cfg.getStringList("genFossilesDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
 				"Fossile generation dimension black list", (String[])null,
 				CONFIG_PROP_LANGKEY + "generate_fossiles_blacklist"));
-		worldGen_genCoarseDirt = cfg.getBoolean("genCoarseDirt", CATEGORY_WORLDGEN, true, 
+		WorldGen.genCoarseDirt = cfg.getBoolean("genCoarseDirt", CATEGORY_WORLDGEN, WorldGen.genCoarseDirt, 
 				"Generate coarse dirt in Overworld or not | 粗い土を生成するか否か",
 				CONFIG_PROP_LANGKEY + "generate_coarse_dirt");
-		worldGen_genCoarseDirt_blackList = stringListToIntList(cfg.getStringList("genCoarseDirtDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
+		WorldGen.coarseDirtBlackList = stringListToIntList(cfg.getStringList("genCoarseDirtDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
 				"Coarse Dirt generation dimension black list", (String[])null,
 				CONFIG_PROP_LANGKEY + "generate_coarse_dirt_blacklist"));
-		worldGen_genMagmaBlock = cfg.getBoolean("genMagmaBlock", CATEGORY_WORLDGEN, true, "");
-		worldGen_genMagmaBlock_blackList = stringListToIntList(cfg.getStringList("genMagmaBlockDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"0", "1"}, ""));
+		WorldGen.genMagmaBlock = cfg.getBoolean("genMagmaBlock", CATEGORY_WORLDGEN, WorldGen.genMagmaBlock, "");
+		WorldGen.magmaBlockBlackList = stringListToIntList(cfg.getStringList("genMagmaBlockDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"0", "1"}, ""));
 		
 		// Recipe
-		recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", CATEGORY_RECIPE, false, 
+		Recipe.removeOldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", CATEGORY_RECIPE, Recipe.removeOldFenceRecipe, 
 				"Delete the recipe from 6 sticks to 2 fences | 棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)",
 				CONFIG_PROP_LANGKEY + "remove_old_fence_recipe");
 		cfg.getCategory(CATEGORY_RECIPE).remove("addStoneSlabRecipe");
-		useOldSmoothStoneSlabRecipe = cfg.getBoolean("useOldSmoothStoneSlabRecipe", CATEGORY_RECIPE, false, "If set to true, adds old smooth stone slab recipe.");
+		Recipe.useOldSmoothStoneSlabRecipe = cfg.getBoolean("useOldSmoothStoneSlabRecipe", CATEGORY_RECIPE, Recipe.useOldSmoothStoneSlabRecipe, "If set to true, adds old smooth stone slab recipe.");
 		
 		// Entity
-		EntityModBoatBase.boatCrashWhenCollide = cfg.getBoolean("boatCrashWhenCollide", CATEGORY_ENTITY, false, 
+		Entity.boatCrashWhenCollide = cfg.getBoolean("boatCrashWhenCollide", CATEGORY_ENTITY, Entity.boatCrashWhenCollide, 
 				"Boat added by this mod will crash when collision | このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)",
 				CONFIG_PROP_LANGKEY + "boat_crash_when_collide");
 		
@@ -238,17 +218,17 @@ public class ModConfigCore {
 		
 		
 		// Experimental
-		enable_observer = cfg.getBoolean("enableObserver", CATEGORY_EXPERIMENTAL, false, 
+		Experimental.enableObserver = cfg.getBoolean("enableObserver", CATEGORY_EXPERIMENTAL, Experimental.enableObserver, 
 				"Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】",
 				CONFIG_PROP_LANGKEY + "observer");
 		
 		// Deprecated
-		idBoatAcacia = 		cfg.getInt("idBoatAcacia", 		CATEGORY_DEPRECATED, 0, 0, Integer.MAX_VALUE, "Entity ID for Acacia Boat");
-		idBoatBirch = 		cfg.getInt("idBoatBirch", 		CATEGORY_DEPRECATED, 1, 0, Integer.MAX_VALUE, "Entity ID for Birch Boat");
-		idBoatDarkOak = 	cfg.getInt("idBoatDarkOak", 	CATEGORY_DEPRECATED, 2, 0, Integer.MAX_VALUE, "Entity ID for Dark Oak Boat");
-		idBoatJungle = 		cfg.getInt("idBoatJungle", 		CATEGORY_DEPRECATED, 3, 0, Integer.MAX_VALUE, "Entity ID for Jungle Boat");
-		idBoatSpruce = 		cfg.getInt("idBoatSpruce", 		CATEGORY_DEPRECATED, 4, 0, Integer.MAX_VALUE, "Entity ID for Spruce Boat");
-		idArmorStand = 		cfg.getInt("idArmorStand", 		CATEGORY_DEPRECATED, 5, 0, Integer.MAX_VALUE, "Entity ID for Armorstand");
+		Deprecated.idBoatAcacia = 		cfg.getInt("idBoatAcacia", 		CATEGORY_DEPRECATED, Deprecated.idBoatAcacia, 	0, Integer.MAX_VALUE, "Entity ID for Acacia Boat");
+		Deprecated.idBoatBirch = 			cfg.getInt("idBoatBirch", 		CATEGORY_DEPRECATED, Deprecated.idBoatBirch, 		0, Integer.MAX_VALUE, "Entity ID for Birch Boat");
+		Deprecated.idBoatDarkOak = 		cfg.getInt("idBoatDarkOak", 	CATEGORY_DEPRECATED, Deprecated.idBoatDarkOak, 	0, Integer.MAX_VALUE, "Entity ID for Dark Oak Boat");
+		Deprecated.idBoatJungle = 		cfg.getInt("idBoatJungle", 		CATEGORY_DEPRECATED, Deprecated.idBoatJungle, 	0, Integer.MAX_VALUE, "Entity ID for Jungle Boat");
+		Deprecated.idBoatSpruce = 		cfg.getInt("idBoatSpruce", 		CATEGORY_DEPRECATED, Deprecated.idBoatSpruce, 	0, Integer.MAX_VALUE, "Entity ID for Spruce Boat");
+		Deprecated.idArmorStand = 		cfg.getInt("idArmorStand", 		CATEGORY_DEPRECATED, Deprecated.idArmorStand, 	0, Integer.MAX_VALUE, "Entity ID for Armorstand");
 		
 		IntegrationConfigs.syncConfig(cfg);
 		

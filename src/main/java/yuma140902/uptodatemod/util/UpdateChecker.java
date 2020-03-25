@@ -18,9 +18,6 @@ public class UpdateChecker {
 	public static final String RECOMMENDED_STR = "recommended";
 	public static final String homePage = "https://minecraft.curseforge.com/projects/uptodatemod";
 	
-	public String config_updateChannel = RECOMMENDED_STR;
-	public boolean config_doCheckUpdate = true;
-	
 	public String currentVersion = ModUpToDateMod.MOD_VERSION;
 	public String availableNewVersion = ModUpToDateMod.MOD_VERSION;
 	public HashMap<String, String> versions = null;
@@ -99,21 +96,21 @@ public class UpdateChecker {
 	}
 	
 	public void checkForUpdates() {
-		if(!config_doCheckUpdate) {
+		if(!ModConfigCore.General.doCheckUpdate()) {
 			return;
 		}
 		
 		String versionsTsv = getFromUrl(ModUpToDateMod.MOD_VERSIONS_TSV_URL);
 		if(versionsTsv == null || versionsTsv.isEmpty()) return;
 		
-		if(ModConfigCore.debug_mode) {
+		if(ModConfigCore.General.debugMode()) {
 			ModUpToDateMod.LOGGER.info("versionsTsv:");
 			ModUpToDateMod.LOGGER.info(versionsTsv);
 		}
 		
 		this.versions = getVersionsTable(versionsTsv);
 		
-		String newestVersionStr = LATEST_STR.equals(config_updateChannel) ? LATEST_STR : RECOMMENDED_STR;
+		String newestVersionStr = LATEST_STR.equals(ModConfigCore.General.updateChannel()) ? LATEST_STR : RECOMMENDED_STR;
 		
 		if(versions.keySet().contains(newestVersionStr)) {
 			String newestVersion = versions.get(newestVersionStr);

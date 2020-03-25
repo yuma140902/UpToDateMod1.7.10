@@ -312,7 +312,7 @@ public final class MyBlocks {
 			seaLantern = null;
 		}
 		
-		add(observer = ModConfigCore.enable_observer ? new BlockObserver() : null);
+		add(observer = ModConfigCore.Experimental.enableObserver() ? new BlockObserver() : null);
 		
 		if(isEnabled(woodenTrapdoors)) {
 			add(trapDoorAcacia = new BlockGenericTrapDoor("trap_door_acacia", Stat.PLANK_META_ACACIA));
