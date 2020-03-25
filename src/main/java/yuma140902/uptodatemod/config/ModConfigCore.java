@@ -8,6 +8,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.config.model.CategoryBuilder;
+import yuma140902.uptodatemod.config.model.MultiLingualString;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
@@ -23,7 +25,6 @@ public class ModConfigCore {
 		CATEGORY_DISABLE_FEATURES = CATEGORY_GENERAL + ".DisableFeatures",
 		CATEGORY_ALTERNATIVE = CATEGORY_GENERAL + ".Alternative",
 		CATEGORY_EXPERIMENTAL = CATEGORY_GENERAL + ".Experimental",
-		CATEGORY_INTEGRATION = ".Integration",
 		CATEGORY_DEPRECATED = "Deprecated"; // GeneralのサブカテゴリではないのでGUIには表示されない
 	
 	public static final String
@@ -62,44 +63,61 @@ public class ModConfigCore {
 	
 	private static void initConfig() {
 		// General
-		cfg.addCustomCategoryComment(CATEGORY_GENERAL, "Settings of UpToDateMod");
-		cfg.setCategoryLanguageKey(CATEGORY_GENERAL, CONFIG_CATEGORY_LANGKEY + "general");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_GENERAL, true);
+		new CategoryBuilder(CATEGORY_GENERAL)
+			.comment(MultiLingualString.single("Settings of UpToDateMod"))
+			.langKey(getCategoryLangkey("general"))
+			.requireMcRestart()
+			.registerToForge(cfg);
 		
 		// WorldGen
-		cfg.addCustomCategoryComment(CATEGORY_WORLDGEN, "Settings about world generation");
-		cfg.setCategoryLanguageKey(CATEGORY_WORLDGEN, CONFIG_CATEGORY_LANGKEY + "worldgen");
+		new CategoryBuilder(CATEGORY_WORLDGEN)
+			.comment(MultiLingualString.single("Settings about world generation"))
+			.langKey(getCategoryLangkey("worldgen"))
+			.registerToForge(cfg);
 		
 		// Recipe
-		cfg.addCustomCategoryComment(CATEGORY_RECIPE, "Settings about recipes");
-		cfg.setCategoryLanguageKey(CATEGORY_RECIPE, CONFIG_CATEGORY_LANGKEY + "recipe");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_RECIPE, true);
+		new CategoryBuilder(CATEGORY_RECIPE)
+			.comment(MultiLingualString.single("Settings about recipes"))
+			.langKey(getCategoryLangkey("recipe"))
+			.requireMcRestart()
+			.registerToForge(cfg);
 		
 		// Entity
-		cfg.addCustomCategoryComment(CATEGORY_ENTITY, "Settings about entities and mobs");
-		cfg.setCategoryLanguageKey(CATEGORY_ENTITY, CONFIG_CATEGORY_LANGKEY + "entity");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_ENTITY, true);
+		new CategoryBuilder(CATEGORY_ENTITY)
+			.comment(MultiLingualString.single("Settings about entities and mobs"))
+			.langKey(getCategoryLangkey("entity"))
+			.requireMcRestart()
+			.registerToForge(cfg);
 		
 		// DisableFeatures
-		cfg.setCategoryRequiresMcRestart(CATEGORY_DISABLE_FEATURES, true);
+		new CategoryBuilder(CATEGORY_DISABLE_FEATURES)
+			.requireMcRestart()
+			.registerToForge(cfg);
 		
 		// Alternative
-		cfg.setCategoryComment(CATEGORY_ALTERNATIVE, "Alternative ways to get items");
+		new CategoryBuilder(CATEGORY_ALTERNATIVE)
+			.comment(MultiLingualString.single("Alternative ways to get items"))
+			.registerToForge(cfg);
 		
 		// Experimental
-		cfg.addCustomCategoryComment(CATEGORY_EXPERIMENTAL, "Settings about experimental features. They may have a serious bug.");
-		cfg.setCategoryLanguageKey(CATEGORY_EXPERIMENTAL, CONFIG_CATEGORY_LANGKEY + "experimental");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_EXPERIMENTAL, true);
+		new CategoryBuilder(CATEGORY_EXPERIMENTAL)
+			.comment(MultiLingualString.single("Settings about experimental features. They may have a serious bug."))
+			.langKey(getCategoryLangkey("experimental"))
+			.requireMcRestart()
+			.registerToForge(cfg);
 		
 		// Deprecated
-		cfg.addCustomCategoryComment(CATEGORY_DEPRECATED, "You do not have to change the configurations in Deprecated section.");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_DEPRECATED, true);
+		new CategoryBuilder(CATEGORY_DEPRECATED)
+			.comment(MultiLingualString.single("You do not have to change the configurations in Deprecated section."))
+			.requireMcRestart()
+			.registerToForge(cfg);
 		
 		IntegrationConfigs.initConfig(cfg);
 	}
 	
 	public static void syncConfig() {
 		ModUpToDateMod.LOGGER.info("Loading config");
+		// TODO ここの書き換え及びテスト
 		
 		// General
 		UpdateChecker.INSTANCE.config_doCheckUpdate = cfg.getBoolean("doUpdateChecking", CATEGORY_GENERAL, 
