@@ -19,10 +19,11 @@ public class ModConfigCore {
 		CATEGORY_GENERAL = "General",
 		CATEGORY_WORLDGEN = CATEGORY_GENERAL + ".WorldGen",
 		CATEGORY_RECIPE = CATEGORY_GENERAL + ".Recipe",
-		CATEGORY_EXPERIMENTAL = CATEGORY_GENERAL + ".Experimental",
 		CATEGORY_ENTITY = CATEGORY_GENERAL + ".Entity",
 		CATEGORY_DISABLE_FEATURES = CATEGORY_GENERAL + ".DisableFeatures",
 		CATEGORY_ALTERNATIVE = CATEGORY_GENERAL + ".Alternative",
+		CATEGORY_EXPERIMENTAL = CATEGORY_GENERAL + ".Experimental",
+		CATEGORY_INTEGRATION = ".Integration",
 		CATEGORY_DEPRECATED = "Deprecated"; // GeneralのサブカテゴリではないのでGUIには表示されない
 	
 	public static final String
@@ -79,16 +80,16 @@ public class ModConfigCore {
 		cfg.setCategoryLanguageKey(CATEGORY_ENTITY, CONFIG_CATEGORY_LANGKEY + "entity");
 		cfg.setCategoryRequiresMcRestart(CATEGORY_ENTITY, true);
 		
-		// Experimental
-		cfg.addCustomCategoryComment(CATEGORY_EXPERIMENTAL, "Settings about experimental features. They may have a serious bug.");
-		cfg.setCategoryLanguageKey(CATEGORY_EXPERIMENTAL, CONFIG_CATEGORY_LANGKEY + "experimental");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_EXPERIMENTAL, true);
-		
 		// DisableFeatures
 		cfg.setCategoryRequiresMcRestart(CATEGORY_DISABLE_FEATURES, true);
 		
 		// Alternative
 		cfg.setCategoryComment(CATEGORY_ALTERNATIVE, "Alternative ways to get items");
+		
+		// Experimental
+		cfg.addCustomCategoryComment(CATEGORY_EXPERIMENTAL, "Settings about experimental features. They may have a serious bug.");
+		cfg.setCategoryLanguageKey(CATEGORY_EXPERIMENTAL, CONFIG_CATEGORY_LANGKEY + "experimental");
+		cfg.setCategoryRequiresMcRestart(CATEGORY_EXPERIMENTAL, true);
 		
 		// Deprecated
 		cfg.addCustomCategoryComment(CATEGORY_DEPRECATED, "You do not have to change the configurations in Deprecated section.");
@@ -146,16 +147,16 @@ public class ModConfigCore {
 				"Boat added by this mod will crash when collision | このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)",
 				CONFIG_PROP_LANGKEY + "boat_crash_when_collide");
 		
-		// Experimental
-		enable_observer = cfg.getBoolean("enableObserver", CATEGORY_EXPERIMENTAL, false, 
-				"Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】",
-				CONFIG_PROP_LANGKEY + "observer");
-		
 		// DisableFeatures
 		syncDisableableFeaturesConfig(cfg);
 		
 		// Alternative
 		
+		
+		// Experimental
+		enable_observer = cfg.getBoolean("enableObserver", CATEGORY_EXPERIMENTAL, false, 
+				"Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】",
+				CONFIG_PROP_LANGKEY + "observer");
 		
 		// Deprecated
 		idBoatAcacia = 		cfg.getInt("idBoatAcacia", 		CATEGORY_DEPRECATED, 0, 0, Integer.MAX_VALUE, "Entity ID for Acacia Boat");
