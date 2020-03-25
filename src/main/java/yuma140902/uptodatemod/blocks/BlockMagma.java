@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.IHasRecipes;
@@ -44,12 +45,15 @@ public class BlockMagma extends Block implements IRegisterable, IHasRecipes {
 	}
 	
 	@Override
-	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
-		if (!entity.isImmuneToFire() && entity instanceof EntityLivingBase) {
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+		return AxisAlignedBB.getBoundingBox((double)x + this.minX, (double)y + this.minY, (double)z + this.minZ, (double)x + this.maxX, (double)y + 255f/256f, (double)z + this.maxZ);
+  }
+	
+	@Override
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+		if (!entity.isImmuneToFire() && !entity.isSneaking() && entity instanceof EntityLivingBase) {
 			entity.attackEntityFrom(DamageSource.onFire, 1.0F);
 		}
-		
-		super.onEntityWalking(world, x, y, z, entity);
 	}
 	
 	@Override
