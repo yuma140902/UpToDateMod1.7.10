@@ -135,6 +135,7 @@ public class ModConfigCore {
 				)
 			.add(new PropertyBuilder("enableDebugMode")
 				.defaultBool(General.debugMode)
+				.comment("Enable debug mode", "デバッグモード。通常はfalseにすることを推奨")
 				.langKey(getPropertyLangkey("debug_mode"))
 				);
 		generalCategory.registerToForge(cfg);
@@ -150,7 +151,6 @@ public class ModConfigCore {
 				)
 			.add(new PropertyBuilder("genStonesDimensionBlackList")
 				.defaultStringList(toStringList(WorldGen.stonesBlackList))         // わざわざString[]に変換しているのは過去のconfigファイルとの互換性を保つため
-				.comment("Granite, Diorite, and Andesite generation dimension black list")
 				.langKey(getPropertyLangkey("generate_stones_blacklist"))
 				.validationPattern(numberPattern)
 				)
@@ -161,7 +161,6 @@ public class ModConfigCore {
 				)
 			.add(new PropertyBuilder("genFossilesDimensionBlackList")
 				.defaultStringList(toStringList(WorldGen.fossilesBlackList))          // わざわざString[]に変換しているのは過去のconfigファイルとの互換性を保つため
-				.comment("Fossile generation dimension black list")
 				.langKey(getPropertyLangkey("generate_fossiles_blacklist"))
 				.validationPattern(numberPattern)
 				)
@@ -172,12 +171,12 @@ public class ModConfigCore {
 				)
 			.add(new PropertyBuilder("genCoarseDirtDimensionBlackList")
 				.defaultStringList(toStringList(WorldGen.coarseDirtBlackList))          // わざわざString[]に変換しているのは過去のconfigファイルとの互換性を保つため
-				.comment("Coarse Dirt generation dimension black list")
 				.langKey(getPropertyLangkey("generate_coarse_dirt_blacklist"))
 				.validationPattern(numberPattern)
 				)
 			.add(new PropertyBuilder("genMagmaBlock")
 				.defaultBool(WorldGen.genMagmaBlock)
+				.comment("Generate magma block or not", "マグマブロックを生成するか否か")
 				.langKey(getPropertyLangkey("generate_magma_block"))
 				)
 			.add(new PropertyBuilder("genMagmaBlockDimensionBlackList")
@@ -246,7 +245,6 @@ public class ModConfigCore {
 	
 	public static void syncConfig() {
 		ModUpToDateMod.LOGGER.info("Loading config");
-		// TODO ここの書き換え及びテスト
 		
 		// General
 		generalCategory.registerPropertiesToForge(cfg);
