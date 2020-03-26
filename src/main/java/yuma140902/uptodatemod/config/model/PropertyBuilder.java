@@ -1,5 +1,8 @@
 package yuma140902.uptodatemod.config.model;
 
+import java.util.Arrays;
+import java.util.regex.Pattern;
+import javax.annotation.Nullable;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
@@ -16,6 +19,7 @@ public class PropertyBuilder {
 	private int[] defaultIntList;
 	
 	private String[] validStrings;
+	private Pattern validationPattern;
 	
 	private boolean requireMcRestart = false;
 	private boolean requireWorldRestart = false;
@@ -71,6 +75,11 @@ public class PropertyBuilder {
 		return this;
 	}
 	
+	public PropertyBuilder validationPattern(Pattern pattern) {
+		this.validationPattern = pattern;
+		return this;
+	}
+	
 	public PropertyBuilder requireMcRestart() {
 		this.requireMcRestart = true;
 		return this;
@@ -91,6 +100,11 @@ public class PropertyBuilder {
 		return this;
 	}
 	
+	public PropertyBuilder comment(String enMessage, String jaMessage) {
+		this.comment = MultiLingualString.en_ja(enMessage, jaMessage);
+		return this;
+	}
+	
 	public PropertyBuilder comment(String comment) {
 		this.comment = MultiLingualString.single(comment);
 		return this;
@@ -101,30 +115,41 @@ public class PropertyBuilder {
 		switch(this.valueType) {
 			case BOOL:
 				prop = cfg.get(category, name, defaultBool);
+				prop.comment = toString(comment) + " [default: " + defaultBool + "]";
 				break;
 			case STRING:
 				prop = cfg.get(category, name, defaultString);
+				prop.comment = toString(comment) + " [default: " + defaultString + "]";
 				break;
 			case INT:
 				prop = cfg.get(category, name, defaultInt);
+				prop.comment = toString(comment) + " [default: " + defaultInt + "]";
 				break;
 			case STRING_LIST:
 				prop = cfg.get(category, name, defaultStringList);
+				prop.comment = toString(comment) + " [default: " + String.join(", ", defaultStringList) + "]";
 				break;
 			case INT_LIST:
 				prop = cfg.get(category, name, defaultIntList);
+				prop.comment = toString(comment) + " [default: " + Arrays.toString(defaultIntList) + "]";
+				break;
 		}
 		
 		if(prop != null) {
 			prop.setRequiresMcRestart(requireMcRestart);
 			prop.setRequiresWorldRestart(requireWorldRestart);
 			if(langKey != null) prop.setLanguageKey(langKey);
-			if(comment != null) prop.comment = comment.toString();
-			if(validStrings != null) prop.setValidValues(defaultStringList);
+			if(validStrings != null) prop.setValidValues(validStrings);
+			if(validationPattern != null) prop.setValidationPattern(validationPattern);
 		}
 	}
 	
 	private static enum Type {
 		BOOL, STRING, INT, STRING_LIST, INT_LIST
+	}
+	
+	private static String toString(@Nullable MultiLingualString mls) {
+		if(mls == null) return "";
+		return mls.toString();
 	}
 }

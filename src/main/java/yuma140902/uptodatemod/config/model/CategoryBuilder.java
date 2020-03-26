@@ -3,6 +3,7 @@ package yuma140902.uptodatemod.config.model;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 
 public class CategoryBuilder {
 	
@@ -53,6 +54,11 @@ public class CategoryBuilder {
 		return this;
 	}
 	
+	public CategoryBuilder comment(String enMessage, String jaMessage) {
+		this.comment = MultiLingualString.en_ja(enMessage, jaMessage);
+		return this;
+	}
+	
 	public CategoryBuilder comment(String comment) {
 		this.comment = MultiLingualString.single(comment);
 		return this;
@@ -74,4 +80,7 @@ public class CategoryBuilder {
 		cfg.setCategoryPropertyOrder(name, order);
 	}
 	
+	public Property get(String propertyName, Configuration cfg) {
+		return cfg.getCategory(name).get(propertyName);
+	}
 }
