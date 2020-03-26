@@ -121,19 +121,19 @@ public class ModConfigCore {
 		// General
 		generalCategory = new CategoryBuilder(CATEGORY_GENERAL)
 			.langKey(getCategoryLangkey("general"))
-			.requireMcRestart();
-		generalCategory.add(new PropertyBuilder("doUpdateChecking")
+			.requireMcRestart()
+			.add(new PropertyBuilder("doUpdateChecking")
 				.defaultBool(General.doCheckUpdate)
 				.comment("If true, the mod will check for updates automatically", "アップデートを自動で確認するかどうか")
 				.langKey(getPropertyLangkey("do_check_update"))
-				);
-		generalCategory.add(new PropertyBuilder("updateChannel")
+				)
+			.add(new PropertyBuilder("updateChannel")
 				.defaultString(General.updateChannel)
 				.validStrings(new String[] {UpdateChecker.RECOMMENDED_STR, UpdateChecker.LATEST_STR})
 				.comment("Channel of updates checking", "アップデートのチャンネル")
 				.langKey(getPropertyLangkey("update_channel"))
-				);
-		generalCategory.add(new PropertyBuilder("enableDebugMode")
+				)
+			.add(new PropertyBuilder("enableDebugMode")
 				.defaultBool(General.debugMode)
 				.langKey(getPropertyLangkey("debug_mode"))
 				);
@@ -142,45 +142,45 @@ public class ModConfigCore {
 		// WorldGen
 		Pattern numberPattern = Pattern.compile("-?[0-9]+");
 		worldGenCategory = new CategoryBuilder(CATEGORY_WORLDGEN)
-			.langKey(getCategoryLangkey("worldgen"));
-		worldGenCategory.add(new PropertyBuilder("genStones")
+			.langKey(getCategoryLangkey("worldgen"))
+			.add(new PropertyBuilder("genStones")
 				.defaultBool(WorldGen.genStones)
 				.comment("Generate Granite, Diorite, Andesite in Overworld or not", "花崗岩、閃緑岩、安山岩をワールドに生成するか否か")
 				.langKey(getPropertyLangkey("generate_stones"))
-				);
-		worldGenCategory.add(new PropertyBuilder("genStonesDimensionBlackList")
+				)
+			.add(new PropertyBuilder("genStonesDimensionBlackList")
 				.defaultStringList(toStringList(WorldGen.stonesBlackList))         // わざわざString[]に変換しているのは過去のconfigファイルとの互換性を保つため
 				.comment("Granite, Diorite, and Andesite generation dimension black list")
 				.langKey(getPropertyLangkey("generate_stones_blacklist"))
 				.validationPattern(numberPattern)
-				);
-		worldGenCategory.add(new PropertyBuilder("genFossiles")
+				)
+			.add(new PropertyBuilder("genFossiles")
 				.defaultBool(WorldGen.genFossiles)
 				.comment("Generate fossiles in Overworld or not", "化石を生成するか否か")
 				.langKey(getPropertyLangkey("generate_fossiles"))
-				);
-		worldGenCategory.add(new PropertyBuilder("genFossilesDimensionBlackList")
+				)
+			.add(new PropertyBuilder("genFossilesDimensionBlackList")
 				.defaultStringList(toStringList(WorldGen.fossilesBlackList))          // わざわざString[]に変換しているのは過去のconfigファイルとの互換性を保つため
 				.comment("Fossile generation dimension black list")
 				.langKey(getPropertyLangkey("generate_fossiles_blacklist"))
 				.validationPattern(numberPattern)
-				);
-		worldGenCategory.add(new PropertyBuilder("genCoarseDirt")
+				)
+			.add(new PropertyBuilder("genCoarseDirt")
 				.defaultBool(WorldGen.genCoarseDirt)
 				.comment("Generate coarse dirt in Overworld or not", "粗い土を生成するか否か")
 				.langKey(getPropertyLangkey("generate_coarse_dirt"))
-				);
-		worldGenCategory.add(new PropertyBuilder("genCoarseDirtDimensionBlackList")
+				)
+			.add(new PropertyBuilder("genCoarseDirtDimensionBlackList")
 				.defaultStringList(toStringList(WorldGen.coarseDirtBlackList))          // わざわざString[]に変換しているのは過去のconfigファイルとの互換性を保つため
 				.comment("Coarse Dirt generation dimension black list")
 				.langKey(getPropertyLangkey("generate_coarse_dirt_blacklist"))
 				.validationPattern(numberPattern)
-				);
-		worldGenCategory.add(new PropertyBuilder("genMagmaBlock")
+				)
+			.add(new PropertyBuilder("genMagmaBlock")
 				.defaultBool(WorldGen.genMagmaBlock)
 				.langKey(getPropertyLangkey("generate_magma_block"))
-				);
-		worldGenCategory.add(new PropertyBuilder("genMagmaBlockDimensionBlackList")
+				)
+			.add(new PropertyBuilder("genMagmaBlockDimensionBlackList")
 				.defaultIntList(WorldGen.magmaBlockBlackList)
 				.langKey(getPropertyLangkey("generate_magma_block_blacklist"))
 				);
@@ -189,13 +189,13 @@ public class ModConfigCore {
 		// Recipe
 		recipeCategory = new CategoryBuilder(CATEGORY_RECIPE)
 			.langKey(getCategoryLangkey("recipe"))
-			.requireMcRestart();
-		recipeCategory.add(new PropertyBuilder("removeOldFenceRecipe")
+			.requireMcRestart()
+			.add(new PropertyBuilder("removeOldFenceRecipe")
 				.defaultBool(Recipe.removeOldFenceRecipe)
 				.comment("Delete the recipe of 2 fences from 6 sticks", "棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)")
 				.langKey(getPropertyLangkey("remove_old_fence_recipe"))
-				);
-		recipeCategory.add(new PropertyBuilder("useOldSmoothStoneSlabRecipe")
+				)
+			.add(new PropertyBuilder("useOldSmoothStoneSlabRecipe")
 				.defaultBool(Recipe.useOldSmoothStoneSlabRecipe)
 				.comment("If set to true, old smooth stone slab recipe will be kept", "古い石ハーフブロックのレシピを使うかどうか")
 				.langKey(getPropertyLangkey("use_old_smooth_stone_slab_recipe"))
@@ -205,8 +205,8 @@ public class ModConfigCore {
 		// Entity
 		entityCategory = new CategoryBuilder(CATEGORY_ENTITY)
 			.langKey(getCategoryLangkey("entity"))
-			.requireMcRestart();
-		entityCategory.add(new PropertyBuilder("boatCrashWhenCollide")
+			.requireMcRestart()
+			.add(new PropertyBuilder("boatCrashWhenCollide")
 				.defaultBool(Entity.boatCrashWhenCollide)
 				.comment("Boat added by this mod will crash when collision", "このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)")
 				.langKey(getPropertyLangkey("boat_crash_when_collide"))
@@ -227,8 +227,8 @@ public class ModConfigCore {
 		// Experimental
 		experimentalCategory = new CategoryBuilder(CATEGORY_EXPERIMENTAL)
 			.langKey(getCategoryLangkey("experimental"))
-			.requireMcRestart();
-		experimentalCategory.add(new PropertyBuilder("enableObserver")
+			.requireMcRestart()
+			.add(new PropertyBuilder("enableObserver")
 				.defaultBool(Experimental.enableObserver)
 				.comment("Enable observer(note: Observer has bugs)", "オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】")
 				.langKey(getPropertyLangkey("observer"))
