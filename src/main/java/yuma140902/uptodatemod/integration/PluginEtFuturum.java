@@ -64,7 +64,7 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		
 		config_integrateWithEtFuturum = cfg.getBoolean("integrate", CATEGORY, true, 
 				"Cooperate with EtFuturum or not | EtFuturumと連携するかどうか",
-				ModConfigCore.getPropertyLangkey("integrate"));
+				ModConfigCore.getPropertyLangkey("integrate_etfuturum"));
 		
 	}
 	

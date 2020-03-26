@@ -6,6 +6,7 @@ import net.minecraft.command.server.CommandMessageRaw;
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.world.WorldEvent;
+import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.util.UpdateChecker;
 
 public class ClientEventHandler {
@@ -21,7 +22,7 @@ private ClientEventHandler() {}
 	}
 	
 	private void updateNotify(WorldEvent.Load event) {
-		if(!event.world.isRemote || !UpdateChecker.INSTANCE.config_doCheckUpdate || hasNotifiedAboutUpdate) {
+		if(!event.world.isRemote || !ModConfigCore.General.doCheckUpdate() || hasNotifiedAboutUpdate) {
 			return;
 		}
 		if(!UpdateChecker.INSTANCE.hasNewVersionAvailable()) {

@@ -10,7 +10,6 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.config.model.CategoryBuilder;
-import yuma140902.uptodatemod.config.model.MultiLingualString;
 import yuma140902.uptodatemod.config.model.PropertyBuilder;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
@@ -179,9 +178,11 @@ public class ModConfigCore {
 				);
 		worldGenCategory.add(new PropertyBuilder("genMagmaBlock")
 				.defaultBool(WorldGen.genMagmaBlock)
+				.langKey(getPropertyLangkey("generate_magma_block"))
 				);
 		worldGenCategory.add(new PropertyBuilder("genMagmaBlockDimensionBlackList")
 				.defaultIntList(WorldGen.magmaBlockBlackList)
+				.langKey(getPropertyLangkey("generate_magma_block_blacklist"))
 				);
 		worldGenCategory.registerToForge(cfg);
 		
@@ -196,7 +197,8 @@ public class ModConfigCore {
 				);
 		recipeCategory.add(new PropertyBuilder("useOldSmoothStoneSlabRecipe")
 				.defaultBool(Recipe.useOldSmoothStoneSlabRecipe)
-				.comment("If set to true, old smooth stone slab recipe will be kept")
+				.comment("If set to true, old smooth stone slab recipe will be kept", "古い石ハーフブロックのレシピを使うかどうか")
+				.langKey(getPropertyLangkey("use_old_smooth_stone_slab_recipe"))
 				);
 		recipeCategory.registerToForge(cfg);
 		
@@ -213,17 +215,17 @@ public class ModConfigCore {
 		
 		// DisableFeatures
 		disableFeaturesCategory = new CategoryBuilder(CATEGORY_DISABLE_FEATURES)
+				.langKey(getCategoryLangkey("disable_features"))
 			.requireMcRestart();
 		disableFeaturesCategory.registerToForge(cfg);
 		
 		// Alternative
 		alternativeCategory = new CategoryBuilder(CATEGORY_ALTERNATIVE)
-			.comment(MultiLingualString.single("Alternative ways to get items"));
+			.langKey(getCategoryLangkey("alternative"));
 		alternativeCategory.registerToForge(cfg);
 		
 		// Experimental
 		experimentalCategory = new CategoryBuilder(CATEGORY_EXPERIMENTAL)
-			.comment(MultiLingualString.single("Settings about experimental features. They may have a serious bug."))
 			.langKey(getCategoryLangkey("experimental"))
 			.requireMcRestart();
 		experimentalCategory.add(new PropertyBuilder("enableObserver")
@@ -235,7 +237,7 @@ public class ModConfigCore {
 		
 		// Deprecated
 		deprecatedCategory = new CategoryBuilder(CATEGORY_DEPRECATED)
-			.comment(MultiLingualString.single("You do not have to change the configurations in Deprecated section."))
+			.comment("You do not have to change the configurations in Deprecated section.")
 			.requireMcRestart();
 		deprecatedCategory.registerToForge(cfg);
 		
@@ -264,23 +266,27 @@ public class ModConfigCore {
 		WorldGen.magmaBlockBlackList = worldGenCategory.get("genMagmaBlockDimensionBlackList", cfg).getIntList();
 		
 		// Recipe
+		recipeCategory.registerPropertiesToForge(cfg);
 		Recipe.removeOldFenceRecipe = recipeCategory.get("removeOldFenceRecipe", cfg).getBoolean();
 		cfg.getCategory(CATEGORY_RECIPE).remove("addStoneSlabRecipe");      // 過去の廃止されたconfigの項目を削除
 		Recipe.useOldSmoothStoneSlabRecipe = recipeCategory.get("useOldSmoothStoneSlabRecipe", cfg).getBoolean();
 		
 		// Entity
+		entityCategory.registerPropertiesToForge(cfg);
 		Entity.boatCrashWhenCollide = entityCategory.get("boatCrashWhenCollide", cfg).getBoolean();
 		
 		// DisableFeatures
 		syncDisableableFeaturesConfig(cfg);
 		
 		// Alternative
-		
+		alternativeCategory.registerPropertiesToForge(cfg);
 		
 		// Experimental
+		experimentalCategory.registerPropertiesToForge(cfg);
 		Experimental.enableObserver = experimentalCategory.get("enableObserver", cfg).getBoolean();
 		
 		// Deprecated
+		deprecatedCategory.registerPropertiesToForge(cfg);
 		Deprecated.idBoatAcacia = 		cfg.getInt("idBoatAcacia", 		CATEGORY_DEPRECATED, Deprecated.idBoatAcacia, 	0, Integer.MAX_VALUE, "Entity ID for Acacia Boat");
 		Deprecated.idBoatBirch = 			cfg.getInt("idBoatBirch", 		CATEGORY_DEPRECATED, Deprecated.idBoatBirch, 		0, Integer.MAX_VALUE, "Entity ID for Birch Boat");
 		Deprecated.idBoatDarkOak = 		cfg.getInt("idBoatDarkOak", 	CATEGORY_DEPRECATED, Deprecated.idBoatDarkOak, 	0, Integer.MAX_VALUE, "Entity ID for Dark Oak Boat");

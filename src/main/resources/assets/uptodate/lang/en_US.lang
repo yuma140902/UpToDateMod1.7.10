@@ -232,39 +232,54 @@ text.uptodate.update_notify=["",{"text":"UpToDateMod:","bold":true,"color":"dark
 
 config.uptodate.category.general=General
 config.uptodate.category.general.tooltip=General settings of UpToDateMod
-config.uptodate.prop.do_check_update=Update checking
-config.uptodate.prop.do_check_update.tooltip=Whether to check for the updates
+config.uptodate.prop.do_check_update=Update check
+config.uptodate.prop.do_check_update.tooltip=
 config.uptodate.prop.update_channel=Channel of update
 config.uptodate.prop.update_channel.tooltip=Stable version ('Recommended') or unstable version ('Latest')
 config.uptodate.prop.debug_mode=Debug Mode
 config.uptodate.prop.debug_mode.tooltip=Detailed log will be outputed. Users are recommended to set this property 'false'
 
 config.uptodate.category.worldgen=World Generation
-config.uptodate.category.worldgen.tooltip=Settings about world generation
+config.uptodate.category.worldgen.tooltip=Settings of world generation
 config.uptodate.prop.generate_stones=Stones generation
-config.uptodate.prop.generate_stones.tooltip=Whether to generate Andesite, Granite, and Diorite in world
+config.uptodate.prop.generate_stones.tooltip=Generate Andesite, Granite, and Diorite in world
 config.uptodate.prop.generate_stones_blacklist=Blacklist of stones generation
 config.uptodate.prop.generate_stones_blacklist.tooltip=Dimension IDs in which stones should not be generated
 config.uptodate.prop.generate_fossiles=Fossiles generation
-config.uptodate.prop.generate_fossiles.tooltip=Whether to generate fossiles underground in desert and swampland.
+config.uptodate.prop.generate_fossiles.tooltip=Generate fossiles underground in desert and swampland.
 config.uptodate.prop.generate_fossiles_blacklist=Blacklist of fossiles generation
 config.uptodate.prop.generate_fossiles_blacklist.tooltip=Dimension IDs in which fossiles should not be generated
 config.uptodate.prop.generate_coarse_dirt=Coarse dirt generation
 config.uptodate.prop.generate_coarse_dirt.tooltip=Coarse dirt will spawn replacing dirt block with metadata 1.
 config.uptodate.prop.generate_coarse_dirt_blacklist=Blacklist of coarse dirt generation
 config.uptodate.prop.generate_coarse_dirt_blacklist.tooltip=Dimension IDs in which coarse dirt should not be generated
+config.uptodate.prop.generate_magma_block=Magma Block generation
+config.uptodate.prop.generate_magma_block.tooltip=Magma Blocks will be generated in Nether
+config.uptodate.prop.generate_magma_block_blacklist=Blacklist of magma block generation
+config.uptodate.prop.generate_magma_block_blacklist.tooltip=Dimension IDs in which magma blocks should not be generated
 
 config.uptodate.category.recipe=Recipes
-config.uptodate.category.recipe.tooltip=Settings about recipes
+config.uptodate.category.recipe.tooltip=Settings of recipes
 config.uptodate.prop.remove_old_fence_recipe=Remove old fence recipe
-config.uptodate.prop.remove_old_fence_recipe.tooltip=Whether to remove the old fence recipe (6 sticks to 2 fences).
+config.uptodate.prop.remove_old_fence_recipe.tooltip=Delete the recipe of 2 fences from 6 sticks
+config.uptodate.prop.use_old_smooth_stone_slab_recipe=Use old smooth stone slab recipe
+config.uptodate.prop.use_old_smooth_stone_slab_recipe.tooltip=If set to true, old smooth stone slab recipe will be kept
 
 config.uptodate.category.entity=Entities and Mobs
-config.uptodate.category.entity.tooltip=Settings about entities and mobs
+config.uptodate.category.entity.tooltip=Settings of entities and mobs
 config.uptodate.prop.boat_crash_when_collide=Boat Crashing
-config.uptodate.prop.boat_crash_when_collide.tooltip=Whether the boat crashes when collided with blocks.
+config.uptodate.prop.boat_crash_when_collide.tooltip=Whether the boats crashe when collided with blocks
+
+config.uptodate.category.alternative=Alternative
+config.uptodate.category.alternative.tooltip=Settings of alternative ways to get items
+
+config.uptodate.category.disable_features=Disable Features
+config.uptodate.category.disable_features.tooltip=Settings to desable certain feature
 
 config.uptodate.category.experimental=Experimental features
-config.uptodate.category.experimental.tooltip=Settings about experimental features. They may have serious bugs.
+config.uptodate.category.experimental.tooltip=Settings of experimental features. They may have serious bugs.
 config.uptodate.prop.observer=Enable Observer block
-config.uptodate.prop.observer.tooltip=【Observer is not full implemented and have bugs】
+config.uptodate.prop.observer.tooltip=【Observer is not full implemented and has bugs】
+
+config.uptodate.category.integration=Integration
+config.uptodate.category.integration.tooltip=Settings to integrate other mod
