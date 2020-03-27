@@ -12,7 +12,7 @@ public class CategoryBuilder {
 	private String name;
 	private boolean requireMcRestart = false;
 	private boolean requireWorldRestart = false;
-	private String langKey;
+	private LangKey langKey;
 	private MultiLingualString comment;
 	
 	public CategoryBuilder(String name) {
@@ -44,7 +44,7 @@ public class CategoryBuilder {
 		return this;
 	}
 	
-	public CategoryBuilder langKey(String langKey) {
+	public CategoryBuilder langKey(LangKey langKey) {
 		this.langKey = langKey;
 		return this;
 	}
@@ -69,7 +69,7 @@ public class CategoryBuilder {
 		if(comment != null) cfg.setCategoryComment(name, comment.toString());
 		cfg.setCategoryRequiresMcRestart(name, requireMcRestart);
 		cfg.setCategoryRequiresWorldRestart(name, requireWorldRestart);
-		if(langKey != null) cfg.setCategoryLanguageKey(name, langKey);
+		if(langKey != null) cfg.setCategoryLanguageKey(name, langKey.toString());
 	}
 	
 	// syncConfig()から呼び出す

@@ -52,7 +52,7 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		}
 		
 		cfg.addCustomCategoryComment(CATEGORY, "Settings to cooperate with EtFuturum");
-		cfg.setCategoryLanguageKey(CATEGORY, ModConfigCore.getCategoryLangkey("integration.etfuturum"));
+		cfg.setCategoryLanguageKey(CATEGORY, ModConfigCore.getCategoryLangkey("integration.etfuturum").toString());
 		cfg.setCategoryRequiresMcRestart(CATEGORY, true);
 	}
 
@@ -64,7 +64,7 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		
 		config_integrateWithEtFuturum = cfg.getBoolean("integrate", CATEGORY, true, 
 				"Cooperate with EtFuturum or not | EtFuturumと連携するかどうか",
-				ModConfigCore.getPropertyLangkey("integrate_etfuturum"));
+				ModConfigCore.getPropertyLangkey("integrate_etfuturum").toString());
 		
 	}
 	

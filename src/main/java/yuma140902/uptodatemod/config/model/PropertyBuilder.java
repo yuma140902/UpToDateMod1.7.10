@@ -24,7 +24,7 @@ public class PropertyBuilder {
 	private boolean requireMcRestart = false;
 	private boolean requireWorldRestart = false;
 	
-	private String langKey;
+	private LangKey langKey;
 	private MultiLingualString comment;
 	
 	private PropertyBuilder(String name) {
@@ -131,7 +131,7 @@ public class PropertyBuilder {
 		return this;
 	}
 	
-	public PropertyBuilder langKey(String langKey) {
+	public PropertyBuilder langKey(LangKey langKey) {
 		this.langKey = langKey;
 		return this;
 	}
@@ -185,7 +185,7 @@ public class PropertyBuilder {
 		else {
 			prop.setRequiresMcRestart(requireMcRestart);
 			prop.setRequiresWorldRestart(requireWorldRestart);
-			if(langKey != null) prop.setLanguageKey(langKey);
+			if(langKey != null) prop.setLanguageKey(langKey.toString());
 			if(validStrings != null) prop.setValidValues(validStrings);
 			if(validationPattern != null) prop.setValidationPattern(validationPattern);
 		}

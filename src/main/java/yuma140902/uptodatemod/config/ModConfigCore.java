@@ -10,6 +10,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.config.model.CategoryBuilder;
+import yuma140902.uptodatemod.config.model.LangKey;
 import yuma140902.uptodatemod.config.model.PropertyBuilder;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
@@ -332,11 +333,11 @@ public class ModConfigCore {
 		return CATEGORY_GENERAL + "." + subCategory;
 	}
 	
-	public static String getCategoryLangkey(String key) {
-		return CONFIG_CATEGORY_LANGKEY + key;
+	public static LangKey getCategoryLangkey(String key) {
+		return LangKey.of(CONFIG_CATEGORY_LANGKEY + key);
 	}
 	
-	public static String getPropertyLangkey(String key) {
-		return CONFIG_PROP_LANGKEY + key;
+	public static LangKey getPropertyLangkey(String key) {
+		return LangKey.of(CONFIG_PROP_LANGKEY + key);
 	}
 }
