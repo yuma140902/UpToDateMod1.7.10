@@ -14,7 +14,6 @@ public class DispenseBehaviorFertilize extends DispenseBehaviorBase {
 	protected boolean doDispense(World world, EnumFacing facing, int x, int y, int z, @Nonnull ItemStack itemstack) {
 		if(!isFertilizer(itemstack)) return false;
 		
-		int dimId = world.provider.dimensionId;
 		int targetX = x + facing.getFrontOffsetX();
 		int targetY = y + facing.getFrontOffsetY();
 		int targetZ = z + facing.getFrontOffsetZ();

@@ -54,21 +54,21 @@ public class UpdateChecker {
 		}
 		finally {
 			try {
-				is.close();
+				if(is != null) is.close();
 			}
 			catch (Exception e) {
 				e.printStackTrace();
 				hasError = true;
 			}
 			try {
-				isr.close();
+				if(isr != null) isr.close();
 			}
 			catch (Exception e) {
 				e.printStackTrace();
 				hasError = true;
 			}
 			try {
-				br.close();
+				if(br != null)  br.close();
 			}
 			catch (Exception e) {
 				e.printStackTrace();

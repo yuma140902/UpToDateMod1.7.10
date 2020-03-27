@@ -1,6 +1,5 @@
 package yuma140902.uptodatemod.integration;
 
-import javax.annotation.Nullable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Loader;
@@ -30,7 +29,6 @@ class PluginProjectE implements ITweakingPlugin {
 		return MOD_ID;
 	}
 	
-	@Nullable
 	private Boolean _isModLoadedCache = null;
 	public boolean isModLoaded() {
 		if(_isModLoadedCache == null) {

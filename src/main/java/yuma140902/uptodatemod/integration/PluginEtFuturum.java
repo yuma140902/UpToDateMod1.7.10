@@ -1,7 +1,6 @@
 package yuma140902.uptodatemod.integration;
 
 import java.util.List;
-import javax.annotation.Nullable;
 import cpw.mods.fml.common.Loader;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.config.ModConfigCore;
@@ -25,7 +24,6 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		return "Et Futurum";
 	}
 	
-	@Nullable
 	private Boolean _isModLoadedCache = null;
 	public boolean isModLoaded() {
 		if(_isModLoadedCache == null) {
