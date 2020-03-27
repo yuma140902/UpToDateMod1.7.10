@@ -24,7 +24,6 @@ public class ModConfigCore {
 		CATEGORY_ENTITY = CATEGORY_GENERAL + ".Entity",
 		CATEGORY_DISABLE_FEATURES = CATEGORY_GENERAL + ".DisableFeatures",
 		CATEGORY_ALTERNATIVE = CATEGORY_GENERAL + ".Alternative",
-		CATEGORY_EXPERIMENTAL = CATEGORY_GENERAL + ".Experimental",
 		CATEGORY_DEPRECATED = "Deprecated"; // GeneralのサブカテゴリではないのでGUIには表示されない
 	
 	public static final String
@@ -79,9 +78,6 @@ public class ModConfigCore {
 		public static boolean boatCrashWhenCollide() {return boatCrashWhenCollide;}
 	}
 	
-	public static class Experimental {
-	}
-	
 	public static class Deprecated {
 		private static int idBoatAcacia = 0;
 		private static int idBoatBirch = 1;
@@ -104,7 +100,6 @@ public class ModConfigCore {
 	private static CategoryBuilder entityCategory;
 	private static CategoryBuilder disableFeaturesCategory;
 	private static CategoryBuilder alternativeCategory;
-	private static CategoryBuilder experimentalCategory;
 	private static CategoryBuilder deprecatedCategory;
 	
 	public static void loadConfig(FMLPreInitializationEvent event) {
@@ -220,12 +215,6 @@ public class ModConfigCore {
 			.langKey(getCategoryLangkey("alternative"));
 		alternativeCategory.registerToForge(cfg);
 		
-		// Experimental
-		experimentalCategory = new CategoryBuilder(CATEGORY_EXPERIMENTAL)
-			.langKey(getCategoryLangkey("experimental"))
-			.requireMcRestart();
-		experimentalCategory.registerToForge(cfg);
-		
 		// Deprecated
 		deprecatedCategory = new CategoryBuilder(CATEGORY_DEPRECATED)
 			.comment("You do not have to change the configurations in Deprecated section.")
@@ -271,8 +260,7 @@ public class ModConfigCore {
 		// Alternative
 		alternativeCategory.registerPropertiesToForge(cfg);
 		
-		// Experimental
-		experimentalCategory.registerPropertiesToForge(cfg);
+		cfg.removeCategory(cfg.getCategory(getSubCategory("Experimental")));  // Experimentalカテゴリーを削除
 		
 		// Deprecated
 		deprecatedCategory.registerPropertiesToForge(cfg);

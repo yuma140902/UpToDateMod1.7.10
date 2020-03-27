@@ -26,7 +26,6 @@ public class ModConfigGui extends GuiConfig {
 		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(ModConfigCore.CATEGORY_ENTITY)));
 		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(ModConfigCore.CATEGORY_DISABLE_FEATURES)));
 		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(ModConfigCore.CATEGORY_ALTERNATIVE)));
-		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(ModConfigCore.CATEGORY_EXPERIMENTAL)));
 		list.add(new ConfigElement(ModConfigCore.cfg.getCategory(IntegrationConfigs.CATEGORY_INTEGRATION)));
 		return list;
 	}
