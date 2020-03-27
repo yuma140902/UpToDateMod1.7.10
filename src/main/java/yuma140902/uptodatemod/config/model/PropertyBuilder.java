@@ -27,13 +27,53 @@ public class PropertyBuilder {
 	private String langKey;
 	private MultiLingualString comment;
 	
-	public PropertyBuilder(String name) {
+	private PropertyBuilder(String name) {
 		this.name = name;
 	}
+	
+	// ================= アクセサ ここから =================
 	
 	public String name() {
 		return this.name;
 	}
+	
+	// ================= アクセサ ここまで =================
+	
+	// ================= コンストラクタ ここから =================
+	
+	public static PropertyBuilder bool(String name) {
+		PropertyBuilder property = new PropertyBuilder(name);
+		property.valueType = Type.BOOL;
+		return property;
+	}
+	
+	public static PropertyBuilder string(String name) {
+		PropertyBuilder property = new PropertyBuilder(name);
+		property.valueType = Type.STRING;
+		return property;
+	}
+	
+	public static PropertyBuilder integer(String name) {
+		PropertyBuilder property = new PropertyBuilder(name);
+		property.valueType = Type.INT;
+		return property;
+	}
+	
+	public static PropertyBuilder stringList(String name) {
+		PropertyBuilder property = new PropertyBuilder(name);
+		property.valueType = Type.STRING_LIST;
+		return property;
+	}
+	
+	public static PropertyBuilder integerList(String name) {
+		PropertyBuilder property = new PropertyBuilder(name);
+		property.valueType = Type.INT_LIST;
+		return property;
+	}
+	
+	// ================= コンストラクタ ここまで =================
+	
+	// ================= 組み立て用メソッド ここから =================
 	
 	public PropertyBuilder category(String category) {
 		this.category = category;
@@ -41,36 +81,37 @@ public class PropertyBuilder {
 	}
 	
 	public PropertyBuilder defaultBool(boolean value) {
+		assert this.valueType == Type.BOOL;
 		this.defaultBool = value;
-		this.valueType = Type.BOOL;
 		return this;
 	}
 	
 	public PropertyBuilder defaultString(String value) {
+		assert this.valueType == Type.STRING;
 		this.defaultString = value;
-		this.valueType = Type.STRING;
 		return this;
 	}
 	
 	public PropertyBuilder defaultInt(int value) {
+		assert this.valueType == Type.INT;
 		this.defaultInt = value;
-		this.valueType = Type.INT;
 		return this;
 	}
 	
 	public PropertyBuilder defaultStringList(String[] values) {
+		assert this.valueType == Type.STRING_LIST;
 		this.defaultStringList = values;
-		this.valueType = Type.STRING_LIST;
 		return this;
 	}
 	
 	public PropertyBuilder defaultIntList(int[] values) {
+		assert this.valueType == Type.INT_LIST;
 		this.defaultIntList = values;
-		this.valueType = Type.INT_LIST;
 		return this;
 	}
 	
 	public PropertyBuilder validStrings(String[] strings) {
+		assert this.valueType == Type.STRING;
 		this.validStrings = strings;
 		return this;
 	}
@@ -110,6 +151,8 @@ public class PropertyBuilder {
 		return this;
 	}
 	
+	// ================= 組み立て用メソッド ここまで =================
+	
 	public void registerToForge(Configuration cfg) {
 		Property prop = null;
 		switch(this.valueType) {
@@ -135,7 +178,11 @@ public class PropertyBuilder {
 				break;
 		}
 		
-		if(prop != null) {
+		if(prop == null) {
+			System.out.println("Skipped '" + name + "' because of unknown property type.");
+			return;
+		}
+		else {
 			prop.setRequiresMcRestart(requireMcRestart);
 			prop.setRequiresWorldRestart(requireWorldRestart);
 			if(langKey != null) prop.setLanguageKey(langKey);
