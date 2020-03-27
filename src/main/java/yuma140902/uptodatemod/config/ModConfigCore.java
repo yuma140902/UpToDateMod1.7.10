@@ -21,10 +21,10 @@ public class ModConfigCore {
 	public static final String
 		CATEGORY_GENERAL = "General",
 		CATEGORY_WORLDGEN = getSubCategory("WorldGen"),
-		CATEGORY_RECIPE = getSubCategory(".Recipe"),
-		CATEGORY_ENTITY = getSubCategory(".Entity"),
-		CATEGORY_DISABLE_FEATURES = getSubCategory(".DisableFeatures"),
-		CATEGORY_ALTERNATIVE = getSubCategory(".Alternative"),
+		CATEGORY_RECIPE = getSubCategory("Recipe"),
+		CATEGORY_ENTITY = getSubCategory("Entity"),
+		CATEGORY_DISABLE_FEATURES = getSubCategory("DisableFeatures"),
+		CATEGORY_ALTERNATIVE = getSubCategory("Alternative"),
 		CATEGORY_DEPRECATED = "Deprecated"; // GeneralのサブカテゴリではないのでGUIには表示されない
 	
 	public static final String
