@@ -19,12 +19,12 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 	@Override
 	public void generate(
 			Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(!ListUtils.contains(ModConfigCore.worldGen_genCoarseDirt_blackList, world.provider.dimensionId)) {
-			if(ModConfigCore.worldGen_genCoarseDirt && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.coarseDirt))
+		if(!ListUtils.contains(ModConfigCore.WorldGen.coarseDirtBlackList(), world.provider.dimensionId)) {
+			if(ModConfigCore.WorldGen.genCoarseDirt() && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.coarseDirt))
 				generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
-		if(!ListUtils.contains(ModConfigCore.worldGen_genFossiles_blackList, world.provider.dimensionId)) {
-			if(ModConfigCore.worldGen_genFossiles && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.boneBlockAndFossile))
+		if(!ListUtils.contains(ModConfigCore.WorldGen.fossilesBlackList(), world.provider.dimensionId)) {
+			if(ModConfigCore.WorldGen.genFossiles() && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.boneBlockAndFossile))
 				generateFossile(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
 	}

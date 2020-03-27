@@ -251,18 +251,31 @@ config.uptodate.prop.generate_coarse_dirt=粗い土の生成
 config.uptodate.prop.generate_coarse_dirt.tooltip=粗い土はメタデータ1の土を置き換える形で生成されます
 config.uptodate.prop.generate_coarse_dirt_blacklist=粗い土の生成のブラックリスト
 config.uptodate.prop.generate_coarse_dirt_blacklist.tooltip=粗い土を生成しないディメンションのIDを指定します。
+config.uptodate.prop.generate_magma_block=マグマブロックの生成
+config.uptodate.prop.generate_magma_block.tooltip=マグマブロックをネザーに生成するかどうか
+config.uptodate.prop.generate_magma_block_blacklist=マグマブロックの生成のブラックリスト
+config.uptodate.prop.generate_magma_block_blacklist.tooltip=マグマブロックを生成しないディメンションのIDを指定します。
 
 config.uptodate.category.recipe=レシピ
 config.uptodate.category.recipe.tooltip=レシピに関する設定
 config.uptodate.prop.remove_old_fence_recipe=古いフェンスのレシピの削除
 config.uptodate.prop.remove_old_fence_recipe.tooltip=棒6本からフェンス2個を作るフェンスの古いレシピを削除するかどうか
+config.uptodate.prop.use_old_smooth_stone_slab_recipe=古い石ハーフのレシピを使う
+config.uptodate.prop.use_old_smooth_stone_slab_recipe.tooltip=
 
 config.uptodate.category.entity=エンティティ・モブ
 config.uptodate.category.entity.tooltip=エンティティやモブに関する設定
 config.uptodate.prop.boat_crash_when_collide=ボート破壊
-config.uptodate.prop.boat_crash_when_collide.tooltip=ボートがブロックと衝突したときに壊れるかどうか
+config.uptodate.prop.boat_crash_when_collide.tooltip=このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)
+
+config.uptodate.category.alternative=代替手段
+config.uptodate.category.alternative.tooltip=アイテムを得るための代替手段の設定
+
+config.uptodate.category.disable_features=個別の機能を無効化
+config.uptodate.category.disable_features.tooltip=このMODの機能の一部を無効化するための設定
 
 config.uptodate.category.experimental=実験的機能
 config.uptodate.category.experimental.tooltip=実験的な機能。深刻なバグがあるかもしれません。
-config.uptodate.prop.observer=オブザーバーブロックを有効化
-config.uptodate.prop.observer.tooltip=【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】
+
+config.uptodate.category.integration=他MODとの連携
+config.uptodate.category.integration.tooltip=他MODとの連携に関する設定
