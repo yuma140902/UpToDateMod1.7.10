@@ -9,12 +9,12 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.config.model.CategoryBuilder;
-import yuma140902.uptodatemod.config.model.LangKey;
-import yuma140902.uptodatemod.config.model.PropertyBuilder;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.yumalib_ee.api.config.CategoryBuilder;
+import yuma140902.yumalib_ee.api.config.LangKey;
+import yuma140902.yumalib_ee.api.config.PropertyBuilder;
 import yuma140902.yumalib_ee.api.update.TsvUpdateChecker;
 
 public class ModConfigCore {

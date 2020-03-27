@@ -33,7 +33,6 @@ import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
 import yuma140902.uptodatemod.blocks.BlockUnlimitedPot;
 import yuma140902.uptodatemod.blocks.BlockWitherRose;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
-import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ColorUtil;

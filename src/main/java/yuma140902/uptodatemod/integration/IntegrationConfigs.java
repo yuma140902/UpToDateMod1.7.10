@@ -3,7 +3,7 @@ package yuma140902.uptodatemod.integration;
 import static yuma140902.uptodatemod.config.ModConfigCore.*;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.config.ModConfigCore;
-import yuma140902.uptodatemod.config.model.CategoryBuilder;
+import yuma140902.yumalib_ee.api.config.CategoryBuilder;
 
 public class IntegrationConfigs {
 	private IntegrationConfigs() {}

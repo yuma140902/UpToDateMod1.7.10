@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.config.model;
+package yuma140902.yumalib_ee.api.config;
 
 import java.util.ArrayList;
 import java.util.List;
