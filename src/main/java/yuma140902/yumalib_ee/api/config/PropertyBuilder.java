@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.config.model;
+package yuma140902.yumalib_ee.api.config;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
