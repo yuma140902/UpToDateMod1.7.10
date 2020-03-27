@@ -268,7 +268,7 @@ config.uptodate.prop.use_old_smooth_stone_slab_recipe.tooltip=If set to true, ol
 config.uptodate.category.entity=Entities and Mobs
 config.uptodate.category.entity.tooltip=Settings of entities and mobs
 config.uptodate.prop.boat_crash_when_collide=Boat Crashing
-config.uptodate.prop.boat_crash_when_collide.tooltip=Whether the boats crashe when collided with blocks
+config.uptodate.prop.boat_crash_when_collide.tooltip=Whether the boats crash when collided with blocks
 
 config.uptodate.category.alternative=Alternative
 config.uptodate.category.alternative.tooltip=Settings of alternative ways to get items
