@@ -80,9 +80,6 @@ public class ModConfigCore {
 	}
 	
 	public static class Experimental {
-		private static boolean enableObserver = false;
-		
-		public static boolean enableObserver() {return enableObserver;}
 	}
 	
 	public static class Deprecated {
@@ -226,12 +223,7 @@ public class ModConfigCore {
 		// Experimental
 		experimentalCategory = new CategoryBuilder(CATEGORY_EXPERIMENTAL)
 			.langKey(getCategoryLangkey("experimental"))
-			.requireMcRestart()
-			.add(new PropertyBuilder("enableObserver")
-				.defaultBool(Experimental.enableObserver)
-				.comment("Enable observer(note: Observer has bugs)", "オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】")
-				.langKey(getPropertyLangkey("observer"))
-				);
+			.requireMcRestart();
 		experimentalCategory.registerToForge(cfg);
 		
 		// Deprecated
@@ -281,7 +273,6 @@ public class ModConfigCore {
 		
 		// Experimental
 		experimentalCategory.registerPropertiesToForge(cfg);
-		Experimental.enableObserver = experimentalCategory.get("enableObserver", cfg).getBoolean();
 		
 		// Deprecated
 		deprecatedCategory.registerPropertiesToForge(cfg);

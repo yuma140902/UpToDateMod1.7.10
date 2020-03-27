@@ -278,8 +278,6 @@ config.uptodate.category.disable_features.tooltip=このMODの機能の一部を
 
 config.uptodate.category.experimental=実験的機能
 config.uptodate.category.experimental.tooltip=実験的な機能。深刻なバグがあるかもしれません。
-config.uptodate.prop.observer=オブザーバーブロックを有効化
-config.uptodate.prop.observer.tooltip=【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】
 
 config.uptodate.category.integration=他MODとの連携
 config.uptodate.category.integration.tooltip=他MODとの連携に関する設定

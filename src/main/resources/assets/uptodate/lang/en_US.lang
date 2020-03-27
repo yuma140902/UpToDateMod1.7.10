@@ -278,8 +278,6 @@ config.uptodate.category.disable_features.tooltip=Settings to desable certain fe
 
 config.uptodate.category.experimental=Experimental features
 config.uptodate.category.experimental.tooltip=Settings of experimental features. They may have serious bugs.
-config.uptodate.prop.observer=Enable Observer block
-config.uptodate.prop.observer.tooltip=【Observer is not full implemented and has bugs】
 
 config.uptodate.category.integration=Integration
 config.uptodate.category.integration.tooltip=Settings to integrate other mod

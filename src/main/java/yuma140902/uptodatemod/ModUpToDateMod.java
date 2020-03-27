@@ -128,7 +128,6 @@ public class ModUpToDateMod {
 		MyBlocks.register();
 		MyItems.register();
 		
-		MyTileEntities.register();
 		proxy.registerTileEntities();
 		MyGuis.register();
 		
