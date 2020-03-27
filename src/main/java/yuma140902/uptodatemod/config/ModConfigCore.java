@@ -104,7 +104,7 @@ public class ModConfigCore {
 	private static CategoryBuilder deprecatedCategory;
 	
 	public static void loadConfig(FMLPreInitializationEvent event) {
-		cfg = new Configuration(event.getSuggestedConfigurationFile(), true);
+		cfg = new Configuration(event.getSuggestedConfigurationFile(), ModUpToDateMod.MOD_VERSION, true);
 		initConfig();
 		syncConfig();
 		wrapConfig();
