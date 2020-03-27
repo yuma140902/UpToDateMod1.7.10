@@ -1,7 +1,6 @@
 package yuma140902.uptodatemod.integration;
 
 import java.util.List;
-import javax.annotation.Nullable;
 import cpw.mods.fml.common.Loader;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.config.ModConfigCore;
@@ -25,7 +24,6 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		return "Et Futurum";
 	}
 	
-	@Nullable
 	private Boolean _isModLoadedCache = null;
 	public boolean isModLoaded() {
 		if(_isModLoadedCache == null) {
@@ -52,7 +50,7 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		}
 		
 		cfg.addCustomCategoryComment(CATEGORY, "Settings to cooperate with EtFuturum");
-		cfg.setCategoryLanguageKey(CATEGORY, ModConfigCore.getCategoryLangkey("integration.etfuturum"));
+		cfg.setCategoryLanguageKey(CATEGORY, ModConfigCore.getCategoryLangkey("integration.etfuturum").toString());
 		cfg.setCategoryRequiresMcRestart(CATEGORY, true);
 	}
 
@@ -64,7 +62,7 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		
 		config_integrateWithEtFuturum = cfg.getBoolean("integrate", CATEGORY, true, 
 				"Cooperate with EtFuturum or not | EtFuturumと連携するかどうか",
-				ModConfigCore.getPropertyLangkey("integrate"));
+				ModConfigCore.getPropertyLangkey("integrate_etfuturum").toString());
 		
 	}
 	

@@ -19,13 +19,18 @@ public class MyMinableGenerator implements IWorldGenerator {
 			this(enabled, spawnSize, spawnTries, minHeight, maxHeight, new int[] {-1, 1});
 		}
 		
-		public Config(boolean enabled, int spawnSize, int spawnTries, int minHeight, int maxHeight, int[] dimansionIDBlockList) {
+		public Config(boolean enabled, int spawnSize, int spawnTries, int minHeight, int maxHeight, int[] dimensionIDBlockList) {
+			this(enabled, spawnSize, spawnTries, minHeight, maxHeight, dimensionIDBlockList, Blocks.stone);
+		}
+		
+		public Config(boolean enabled, int spawnSize, int spawnTries, int minHeight, int maxHeight, int[] dimensionIDBlockList, Block target) {
 			this.enabled = enabled;
 			this.spawnSize = spawnSize;
 			this.spawnTries = spawnTries;
 			this.minHeight = minHeight;
 			this.maxHeight = maxHeight;
-			this.dimensionIDBlackList = dimansionIDBlockList;
+			this.dimensionIDBlackList = dimensionIDBlockList;
+			this.target = target;
 		}
 		
 		public boolean enabled = true;
@@ -35,6 +40,7 @@ public class MyMinableGenerator implements IWorldGenerator {
 		public int maxHeight;
 		private int heightDiff; // maxHeight - minHeight + 1; 自動で計算される
 		public int[] dimensionIDBlackList;
+		public Block target;
 	}
 	
 	public MyMinableGenerator() {	}
@@ -52,7 +58,7 @@ public class MyMinableGenerator implements IWorldGenerator {
       throw new IllegalArgumentException("Illegal Height Arguments for WorldGenerator");
 		config.heightDiff = config.maxHeight - config.minHeight + 1;
 		
-		_worldGenMinabes.add(new Pair<WorldGenMinable, Config>(new WorldGenMinable(ore, meta, config.spawnSize, Blocks.stone), config));
+		_worldGenMinabes.add(new Pair<WorldGenMinable, Config>(new WorldGenMinable(ore, meta, config.spawnSize, config.target), config));
 	}
 
 	

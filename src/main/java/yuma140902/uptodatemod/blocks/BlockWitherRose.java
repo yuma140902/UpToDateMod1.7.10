@@ -118,42 +118,42 @@ public class BlockWitherRose extends BlockBush implements IRegisterable, IHasRec
 		return false;
 	}
 	
-	public static void onLivingDeathEvent(LivingDeathEvent event) {
+	public static void onLivingDeathEvent(final LivingDeathEvent event) {
 		if(event == null || event.entityLiving == null) {
 			return;
 		}
-		PotionEffect potionEffect = event.entityLiving.getActivePotionEffect(Potion.wither);
+		final PotionEffect potionEffect = event.entityLiving.getActivePotionEffect(Potion.wither);
 		if(potionEffect == null || potionEffect.getAmplifier() <= 0) {
 			return;
 		}
 		
-		EntityLivingBase entityLiving = event.entityLiving;
-		int posX = (int) entityLiving.posX;
-		int posY = (int) entityLiving.posY;
-		int posZ = (int) entityLiving.posZ;
-		World world = entityLiving.worldObj;
+		final EntityLivingBase entityLiving = event.entityLiving;
+		final int posX = (int) entityLiving.posX;
+		final int posY = (int) entityLiving.posY;
+		final int posZ = (int) entityLiving.posZ;
+		final World world = entityLiving.worldObj;
 		
-		int[] aroundX = new int[] {0, 1, -1, 0,  0, 1, -1,  1, -1};
-		int[] aroundZ = new int[] {0, 0,  0, 1, -1, 1,  1, -1, -1};
-		
-		int x=posX, y=posY, z=posZ;
+		final int[] aroundX = new int[] {0, 1, -1, 0,  0, 1, -1,  1, -1};
+		final int[] aroundZ = new int[] {0, 0,  0, 1, -1, 1,  1, -1, -1};
+		final int[] aroundY = new int[] {0, 1, -1};
 		
 		for(int i=0; i<aroundX.length; ++i) {
-			x = posX + aroundX[i];
-			z = posZ + aroundZ[i];
-			
-			y = posY;
-			while(!canPlace(world, x, y, z) && posY - y <= 5) {
-				++y;
+			final int x = posX + aroundX[i];
+			final int z = posZ + aroundZ[i];
+			for(int j=0; j<aroundY.length; ++j) {
+				final int y = posY + aroundY[j];
+				
+				if(world.isAirBlock(x, y, z) && canPlace(world, x, y, z)) {
+					world.setBlock(x, y, z, MyBlocks.witherRose);
+					return;
+				}
 			}
 		}
 		
-		if(canPlace(world, x, y, z)) {
-			world.setBlock(x, y, z, MyBlocks.witherRose);
-		}
-		else {
+		if(!world.isRemote) {
 			entityLiving.dropItem(Item.getItemFromBlock(MyBlocks.witherRose), 1);
 		}
+		
 	}
 	
 	private static boolean canPlace(World world, int x, int y, int z) {

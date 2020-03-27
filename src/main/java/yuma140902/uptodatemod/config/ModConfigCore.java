@@ -2,13 +2,16 @@ package yuma140902.uptodatemod.config;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
+import yuma140902.uptodatemod.config.model.CategoryBuilder;
+import yuma140902.uptodatemod.config.model.LangKey;
+import yuma140902.uptodatemod.config.model.PropertyBuilder;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
@@ -17,11 +20,11 @@ import yuma140902.yumalib_ee.api.update.TsvUpdateChecker;
 public class ModConfigCore {
 	public static final String
 		CATEGORY_GENERAL = "General",
-		CATEGORY_WORLDGEN = CATEGORY_GENERAL + ".WorldGen",
-		CATEGORY_RECIPE = CATEGORY_GENERAL + ".Recipe",
-		CATEGORY_EXPERIMENTAL = CATEGORY_GENERAL + ".Experimental",
-		CATEGORY_ENTITY = CATEGORY_GENERAL + ".Entity",
-		CATEGORY_DISABLE_FEATURES = CATEGORY_GENERAL + ".DisableFeatures",
+		CATEGORY_WORLDGEN = getSubCategory("WorldGen"),
+		CATEGORY_RECIPE = getSubCategory("Recipe"),
+		CATEGORY_ENTITY = getSubCategory("Entity"),
+		CATEGORY_DISABLE_FEATURES = getSubCategory("DisableFeatures"),
+		CATEGORY_ALTERNATIVE = getSubCategory("Alternative"),
 		CATEGORY_DEPRECATED = "Deprecated"; // GeneralのサブカテゴリではないのでGUIには表示されない
 	
 	public static final String
@@ -32,27 +35,76 @@ public class ModConfigCore {
 	
 	private static final Logger logger = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-Config");
 	
-	public static String updateChannel = TsvUpdateChecker.RECOMMENDED_STR;
-	public static boolean doCheckUpdate = true;
-	public static boolean worldGen_genStones;
-	public static int[] worldGen_genStones_blackList;
-	public static boolean worldGen_genFossiles;
-	public static int[] worldGen_genFossiles_blackList;
-	public static boolean worldGen_genCoarseDirt;
-	public static int[] worldGen_genCoarseDirt_blackList;
-	public static boolean recipeRemove_oldFenceRecipe;
-	public static boolean useOldSmoothStoneSlabRecipe;
-	public static int idBoatAcacia;
-	public static int idBoatBirch;
-	public static int idBoatDarkOak;
-	public static int idBoatJungle;
-	public static int idBoatSpruce;
-	public static int idArmorStand;
-	public static boolean enable_observer;
-	public static boolean debug_mode;
+	public static class General {
+		private static boolean doCheckUpdate = true;
+		private static String updateChannel = TsvUpdateChecker.RECOMMENDED_STR;
+		private static boolean debugMode = false;
+		
+		public static boolean doCheckUpdate() {return doCheckUpdate;}
+		public static String updateChannel() {return updateChannel;}
+		public static boolean debugMode() {return debugMode;}
+	}
+	
+	public static class WorldGen {
+		private static boolean genStones = true;
+		private static int[] stonesBlackList = new int[] {1, -1};
+		private static boolean genFossiles = true;
+		private static int[] fossilesBlackList = new int[] {1, -1};
+		private static boolean genCoarseDirt = true;
+		private static int[] coarseDirtBlackList = new int[] {1, -1};
+		private static boolean genMagmaBlock = true;
+		private static int[] magmaBlockBlackList = new int[] {0, 1};
+		
+		public static boolean genStones() {return genStones;}
+		public static int[] stonesBlackList() {return stonesBlackList;}
+		public static boolean genFossiles() {return genFossiles;}
+		public static int[] fossilesBlackList() {return fossilesBlackList;}
+		public static boolean genCoarseDirt() {return genCoarseDirt;}
+		public static int[] coarseDirtBlackList() {return coarseDirtBlackList;}
+		public static boolean genMagmaBlock() {return genMagmaBlock;}
+		public static int[] magmaBlockBlackList() {return magmaBlockBlackList;}
+	}
+	
+	public static class Recipe {
+		private static boolean removeOldFenceRecipe = false;
+		private static boolean useOldSmoothStoneSlabRecipe = false;
+		
+		public static boolean removeOldFenceRecipe() {return removeOldFenceRecipe;}
+		public static boolean useOldSmoothStoneSlabRecipe() {return useOldSmoothStoneSlabRecipe;}
+	}
+	
+	public static class Entity {
+		private static boolean boatCrashWhenCollide = false;
+		
+		public static boolean boatCrashWhenCollide() {return boatCrashWhenCollide;}
+	}
+	
+	public static class Deprecated {
+		private static int idBoatAcacia = 0;
+		private static int idBoatBirch = 1;
+		private static int idBoatDarkOak = 2;
+		private static int idBoatJungle = 3;
+		private static int idBoatSpruce = 4;
+		private static int idArmorStand = 5;
+		
+		public static int idBoatAcacia() {return idBoatAcacia;}
+		public static int idBoatBirch() {return idBoatBirch;}
+		public static int idBoatDarkOak() {return idBoatDarkOak;}
+		public static int idBoatJungle() {return idBoatJungle;}
+		public static int idBoatSpruce() {return idBoatSpruce;}
+		public static int idArmorStand() {return idArmorStand;}
+	}
+	
+	private static CategoryBuilder generalCategory;
+	private static CategoryBuilder worldGenCategory;
+	private static CategoryBuilder recipeCategory;
+	private static CategoryBuilder entityCategory;
+	private static CategoryBuilder disableFeaturesCategory;
+	private static CategoryBuilder alternativeCategory;
+	private static CategoryBuilder deprecatedCategory;
 	
 	public static void loadConfig(FMLPreInitializationEvent event) {
-		cfg = new Configuration(event.getSuggestedConfigurationFile(), true);
+		cfg = new Configuration(event.getSuggestedConfigurationFile(), ModUpToDateMod.MOD_VERSION, true);
 		initConfig();
 		syncConfig();
 		wrapConfig();
@@ -60,35 +112,115 @@ public class ModConfigCore {
 	
 	private static void initConfig() {
 		// General
-		cfg.addCustomCategoryComment(CATEGORY_GENERAL, "Settings of UpToDateMod");
-		cfg.setCategoryLanguageKey(CATEGORY_GENERAL, CONFIG_CATEGORY_LANGKEY + "general");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_GENERAL, true);
+		generalCategory = new CategoryBuilder(CATEGORY_GENERAL)
+			.langKey(getCategoryLangkey("general"))
+			.requireMcRestart()
+			.add(PropertyBuilder.bool("doUpdateChecking")
+				.defaultBool(General.doCheckUpdate)
+				.comment("If true, the mod will check for updates automatically", "アップデートを自動で確認するかどうか")
+				.langKey(getPropertyLangkey("do_check_update"))
+				)
+			.add(PropertyBuilder.string("updateChannel")
+				.defaultString(General.updateChannel)
+				.validStrings(new String[] {TsvUpdateChecker.RECOMMENDED_STR, TsvUpdateChecker.LATEST_STR})
+				.comment("Channel of updates checking", "アップデートのチャンネル")
+				.langKey(getPropertyLangkey("update_channel"))
+				)
+			.add(PropertyBuilder.bool("enableDebugMode")
+				.defaultBool(General.debugMode)
+				.comment("Enable debug mode", "デバッグモード。通常はfalseにすることを推奨")
+				.langKey(getPropertyLangkey("debug_mode"))
+				);
+		generalCategory.registerToForge(cfg);
 		
 		// WorldGen
-		cfg.addCustomCategoryComment(CATEGORY_WORLDGEN, "Settings about world generation");
-		cfg.setCategoryLanguageKey(CATEGORY_WORLDGEN, CONFIG_CATEGORY_LANGKEY + "worldgen");
+		Pattern numberPattern = Pattern.compile("-?[0-9]+");
+		worldGenCategory = new CategoryBuilder(CATEGORY_WORLDGEN)
+			.langKey(getCategoryLangkey("worldgen"))
+			.add(PropertyBuilder.bool("genStones")
+				.defaultBool(WorldGen.genStones)
+				.comment("Generate Granite, Diorite, Andesite in Overworld or not", "花崗岩、閃緑岩、安山岩をワールドに生成するか否か")
+				.langKey(getPropertyLangkey("generate_stones"))
+				)
+			.add(PropertyBuilder.stringList("genStonesDimensionBlackList")
+				.defaultStringList(toStringList(WorldGen.stonesBlackList))         // わざわざString[]に変換しているのは過去のconfigファイルとの互換性を保つため
+				.langKey(getPropertyLangkey("generate_stones_blacklist"))
+				.validationPattern(numberPattern)
+				)
+			.add(PropertyBuilder.bool("genFossiles")
+				.defaultBool(WorldGen.genFossiles)
+				.comment("Generate fossiles in Overworld or not", "化石を生成するか否か")
+				.langKey(getPropertyLangkey("generate_fossiles"))
+				)
+			.add(PropertyBuilder.stringList("genFossilesDimensionBlackList")
+				.defaultStringList(toStringList(WorldGen.fossilesBlackList))          // わざわざString[]に変換しているのは過去のconfigファイルとの互換性を保つため
+				.langKey(getPropertyLangkey("generate_fossiles_blacklist"))
+				.validationPattern(numberPattern)
+				)
+			.add(PropertyBuilder.bool("genCoarseDirt")
+				.defaultBool(WorldGen.genCoarseDirt)
+				.comment("Generate coarse dirt in Overworld or not", "粗い土を生成するか否か")
+				.langKey(getPropertyLangkey("generate_coarse_dirt"))
+				)
+			.add(PropertyBuilder.stringList("genCoarseDirtDimensionBlackList")
+				.defaultStringList(toStringList(WorldGen.coarseDirtBlackList))          // わざわざString[]に変換しているのは過去のconfigファイルとの互換性を保つため
+				.langKey(getPropertyLangkey("generate_coarse_dirt_blacklist"))
+				.validationPattern(numberPattern)
+				)
+			.add(PropertyBuilder.bool("genMagmaBlock")
+				.defaultBool(WorldGen.genMagmaBlock)
+				.comment("Generate magma block or not", "マグマブロックを生成するか否か")
+				.langKey(getPropertyLangkey("generate_magma_block"))
+				)
+			.add(PropertyBuilder.integerList("genMagmaBlockDimensionBlackList")
+				.defaultIntList(WorldGen.magmaBlockBlackList)
+				.langKey(getPropertyLangkey("generate_magma_block_blacklist"))
+				);
+		worldGenCategory.registerToForge(cfg);
 		
 		// Recipe
-		cfg.addCustomCategoryComment(CATEGORY_RECIPE, "Settings about recipes");
-		cfg.setCategoryLanguageKey(CATEGORY_RECIPE, CONFIG_CATEGORY_LANGKEY + "recipe");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_RECIPE, true);
+		recipeCategory = new CategoryBuilder(CATEGORY_RECIPE)
+			.langKey(getCategoryLangkey("recipe"))
+			.requireMcRestart()
+			.add(PropertyBuilder.bool("removeOldFenceRecipe")
+				.defaultBool(Recipe.removeOldFenceRecipe)
+				.comment("Delete the recipe of 2 fences from 6 sticks", "棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)")
+				.langKey(getPropertyLangkey("remove_old_fence_recipe"))
+				)
+			.add(PropertyBuilder.bool("useOldSmoothStoneSlabRecipe")
+				.defaultBool(Recipe.useOldSmoothStoneSlabRecipe)
+				.comment("If set to true, old smooth stone slab recipe will be kept", "古い石ハーフブロックのレシピを使うかどうか")
+				.langKey(getPropertyLangkey("use_old_smooth_stone_slab_recipe"))
+				);
+		recipeCategory.registerToForge(cfg);
 		
 		// Entity
-		cfg.addCustomCategoryComment(CATEGORY_ENTITY, "Settings about entities and mobs");
-		cfg.setCategoryLanguageKey(CATEGORY_ENTITY, CONFIG_CATEGORY_LANGKEY + "entity");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_ENTITY, true);
-		
-		// Experimental
-		cfg.addCustomCategoryComment(CATEGORY_EXPERIMENTAL, "Settings about experimental features. They may have a serious bug.");
-		cfg.setCategoryLanguageKey(CATEGORY_EXPERIMENTAL, CONFIG_CATEGORY_LANGKEY + "experimental");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_EXPERIMENTAL, true);
+		entityCategory = new CategoryBuilder(CATEGORY_ENTITY)
+			.langKey(getCategoryLangkey("entity"))
+			.requireMcRestart()
+			.add(PropertyBuilder.bool("boatCrashWhenCollide")
+				.defaultBool(Entity.boatCrashWhenCollide)
+				.comment("Boat added by this mod will crash when collision", "このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)")
+				.langKey(getPropertyLangkey("boat_crash_when_collide"))
+				);
+		entityCategory.registerToForge(cfg);
 		
 		// DisableFeatures
-		cfg.setCategoryRequiresMcRestart(CATEGORY_DISABLE_FEATURES, true);
+		disableFeaturesCategory = new CategoryBuilder(CATEGORY_DISABLE_FEATURES)
+				.langKey(getCategoryLangkey("disable_features"))
+			.requireMcRestart();
+		disableFeaturesCategory.registerToForge(cfg);
+		
+		// Alternative
+		alternativeCategory = new CategoryBuilder(CATEGORY_ALTERNATIVE)
+			.langKey(getCategoryLangkey("alternative"));
+		alternativeCategory.registerToForge(cfg);
 		
 		// Deprecated
-		cfg.addCustomCategoryComment(CATEGORY_DEPRECATED, "You do not have to change the configurations in Deprecated section.");
-		cfg.setCategoryRequiresMcRestart(CATEGORY_DEPRECATED, true);
+		deprecatedCategory = new CategoryBuilder(CATEGORY_DEPRECATED)
+			.comment("You do not have to change the configurations in Deprecated section.")
+			.requireMcRestart();
+		deprecatedCategory.registerToForge(cfg);
 		
 		IntegrationConfigs.initConfig(cfg);
 	}
@@ -97,64 +229,48 @@ public class ModConfigCore {
 		ModUpToDateMod.LOGGER.info("Loading config");
 		
 		// General
-		doCheckUpdate = cfg.getBoolean("doUpdateChecking", CATEGORY_GENERAL, 
-				doCheckUpdate, 
-				"If true, the mod will check for updates automatically | アップデートを自動で確認するかどうか",
-				CONFIG_PROP_LANGKEY + "do_check_update");
-		updateChannel = cfg.getString("updateChannel", CATEGORY_GENERAL, 
-				updateChannel,
-				"Channel of update checking | アップデートのチャンネル", new String[] {TsvUpdateChecker.RECOMMENDED_STR, TsvUpdateChecker.LATEST_STR},
-				CONFIG_PROP_LANGKEY + "update_channel"
-				);
-		debug_mode = cfg.getBoolean("enableDebugMode", CATEGORY_GENERAL, false, "", CONFIG_PROP_LANGKEY + "debug_mode");
+		generalCategory.registerPropertiesToForge(cfg);
+		General.doCheckUpdate = generalCategory.get("doUpdateChecking", cfg).getBoolean();
+		General.updateChannel = generalCategory.get("updateChannel", cfg).getString();
+		General.debugMode = generalCategory.get("enableDebugMode", cfg).getBoolean();
 		
 		// WorldGen
-		worldGen_genStones = cfg.getBoolean("genStones", CATEGORY_WORLDGEN, true, 
-				"Generate Granite, Diorite, Andesite in Overworld or not | 花崗岩、閃緑岩、安山岩をワールドに生成するか否か",
-				CONFIG_PROP_LANGKEY + "generate_stones");
-		worldGen_genStones_blackList = stringListToIntList(cfg.getStringList("genStonesDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
-				"Granite, Diorite, and Andesite generation dimension black list", (String[])null,
-				CONFIG_PROP_LANGKEY + "generate_stones_blacklist"));
-		worldGen_genFossiles = cfg.getBoolean("genFossiles", CATEGORY_WORLDGEN, true, 
-				"Generate fossiles in Overworld or not | 化石を生成するか否か",
-				CONFIG_PROP_LANGKEY + "generate_fossiles");
-		worldGen_genFossiles_blackList = stringListToIntList(cfg.getStringList("genFossilesDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
-				"Fossile generation dimension black list", (String[])null,
-				CONFIG_PROP_LANGKEY + "generate_fossiles_blacklist"));
-		worldGen_genCoarseDirt = cfg.getBoolean("genCoarseDirt", CATEGORY_WORLDGEN, true, 
-				"Generate coarse dirt in Overworld or not | 粗い土を生成するか否か",
-				CONFIG_PROP_LANGKEY + "generate_coarse_dirt");
-		worldGen_genCoarseDirt_blackList = stringListToIntList(cfg.getStringList("genCoarseDirtDimensionBlackList", CATEGORY_WORLDGEN, new String[] {"1", "-1"}, 
-				"Coarse Dirt generation dimension black list", (String[])null,
-				CONFIG_PROP_LANGKEY + "generate_coarse_dirt_blacklist"));
+		worldGenCategory.registerPropertiesToForge(cfg);
+		WorldGen.genStones = worldGenCategory.get("genStones", cfg).getBoolean();
+		WorldGen.stonesBlackList = toIntList(worldGenCategory.get("genStonesDimensionBlackList", cfg).getStringList());       // 過去のconfigファイルとの互換性
+		WorldGen.genFossiles = worldGenCategory.get("genFossiles", cfg).getBoolean();
+		WorldGen.fossilesBlackList = toIntList(worldGenCategory.get("genFossilesDimensionBlackList", cfg).getStringList());       // 過去のconfigファイルとの互換性
+		WorldGen.genCoarseDirt = worldGenCategory.get("genCoarseDirt", cfg).getBoolean();
+		WorldGen.coarseDirtBlackList = toIntList(worldGenCategory.get("genCoarseDirtDimensionBlackList", cfg).getStringList());       // 過去のconfigファイルとの互換性
+		WorldGen.genMagmaBlock = worldGenCategory.get("genMagmaBlock", cfg).getBoolean();
+		WorldGen.magmaBlockBlackList = worldGenCategory.get("genMagmaBlockDimensionBlackList", cfg).getIntList();
 		
 		// Recipe
-		recipeRemove_oldFenceRecipe = cfg.getBoolean("removeOldFenceRecipe", CATEGORY_RECIPE, false, 
-				"Delete the recipe from 6 sticks to 2 fences | 棒6本からフェンス2個を作るレシピを削除するかどうか(木材4つと棒2本からフェンスを作るレシピは、この設定に関わらず常に追加されます)",
-				CONFIG_PROP_LANGKEY + "remove_old_fence_recipe");
-		cfg.getCategory(CATEGORY_RECIPE).remove("addStoneSlabRecipe");
-		useOldSmoothStoneSlabRecipe = cfg.getBoolean("useOldSmoothStoneSlabRecipe", CATEGORY_RECIPE, false, "If set to true, adds old smooth stone slab recipe.");
+		recipeCategory.registerPropertiesToForge(cfg);
+		Recipe.removeOldFenceRecipe = recipeCategory.get("removeOldFenceRecipe", cfg).getBoolean();
+		cfg.getCategory(CATEGORY_RECIPE).remove("addStoneSlabRecipe");      // 過去の廃止されたconfigの項目を削除
+		Recipe.useOldSmoothStoneSlabRecipe = recipeCategory.get("useOldSmoothStoneSlabRecipe", cfg).getBoolean();
 		
 		// Entity
-		EntityModBoatBase.boatCrashWhenCollide = cfg.getBoolean("boatCrashWhenCollide", CATEGORY_ENTITY, false, 
-				"Boat added by this mod will crash when collision | このMODが追加するボートが、衝突時に壊れるかどうか(バニラのボートは衝突時に壊れる)",
-				CONFIG_PROP_LANGKEY + "boat_crash_when_collide");
-		
-		// Experimental
-		enable_observer = cfg.getBoolean("enableObserver", CATEGORY_EXPERIMENTAL, false, 
-				"Enable observer(note: Observer has bugs) | オブザーバーを有効にするか否か【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】",
-				CONFIG_PROP_LANGKEY + "observer");
+		entityCategory.registerPropertiesToForge(cfg);
+		Entity.boatCrashWhenCollide = entityCategory.get("boatCrashWhenCollide", cfg).getBoolean();
 		
 		// DisableFeatures
 		syncDisableableFeaturesConfig(cfg);
 		
+		// Alternative
+		alternativeCategory.registerPropertiesToForge(cfg);
+		
+		cfg.removeCategory(cfg.getCategory(getSubCategory("Experimental")));  // Experimentalカテゴリーを削除
+		
 		// Deprecated
-		idBoatAcacia = 		cfg.getInt("idBoatAcacia", 		CATEGORY_DEPRECATED, 0, 0, Integer.MAX_VALUE, "Entity ID for Acacia Boat");
-		idBoatBirch = 		cfg.getInt("idBoatBirch", 		CATEGORY_DEPRECATED, 1, 0, Integer.MAX_VALUE, "Entity ID for Birch Boat");
-		idBoatDarkOak = 	cfg.getInt("idBoatDarkOak", 	CATEGORY_DEPRECATED, 2, 0, Integer.MAX_VALUE, "Entity ID for Dark Oak Boat");
-		idBoatJungle = 		cfg.getInt("idBoatJungle", 		CATEGORY_DEPRECATED, 3, 0, Integer.MAX_VALUE, "Entity ID for Jungle Boat");
-		idBoatSpruce = 		cfg.getInt("idBoatSpruce", 		CATEGORY_DEPRECATED, 4, 0, Integer.MAX_VALUE, "Entity ID for Spruce Boat");
-		idArmorStand = 		cfg.getInt("idArmorStand", 		CATEGORY_DEPRECATED, 5, 0, Integer.MAX_VALUE, "Entity ID for Armorstand");
+		deprecatedCategory.registerPropertiesToForge(cfg);
+		Deprecated.idBoatAcacia = 		cfg.getInt("idBoatAcacia", 		CATEGORY_DEPRECATED, Deprecated.idBoatAcacia, 	0, Integer.MAX_VALUE, "Entity ID for Acacia Boat");
+		Deprecated.idBoatBirch = 			cfg.getInt("idBoatBirch", 		CATEGORY_DEPRECATED, Deprecated.idBoatBirch, 		0, Integer.MAX_VALUE, "Entity ID for Birch Boat");
+		Deprecated.idBoatDarkOak = 		cfg.getInt("idBoatDarkOak", 	CATEGORY_DEPRECATED, Deprecated.idBoatDarkOak, 	0, Integer.MAX_VALUE, "Entity ID for Dark Oak Boat");
+		Deprecated.idBoatJungle = 		cfg.getInt("idBoatJungle", 		CATEGORY_DEPRECATED, Deprecated.idBoatJungle, 	0, Integer.MAX_VALUE, "Entity ID for Jungle Boat");
+		Deprecated.idBoatSpruce = 		cfg.getInt("idBoatSpruce", 		CATEGORY_DEPRECATED, Deprecated.idBoatSpruce, 	0, Integer.MAX_VALUE, "Entity ID for Spruce Boat");
+		Deprecated.idArmorStand = 		cfg.getInt("idArmorStand", 		CATEGORY_DEPRECATED, Deprecated.idArmorStand, 	0, Integer.MAX_VALUE, "Entity ID for Armorstand");
 		
 		IntegrationConfigs.syncConfig(cfg);
 		
@@ -189,7 +305,7 @@ public class ModConfigCore {
 		IntegrationConfigs.wrapConfig(cfg);
 	}
 	
-	private static int[] stringListToIntList(String[] strList) {
+	private static int[] toIntList(String[] strList) {
 		int[] list = new int[strList.length];
 		for(int srcIdx = 0, dstIdx = 0; srcIdx < strList.length; ++srcIdx) {
 			try{
@@ -204,16 +320,24 @@ public class ModConfigCore {
 		return list;
 	}
 	
+	private static String[] toStringList(int[] intList) {
+		String[] strList = new String[intList.length];
+		for(int i=0; i<intList.length; ++i) {
+			strList[i] = Integer.toString(intList[i]);
+		}
+		return strList;
+	}
+	
 	
 	public static String getSubCategory(String subCategory) {
 		return CATEGORY_GENERAL + "." + subCategory;
 	}
 	
-	public static String getCategoryLangkey(String key) {
-		return CONFIG_CATEGORY_LANGKEY + key;
+	public static LangKey getCategoryLangkey(String key) {
+		return LangKey.of(CONFIG_CATEGORY_LANGKEY + key);
 	}
 	
-	public static String getPropertyLangkey(String key) {
-		return CONFIG_PROP_LANGKEY + key;
+	public static LangKey getPropertyLangkey(String key) {
+		return LangKey.of(CONFIG_PROP_LANGKEY + key);
 	}
 }
