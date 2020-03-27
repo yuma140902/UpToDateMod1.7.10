@@ -19,11 +19,11 @@ import yuma140902.uptodatemod.util.UpdateChecker;
 public class ModConfigCore {
 	public static final String
 		CATEGORY_GENERAL = "General",
-		CATEGORY_WORLDGEN = CATEGORY_GENERAL + ".WorldGen",
-		CATEGORY_RECIPE = CATEGORY_GENERAL + ".Recipe",
-		CATEGORY_ENTITY = CATEGORY_GENERAL + ".Entity",
-		CATEGORY_DISABLE_FEATURES = CATEGORY_GENERAL + ".DisableFeatures",
-		CATEGORY_ALTERNATIVE = CATEGORY_GENERAL + ".Alternative",
+		CATEGORY_WORLDGEN = getSubCategory("WorldGen"),
+		CATEGORY_RECIPE = getSubCategory(".Recipe"),
+		CATEGORY_ENTITY = getSubCategory(".Entity"),
+		CATEGORY_DISABLE_FEATURES = getSubCategory(".DisableFeatures"),
+		CATEGORY_ALTERNATIVE = getSubCategory(".Alternative"),
 		CATEGORY_DEPRECATED = "Deprecated"; // GeneralのサブカテゴリではないのでGUIには表示されない
 	
 	public static final String
