@@ -244,7 +244,6 @@ public abstract class Fossiles {
 		public void spawnAt(World world, int x, int y, int z, Random random) {
 			int facing = random.nextInt(4) + 2; //東西南北: 2～5
 			int right = DirectionUtil.rightSides[facing];
-			int left = DirectionUtil.leftSides[facing];
 			
 			generatePillar(world, x, y, z, 13, facing, random); // *を生成
 			

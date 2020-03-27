@@ -59,7 +59,7 @@ public class ModUpToDateMod {
 	public static final String MOD_TEXTURE_DOMAIN = "uptodate";
 	public static final String MOD_UNLOCALIZED_ENTRY_DOMAIN = "uptodate";
 	public static final String MINECRAFT_VERSION = "1.7.10";
-	public static final String MOD_VERSION = "2.1.0";
+	public static final String MOD_VERSION = "2.1.2";
 	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
 	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 	
@@ -114,8 +114,8 @@ public class ModUpToDateMod {
 		loadModMetadata(modMetadata);
 		ModConfigCore.loadConfig(event);
 		LOGGER.info("preInit");
-		if(ModConfigCore.doCheckUpdate) {
-			IUpdateChecker updateChecker = new TsvUpdateChecker(MOD_NAME, "https://www.curseforge.com/minecraft/mc-mods/uptodatemod", MOD_VERSIONS_TSV_URL, MOD_VERSION, ModConfigCore.updateChannel);
+		if(ModConfigCore.General.doCheckUpdate()) {
+			IUpdateChecker updateChecker = new TsvUpdateChecker(MOD_NAME, "https://www.curseforge.com/minecraft/mc-mods/uptodatemod", MOD_VERSIONS_TSV_URL, MOD_VERSION, ModConfigCore.General.updateChannel());
 			UpdateCheckerRegistry.INSTANCE.register(updateChecker);
 		}
 		
@@ -127,7 +127,6 @@ public class ModUpToDateMod {
 		MyBlocks.register();
 		MyItems.register();
 		
-		MyTileEntities.register();
 		proxy.registerTileEntities();
 		MyGuis.register();
 		
@@ -150,11 +149,15 @@ public class ModUpToDateMod {
 		
 		
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stones)) {
-			MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.worldGen_genStones, 33, 10, 0, 80, ModConfigCore.worldGen_genStones_blackList);
+			MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.WorldGen.genStones(), 33, 10, 0, 80, ModConfigCore.WorldGen.stonesBlackList());
 			
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_DIORITE, stoneConfig);
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_ANDESITE, stoneConfig);
+			
+			MyMinableGenerator.Config magmaConfig
+					= new MyMinableGenerator.Config(ModConfigCore.WorldGen.genMagmaBlock(), 33, 5, 0, 40, ModConfigCore.WorldGen.magmaBlockBlackList(), Blocks.netherrack);
+			WorldGenerators.myMinableGenerator.addOreGenerator(MyBlocks.magmaBlock, magmaConfig);
 		}
 		WorldGenerators.register();
 		

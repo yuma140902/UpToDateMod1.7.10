@@ -498,31 +498,6 @@
     },
     {
       "ar": "mc12",
-      "src": "textures/blocks/observer_back.png",
-      "dest": "textures/blocks/observer_back.png"
-    },
-    {
-      "ar": "mc12",
-      "src": "textures/blocks/observer_back_lit.png",
-      "dest": "textures/blocks/observer_back_on.png"
-    },
-    {
-      "ar": "mc12",
-      "src": "textures/blocks/observer_front.png",
-      "dest": "textures/blocks/observer_front.png"
-    },
-    {
-      "ar": "mc12",
-      "src": "textures/blocks/observer_side.png",
-      "dest": "textures/blocks/observer_side.png"
-    },
-    {
-      "ar": "mc12",
-      "src": "textures/blocks/observer_top.png",
-      "dest": "textures/blocks/observer_top.png"
-    },
-    {
-      "ar": "mc12",
       "src": "textures/blocks/prismarine_rough.png",
       "dest": "textures/blocks/prismarine.png"
     },

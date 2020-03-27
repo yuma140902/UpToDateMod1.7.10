@@ -18,6 +18,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.config.ModConfigCore;
 
 public abstract class EntityModBoatBase extends EntityBoat {
 	public static enum Type {
@@ -29,8 +30,6 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	protected abstract Item getItemBoat();
 	
 	protected abstract int getPlankMeta();
-	
-	public static boolean boatCrashWhenCollide = false;
 	
 	/** true if no player in boat */
 	private boolean isBoatEmpty;
@@ -201,7 +200,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 	 */
 	@Override
 	public void onUpdate() {
-		if(boatCrashWhenCollide) super.onUpdate();
+		if(ModConfigCore.Entity.boatCrashWhenCollide()) super.onUpdate();
 		else this.onEntityUpdate();
 		
 		if (this.getTimeSinceHit() > 0) {
@@ -367,7 +366,7 @@ public abstract class EntityModBoatBase extends EntityBoat {
 			
 			this.moveEntity(this.motionX, this.motionY, this.motionZ);
 			
-			if (boatCrashWhenCollide && this.isCollidedHorizontally && d10 > 0.2D) {
+			if (ModConfigCore.Entity.boatCrashWhenCollide() && this.isCollidedHorizontally && d10 > 0.2D) {
 				if (!this.worldObj.isRemote && !this.isDead) {
 					this.setDead();
 					

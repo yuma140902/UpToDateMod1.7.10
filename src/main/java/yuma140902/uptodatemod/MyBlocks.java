@@ -19,7 +19,6 @@ import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockMagma;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
 import yuma140902.uptodatemod.blocks.BlockNewFlower;
-import yuma140902.uptodatemod.blocks.BlockObserver;
 import yuma140902.uptodatemod.blocks.BlockPrismarine;
 import yuma140902.uptodatemod.blocks.BlockPrismarineBricks;
 import yuma140902.uptodatemod.blocks.BlockPurpur;
@@ -112,8 +111,6 @@ public final class MyBlocks {
 	public static final BlockPrismarineBricks prismarineBricks;
 	public static final BlockDarkPrismarine prismarineDark;
 	public static final BlockSeaLantern seaLantern;
-	
-	public static final BlockObserver observer;
 	
 	public static final BlockGenericTrapDoor trapDoorAcacia;
 	public static final BlockGenericTrapDoor trapDoorBirch;
@@ -308,8 +305,6 @@ public final class MyBlocks {
 			prismarineDark = null;
 			seaLantern = null;
 		}
-		
-		add(observer = ModConfigCore.enable_observer ? new BlockObserver() : null);
 		
 		if(isEnabled(woodenTrapdoors)) {
 			add(trapDoorAcacia = new BlockGenericTrapDoor("trap_door_acacia", Stat.PLANK_META_ACACIA));

@@ -113,7 +113,7 @@ public class TsvUpdateChecker implements IUpdateChecker {
 		String versionsTsv = getFromUrl(this.versionsTsvUrl);
 		if(versionsTsv == null || versionsTsv.isEmpty()) return;
 		
-		if(ModConfigCore.debug_mode) {
+		if(ModConfigCore.General.debugMode()) {
 			ModUpToDateMod.LOGGER.info("versionsTsv:");
 			ModUpToDateMod.LOGGER.info(versionsTsv);
 		}
