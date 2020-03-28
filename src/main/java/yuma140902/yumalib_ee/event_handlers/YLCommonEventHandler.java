@@ -4,10 +4,12 @@ import java.util.Random;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import yuma140902.yumalib_ee.YTConstants;
 import yuma140902.yumalib_ee.api.world.gen.biome.BiomeDecorators;
 import yuma140902.yumalib_ee.config.YLConfigCore;
+import yuma140902.yumalib_ee.loot.MobDropHandler;
 
 public class YLCommonEventHandler {
 private YLCommonEventHandler() {}
@@ -26,6 +28,11 @@ private YLCommonEventHandler() {}
 			return;
 		}
 		BiomeDecorators.decorate(world, chunkX, chunkZ, random);
+	}
+	
+	@SubscribeEvent
+	public void onLivingDrop(LivingDropsEvent event) {
+		MobDropHandler.INSTANCE.onLivingDrop(event);
 	}
 	
 	
