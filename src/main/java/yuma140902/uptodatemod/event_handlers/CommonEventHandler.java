@@ -6,9 +6,6 @@ import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -21,10 +18,10 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.world.NoteBlockEvent;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
-import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockWitherRose;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.loot.MobDropHandler;
 import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
@@ -44,18 +41,7 @@ public class CommonEventHandler {
 	
 	@SubscribeEvent
 	public void onLivingDrop(LivingDropsEvent event) {
-		Entity entity = event.entityLiving;
-		Random rand = event.entityLiving.worldObj.rand;
-		
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.mutton) && 
-				entity instanceof EntitySheep) {
-			if(entity.isBurning()) {
-				event.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, new ItemStack(MyItems.cookedMutton, rand.nextInt(2) + 1)));
-			}
-			else {
-				event.drops.add(new EntityItem(entity.worldObj, entity.posX, entity.posY, entity.posZ, new ItemStack(MyItems.rawMutton, rand.nextInt(2) + 1)));
-			}
-		}
+		MobDropHandler.INSTANCE.onLivingDrop(event);
 	}
 	
 	@SubscribeEvent

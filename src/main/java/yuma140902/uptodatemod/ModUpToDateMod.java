@@ -26,6 +26,7 @@ import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.integration.Plugins;
+import yuma140902.uptodatemod.loot.MobDropHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
 import yuma140902.uptodatemod.network.NoteBlockPlayHandler;
@@ -130,6 +131,8 @@ public class ModUpToDateMod {
 		
 		proxy.registerTileEntities();
 		MyGuis.register();
+		
+		MobDropHandler.INSTANCE.registerBasicMobLoots();
 		
 		networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
 		networkWrapper.registerMessage(ArmorStandInteractHandler.class, ArmorStandInteractMessage.class, 0, Side.SERVER);
