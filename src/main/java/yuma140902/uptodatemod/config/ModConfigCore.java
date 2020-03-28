@@ -79,6 +79,14 @@ public class ModConfigCore {
 		public static boolean boatCrashWhenCollide() {return boatCrashWhenCollide;}
 	}
 	
+	public static class Alternative {
+		private static boolean altPrismarine = true;
+		private static boolean altPurpur = true;
+		
+		public static boolean altPrismarine() {return altPrismarine;}
+		public static boolean altPurpur() {return altPurpur;}
+	}
+	
 	public static class Deprecated {
 		private static int idBoatAcacia = 0;
 		private static int idBoatBirch = 1;
@@ -213,7 +221,17 @@ public class ModConfigCore {
 		
 		// Alternative
 		alternativeCategory = new CategoryBuilder(CATEGORY_ALTERNATIVE)
-			.langKey(getCategoryLangkey("alternative"));
+			.langKey(getCategoryLangkey("alternative"))
+			.add(PropertyBuilder.bool("altPrismarine")
+				.defaultBool(Alternative.altPrismarine)
+				.comment("Make squid drop prismarine stuff", "イカがプリズマリン系のアイテムをドロップするようになる")
+				.langKey(getPropertyLangkey("alt_prismarine"))
+				.requireMcRestart())
+			.add(PropertyBuilder.bool("altPurpur")
+				.defaultBool(Alternative.altPurpur)
+				.comment("Make enderman drop purpur stuff", "エンダーマンがプルプァ系のアイテムをドロップするようになる")
+				.langKey(getPropertyLangkey("alt_purpur"))
+				.requireMcRestart());
 		alternativeCategory.registerToForge(cfg);
 		
 		// Deprecated
@@ -260,7 +278,8 @@ public class ModConfigCore {
 		
 		// Alternative
 		alternativeCategory.registerPropertiesToForge(cfg);
-		
+		Alternative.altPrismarine = alternativeCategory.get("altPrismarine", cfg).getBoolean();
+		Alternative.altPurpur = alternativeCategory.get("altPurpur", cfg).getBoolean();
 		cfg.removeCategory(cfg.getCategory(getSubCategory("Experimental")));  // Experimentalカテゴリーを削除
 		
 		// Deprecated

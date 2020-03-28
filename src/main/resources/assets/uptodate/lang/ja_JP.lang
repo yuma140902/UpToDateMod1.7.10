@@ -270,6 +270,10 @@ config.uptodate.prop.boat_crash_when_collide.tooltip=このMODが追加するボ
 
 config.uptodate.category.alternative=代替手段
 config.uptodate.category.alternative.tooltip=アイテムを得るための代替手段の設定
+config.uptodate.prop.alt_prismarine=代替プリズマリンドロップ
+config.uptodate.prop.alt_prismarine.tooltip=イカがプリズマリン系のアイテムをドロップするようになる
+config.uptodate.prop.alt_purpur=代替プルプァドロップ
+config.uptodate.prop.alt_purpur.tooltip=エンダーマンがプルプァ系のアイテムをドロップするようになる
 
 config.uptodate.category.disable_features=個別の機能を無効化
 config.uptodate.category.disable_features.tooltip=このMODの機能の一部を無効化するための設定

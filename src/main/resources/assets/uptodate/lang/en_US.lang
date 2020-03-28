@@ -270,6 +270,10 @@ config.uptodate.prop.boat_crash_when_collide.tooltip=Whether the boats crash whe
 
 config.uptodate.category.alternative=Alternative
 config.uptodate.category.alternative.tooltip=Settings of alternative ways to get items
+config.uptodate.prop.alt_prismarine=Alternative prismarine drop
+config.uptodate.prop.alt_prismarine.tooltip=Make squid drop prismarine stuff
+config.uptodate.prop.alt_purpur=Alternative purpur drop
+config.uptodate.prop.alt_purpur.tooltip=Make enderman drop purpur stuff
 
 config.uptodate.category.disable_features=Disable Features
 config.uptodate.category.disable_features.tooltip=Settings to desable certain feature
