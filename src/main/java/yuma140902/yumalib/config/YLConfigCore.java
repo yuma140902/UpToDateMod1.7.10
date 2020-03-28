@@ -1,10 +1,10 @@
 package yuma140902.yumalib.config;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
 import yuma140902.yumalib.ModYumaLib;
+import yuma140902.yumalib.api.config.CategoryBuilder;
+import yuma140902.yumalib.api.config.PropertyBuilder;
 
 public class YLConfigCore {
 	
@@ -19,6 +19,9 @@ public class YLConfigCore {
 	
 	public static Configuration cfg;
 	
+	private static CategoryBuilder generalCategory;
+	private static CategoryBuilder tooltipCategory;
+	
 	public static void loadConfig(FMLPreInitializationEvent event) {
 		cfg = new Configuration(event.getSuggestedConfigurationFile(), true);
 		initConfig();
@@ -26,27 +29,32 @@ public class YLConfigCore {
 	}
 	
 	private static void initConfig() {
-		ConfigCategory generalCategory = cfg.getCategory("General");
-		generalCategory.setComment("Settings of YumaLib");
+		generalCategory = new CategoryBuilder("General")
+				.comment("Settings of YumaLib");
+		generalCategory.registerToForge(cfg);
 		
-		ConfigCategory tooltipCategory = cfg.getCategory(Tooltip.CAT_NAME);
-		tooltipCategory.setComment("");
+		
+		tooltipCategory = new CategoryBuilder(Tooltip.CAT_NAME)
+				.comment("Settings of Tooltip")
+				.add(PropertyBuilder.string("showOreDic")
+						.defaultString(Tooltip.showOreDic.toString())
+						.validStrings(EnumTooltip.stringValues()))
+				.add(PropertyBuilder.string("showRegistryName")
+						.defaultString(Tooltip.showRegistryName.toString())
+						.validStrings(EnumTooltip.stringValues()))
+				.add(PropertyBuilder.string("showBlockMaterialInfo")
+						.defaultString(Tooltip.showBlockMaterialInfo.toString())
+						.validStrings(EnumTooltip.stringValues()));
+		tooltipCategory.registerToForge(cfg);
 	}
 	
 	public static void syncConfig() {
 		ModYumaLib.LOGGER.info("Loading config");
 		
-		Property showOreDic = cfg.get(Tooltip.CAT_NAME, "showOreDic", Tooltip.showOreDic.toString());
-		showOreDic.setValidValues(EnumTooltip.stringValues());
-		Tooltip.showOreDic = EnumTooltip.valueOf(showOreDic.getString());
-		
-		Property showRegistryName = cfg.get(Tooltip.CAT_NAME, "showRegitrsyName", Tooltip.showRegistryName.toString());
-		showRegistryName.setValidValues(EnumTooltip.stringValues());
-		Tooltip.showRegistryName = EnumTooltip.valueOf(showRegistryName.getString());
-		
-		Property showBlockMat = cfg.get(Tooltip.CAT_NAME, "showBlockMaterialInfo", Tooltip.showBlockMaterialInfo.toString());
-		showBlockMat.setValidValues(EnumTooltip.stringValues());
-		Tooltip.showBlockMaterialInfo = EnumTooltip.valueOf(showBlockMat.getString());
+		tooltipCategory.registerPropertiesToForge(cfg);
+		Tooltip.showOreDic = EnumTooltip.valueOf(tooltipCategory.get("showOreDic", cfg).getString());
+		Tooltip.showRegistryName = EnumTooltip.valueOf(tooltipCategory.get("showRegistryName", cfg).getString());
+		Tooltip.showBlockMaterialInfo = EnumTooltip.valueOf(tooltipCategory.get("showBlockMaterialInfo", cfg).getString());
 		
 		cfg.save();
 	}
