@@ -1,6 +1,5 @@
 package yuma140902.uptodatemod.event_handlers;
 
-import java.util.Random;
 import java.util.Set;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -10,7 +9,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
@@ -20,7 +18,6 @@ import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockWitherRose;
 import yuma140902.uptodatemod.config.ModConfigCore;
-import yuma140902.uptodatemod.loot.MobDropHandler;
 import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
@@ -35,11 +32,6 @@ public class CommonEventHandler {
 	@SubscribeEvent
 	public void onUseHoeEvent(UseHoeEvent event) {
 		BlockCoarseDirt.onUseHoeEvent(event);
-	}
-	
-	@SubscribeEvent
-	public void onLivingDrop(LivingDropsEvent event) {
-		MobDropHandler.INSTANCE.onLivingDrop(event);
 	}
 	
 	@SubscribeEvent
