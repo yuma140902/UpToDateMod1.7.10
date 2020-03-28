@@ -14,10 +14,10 @@ import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockRedSandStone;
 import yuma140902.uptodatemod.registry.RecipeRegister;
-import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 
 public class BlockRedSandStone extends BlockSandStone implements IRegisterable, IHasRecipes {
 	
@@ -50,10 +50,10 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 		if(meta == 3) {
 			return topIcon;
 		}
-		else if(side == Stat.SIDE_TOP) {
+		else if(side == McConst.SIDE_TOP) {
 			return topIcon;
 		}
-		else if(side == Stat.SIDE_BOTTOM) {
+		else if(side == McConst.SIDE_BOTTOM) {
 			return bottomIcon;
 		}
 		else {

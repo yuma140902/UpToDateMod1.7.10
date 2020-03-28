@@ -34,13 +34,13 @@ import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.util.UpToDateModConstants;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 import yuma140902.yumalib.api.update.IUpdateChecker;
 import yuma140902.yumalib.api.update.TsvUpdateChecker;
 import yuma140902.yumalib.api.update.UpdateCheckerRegistry;
 
-@Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY,
+@Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = UpToDateModConstants.MOD_CONFIG_GUI_FACTORY,
 			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib"
 		)
 public class ModUpToDateMod {
@@ -50,7 +50,7 @@ public class ModUpToDateMod {
 	@Mod.Instance(ModUpToDateMod.MOD_ID)
 	public static ModUpToDateMod INSTANCE;
 	
-	@SidedProxy(modId = ModUpToDateMod.MOD_ID, clientSide = Stat.PROXY_CLIENT, serverSide = Stat.PROXY_SERVER)
+	@SidedProxy(modId = ModUpToDateMod.MOD_ID, clientSide = UpToDateModConstants.PROXY_CLIENT, serverSide = UpToDateModConstants.PROXY_SERVER)
 	public static CommonProxy proxy;
 	
 	public static SimpleNetworkWrapper networkWrapper;

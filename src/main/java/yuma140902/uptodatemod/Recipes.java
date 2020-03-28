@@ -1,6 +1,5 @@
 package yuma140902.uptodatemod;
 
-import static yuma140902.uptodatemod.util.Stat.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -19,17 +18,18 @@ import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ListUtils;
 import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.McConst;
 
 public final class Recipes {
 	private Recipes() {}
 	
 	public static final ItemStack
-		PLANK_ACACIA = new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA),
-		PLANK_BIRCH = new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH),
-		PLANK_DARK_OAK = new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK),
-		PLANK_JUNGLE = new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE),
-		PLANK_SPRUCE = new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
-		PLANK_OAK = new ItemStack(Blocks.planks, 1, PLANK_META_OAK);
+		PLANK_ACACIA = 		new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_ACACIA),
+		PLANK_BIRCH = 		new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_BIRCH),
+		PLANK_DARK_OAK = 	new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_DARKOAK),
+		PLANK_JUNGLE = 		new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_JUNGLE),
+		PLANK_SPRUCE = 		new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_SPRUCE),
+		PLANK_OAK = 			new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_OAK);
 	
 	public static void removeVanillaRecipes() {
 		List<String> removeRecipesOutputNameList = new ArrayList<>();

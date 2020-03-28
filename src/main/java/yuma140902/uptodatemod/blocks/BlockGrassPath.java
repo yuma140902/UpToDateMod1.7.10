@@ -12,9 +12,9 @@ import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 
 public class BlockGrassPath extends Block implements IRegisterable {
 	
@@ -44,12 +44,12 @@ public class BlockGrassPath extends Block implements IRegisterable {
 	
 	@Override
 	public IIcon getIcon(int side, int meta) {
-		return side == Stat.SIDE_TOP ? this.iconTop : side == Stat.SIDE_BOTTOM ? Blocks.dirt.getIcon(side, 0) : blockIcon;
+		return side == McConst.SIDE_TOP ? this.iconTop : side == McConst.SIDE_BOTTOM ? Blocks.dirt.getIcon(side, 0) : blockIcon;
 	}
 	
 	@Override
 	public boolean shouldSideBeRendered(	IBlockAccess world, int x, int y, int z, int side) {
-		if(side == Stat.SIDE_TOP) return true;
+		if(side == McConst.SIDE_TOP) return true;
 		
 		int nextX = x;// + Facing.offsetsXForSide[side];
 		int nextY = y;// + Facing.offsetsYForSide[side];

@@ -11,10 +11,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.registry.RecipeRegister;
-import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 
 public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
 	/** Set this to allow trapdoors to remain free-floating */
@@ -75,7 +75,7 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   	boolean isTop = (meta & 0b1000) >>> 3 == 0 ? false : true;
   	
   	if(!isOpen) {
-  		if (side == Stat.SIDE_TOP || side == Stat.SIDE_BOTTOM) {
+  		if (side == McConst.SIDE_TOP || side == McConst.SIDE_BOTTOM) {
     		switch(direction) {
     			case 0b0000:
     				return icon0;
@@ -118,18 +118,18 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   
   private boolean isSameSide(int side, int directionMeta) {
   	return
-  			   (side == Stat.SIDE_SOUTH && directionMeta == 0b0000)
-  			|| (side == Stat.SIDE_NORTH && directionMeta == 0b0001)
-  			|| (side == Stat.SIDE_EAST && directionMeta == 0b0010)
-  			|| (side == Stat.SIDE_WEST && directionMeta == 0b0011);
+  			   (side == McConst.SIDE_SOUTH && directionMeta == 0b0000)
+  			|| (side == McConst.SIDE_NORTH && directionMeta == 0b0001)
+  			|| (side == McConst.SIDE_EAST && directionMeta == 0b0010)
+  			|| (side == McConst.SIDE_WEST && directionMeta == 0b0011);
   }
   
   private boolean isOppositeSide(int side, int directionMeta) {
   	return
-  			   (side == Stat.SIDE_NORTH && directionMeta == 0b0000)
-  			|| (side == Stat.SIDE_SOUTH && directionMeta == 0b0001)
-  			|| (side == Stat.SIDE_WEST && directionMeta == 0b0010)
-  			|| (side == Stat.SIDE_EAST && directionMeta == 0b0011);
+  			   (side == McConst.SIDE_NORTH && directionMeta == 0b0000)
+  			|| (side == McConst.SIDE_SOUTH && directionMeta == 0b0001)
+  			|| (side == McConst.SIDE_WEST && directionMeta == 0b0010)
+  			|| (side == McConst.SIDE_EAST && directionMeta == 0b0011);
   }
   
   @Override

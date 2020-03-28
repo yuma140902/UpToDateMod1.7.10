@@ -15,10 +15,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.registry.RecipeRegister;
-import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.items.ItemBlockGenericSlab;
 
 public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRecipes {
@@ -136,14 +136,14 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 	public IIcon getIcon(int side, int meta) {
 		if(this.useSpecialSideTexture) {
 			switch(side) {
-				case Stat.SIDE_TOP:
-				case Stat.SIDE_BOTTOM:
+				case McConst.SIDE_TOP:
+				case McConst.SIDE_BOTTOM:
 					return baseBlock.getIcon(side, this.meta);
 				default:
 					return specialSideTexture;
 			}
 		}
-		return baseBlock.getIcon((meta & 0b0001) == 0 ? side : Stat.SIDE_TOP, this.meta);
+		return baseBlock.getIcon((meta & 0b0001) == 0 ? side : McConst.SIDE_TOP, this.meta);
 	}
 
 	@SuppressWarnings("rawtypes")

@@ -36,9 +36,9 @@ import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ColorUtil;
-import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.blocks.BlockGenericButton;
 import yuma140902.yumalib.api.blocks.BlockGenericDoor;
 import yuma140902.yumalib.api.blocks.BlockGenericFence;
@@ -229,12 +229,12 @@ public final class MyBlocks {
 		add(smoothStone = isEnabled(EnumDisableableFeatures.smoothStone) ? new BlockSmoothStone() : null);
 		
 		if(isEnabled(strippedLogs)) {
-			add(strippedLogAcacia =  new BlockGenericStrippedLog("stripped_log_acacia",    "stripped_acacia_log",   Stat.PLANK_META_ACACIA));
-			add(strippedLogBirch =   new BlockGenericStrippedLog("stripped_log_birch",      "stripped_birch_log",    Stat.PLANK_META_BIRCH));
-			add(strippedLogDarkOak = new BlockGenericStrippedLog("stripped_log_dark_oak", "stripped_dark_oak_log", Stat.PLANK_META_DARKOAK));
-			add(strippedLogJungle =  new BlockGenericStrippedLog("stripped_log_jungle",    "stripped_jungle_log",   Stat.PLANK_META_JUNGLE));
-			add(strippedLogOak =     new BlockGenericStrippedLog("stripped_log_oak",          "stripped_oak_log",      Stat.PLANK_META_OAK));
-			add(strippedLogSpruce =  new BlockGenericStrippedLog("stripped_log_spruce",    "stripped_spruce_log",   Stat.PLANK_META_SPRUCE));
+			add(strippedLogAcacia = 	new BlockGenericStrippedLog("stripped_log_acacia", 		"stripped_acacia_log", 		McConst.Meta.PLANK_ACACIA));
+			add(strippedLogBirch = 		new BlockGenericStrippedLog("stripped_log_birch", 		"stripped_birch_log", 		McConst.Meta.PLANK_BIRCH));
+			add(strippedLogDarkOak = 	new BlockGenericStrippedLog("stripped_log_dark_oak", 	"stripped_dark_oak_log", 	McConst.Meta.PLANK_DARKOAK));
+			add(strippedLogJungle = 	new BlockGenericStrippedLog("stripped_log_jungle", 		"stripped_jungle_log", 		McConst.Meta.PLANK_JUNGLE));
+			add(strippedLogOak = 			new BlockGenericStrippedLog("stripped_log_oak", 			"stripped_oak_log", 			McConst.Meta.PLANK_OAK));
+			add(strippedLogSpruce = 	new BlockGenericStrippedLog("stripped_log_spruce", 	"stripped_spruce_log", 			McConst.Meta.PLANK_SPRUCE));
 		}
 		else {
 			strippedLogAcacia = null;
@@ -276,11 +276,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(fenceGates)) {
-			add(fenceGateAcacia = new BlockGenericFenceGate(Stat.PLANK_META_ACACIA, "fence_gate_acacia"));
-			add(fenceGateBirch = new BlockGenericFenceGate(Stat.PLANK_META_BIRCH, "fence_gate_birch"));
-			add(fenceGateDarkOak = new BlockGenericFenceGate(Stat.PLANK_META_DARKOAK, "fence_gate_dark_oak"));
-			add(fenceGateJungle = new BlockGenericFenceGate(Stat.PLANK_META_JUNGLE, "fence_gate_jungle"));
-			add(fenceGateSpruce = new BlockGenericFenceGate(Stat.PLANK_META_SPRUCE, "fence_gate_spruce"));
+			add(fenceGateAcacia = 	new BlockGenericFenceGate(McConst.Meta.PLANK_ACACIA, 	"fence_gate_acacia"));
+			add(fenceGateBirch = 		new BlockGenericFenceGate(McConst.Meta.PLANK_BIRCH, 		"fence_gate_birch"));
+			add(fenceGateDarkOak = 	new BlockGenericFenceGate(McConst.Meta.PLANK_DARKOAK, 	"fence_gate_dark_oak"));
+			add(fenceGateJungle = 	new BlockGenericFenceGate(McConst.Meta.PLANK_JUNGLE, 	"fence_gate_jungle"));
+			add(fenceGateSpruce = 	new BlockGenericFenceGate(McConst.Meta.PLANK_SPRUCE, 	"fence_gate_spruce"));
 		}
 		else {
 			fenceGateAcacia = null;
@@ -306,11 +306,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(woodenTrapdoors)) {
-			add(trapDoorAcacia = new BlockGenericTrapDoor("trap_door_acacia", Stat.PLANK_META_ACACIA));
-			add(trapDoorBirch = new BlockGenericTrapDoor("trap_door_birch", Stat.PLANK_META_BIRCH));
-			add(trapDoorDarkOak = new BlockGenericTrapDoor("trap_door_dark_oak", Stat.PLANK_META_DARKOAK));
-			add(trapDoorJungle = new BlockGenericTrapDoor("trap_door_jungle", Stat.PLANK_META_JUNGLE));
-			add(trapDoorSpruce = new BlockGenericTrapDoor("trap_door_spruce", Stat.PLANK_META_SPRUCE));
+			add(trapDoorAcacia = 		new BlockGenericTrapDoor("trap_door_acacia", 		McConst.Meta.PLANK_ACACIA));
+			add(trapDoorBirch = 		new BlockGenericTrapDoor("trap_door_birch", 		McConst.Meta.PLANK_BIRCH));
+			add(trapDoorDarkOak = 	new BlockGenericTrapDoor("trap_door_dark_oak", 	McConst.Meta.PLANK_DARKOAK));
+			add(trapDoorJungle = 		new BlockGenericTrapDoor("trap_door_jungle", 		McConst.Meta.PLANK_JUNGLE));
+			add(trapDoorSpruce = 		new BlockGenericTrapDoor("trap_door_spruce", 		McConst.Meta.PLANK_SPRUCE));
 		}
 		else {
 			trapDoorAcacia = null;
@@ -322,11 +322,11 @@ public final class MyBlocks {
 		add(trapDoorIron = isEnabled(ironTrapdoor) ? new BlockIronTrapDoor() : null);
 		
 		if(isEnabled(buttons)) {
-			add(buttonAcacia = new BlockGenericButton(Stat.PLANK_META_ACACIA, "button_acacia"));
-			add(buttonBirch = new BlockGenericButton(Stat.PLANK_META_BIRCH, "button_birch"));
-			add(buttonDarkOak = new BlockGenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak"));
-			add(buttonJungle = new BlockGenericButton(Stat.PLANK_META_JUNGLE, "button_jungle"));
-			add(buttonSpruce = new BlockGenericButton(Stat.PLANK_META_SPRUCE, "button_spruce"));
+			add(buttonAcacia = 		new BlockGenericButton(McConst.Meta.PLANK_ACACIA, 		"button_acacia"));
+			add(buttonBirch = 		new BlockGenericButton(McConst.Meta.PLANK_BIRCH, 		"button_birch"));
+			add(buttonDarkOak = 	new BlockGenericButton(McConst.Meta.PLANK_DARKOAK, 	"button_dark_oak"));
+			add(buttonJungle = 		new BlockGenericButton(McConst.Meta.PLANK_JUNGLE, 		"button_jungle"));
+			add(buttonSpruce = 		new BlockGenericButton(McConst.Meta.PLANK_SPRUCE, 		"button_spruce"));
 		}
 		else {
 			buttonAcacia = null;
@@ -337,11 +337,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(pressurePlates)) {
-			add(pressurePlateAcacia = new BlockGenericPressurePlate(Stat.PLANK_META_ACACIA, "pressure_plate_acacia"));
-			add(pressurePlateBirch = new BlockGenericPressurePlate(Stat.PLANK_META_BIRCH, "pressure_plate_birch"));
-			add(pressurePlateDarkOak = new BlockGenericPressurePlate(Stat.PLANK_META_DARKOAK, "pressure_plate_dark_oak"));
-			add(pressurePlateJungle = new BlockGenericPressurePlate(Stat.PLANK_META_JUNGLE, "pressure_plate_jungle"));
-			add(pressurePlateSpruce = new BlockGenericPressurePlate(Stat.PLANK_META_SPRUCE, "pressure_plate_spruce"));
+			add(pressurePlateAcacia = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_ACACIA, 	"pressure_plate_acacia"));
+			add(pressurePlateBirch = 		new BlockGenericPressurePlate(McConst.Meta.PLANK_BIRCH, 		"pressure_plate_birch"));
+			add(pressurePlateDarkOak = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_DARKOAK, 	"pressure_plate_dark_oak"));
+			add(pressurePlateJungle = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_JUNGLE, 	"pressure_plate_jungle"));
+			add(pressurePlateSpruce = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_SPRUCE, 	"pressure_plate_spruce"));
 		}
 		else {
 			pressurePlateAcacia = null;

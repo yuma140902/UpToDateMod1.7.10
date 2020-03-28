@@ -11,10 +11,10 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockNewFlower;
 import yuma140902.uptodatemod.registry.RecipeRegister;
-import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.items.ItemFoodMultiMeta;
 
 public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterable, IHasRecipes {
@@ -60,18 +60,18 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 	
 	@Override
 	public void registerRecipes() {
-		redFlower(0, Stat.META_REDFLOWER_POPPY);
-		redFlower(1, Stat.META_REDFLOWER_BLUE_ORCHID);
-		redFlower(2, Stat.META_REDFLOWER_ALLIUM);
-		redFlower(3, Stat.META_REDFLOWER_HOUSTONIA);
+		redFlower(0, McConst.Meta.REDFLOWER_POPPY);
+		redFlower(1, McConst.Meta.REDFLOWER_BLUE_ORCHID);
+		redFlower(2, McConst.Meta.REDFLOWER_ALLIUM);
+		redFlower(3, McConst.Meta.REDFLOWER_HOUSTONIA);
 		addStewRecipe(4, new ItemStack(Blocks.yellow_flower));
 		addStewRecipe(5, new ItemStack(MyBlocks.flower, 1, BlockNewFlower.LILY));
 		addStewRecipe(6, new ItemStack(MyBlocks.flower, 1, BlockNewFlower.CORNFLOWER));
-		redFlower(7, Stat.META_REDFLOWER_RED_TULIP);
-		redFlower(7, Stat.META_REDFLOWER_WHITE_TULIP);
-		redFlower(7, Stat.META_REDFLOWER_PINK_TULIP);
-		redFlower(7, Stat.META_REDFLOWER_ORANGE_TULIP);
-		redFlower(8, Stat.META_REDFLOWER_OXEYE_DAISY);
+		redFlower(7, McConst.Meta.REDFLOWER_RED_TULIP);
+		redFlower(7, McConst.Meta.REDFLOWER_WHITE_TULIP);
+		redFlower(7, McConst.Meta.REDFLOWER_PINK_TULIP);
+		redFlower(7, McConst.Meta.REDFLOWER_ORANGE_TULIP);
+		redFlower(8, McConst.Meta.REDFLOWER_OXEYE_DAISY);
 		addStewRecipe(9, new ItemStack(MyBlocks.witherRose));
 	}
 	
