@@ -41,6 +41,10 @@ public class MobLootInfo {
 		return new MobLootInfo(enabled, entityClass, item, itemMeta, rand -> itemNum, extraValidator);
 	}
 	
+	public static MobLootInfo of(boolean enabled, Class<? extends Entity> entityClass, Item item, int itemMeta, Function<Random, Integer> itemNumProvider) {
+		return new MobLootInfo(enabled, entityClass, item, itemMeta, itemNumProvider, null);
+	}
+	
 	public static MobLootInfo of(boolean enabled, Class<? extends Entity> entityClass, Item item, int itemMeta, Function<Random, Integer> itemNumProvider, Predicate<LivingDropsEvent> extraValidator) {
 		return new MobLootInfo(enabled, entityClass, item, itemMeta, itemNumProvider, extraValidator);
 	}
@@ -55,6 +59,10 @@ public class MobLootInfo {
 	
 	public static MobLootInfo of(EnumDisableableFeatures feature, Class<? extends Entity> entityClass, Item item, int itemMeta, int itemNum, Predicate<LivingDropsEvent> extraValidator) {
 		return of(DisabledFeaturesRegistry.INSTANCE.isEnabled(feature), entityClass, item, itemMeta, itemNum, extraValidator);
+	}
+	
+	public static MobLootInfo of(EnumDisableableFeatures feature, Class<? extends Entity> entityClass, Item item, int itemMeta, Function<Random, Integer> itemNumProvider) {
+		return of(DisabledFeaturesRegistry.INSTANCE.isEnabled(feature), entityClass, item, itemMeta, itemNumProvider, null);
 	}
 	
 	public static MobLootInfo of(EnumDisableableFeatures feature, Class<? extends Entity> entityClass, Item item, int itemMeta, Function<Random, Integer> itemNumProvider, Predicate<LivingDropsEvent> extraValidator) {
