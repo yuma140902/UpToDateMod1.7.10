@@ -27,7 +27,7 @@ import yuma140902.uptodatemod.items.ItemSuspiciousStew;
 import yuma140902.uptodatemod.items.ItemSweetBerries;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IRegisterable;
 
 public final class MyItems {
 	private MyItems() {}

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
-import yuma140902.yumalib_ee.api.dispenser.DispenseBehaviorBase;
+import yuma140902.yumalib.api.dispenser.DispenseBehaviorBase;
 
 public class DispenseBehaviorFertilize extends DispenseBehaviorBase {
 

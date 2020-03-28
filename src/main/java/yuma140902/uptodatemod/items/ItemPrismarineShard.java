@@ -4,7 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class ItemPrismarineShard extends Item implements IRegisterable{
 

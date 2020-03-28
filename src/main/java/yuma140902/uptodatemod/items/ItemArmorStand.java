@@ -21,8 +21,8 @@ import yuma140902.uptodatemod.entity.Rotations;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 

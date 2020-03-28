@@ -12,8 +12,8 @@ import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.Recipes;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class ItemDoorBirch extends net.minecraft.item.ItemDoor implements IRegisterable, IHasRecipes {
   public ItemDoorBirch()

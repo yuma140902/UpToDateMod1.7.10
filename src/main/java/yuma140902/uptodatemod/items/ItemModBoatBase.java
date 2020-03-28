@@ -23,8 +23,8 @@ import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable, IHasRecipes {
 	

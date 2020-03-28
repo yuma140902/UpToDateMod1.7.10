@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class ItemSweetBerries extends ItemSeedFood implements IRegisterable {
 	

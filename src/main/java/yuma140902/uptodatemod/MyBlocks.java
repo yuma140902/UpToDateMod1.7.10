@@ -38,16 +38,16 @@ import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericButton;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericDoor;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericFence;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericFenceGate;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericPressurePlate;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericSlab;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericStairs;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericTrapDoor;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericWall;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.blocks.BlockGenericButton;
+import yuma140902.yumalib.api.blocks.BlockGenericDoor;
+import yuma140902.yumalib.api.blocks.BlockGenericFence;
+import yuma140902.yumalib.api.blocks.BlockGenericFenceGate;
+import yuma140902.yumalib.api.blocks.BlockGenericPressurePlate;
+import yuma140902.yumalib.api.blocks.BlockGenericSlab;
+import yuma140902.yumalib.api.blocks.BlockGenericStairs;
+import yuma140902.yumalib.api.blocks.BlockGenericTrapDoor;
+import yuma140902.yumalib.api.blocks.BlockGenericWall;
 
 public final class MyBlocks {
 	private MyBlocks() {}

@@ -18,7 +18,7 @@ import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ListUtils;
-import yuma140902.yumalib_ee.api.IHasRecipes;
+import yuma140902.yumalib.api.IHasRecipes;
 
 public final class Recipes {
 	private Recipes() {}

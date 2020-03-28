@@ -14,7 +14,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockGrassPath extends Block implements IRegisterable {
 	

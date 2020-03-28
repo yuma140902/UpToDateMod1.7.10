@@ -14,9 +14,9 @@ import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.yumalib_ee.api.loot.IMobLootInfo;
-import yuma140902.yumalib_ee.api.loot.MobLootInfo;
-import yuma140902.yumalib_ee.loot.MobDropHandler;
+import yuma140902.yumalib.api.loot.IMobLootInfo;
+import yuma140902.yumalib.api.loot.MobLootInfo;
+import yuma140902.yumalib.loot.MobDropHandler;
 
 public class MobLoot {
 	private MobLoot() {}

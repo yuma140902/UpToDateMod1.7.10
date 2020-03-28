@@ -36,12 +36,12 @@ import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
-import yuma140902.yumalib_ee.api.update.IUpdateChecker;
-import yuma140902.yumalib_ee.api.update.TsvUpdateChecker;
-import yuma140902.yumalib_ee.api.update.UpdateCheckerRegistry;
+import yuma140902.yumalib.api.update.IUpdateChecker;
+import yuma140902.yumalib.api.update.TsvUpdateChecker;
+import yuma140902.yumalib.api.update.UpdateCheckerRegistry;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY,
-			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib_ee"
+			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib"
 		)
 public class ModUpToDateMod {
 	@Mod.Metadata(ModUpToDateMod.MOD_ID)

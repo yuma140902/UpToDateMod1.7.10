@@ -13,9 +13,9 @@ import yuma140902.uptodatemod.blocks.BlockNewFlower;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
-import yuma140902.yumalib_ee.api.items.ItemFoodMultiMeta;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.items.ItemFoodMultiMeta;
 
 public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterable, IHasRecipes {
 	

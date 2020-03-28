@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.dispenser.DispenseBehaviorFertilize;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 	

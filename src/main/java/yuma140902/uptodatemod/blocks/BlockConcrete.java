@@ -14,8 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
-import yuma140902.yumalib_ee.api.items.ItemBlockColored;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.items.ItemBlockColored;
 
 public class BlockConcrete extends Block implements IRegisterable {
 	public static final int META_MAX = 15;
