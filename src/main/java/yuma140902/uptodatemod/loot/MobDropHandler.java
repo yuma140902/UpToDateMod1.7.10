@@ -14,7 +14,6 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.config.ModConfigCore;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 
 public class MobDropHandler {
@@ -32,12 +31,24 @@ public class MobDropHandler {
 	public void registerBasicMobLoots() {
 		register(MobLootInfo.of(EnumDisableableFeatures.mutton, EntitySheep.class, MyItems.cookedMutton, 0, rand -> rand.nextInt(2) + 1, event -> event.entity.isBurning()));
 		register(MobLootInfo.of(EnumDisableableFeatures.mutton, EntitySheep.class, MyItems.rawMutton, 0, rand -> rand.nextInt(2) + 1, event -> !event.entity.isBurning()));
-		register(MobLootInfo.of(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.prismarineStuffs) && ModConfigCore.Alternative.altPrismarine(),
-				EntitySquid.class, MyItems.prismarineShard, 0, rand -> rand.nextInt(6) + rand.nextInt(2)));
-		register(MobLootInfo.of(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.prismarineStuffs) && ModConfigCore.Alternative.altPrismarine(),
-				EntitySquid.class, MyItems.prismarineCrystal, 0, rand -> rand.nextInt(2) + rand.nextInt(2)));
-		register(MobLootInfo.of(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.purpurStuffs) && ModConfigCore.Alternative.altPurpur(),
-				EntityEnderman.class, Item.getItemFromBlock(MyBlocks.purpurBlock), 0, rand -> rand.nextInt(3) + rand.nextInt(3), event -> event.entity.worldObj.provider.dimensionId == 1));
+		if(ModConfigCore.Alternative.altPrismarine()) {
+			register(MobLootInfo.of(EnumDisableableFeatures.prismarineStuffs, EntitySquid.class, MyItems.prismarineShard, 0, 
+					rand -> (rand.nextInt(6) + rand.nextInt(2))*2));
+			register(MobLootInfo.of(EnumDisableableFeatures.prismarineStuffs, EntitySquid.class, MyItems.prismarineCrystal, 0, 
+					rand -> (rand.nextInt(2) + rand.nextInt(2))*1));
+		}
+		if(ModConfigCore.Alternative.altPurpur()) {
+			register(MobLootInfo.of(EnumDisableableFeatures.purpurStuffs, EntityEnderman.class, Item.getItemFromBlock(MyBlocks.purpurBlock), 0, 
+					rand -> (rand.nextInt(3) + rand.nextInt(3))*2, 
+					event -> event.entity.worldObj.provider.dimensionId == 1));  // エンドにいるとき
+			register(MobLootInfo.of(EnumDisableableFeatures.purpurStuffs, EntityEnderman.class, Item.getItemFromBlock(MyBlocks.purpurBlock), 0,
+					rand -> rand.nextInt(3),
+					event -> {
+						int dimId = event.entity.worldObj.provider.dimensionId;
+						return dimId != 0 && dimId != -1;     // オーバーワールドでもネザーでもないところにいるとき
+					}));
+		}
+		
 	}
 	
 	public void onLivingDrop(LivingDropsEvent event) {
