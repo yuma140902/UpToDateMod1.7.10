@@ -1,10 +1,15 @@
 package yuma140902.uptodatemod.items;
 
+import java.util.List;
 import javax.annotation.Nonnull;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -39,7 +44,7 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 		POTION = 0, DURATION = 1, AMPLIFIER = 2;
 	// { potionId, duration, amplifier }
 	@Nonnull
-	public static final int[][] metaToPotionData = {
+	public static final int[][] potionInfos = {
 		{ Potion.nightVision.id, 			5*SEC, 						0 }, //ポピー
 		{ Potion.field_76443_y.id, 		10/* 0.3sec */, 	0 }, //saturation, 満腹度回復; ヒスイラン
 		{ Potion.fireResistance.id, 	3*SEC, 						0 }, //アリウム(レンゲソウ)
@@ -51,6 +56,7 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 		{ Potion.regeneration.id, 			7*SEC, 						0 }, //フランスギク
 		{ Potion.wither.id, 						7*SEC, 						0 }, //ウィザーローズ
 	};
+	
 	
 	public ItemSuspiciousStew() {
 		super(6, 0.6f, "suspicious_stew", flowerNames, StringUtil.domainedTextureNames("suspicious_stew"));
@@ -75,12 +81,22 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 		addStewRecipe(9, new ItemStack(MyBlocks.witherRose));
 	}
 	
-	private void redFlower(int stewMeta, int flowerMeta) {
-		addStewRecipe(stewMeta, new ItemStack(Blocks.red_flower, 1, flowerMeta));
+	private void redFlower(int stewId, int flowerMeta) {
+		addStewRecipe(stewId, new ItemStack(Blocks.red_flower, 1, flowerMeta));
 	}
 	
-	private void addStewRecipe(int stewMeta, ItemStack flower) {
-		RecipeRegister.addShapeless(new ItemStack(this, 1, stewMeta), Items.bowl, Blocks.brown_mushroom, Blocks.red_mushroom, flower);
+	private void addStewRecipe(int stewId, ItemStack flower) {
+		RecipeRegister.addShapeless(stew(stewId), Items.bowl, Blocks.brown_mushroom, Blocks.red_mushroom, flower);
+	}
+	
+	private ItemStack stew(int stewId) {
+		ItemStack stew = new ItemStack(this);
+		int[] potionInfo = potionInfos[stewId];
+		int potionId = potionInfo[POTION];
+		int duration = potionInfo[DURATION];
+		int amplifier = potionInfo[AMPLIFIER];
+		NBT.write(stew, potionId, duration, amplifier);
+		return stew;
 	}
 	
 	@Override
@@ -88,6 +104,14 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 		// アイテム名はmeta値に関わらず「怪しげなシチュー」で統一する
 		// そのためitemstackを無視
 		return super.getUnlocalizedName();
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public void getSubItems(Item item, CreativeTabs tab, List list) {
+		for(int i=0; i<potionInfos.length; ++i) {
+			list.add(stew(i));
+		}
 	}
 	
 	
@@ -100,12 +124,83 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 	@Override
 	protected void onFoodEaten(ItemStack itemstack, World world, EntityPlayer player) {
 		if(!world.isRemote) {
+			PotionEffect[] effects = NBT.getPotionEffects(itemstack);
+			for(final PotionEffect effect : effects) {
+				player.addPotionEffect(effect);
+			}
+		}
+	}
+	
+	
+	public static class NBT {
+		
+		private final static String EFFECTS = "Effects";
+		private final static String EFFECT_ID = "EffectId";
+		private final static String EFFECT_DURATION = "EffectDuration";
+		private final static String EFFECT_AMPLIFIER = "EffectAmplifier";
+		private final static int NBTTAG_COMPOUND = new NBTTagCompound().getId();
+		
+		/**
+		 * @return NBTが書き込まれたItemStack。引数のitemstackと同じもの
+		 */
+		private static ItemStack write(ItemStack itemstack, int potionId, int duration, int amplifier) {
+			if(itemstack == null) return null;
+			NBTTagCompound tag = itemstack.getTagCompound();
+			if(tag == null) tag = new NBTTagCompound();
+			NBTTagList effects = tag.getTagList(EFFECTS, NBTTAG_COMPOUND);
+			if(effects == null) effects = new NBTTagList();
+			
+			NBTTagCompound effectTag = new NBTTagCompound();
+			effectTag.setInteger(EFFECT_ID, potionId);
+			effectTag.setInteger(EFFECT_DURATION, duration);
+			effectTag.setInteger(EFFECT_AMPLIFIER, amplifier);
+			
+			effects.appendTag(effectTag);
+			tag.setTag(EFFECTS, effects);
+			
+			itemstack.setTagCompound(tag);
+			return itemstack;
+		}
+		
+		/**
+		 * 読み込んだPotionIdが妥当かどうかなどのチェックはしていないことに注意
+		 * @return NBTタグがなかったらnull。PotionIdが妥当かどうかなどのチェックはしていない
+		 */
+		private static PotionEffect[] read(ItemStack itemstack) {
+			if(itemstack == null) return null;
+			NBTTagCompound tag = itemstack.getTagCompound();
+			if(tag == null) return null;
+			NBTTagList effects = tag.getTagList(EFFECTS, NBTTAG_COMPOUND);
+			if(effects == null) return null;
+			
+			PotionEffect[] potionEffects = new PotionEffect[effects.tagCount()];
+			for(int i=0; i<potionEffects.length; ++i) {
+				NBTTagCompound effectTag = effects.getCompoundTagAt(i);
+				int potionId = effectTag.getInteger(EFFECT_ID);
+				int duration = effectTag.getInteger(EFFECT_DURATION);
+				int amplifier = effectTag.getInteger(EFFECT_AMPLIFIER);
+				PotionEffect potionEffect = new PotionEffect(potionId, duration, amplifier);
+				potionEffects[i] = potionEffect;
+			}
+			
+			return potionEffects;
+		}
+		
+		public static PotionEffect[] getPotionEffects(ItemStack itemstack) {
+			PotionEffect[] effects = read(itemstack);
+			if(effects != null) return effects;
+			
+			// ここから下はメタデータでポーション効果を管理していた古い仕様に対応するためのもの
 			int meta = itemstack.getItemDamage();
-			int[] potionData = metaToPotionData[meta];
-			int potion = potionData[POTION];
-			int duration = potionData[DURATION];
-			int amplifier = potionData[AMPLIFIER];
-			player.addPotionEffect(new PotionEffect(potion, duration, amplifier));
+			if(0 <= meta && meta < potionInfos.length) {
+				int[] potionInfo = potionInfos[meta];
+				int potion = potionInfo[POTION];
+				int duration = potionInfo[DURATION];
+				int amplifier = potionInfo[AMPLIFIER];
+				return new PotionEffect[] {new PotionEffect(potion, duration, amplifier)};
+			}
+			
+			return new PotionEffect[0];
 		}
 	}
 }
