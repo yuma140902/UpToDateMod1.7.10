@@ -17,6 +17,7 @@ import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockNewFlower;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.yumalib.ModYumaLib;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
@@ -79,6 +80,32 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 		redFlower(7, McConst.Meta.REDFLOWER_ORANGE_TULIP);
 		redFlower(8, McConst.Meta.REDFLOWER_OXEYE_DAISY);
 		addStewRecipe(9, new ItemStack(MyBlocks.witherRose));
+		
+		if(ModYumaLib.proxy.isYuma140902()) {
+			ItemStack goldenStew = new ItemStack(this);
+			NBT.write(goldenStew, Potion.digSpeed.id, 50*SEC, 19);
+			NBT.write(goldenStew, Potion.jump.id, 50*SEC, 4);
+			NBT.write(goldenStew, Potion.moveSpeed.id, 50*SEC, 5);
+			NBT.write(goldenStew, Potion.regeneration.id, 50*SEC, 9);
+			NBT.write(goldenStew, Potion.heal.id, 50*SEC, 9);
+			NBT.write(goldenStew, Potion.invisibility.id, 50*SEC, 0);
+			NBT.write(goldenStew, Potion.fireResistance.id, 50*SEC, 0);
+			NBT.write(goldenStew, Potion.damageBoost.id, 50*SEC, 9);
+			NBT.write(goldenStew, Potion.nightVision.id, 50*SEC, 0);
+			NBT.write(goldenStew, Potion.waterBreathing.id, 50*SEC, 0);
+			NBT.write(goldenStew, Potion.field_76443_y.id, 50*SEC, 9);
+			NBT.write(goldenStew, Potion.field_76434_w.id, 50*SEC, 29);
+			NBT.write(goldenStew, Potion.field_76444_x.id, 50*SEC, 19);
+			assert goldenStew.getTagCompound() != null;
+			goldenStew.getTagCompound().setTag("ench", new NBTTagList());  // エンチャントのエフェクトをつける
+			ItemStack notchApple = new ItemStack(Items.golden_apple, 1, 1);
+			RecipeRegister.addShaped(goldenStew, 
+					"AAA",
+					"ASA",
+					"AAA",
+					'A', notchApple,
+					'S', Items.mushroom_stew);
+		}
 	}
 	
 	private void redFlower(int stewId, int flowerMeta) {
