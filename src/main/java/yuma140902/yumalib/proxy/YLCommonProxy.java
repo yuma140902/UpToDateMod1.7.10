@@ -9,4 +9,10 @@ public class YLCommonProxy {
 		MinecraftForge.EVENT_BUS.register(YLCommonEventHandler.INSTANCE);
 		FMLCommonHandler.instance().bus().register(YLCommonEventHandler.INSTANCE);
 	}
+	
+	public void checkIfIsYuma140902() {}
+	
+	public boolean isYuma140902() {
+		return false;
+	}
 }

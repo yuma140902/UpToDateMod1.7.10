@@ -41,6 +41,7 @@ public class ModYumaLib {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
+		proxy.checkIfIsYuma140902();
 		YLConfigCore.loadConfig(event);
 		proxy.registerEventHandlers();
 	}
