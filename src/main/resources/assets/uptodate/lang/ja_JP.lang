@@ -54,6 +54,8 @@ tile.uptodate.prismarine_block.name=プリズマリン
 tile.uptodate.prismarine_brick.name=プリズマリンレンガ
 tile.uptodate.dark_prismarine_block.name=ダークプリズマリン
 tile.uptodate.sea_lantern.name=シーランタン
+tile.uptodate.sponge.name=スポンジ
+tile.uptodate.sponge.wet.name=濡れたスポンジ
 
 item.uptodate.iron_nugget.name=鉄塊
 

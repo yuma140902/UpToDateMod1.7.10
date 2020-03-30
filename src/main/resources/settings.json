@@ -242,6 +242,16 @@
     },
     {
       "ar": "mc12",
+      "src": "textures/blocks/sponge.png",
+      "dest": "textures/blocks/sponge.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/blocks/sponge_wet.png",
+      "dest": "textures/blocks/wet_sponge.png"
+    },
+    {
+      "ar": "mc12",
       "src": "textures/blocks/door_acacia_lower.png",
       "dest": "textures/blocks/acacia_door_bottom.png"
     },

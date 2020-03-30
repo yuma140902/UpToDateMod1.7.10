@@ -27,6 +27,7 @@ import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockSeaLantern;
 import yuma140902.uptodatemod.blocks.BlockSmoothStone;
+import yuma140902.uptodatemod.blocks.BlockSponge;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.BlockStoneSlab;
 import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
@@ -110,6 +111,7 @@ public final class MyBlocks {
 	public static final BlockPrismarineBricks prismarineBricks;
 	public static final BlockDarkPrismarine prismarineDark;
 	public static final BlockSeaLantern seaLantern;
+	public static final BlockSponge sponge;
 	
 	public static final BlockGenericTrapDoor trapDoorAcacia;
 	public static final BlockGenericTrapDoor trapDoorBirch;
@@ -304,6 +306,7 @@ public final class MyBlocks {
 			prismarineDark = null;
 			seaLantern = null;
 		}
+		add(sponge = isEnabled(EnumDisableableFeatures.sponge) ? new BlockSponge() : null);
 		
 		if(isEnabled(woodenTrapdoors)) {
 			add(trapDoorAcacia = 		new BlockGenericTrapDoor("trap_door_acacia", 		McConst.Meta.PLANK_ACACIA));

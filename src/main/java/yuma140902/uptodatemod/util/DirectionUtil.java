@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod.util;
 
 import static yuma140902.yumalib.api.McConst.*;
+import yuma140902.yumalib.api.util.BlockPos;
 
 public class DirectionUtil {
 	private DirectionUtil() {}
@@ -42,16 +43,16 @@ public class DirectionUtil {
 	public static final int[] leftSides = new int[] {SIDE_SOUTH, SIDE_NORTH, SIDE_WEST, SIDE_EAST, SIDE_SOUTH, SIDE_NORTH };
 	
 	//座標(x, y, z)のブロックのside側の隣の座標を返します
-	public static BlockCoordinate3 getCoordBySide(int side, int x, int y, int z) {
+	public static BlockPos getCoordBySide(int side, int x, int y, int z) {
 		switch (side) {
-			case SIDE_BOTTOM: 	return new BlockCoordinate3(x  , y-1, z  );
-			case SIDE_TOP: 			return new BlockCoordinate3(x  , y+1, z  );
-			case SIDE_NORTH: 	return new BlockCoordinate3(x  , y  , z-1);
-			case SIDE_SOUTH: 	return new BlockCoordinate3(x  , y  , z+1);
-			case SIDE_WEST: 		return new BlockCoordinate3(x-1, y  , z  );
-			case SIDE_EAST: 		return new BlockCoordinate3(x+1, y  , z  );
+			case SIDE_BOTTOM: 	return new BlockPos(x  , y-1, z  );
+			case SIDE_TOP: 			return new BlockPos(x  , y+1, z  );
+			case SIDE_NORTH: 	return new BlockPos(x  , y  , z-1);
+			case SIDE_SOUTH: 	return new BlockPos(x  , y  , z+1);
+			case SIDE_WEST: 		return new BlockPos(x-1, y  , z  );
+			case SIDE_EAST: 		return new BlockPos(x+1, y  , z  );
 			
-			default: return new BlockCoordinate3(0, 0, 0);
+			default: return new BlockPos(0, 0, 0);
 		}
 	}
 }

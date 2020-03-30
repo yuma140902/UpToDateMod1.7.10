@@ -54,6 +54,8 @@ tile.uptodate.prismarine_block.name=Prismarine
 tile.uptodate.prismarine_brick.name=Prismarine Bricks
 tile.uptodate.dark_prismarine_block.name=Dark Prismarine
 tile.uptodate.sea_lantern.name=Sea Lantern
+tile.uptodate.sponge.name=Sponge
+tile.uptodate.sponge.wet.name=Wet Sponge
 
 item.uptodate.iron_nugget.name=Iron Nugget
 
