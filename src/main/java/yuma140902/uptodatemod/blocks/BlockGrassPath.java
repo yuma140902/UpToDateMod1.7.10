@@ -62,7 +62,7 @@ public class BlockGrassPath extends Block implements IRegisterable {
 	
 	private static boolean isEdge(World world, BlockPos pos, ForgeDirection direction) {
 		Block block = WorldUtils.getBlock(world, pos.offset(direction));
-		if(block != MyBlocks.grassPath) return true;
+		if(block != MyBlocks.grassPath && block != Blocks.air) return true;
 		return false;
 	}
 	
@@ -86,23 +86,24 @@ public class BlockGrassPath extends Block implements IRegisterable {
 		
 		BlockPos pos = new BlockPos(x, y, z);
 		
+		// ベースとなる当たり判定
 		this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 15.0f/16.0f, 1.0f);
 		super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		
 		if(isEdge(world, pos, ForgeDirection.EAST)) {  // EAST: +x
-			this.setBlockBounds(15.0f/16.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+			this.setBlockBounds(255f/256f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
 		if(isEdge(world, pos, ForgeDirection.WEST)) {  // WEST: -x
-			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f/16.0f, 1.0f, 1.0f);
+			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1f/256f, 1.0f, 1.0f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
 		if(isEdge(world, pos, ForgeDirection.SOUTH)) {  // SOUTH: +z
-			this.setBlockBounds(0.0f, 0.0f, 15.0f/16.0f, 1.0f, 1.0f, 1.0f);
+			this.setBlockBounds(0.0f, 0.0f, 255f/256f, 1.0f, 1.0f, 1.0f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
 		if(isEdge(world, pos, ForgeDirection.NORTH)) {
-			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f/16.0f);
+			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1f/256f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
 		
