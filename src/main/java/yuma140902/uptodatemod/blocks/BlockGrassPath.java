@@ -1,20 +1,27 @@
 package yuma140902.uptodatemod.blocks;
 
+import java.util.List;
 import java.util.Random;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
+import yuma140902.yumalib.api.util.BlockPos;
+import yuma140902.yumalib.api.util.WorldUtils;
 
 public class BlockGrassPath extends Block implements IRegisterable {
 	
@@ -23,9 +30,9 @@ public class BlockGrassPath extends Block implements IRegisterable {
 	public BlockGrassPath() {
 		super(Material.ground);
 		this.setLightOpacity(0);
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 15.0F / 16.0F, 1.0F);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setCreativeTab(CreativeTabs.tabDecorations);
 		this.setHardness(0.65F);
+		useNeighborBrightness = true;
 		this.setStepSound(soundTypeGrass);
 	}
 	
@@ -50,18 +57,63 @@ public class BlockGrassPath extends Block implements IRegisterable {
 	@Override
 	public boolean shouldSideBeRendered(	IBlockAccess world, int x, int y, int z, int side) {
 		if(side == McConst.SIDE_TOP) return true;
+		return super.shouldSideBeRendered(world, x, y, z, side);
+	}
+	
+	private static boolean isEdge(World world, BlockPos pos, ForgeDirection direction) {
+		Block block = WorldUtils.getBlock(world, pos.offset(direction));
+		if(block != MyBlocks.grassPath) return true;
+		return false;
+	}
+	
+	@Override
+	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB mask, List list, Entity entity) {
+		/*
+		 * (横から見た図)
+		 * 
+		 * 　■            □ …… 空気ブロックやドアなど通り抜けられるブロック
+		 * ＊□            ■ …… 普通のブロック
+		 * ＊□            ＊ …… プレーヤー
+		 * ◎■            ◎ …… 草の道ブロック
+		 * 
+		 * 上のようになったときにプレイヤーが右に通り抜けられるはずなのに通り抜けられない。
+		 * マイクラの当たり判定のバグと思われる。
+		 * EtFuturumではこれを回避するために、草の道ブロックの当たり判定を1x1x1にしているが、
+		 * 私は草の道ブロックの上に乗ったときに少し体が低くなるのが好きなので、全てを1x1x1の当たり判定にしたくない。
+		 * そのため、草の道ブロックがその他のブロックに隣接しているときは、その部分の角を少し高くするようにした。
+		 * ConnectedTexureみたいなイメージ
+		 */
 		
-		int nextX = x;// + Facing.offsetsXForSide[side];
-		int nextY = y;// + Facing.offsetsYForSide[side];
-		int nextZ = z;// + Facing.offsetsZForSide[side]; //これでいいのかよくわからない
-		Block nextBlock = world.getBlock(nextX, nextY, nextZ);
-		return !nextBlock.isOpaqueCube();
+		BlockPos pos = new BlockPos(x, y, z);
+		
+		this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 15.0f/16.0f, 1.0f);
+		super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
+		
+		if(isEdge(world, pos, ForgeDirection.EAST)) {  // EAST: +x
+			this.setBlockBounds(15.0f/16.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
+		}
+		if(isEdge(world, pos, ForgeDirection.WEST)) {  // WEST: -x
+			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f/16.0f, 1.0f, 1.0f);
+			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
+		}
+		if(isEdge(world, pos, ForgeDirection.SOUTH)) {  // SOUTH: +z
+			this.setBlockBounds(0.0f, 0.0f, 15.0f/16.0f, 1.0f, 1.0f, 1.0f);
+			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
+		}
+		if(isEdge(world, pos, ForgeDirection.NORTH)) {
+			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f/16.0f);
+			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
+		}
+		
+		// もとに戻す。戻さないとSelectionBoxの表示がおかしくなる
+		this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 15.0f/16.0f, 1.0f);
 	}
 	
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		Block blockAbove = world.getBlock(x, y+1, z);
-		if(blockAbove != null && blockAbove.isOpaqueCube()) {
+		if(blockAbove != null && blockAbove.getMaterial().isSolid()) {
 			world.setBlock(x, y, z, Blocks.dirt);
 		}
 	}
