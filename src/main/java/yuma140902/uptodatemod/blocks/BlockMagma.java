@@ -48,45 +48,53 @@ public class BlockMagma extends Block implements IRegisterable, IHasRecipes {
 		return MapColor.netherrackColor;
 	}
 	
+	
 	/**
 	 * 詳細は{@link BlockGrassPath}を参照
 	 */
-	private static boolean isEdge(World world, BlockPos pos, ForgeDirection direction) {
-		Block block = WorldUtils.getBlock(world, pos.offset(direction));
-		if(block != MyBlocks.magmaBlock && block != Blocks.air) return true;
+	private static boolean needEdgeCollisionBox(World world, BlockPos pos, ForgeDirection direction) {
+		pos = pos.offset(direction);
+		if(WorldUtils.getBlock(world, pos) != MyBlocks.magmaBlock && !WorldUtils.isAir(world, pos)) {
+			return !WorldUtils.isAir(world, pos.offset(ForgeDirection.UP, 3));
+		}
 		return false;
 	}
-	
 	/**
 	 * 詳細は{@link BlockGrassPath}を参照
 	 */
 	@Override
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB mask, List list, Entity entity) {
-
 		BlockPos pos = new BlockPos(x, y, z);
+		
+		float edge = 31f/32f;
 		
 		// ベースとなる当たり判定
 		this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 255f/256f, 1.0f);
 		super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		
-		if(isEdge(world, pos, ForgeDirection.EAST)) {  // EAST: +x
-			this.setBlockBounds(255f/256f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+		if(needEdgeCollisionBox(world, pos, ForgeDirection.EAST)) {  // EAST: +x
+			this.setBlockBounds(edge, 0.0f, 0.0f, 	1.0f, 1.0f, 1.0f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
-		if(isEdge(world, pos, ForgeDirection.WEST)) {  // WEST: -x
-			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1f/256f, 1.0f, 1.0f);
+		if(needEdgeCollisionBox(world, pos, ForgeDirection.WEST)) {  // WEST: -x
+			this.setBlockBounds(0.0f, 0.0f, 0.0f, 	1.0f-edge, 1.0f, 1.0f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
-		if(isEdge(world, pos, ForgeDirection.SOUTH)) {  // SOUTH: +z
-			this.setBlockBounds(0.0f, 0.0f, 255f/256f, 1.0f, 1.0f, 1.0f);
+		if(needEdgeCollisionBox(world, pos, ForgeDirection.SOUTH)) {  // SOUTH: +z
+			this.setBlockBounds(0.0f, 0.0f, edge, 	1.0f, 1.0f, 1.0f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
-		if(isEdge(world, pos, ForgeDirection.NORTH)) {
-			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1f/256f);
+		if(needEdgeCollisionBox(world, pos, ForgeDirection.NORTH)) {
+			this.setBlockBounds(0.0f, 0.0f, 0.0f, 	1.0f, 1.0f, 1.0f-edge);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
 		
-		// もとに戻す。戻さないとSelectionBoxの表示がおかしくなる
+		// もとに戻す。戻さないと描画時の表示がおかしくなる
+		setBlockBoundsForItemRender();
+	}
+	
+	@Override
+	public void setBlockBoundsForItemRender() {
 		this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
 	}
 	

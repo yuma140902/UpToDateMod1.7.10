@@ -60,9 +60,12 @@ public class BlockGrassPath extends Block implements IRegisterable {
 		return super.shouldSideBeRendered(world, x, y, z, side);
 	}
 	
-	private static boolean isEdge(World world, BlockPos pos, ForgeDirection direction) {
-		Block block = WorldUtils.getBlock(world, pos.offset(direction));
-		if(block != MyBlocks.grassPath && block != Blocks.air) return true;
+	
+	private static boolean needEdgeCollisionBox(World world, BlockPos pos, ForgeDirection direction) {
+		pos = pos.offset(direction);
+		if(WorldUtils.getBlock(world, pos) != MyBlocks.grassPath && !WorldUtils.isAir(world, pos)) {
+			return !WorldUtils.isAir(world, pos.offset(ForgeDirection.UP, 3));
+		}
 		return false;
 	}
 	
@@ -80,34 +83,43 @@ public class BlockGrassPath extends Block implements IRegisterable {
 		 * マイクラの当たり判定のバグと思われる。
 		 * EtFuturumではこれを回避するために、草の道ブロックの当たり判定を1x1x1にしているが、
 		 * 私は草の道ブロックの上に乗ったときに少し体が低くなるのが好きなので、全てを1x1x1の当たり判定にしたくない。
-		 * そのため、草の道ブロックがその他のブロックに隣接しているときは、その部分の角を少し高くするようにした。
-		 * ConnectedTexureみたいなイメージ
+		 * そのため、草の道ブロックがその他のブロックに隣接していて、かつ隣接ブロックの3マス上が空気でないときは
+		 * でっぱりの当たり判定を追加するようにした。
+		 * 
+		 * 2020/03/31 yuma140902
 		 */
 		
 		BlockPos pos = new BlockPos(x, y, z);
+		
+		float edge = 31f/32f;
 		
 		// ベースとなる当たり判定
 		this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 15.0f/16.0f, 1.0f);
 		super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		
-		if(isEdge(world, pos, ForgeDirection.EAST)) {  // EAST: +x
-			this.setBlockBounds(255f/256f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+		if(needEdgeCollisionBox(world, pos, ForgeDirection.EAST)) {  // EAST: +x
+			this.setBlockBounds(edge, 0.0f, 0.0f, 	1.0f, 1.0f, 1.0f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
-		if(isEdge(world, pos, ForgeDirection.WEST)) {  // WEST: -x
-			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1f/256f, 1.0f, 1.0f);
+		if(needEdgeCollisionBox(world, pos, ForgeDirection.WEST)) {  // WEST: -x
+			this.setBlockBounds(0.0f, 0.0f, 0.0f, 	1.0f-edge, 1.0f, 1.0f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
-		if(isEdge(world, pos, ForgeDirection.SOUTH)) {  // SOUTH: +z
-			this.setBlockBounds(0.0f, 0.0f, 255f/256f, 1.0f, 1.0f, 1.0f);
+		if(needEdgeCollisionBox(world, pos, ForgeDirection.SOUTH)) {  // SOUTH: +z
+			this.setBlockBounds(0.0f, 0.0f, edge, 	1.0f, 1.0f, 1.0f);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
-		if(isEdge(world, pos, ForgeDirection.NORTH)) {
-			this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1f/256f);
+		if(needEdgeCollisionBox(world, pos, ForgeDirection.NORTH)) {
+			this.setBlockBounds(0.0f, 0.0f, 0.0f, 	1.0f, 1.0f, 1.0f-edge);
 			super.addCollisionBoxesToList(world, x, y, z, mask, list, entity);
 		}
 		
-		// もとに戻す。戻さないとSelectionBoxの表示がおかしくなる
+		// もとに戻す。戻さないと描画時の表示がおかしくなる
+		setBlockBoundsForItemRender();
+	}
+	
+	@Override
+	public void setBlockBoundsForItemRender() {
 		this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 15.0f/16.0f, 1.0f);
 	}
 	

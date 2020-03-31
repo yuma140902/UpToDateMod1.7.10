@@ -7,4 +7,8 @@ public class WorldUtils {
 	public static Block getBlock(World world, BlockPos pos) {
 		return world.getBlock(pos.x(), pos.y(), pos.z());
 	}
+	
+	public static boolean isAir(World world, BlockPos pos) {
+		return world.isAirBlock(pos.x(), pos.y(), pos.z());
+	}
 }
