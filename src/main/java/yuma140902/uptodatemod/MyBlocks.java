@@ -51,6 +51,7 @@ import yuma140902.yumalib.api.blocks.BlockGenericStairs;
 import yuma140902.yumalib.api.blocks.BlockGenericTrapDoor;
 import yuma140902.yumalib.api.blocks.BlockGenericWall;
 import yuma140902.yumalib.api.blocks.SlabBuilder;
+import yuma140902.yumalib.api.blocks.StairsBuilder;
 
 public final class MyBlocks {
 	private MyBlocks() {}
@@ -423,22 +424,22 @@ public final class MyBlocks {
 		add(grassPath = isEnabled(EnumDisableableFeatures.grassPath) ? new BlockGrassPath() : null);
 		
 		if(isEnabled(allKindsOfStairs)) {
-			add(stairsStone = BlockGenericStairs.constructIfNotNull(Blocks.stone, 0, "stairs_stone"));
-			add(stairsGranite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite"));
-			add(stairsDiorite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_DIORITE, "stairs_diorite"));
-			add(stairsAndesite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_ANDESITE, "stairs_andesite"));
-			add(stairsPolishedGranite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "stairs_polished_granite"));
-			add(stairsPolishedDiorite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite"));
-			add(stairsPolishedAndesite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite"));
-			add(stairsRedNetherBricks = BlockGenericStairs.constructIfNotNull(MyBlocks.redNetherBricks, 0, "stairs_red_nether_bricks"));
-			add(stairsPrismarine = BlockGenericStairs.constructIfNotNull(MyBlocks.prismarineBlock, 0, "stairs_prismarine"));
-			add(stairsPrismarineBricks = BlockGenericStairs.constructIfNotNull(MyBlocks.prismarineBricks, 0, "stairs_prismarine_bricks"));
-			add(stairsDarkPrismarine = BlockGenericStairs.constructIfNotNull(MyBlocks.prismarineDark, 0, "stairs_dark_prismarine"));
-			add(stairsPurpur = BlockGenericStairs.constructIfNotNull(MyBlocks.purpurBlock, 0, "stairs_purpur"));
-			add(stairsRedSandstone = BlockGenericStairs.constructIfNotNull(MyBlocks.redSandStone, 0, "stairs_red_sandstone"));
-			add(stairsEndStoneBricks = BlockGenericStairs.constructIfNotNull(MyBlocks.endStoneBricks, 0, "stairs_end_stone_bricks"));
-			add(stairsMossyStoneBricks = BlockGenericStairs.constructIfNotNull(Blocks.stonebrick, 1, "stairs_mossy_stone_bricks"));
-			add(stairsMossyCobbleStone = BlockGenericStairs.constructIfNotNull(Blocks.mossy_cobblestone, 0, "stairs_mossy_cobblestone"));
+			add(stairsStone = new StairsBuilder(Blocks.stone, "stairs_stone").build());
+			add(stairsGranite = new StairsBuilder(MyBlocks.stone, "stairs_granite").meta(BlockStone.META_GRANITE).build());
+			add(stairsDiorite = new StairsBuilder(MyBlocks.stone, "stairs_diorite").meta(BlockStone.META_DIORITE).build());
+			add(stairsAndesite = new StairsBuilder(MyBlocks.stone, "stairs_andesite").meta(BlockStone.META_ANDESITE).build());
+			add(stairsPolishedGranite = new StairsBuilder(MyBlocks.stone, "stairs_polished_granite").meta(BlockStone.META_POLISHED_GRANITE).build());
+			add(stairsPolishedDiorite = new StairsBuilder(MyBlocks.stone, "stairs_polished_diorite").meta(BlockStone.META_POLISHED_DIORITE).build());
+			add(stairsPolishedAndesite = new StairsBuilder(MyBlocks.stone, "stairs_polished_andesite").meta(BlockStone.META_POLISHED_ANDESITE).build());
+			add(stairsRedNetherBricks = new StairsBuilder(MyBlocks.redNetherBricks, "stairs_red_nether_bricks").build());
+			add(stairsPrismarine = new StairsBuilder(MyBlocks.prismarineBlock, "stairs_prismarine").build());
+			add(stairsPrismarineBricks = new StairsBuilder(MyBlocks.prismarineBricks, "stairs_prismarine_bricks").build());
+			add(stairsDarkPrismarine = new StairsBuilder(MyBlocks.prismarineDark, "stairs_dark_prismarine").build());
+			add(stairsPurpur = new StairsBuilder(MyBlocks.purpurBlock, "stairs_purpur").build());
+			add(stairsRedSandstone = new StairsBuilder(MyBlocks.redSandStone, "stairs_red_sandstone").build());
+			add(stairsEndStoneBricks = new StairsBuilder(MyBlocks.endStoneBricks, "stairs_end_stone_bricks").build());
+			add(stairsMossyStoneBricks = new StairsBuilder(Blocks.stonebrick, "stairs_mossy_stone_bricks").meta(1).build());
+			add(stairsMossyCobbleStone = new StairsBuilder(Blocks.mossy_cobblestone, "stairs_mossy_cobblestone").build());
 		}
 		else {
 			stairsStone = null;
