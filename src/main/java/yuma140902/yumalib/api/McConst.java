@@ -96,6 +96,11 @@ public final class McConst {
 		 * フランスギク
 		 */
 		public static final int REDFLOWER_OXEYE_DAISY= 8;
+		
+		public static final int 
+				SANDSTONE_NORMAL = 0,
+				SANDSTONE_CHISELED = 1,
+				SANDSTONE_CUT = 2;
 	}
 	
 	
