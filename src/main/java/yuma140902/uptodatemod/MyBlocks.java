@@ -263,11 +263,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(doors)) {
-			add(doorAcacia = 	new BlockGenericDoor("door_acacia", 		"acacia_door", 		MyItems.itemDoorAcacia));
-			add(doorBirch = 		new BlockGenericDoor("door_birch", 			"birch_door", 		MyItems.itemDoorBirch));
-			add(doorDarkOak = 	new BlockGenericDoor("door_dark_oak", 	"dark_oak_door", 	MyItems.itemDoorDarkOak));
-			add(doorJungle = 	new BlockGenericDoor("door_jungle", 		"jungle_door", 		MyItems.itemDoorJungle));
-			add(doorSpruce = 	new BlockGenericDoor("door_spruce", 		"spruce_door", 		MyItems.itemDoorSpruce));
+			add(doorAcacia = 		new BlockGenericDoor("door_acacia", 		"acacia_door", 		MyItems.itemDoorAcacia, 	StringUtil.name));
+			add(doorBirch = 		new BlockGenericDoor("door_birch", 			"birch_door", 		MyItems.itemDoorBirch, 		StringUtil.name));
+			add(doorDarkOak = 	new BlockGenericDoor("door_dark_oak", 	"dark_oak_door", 	MyItems.itemDoorDarkOak, 	StringUtil.name));
+			add(doorJungle = 		new BlockGenericDoor("door_jungle", 		"jungle_door", 		MyItems.itemDoorJungle, 	StringUtil.name));
+			add(doorSpruce = 		new BlockGenericDoor("door_spruce", 		"spruce_door", 		MyItems.itemDoorSpruce, 	StringUtil.name));
 		}
 		else {
 			doorAcacia = null;
@@ -278,11 +278,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(fences)) {
-			add(fenceAcacia = new BlockGenericFence("planks_acacia", "fence_acacia"));
-			add(fenceBirch = new BlockGenericFence("planks_birch", "fence_birch"));
-			add(fenceDarkOak = new BlockGenericFence("planks_big_oak", "fence_dark_oak"));
-			add(fenceJungle = new BlockGenericFence("planks_jungle", "fence_jungle"));
-			add(fenceSpruce = new BlockGenericFence("planks_spruce", "fence_spruce"));
+			add(fenceAcacia = 	new BlockGenericFence("planks_acacia", 		"fence_acacia", 		StringUtil.name));
+			add(fenceBirch = 		new BlockGenericFence("planks_birch", 		"fence_birch", 			StringUtil.name));
+			add(fenceDarkOak = 	new BlockGenericFence("planks_big_oak", 	"fence_dark_oak", 	StringUtil.name));
+			add(fenceJungle = 	new BlockGenericFence("planks_jungle", 		"fence_jungle", 		StringUtil.name));
+			add(fenceSpruce = 	new BlockGenericFence("planks_spruce", 		"fence_spruce", 		StringUtil.name));
 		}
 		else {
 			fenceAcacia = null;
@@ -293,11 +293,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(fenceGates)) {
-			add(fenceGateAcacia = 	new BlockGenericFenceGate(McConst.Meta.PLANK_ACACIA, 	"fence_gate_acacia"));
-			add(fenceGateBirch = 		new BlockGenericFenceGate(McConst.Meta.PLANK_BIRCH, 		"fence_gate_birch"));
-			add(fenceGateDarkOak = 	new BlockGenericFenceGate(McConst.Meta.PLANK_DARKOAK, 	"fence_gate_dark_oak"));
-			add(fenceGateJungle = 	new BlockGenericFenceGate(McConst.Meta.PLANK_JUNGLE, 	"fence_gate_jungle"));
-			add(fenceGateSpruce = 	new BlockGenericFenceGate(McConst.Meta.PLANK_SPRUCE, 	"fence_gate_spruce"));
+			add(fenceGateAcacia = 	new BlockGenericFenceGate(McConst.Meta.PLANK_ACACIA, 		"fence_gate_acacia", 		StringUtil.name));
+			add(fenceGateBirch = 		new BlockGenericFenceGate(McConst.Meta.PLANK_BIRCH, 		"fence_gate_birch", 		StringUtil.name));
+			add(fenceGateDarkOak = 	new BlockGenericFenceGate(McConst.Meta.PLANK_DARKOAK, 	"fence_gate_dark_oak", 	StringUtil.name));
+			add(fenceGateJungle = 	new BlockGenericFenceGate(McConst.Meta.PLANK_JUNGLE, 		"fence_gate_jungle", 		StringUtil.name));
+			add(fenceGateSpruce = 	new BlockGenericFenceGate(McConst.Meta.PLANK_SPRUCE, 		"fence_gate_spruce", 		StringUtil.name));
 		}
 		else {
 			fenceGateAcacia = null;
@@ -324,11 +324,11 @@ public final class MyBlocks {
 		add(sponge = isEnabled(EnumDisableableFeatures.sponge) ? new BlockSponge() : null);
 		
 		if(isEnabled(woodenTrapdoors)) {
-			add(trapDoorAcacia = 		new BlockGenericTrapDoor("trap_door_acacia", 		McConst.Meta.PLANK_ACACIA));
-			add(trapDoorBirch = 		new BlockGenericTrapDoor("trap_door_birch", 		McConst.Meta.PLANK_BIRCH));
-			add(trapDoorDarkOak = 	new BlockGenericTrapDoor("trap_door_dark_oak", 	McConst.Meta.PLANK_DARKOAK));
-			add(trapDoorJungle = 		new BlockGenericTrapDoor("trap_door_jungle", 		McConst.Meta.PLANK_JUNGLE));
-			add(trapDoorSpruce = 		new BlockGenericTrapDoor("trap_door_spruce", 		McConst.Meta.PLANK_SPRUCE));
+			add(trapDoorAcacia = 		new BlockGenericTrapDoor("trap_door_acacia", 		McConst.Meta.PLANK_ACACIA, 		StringUtil.name));
+			add(trapDoorBirch = 		new BlockGenericTrapDoor("trap_door_birch", 		McConst.Meta.PLANK_BIRCH, 		StringUtil.name));
+			add(trapDoorDarkOak = 	new BlockGenericTrapDoor("trap_door_dark_oak", 	McConst.Meta.PLANK_DARKOAK, 	StringUtil.name));
+			add(trapDoorJungle = 		new BlockGenericTrapDoor("trap_door_jungle", 		McConst.Meta.PLANK_JUNGLE, 		StringUtil.name));
+			add(trapDoorSpruce = 		new BlockGenericTrapDoor("trap_door_spruce", 		McConst.Meta.PLANK_SPRUCE, 		StringUtil.name));
 		}
 		else {
 			trapDoorAcacia = null;
@@ -340,11 +340,11 @@ public final class MyBlocks {
 		add(trapDoorIron = isEnabled(ironTrapdoor) ? new BlockIronTrapDoor() : null);
 		
 		if(isEnabled(buttons)) {
-			add(buttonAcacia = 		new BlockGenericButton(McConst.Meta.PLANK_ACACIA, 		"button_acacia"));
-			add(buttonBirch = 		new BlockGenericButton(McConst.Meta.PLANK_BIRCH, 		"button_birch"));
-			add(buttonDarkOak = 	new BlockGenericButton(McConst.Meta.PLANK_DARKOAK, 	"button_dark_oak"));
-			add(buttonJungle = 		new BlockGenericButton(McConst.Meta.PLANK_JUNGLE, 		"button_jungle"));
-			add(buttonSpruce = 		new BlockGenericButton(McConst.Meta.PLANK_SPRUCE, 		"button_spruce"));
+			add(buttonAcacia = 		new BlockGenericButton(McConst.Meta.PLANK_ACACIA, 	"button_acacia", 		StringUtil.name));
+			add(buttonBirch = 		new BlockGenericButton(McConst.Meta.PLANK_BIRCH, 		"button_birch", 		StringUtil.name));
+			add(buttonDarkOak = 	new BlockGenericButton(McConst.Meta.PLANK_DARKOAK, 	"button_dark_oak", 	StringUtil.name));
+			add(buttonJungle = 		new BlockGenericButton(McConst.Meta.PLANK_JUNGLE, 	"button_jungle", 		StringUtil.name));
+			add(buttonSpruce = 		new BlockGenericButton(McConst.Meta.PLANK_SPRUCE, 	"button_spruce", 		StringUtil.name));
 		}
 		else {
 			buttonAcacia = null;
@@ -355,11 +355,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(pressurePlates)) {
-			add(pressurePlateAcacia = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_ACACIA, 	"pressure_plate_acacia"));
-			add(pressurePlateBirch = 		new BlockGenericPressurePlate(McConst.Meta.PLANK_BIRCH, 		"pressure_plate_birch"));
-			add(pressurePlateDarkOak = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_DARKOAK, 	"pressure_plate_dark_oak"));
-			add(pressurePlateJungle = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_JUNGLE, 	"pressure_plate_jungle"));
-			add(pressurePlateSpruce = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_SPRUCE, 	"pressure_plate_spruce"));
+			add(pressurePlateAcacia = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_ACACIA, 		"pressure_plate_acacia", 		StringUtil.name));
+			add(pressurePlateBirch = 		new BlockGenericPressurePlate(McConst.Meta.PLANK_BIRCH, 		"pressure_plate_birch", 		StringUtil.name));
+			add(pressurePlateDarkOak = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_DARKOAK, 	"pressure_plate_dark_oak", 	StringUtil.name));
+			add(pressurePlateJungle = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_JUNGLE, 		"pressure_plate_jungle", 		StringUtil.name));
+			add(pressurePlateSpruce = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_SPRUCE, 		"pressure_plate_spruce", 		StringUtil.name));
 		}
 		else {
 			pressurePlateAcacia = null;
