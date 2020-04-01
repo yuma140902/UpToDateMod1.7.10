@@ -24,6 +24,8 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 	public static final String[] names = new String[] {"", "chiseled", "cut", "smooth"};
 	public static final int META_MAX = names.length - 1;
 	
+	public static final int META_NORMAL = 0, META_CHISELED = 1, META_CUT = 2, META_SMOOTH = 3;
+	
   @SideOnly(Side.CLIENT)
   private IIcon[] sideIcons;
   @SideOnly(Side.CLIENT)
@@ -87,21 +89,21 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 	@Override
 	public void registerRecipes() {
 		RecipeRegister.addShaped(
-				new ItemStack(MyBlocks.redSandStone, 1, 0),
+				new ItemStack(MyBlocks.redSandStone, 1, META_NORMAL),
 				"##",
 				"##",
 				'#', new ItemStack(Blocks.sand, 1, 1)
 				);
 		
 		RecipeRegister.addShaped(
-				new ItemStack(MyBlocks.redSandStone, 4, 2),
+				new ItemStack(MyBlocks.redSandStone, 4, META_CUT),
 				"##",
 				"##",
-				'#', new ItemStack(MyBlocks.redSandStone, 1, 0)
+				'#', new ItemStack(MyBlocks.redSandStone, 1, META_NORMAL)
 				);
 		
 		RecipeRegister.addShaped(
-				new ItemStack(MyBlocks.redSandStone, 1, 1),
+				new ItemStack(MyBlocks.redSandStone, 1, META_CHISELED),
 				"H",
 				"H",
 				'H', MyBlocks.slabRedSandstone
