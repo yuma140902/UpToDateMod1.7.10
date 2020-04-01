@@ -299,6 +299,20 @@ public final class Recipes {
 				"###",
 				'#', "stoneAndesitePolished"
 		);
+		
+		replaceRecipe(
+			recipe -> {
+				ItemStack output = recipe.getRecipeOutput();
+				if(output == null) return false;
+				return output.stackSize == 6 && output.getItemDamage() == McConst.Meta.SLAB_SANDSTONE && output.getItem() == Item.getItemFromBlock(Blocks.stone_slab);
+			},
+			() -> {
+				RecipeRegister.addShaped(
+						new ItemStack(Blocks.stone_slab, 6, 1),
+						"###",
+						'#', new ItemStack(Blocks.sandstone, 1, McConst.Meta.SANDSTONE_NORMAL)
+						);
+		});
 	}
 	
 	private static void registerWallRecipes() {
