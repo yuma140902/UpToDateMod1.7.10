@@ -14,7 +14,7 @@ import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
-import yuma140902.yumalib.api.context.Contexts;
+import yuma140902.yumalib.api.registry.Contexts;
 
 public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
 	/** Set this to allow trapdoors to remain free-floating */

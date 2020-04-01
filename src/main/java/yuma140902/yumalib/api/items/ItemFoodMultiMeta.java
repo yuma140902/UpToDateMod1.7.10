@@ -10,7 +10,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.context.Contexts;
+import yuma140902.yumalib.api.registry.Contexts;
 import yuma140902.yumalib.api.util.StringUtils;
 
 public class ItemFoodMultiMeta extends ItemFood implements IRegisterable {

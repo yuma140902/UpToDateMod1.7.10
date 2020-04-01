@@ -7,7 +7,7 @@ import net.minecraft.block.BlockFenceGate;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.context.Contexts;
+import yuma140902.yumalib.api.registry.Contexts;
 
 public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterable {
 	private int iconSourcePlankMeta;

@@ -1,8 +1,9 @@
-package yuma140902.yumalib.api.context;
+package yuma140902.yumalib.api.registry;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import yuma140902.yumalib.YLConstants;
+import yuma140902.yumalib.api.context.InitModContext;
 import yuma140902.yumalib.api.util.NameProvider;
 
 /**

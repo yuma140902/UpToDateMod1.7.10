@@ -37,11 +37,11 @@ import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.uptodatemod.util.UpToDateModConstants;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
-import yuma140902.yumalib.api.context.Contexts;
 import yuma140902.yumalib.api.context.InitModContext;
+import yuma140902.yumalib.api.registry.Contexts;
+import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
 import yuma140902.yumalib.api.update.IUpdateChecker;
 import yuma140902.yumalib.api.update.TsvUpdateChecker;
-import yuma140902.yumalib.api.update.UpdateCheckerRegistry;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = UpToDateModConstants.MOD_CONFIG_GUI_FACTORY,
 			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib"

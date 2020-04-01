@@ -8,8 +8,8 @@ import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
 import yuma140902.yumalib.api.update.IUpdateChecker;
-import yuma140902.yumalib.api.update.UpdateCheckerRegistry;
 import yuma140902.yumalib.config.YLConfigCore;
 import yuma140902.yumalib.proxy.YLCommonProxy;
 

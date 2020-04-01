@@ -7,8 +7,8 @@ import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.WorldEvent;
+import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
 import yuma140902.yumalib.api.update.IUpdateChecker;
-import yuma140902.yumalib.api.update.UpdateCheckerRegistry;
 
 public class YLClientEventHandler {
 	private YLClientEventHandler() {}

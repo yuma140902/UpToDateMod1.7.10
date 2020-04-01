@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.context.Contexts;
+import yuma140902.yumalib.api.registry.Contexts;
 
 public class BlockGenericFence extends BlockFence implements IRegisterable {
 	private String name;

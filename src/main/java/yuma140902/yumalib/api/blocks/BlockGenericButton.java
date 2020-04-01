@@ -11,7 +11,7 @@ import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.context.Contexts;
+import yuma140902.yumalib.api.registry.Contexts;
 
 public class BlockGenericButton extends BlockButtonWood implements IRegisterable, IHasRecipes {
 	private int texture_plank_meta;
