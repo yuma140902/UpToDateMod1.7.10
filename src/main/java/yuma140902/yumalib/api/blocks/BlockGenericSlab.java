@@ -14,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
@@ -22,39 +23,27 @@ import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.items.ItemBlockGenericSlab;
 
 public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRecipes {
-
-	public static BlockGenericSlab constructIfNotNull(Block baseBlock, int meta, String name) {
-		return (baseBlock == null) ? null : new BlockGenericSlab(baseBlock, meta, name);
-	}
-	
-	public static BlockGenericSlab constructIfNotNull(Block baseBlock, int meta, String name, String specialSideTextureName) {
-		return (baseBlock == null) ? null : new BlockGenericSlab(baseBlock, meta, name, specialSideTextureName);
-	}
 	
 	private Block baseBlock;
 	private int meta;
 	private String name;
-	private BlockGenericSlab slab;
-	private BlockGenericSlab slabDouble;
 	private boolean useSpecialSideTexture = false;
 	private String specialSideTexureName = null;
+	private boolean ignoreMetaInRecipe = false;
+	
 	private IIcon specialSideTexture = null;
+	private BlockGenericSlab slab;
+	private BlockGenericSlab slabDouble;
 	
-	public BlockGenericSlab(Block baseBlock, int meta, String name) {
-		this(false, baseBlock, meta, name, false, null);
-	}
-	
-	public BlockGenericSlab(Block baseBlock, int meta, String name, String specialSideTextureName) {
-		this(false, baseBlock, meta, name, true, specialSideTextureName);
-	}
-	
-	protected BlockGenericSlab(boolean isDouble, Block baseBlock, int meta, String name, boolean useSpecialSideTexture, String specialSideTextureName) {
+	protected BlockGenericSlab(boolean isDouble, Block baseBlock, int meta, String name, String specialSideTextureName, boolean ignoreMetaInRecipe) {
 		super(isDouble, baseBlock.getMaterial());
 		this.baseBlock = baseBlock;
 		this.meta = meta;
 		this.name = name;
-		this.useSpecialSideTexture = useSpecialSideTexture;
+		this.useSpecialSideTexture = specialSideTextureName != null;
 		this.specialSideTexureName = specialSideTextureName;
+		this.ignoreMetaInRecipe = ignoreMetaInRecipe;
+		
     this.setStepSound(baseBlock.stepSound);
     this.setHarvestLevel(baseBlock.getHarvestTool(0), baseBlock.getHarvestLevel(0));
 		setLightOpacity(0);
@@ -70,7 +59,7 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 	public void register() {
 		if(isDouble()) return;
 		
-		BlockGenericSlab slabDouble = new BlockGenericSlab(true, this.baseBlock, this.meta, this.name, this.useSpecialSideTexture, this.specialSideTexureName);
+		BlockGenericSlab slabDouble = new BlockGenericSlab(true, this.baseBlock, this.meta, this.name, this.specialSideTexureName, this.ignoreMetaInRecipe);
 		this.setSlabs(this, slabDouble);
 		slabDouble.setSlabs(this, slabDouble);
 		
@@ -92,8 +81,11 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 		return this.field_150004_a;
 	}
 	
+	@Override
 	public void registerRecipes() {
 		if(isDouble()) return;
+		
+		int meta = this.ignoreMetaInRecipe ? OreDictionary.WILDCARD_VALUE : this.meta;
 		RecipeRegister.addShaped(
 				new ItemStack(getSlab(), 6),
 				"###",
@@ -146,7 +138,6 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 		return baseBlock.getIcon((meta & 0b0001) == 0 ? side : McConst.SIDE_TOP, this.meta);
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
 		if(!isDouble())

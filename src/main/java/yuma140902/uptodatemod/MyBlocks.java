@@ -50,6 +50,7 @@ import yuma140902.yumalib.api.blocks.BlockGenericSlab;
 import yuma140902.yumalib.api.blocks.BlockGenericStairs;
 import yuma140902.yumalib.api.blocks.BlockGenericTrapDoor;
 import yuma140902.yumalib.api.blocks.BlockGenericWall;
+import yuma140902.yumalib.api.blocks.SlabBuilder;
 
 public final class MyBlocks {
 	private MyBlocks() {}
@@ -456,21 +457,30 @@ public final class MyBlocks {
 		
 		if(isEnabled(allKindsOfSlabs)) {
 			add(slabStone = new BlockStoneSlab());
-			add(slabGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_GRANITE, "slab_granite"));
-			add(slabDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_DIORITE, "slab_diorite"));
-			add(slabAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_ANDESITE, "slab_andesite"));
-			add(slabPolishedGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "slab_polished_granite", StringUtil.getDomainedTextureName("polished_granite_slab_side")));
-			add(slabPolishedDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "slab_polished_diorite", StringUtil.getDomainedTextureName("polished_diorite_slab_side")));
-			add(slabPolishedAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "slab_polished_andesite", StringUtil.getDomainedTextureName("polished_andesite_slab_side")));
-			add(slabRedNetherBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.redNetherBricks, 0, "slab_red_nether_bricks"));
-			add(slabEndStoneBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.endStoneBricks, 0, "slab_end_stone_bricks"));
-			add(slabMossyStoneBricks = BlockGenericSlab.constructIfNotNull(Blocks.stonebrick, 1, "slab_mossy_stone_bricks"));
-			add(slabMossyCobbleStone = BlockGenericSlab.constructIfNotNull(Blocks.mossy_cobblestone, 0, "slab_mossy_cobblestone"));
-			add(slabRedSandstone = BlockGenericSlab.constructIfNotNull(MyBlocks.redSandStone, 0, "slab_red_sandstone"));
-			add(slabPurpur = BlockGenericSlab.constructIfNotNull(MyBlocks.purpurBlock, 0, "slab_purpur"));
-			add(slabPrismarine = BlockGenericSlab.constructIfNotNull(MyBlocks.prismarineBlock, 0, "slab_prismarine"));
-			add(slabPrismarineBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.prismarineBricks, 0, "slab_prismarine_bricks"));
-			add(slabDarkPrismarine = BlockGenericSlab.constructIfNotNull(MyBlocks.prismarineDark, 0, "slab_dark_prismairne"));
+			add(slabGranite = new SlabBuilder(MyBlocks.stone, "slab_granite").meta(BlockStone.META_GRANITE).build());
+			add(slabDiorite = new SlabBuilder(MyBlocks.stone, "slab_diorite").meta(BlockStone.META_DIORITE).build());
+			add(slabAndesite = new SlabBuilder(MyBlocks.stone, "slab_andesite").meta(BlockStone.META_ANDESITE).build());
+			add(slabPolishedGranite
+					= new SlabBuilder(MyBlocks.stone, "slab_polished_granite")
+					.meta(BlockStone.META_POLISHED_GRANITE)
+					.specialSideTexture(StringUtil.getDomainedTextureName("polished_granite_slab_side")).build());
+			add(slabPolishedDiorite
+					= new SlabBuilder(MyBlocks.stone, "slab_polished_diorite")
+					.meta(BlockStone.META_POLISHED_DIORITE)
+					.specialSideTexture(StringUtil.getDomainedTextureName("polished_diorite_slab_side")).build());
+			add(slabPolishedAndesite
+					= new SlabBuilder(MyBlocks.stone, "slab_polished_andesite")
+					.meta(BlockStone.META_POLISHED_ANDESITE)
+					.specialSideTexture(StringUtil.getDomainedTextureName("polished_andesite_slab_side")).build());
+			add(slabRedNetherBricks = new SlabBuilder(MyBlocks.redNetherBricks, "slab_red_nether_bricks").build());
+			add(slabEndStoneBricks = new SlabBuilder(MyBlocks.endStoneBricks, "slab_end_stone_bricks").build());
+			add(slabMossyStoneBricks = new SlabBuilder(Blocks.stonebrick, "slab_mossy_stone_bricks").meta(1).build());
+			add(slabMossyCobbleStone = new SlabBuilder(Blocks.mossy_cobblestone, "slab_mossy_cobblestone").build());
+			add(slabRedSandstone = new SlabBuilder(MyBlocks.redSandStone, "slab_red_sandstone").meta(BlockRedSandStone.META_NORMAL).build());
+			add(slabPurpur = new SlabBuilder(MyBlocks.purpurBlock, "slab_purpur").build());
+			add(slabPrismarine = new SlabBuilder(MyBlocks.prismarineBlock, "slab_prismarine").build());
+			add(slabPrismarineBricks = new SlabBuilder(MyBlocks.prismarineBricks, "slab_prismarine_bricks").build());
+			add(slabDarkPrismarine = new SlabBuilder(MyBlocks.prismarineDark, "slab_dark_prismairne").build());
 		}
 		else {
 			slabStone = null;
