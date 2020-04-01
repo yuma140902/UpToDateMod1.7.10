@@ -3,7 +3,7 @@ package yuma140902.yumalib.api.items;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemMultiTexture;
 import net.minecraft.item.ItemStack;
-import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.yumalib.api.util.StringUtils;
 
 public class ItemBlockMultiName extends ItemMultiTexture {
 	
@@ -17,7 +17,7 @@ public class ItemBlockMultiName extends ItemMultiTexture {
 		
 		if (meta < 0 || meta >= this.field_150942_c.length) 	meta = 0;
 		
-		return super.getUnlocalizedName() + StringUtil.surfix(".", this.field_150942_c[meta]);
+		return super.getUnlocalizedName() + StringUtils.surfix(".", this.field_150942_c[meta]);
 	}
 	
 }

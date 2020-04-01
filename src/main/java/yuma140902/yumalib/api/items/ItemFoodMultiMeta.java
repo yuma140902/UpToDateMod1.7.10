@@ -9,9 +9,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.util.NameProvider;
+import yuma140902.yumalib.api.util.StringUtils;
 
 public class ItemFoodMultiMeta extends ItemFood implements IRegisterable {
 	@Nonnull protected final String name;
@@ -76,7 +76,7 @@ public class ItemFoodMultiMeta extends ItemFood implements IRegisterable {
 	public String getUnlocalizedName(ItemStack itemstack) {
 		int meta = itemstack.getItemDamage();
 		if(0 <= meta && meta <= MAX_META) {
-			return super.getUnlocalizedName() + StringUtil.surfix(".", names[meta]);
+			return super.getUnlocalizedName() + StringUtils.surfix(".", names[meta]);
 		}
 		else {
 			return super.getUnlocalizedName();

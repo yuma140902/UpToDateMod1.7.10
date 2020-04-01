@@ -18,6 +18,7 @@ import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
+import yuma140902.yumalib.api.util.StringUtils;
 
 public class BlockRedSandStone extends BlockSandStone implements IRegisterable, IHasRecipes {
 	
@@ -78,7 +79,7 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 		this.sideIcons = new IIcon[names.length];
 		
 		for (int i = 0; i < this.sideIcons.length; ++i) {
-			this.sideIcons[i] = register.registerIcon(this.getTextureName() + StringUtil.surfix("_", names[i]));
+			this.sideIcons[i] = register.registerIcon(this.getTextureName() + StringUtils.surfix("_", names[i]));
 		}
 		
 		this.topIcon = register.registerIcon(this.getTextureName() + "_top");
