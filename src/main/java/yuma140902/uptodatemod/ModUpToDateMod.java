@@ -94,7 +94,7 @@ public class ModUpToDateMod {
 		Blocks.melon_block.setHarvestLevel("axe", 0);
 	}
 	
-	private void setFinalField(Class<?> clazz, Object that, Object newValue, String... fieldNames) {
+	private static void setFinalField(Class<?> clazz, Object that, Object newValue, String... fieldNames) {
 		try {
 			Field field = ReflectionHelper.findField(clazz, fieldNames);
 			field.setAccessible(true);
