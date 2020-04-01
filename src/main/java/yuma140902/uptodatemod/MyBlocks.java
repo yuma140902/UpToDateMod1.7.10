@@ -197,7 +197,11 @@ public final class MyBlocks {
 	public static final BlockGenericSlab slabEndStoneBricks;
 	public static final BlockGenericSlab slabMossyStoneBricks;
 	public static final BlockGenericSlab slabMossyCobbleStone;
+	public static final BlockGenericSlab slabCutSandstone;
+	public static final BlockGenericSlab slabSmoothSandstone;
 	public static final BlockGenericSlab slabRedSandstone;
+	public static final BlockGenericSlab slabCutRedSandstone;
+	public static final BlockGenericSlab slabSmoothRedSandstone;
 	public static final BlockGenericSlab slabPurpur;
 	public static final BlockGenericSlab slabPrismarine;
 	public static final BlockGenericSlab slabPrismarineBricks;
@@ -476,7 +480,11 @@ public final class MyBlocks {
 			add(slabEndStoneBricks = new SlabBuilder(MyBlocks.endStoneBricks, "slab_end_stone_bricks").build());
 			add(slabMossyStoneBricks = new SlabBuilder(Blocks.stonebrick, "slab_mossy_stone_bricks").meta(1).build());
 			add(slabMossyCobbleStone = new SlabBuilder(Blocks.mossy_cobblestone, "slab_mossy_cobblestone").build());
+			add(slabCutSandstone = new SlabBuilder(Blocks.sandstone, "slab_cut_sandstone").meta(McConst.Meta.SANDSTONE_CUT).build());
+			add(slabSmoothSandstone = new SlabBuilder(MyBlocks.smoothSandstone, "slab_smooth_sandstone").build());
 			add(slabRedSandstone = new SlabBuilder(MyBlocks.redSandStone, "slab_red_sandstone").meta(BlockRedSandStone.META_NORMAL).build());
+			add(slabCutRedSandstone = new SlabBuilder(MyBlocks.redSandStone, "slab_cut_red_sandstone").meta(BlockRedSandStone.META_CUT).build());
+			add(slabSmoothRedSandstone = new SlabBuilder(MyBlocks.redSandStone, "slab_smooth_red_sandstone").meta(BlockRedSandStone.META_SMOOTH).build());
 			add(slabPurpur = new SlabBuilder(MyBlocks.purpurBlock, "slab_purpur").build());
 			add(slabPrismarine = new SlabBuilder(MyBlocks.prismarineBlock, "slab_prismarine").build());
 			add(slabPrismarineBricks = new SlabBuilder(MyBlocks.prismarineBricks, "slab_prismarine_bricks").build());
@@ -494,7 +502,11 @@ public final class MyBlocks {
 			slabEndStoneBricks = null;
 			slabMossyStoneBricks = null;
 			slabMossyCobbleStone = null;
+			slabCutSandstone = null;
+			slabSmoothSandstone = null;
 			slabRedSandstone = null;
+			slabCutRedSandstone = null;
+			slabSmoothRedSandstone = null;
 			slabPurpur = null;
 			slabPrismarine = null;
 			slabPrismarineBricks = null;
