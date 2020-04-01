@@ -1,7 +1,6 @@
 package yuma140902.yumalib.api.blocks;
 
 import java.util.List;
-import javax.annotation.Nullable;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,25 +16,19 @@ import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.util.NameProvider;
+import yuma140902.yumalib.api.context.Contexts;
 
 public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRecipes {
 
-	public static @Nullable BlockGenericWall constructIfNotNull(@Nullable Block block, int meta, String name, NameProvider nameProvider) {
-		return (block == null) ? null : new BlockGenericWall(block, meta, name, nameProvider);
-	}
-	
 	private Block block;
 	private int meta;
 	private String name;
-	private NameProvider nameProvider;
 	
-	public BlockGenericWall(Block block, int meta, String name, NameProvider nameProvider) {
+	public BlockGenericWall(Block block, int meta, String name) {
 		super(block);
 		this.block = block;
 		this.meta = meta;
 		this.name = name;
-		this.nameProvider = nameProvider;
 		setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
@@ -46,7 +39,7 @@ public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRe
 
 	@Override
 	public void register() {
-		this.setBlockName(nameProvider.domainedUnlocalized(name));
+		this.setBlockName(Contexts.current().nameProvider().domainedUnlocalized(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	

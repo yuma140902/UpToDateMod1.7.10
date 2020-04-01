@@ -34,8 +34,11 @@ import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.uptodatemod.util.UpToDateModConstants;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
+import yuma140902.yumalib.api.context.Contexts;
+import yuma140902.yumalib.api.context.InitModContext;
 import yuma140902.yumalib.api.update.IUpdateChecker;
 import yuma140902.yumalib.api.update.TsvUpdateChecker;
 import yuma140902.yumalib.api.update.UpdateCheckerRegistry;
@@ -115,6 +118,9 @@ public class ModUpToDateMod {
 		loadModMetadata(modMetadata);
 		ModConfigCore.loadConfig(event);
 		LOGGER.info("preInit");
+		
+		Contexts.setContext(new InitModContext(StringUtil.name));
+		
 		if(ModConfigCore.General.doCheckUpdate()) {
 			IUpdateChecker updateChecker = new TsvUpdateChecker(MOD_NAME, "https://www.curseforge.com/minecraft/mc-mods/uptodatemod", MOD_VERSIONS_TSV_URL, MOD_VERSION, ModConfigCore.General.updateChannel());
 			UpdateCheckerRegistry.INSTANCE.register(updateChecker);
@@ -137,6 +143,8 @@ public class ModUpToDateMod {
 		networkWrapper.registerMessage(ArmorStandInteractHandler.class, ArmorStandInteractMessage.class, 0, Side.SERVER);
 //		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.SERVER);
 		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.CLIENT);
+		
+		Contexts.removeContext();
 	}
 	
 	@EventHandler

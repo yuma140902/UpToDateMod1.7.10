@@ -7,18 +7,16 @@ import net.minecraft.block.BlockFenceGate;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.util.NameProvider;
+import yuma140902.yumalib.api.context.Contexts;
 
 public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterable {
 	private int iconSourcePlankMeta;
 	private String name;
-	private NameProvider nameProvider;
 	
-	public BlockGenericFenceGate(int iconSourcePlankMeta, String name, NameProvider nameProvider) {
+	public BlockGenericFenceGate(int iconSourcePlankMeta, String name) {
 		super();
 		this.iconSourcePlankMeta = iconSourcePlankMeta;
 		this.name = name;
-		this.nameProvider = nameProvider;
 		setHardness(2.0F);
 		setResistance(5.0F);
 		setStepSound(soundTypeWood);
@@ -32,8 +30,8 @@ public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterab
 	
 	@Override
 	public void register() {
-		this.setBlockName(nameProvider.domainedUnlocalized(name));
-		this.setBlockTextureName(nameProvider.domainedTexture(name));
+		this.setBlockName(Contexts.current().nameProvider().domainedUnlocalized(name));
+		this.setBlockTextureName(Contexts.current().nameProvider().domainedTexture(name));
 		GameRegistry.registerBlock(this, name);
 	}
 }

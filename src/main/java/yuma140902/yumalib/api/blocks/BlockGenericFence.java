@@ -8,16 +8,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.util.NameProvider;
+import yuma140902.yumalib.api.context.Contexts;
 
 public class BlockGenericFence extends BlockFence implements IRegisterable {
 	private String name;
-	private NameProvider nameProvider;
 	
-	public BlockGenericFence(String texture, String name, NameProvider nameProvider) {
+	public BlockGenericFence(String texture, String name) {
 		super(texture, Material.wood);
 		this.name = name;
-		this.nameProvider = nameProvider;
 		setHardness(2.0F);
 		setResistance(5.0F);
 		setStepSound(soundTypeWood);
@@ -52,8 +50,8 @@ public class BlockGenericFence extends BlockFence implements IRegisterable {
 
 	@Override
 	public void register() {
-		this.setBlockName(nameProvider.domainedUnlocalized(name));
-		this.setBlockTextureName(nameProvider.domainedTexture(name));
+		this.setBlockName(Contexts.current().nameProvider().domainedUnlocalized(name));
+		this.setBlockTextureName(Contexts.current().nameProvider().domainedTexture(name));
 		GameRegistry.registerBlock(this, name);
 	}
 }

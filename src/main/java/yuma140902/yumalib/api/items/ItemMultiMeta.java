@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.util.NameProvider;
+import yuma140902.yumalib.api.context.Contexts;
 import yuma140902.yumalib.api.util.StringUtils;
 
 public class ItemMultiMeta extends Item implements IRegisterable {
@@ -18,13 +18,11 @@ public class ItemMultiMeta extends Item implements IRegisterable {
 	protected final int MAX_META;
 	@Nonnull protected final String[] textureNames;
 	@Nonnull protected final IIcon[] icons;
-	@Nonnull protected final NameProvider nameProvider;
 	
-	public ItemMultiMeta(@Nonnull String name, @Nonnull String[] names, @Nonnull String[] textureNames, @Nonnull NameProvider nameProvider) {
+	public ItemMultiMeta(@Nonnull String name, @Nonnull String[] names, @Nonnull String[] textureNames) {
 		this.name = name;
 		this.names = names;
 		this.MAX_META = names.length-1;
-		this.nameProvider = nameProvider;
 		
 		String[] sanitizedTextureNames;
 		if(textureNames.length < names.length) {
@@ -44,7 +42,7 @@ public class ItemMultiMeta extends Item implements IRegisterable {
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(nameProvider.domainedUnlocalized(name));
+		this.setUnlocalizedName(Contexts.current().nameProvider().domainedUnlocalized(name));
 		GameRegistry.registerItem(this, name);
 	}
 	

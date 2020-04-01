@@ -9,19 +9,17 @@ import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.util.NameProvider;
+import yuma140902.yumalib.api.context.Contexts;
 
 public class BlockGenericPressurePlate extends BlockPressurePlate implements IRegisterable, IHasRecipes {
 
 	private int plankMeta;
 	private String name;
-	private NameProvider nameProvider;
 	
-	public BlockGenericPressurePlate(int plankMeta, String name, NameProvider nameProvider) {
+	public BlockGenericPressurePlate(int plankMeta, String name) {
 		super("planks_oak", Material.wood, Sensitivity.everything);
 		this.plankMeta = plankMeta;
 		this.name = name;
-		this.nameProvider = nameProvider;
 		setHardness(0.5F);
 		setStepSound(soundTypeWood);
 	}
@@ -33,7 +31,7 @@ public class BlockGenericPressurePlate extends BlockPressurePlate implements IRe
 	
 	@Override
 	public void register() {
-		setBlockName(nameProvider.domainedUnlocalized(name));
+		setBlockName(Contexts.current().nameProvider().domainedUnlocalized(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	

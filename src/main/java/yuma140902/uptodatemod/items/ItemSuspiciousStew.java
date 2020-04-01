@@ -60,7 +60,7 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 	
 	
 	public ItemSuspiciousStew() {
-		super(6, 0.6f, "suspicious_stew", flowerNames, StringUtil.name.domainedTextures("suspicious_stew"), StringUtil.name);
+		super(6, 0.6f, "suspicious_stew", flowerNames, StringUtil.name.domainedTextures("suspicious_stew"));
 		this.setAlwaysEdible();
 		this.setMaxStackSize(1);
 	}
