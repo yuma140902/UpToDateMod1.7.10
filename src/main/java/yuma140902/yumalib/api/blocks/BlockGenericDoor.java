@@ -15,8 +15,8 @@ import net.minecraft.item.ItemDoor;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.util.NameProvider;
 
 public class BlockGenericDoor extends BlockDoor implements IRegisterable {
 	
@@ -28,8 +28,9 @@ public class BlockGenericDoor extends BlockDoor implements IRegisterable {
 	private String name;
 	private String textureName;
 	private ItemDoor item;
+	private NameProvider nameProvider;
 	
-	public BlockGenericDoor(String name, String textureName, ItemDoor item) {
+	public BlockGenericDoor(String name, String textureName, ItemDoor item, NameProvider nameProvider) {
 		super(Material.wood);
 		this.setHardness(3.0F);
 		this.setStepSound(soundTypeWood);
@@ -37,6 +38,7 @@ public class BlockGenericDoor extends BlockDoor implements IRegisterable {
 		this.name = name;
 		this.textureName = textureName;
 		this.item = item;
+		this.nameProvider = nameProvider;
 	}
 	
 	@Override
@@ -108,8 +110,8 @@ public class BlockGenericDoor extends BlockDoor implements IRegisterable {
 	
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.domainedUnlocalized(this.name));
-		this.setBlockTextureName(StringUtil.domainedTexture(this.textureName));
+		this.setBlockName(nameProvider.domainedUnlocalized(this.name));
+		this.setBlockTextureName(nameProvider.domainedTexture(this.textureName));
 		GameRegistry.registerBlock(this, this.name);
 	}
 	

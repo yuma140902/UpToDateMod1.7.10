@@ -11,23 +11,25 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.registry.RecipeRegister;
-import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
+import yuma140902.yumalib.api.util.NameProvider;
 
 public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
 	/** Set this to allow trapdoors to remain free-floating */
   private String name;
   private int plankMeta;
+  private NameProvider nameProvider;
   
   private IIcon icon0, icon90, icon180, icon270;
 
-  public BlockGenericTrapDoor(String name, int plankMeta)
+  public BlockGenericTrapDoor(String name, int plankMeta, NameProvider nameProvider)
   {
       super(Material.wood);
       this.name = name;
       this.plankMeta = plankMeta;
+      this.nameProvider = nameProvider;
       this.setCreativeTab(CreativeTabs.tabRedstone);
       this.setHardness(3.0F);
       this.setStepSound(soundTypeWood);
@@ -36,7 +38,7 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   @Override
   public void registerBlockIcons(IIconRegister register) {
   	super.registerBlockIcons(register);
-  	String texture_name = StringUtil.domainedTexture(name);
+  	String texture_name = nameProvider.domainedTexture(name);
   	icon0 = register.registerIcon(texture_name);
   	icon90 = register.registerIcon(texture_name + "_90");
   	icon180 = register.registerIcon(texture_name + "_180");
@@ -134,8 +136,8 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   
   @Override
   public void register() {
-  	this.setBlockName(StringUtil.domainedUnlocalized(name));
-		this.setBlockTextureName(StringUtil.domainedTexture(name));
+  	this.setBlockName(nameProvider.domainedUnlocalized(name));
+		this.setBlockTextureName(nameProvider.domainedTexture(name));
 		GameRegistry.registerBlock(this, name);
   }
   

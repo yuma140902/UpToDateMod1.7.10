@@ -16,11 +16,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.registry.RecipeRegister;
-import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.items.ItemBlockGenericSlab;
+import yuma140902.yumalib.api.util.NameProvider;
 
 public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRecipes {
 	
@@ -30,12 +30,13 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 	private boolean useSpecialSideTexture = false;
 	private String specialSideTexureName = null;
 	private boolean ignoreMetaInRecipe = false;
+	private NameProvider nameProvider;
 	
 	private IIcon specialSideTexture = null;
 	private BlockGenericSlab slab;
 	private BlockGenericSlab slabDouble;
 	
-	protected BlockGenericSlab(boolean isDouble, Block baseBlock, int meta, String name, String specialSideTextureName, boolean ignoreMetaInRecipe) {
+	protected BlockGenericSlab(boolean isDouble, Block baseBlock, int meta, String name, String specialSideTextureName, boolean ignoreMetaInRecipe, NameProvider nameProvider) {
 		super(isDouble, baseBlock.getMaterial());
 		this.baseBlock = baseBlock;
 		this.meta = meta;
@@ -43,6 +44,7 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 		this.useSpecialSideTexture = specialSideTextureName != null;
 		this.specialSideTexureName = specialSideTextureName;
 		this.ignoreMetaInRecipe = ignoreMetaInRecipe;
+		this.nameProvider = nameProvider;
 		
     this.setStepSound(baseBlock.stepSound);
     this.setHarvestLevel(baseBlock.getHarvestTool(0), baseBlock.getHarvestLevel(0));
@@ -59,13 +61,13 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 	public void register() {
 		if(isDouble()) return;
 		
-		BlockGenericSlab slabDouble = new BlockGenericSlab(true, this.baseBlock, this.meta, this.name, this.specialSideTexureName, this.ignoreMetaInRecipe);
+		BlockGenericSlab slabDouble = new BlockGenericSlab(true, this.baseBlock, this.meta, this.name, this.specialSideTexureName, this.ignoreMetaInRecipe, this.nameProvider);
 		this.setSlabs(this, slabDouble);
 		slabDouble.setSlabs(this, slabDouble);
 		
-		this.setBlockName(StringUtil.name.domainedUnlocalized(name));
+		this.setBlockName(nameProvider.domainedUnlocalized(name));
 		GameRegistry.registerBlock(this, ItemBlockGenericSlab.class, name);
-		slabDouble.setBlockName(StringUtil.name.domainedUnlocalized(name));
+		slabDouble.setBlockName(nameProvider.domainedUnlocalized(name));
 		GameRegistry.registerBlock(slabDouble, ItemBlockGenericSlab.class, "double_" + name);
 	}
 	
@@ -152,6 +154,6 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 
 	@Override
 	public String func_150002_b(int p_150002_1_) {
-		return StringUtil.name.domainedUnlocalized(name);
+		return nameProvider.domainedUnlocalized(name);
 	}
 }

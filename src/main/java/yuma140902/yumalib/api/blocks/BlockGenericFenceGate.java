@@ -6,17 +6,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
-import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.util.NameProvider;
 
 public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterable {
 	private int iconSourcePlankMeta;
 	private String name;
+	private NameProvider nameProvider;
 	
-	public BlockGenericFenceGate(int iconSourcePlankMeta, String name) {
+	public BlockGenericFenceGate(int iconSourcePlankMeta, String name, NameProvider nameProvider) {
 		super();
 		this.iconSourcePlankMeta = iconSourcePlankMeta;
 		this.name = name;
+		this.nameProvider = nameProvider;
 		setHardness(2.0F);
 		setResistance(5.0F);
 		setStepSound(soundTypeWood);
@@ -30,8 +32,8 @@ public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterab
 	
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.domainedUnlocalized(name));
-		this.setBlockTextureName(StringUtil.domainedTexture(name));
+		this.setBlockName(nameProvider.domainedUnlocalized(name));
+		this.setBlockTextureName(nameProvider.domainedTexture(name));
 		GameRegistry.registerBlock(this, name);
 	}
 }

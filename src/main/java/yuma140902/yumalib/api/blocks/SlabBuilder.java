@@ -2,17 +2,27 @@ package yuma140902.yumalib.api.blocks;
 
 import javax.annotation.Nullable;
 import net.minecraft.block.Block;
+import yuma140902.yumalib.api.util.NameProvider;
 
 public class SlabBuilder {
+	private NameProvider nameProvider;
 	private Block baseBlock;
 	private int meta = 0;
 	private String name;
 	private String specialSideTexureName = null;
 	private boolean ignoreMetaInRecipe = false;
 	
-	public SlabBuilder(@Nullable Block baseBlock, String name) {
+	public SlabBuilder(NameProvider nameProvider) {
+		this.nameProvider = nameProvider;
+	}
+	
+	public SlabBuilder create(@Nullable Block baseBlock, String name) {
 		this.baseBlock = baseBlock;
 		this.name = name;
+		this.meta = 0;
+		this.specialSideTexureName = null;
+		this.ignoreMetaInRecipe = false;
+		return this;
 	}
 	
 	public SlabBuilder meta(int meta) {
@@ -33,6 +43,6 @@ public class SlabBuilder {
 	@Nullable
 	public BlockGenericSlab build() {
 		if(this.baseBlock == null) return null;
-		return new BlockGenericSlab(false, baseBlock, meta, name, specialSideTexureName, ignoreMetaInRecipe);
+		return new BlockGenericSlab(false, baseBlock, meta, name, specialSideTexureName, ignoreMetaInRecipe, nameProvider);
 	}
 }

@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.util.NameProvider;
 
 public class ItemFoodMultiMeta extends ItemFood implements IRegisterable {
 	@Nonnull protected final String name;
@@ -18,13 +19,15 @@ public class ItemFoodMultiMeta extends ItemFood implements IRegisterable {
 	protected final int MAX_META;
 	@Nonnull protected final String[] textureNames;
 	@Nonnull protected final IIcon[] icons;
+	@Nonnull protected final NameProvider nameProvider;
 	
-	public ItemFoodMultiMeta(int healAmount, float saturationModifier, @Nonnull String name, @Nonnull String[] names, @Nonnull String[] textureNames) {
+	public ItemFoodMultiMeta(int healAmount, float saturationModifier, @Nonnull String name, @Nonnull String[] names, @Nonnull String[] textureNames, @Nonnull NameProvider nameProvider) {
 		super(healAmount, saturationModifier, false);
 		
 		this.name = name;
 		this.names = names;
 		this.MAX_META = names.length-1;
+		this.nameProvider = nameProvider;
 		
 		String[] sanitizedTextureNames;
 		if(textureNames.length < names.length) {
@@ -44,7 +47,7 @@ public class ItemFoodMultiMeta extends ItemFood implements IRegisterable {
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.domainedUnlocalized(name));
+		this.setUnlocalizedName(nameProvider.domainedUnlocalized(name));
 		GameRegistry.registerItem(this, name);
 	}
 	
