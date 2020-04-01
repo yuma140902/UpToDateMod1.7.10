@@ -53,6 +53,7 @@ import yuma140902.yumalib.api.blocks.BlockGenericTrapDoor;
 import yuma140902.yumalib.api.blocks.BlockGenericWall;
 import yuma140902.yumalib.api.blocks.SlabBuilder;
 import yuma140902.yumalib.api.blocks.StairsBuilder;
+import yuma140902.yumalib.api.blocks.WallBuilder;
 
 public final class MyBlocks {
 	private MyBlocks() {}
@@ -532,20 +533,21 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(allKindsOfWalls)) {
-			add(wallBricks = BlockGenericWall.constructIfNotNull(Blocks.brick_block, 0, "wall_bricks"));
-			add(wallStoneBricks = BlockGenericWall.constructIfNotNull(Blocks.stonebrick, 0, "wall_stone_bricks"));
-			add(wallMossyStoneBricks = BlockGenericWall.constructIfNotNull(Blocks.stonebrick, 1, "wall_mossy_stone_bricks"));
-			add(wallSandstone = BlockGenericWall.constructIfNotNull(Blocks.sandstone, 0, "wall_sandstone"));
-			add(wallRedSandstone = BlockGenericWall.constructIfNotNull(MyBlocks.redSandStone, 0, "wall_red_sandstone"));
-			add(wallNetherBricks = BlockGenericWall.constructIfNotNull(Blocks.nether_brick, 0, "wall_nether_bricks"));
-			add(wallRedNetherBricks = BlockGenericWall.constructIfNotNull(MyBlocks.redNetherBricks, 0, "wall_red_nether_bricks"));
-			add(wallEndStoneBricks = BlockGenericWall.constructIfNotNull(MyBlocks.endStoneBricks, 0, "wall_end_stone_bricks"));
-			add(wallAndesite = BlockGenericWall.constructIfNotNull(MyBlocks.stone, BlockStone.META_ANDESITE, "wall_andesite"));
-			add(wallDiorite = BlockGenericWall.constructIfNotNull(MyBlocks.stone, BlockStone.META_DIORITE, "wall_diorite"));
-			add(wallGranite = BlockGenericWall.constructIfNotNull(MyBlocks.stone, BlockStone.META_GRANITE, "wall_granite"));
-			add(wallPrismarine = BlockGenericWall.constructIfNotNull(prismarineBlock, 0, "wall_prismarine"));
-			add(wallPrismarineBrick = BlockGenericWall.constructIfNotNull(prismarineBricks, 0, "wall_prismarine_brick"));
-			add(wallDarkPrismarine = BlockGenericWall.constructIfNotNull(prismarineDark, 0, "wall_dark_prismarine"));
+			WallBuilder builder = new WallBuilder(StringUtil.name);
+			add(wallBricks = builder.create(Blocks.brick_block, "wall_bricks").build());
+			add(wallStoneBricks = builder.create(Blocks.stonebrick, "wall_stone_bricks").build());
+			add(wallMossyStoneBricks = builder.create(Blocks.stonebrick, "wall_mossy_stone_bricks").meta(1).build());
+			add(wallSandstone = builder.create(Blocks.sandstone, "wall_sandstone").build());
+			add(wallRedSandstone = builder.create(MyBlocks.redSandStone, "wall_red_sandstone").build());
+			add(wallNetherBricks = builder.create(Blocks.nether_brick, "wall_nether_bricks").build());
+			add(wallRedNetherBricks = builder.create(MyBlocks.redNetherBricks, "wall_red_nether_bricks").build());
+			add(wallEndStoneBricks = builder.create(MyBlocks.endStoneBricks, "wall_end_stone_bricks").build());
+			add(wallAndesite = builder.create(MyBlocks.stone, "wall_andesite").meta(BlockStone.META_ANDESITE).build());
+			add(wallDiorite = builder.create(MyBlocks.stone, "wall_diorite").meta(BlockStone.META_DIORITE).build());
+			add(wallGranite = builder.create(MyBlocks.stone, "wall_granite").meta(BlockStone.META_GRANITE).build());
+			add(wallPrismarine = builder.create(prismarineBlock, "wall_prismarine").build());
+			add(wallPrismarineBrick = builder.create(prismarineBricks, "wall_prismarine_brick").build());
+			add(wallDarkPrismarine = builder.create(prismarineDark, "wall_dark_prismarine").build());
 		}
 		else {
 			wallBricks = null;
