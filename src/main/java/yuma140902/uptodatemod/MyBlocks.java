@@ -26,6 +26,7 @@ import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockSeaLantern;
+import yuma140902.uptodatemod.blocks.BlockSmoothSandstone;
 import yuma140902.uptodatemod.blocks.BlockSmoothStone;
 import yuma140902.uptodatemod.blocks.BlockSponge;
 import yuma140902.uptodatemod.blocks.BlockStone;
@@ -142,6 +143,7 @@ public final class MyBlocks {
 	
 	public static final BlockBone boneBlock;
 	
+	public static final BlockSmoothSandstone smoothSandstone;
 	public static final BlockRedSandStone redSandStone;
 	
 	public static final BlockConcrete concreteBlock;
@@ -364,6 +366,7 @@ public final class MyBlocks {
 		
 		add(boneBlock = isEnabled(boneBlockAndFossile) ? new BlockBone() : null);
 		
+		add(smoothSandstone = new BlockSmoothSandstone());
 		add(redSandStone = isEnabled(EnumDisableableFeatures.redSandstone) ? new BlockRedSandStone() : null);
 		
 		if(isEnabled(concreteAndConcretePowder)) {
