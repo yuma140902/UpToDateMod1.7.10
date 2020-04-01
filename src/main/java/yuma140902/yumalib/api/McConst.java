@@ -106,4 +106,14 @@ public final class McConst {
 		SIDE_SOUTH = 3,
 		SIDE_WEST = 4,
 		SIDE_EAST = 5;
+	
+	public static final float
+		EXP_STONE = 0.1F,
+		EXP_COAL = 0.15F,
+		EXP_CACTUS = 0.2F,
+		EXP_BRICK = 0.3F,
+		EXP_MEAT = 0.35F,
+		EXP_IRON = 0.7F,
+		EXP_GEM = 1.0F;
+		
 }
