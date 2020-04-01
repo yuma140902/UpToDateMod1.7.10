@@ -69,7 +69,6 @@ public class BlockSponge extends Block implements IRegisterable, IHasRecipes {
 		return icons[meta%2];
 	}
 	
-	@SuppressWarnings({"rawtypes", "unchecked"})
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		list.add(new ItemStack(this, 1, META_DRY));

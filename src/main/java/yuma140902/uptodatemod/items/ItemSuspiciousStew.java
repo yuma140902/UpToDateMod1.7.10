@@ -133,7 +133,6 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 		return super.getUnlocalizedName();
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for(int i=0; i<potionInfos.length; ++i) {

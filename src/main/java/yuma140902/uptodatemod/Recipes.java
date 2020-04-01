@@ -55,7 +55,6 @@ public final class Recipes {
 	
 	//クラフト結果のアイテムの内部名称によって削除するレシピを指定します。
 	//レシピは最初に見つかった一つだけが削除されます。
-	@SuppressWarnings("unchecked")
 	public static void removeRecipesByOutputName(List<String> outputNameList) {
 		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
 		List<IRecipe> removeList = new ArrayList<IRecipe>();

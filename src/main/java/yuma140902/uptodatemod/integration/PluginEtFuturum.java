@@ -25,6 +25,7 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 	}
 	
 	private Boolean _isModLoadedCache = null;
+	@Override
 	public boolean isModLoaded() {
 		if(_isModLoadedCache == null) {
 			return _isModLoadedCache = Loader.isModLoaded(MOD_ID);
@@ -32,6 +33,7 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		return _isModLoadedCache.booleanValue();
 	}
 	
+	@Override
 	public boolean isIntegrationEnabled() {
 		return isModLoaded() && config_integrateWithEtFuturum;
 	}
@@ -66,6 +68,7 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		
 	}
 	
+	@Override
 	public void wrapConfig(Configuration cfg) {
 		// TODO
 		if(!isModLoaded()) {

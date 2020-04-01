@@ -131,10 +131,12 @@ public class TsvUpdateChecker implements IUpdateChecker {
 		}
 	}
 	
+	@Override
 	public boolean hasNewVersionAvailable() {
 		return Version3.isLaterThan(availableNewVersion, currentVersion);
 	}
 	
+	@Override
 	public String getNewVersionUrl() {
 		if(versions == null) return homePageUrl;
 		

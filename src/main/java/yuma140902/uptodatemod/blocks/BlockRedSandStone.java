@@ -64,7 +64,6 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 		}
 	}
 	
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {

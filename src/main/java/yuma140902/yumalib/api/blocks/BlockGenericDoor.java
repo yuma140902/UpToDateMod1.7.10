@@ -124,7 +124,6 @@ public class BlockGenericDoor extends BlockDoor implements IRegisterable {
     this.iconBottom[1] = new IconFlipped(this.iconBottom[0], true, false);
 	}
 	
-	@SuppressWarnings("rawtypes")
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) { /* 何もしない */ }
 	

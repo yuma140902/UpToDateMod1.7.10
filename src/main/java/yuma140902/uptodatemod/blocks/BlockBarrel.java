@@ -34,6 +34,7 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 		isBlockContainer = true;
 	}
 	
+	@Override
 	public void register() {
 		setBlockName(StringUtil.getDomainedUnlocalizedName("barrel"));
 		setBlockTextureName(StringUtil.getDomainedTextureName("barrel"));

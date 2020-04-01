@@ -64,7 +64,6 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 		
 	}
 	
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {

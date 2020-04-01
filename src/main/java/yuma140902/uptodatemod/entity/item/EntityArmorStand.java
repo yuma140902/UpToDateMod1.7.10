@@ -190,7 +190,6 @@ public class EntityArmorStand extends EntityLiving {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	protected void collideWithNearbyEntities() {
 		List<Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(0.2, 0, 0.2));
 

@@ -83,9 +83,6 @@ public class BlockNewFlower extends BlockBush implements IRegisterable, IHasReci
 		return this.icons[meta];
 	}
 	
-	@SuppressWarnings({
-		"unchecked", "rawtypes"
-	})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {

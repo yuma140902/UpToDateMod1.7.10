@@ -48,7 +48,6 @@ public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRe
 		GameRegistry.registerBlock(this, name);
 	}
 	
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs craetiveTab, List list) {

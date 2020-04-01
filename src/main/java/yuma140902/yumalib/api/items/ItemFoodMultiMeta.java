@@ -50,7 +50,6 @@ public class ItemFoodMultiMeta extends ItemFood implements IRegisterable {
 	
 	
 	
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for(int meta=0; meta <= MAX_META; ++meta) {

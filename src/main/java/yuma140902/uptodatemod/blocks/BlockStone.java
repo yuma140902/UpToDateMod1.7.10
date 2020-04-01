@@ -78,7 +78,6 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
 		for(int i = 1; i <= META_MAX; ++i) { //メタデータ0は、なし
 			list.add(new ItemStack(item, 1, i));

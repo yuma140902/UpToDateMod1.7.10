@@ -60,7 +60,6 @@ public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		if (side == 0)
 			return false;
@@ -132,7 +131,6 @@ public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 		armorStand.setBodyRotation(rotations1);
 	}
 
-	@SuppressWarnings("unchecked")
 	public void merge(NBTTagCompound nbt, NBTTagCompound other) {
 		Iterator<String> iterator = other.func_150296_c().iterator();
 

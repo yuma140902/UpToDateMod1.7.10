@@ -32,6 +32,7 @@ public class BlockGenericStairs extends BlockStairs implements IRegisterable, IH
 		GameRegistry.registerBlock(this, name);
 	}
 	
+	@Override
 	public void registerRecipes() {
 		RecipeRegister.addShaped(
 				new ItemStack(this, 4),

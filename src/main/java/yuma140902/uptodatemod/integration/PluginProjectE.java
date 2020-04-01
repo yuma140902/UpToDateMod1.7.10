@@ -30,6 +30,7 @@ class PluginProjectE implements ITweakingPlugin {
 	}
 	
 	private Boolean _isModLoadedCache = null;
+	@Override
 	public boolean isModLoaded() {
 		if(_isModLoadedCache == null) {
 			return _isModLoadedCache = Loader.isModLoaded(MOD_ID);
@@ -37,6 +38,7 @@ class PluginProjectE implements ITweakingPlugin {
 		return _isModLoadedCache.booleanValue();
 	}
 	
+	@Override
 	public boolean isIntegrationEnabled() {
 		return isModLoaded();
 	}

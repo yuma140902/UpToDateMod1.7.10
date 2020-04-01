@@ -49,6 +49,7 @@ public class Version3 {
 		return versionA.isLaterThan(versionB);
 	}
 	
+	@Override
 	public String toString() {
 		return a + "." + b + "." + c;
 	}

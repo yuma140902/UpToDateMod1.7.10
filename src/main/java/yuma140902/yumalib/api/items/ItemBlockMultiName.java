@@ -11,6 +11,7 @@ public class ItemBlockMultiName extends ItemMultiTexture {
 		super(block, block, names);
 	}
 	
+	@Override
 	public String getUnlocalizedName(ItemStack itemStack) {
 		int meta = itemStack.getItemDamage();
 		
