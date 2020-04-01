@@ -182,7 +182,9 @@ public final class MyBlocks {
 	public static final BlockGenericStairs stairsPrismarineBricks;
 	public static final BlockGenericStairs stairsDarkPrismarine;
 	public static final BlockGenericStairs stairsPurpur;
+	public static final BlockGenericStairs stairsSmoothSandstone;
 	public static final BlockGenericStairs stairsRedSandstone;
+	public static final BlockGenericStairs stairsSmoothRedSandstone;
 	public static final BlockGenericStairs stairsEndStoneBricks;
 	public static final BlockGenericStairs stairsMossyStoneBricks;
 	public static final BlockGenericStairs stairsMossyCobbleStone;
@@ -436,7 +438,9 @@ public final class MyBlocks {
 			add(stairsPrismarineBricks = new StairsBuilder(MyBlocks.prismarineBricks, "stairs_prismarine_bricks").build());
 			add(stairsDarkPrismarine = new StairsBuilder(MyBlocks.prismarineDark, "stairs_dark_prismarine").build());
 			add(stairsPurpur = new StairsBuilder(MyBlocks.purpurBlock, "stairs_purpur").build());
-			add(stairsRedSandstone = new StairsBuilder(MyBlocks.redSandStone, "stairs_red_sandstone").build());
+			add(stairsSmoothSandstone = new StairsBuilder(MyBlocks.smoothSandstone, "stairs_smooth_sandstone").build());
+			add(stairsRedSandstone = new StairsBuilder(MyBlocks.redSandStone, "stairs_red_sandstone").meta(BlockRedSandStone.META_NORMAL).build());
+			add(stairsSmoothRedSandstone = new StairsBuilder(MyBlocks.redSandStone, "stairs_smooth_red_sandstone").meta(BlockRedSandStone.META_SMOOTH).build());
 			add(stairsEndStoneBricks = new StairsBuilder(MyBlocks.endStoneBricks, "stairs_end_stone_bricks").build());
 			add(stairsMossyStoneBricks = new StairsBuilder(Blocks.stonebrick, "stairs_mossy_stone_bricks").meta(1).build());
 			add(stairsMossyCobbleStone = new StairsBuilder(Blocks.mossy_cobblestone, "stairs_mossy_cobblestone").build());
@@ -454,7 +458,9 @@ public final class MyBlocks {
 			stairsPrismarineBricks = null;
 			stairsDarkPrismarine = null;
 			stairsPurpur = null;
+			stairsSmoothSandstone = null;
 			stairsRedSandstone = null;
+			stairsSmoothRedSandstone = null;
 			stairsEndStoneBricks = null;
 			stairsMossyStoneBricks = null;
 			stairsMossyCobbleStone = null;
