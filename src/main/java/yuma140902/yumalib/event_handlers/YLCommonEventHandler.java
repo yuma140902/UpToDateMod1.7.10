@@ -6,7 +6,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import yuma140902.yumalib.YTConstants;
+import yuma140902.yumalib.YLConstants;
 import yuma140902.yumalib.api.world.gen.biome.BiomeDecorators;
 import yuma140902.yumalib.config.YLConfigCore;
 import yuma140902.yumalib.loot.MobDropHandler;
@@ -38,7 +38,7 @@ private YLCommonEventHandler() {}
 	
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-		if(YTConstants.MOD_ID.equals(event.modID))
+		if(YLConstants.MOD_ID.equals(event.modID))
 			YLConfigCore.syncConfig();
 	}
 }

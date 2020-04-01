@@ -2,7 +2,7 @@ package yuma140902.yumalib.api.context;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import yuma140902.yumalib.YTConstants;
+import yuma140902.yumalib.YLConstants;
 import yuma140902.yumalib.api.util.NameProvider;
 
 /**
@@ -13,7 +13,7 @@ import yuma140902.yumalib.api.util.NameProvider;
  */
 public class Contexts {
 	@Nonnull
-	public static final InitModContext DEFAULT = new InitModContext(new NameProvider(YTConstants.MOD_ID, YTConstants.MOD_ID));
+	public static final InitModContext DEFAULT = new InitModContext(new NameProvider(YLConstants.MOD_ID, YLConstants.MOD_ID));
 	@Nullable
 	private static InitModContext current = null;
 	

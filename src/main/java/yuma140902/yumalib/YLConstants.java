@@ -1,6 +1,6 @@
 package yuma140902.yumalib;
 
-public class YTConstants {
+public class YLConstants {
 	public static final String MOD_NAME = "YumaLib";
 	public static final String MOD_ID = "yumalib";
 	public static final String MOD_VERSION = "0.0.0";

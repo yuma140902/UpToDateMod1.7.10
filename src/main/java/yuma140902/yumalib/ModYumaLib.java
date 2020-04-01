@@ -13,24 +13,24 @@ import yuma140902.yumalib.api.update.UpdateCheckerRegistry;
 import yuma140902.yumalib.config.YLConfigCore;
 import yuma140902.yumalib.proxy.YLCommonProxy;
 
-@Mod(modid = YTConstants.MOD_ID, name = YTConstants.MOD_NAME, version = YTConstants.MOD_VERSION, useMetadata = true, guiFactory = YTConstants.CONFIG_GUI_FACTORY)
+@Mod(modid = YLConstants.MOD_ID, name = YLConstants.MOD_NAME, version = YLConstants.MOD_VERSION, useMetadata = true, guiFactory = YLConstants.CONFIG_GUI_FACTORY)
 public class ModYumaLib {
 	
-	public static final Logger LOGGER = LogManager.getLogger(YTConstants.MOD_NAME);
+	public static final Logger LOGGER = LogManager.getLogger(YLConstants.MOD_NAME);
 	
-	@Mod.Metadata(YTConstants.MOD_ID)
+	@Mod.Metadata(YLConstants.MOD_ID)
 	public static ModMetadata modMetadata;
 	
-	@Mod.Instance(YTConstants.MOD_ID)
+	@Mod.Instance(YLConstants.MOD_ID)
 	public static ModYumaLib INSTANCE;
 	
-	@SidedProxy(modId = YTConstants.MOD_ID, clientSide = YTConstants.PROXY_CLIENT, serverSide = YTConstants.PROXY_COMMON)
+	@SidedProxy(modId = YLConstants.MOD_ID, clientSide = YLConstants.PROXY_CLIENT, serverSide = YLConstants.PROXY_COMMON)
 	public static YLCommonProxy proxy;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
-		modMetadata.modId = YTConstants.MOD_ID;
-		modMetadata.name = YTConstants.MOD_NAME;
-		modMetadata.version = YTConstants.MOD_VERSION;
+		modMetadata.modId = YLConstants.MOD_ID;
+		modMetadata.name = YLConstants.MOD_NAME;
+		modMetadata.version = YLConstants.MOD_VERSION;
 		modMetadata.authorList.add("yuma140902");
 		modMetadata.description = "Library for UpToDateMod";
 		//modMetadata.url = "https://www.curseforge.com/minecraft/mc-mods/yumalib";
