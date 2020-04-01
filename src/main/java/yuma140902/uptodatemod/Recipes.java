@@ -3,6 +3,7 @@ package yuma140902.uptodatemod;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import cpw.mods.fml.common.registry.GameData;
 import net.minecraft.block.Block;
@@ -76,6 +77,24 @@ public final class Recipes {
 		for(IRecipe removeRecipe : removeList) {
 			recipes.remove(removeRecipe);
 		}
+	}
+	
+	public static void replaceRecipe(Predicate<IRecipe> predicator, Runnable recipeAdder) {
+		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
+		IRecipe recipeToRemove = null;
+		
+		for(final IRecipe recipe : recipes) {
+			if(predicator.test(recipe)) {
+				recipeToRemove = recipe;
+				break;
+			}
+		}
+		
+		if(recipeToRemove != null) {
+			recipes.remove(recipeToRemove);
+		}
+		
+		recipeAdder.run();
 	}
 	
 	public static void register() {
