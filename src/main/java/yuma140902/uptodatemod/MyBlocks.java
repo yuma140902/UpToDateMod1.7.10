@@ -26,6 +26,7 @@ import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockSeaLantern;
+import yuma140902.uptodatemod.blocks.BlockSmoothQuartz;
 import yuma140902.uptodatemod.blocks.BlockSmoothSandstone;
 import yuma140902.uptodatemod.blocks.BlockSmoothStone;
 import yuma140902.uptodatemod.blocks.BlockSponge;
@@ -138,6 +139,7 @@ public final class MyBlocks {
 	public static final BlockRedNetherBricks redNetherBricks;
 	public static final BlockNetherWart netherWartBlock;
 	public static final BlockMagma magmaBlock;
+	public static final BlockSmoothQuartz smoothQuartz;
 	
 	public static final BlockEndStoneBricks endStoneBricks;
 	public static final BlockPurpur purpurBlock;
@@ -367,6 +369,7 @@ public final class MyBlocks {
 		add(redNetherBricks = isEnabled(EnumDisableableFeatures.redNetherBricks) ? new BlockRedNetherBricks() : null);
 		add(netherWartBlock = isEnabled(EnumDisableableFeatures.netherWartBlock) ? new BlockNetherWart() : null);
 		add(magmaBlock = isEnabled(EnumDisableableFeatures.magmaBlock) ? new BlockMagma() : null);
+		add(smoothQuartz = new BlockSmoothQuartz());
 		
 		add(endStoneBricks = isEnabled(EnumDisableableFeatures.endstoneBricks) ? new BlockEndStoneBricks() : null);
 		add(purpurBlock = isEnabled(purpurStuffs) ? new BlockPurpur() : null);

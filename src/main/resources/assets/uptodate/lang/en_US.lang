@@ -81,6 +81,7 @@ tile.uptodate.pressure_plate_spruce.name=Spruce Pressure Plate
 tile.uptodate.red_nether_bricks.name=Red Nether Bricks
 tile.uptodate.nether_wart_block.name=Nether Wart Block
 tile.uptodate.magma_block.name=Magma Block
+tile.uptodate.smooth_quartz.name=Smooth Quartz Block
 
 tile.uptodate.end_stone_bricks.name=End Stone Bricks
 tile.uptodate.purpur_block.name=Purpur Block
