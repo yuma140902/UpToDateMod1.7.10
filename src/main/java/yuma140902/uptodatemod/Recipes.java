@@ -46,6 +46,9 @@ public final class Recipes {
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.buttons)) {
 			removeRecipesOutputNameList.add("minecraft:wooden_button");
 		}
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.allKindsOfWalls)) {
+			removeRecipesOutputNameList.add("minecraft:nether_brick_fence");
+		}
 		
 		removeRecipesByOutputName(removeRecipesOutputNameList);
 	}
@@ -334,6 +337,14 @@ public final class Recipes {
 				"###",
 				'#', "stoneGranite"
 		);
+		
+		RecipeRegister.addShapedOre(
+				new ItemStack(Blocks.nether_brick_fence, 6),
+				"#-#",
+				"#-#",
+				'#', Blocks.nether_brick,
+				'-', "ingotBrickNether"
+				);
 	}
 	
 }
