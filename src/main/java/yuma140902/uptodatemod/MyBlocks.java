@@ -200,6 +200,7 @@ public final class MyBlocks {
 	public static final BlockGenericSlab slabPolishedDiorite;
 	public static final BlockGenericSlab slabPolishedAndesite;
 	public static final BlockGenericSlab slabRedNetherBricks;
+	public static final BlockGenericSlab slabSmoothQuartz;
 	public static final BlockGenericSlab slabEndStoneBricks;
 	public static final BlockGenericSlab slabMossyStoneBricks;
 	public static final BlockGenericSlab slabMossyCobbleStone;
@@ -490,6 +491,7 @@ public final class MyBlocks {
 					.meta(BlockStone.META_POLISHED_ANDESITE)
 					.specialSideTexture(StringUtil.getDomainedTextureName("polished_andesite_slab_side")).build());
 			add(slabRedNetherBricks = new SlabBuilder(MyBlocks.redNetherBricks, "slab_red_nether_bricks").build());
+			add(slabSmoothQuartz = new SlabBuilder(MyBlocks.smoothQuartz, "slab_smooth_quartz").build());
 			add(slabEndStoneBricks = new SlabBuilder(MyBlocks.endStoneBricks, "slab_end_stone_bricks").build());
 			add(slabMossyStoneBricks = new SlabBuilder(Blocks.stonebrick, "slab_mossy_stone_bricks").meta(1).build());
 			add(slabMossyCobbleStone = new SlabBuilder(Blocks.mossy_cobblestone, "slab_mossy_cobblestone").build());
@@ -512,6 +514,7 @@ public final class MyBlocks {
 			slabPolishedDiorite = null;
 			slabPolishedAndesite = null;
 			slabRedNetherBricks = null;
+			slabSmoothQuartz = null;
 			slabEndStoneBricks = null;
 			slabMossyStoneBricks = null;
 			slabMossyCobbleStone = null;
