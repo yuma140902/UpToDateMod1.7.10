@@ -24,7 +24,7 @@ public class BlockSmoothQuartz extends Block implements IRegisterable, IHasRecip
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("smooth_quartz"));
+		setBlockName(StringUtil.name.domainedUnlocalized("smooth_quartz"));
 		GameRegistry.registerBlock(this, "smooth_quartz");
 	}
 	

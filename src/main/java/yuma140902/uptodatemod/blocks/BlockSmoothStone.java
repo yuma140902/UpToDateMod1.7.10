@@ -23,7 +23,7 @@ public class BlockSmoothStone extends Block implements IRegisterable, IHasRecipe
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("smooth_stone"));
+		setBlockName(StringUtil.name.domainedUnlocalized("smooth_stone"));
 		setBlockTextureName("minecraft:stone_slab_top");
 		GameRegistry.registerBlock(this, "smooth_stone");
 	}

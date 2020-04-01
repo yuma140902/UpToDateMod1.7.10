@@ -33,8 +33,8 @@ public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("armor_stand"));
-		this.setTextureName(StringUtil.getDomainedTextureName("armor_stand"));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("armor_stand"));
+		this.setTextureName(StringUtil.name.domainedTexture("armor_stand"));
 		GameRegistry.registerItem(this, "armor_stand");
 	}
 	

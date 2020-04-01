@@ -24,8 +24,8 @@ public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IReg
   
   @Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("door_dark_oak"));
-		this.setTextureName(StringUtil.getDomainedTextureName("dark_oak_door"));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("door_dark_oak"));
+		this.setTextureName(StringUtil.name.domainedTexture("dark_oak_door"));
 		GameRegistry.registerItem(this, "itemDoorDarkOak");
   }
   

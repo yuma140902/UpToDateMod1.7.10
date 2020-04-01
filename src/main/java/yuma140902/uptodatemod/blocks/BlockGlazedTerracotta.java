@@ -44,8 +44,8 @@ public class BlockGlazedTerracotta extends Block implements IRegisterable, IHasR
 	@Override
 	public void register() {
 		String colorName = ColorUtil.metaToString(colorMeta);
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName("glazed_terracotta." + colorName));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("glazed_terracotta_" + colorName));
+		this.setBlockName(StringUtil.name.domainedUnlocalized("glazed_terracotta." + colorName));
+		this.setBlockTextureName(StringUtil.name.domainedTexture("glazed_terracotta_" + colorName));
 		GameRegistry.registerBlock(this, "glazed_terracotta_" + colorName);
 	}
 	

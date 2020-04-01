@@ -24,8 +24,8 @@ public class BlockNetherWart extends Block implements IRegisterable, IHasRecipes
 	
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName("nether_wart_block"));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("nether_wart_block"));
+		this.setBlockName(StringUtil.name.domainedUnlocalized("nether_wart_block"));
+		this.setBlockTextureName(StringUtil.name.domainedTexture("nether_wart_block"));
 		GameRegistry.registerBlock(this, "nether_wart_block");
 	}
 	

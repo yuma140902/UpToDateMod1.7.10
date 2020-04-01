@@ -14,8 +14,8 @@ public class ItemPrismarineShard extends Item implements IRegisterable{
 
 	@Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("prismarine_shard"));
-		this.setTextureName(StringUtil.getDomainedTextureName("prismarine_shard"));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("prismarine_shard"));
+		this.setTextureName(StringUtil.name.domainedTexture("prismarine_shard"));
 		GameRegistry.registerItem(this, "prismarine_shard");
 	}
 	

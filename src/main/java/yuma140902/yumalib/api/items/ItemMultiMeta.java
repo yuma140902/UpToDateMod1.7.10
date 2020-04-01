@@ -41,7 +41,7 @@ public class ItemMultiMeta extends Item implements IRegisterable {
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName(name));
+		this.setUnlocalizedName(StringUtil.domainedUnlocalized(name));
 		GameRegistry.registerItem(this, name);
 	}
 	

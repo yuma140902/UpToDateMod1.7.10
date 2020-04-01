@@ -38,8 +38,8 @@ public class BlockGrassPath extends Block implements IRegisterable {
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("grass_path"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("grass_path"));
+		setBlockName(StringUtil.name.domainedUnlocalized("grass_path"));
+		setBlockTextureName(StringUtil.name.domainedTexture("grass_path"));
 		GameRegistry.registerBlock(this, "grass_path");
 	}
 	

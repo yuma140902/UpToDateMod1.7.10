@@ -44,8 +44,8 @@ public class BlockNewFlower extends BlockBush implements IRegisterable, IHasReci
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("flower"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("flower"));
+		setBlockName(StringUtil.name.domainedUnlocalized("flower"));
+		setBlockTextureName(StringUtil.name.domainedTexture("flower"));
 		GameRegistry.registerBlock(this, Companion.class, "flower");
 	}
 	

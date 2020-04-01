@@ -16,7 +16,7 @@ import yuma140902.yumalib.api.IRegisterable;
 public class BlockUnlimitedPot extends BlockFlowerPot implements IRegisterable {
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("unlimited_pot"));
+		setBlockName(StringUtil.name.domainedUnlocalized("unlimited_pot"));
 		setBlockTextureName("minecraft:flower_pot");
 		GameRegistry.registerBlock(this, "unlimited_pot");
 	}

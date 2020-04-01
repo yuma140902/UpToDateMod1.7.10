@@ -88,8 +88,8 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable,
 				p_82485_1_.getWorld().playAuxSFX(1000, p_82485_1_.getXInt(), p_82485_1_.getYInt(), p_82485_1_.getZInt(), 0);
 			}
 		});
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName(getName()));
-		this.setTextureName(StringUtil.getDomainedTextureName(getNameForTexture()));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized(getName()));
+		this.setTextureName(StringUtil.name.domainedTexture(getNameForTexture()));
 		GameRegistry.registerItem(this, getName());
 	}
 	

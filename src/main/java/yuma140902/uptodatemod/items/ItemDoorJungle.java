@@ -24,8 +24,8 @@ public class ItemDoorJungle extends net.minecraft.item.ItemDoor implements IRegi
   
   @Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("door_jungle"));
-		this.setTextureName(StringUtil.getDomainedTextureName("jungle_door"));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("door_jungle"));
+		this.setTextureName(StringUtil.name.domainedTexture("jungle_door"));
 		GameRegistry.registerItem(this, "itemDoorJungle");
   }
   

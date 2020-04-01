@@ -48,7 +48,7 @@ public class BlockSponge extends Block implements IRegisterable, IHasRecipes {
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("sponge"));
+		setBlockName(StringUtil.name.domainedUnlocalized("sponge"));
 		GameRegistry.registerBlock(this, Companion.class, "sponge");
 	}
 	
@@ -60,8 +60,8 @@ public class BlockSponge extends Block implements IRegisterable, IHasRecipes {
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		icons = new IIcon[2];
-		icons[META_DRY] = register.registerIcon(StringUtil.getDomainedTextureName("sponge"));
-		icons[META_WET] = register.registerIcon(StringUtil.getDomainedTextureName("wet_sponge"));
+		icons[META_DRY] = register.registerIcon(StringUtil.name.domainedTexture("sponge"));
+		icons[META_WET] = register.registerIcon(StringUtil.name.domainedTexture("wet_sponge"));
 	}
 	
 	@Override

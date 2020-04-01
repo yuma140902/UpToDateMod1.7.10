@@ -28,7 +28,7 @@ public class BlockGenericStairs extends BlockStairs implements IRegisterable, IH
 
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		this.setBlockName(StringUtil.domainedUnlocalized(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	

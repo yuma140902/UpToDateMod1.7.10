@@ -24,7 +24,7 @@ public class BlockSmoothSandstone extends BlockSandStone implements IRegisterabl
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("smooth_sandstone"));
+		setBlockName(StringUtil.name.domainedUnlocalized("smooth_sandstone"));
 		GameRegistry.registerBlock(this, "smooth_sandstone");
 	}
 	

@@ -30,8 +30,8 @@ public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterab
 	
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName(name));
+		this.setBlockName(StringUtil.domainedUnlocalized(name));
+		this.setBlockTextureName(StringUtil.domainedTexture(name));
 		GameRegistry.registerBlock(this, name);
 	}
 }

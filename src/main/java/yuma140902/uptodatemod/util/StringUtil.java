@@ -1,8 +1,7 @@
 package yuma140902.uptodatemod.util;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.yumalib.api.util.NameProvider;
 
 public class StringUtil {
 	private StringUtil() {}
@@ -15,29 +14,6 @@ public class StringUtil {
 		return value.isEmpty() ? "" : value + sep;
 	}
 	
-	public static String getDomainedTextureName(String name) {
-		return ModUpToDateMod.MOD_TEXTURE_DOMAIN + ":" + name;
-	}
-	
-	public static String getDomainedUnlocalizedName(String name) {
-		return ModUpToDateMod.MOD_UNLOCALIZED_ENTRY_DOMAIN + "." + name;
-	}
-	
-	
-	@Nonnull
-	public static String[] domainedTextureNames(String... names) {
-		return _domainedTextureNames(ModUpToDateMod.MOD_TEXTURE_DOMAIN, names);
-	}
-	
-	@Nonnull
-	private static String[] _domainedTextureNames(String textureDomain, @Nullable String... names) {
-		if(names == null) return new String[0];
-		
-		String[] ret = new String[names.length];
-		for (int i = 0; i < names.length; i++) {
-			ret[i] = textureDomain + ":" + names[i];
-		}
-		return ret;
-	}
+	public static final NameProvider name = new NameProvider(ModUpToDateMod.MOD_TEXTURE_DOMAIN, ModUpToDateMod.MOD_UNLOCALIZED_ENTRY_DOMAIN); 
 	
 }

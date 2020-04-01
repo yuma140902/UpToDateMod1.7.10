@@ -41,8 +41,8 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("red_sandstone"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("red_sandstone"));
+		setBlockName(StringUtil.name.domainedUnlocalized("red_sandstone"));
+		setBlockTextureName(StringUtil.name.domainedTexture("red_sandstone"));
 		GameRegistry.registerBlock(this, ItemBlockRedSandStone.class, "red_sandstone");
 	}
 	

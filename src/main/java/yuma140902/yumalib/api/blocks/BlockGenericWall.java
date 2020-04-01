@@ -44,7 +44,7 @@ public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRe
 
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		this.setBlockName(StringUtil.domainedUnlocalized(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	

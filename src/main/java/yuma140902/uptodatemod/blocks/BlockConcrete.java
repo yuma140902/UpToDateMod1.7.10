@@ -32,7 +32,7 @@ public class BlockConcrete extends Block implements IRegisterable {
 
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName("concrete"));
+		this.setBlockName(StringUtil.name.domainedUnlocalized("concrete"));
 		GameRegistry.registerBlock(this, ItemBlockColored.class, "concrete");
 	}
 	
@@ -40,7 +40,7 @@ public class BlockConcrete extends Block implements IRegisterable {
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		for(int meta = 0; meta <= META_MAX; ++meta) {
-			iicons[meta] = register.registerIcon(StringUtil.getDomainedTextureName("concrete_" + ColorUtil.metaToString(meta)));
+			iicons[meta] = register.registerIcon(StringUtil.name.domainedTexture("concrete_" + ColorUtil.metaToString(meta)));
 		}
 	}
 	

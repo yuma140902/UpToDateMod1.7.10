@@ -481,15 +481,15 @@ public final class MyBlocks {
 			add(slabPolishedGranite
 					= new SlabBuilder(MyBlocks.stone, "slab_polished_granite")
 					.meta(BlockStone.META_POLISHED_GRANITE)
-					.specialSideTexture(StringUtil.getDomainedTextureName("polished_granite_slab_side")).build());
+					.specialSideTexture(StringUtil.name.domainedTexture("polished_granite_slab_side")).build());
 			add(slabPolishedDiorite
 					= new SlabBuilder(MyBlocks.stone, "slab_polished_diorite")
 					.meta(BlockStone.META_POLISHED_DIORITE)
-					.specialSideTexture(StringUtil.getDomainedTextureName("polished_diorite_slab_side")).build());
+					.specialSideTexture(StringUtil.name.domainedTexture("polished_diorite_slab_side")).build());
 			add(slabPolishedAndesite
 					= new SlabBuilder(MyBlocks.stone, "slab_polished_andesite")
 					.meta(BlockStone.META_POLISHED_ANDESITE)
-					.specialSideTexture(StringUtil.getDomainedTextureName("polished_andesite_slab_side")).build());
+					.specialSideTexture(StringUtil.name.domainedTexture("polished_andesite_slab_side")).build());
 			add(slabRedNetherBricks = new SlabBuilder(MyBlocks.redNetherBricks, "slab_red_nether_bricks").build());
 			add(slabSmoothQuartz = new SlabBuilder(MyBlocks.smoothQuartz, "slab_smooth_quartz").build());
 			add(slabEndStoneBricks = new SlabBuilder(MyBlocks.endStoneBricks, "slab_end_stone_bricks").build());

@@ -21,8 +21,8 @@ public class BlockIronTrapDoor extends BlockTrapDoor implements IRegisterable, I
 
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName("trap_door_iron"));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("trap_door_iron"));
+		this.setBlockName(StringUtil.name.domainedUnlocalized("trap_door_iron"));
+		this.setBlockTextureName(StringUtil.name.domainedTexture("trap_door_iron"));
 		GameRegistry.registerBlock(this, "trap_door_iron");
 	}
 	

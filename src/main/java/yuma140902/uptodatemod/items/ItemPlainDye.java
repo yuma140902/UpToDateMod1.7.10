@@ -14,7 +14,7 @@ public class ItemPlainDye extends ItemMultiMeta implements IRegisterable, IHasRe
 	public static final int BLUE=0, WHITE=1, BLACK=2, BROWN=3;
 	
 	public ItemPlainDye() {
-		super("dye", new String[] {"blue", "white", "black", "brown"}, StringUtil.domainedTextureNames("blue_dye", "white_dye", "black_dye", "brown_dye"));
+		super("dye", new String[] {"blue", "white", "black", "brown"}, StringUtil.name.domainedTextures("blue_dye", "white_dye", "black_dye", "brown_dye"));
 		setCreativeTab(CreativeTabs.tabMaterials);
 	}
 	

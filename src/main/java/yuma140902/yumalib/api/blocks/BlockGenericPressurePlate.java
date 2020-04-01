@@ -31,7 +31,7 @@ public class BlockGenericPressurePlate extends BlockPressurePlate implements IRe
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		setBlockName(StringUtil.domainedUnlocalized(name));
 		GameRegistry.registerBlock(this, name);
 	}
 	

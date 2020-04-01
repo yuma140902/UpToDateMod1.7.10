@@ -22,8 +22,8 @@ public class BlockPurpur extends Block implements IRegisterable {
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("purpur_block"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("purpur_block"));
+		setBlockName(StringUtil.name.domainedUnlocalized("purpur_block"));
+		setBlockTextureName(StringUtil.name.domainedTexture("purpur_block"));
 		GameRegistry.registerBlock(this, "purpur_block");
 	}
 	

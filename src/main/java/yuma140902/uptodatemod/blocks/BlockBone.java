@@ -28,8 +28,8 @@ public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHas
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("bone_block"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("bone_block"));
+		setBlockName(StringUtil.name.domainedUnlocalized("bone_block"));
+		setBlockTextureName(StringUtil.name.domainedTexture("bone_block"));
 		GameRegistry.registerBlock(this, "bone_block");
 	}
 	

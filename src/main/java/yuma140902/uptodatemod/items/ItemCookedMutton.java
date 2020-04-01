@@ -17,8 +17,8 @@ public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRec
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("cooked_mutton"));
-		this.setTextureName(StringUtil.getDomainedTextureName("cooked_mutton"));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("cooked_mutton"));
+		this.setTextureName(StringUtil.name.domainedTexture("cooked_mutton"));
 		GameRegistry.registerItem(this, "cooked_mutton");
 	}
 	

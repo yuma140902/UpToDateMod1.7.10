@@ -63,9 +63,9 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 		this.setSlabs(this, slabDouble);
 		slabDouble.setSlabs(this, slabDouble);
 		
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		this.setBlockName(StringUtil.name.domainedUnlocalized(name));
 		GameRegistry.registerBlock(this, ItemBlockGenericSlab.class, name);
-		slabDouble.setBlockName(StringUtil.getDomainedUnlocalizedName(name));
+		slabDouble.setBlockName(StringUtil.name.domainedUnlocalized(name));
 		GameRegistry.registerBlock(slabDouble, ItemBlockGenericSlab.class, "double_" + name);
 	}
 	
@@ -152,6 +152,6 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 
 	@Override
 	public String func_150002_b(int p_150002_1_) {
-		return StringUtil.getDomainedUnlocalizedName(name);
+		return StringUtil.name.domainedUnlocalized(name);
 	}
 }
