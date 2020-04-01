@@ -8,6 +8,7 @@ import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 
 public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRecipes {
 	public ItemCookedMutton() {
@@ -23,6 +24,6 @@ public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRec
 	
 	@Override
 	public void registerRecipes() {
-		RecipeRegister.addSmelting(new ItemStack(MyItems.rawMutton), new ItemStack(this), 5);
+		RecipeRegister.addSmelting(new ItemStack(MyItems.rawMutton), new ItemStack(this), McConst.EXP_MEAT);
 	}
 }
