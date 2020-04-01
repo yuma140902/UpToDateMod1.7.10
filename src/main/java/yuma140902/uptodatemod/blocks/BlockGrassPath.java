@@ -119,6 +119,17 @@ public class BlockGrassPath extends Block implements IRegisterable {
 	}
 	
 	@Override
+	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
+		setBlockBoundsForItemRender();
+		return super.getSelectedBoundingBoxFromPool(world, x, y, z);
+	}
+	
+	@Override
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
+		setBlockBoundsForItemRender();
+	}
+	
+	@Override
 	public void setBlockBoundsForItemRender() {
 		this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 15.0f/16.0f, 1.0f);
 	}
