@@ -180,6 +180,7 @@ public final class MyBlocks {
 	public static final BlockGenericStairs stairsPolishedDiorite;
 	public static final BlockGenericStairs stairsPolishedAndesite;
 	public static final BlockGenericStairs stairsRedNetherBricks;
+	public static final BlockGenericStairs stairsSmoothQuartz;
 	public static final BlockGenericStairs stairsPrismarine;
 	public static final BlockGenericStairs stairsPrismarineBricks;
 	public static final BlockGenericStairs stairsDarkPrismarine;
@@ -437,6 +438,7 @@ public final class MyBlocks {
 			add(stairsPolishedDiorite = new StairsBuilder(MyBlocks.stone, "stairs_polished_diorite").meta(BlockStone.META_POLISHED_DIORITE).build());
 			add(stairsPolishedAndesite = new StairsBuilder(MyBlocks.stone, "stairs_polished_andesite").meta(BlockStone.META_POLISHED_ANDESITE).build());
 			add(stairsRedNetherBricks = new StairsBuilder(MyBlocks.redNetherBricks, "stairs_red_nether_bricks").build());
+			add(stairsSmoothQuartz = new StairsBuilder(MyBlocks.smoothQuartz, "stairs_smooth_quartz").build());
 			add(stairsPrismarine = new StairsBuilder(MyBlocks.prismarineBlock, "stairs_prismarine").build());
 			add(stairsPrismarineBricks = new StairsBuilder(MyBlocks.prismarineBricks, "stairs_prismarine_bricks").build());
 			add(stairsDarkPrismarine = new StairsBuilder(MyBlocks.prismarineDark, "stairs_dark_prismarine").build());
@@ -457,6 +459,7 @@ public final class MyBlocks {
 			stairsPolishedDiorite = null;
 			stairsPolishedAndesite = null;
 			stairsRedNetherBricks = null;
+			stairsSmoothQuartz = null;
 			stairsPrismarine = null;
 			stairsPrismarineBricks = null;
 			stairsDarkPrismarine = null;
