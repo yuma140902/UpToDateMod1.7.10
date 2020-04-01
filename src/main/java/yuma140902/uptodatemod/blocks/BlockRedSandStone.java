@@ -108,5 +108,7 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 				"H",
 				'H', MyBlocks.slabRedSandstone
 				);
+		
+		RecipeRegister.addSmelting(new ItemStack(this, 1, META_NORMAL), new ItemStack(this, 1, META_SMOOTH), McConst.EXP_STONE);
 	}
 }
