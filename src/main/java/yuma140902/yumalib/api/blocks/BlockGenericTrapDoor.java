@@ -36,11 +36,10 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   @Override
   public void registerBlockIcons(IIconRegister register) {
   	super.registerBlockIcons(register);
-  	String texture_name = Contexts.current().nameProvider().domainedTexture(name);
-  	icon0 = register.registerIcon(texture_name);
-  	icon90 = register.registerIcon(texture_name + "_90");
-  	icon180 = register.registerIcon(texture_name + "_180");
-  	icon270 = register.registerIcon(texture_name + "_270");
+  	icon0 = register.registerIcon(getTextureName());
+  	icon90 = register.registerIcon(getTextureName() + "_90");
+  	icon180 = register.registerIcon(getTextureName() + "_180");
+  	icon270 = register.registerIcon(getTextureName() + "_270");
   }
   
   @Override

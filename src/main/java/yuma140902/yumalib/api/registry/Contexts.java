@@ -3,6 +3,7 @@ package yuma140902.yumalib.api.registry;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import yuma140902.yumalib.YLConstants;
+import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.context.InitModContext;
 import yuma140902.yumalib.api.util.NameProvider;
 
@@ -18,6 +19,10 @@ public class Contexts {
 	@Nullable
 	private static InitModContext current = null;
 	
+	/**
+	 * 注意: {@link IRegisterable#register()}以外の場所から{@link InitModContext}を利用するのは危険
+	 * @return 現在の{@link InitModContext}。設定されていなければYumaLibのデフォルト値
+	 */
 	@Nonnull
 	public static InitModContext current() {
 		return current != null ? current : DEFAULT;
