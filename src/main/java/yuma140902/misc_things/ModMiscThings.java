@@ -7,11 +7,8 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraft.init.Blocks;
 import yuma140902.misc_things.config.MTConfigCore;
 import yuma140902.misc_things.proxy.MTCommonProxy;
-import yuma140902.yumalib.api.blocks.BlockGenericSlab;
-import yuma140902.yumalib.api.blocks.SlabBuilder;
 import yuma140902.yumalib.api.context.InitModContext;
 import yuma140902.yumalib.api.registry.Contexts;
 import yuma140902.yumalib.api.util.NameProvider;
@@ -47,13 +44,11 @@ public class ModMiscThings {
 		loadModMetadata(modMetadata);
 		MTConfigCore.loadConfig(event);
 		
-		Contexts.setContext(new InitModContext(new NameProvider(MTConstants.MOD_ID, MTConstants.MOD_ID)));
-		
-		BlockGenericSlab slabAnvil = SlabBuilder.create(Blocks.anvil, "slab_anvil").build();
-		slabAnvil.register();
-		slabAnvil.registerRecipes();
+		Contexts.setContext(new InitModContext(MTConstants.MOD_NAME, new NameProvider(MTConstants.MOD_ID, MTConstants.MOD_ID)));
 		
 		proxy.registerEventHandlers();
+		
+		Contexts.removeContext();
 	}
 }
 
