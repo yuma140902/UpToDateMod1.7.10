@@ -432,25 +432,25 @@ public final class MyBlocks {
 		add(grassPath = isEnabled(EnumDisableableFeatures.grassPath) ? new BlockGrassPath() : null);
 		
 		if(isEnabled(allKindsOfStairs)) {
-			add(stairsStone = StairsBuilder.create(Blocks.stone, "stairs_stone").build());
-			add(stairsGranite = StairsBuilder.create(MyBlocks.stone, "stairs_granite").meta(BlockStone.META_GRANITE).build());
-			add(stairsDiorite = StairsBuilder.create(MyBlocks.stone, "stairs_diorite").meta(BlockStone.META_DIORITE).build());
-			add(stairsAndesite = StairsBuilder.create(MyBlocks.stone, "stairs_andesite").meta(BlockStone.META_ANDESITE).build());
-			add(stairsPolishedGranite = StairsBuilder.create(MyBlocks.stone, "stairs_polished_granite").meta(BlockStone.META_POLISHED_GRANITE).build());
-			add(stairsPolishedDiorite = StairsBuilder.create(MyBlocks.stone, "stairs_polished_diorite").meta(BlockStone.META_POLISHED_DIORITE).build());
-			add(stairsPolishedAndesite = StairsBuilder.create(MyBlocks.stone, "stairs_polished_andesite").meta(BlockStone.META_POLISHED_ANDESITE).build());
-			add(stairsRedNetherBricks = StairsBuilder.create(MyBlocks.redNetherBricks, "stairs_red_nether_bricks").build());
-			add(stairsSmoothQuartz = StairsBuilder.create(MyBlocks.smoothQuartz, "stairs_smooth_quartz").build());
-			add(stairsPrismarine = StairsBuilder.create(MyBlocks.prismarineBlock, "stairs_prismarine").build());
-			add(stairsPrismarineBricks = StairsBuilder.create(MyBlocks.prismarineBricks, "stairs_prismarine_bricks").build());
-			add(stairsDarkPrismarine = StairsBuilder.create(MyBlocks.prismarineDark, "stairs_dark_prismarine").build());
-			add(stairsPurpur = StairsBuilder.create(MyBlocks.purpurBlock, "stairs_purpur").build());
-			add(stairsSmoothSandstone = StairsBuilder.create(MyBlocks.smoothSandstone, "stairs_smooth_sandstone").build());
-			add(stairsRedSandstone = StairsBuilder.create(MyBlocks.redSandStone, "stairs_red_sandstone").meta(BlockRedSandStone.META_NORMAL).build());
-			add(stairsSmoothRedSandstone = StairsBuilder.create(MyBlocks.redSandStone, "stairs_smooth_red_sandstone").meta(BlockRedSandStone.META_SMOOTH).build());
-			add(stairsEndStoneBricks = StairsBuilder.create(MyBlocks.endStoneBricks, "stairs_end_stone_bricks").build());
-			add(stairsMossyStoneBricks = StairsBuilder.create(Blocks.stonebrick, "stairs_mossy_stone_bricks").meta(1).build());
-			add(stairsMossyCobbleStone = StairsBuilder.create(Blocks.mossy_cobblestone, "stairs_mossy_cobblestone").build());
+			add(stairsStone = StairsBuilder.of(Blocks.stone, "stairs_stone").build());
+			add(stairsGranite = StairsBuilder.of(MyBlocks.stone, "stairs_granite").meta(BlockStone.META_GRANITE).build());
+			add(stairsDiorite = StairsBuilder.of(MyBlocks.stone, "stairs_diorite").meta(BlockStone.META_DIORITE).build());
+			add(stairsAndesite = StairsBuilder.of(MyBlocks.stone, "stairs_andesite").meta(BlockStone.META_ANDESITE).build());
+			add(stairsPolishedGranite = StairsBuilder.of(MyBlocks.stone, "stairs_polished_granite").meta(BlockStone.META_POLISHED_GRANITE).build());
+			add(stairsPolishedDiorite = StairsBuilder.of(MyBlocks.stone, "stairs_polished_diorite").meta(BlockStone.META_POLISHED_DIORITE).build());
+			add(stairsPolishedAndesite = StairsBuilder.of(MyBlocks.stone, "stairs_polished_andesite").meta(BlockStone.META_POLISHED_ANDESITE).build());
+			add(stairsRedNetherBricks = StairsBuilder.of(MyBlocks.redNetherBricks, "stairs_red_nether_bricks").build());
+			add(stairsSmoothQuartz = StairsBuilder.of(MyBlocks.smoothQuartz, "stairs_smooth_quartz").build());
+			add(stairsPrismarine = StairsBuilder.of(MyBlocks.prismarineBlock, "stairs_prismarine").build());
+			add(stairsPrismarineBricks = StairsBuilder.of(MyBlocks.prismarineBricks, "stairs_prismarine_bricks").build());
+			add(stairsDarkPrismarine = StairsBuilder.of(MyBlocks.prismarineDark, "stairs_dark_prismarine").build());
+			add(stairsPurpur = StairsBuilder.of(MyBlocks.purpurBlock, "stairs_purpur").build());
+			add(stairsSmoothSandstone = StairsBuilder.of(MyBlocks.smoothSandstone, "stairs_smooth_sandstone").build());
+			add(stairsRedSandstone = StairsBuilder.of(MyBlocks.redSandStone, "stairs_red_sandstone").meta(BlockRedSandStone.META_NORMAL).build());
+			add(stairsSmoothRedSandstone = StairsBuilder.of(MyBlocks.redSandStone, "stairs_smooth_red_sandstone").meta(BlockRedSandStone.META_SMOOTH).build());
+			add(stairsEndStoneBricks = StairsBuilder.of(MyBlocks.endStoneBricks, "stairs_end_stone_bricks").build());
+			add(stairsMossyStoneBricks = StairsBuilder.of(Blocks.stonebrick, "stairs_mossy_stone_bricks").meta(1).build());
+			add(stairsMossyCobbleStone = StairsBuilder.of(Blocks.mossy_cobblestone, "stairs_mossy_cobblestone").build());
 		}
 		else {
 			stairsStone = null;
@@ -476,35 +476,35 @@ public final class MyBlocks {
 		
 		if(isEnabled(allKindsOfSlabs)) {
 			add(slabStone = new BlockStoneSlab());
-			add(slabGranite = SlabBuilder.create(MyBlocks.stone, "slab_granite").meta(BlockStone.META_GRANITE).build());
-			add(slabDiorite = SlabBuilder.create(MyBlocks.stone, "slab_diorite").meta(BlockStone.META_DIORITE).build());
-			add(slabAndesite = SlabBuilder.create(MyBlocks.stone, "slab_andesite").meta(BlockStone.META_ANDESITE).build());
+			add(slabGranite = SlabBuilder.of(MyBlocks.stone, "slab_granite").meta(BlockStone.META_GRANITE).build());
+			add(slabDiorite = SlabBuilder.of(MyBlocks.stone, "slab_diorite").meta(BlockStone.META_DIORITE).build());
+			add(slabAndesite = SlabBuilder.of(MyBlocks.stone, "slab_andesite").meta(BlockStone.META_ANDESITE).build());
 			add(slabPolishedGranite
-					= SlabBuilder.create(MyBlocks.stone, "slab_polished_granite")
+					= SlabBuilder.of(MyBlocks.stone, "slab_polished_granite")
 					.meta(BlockStone.META_POLISHED_GRANITE)
 					.specialSideTexture(StringUtil.name.domainedTexture("polished_granite_slab_side")).build());
 			add(slabPolishedDiorite
-					= SlabBuilder.create(MyBlocks.stone, "slab_polished_diorite")
+					= SlabBuilder.of(MyBlocks.stone, "slab_polished_diorite")
 					.meta(BlockStone.META_POLISHED_DIORITE)
 					.specialSideTexture(StringUtil.name.domainedTexture("polished_diorite_slab_side")).build());
 			add(slabPolishedAndesite
-					= SlabBuilder.create(MyBlocks.stone, "slab_polished_andesite")
+					= SlabBuilder.of(MyBlocks.stone, "slab_polished_andesite")
 					.meta(BlockStone.META_POLISHED_ANDESITE)
 					.specialSideTexture(StringUtil.name.domainedTexture("polished_andesite_slab_side")).build());
-			add(slabRedNetherBricks = SlabBuilder.create(MyBlocks.redNetherBricks, "slab_red_nether_bricks").build());
-			add(slabSmoothQuartz = SlabBuilder.create(MyBlocks.smoothQuartz, "slab_smooth_quartz").build());
-			add(slabEndStoneBricks = SlabBuilder.create(MyBlocks.endStoneBricks, "slab_end_stone_bricks").build());
-			add(slabMossyStoneBricks = SlabBuilder.create(Blocks.stonebrick, "slab_mossy_stone_bricks").meta(1).build());
-			add(slabMossyCobbleStone = SlabBuilder.create(Blocks.mossy_cobblestone, "slab_mossy_cobblestone").build());
-			add(slabCutSandstone = SlabBuilder.create(Blocks.sandstone, "slab_cut_sandstone").meta(McConst.Meta.SANDSTONE_CUT).build());
-			add(slabSmoothSandstone = SlabBuilder.create(MyBlocks.smoothSandstone, "slab_smooth_sandstone").build());
-			add(slabRedSandstone = SlabBuilder.create(MyBlocks.redSandStone, "slab_red_sandstone").meta(BlockRedSandStone.META_NORMAL).build());
-			add(slabCutRedSandstone = SlabBuilder.create(MyBlocks.redSandStone, "slab_cut_red_sandstone").meta(BlockRedSandStone.META_CUT).build());
-			add(slabSmoothRedSandstone = SlabBuilder.create(MyBlocks.redSandStone, "slab_smooth_red_sandstone").meta(BlockRedSandStone.META_SMOOTH).build());
-			add(slabPurpur = SlabBuilder.create(MyBlocks.purpurBlock, "slab_purpur").build());
-			add(slabPrismarine = SlabBuilder.create(MyBlocks.prismarineBlock, "slab_prismarine").build());
-			add(slabPrismarineBricks = SlabBuilder.create(MyBlocks.prismarineBricks, "slab_prismarine_bricks").build());
-			add(slabDarkPrismarine = SlabBuilder.create(MyBlocks.prismarineDark, "slab_dark_prismairne").build());
+			add(slabRedNetherBricks = SlabBuilder.of(MyBlocks.redNetherBricks, "slab_red_nether_bricks").build());
+			add(slabSmoothQuartz = SlabBuilder.of(MyBlocks.smoothQuartz, "slab_smooth_quartz").build());
+			add(slabEndStoneBricks = SlabBuilder.of(MyBlocks.endStoneBricks, "slab_end_stone_bricks").build());
+			add(slabMossyStoneBricks = SlabBuilder.of(Blocks.stonebrick, "slab_mossy_stone_bricks").meta(1).build());
+			add(slabMossyCobbleStone = SlabBuilder.of(Blocks.mossy_cobblestone, "slab_mossy_cobblestone").build());
+			add(slabCutSandstone = SlabBuilder.of(Blocks.sandstone, "slab_cut_sandstone").meta(McConst.Meta.SANDSTONE_CUT).build());
+			add(slabSmoothSandstone = SlabBuilder.of(MyBlocks.smoothSandstone, "slab_smooth_sandstone").build());
+			add(slabRedSandstone = SlabBuilder.of(MyBlocks.redSandStone, "slab_red_sandstone").meta(BlockRedSandStone.META_NORMAL).build());
+			add(slabCutRedSandstone = SlabBuilder.of(MyBlocks.redSandStone, "slab_cut_red_sandstone").meta(BlockRedSandStone.META_CUT).build());
+			add(slabSmoothRedSandstone = SlabBuilder.of(MyBlocks.redSandStone, "slab_smooth_red_sandstone").meta(BlockRedSandStone.META_SMOOTH).build());
+			add(slabPurpur = SlabBuilder.of(MyBlocks.purpurBlock, "slab_purpur").build());
+			add(slabPrismarine = SlabBuilder.of(MyBlocks.prismarineBlock, "slab_prismarine").build());
+			add(slabPrismarineBricks = SlabBuilder.of(MyBlocks.prismarineBricks, "slab_prismarine_bricks").build());
+			add(slabDarkPrismarine = SlabBuilder.of(MyBlocks.prismarineDark, "slab_dark_prismairne").build());
 		}
 		else {
 			slabStone = null;
@@ -531,20 +531,20 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(allKindsOfWalls)) {
-			add(wallBricks = WallBuilder.create(Blocks.brick_block, "wall_bricks").build());
-			add(wallStoneBricks = WallBuilder.create(Blocks.stonebrick, "wall_stone_bricks").build());
-			add(wallMossyStoneBricks = WallBuilder.create(Blocks.stonebrick, "wall_mossy_stone_bricks").meta(1).build());
-			add(wallSandstone = WallBuilder.create(Blocks.sandstone, "wall_sandstone").build());
-			add(wallRedSandstone = WallBuilder.create(MyBlocks.redSandStone, "wall_red_sandstone").build());
-			add(wallNetherBricks = WallBuilder.create(Blocks.nether_brick, "wall_nether_bricks").build());
-			add(wallRedNetherBricks = WallBuilder.create(MyBlocks.redNetherBricks, "wall_red_nether_bricks").build());
-			add(wallEndStoneBricks = WallBuilder.create(MyBlocks.endStoneBricks, "wall_end_stone_bricks").build());
-			add(wallAndesite = WallBuilder.create(MyBlocks.stone, "wall_andesite").meta(BlockStone.META_ANDESITE).build());
-			add(wallDiorite = WallBuilder.create(MyBlocks.stone, "wall_diorite").meta(BlockStone.META_DIORITE).build());
-			add(wallGranite = WallBuilder.create(MyBlocks.stone, "wall_granite").meta(BlockStone.META_GRANITE).build());
-			add(wallPrismarine = WallBuilder.create(prismarineBlock, "wall_prismarine").build());
-			add(wallPrismarineBrick = WallBuilder.create(prismarineBricks, "wall_prismarine_brick").build());
-			add(wallDarkPrismarine = WallBuilder.create(prismarineDark, "wall_dark_prismarine").build());
+			add(wallBricks = WallBuilder.of(Blocks.brick_block, "wall_bricks").build());
+			add(wallStoneBricks = WallBuilder.of(Blocks.stonebrick, "wall_stone_bricks").build());
+			add(wallMossyStoneBricks = WallBuilder.of(Blocks.stonebrick, "wall_mossy_stone_bricks").meta(1).build());
+			add(wallSandstone = WallBuilder.of(Blocks.sandstone, "wall_sandstone").build());
+			add(wallRedSandstone = WallBuilder.of(MyBlocks.redSandStone, "wall_red_sandstone").build());
+			add(wallNetherBricks = WallBuilder.of(Blocks.nether_brick, "wall_nether_bricks").build());
+			add(wallRedNetherBricks = WallBuilder.of(MyBlocks.redNetherBricks, "wall_red_nether_bricks").build());
+			add(wallEndStoneBricks = WallBuilder.of(MyBlocks.endStoneBricks, "wall_end_stone_bricks").build());
+			add(wallAndesite = WallBuilder.of(MyBlocks.stone, "wall_andesite").meta(BlockStone.META_ANDESITE).build());
+			add(wallDiorite = WallBuilder.of(MyBlocks.stone, "wall_diorite").meta(BlockStone.META_DIORITE).build());
+			add(wallGranite = WallBuilder.of(MyBlocks.stone, "wall_granite").meta(BlockStone.META_GRANITE).build());
+			add(wallPrismarine = WallBuilder.of(prismarineBlock, "wall_prismarine").build());
+			add(wallPrismarineBrick = WallBuilder.of(prismarineBricks, "wall_prismarine_brick").build());
+			add(wallDarkPrismarine = WallBuilder.of(prismarineDark, "wall_dark_prismarine").build());
 		}
 		else {
 			wallBricks = null;

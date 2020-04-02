@@ -14,7 +14,7 @@ public class WallBuilder {
 		this.name = name;
 	}
 	
-	public static WallBuilder create(@Nullable Block block, String name) {
+	public static WallBuilder of(@Nullable Block block, String name) {
 		return new WallBuilder(block, name);
 	}
 	

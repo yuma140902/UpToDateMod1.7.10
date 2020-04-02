@@ -15,7 +15,7 @@ public class SlabBuilder {
 		this.name = name;
 	}
 	
-	public static SlabBuilder create(@Nullable Block baseBlock, String name) {
+	public static SlabBuilder of(@Nullable Block baseBlock, String name) {
 		return new SlabBuilder(baseBlock, name);
 	}
 	
