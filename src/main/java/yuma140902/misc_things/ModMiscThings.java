@@ -46,6 +46,7 @@ public class ModMiscThings {
 		
 		Contexts.setContext(new InitModContext(MTConstants.MOD_NAME, new NameProvider(MTConstants.MOD_ID, MTConstants.MOD_ID)));
 		
+		AdditionalVariantBlocks.register();
 		proxy.registerEventHandlers();
 		
 		Contexts.removeContext();
