@@ -11,8 +11,8 @@ import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockPrismarine extends Block implements IRegisterable, IHasRecipes {
 	
@@ -26,8 +26,8 @@ public class BlockPrismarine extends Block implements IRegisterable, IHasRecipes
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("prismarine_block"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("prismarine"));
+		setBlockName(StringUtil.name.domainedUnlocalized("prismarine_block"));
+		setBlockTextureName(StringUtil.name.domainedTexture("prismarine"));
 		GameRegistry.registerBlock(this, "prismarine_block");
 		OreDictionary.registerOre("blockPrismarine", this);
 	}

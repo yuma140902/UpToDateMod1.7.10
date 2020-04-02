@@ -3,7 +3,7 @@ package yuma140902.uptodatemod.entity.item;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyItems;
-import yuma140902.uptodatemod.util.Stat;
+import yuma140902.yumalib.api.McConst;
 
 public class EntityBoatBirch extends EntityModBoatBase {
 
@@ -27,7 +27,7 @@ public class EntityBoatBirch extends EntityModBoatBase {
 
 	@Override
 	protected int getPlankMeta() {
-		return Stat.PLANK_META_BIRCH;
+		return McConst.Meta.PLANK_BIRCH;
 	}
 	
 	

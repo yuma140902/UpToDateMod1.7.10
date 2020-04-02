@@ -21,8 +21,8 @@ import yuma140902.uptodatemod.entity.Rotations;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 
@@ -33,8 +33,8 @@ public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("armor_stand"));
-		this.setTextureName(StringUtil.getDomainedTextureName("armor_stand"));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("armor_stand"));
+		this.setTextureName(StringUtil.name.domainedTexture("armor_stand"));
 		GameRegistry.registerItem(this, "armor_stand");
 	}
 	
@@ -60,7 +60,6 @@ public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		if (side == 0)
 			return false;
@@ -132,7 +131,6 @@ public class ItemArmorStand extends Item implements IRegisterable, IHasRecipes {
 		armorStand.setBodyRotation(rotations1);
 	}
 
-	@SuppressWarnings("unchecked")
 	public void merge(NBTTagCompound nbt, NBTTagCompound other) {
 		Iterator<String> iterator = other.func_150296_c().iterator();
 

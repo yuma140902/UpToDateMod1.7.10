@@ -14,15 +14,18 @@ import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockRedSandStone;
 import yuma140902.uptodatemod.registry.RecipeRegister;
-import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
+import yuma140902.yumalib.api.util.StringUtils;
 
 public class BlockRedSandStone extends BlockSandStone implements IRegisterable, IHasRecipes {
 	
 	public static final String[] names = new String[] {"", "chiseled", "cut", "smooth"};
 	public static final int META_MAX = names.length - 1;
+	
+	public static final int META_NORMAL = 0, META_CHISELED = 1, META_CUT = 2, META_SMOOTH = 3;
 	
   @SideOnly(Side.CLIENT)
   private IIcon[] sideIcons;
@@ -39,8 +42,8 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("red_sandstone"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("red_sandstone"));
+		setBlockName(StringUtil.name.domainedUnlocalized("red_sandstone"));
+		setBlockTextureName(StringUtil.name.domainedTexture("red_sandstone"));
 		GameRegistry.registerBlock(this, ItemBlockRedSandStone.class, "red_sandstone");
 	}
 	
@@ -50,10 +53,10 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 		if(meta == 3) {
 			return topIcon;
 		}
-		else if(side == Stat.SIDE_TOP) {
+		else if(side == McConst.SIDE_TOP) {
 			return topIcon;
 		}
-		else if(side == Stat.SIDE_BOTTOM) {
+		else if(side == McConst.SIDE_BOTTOM) {
 			return bottomIcon;
 		}
 		else {
@@ -62,7 +65,6 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 		}
 	}
 	
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
@@ -77,7 +79,7 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 		this.sideIcons = new IIcon[names.length];
 		
 		for (int i = 0; i < this.sideIcons.length; ++i) {
-			this.sideIcons[i] = register.registerIcon(this.getTextureName() + StringUtil.surfix("_", names[i]));
+			this.sideIcons[i] = register.registerIcon(this.getTextureName() + StringUtils.surfix("_", names[i]));
 		}
 		
 		this.topIcon = register.registerIcon(this.getTextureName() + "_top");
@@ -87,24 +89,26 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 	@Override
 	public void registerRecipes() {
 		RecipeRegister.addShaped(
-				new ItemStack(MyBlocks.redSandStone, 1, 0),
+				new ItemStack(MyBlocks.redSandStone, 1, META_NORMAL),
 				"##",
 				"##",
 				'#', new ItemStack(Blocks.sand, 1, 1)
 				);
 		
 		RecipeRegister.addShaped(
-				new ItemStack(MyBlocks.redSandStone, 4, 2),
+				new ItemStack(MyBlocks.redSandStone, 4, META_CUT),
 				"##",
 				"##",
-				'#', new ItemStack(MyBlocks.redSandStone, 1, 0)
+				'#', new ItemStack(MyBlocks.redSandStone, 1, META_NORMAL)
 				);
 		
 		RecipeRegister.addShaped(
-				new ItemStack(MyBlocks.redSandStone, 1, 1),
+				new ItemStack(MyBlocks.redSandStone, 1, META_CHISELED),
 				"H",
 				"H",
 				'H', MyBlocks.slabRedSandstone
 				);
+		
+		RecipeRegister.addSmelting(new ItemStack(this, 1, META_NORMAL), new ItemStack(this, 1, META_SMOOTH), McConst.EXP_STONE);
 	}
 }

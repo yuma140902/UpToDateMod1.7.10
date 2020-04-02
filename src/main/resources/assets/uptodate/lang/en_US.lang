@@ -54,6 +54,8 @@ tile.uptodate.prismarine_block.name=Prismarine
 tile.uptodate.prismarine_brick.name=Prismarine Bricks
 tile.uptodate.dark_prismarine_block.name=Dark Prismarine
 tile.uptodate.sea_lantern.name=Sea Lantern
+tile.uptodate.sponge.name=Sponge
+tile.uptodate.sponge.wet.name=Wet Sponge
 
 item.uptodate.iron_nugget.name=Iron Nugget
 
@@ -79,6 +81,7 @@ tile.uptodate.pressure_plate_spruce.name=Spruce Pressure Plate
 tile.uptodate.red_nether_bricks.name=Red Nether Bricks
 tile.uptodate.nether_wart_block.name=Nether Wart Block
 tile.uptodate.magma_block.name=Magma Block
+tile.uptodate.smooth_quartz.name=Smooth Quartz Block
 
 tile.uptodate.end_stone_bricks.name=End Stone Bricks
 tile.uptodate.purpur_block.name=Purpur Block
@@ -86,6 +89,8 @@ tile.uptodate.purpur_pillar.name=Purpur Pillar
 
 tile.uptodate.bone_block.name=Bone Block
 
+tile.sandStone.smooth.name=Cut Sandstone
+tile.uptodate.smooth_sandstone.name=Smooth Sandstone
 tile.uptodate.red_sandstone.name=Red Sandstone
 tile.uptodate.red_sandstone.chiseled.name=Chiseled Red Sandstone
 tile.uptodate.red_sandstone.cut.name=Cut Red Sandstone
@@ -107,11 +112,14 @@ tile.uptodate.stairs_polished_granite.name=Polished Granite Stairs
 tile.uptodate.stairs_polished_diorite.name=Polished Diorite Stairs
 tile.uptodate.stairs_polished_andesite.name=Polished Andesite Stairs
 tile.uptodate.stairs_red_nether_bricks.name=Red Nether Brick Stairs
+tile.uptodate.stairs_smooth_quartz.name=Smooth Quartz Stairs
 tile.uptodate.stairs_prismarine.name=Prismarine Stairs
 tile.uptodate.stairs_prismarine_bricks.name=Prismarine Brick Stairs
 tile.uptodate.stairs_dark_prismarine.name=Dark Prismarine Stairs
 tile.uptodate.stairs_purpur.name=Purpur Stairs
+tile.uptodate.stairs_smooth_sandstone.name=Smooth Sandstone Stairs
 tile.uptodate.stairs_red_sandstone.name=Red Sandstone Stairs
+tile.uptodate.stairs_smooth_red_sandstone.name=Smooth Red Sandstone Stairs
 tile.uptodate.stairs_end_stone_bricks.name=End Stone Brick Stairs
 tile.uptodate.stairs_mossy_stone_bricks.name=Mossy Stone Brick Stairs
 tile.uptodate.stairs_mossy_cobblestone.name=Mossy Cobble Stone Stairs
@@ -124,10 +132,15 @@ tile.uptodate.slab_polished_granite.name=Polished Granite Slab
 tile.uptodate.slab_polished_diorite.name=Polished Diorite Slab
 tile.uptodate.slab_polished_andesite.name=Polished Andesite Slab
 tile.uptodate.slab_red_nether_bricks.name=Red Nether Brick Slab
+tile.uptodate.slab_smooth_quartz.name=Smooth Quartz Slab
 tile.uptodate.slab_end_stone_bricks.name=End Stone Brick Slab
 tile.uptodate.slab_mossy_stone_bricks.name=Mossy Stone Brick Slab
 tile.uptodate.slab_mossy_cobblestone.name=Mossy Cobblestone Slab
+tile.uptodate.slab_cut_sandstone.name=Cut Sandstone Slab
+tile.uptodate.slab_smooth_sandstone.name=Smooth Sandstone Slab
 tile.uptodate.slab_red_sandstone.name=Red Sandstone Slab
+tile.uptodate.slab_cut_red_sandstone.name=Cut Red Sandstone Slab
+tile.uptodate.slab_smooth_red_sandstone.name=Smooth Red Sandstone Slab
 tile.uptodate.slab_purpur.name=Purpur Slab
 tile.uptodate.slab_prismarine.name=Prismarine Slab
 tile.uptodate.slab_prismarine_bricks.name=Prismarine Brick Slab

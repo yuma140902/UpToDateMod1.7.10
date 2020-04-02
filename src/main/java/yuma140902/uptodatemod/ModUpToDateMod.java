@@ -34,14 +34,17 @@ import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.uptodatemod.util.Stat;
+import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.uptodatemod.util.UpToDateModConstants;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
-import yuma140902.yumalib_ee.api.update.IUpdateChecker;
-import yuma140902.yumalib_ee.api.update.TsvUpdateChecker;
-import yuma140902.yumalib_ee.api.update.UpdateCheckerRegistry;
+import yuma140902.yumalib.api.context.InitModContext;
+import yuma140902.yumalib.api.registry.Contexts;
+import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
+import yuma140902.yumalib.api.update.IUpdateChecker;
+import yuma140902.yumalib.api.update.TsvUpdateChecker;
 
-@Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = Stat.MOD_CONFIG_GUI_FACTORY,
-			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib_ee"
+@Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = UpToDateModConstants.MOD_CONFIG_GUI_FACTORY,
+			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib"
 		)
 public class ModUpToDateMod {
 	@Mod.Metadata(ModUpToDateMod.MOD_ID)
@@ -50,7 +53,7 @@ public class ModUpToDateMod {
 	@Mod.Instance(ModUpToDateMod.MOD_ID)
 	public static ModUpToDateMod INSTANCE;
 	
-	@SidedProxy(modId = ModUpToDateMod.MOD_ID, clientSide = Stat.PROXY_CLIENT, serverSide = Stat.PROXY_SERVER)
+	@SidedProxy(modId = ModUpToDateMod.MOD_ID, clientSide = UpToDateModConstants.PROXY_CLIENT, serverSide = UpToDateModConstants.PROXY_SERVER)
 	public static CommonProxy proxy;
 	
 	public static SimpleNetworkWrapper networkWrapper;
@@ -94,7 +97,7 @@ public class ModUpToDateMod {
 		Blocks.melon_block.setHarvestLevel("axe", 0);
 	}
 	
-	private void setFinalField(Class<?> clazz, Object that, Object newValue, String... fieldNames) {
+	private static void setFinalField(Class<?> clazz, Object that, Object newValue, String... fieldNames) {
 		try {
 			Field field = ReflectionHelper.findField(clazz, fieldNames);
 			field.setAccessible(true);
@@ -115,6 +118,9 @@ public class ModUpToDateMod {
 		loadModMetadata(modMetadata);
 		ModConfigCore.loadConfig(event);
 		LOGGER.info("preInit");
+		
+		Contexts.setContext(new InitModContext(StringUtil.name));
+		
 		if(ModConfigCore.General.doCheckUpdate()) {
 			IUpdateChecker updateChecker = new TsvUpdateChecker(MOD_NAME, "https://www.curseforge.com/minecraft/mc-mods/uptodatemod", MOD_VERSIONS_TSV_URL, MOD_VERSION, ModConfigCore.General.updateChannel());
 			UpdateCheckerRegistry.INSTANCE.register(updateChecker);
@@ -137,6 +143,8 @@ public class ModUpToDateMod {
 		networkWrapper.registerMessage(ArmorStandInteractHandler.class, ArmorStandInteractMessage.class, 0, Side.SERVER);
 //		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.SERVER);
 		networkWrapper.registerMessage(NoteBlockPlayHandler.class, NoteBlockPlayMessage.class, 1, Side.CLIENT);
+		
+		Contexts.removeContext();
 	}
 	
 	@EventHandler

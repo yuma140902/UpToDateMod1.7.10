@@ -5,16 +5,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
-import yuma140902.yumalib_ee.api.items.ItemMultiMeta;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.items.ItemMultiMeta;
 
 public class ItemPlainDye extends ItemMultiMeta implements IRegisterable, IHasRecipes {
 
 	public static final int BLUE=0, WHITE=1, BLACK=2, BROWN=3;
 	
 	public ItemPlainDye() {
-		super("dye", new String[] {"blue", "white", "black", "brown"}, StringUtil.domainedTextureNames("blue_dye", "white_dye", "black_dye", "brown_dye"));
+		super("dye", new String[] {"blue", "white", "black", "brown"}, StringUtil.name.domainedTextures("blue_dye", "white_dye", "black_dye", "brown_dye"));
 		setCreativeTab(CreativeTabs.tabMaterials);
 	}
 	

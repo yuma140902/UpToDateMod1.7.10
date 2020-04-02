@@ -21,9 +21,9 @@ import yuma140902.uptodatemod.entity.item.EntityFallingConcretePowderBlock;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
-import yuma140902.yumalib_ee.api.items.ItemBlockColored;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.items.ItemBlockColored;
 
 public class BlockConcretePowder extends BlockFalling implements IRegisterable, IHasRecipes {
 	public static final int META_MAX = 15;
@@ -40,7 +40,7 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable, 
 	
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName("concrete_powder"));
+		this.setBlockName(StringUtil.name.domainedUnlocalized("concrete_powder"));
 		GameRegistry.registerBlock(this, ItemBlockColored.class, "concrete_powder");
 	}
 	
@@ -60,7 +60,7 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable, 
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		for (int meta = 0; meta <= META_MAX; ++meta) {
-			iicons[meta] = register.registerIcon(StringUtil.getDomainedTextureName("concrete_powder_" + ColorUtil.metaToString(meta)));
+			iicons[meta] = register.registerIcon(StringUtil.name.domainedTexture("concrete_powder_" + ColorUtil.metaToString(meta)));
 		}
 	}
 	
@@ -70,7 +70,6 @@ public class BlockConcretePowder extends BlockFalling implements IRegisterable, 
 		return iicons[meta];
 	}
 	
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {

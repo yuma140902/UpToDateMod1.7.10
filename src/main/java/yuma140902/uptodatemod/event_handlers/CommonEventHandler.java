@@ -22,7 +22,7 @@ import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.EnumNoteBlockInstrument;
-import yuma140902.uptodatemod.util.Stat;
+import yuma140902.yumalib.api.McConst;
 
 public class CommonEventHandler {
 	private CommonEventHandler() {}
@@ -89,12 +89,12 @@ public class CommonEventHandler {
 			
 			Block strippedLog = null;
 			switch(meta) {
-				case Stat.LOG_META_OAK: //LOG_META_OAK == LOG2_META_ACACIA == 0
+				case McConst.Meta.LOG_OAK: //LOG_META_OAK == LOG2_META_ACACIA == 0
 					strippedLog = log == 1 ? MyBlocks.strippedLogOak : MyBlocks.strippedLogAcacia; break;
-				case Stat.LOG_META_SPRUCE: //LOG_META_SPRUCE == LOG2_META_DARK_OAK == 1
+				case McConst.Meta.LOG_SPRUCE: //LOG_META_SPRUCE == LOG2_META_DARK_OAK == 1
 					strippedLog = log == 1 ? MyBlocks.strippedLogSpruce : MyBlocks.strippedLogDarkOak; break;
-				case Stat.LOG_META_BIRCH:	strippedLog = MyBlocks.strippedLogBirch; break;
-				case Stat.LOG_META_JUNGLE:	strippedLog = MyBlocks.strippedLogJungle; break;
+				case McConst.Meta.LOG_BIRCH:	strippedLog = MyBlocks.strippedLogBirch; break;
+				case McConst.Meta.LOG_JUNGLE:	strippedLog = MyBlocks.strippedLogJungle; break;
 				default: return;
 			}
 			

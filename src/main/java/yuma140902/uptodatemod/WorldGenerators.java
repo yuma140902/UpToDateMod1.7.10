@@ -9,7 +9,7 @@ import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 import yuma140902.uptodatemod.world.generation.UpToDateWorldGenerator;
 import yuma140902.uptodatemod.world.generation.biome.FlowerGenerator;
 import yuma140902.uptodatemod.world.generation.biome.SweetBerryGenerator;
-import yuma140902.yumalib_ee.api.world.gen.biome.BiomeDecorators;
+import yuma140902.yumalib.api.world.gen.biome.BiomeDecorators;
 
 public final class WorldGenerators {
 	private WorldGenerators() {}

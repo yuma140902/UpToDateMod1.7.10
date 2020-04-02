@@ -18,6 +18,7 @@ public enum EnumDisableableFeatures {
 	grassPath,
 	coarseDirt,
 	prismarineStuffs("prismarine block, prismarine bricks, dark prismarine, prismarine shard, and prismarine crystal"),
+	sponge,
 	redNetherBricks,
 	netherWartBlock,
 	endstoneBricks,

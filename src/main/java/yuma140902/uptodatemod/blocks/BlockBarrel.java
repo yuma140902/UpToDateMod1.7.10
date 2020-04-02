@@ -20,8 +20,8 @@ import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
 import yuma140902.uptodatemod.util.DirectionUtil;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvider, IRegisterable, IHasRecipes {
 	private IIcon iconBottom;
@@ -34,9 +34,10 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 		isBlockContainer = true;
 	}
 	
+	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("barrel"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("barrel"));
+		setBlockName(StringUtil.name.domainedUnlocalized("barrel"));
+		setBlockTextureName(StringUtil.name.domainedTexture("barrel"));
 		GameRegistry.registerBlock(this, "barrel");
 	}
 	

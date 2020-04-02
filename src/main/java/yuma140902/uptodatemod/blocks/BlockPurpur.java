@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.world.IBlockAccess;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockPurpur extends Block implements IRegisterable {
 	
@@ -22,8 +22,8 @@ public class BlockPurpur extends Block implements IRegisterable {
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("purpur_block"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("purpur_block"));
+		setBlockName(StringUtil.name.domainedUnlocalized("purpur_block"));
+		setBlockTextureName(StringUtil.name.domainedTexture("purpur_block"));
 		GameRegistry.registerBlock(this, "purpur_block");
 	}
 	

@@ -9,8 +9,8 @@ import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class ItemIronNugget extends Item implements IRegisterable, IHasRecipes {
 	
@@ -21,8 +21,8 @@ public class ItemIronNugget extends Item implements IRegisterable, IHasRecipes {
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("iron_nugget"));
-		this.setTextureName(StringUtil.getDomainedTextureName("iron_nugget"));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("iron_nugget"));
+		this.setTextureName(StringUtil.name.domainedTexture("iron_nugget"));
 		GameRegistry.registerItem(this, "iron_nugget");
 		OreDictionary.registerOre("nuggetIron", this);
 	}

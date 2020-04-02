@@ -41,7 +41,6 @@ public class UpToDateModResourcePack implements IResourcePack {
 		return Files.exists(resourceLocationToPath(location));
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
 	public Set getResourceDomains() {
 		return ImmutableSet.of(ModUpToDateMod.MOD_TEXTURE_DOMAIN);

@@ -2,12 +2,12 @@ package yuma140902.uptodatemod.blocks;
 
 import net.minecraft.init.Blocks;
 import yuma140902.uptodatemod.config.ModConfigCore;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericSlab;
+import yuma140902.yumalib.api.blocks.BlockGenericSlab;
 
 public class BlockStoneSlab extends BlockGenericSlab {
 	
 	public BlockStoneSlab() {
-		super(Blocks.stone, 0, "slab_stone");
+		super(false, Blocks.stone, 0, "slab_stone", null, false);
 	}
 	
 	

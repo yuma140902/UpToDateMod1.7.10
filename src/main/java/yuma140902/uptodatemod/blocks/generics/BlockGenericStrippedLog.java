@@ -19,8 +19,8 @@ import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.items.generics.ItemBlockGenericStrippedLog;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
 	
@@ -41,8 +41,8 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName(name));
-		setBlockTextureName(StringUtil.getDomainedTextureName(nameForTexture));
+		setBlockName(StringUtil.name.domainedUnlocalized(name));
+		setBlockTextureName(StringUtil.name.domainedTexture(nameForTexture));
 		GameRegistry.registerBlock(this, ItemBlockGenericStrippedLog.class, name);
 		OreDictionary.registerOre("logWood", this);
 	}
@@ -64,7 +64,6 @@ public class BlockGenericStrippedLog extends BlockRotatedPillar implements IRegi
 		
 	}
 	
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {

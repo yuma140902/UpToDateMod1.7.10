@@ -20,9 +20,9 @@ import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.items.ItemPlainDye;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
-import yuma140902.yumalib_ee.api.items.ItemBlockMultiName;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.items.ItemBlockMultiName;
 
 public class BlockNewFlower extends BlockBush implements IRegisterable, IHasRecipes {
 	
@@ -44,8 +44,8 @@ public class BlockNewFlower extends BlockBush implements IRegisterable, IHasReci
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("flower"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("flower"));
+		setBlockName(StringUtil.name.domainedUnlocalized("flower"));
+		setBlockTextureName(StringUtil.name.domainedTexture("flower"));
 		GameRegistry.registerBlock(this, Companion.class, "flower");
 	}
 	
@@ -83,9 +83,6 @@ public class BlockNewFlower extends BlockBush implements IRegisterable, IHasReci
 		return this.icons[meta];
 	}
 	
-	@SuppressWarnings({
-		"unchecked", "rawtypes"
-	})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {

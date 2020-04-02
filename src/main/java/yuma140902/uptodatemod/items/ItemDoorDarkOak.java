@@ -12,8 +12,8 @@ import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.Recipes;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IRegisterable, IHasRecipes {
   public ItemDoorDarkOak()
@@ -22,9 +22,10 @@ public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IReg
   	this.maxStackSize = 64;
   }
   
-  public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("door_dark_oak"));
-		this.setTextureName(StringUtil.getDomainedTextureName("dark_oak_door"));
+  @Override
+	public void register() {
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("door_dark_oak"));
+		this.setTextureName(StringUtil.name.domainedTexture("dark_oak_door"));
 		GameRegistry.registerItem(this, "itemDoorDarkOak");
   }
   
@@ -43,7 +44,8 @@ public class ItemDoorDarkOak extends net.minecraft.item.ItemDoor implements IReg
    * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return
    * True if something happen and false if it don't. This is for ITEMS, not BLOCKS
    */
-  public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+  @Override
+	public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
   {
       if (p_77648_7_ != 1)
       {

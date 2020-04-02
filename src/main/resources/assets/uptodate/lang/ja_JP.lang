@@ -54,6 +54,8 @@ tile.uptodate.prismarine_block.name=プリズマリン
 tile.uptodate.prismarine_brick.name=プリズマリンレンガ
 tile.uptodate.dark_prismarine_block.name=ダークプリズマリン
 tile.uptodate.sea_lantern.name=シーランタン
+tile.uptodate.sponge.name=スポンジ
+tile.uptodate.sponge.wet.name=濡れたスポンジ
 
 item.uptodate.iron_nugget.name=鉄塊
 
@@ -79,6 +81,7 @@ tile.uptodate.pressure_plate_spruce.name=マツの感圧板
 tile.uptodate.red_nether_bricks.name=赤いネザーレンガ
 tile.uptodate.nether_wart_block.name=ネザーウォートブロック
 tile.uptodate.magma_block.name=マグマブロック
+tile.uptodate.smooth_quartz.name=滑らかなネザー水晶ブロック
 
 tile.uptodate.end_stone_bricks.name=エンドストーンレンガ
 tile.uptodate.purpur_block.name=プルプァブロック
@@ -86,6 +89,8 @@ tile.uptodate.purpur_pillar.name=柱状プルプァブロック
 
 tile.uptodate.bone_block.name=骨ブロック
 
+tile.sandStone.smooth.name=研がれた砂岩
+tile.uptodate.smooth_sandstone.name=滑らかな砂岩
 tile.uptodate.red_sandstone.name=赤い砂岩
 tile.uptodate.red_sandstone.chiseled.name=模様入り赤い砂岩
 tile.uptodate.red_sandstone.cut.name=研がれた赤い砂岩
@@ -107,11 +112,14 @@ tile.uptodate.stairs_polished_granite.name=磨かれた花崗岩の階段
 tile.uptodate.stairs_polished_diorite.name=磨かれた閃緑岩の階段
 tile.uptodate.stairs_polished_andesite.name=磨かれた安山岩の階段
 tile.uptodate.stairs_red_nether_bricks.name=赤いネザーレンガの階段
+tile.uptodate.stairs_smooth_quartz.name=滑らかなネザー水晶の階段
 tile.uptodate.stairs_prismarine.name=プリズマリンの階段
 tile.uptodate.stairs_prismarine_bricks.name=プリズマリンレンガの階段
 tile.uptodate.stairs_dark_prismarine.name=ダークプリズマリンの階段
 tile.uptodate.stairs_purpur.name=プルプァの階段
+tile.uptodate.stairs_smooth_sandstone.name=滑らかな砂岩の階段
 tile.uptodate.stairs_red_sandstone.name=赤い砂岩の階段
+tile.uptodate.stairs_smooth_red_sandstone.name=滑らかな赤い砂岩の階段
 tile.uptodate.stairs_end_stone_bricks.name=エンドストーンレンガの階段
 tile.uptodate.stairs_mossy_stone_bricks.name=苔むした石レンガの階段
 tile.uptodate.stairs_mossy_cobblestone.name=苔むした丸石の階段
@@ -124,10 +132,15 @@ tile.uptodate.slab_polished_granite.name=磨かれた花崗岩のハーフブロ
 tile.uptodate.slab_polished_diorite.name=磨かれた閃緑岩のハーフブロック
 tile.uptodate.slab_polished_andesite.name=磨かれた安山岩のハーフブロック
 tile.uptodate.slab_red_nether_bricks.name=赤いネザーレンガのハーフブロック
+tile.uptodate.slab_smooth_quartz.name=滑らかなネザー水晶のハーフブロック
 tile.uptodate.slab_end_stone_bricks.name=エンドストーンレンガのハーフブロック
 tile.uptodate.slab_mossy_stone_bricks.name=苔むした石レンガのハーフブロック
 tile.uptodate.slab_mossy_cobblestone.name=苔むした丸石のハーフブロック
+tile.uptodate.slab_cut_sandstone.name=研がれた砂岩のハーフブロック
+tile.uptodate.slab_smooth_sandstone.name=滑らかな砂岩のハーフブロック
 tile.uptodate.slab_red_sandstone.name=赤い砂岩のハーフブロック
+tile.uptodate.slab_cut_red_sandstone.name=研がれた赤い砂岩のハーフブロック
+tile.uptodate.slab_smooth_red_sandstone.name=滑らかな赤い砂岩のハーフブロック
 tile.uptodate.slab_purpur.name=プルプァのハーフブロック
 tile.uptodate.slab_prismarine.name=プリズマリンのハーフブロック
 tile.uptodate.slab_prismarine_bricks.name=プリズマリンレンガのハーフブロック

@@ -14,8 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
-import yuma140902.yumalib_ee.api.items.ItemBlockColored;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.items.ItemBlockColored;
 
 public class BlockConcrete extends Block implements IRegisterable {
 	public static final int META_MAX = 15;
@@ -32,7 +32,7 @@ public class BlockConcrete extends Block implements IRegisterable {
 
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName("concrete"));
+		this.setBlockName(StringUtil.name.domainedUnlocalized("concrete"));
 		GameRegistry.registerBlock(this, ItemBlockColored.class, "concrete");
 	}
 	
@@ -40,7 +40,7 @@ public class BlockConcrete extends Block implements IRegisterable {
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		for(int meta = 0; meta <= META_MAX; ++meta) {
-			iicons[meta] = register.registerIcon(StringUtil.getDomainedTextureName("concrete_" + ColorUtil.metaToString(meta)));
+			iicons[meta] = register.registerIcon(StringUtil.name.domainedTexture("concrete_" + ColorUtil.metaToString(meta)));
 		}
 	}
 	
@@ -50,7 +50,6 @@ public class BlockConcrete extends Block implements IRegisterable {
 		return iicons[meta];
 	}
 	
-	@SuppressWarnings({"unchecked", "rawtypes"})
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {

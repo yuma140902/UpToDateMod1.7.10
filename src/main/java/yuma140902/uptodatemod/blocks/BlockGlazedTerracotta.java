@@ -16,10 +16,10 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ColorUtil;
-import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 
 public class BlockGlazedTerracotta extends Block implements IRegisterable, IHasRecipes {
 
@@ -44,8 +44,8 @@ public class BlockGlazedTerracotta extends Block implements IRegisterable, IHasR
 	@Override
 	public void register() {
 		String colorName = ColorUtil.metaToString(colorMeta);
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName("glazed_terracotta." + colorName));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("glazed_terracotta_" + colorName));
+		this.setBlockName(StringUtil.name.domainedUnlocalized("glazed_terracotta." + colorName));
+		this.setBlockTextureName(StringUtil.name.domainedTexture("glazed_terracotta_" + colorName));
 		GameRegistry.registerBlock(this, "glazed_terracotta_" + colorName);
 	}
 	
@@ -62,9 +62,9 @@ public class BlockGlazedTerracotta extends Block implements IRegisterable, IHasR
 	
 	@Override
 	public IIcon getIcon(int side, int meta) {
-		if(side == Stat.SIDE_BOTTOM) return iconFliped;
-		else if(side == Stat.SIDE_NORTH && meta%2 == 0) return iconFliped;
-		else if(side == Stat.SIDE_EAST && meta%2 == 1) return iconFliped;
+		if(side == McConst.SIDE_BOTTOM) return iconFliped;
+		else if(side == McConst.SIDE_NORTH && meta%2 == 0) return iconFliped;
+		else if(side == McConst.SIDE_EAST && meta%2 == 1) return iconFliped;
 		return icon;
 	}
 	

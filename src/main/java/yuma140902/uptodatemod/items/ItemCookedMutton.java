@@ -6,8 +6,9 @@ import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 
 public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRecipes {
 	public ItemCookedMutton() {
@@ -16,13 +17,13 @@ public class ItemCookedMutton extends ItemFood implements IRegisterable, IHasRec
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("cooked_mutton"));
-		this.setTextureName(StringUtil.getDomainedTextureName("cooked_mutton"));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("cooked_mutton"));
+		this.setTextureName(StringUtil.name.domainedTexture("cooked_mutton"));
 		GameRegistry.registerItem(this, "cooked_mutton");
 	}
 	
 	@Override
 	public void registerRecipes() {
-		RecipeRegister.addSmelting(new ItemStack(MyItems.rawMutton), new ItemStack(this), 5);
+		RecipeRegister.addSmelting(new ItemStack(MyItems.rawMutton), new ItemStack(this), McConst.EXP_MEAT);
 	}
 }

@@ -23,8 +23,8 @@ import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable, IHasRecipes {
 	
@@ -50,6 +50,7 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable,
 			 * Dispense the specified stack, play the dispense sound and spawn
 			 * particles.
 			 */
+			@Override
 			public ItemStack dispenseStack(IBlockSource blockSource, ItemStack itemStack) {
 				EnumFacing enumfacing = BlockDispenser.func_149937_b(blockSource.getBlockMetadata());
 				World world = blockSource.getWorld();
@@ -82,12 +83,13 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable,
 			/**
 			 * Play the dispense sound from the specified block.
 			 */
+			@Override
 			protected void playDispenseSound(IBlockSource p_82485_1_) {
 				p_82485_1_.getWorld().playAuxSFX(1000, p_82485_1_.getXInt(), p_82485_1_.getYInt(), p_82485_1_.getZInt(), 0);
 			}
 		});
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName(getName()));
-		this.setTextureName(StringUtil.getDomainedTextureName(getNameForTexture()));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized(getName()));
+		this.setTextureName(StringUtil.name.domainedTexture(getNameForTexture()));
 		GameRegistry.registerItem(this, getName());
 	}
 	
@@ -116,6 +118,7 @@ public abstract class ItemModBoatBase extends ItemBoat implements IRegisterable,
 	 * Called whenever this item is equipped and the right mouse button is
 	 * pressed. Args: itemStack, world, entityPlayer
 	 */
+	@Override
 	public ItemStack onItemRightClick(ItemStack p_77659_1_, World p_77659_2_, EntityPlayer p_77659_3_) {
 		float f = 1.0F;
 		float f1 = p_77659_3_.prevRotationPitch + (p_77659_3_.rotationPitch - p_77659_3_.prevRotationPitch) * f;

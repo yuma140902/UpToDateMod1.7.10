@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class ItemSweetBerries extends ItemSeedFood implements IRegisterable {
 	
@@ -22,8 +22,8 @@ public class ItemSweetBerries extends ItemSeedFood implements IRegisterable {
 	
 	@Override
 	public void register() {
-		this.setUnlocalizedName(StringUtil.getDomainedUnlocalizedName("sweet_berries"));
-		this.setTextureName(StringUtil.getDomainedTextureName("sweet_berries"));
+		this.setUnlocalizedName(StringUtil.name.domainedUnlocalized("sweet_berries"));
+		this.setTextureName(StringUtil.name.domainedTexture("sweet_berries"));
 		GameRegistry.registerItem(this, "sweet_berries");
 	}
 	

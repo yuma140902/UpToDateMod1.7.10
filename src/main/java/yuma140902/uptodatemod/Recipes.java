@@ -1,9 +1,9 @@
 package yuma140902.uptodatemod;
 
-import static yuma140902.uptodatemod.util.Stat.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import cpw.mods.fml.common.registry.GameData;
 import net.minecraft.block.Block;
@@ -18,18 +18,19 @@ import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.ListUtils;
-import yuma140902.yumalib_ee.api.IHasRecipes;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.McConst;
 
 public final class Recipes {
 	private Recipes() {}
 	
 	public static final ItemStack
-		PLANK_ACACIA = new ItemStack(Blocks.planks, 1, PLANK_META_ACACIA),
-		PLANK_BIRCH = new ItemStack(Blocks.planks, 1, PLANK_META_BIRCH),
-		PLANK_DARK_OAK = new ItemStack(Blocks.planks, 1, PLANK_META_DARKOAK),
-		PLANK_JUNGLE = new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE),
-		PLANK_SPRUCE = new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
-		PLANK_OAK = new ItemStack(Blocks.planks, 1, PLANK_META_OAK);
+		PLANK_ACACIA = 		new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_ACACIA),
+		PLANK_BIRCH = 		new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_BIRCH),
+		PLANK_DARK_OAK = 	new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_DARKOAK),
+		PLANK_JUNGLE = 		new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_JUNGLE),
+		PLANK_SPRUCE = 		new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_SPRUCE),
+		PLANK_OAK = 			new ItemStack(Blocks.planks, 1, McConst.Meta.PLANK_OAK);
 	
 	public static void removeVanillaRecipes() {
 		List<String> removeRecipesOutputNameList = new ArrayList<>();
@@ -45,13 +46,15 @@ public final class Recipes {
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.buttons)) {
 			removeRecipesOutputNameList.add("minecraft:wooden_button");
 		}
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.allKindsOfWalls)) {
+			removeRecipesOutputNameList.add("minecraft:nether_brick_fence");
+		}
 		
 		removeRecipesByOutputName(removeRecipesOutputNameList);
 	}
 	
 	//クラフト結果のアイテムの内部名称によって削除するレシピを指定します。
 	//レシピは最初に見つかった一つだけが削除されます。
-	@SuppressWarnings("unchecked")
 	public static void removeRecipesByOutputName(List<String> outputNameList) {
 		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
 		List<IRecipe> removeList = new ArrayList<IRecipe>();
@@ -76,6 +79,24 @@ public final class Recipes {
 		for(IRecipe removeRecipe : removeList) {
 			recipes.remove(removeRecipe);
 		}
+	}
+	
+	public static void replaceRecipe(Predicate<IRecipe> predicator, Runnable recipeAdder) {
+		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
+		IRecipe recipeToRemove = null;
+		
+		for(final IRecipe recipe : recipes) {
+			if(predicator.test(recipe)) {
+				recipeToRemove = recipe;
+				break;
+			}
+		}
+		
+		if(recipeToRemove != null) {
+			recipes.remove(recipeToRemove);
+		}
+		
+		recipeAdder.run();
 	}
 	
 	public static void register() {
@@ -280,6 +301,20 @@ public final class Recipes {
 				"###",
 				'#', "stoneAndesitePolished"
 		);
+		
+		replaceRecipe(
+			recipe -> {
+				ItemStack output = recipe.getRecipeOutput();
+				if(output == null) return false;
+				return output.stackSize == 6 && output.getItemDamage() == McConst.Meta.SLAB_SANDSTONE && output.getItem() == Item.getItemFromBlock(Blocks.stone_slab);
+			},
+			() -> {
+				RecipeRegister.addShaped(
+						new ItemStack(Blocks.stone_slab, 6, 1),
+						"###",
+						'#', new ItemStack(Blocks.sandstone, 1, McConst.Meta.SANDSTONE_NORMAL)
+						);
+		});
 	}
 	
 	private static void registerWallRecipes() {
@@ -301,6 +336,14 @@ public final class Recipes {
 				"###",
 				'#', "stoneGranite"
 		);
+		
+		RecipeRegister.addShapedOre(
+				new ItemStack(Blocks.nether_brick_fence, 6),
+				"#-#",
+				"#-#",
+				'#', Blocks.nether_brick,
+				'-', "ingotBrickNether"
+				);
 	}
 	
 }

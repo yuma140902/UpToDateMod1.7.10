@@ -11,12 +11,12 @@ import net.minecraft.tileentity.TileEntityFlowerPot;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockUnlimitedPot extends BlockFlowerPot implements IRegisterable {
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("unlimited_pot"));
+		setBlockName(StringUtil.name.domainedUnlocalized("unlimited_pot"));
 		setBlockTextureName("minecraft:flower_pot");
 		GameRegistry.registerBlock(this, "unlimited_pot");
 	}

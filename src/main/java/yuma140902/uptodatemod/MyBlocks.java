@@ -26,7 +26,10 @@ import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
 import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
 import yuma140902.uptodatemod.blocks.BlockRedSandStone;
 import yuma140902.uptodatemod.blocks.BlockSeaLantern;
+import yuma140902.uptodatemod.blocks.BlockSmoothQuartz;
+import yuma140902.uptodatemod.blocks.BlockSmoothSandstone;
 import yuma140902.uptodatemod.blocks.BlockSmoothStone;
+import yuma140902.uptodatemod.blocks.BlockSponge;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.blocks.BlockStoneSlab;
 import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
@@ -36,18 +39,21 @@ import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ColorUtil;
-import yuma140902.uptodatemod.util.Stat;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericButton;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericDoor;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericFence;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericFenceGate;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericPressurePlate;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericSlab;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericStairs;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericTrapDoor;
-import yuma140902.yumalib_ee.api.blocks.BlockGenericWall;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
+import yuma140902.yumalib.api.blocks.BlockGenericButton;
+import yuma140902.yumalib.api.blocks.BlockGenericDoor;
+import yuma140902.yumalib.api.blocks.BlockGenericFence;
+import yuma140902.yumalib.api.blocks.BlockGenericFenceGate;
+import yuma140902.yumalib.api.blocks.BlockGenericPressurePlate;
+import yuma140902.yumalib.api.blocks.BlockGenericSlab;
+import yuma140902.yumalib.api.blocks.BlockGenericStairs;
+import yuma140902.yumalib.api.blocks.BlockGenericTrapDoor;
+import yuma140902.yumalib.api.blocks.BlockGenericWall;
+import yuma140902.yumalib.api.blocks.SlabBuilder;
+import yuma140902.yumalib.api.blocks.StairsBuilder;
+import yuma140902.yumalib.api.blocks.WallBuilder;
 
 public final class MyBlocks {
 	private MyBlocks() {}
@@ -110,6 +116,7 @@ public final class MyBlocks {
 	public static final BlockPrismarineBricks prismarineBricks;
 	public static final BlockDarkPrismarine prismarineDark;
 	public static final BlockSeaLantern seaLantern;
+	public static final BlockSponge sponge;
 	
 	public static final BlockGenericTrapDoor trapDoorAcacia;
 	public static final BlockGenericTrapDoor trapDoorBirch;
@@ -133,6 +140,7 @@ public final class MyBlocks {
 	public static final BlockRedNetherBricks redNetherBricks;
 	public static final BlockNetherWart netherWartBlock;
 	public static final BlockMagma magmaBlock;
+	public static final BlockSmoothQuartz smoothQuartz;
 	
 	public static final BlockEndStoneBricks endStoneBricks;
 	public static final BlockPurpur purpurBlock;
@@ -140,6 +148,7 @@ public final class MyBlocks {
 	
 	public static final BlockBone boneBlock;
 	
+	public static final BlockSmoothSandstone smoothSandstone;
 	public static final BlockRedSandStone redSandStone;
 	
 	public static final BlockConcrete concreteBlock;
@@ -172,11 +181,14 @@ public final class MyBlocks {
 	public static final BlockGenericStairs stairsPolishedDiorite;
 	public static final BlockGenericStairs stairsPolishedAndesite;
 	public static final BlockGenericStairs stairsRedNetherBricks;
+	public static final BlockGenericStairs stairsSmoothQuartz;
 	public static final BlockGenericStairs stairsPrismarine;
 	public static final BlockGenericStairs stairsPrismarineBricks;
 	public static final BlockGenericStairs stairsDarkPrismarine;
 	public static final BlockGenericStairs stairsPurpur;
+	public static final BlockGenericStairs stairsSmoothSandstone;
 	public static final BlockGenericStairs stairsRedSandstone;
+	public static final BlockGenericStairs stairsSmoothRedSandstone;
 	public static final BlockGenericStairs stairsEndStoneBricks;
 	public static final BlockGenericStairs stairsMossyStoneBricks;
 	public static final BlockGenericStairs stairsMossyCobbleStone;
@@ -189,10 +201,15 @@ public final class MyBlocks {
 	public static final BlockGenericSlab slabPolishedDiorite;
 	public static final BlockGenericSlab slabPolishedAndesite;
 	public static final BlockGenericSlab slabRedNetherBricks;
+	public static final BlockGenericSlab slabSmoothQuartz;
 	public static final BlockGenericSlab slabEndStoneBricks;
 	public static final BlockGenericSlab slabMossyStoneBricks;
 	public static final BlockGenericSlab slabMossyCobbleStone;
+	public static final BlockGenericSlab slabCutSandstone;
+	public static final BlockGenericSlab slabSmoothSandstone;
 	public static final BlockGenericSlab slabRedSandstone;
+	public static final BlockGenericSlab slabCutRedSandstone;
+	public static final BlockGenericSlab slabSmoothRedSandstone;
 	public static final BlockGenericSlab slabPurpur;
 	public static final BlockGenericSlab slabPrismarine;
 	public static final BlockGenericSlab slabPrismarineBricks;
@@ -229,12 +246,12 @@ public final class MyBlocks {
 		add(smoothStone = isEnabled(EnumDisableableFeatures.smoothStone) ? new BlockSmoothStone() : null);
 		
 		if(isEnabled(strippedLogs)) {
-			add(strippedLogAcacia =  new BlockGenericStrippedLog("stripped_log_acacia",    "stripped_acacia_log",   Stat.PLANK_META_ACACIA));
-			add(strippedLogBirch =   new BlockGenericStrippedLog("stripped_log_birch",      "stripped_birch_log",    Stat.PLANK_META_BIRCH));
-			add(strippedLogDarkOak = new BlockGenericStrippedLog("stripped_log_dark_oak", "stripped_dark_oak_log", Stat.PLANK_META_DARKOAK));
-			add(strippedLogJungle =  new BlockGenericStrippedLog("stripped_log_jungle",    "stripped_jungle_log",   Stat.PLANK_META_JUNGLE));
-			add(strippedLogOak =     new BlockGenericStrippedLog("stripped_log_oak",          "stripped_oak_log",      Stat.PLANK_META_OAK));
-			add(strippedLogSpruce =  new BlockGenericStrippedLog("stripped_log_spruce",    "stripped_spruce_log",   Stat.PLANK_META_SPRUCE));
+			add(strippedLogAcacia = 	new BlockGenericStrippedLog("stripped_log_acacia", 		"stripped_acacia_log", 		McConst.Meta.PLANK_ACACIA));
+			add(strippedLogBirch = 		new BlockGenericStrippedLog("stripped_log_birch", 		"stripped_birch_log", 		McConst.Meta.PLANK_BIRCH));
+			add(strippedLogDarkOak = 	new BlockGenericStrippedLog("stripped_log_dark_oak", 	"stripped_dark_oak_log", 	McConst.Meta.PLANK_DARKOAK));
+			add(strippedLogJungle = 	new BlockGenericStrippedLog("stripped_log_jungle", 		"stripped_jungle_log", 		McConst.Meta.PLANK_JUNGLE));
+			add(strippedLogOak = 			new BlockGenericStrippedLog("stripped_log_oak", 			"stripped_oak_log", 			McConst.Meta.PLANK_OAK));
+			add(strippedLogSpruce = 	new BlockGenericStrippedLog("stripped_log_spruce", 	"stripped_spruce_log", 			McConst.Meta.PLANK_SPRUCE));
 		}
 		else {
 			strippedLogAcacia = null;
@@ -246,11 +263,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(doors)) {
-			add(doorAcacia = 	new BlockGenericDoor("door_acacia", 		"acacia_door", 		MyItems.itemDoorAcacia));
+			add(doorAcacia = 		new BlockGenericDoor("door_acacia", 		"acacia_door", 		MyItems.itemDoorAcacia));
 			add(doorBirch = 		new BlockGenericDoor("door_birch", 			"birch_door", 		MyItems.itemDoorBirch));
 			add(doorDarkOak = 	new BlockGenericDoor("door_dark_oak", 	"dark_oak_door", 	MyItems.itemDoorDarkOak));
-			add(doorJungle = 	new BlockGenericDoor("door_jungle", 		"jungle_door", 		MyItems.itemDoorJungle));
-			add(doorSpruce = 	new BlockGenericDoor("door_spruce", 		"spruce_door", 		MyItems.itemDoorSpruce));
+			add(doorJungle = 		new BlockGenericDoor("door_jungle", 		"jungle_door", 		MyItems.itemDoorJungle));
+			add(doorSpruce = 		new BlockGenericDoor("door_spruce", 		"spruce_door", 		MyItems.itemDoorSpruce));
 		}
 		else {
 			doorAcacia = null;
@@ -261,11 +278,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(fences)) {
-			add(fenceAcacia = new BlockGenericFence("planks_acacia", "fence_acacia"));
-			add(fenceBirch = new BlockGenericFence("planks_birch", "fence_birch"));
-			add(fenceDarkOak = new BlockGenericFence("planks_big_oak", "fence_dark_oak"));
-			add(fenceJungle = new BlockGenericFence("planks_jungle", "fence_jungle"));
-			add(fenceSpruce = new BlockGenericFence("planks_spruce", "fence_spruce"));
+			add(fenceAcacia = 	new BlockGenericFence("planks_acacia", 		"fence_acacia"));
+			add(fenceBirch = 		new BlockGenericFence("planks_birch", 		"fence_birch"));
+			add(fenceDarkOak = 	new BlockGenericFence("planks_big_oak", 	"fence_dark_oak"));
+			add(fenceJungle = 	new BlockGenericFence("planks_jungle", 		"fence_jungle"));
+			add(fenceSpruce = 	new BlockGenericFence("planks_spruce", 		"fence_spruce"));
 		}
 		else {
 			fenceAcacia = null;
@@ -276,11 +293,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(fenceGates)) {
-			add(fenceGateAcacia = new BlockGenericFenceGate(Stat.PLANK_META_ACACIA, "fence_gate_acacia"));
-			add(fenceGateBirch = new BlockGenericFenceGate(Stat.PLANK_META_BIRCH, "fence_gate_birch"));
-			add(fenceGateDarkOak = new BlockGenericFenceGate(Stat.PLANK_META_DARKOAK, "fence_gate_dark_oak"));
-			add(fenceGateJungle = new BlockGenericFenceGate(Stat.PLANK_META_JUNGLE, "fence_gate_jungle"));
-			add(fenceGateSpruce = new BlockGenericFenceGate(Stat.PLANK_META_SPRUCE, "fence_gate_spruce"));
+			add(fenceGateAcacia = 	new BlockGenericFenceGate(McConst.Meta.PLANK_ACACIA, 		"fence_gate_acacia"));
+			add(fenceGateBirch = 		new BlockGenericFenceGate(McConst.Meta.PLANK_BIRCH, 		"fence_gate_birch"));
+			add(fenceGateDarkOak = 	new BlockGenericFenceGate(McConst.Meta.PLANK_DARKOAK, 	"fence_gate_dark_oak"));
+			add(fenceGateJungle = 	new BlockGenericFenceGate(McConst.Meta.PLANK_JUNGLE, 		"fence_gate_jungle"));
+			add(fenceGateSpruce = 	new BlockGenericFenceGate(McConst.Meta.PLANK_SPRUCE, 		"fence_gate_spruce"));
 		}
 		else {
 			fenceGateAcacia = null;
@@ -304,13 +321,14 @@ public final class MyBlocks {
 			prismarineDark = null;
 			seaLantern = null;
 		}
+		add(sponge = isEnabled(EnumDisableableFeatures.sponge) ? new BlockSponge() : null);
 		
 		if(isEnabled(woodenTrapdoors)) {
-			add(trapDoorAcacia = new BlockGenericTrapDoor("trap_door_acacia", Stat.PLANK_META_ACACIA));
-			add(trapDoorBirch = new BlockGenericTrapDoor("trap_door_birch", Stat.PLANK_META_BIRCH));
-			add(trapDoorDarkOak = new BlockGenericTrapDoor("trap_door_dark_oak", Stat.PLANK_META_DARKOAK));
-			add(trapDoorJungle = new BlockGenericTrapDoor("trap_door_jungle", Stat.PLANK_META_JUNGLE));
-			add(trapDoorSpruce = new BlockGenericTrapDoor("trap_door_spruce", Stat.PLANK_META_SPRUCE));
+			add(trapDoorAcacia = 		new BlockGenericTrapDoor("trap_door_acacia", 		McConst.Meta.PLANK_ACACIA));
+			add(trapDoorBirch = 		new BlockGenericTrapDoor("trap_door_birch", 		McConst.Meta.PLANK_BIRCH));
+			add(trapDoorDarkOak = 	new BlockGenericTrapDoor("trap_door_dark_oak", 	McConst.Meta.PLANK_DARKOAK));
+			add(trapDoorJungle = 		new BlockGenericTrapDoor("trap_door_jungle", 		McConst.Meta.PLANK_JUNGLE));
+			add(trapDoorSpruce = 		new BlockGenericTrapDoor("trap_door_spruce", 		McConst.Meta.PLANK_SPRUCE));
 		}
 		else {
 			trapDoorAcacia = null;
@@ -322,11 +340,11 @@ public final class MyBlocks {
 		add(trapDoorIron = isEnabled(ironTrapdoor) ? new BlockIronTrapDoor() : null);
 		
 		if(isEnabled(buttons)) {
-			add(buttonAcacia = new BlockGenericButton(Stat.PLANK_META_ACACIA, "button_acacia"));
-			add(buttonBirch = new BlockGenericButton(Stat.PLANK_META_BIRCH, "button_birch"));
-			add(buttonDarkOak = new BlockGenericButton(Stat.PLANK_META_DARKOAK, "button_dark_oak"));
-			add(buttonJungle = new BlockGenericButton(Stat.PLANK_META_JUNGLE, "button_jungle"));
-			add(buttonSpruce = new BlockGenericButton(Stat.PLANK_META_SPRUCE, "button_spruce"));
+			add(buttonAcacia = 		new BlockGenericButton(McConst.Meta.PLANK_ACACIA, 	"button_acacia"));
+			add(buttonBirch = 		new BlockGenericButton(McConst.Meta.PLANK_BIRCH, 		"button_birch"));
+			add(buttonDarkOak = 	new BlockGenericButton(McConst.Meta.PLANK_DARKOAK, 	"button_dark_oak"));
+			add(buttonJungle = 		new BlockGenericButton(McConst.Meta.PLANK_JUNGLE, 	"button_jungle"));
+			add(buttonSpruce = 		new BlockGenericButton(McConst.Meta.PLANK_SPRUCE, 	"button_spruce"));
 		}
 		else {
 			buttonAcacia = null;
@@ -337,11 +355,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(pressurePlates)) {
-			add(pressurePlateAcacia = new BlockGenericPressurePlate(Stat.PLANK_META_ACACIA, "pressure_plate_acacia"));
-			add(pressurePlateBirch = new BlockGenericPressurePlate(Stat.PLANK_META_BIRCH, "pressure_plate_birch"));
-			add(pressurePlateDarkOak = new BlockGenericPressurePlate(Stat.PLANK_META_DARKOAK, "pressure_plate_dark_oak"));
-			add(pressurePlateJungle = new BlockGenericPressurePlate(Stat.PLANK_META_JUNGLE, "pressure_plate_jungle"));
-			add(pressurePlateSpruce = new BlockGenericPressurePlate(Stat.PLANK_META_SPRUCE, "pressure_plate_spruce"));
+			add(pressurePlateAcacia = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_ACACIA, 		"pressure_plate_acacia"));
+			add(pressurePlateBirch = 		new BlockGenericPressurePlate(McConst.Meta.PLANK_BIRCH, 		"pressure_plate_birch"));
+			add(pressurePlateDarkOak = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_DARKOAK, 	"pressure_plate_dark_oak"));
+			add(pressurePlateJungle = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_JUNGLE, 		"pressure_plate_jungle"));
+			add(pressurePlateSpruce = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_SPRUCE, 		"pressure_plate_spruce"));
 		}
 		else {
 			pressurePlateAcacia = null;
@@ -354,6 +372,7 @@ public final class MyBlocks {
 		add(redNetherBricks = isEnabled(EnumDisableableFeatures.redNetherBricks) ? new BlockRedNetherBricks() : null);
 		add(netherWartBlock = isEnabled(EnumDisableableFeatures.netherWartBlock) ? new BlockNetherWart() : null);
 		add(magmaBlock = isEnabled(EnumDisableableFeatures.magmaBlock) ? new BlockMagma() : null);
+		add(smoothQuartz = new BlockSmoothQuartz());
 		
 		add(endStoneBricks = isEnabled(EnumDisableableFeatures.endstoneBricks) ? new BlockEndStoneBricks() : null);
 		add(purpurBlock = isEnabled(purpurStuffs) ? new BlockPurpur() : null);
@@ -361,6 +380,7 @@ public final class MyBlocks {
 		
 		add(boneBlock = isEnabled(boneBlockAndFossile) ? new BlockBone() : null);
 		
+		add(smoothSandstone = new BlockSmoothSandstone());
 		add(redSandStone = isEnabled(EnumDisableableFeatures.redSandstone) ? new BlockRedSandStone() : null);
 		
 		if(isEnabled(concreteAndConcretePowder)) {
@@ -412,22 +432,25 @@ public final class MyBlocks {
 		add(grassPath = isEnabled(EnumDisableableFeatures.grassPath) ? new BlockGrassPath() : null);
 		
 		if(isEnabled(allKindsOfStairs)) {
-			add(stairsStone = BlockGenericStairs.constructIfNotNull(Blocks.stone, 0, "stairs_stone"));
-			add(stairsGranite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite"));
-			add(stairsDiorite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_DIORITE, "stairs_diorite"));
-			add(stairsAndesite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_ANDESITE, "stairs_andesite"));
-			add(stairsPolishedGranite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "stairs_polished_granite"));
-			add(stairsPolishedDiorite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "stairs_polished_diorite"));
-			add(stairsPolishedAndesite = BlockGenericStairs.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "stairs_polished_andesite"));
-			add(stairsRedNetherBricks = BlockGenericStairs.constructIfNotNull(MyBlocks.redNetherBricks, 0, "stairs_red_nether_bricks"));
-			add(stairsPrismarine = BlockGenericStairs.constructIfNotNull(MyBlocks.prismarineBlock, 0, "stairs_prismarine"));
-			add(stairsPrismarineBricks = BlockGenericStairs.constructIfNotNull(MyBlocks.prismarineBricks, 0, "stairs_prismarine_bricks"));
-			add(stairsDarkPrismarine = BlockGenericStairs.constructIfNotNull(MyBlocks.prismarineDark, 0, "stairs_dark_prismarine"));
-			add(stairsPurpur = BlockGenericStairs.constructIfNotNull(MyBlocks.purpurBlock, 0, "stairs_purpur"));
-			add(stairsRedSandstone = BlockGenericStairs.constructIfNotNull(MyBlocks.redSandStone, 0, "stairs_red_sandstone"));
-			add(stairsEndStoneBricks = BlockGenericStairs.constructIfNotNull(MyBlocks.endStoneBricks, 0, "stairs_end_stone_bricks"));
-			add(stairsMossyStoneBricks = BlockGenericStairs.constructIfNotNull(Blocks.stonebrick, 1, "stairs_mossy_stone_bricks"));
-			add(stairsMossyCobbleStone = BlockGenericStairs.constructIfNotNull(Blocks.mossy_cobblestone, 0, "stairs_mossy_cobblestone"));
+			add(stairsStone = StairsBuilder.create(Blocks.stone, "stairs_stone").build());
+			add(stairsGranite = StairsBuilder.create(MyBlocks.stone, "stairs_granite").meta(BlockStone.META_GRANITE).build());
+			add(stairsDiorite = StairsBuilder.create(MyBlocks.stone, "stairs_diorite").meta(BlockStone.META_DIORITE).build());
+			add(stairsAndesite = StairsBuilder.create(MyBlocks.stone, "stairs_andesite").meta(BlockStone.META_ANDESITE).build());
+			add(stairsPolishedGranite = StairsBuilder.create(MyBlocks.stone, "stairs_polished_granite").meta(BlockStone.META_POLISHED_GRANITE).build());
+			add(stairsPolishedDiorite = StairsBuilder.create(MyBlocks.stone, "stairs_polished_diorite").meta(BlockStone.META_POLISHED_DIORITE).build());
+			add(stairsPolishedAndesite = StairsBuilder.create(MyBlocks.stone, "stairs_polished_andesite").meta(BlockStone.META_POLISHED_ANDESITE).build());
+			add(stairsRedNetherBricks = StairsBuilder.create(MyBlocks.redNetherBricks, "stairs_red_nether_bricks").build());
+			add(stairsSmoothQuartz = StairsBuilder.create(MyBlocks.smoothQuartz, "stairs_smooth_quartz").build());
+			add(stairsPrismarine = StairsBuilder.create(MyBlocks.prismarineBlock, "stairs_prismarine").build());
+			add(stairsPrismarineBricks = StairsBuilder.create(MyBlocks.prismarineBricks, "stairs_prismarine_bricks").build());
+			add(stairsDarkPrismarine = StairsBuilder.create(MyBlocks.prismarineDark, "stairs_dark_prismarine").build());
+			add(stairsPurpur = StairsBuilder.create(MyBlocks.purpurBlock, "stairs_purpur").build());
+			add(stairsSmoothSandstone = StairsBuilder.create(MyBlocks.smoothSandstone, "stairs_smooth_sandstone").build());
+			add(stairsRedSandstone = StairsBuilder.create(MyBlocks.redSandStone, "stairs_red_sandstone").meta(BlockRedSandStone.META_NORMAL).build());
+			add(stairsSmoothRedSandstone = StairsBuilder.create(MyBlocks.redSandStone, "stairs_smooth_red_sandstone").meta(BlockRedSandStone.META_SMOOTH).build());
+			add(stairsEndStoneBricks = StairsBuilder.create(MyBlocks.endStoneBricks, "stairs_end_stone_bricks").build());
+			add(stairsMossyStoneBricks = StairsBuilder.create(Blocks.stonebrick, "stairs_mossy_stone_bricks").meta(1).build());
+			add(stairsMossyCobbleStone = StairsBuilder.create(Blocks.mossy_cobblestone, "stairs_mossy_cobblestone").build());
 		}
 		else {
 			stairsStone = null;
@@ -438,11 +461,14 @@ public final class MyBlocks {
 			stairsPolishedDiorite = null;
 			stairsPolishedAndesite = null;
 			stairsRedNetherBricks = null;
+			stairsSmoothQuartz = null;
 			stairsPrismarine = null;
 			stairsPrismarineBricks = null;
 			stairsDarkPrismarine = null;
 			stairsPurpur = null;
+			stairsSmoothSandstone = null;
 			stairsRedSandstone = null;
+			stairsSmoothRedSandstone = null;
 			stairsEndStoneBricks = null;
 			stairsMossyStoneBricks = null;
 			stairsMossyCobbleStone = null;
@@ -450,21 +476,35 @@ public final class MyBlocks {
 		
 		if(isEnabled(allKindsOfSlabs)) {
 			add(slabStone = new BlockStoneSlab());
-			add(slabGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_GRANITE, "slab_granite"));
-			add(slabDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_DIORITE, "slab_diorite"));
-			add(slabAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_ANDESITE, "slab_andesite"));
-			add(slabPolishedGranite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_GRANITE, "slab_polished_granite", StringUtil.getDomainedTextureName("polished_granite_slab_side")));
-			add(slabPolishedDiorite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_DIORITE, "slab_polished_diorite", StringUtil.getDomainedTextureName("polished_diorite_slab_side")));
-			add(slabPolishedAndesite = BlockGenericSlab.constructIfNotNull(MyBlocks.stone, BlockStone.META_POLISHED_ANDESITE, "slab_polished_andesite", StringUtil.getDomainedTextureName("polished_andesite_slab_side")));
-			add(slabRedNetherBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.redNetherBricks, 0, "slab_red_nether_bricks"));
-			add(slabEndStoneBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.endStoneBricks, 0, "slab_end_stone_bricks"));
-			add(slabMossyStoneBricks = BlockGenericSlab.constructIfNotNull(Blocks.stonebrick, 1, "slab_mossy_stone_bricks"));
-			add(slabMossyCobbleStone = BlockGenericSlab.constructIfNotNull(Blocks.mossy_cobblestone, 0, "slab_mossy_cobblestone"));
-			add(slabRedSandstone = BlockGenericSlab.constructIfNotNull(MyBlocks.redSandStone, 0, "slab_red_sandstone"));
-			add(slabPurpur = BlockGenericSlab.constructIfNotNull(MyBlocks.purpurBlock, 0, "slab_purpur"));
-			add(slabPrismarine = BlockGenericSlab.constructIfNotNull(MyBlocks.prismarineBlock, 0, "slab_prismarine"));
-			add(slabPrismarineBricks = BlockGenericSlab.constructIfNotNull(MyBlocks.prismarineBricks, 0, "slab_prismarine_bricks"));
-			add(slabDarkPrismarine = BlockGenericSlab.constructIfNotNull(MyBlocks.prismarineDark, 0, "slab_dark_prismairne"));
+			add(slabGranite = SlabBuilder.create(MyBlocks.stone, "slab_granite").meta(BlockStone.META_GRANITE).build());
+			add(slabDiorite = SlabBuilder.create(MyBlocks.stone, "slab_diorite").meta(BlockStone.META_DIORITE).build());
+			add(slabAndesite = SlabBuilder.create(MyBlocks.stone, "slab_andesite").meta(BlockStone.META_ANDESITE).build());
+			add(slabPolishedGranite
+					= SlabBuilder.create(MyBlocks.stone, "slab_polished_granite")
+					.meta(BlockStone.META_POLISHED_GRANITE)
+					.specialSideTexture(StringUtil.name.domainedTexture("polished_granite_slab_side")).build());
+			add(slabPolishedDiorite
+					= SlabBuilder.create(MyBlocks.stone, "slab_polished_diorite")
+					.meta(BlockStone.META_POLISHED_DIORITE)
+					.specialSideTexture(StringUtil.name.domainedTexture("polished_diorite_slab_side")).build());
+			add(slabPolishedAndesite
+					= SlabBuilder.create(MyBlocks.stone, "slab_polished_andesite")
+					.meta(BlockStone.META_POLISHED_ANDESITE)
+					.specialSideTexture(StringUtil.name.domainedTexture("polished_andesite_slab_side")).build());
+			add(slabRedNetherBricks = SlabBuilder.create(MyBlocks.redNetherBricks, "slab_red_nether_bricks").build());
+			add(slabSmoothQuartz = SlabBuilder.create(MyBlocks.smoothQuartz, "slab_smooth_quartz").build());
+			add(slabEndStoneBricks = SlabBuilder.create(MyBlocks.endStoneBricks, "slab_end_stone_bricks").build());
+			add(slabMossyStoneBricks = SlabBuilder.create(Blocks.stonebrick, "slab_mossy_stone_bricks").meta(1).build());
+			add(slabMossyCobbleStone = SlabBuilder.create(Blocks.mossy_cobblestone, "slab_mossy_cobblestone").build());
+			add(slabCutSandstone = SlabBuilder.create(Blocks.sandstone, "slab_cut_sandstone").meta(McConst.Meta.SANDSTONE_CUT).build());
+			add(slabSmoothSandstone = SlabBuilder.create(MyBlocks.smoothSandstone, "slab_smooth_sandstone").build());
+			add(slabRedSandstone = SlabBuilder.create(MyBlocks.redSandStone, "slab_red_sandstone").meta(BlockRedSandStone.META_NORMAL).build());
+			add(slabCutRedSandstone = SlabBuilder.create(MyBlocks.redSandStone, "slab_cut_red_sandstone").meta(BlockRedSandStone.META_CUT).build());
+			add(slabSmoothRedSandstone = SlabBuilder.create(MyBlocks.redSandStone, "slab_smooth_red_sandstone").meta(BlockRedSandStone.META_SMOOTH).build());
+			add(slabPurpur = SlabBuilder.create(MyBlocks.purpurBlock, "slab_purpur").build());
+			add(slabPrismarine = SlabBuilder.create(MyBlocks.prismarineBlock, "slab_prismarine").build());
+			add(slabPrismarineBricks = SlabBuilder.create(MyBlocks.prismarineBricks, "slab_prismarine_bricks").build());
+			add(slabDarkPrismarine = SlabBuilder.create(MyBlocks.prismarineDark, "slab_dark_prismairne").build());
 		}
 		else {
 			slabStone = null;
@@ -475,10 +515,15 @@ public final class MyBlocks {
 			slabPolishedDiorite = null;
 			slabPolishedAndesite = null;
 			slabRedNetherBricks = null;
+			slabSmoothQuartz = null;
 			slabEndStoneBricks = null;
 			slabMossyStoneBricks = null;
 			slabMossyCobbleStone = null;
+			slabCutSandstone = null;
+			slabSmoothSandstone = null;
 			slabRedSandstone = null;
+			slabCutRedSandstone = null;
+			slabSmoothRedSandstone = null;
 			slabPurpur = null;
 			slabPrismarine = null;
 			slabPrismarineBricks = null;
@@ -486,20 +531,20 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(allKindsOfWalls)) {
-			add(wallBricks = BlockGenericWall.constructIfNotNull(Blocks.brick_block, 0, "wall_bricks"));
-			add(wallStoneBricks = BlockGenericWall.constructIfNotNull(Blocks.stonebrick, 0, "wall_stone_bricks"));
-			add(wallMossyStoneBricks = BlockGenericWall.constructIfNotNull(Blocks.stonebrick, 1, "wall_mossy_stone_bricks"));
-			add(wallSandstone = BlockGenericWall.constructIfNotNull(Blocks.sandstone, 0, "wall_sandstone"));
-			add(wallRedSandstone = BlockGenericWall.constructIfNotNull(MyBlocks.redSandStone, 0, "wall_red_sandstone"));
-			add(wallNetherBricks = BlockGenericWall.constructIfNotNull(Blocks.nether_brick, 0, "wall_nether_bricks"));
-			add(wallRedNetherBricks = BlockGenericWall.constructIfNotNull(MyBlocks.redNetherBricks, 0, "wall_red_nether_bricks"));
-			add(wallEndStoneBricks = BlockGenericWall.constructIfNotNull(MyBlocks.endStoneBricks, 0, "wall_end_stone_bricks"));
-			add(wallAndesite = BlockGenericWall.constructIfNotNull(MyBlocks.stone, BlockStone.META_ANDESITE, "wall_andesite"));
-			add(wallDiorite = BlockGenericWall.constructIfNotNull(MyBlocks.stone, BlockStone.META_DIORITE, "wall_diorite"));
-			add(wallGranite = BlockGenericWall.constructIfNotNull(MyBlocks.stone, BlockStone.META_GRANITE, "wall_granite"));
-			add(wallPrismarine = BlockGenericWall.constructIfNotNull(prismarineBlock, 0, "wall_prismarine"));
-			add(wallPrismarineBrick = BlockGenericWall.constructIfNotNull(prismarineBricks, 0, "wall_prismarine_brick"));
-			add(wallDarkPrismarine = BlockGenericWall.constructIfNotNull(prismarineDark, 0, "wall_dark_prismarine"));
+			add(wallBricks = WallBuilder.create(Blocks.brick_block, "wall_bricks").build());
+			add(wallStoneBricks = WallBuilder.create(Blocks.stonebrick, "wall_stone_bricks").build());
+			add(wallMossyStoneBricks = WallBuilder.create(Blocks.stonebrick, "wall_mossy_stone_bricks").meta(1).build());
+			add(wallSandstone = WallBuilder.create(Blocks.sandstone, "wall_sandstone").build());
+			add(wallRedSandstone = WallBuilder.create(MyBlocks.redSandStone, "wall_red_sandstone").build());
+			add(wallNetherBricks = WallBuilder.create(Blocks.nether_brick, "wall_nether_bricks").build());
+			add(wallRedNetherBricks = WallBuilder.create(MyBlocks.redNetherBricks, "wall_red_nether_bricks").build());
+			add(wallEndStoneBricks = WallBuilder.create(MyBlocks.endStoneBricks, "wall_end_stone_bricks").build());
+			add(wallAndesite = WallBuilder.create(MyBlocks.stone, "wall_andesite").meta(BlockStone.META_ANDESITE).build());
+			add(wallDiorite = WallBuilder.create(MyBlocks.stone, "wall_diorite").meta(BlockStone.META_DIORITE).build());
+			add(wallGranite = WallBuilder.create(MyBlocks.stone, "wall_granite").meta(BlockStone.META_GRANITE).build());
+			add(wallPrismarine = WallBuilder.create(prismarineBlock, "wall_prismarine").build());
+			add(wallPrismarineBrick = WallBuilder.create(prismarineBricks, "wall_prismarine_brick").build());
+			add(wallDarkPrismarine = WallBuilder.create(prismarineDark, "wall_dark_prismarine").build());
 		}
 		else {
 			wallBricks = null;

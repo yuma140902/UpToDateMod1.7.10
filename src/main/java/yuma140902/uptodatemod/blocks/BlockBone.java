@@ -14,8 +14,8 @@ import net.minecraft.util.IIcon;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
 	
@@ -28,8 +28,8 @@ public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHas
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("bone_block"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("bone_block"));
+		setBlockName(StringUtil.name.domainedUnlocalized("bone_block"));
+		setBlockTextureName(StringUtil.name.domainedTexture("bone_block"));
 		GameRegistry.registerBlock(this, "bone_block");
 	}
 	

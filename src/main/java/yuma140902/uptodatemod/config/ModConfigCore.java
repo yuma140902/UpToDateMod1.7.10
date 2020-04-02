@@ -12,10 +12,10 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.yumalib_ee.api.config.CategoryBuilder;
-import yuma140902.yumalib_ee.api.config.LangKey;
-import yuma140902.yumalib_ee.api.config.PropertyBuilder;
-import yuma140902.yumalib_ee.api.update.TsvUpdateChecker;
+import yuma140902.yumalib.api.config.CategoryBuilder;
+import yuma140902.yumalib.api.config.LangKey;
+import yuma140902.yumalib.api.config.PropertyBuilder;
+import yuma140902.yumalib.api.update.TsvUpdateChecker;
 
 public class ModConfigCore {
 	public static final String

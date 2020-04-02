@@ -6,7 +6,7 @@ import net.minecraft.util.Facing;
 import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.util.DirectionUtil;
-import yuma140902.uptodatemod.util.Stat;
+import yuma140902.yumalib.api.McConst;
 
 public abstract class Fossiles {
 	public static Fossiles getFossileByType(int type) {
@@ -105,7 +105,7 @@ public abstract class Fossiles {
 				generatePillar(world, ribX + Facing.offsetsXForSide[right], y, ribZ + Facing.offsetsZForSide[right], 4, right, random); // #を生成
 				ribXRight += Facing.offsetsXForSide[right] * 4;
 				ribZRight += Facing.offsetsZForSide[right] * 4;
-				generatePillar(world, ribXRight, y - 1, ribZRight, 3, Stat.SIDE_BOTTOM, random); // :を生成
+				generatePillar(world, ribXRight, y - 1, ribZRight, 3, McConst.SIDE_BOTTOM, random); // :を生成
 				ribXRight += Facing.offsetsXForSide[left];
 				ribZRight += Facing.offsetsZForSide[left];
 				generatePillar(world, ribXRight, y - 3 - 1, ribZRight, 2, left, random); // @を生成
@@ -115,7 +115,7 @@ public abstract class Fossiles {
 				generatePillar(world, ribX + Facing.offsetsXForSide[left],  y, ribZ + Facing.offsetsZForSide[left],  4, left, random); // #を生成
 				ribXLeft += Facing.offsetsXForSide[left] * 4;
 				ribZLeft += Facing.offsetsZForSide[left] * 4;
-				generatePillar(world, ribXLeft, y - 1, ribZLeft, 3, Stat.SIDE_BOTTOM, random); // :を生成
+				generatePillar(world, ribXLeft, y - 1, ribZLeft, 3, McConst.SIDE_BOTTOM, random); // :を生成
 				ribXLeft += Facing.offsetsXForSide[right];
 				ribZLeft += Facing.offsetsZForSide[right];
 				generatePillar(world, ribXLeft, y - 3 - 1, ribZLeft, 2, right, random); // @を生成
@@ -158,7 +158,7 @@ public abstract class Fossiles {
 				generatePillar(world, ribX + Facing.offsetsXForSide[right], y, ribZ + Facing.offsetsZForSide[right], 3, right, random); // #を生成
 				ribXRight += Facing.offsetsXForSide[right] * 3;
 				ribZRight += Facing.offsetsZForSide[right] * 3;
-				generatePillar(world, ribXRight, y - 1, ribZRight, 3, Stat.SIDE_BOTTOM, random); // :を生成
+				generatePillar(world, ribXRight, y - 1, ribZRight, 3, McConst.SIDE_BOTTOM, random); // :を生成
 				ribXRight += Facing.offsetsXForSide[left];
 				ribZRight += Facing.offsetsZForSide[left];
 				generatePillar(world, ribXRight, y - 3, ribZRight, 1, left, random); // @を生成
@@ -168,7 +168,7 @@ public abstract class Fossiles {
 				generatePillar(world, ribX + Facing.offsetsXForSide[left],  y, ribZ + Facing.offsetsZForSide[left],  3, left, random); // #を生成
 				ribXLeft += Facing.offsetsXForSide[left] * 3;
 				ribZLeft += Facing.offsetsZForSide[left] * 3;
-				generatePillar(world, ribXLeft, y - 1, ribZLeft, 3, Stat.SIDE_BOTTOM, random); // :を生成
+				generatePillar(world, ribXLeft, y - 1, ribZLeft, 3, McConst.SIDE_BOTTOM, random); // :を生成
 				ribXLeft += Facing.offsetsXForSide[right];
 				ribZLeft += Facing.offsetsZForSide[right];
 				generatePillar(world, ribXLeft, y - 3, ribZLeft, 1, right, random); // @を生成
@@ -209,7 +209,7 @@ public abstract class Fossiles {
 				generatePillar(world, ribX + Facing.offsetsXForSide[right], y, ribZ + Facing.offsetsZForSide[right], 1, right, random); // #を生成
 				ribXRight += Facing.offsetsXForSide[right] * 2;
 				ribZRight += Facing.offsetsZForSide[right] * 2;
-				generatePillar(world, ribXRight, y - 1, ribZRight, 2, Stat.SIDE_BOTTOM, random); // :を生成
+				generatePillar(world, ribXRight, y - 1, ribZRight, 2, McConst.SIDE_BOTTOM, random); // :を生成
 				ribXRight += Facing.offsetsXForSide[left];
 				ribZRight += Facing.offsetsZForSide[left];
 				generatePillar(world, ribXRight, y - 2 - 1, ribZRight, 1, left, random); // @を生成
@@ -219,7 +219,7 @@ public abstract class Fossiles {
 				generatePillar(world, ribX + Facing.offsetsXForSide[left],  y, ribZ + Facing.offsetsZForSide[left],  1, left, random); // #を生成
 				ribXLeft += Facing.offsetsXForSide[left] * 2;
 				ribZLeft += Facing.offsetsZForSide[left] * 2;
-				generatePillar(world, ribXLeft, y - 1, ribZLeft, 2, Stat.SIDE_BOTTOM, random); // :を生成
+				generatePillar(world, ribXLeft, y - 1, ribZLeft, 2, McConst.SIDE_BOTTOM, random); // :を生成
 				ribXLeft += Facing.offsetsXForSide[right];
 				ribZLeft += Facing.offsetsZForSide[right];
 				generatePillar(world, ribXLeft, y - 2 - 1, ribZLeft, 1, right, random); // @を生成
@@ -257,7 +257,7 @@ public abstract class Fossiles {
 				int ribZRight = ribZ;
 				ribXRight += Facing.offsetsXForSide[right];
 				ribZRight += Facing.offsetsZForSide[right];
-				generatePillar(world, ribXRight, y - 1, ribZRight, 2, Stat.SIDE_BOTTOM, random); // :を生成
+				generatePillar(world, ribXRight, y - 1, ribZRight, 2, McConst.SIDE_BOTTOM, random); // :を生成
 				
 				ribX += Facing.offsetsXForSide[facing] * 2;
 				ribZ += Facing.offsetsZForSide[facing] * 2;

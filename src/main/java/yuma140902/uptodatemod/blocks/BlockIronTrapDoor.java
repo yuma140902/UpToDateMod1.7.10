@@ -8,8 +8,8 @@ import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IHasRecipes;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockIronTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
 
@@ -21,8 +21,8 @@ public class BlockIronTrapDoor extends BlockTrapDoor implements IRegisterable, I
 
 	@Override
 	public void register() {
-		this.setBlockName(StringUtil.getDomainedUnlocalizedName("trap_door_iron"));
-		this.setBlockTextureName(StringUtil.getDomainedTextureName("trap_door_iron"));
+		this.setBlockName(StringUtil.name.domainedUnlocalized("trap_door_iron"));
+		this.setBlockTextureName(StringUtil.name.domainedTexture("trap_door_iron"));
 		GameRegistry.registerBlock(this, "trap_door_iron");
 	}
 	

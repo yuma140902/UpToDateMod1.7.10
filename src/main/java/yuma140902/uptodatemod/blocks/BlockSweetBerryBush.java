@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.dispenser.DispenseBehaviorFertilize;
 import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib_ee.api.IRegisterable;
+import yuma140902.yumalib.api.IRegisterable;
 
 public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 	
@@ -38,8 +38,8 @@ public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 	
 	@Override
 	public void register() {
-		setBlockName(StringUtil.getDomainedUnlocalizedName("sweet_berry_bush"));
-		setBlockTextureName(StringUtil.getDomainedTextureName("sweet_berry_bush_stage"));
+		setBlockName(StringUtil.name.domainedUnlocalized("sweet_berry_bush"));
+		setBlockTextureName(StringUtil.name.domainedTexture("sweet_berry_bush_stage"));
 		GameRegistry.registerBlock(this, "sweet_berry_bush");
 		
 		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.dye, new DispenseBehaviorFertilize());
