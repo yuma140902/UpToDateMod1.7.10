@@ -17,9 +17,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "mc1.7.10-2.1.2"
+version = "mc1.7.10-utd2.1.2nb+mt0.0.0"
 group= "yuma140902.uptodatemod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "UpToDateMod"
+archivesBaseName = "UpToDateMod+MiscThings"
 
 minecraft {
     version = "1.7.10-10.13.4.1558-1.7.10"
