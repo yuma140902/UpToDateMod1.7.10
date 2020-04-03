@@ -44,12 +44,12 @@ public class AdditionalVariantBlocks {
 		ModMiscThings.LOGGER.info("Additional Variant Blocks : init");
 		
 		add(
-				slabLogAcacia = SlabBuilder.create(Blocks.log2, "slab_log_acacia").meta(McConst.Meta.LOG2_ACACIA).build(),
-				slabLogBirch = SlabBuilder.create(Blocks.log, "slab_log_birch").meta(McConst.Meta.LOG_BIRCH).build(),
-				slabLogDarkOak = SlabBuilder.create(Blocks.log2, "slab_log_dark_oak").meta(McConst.Meta.LOG2_DARK_OAK).build(),
-				slabLogJungle = SlabBuilder.create(Blocks.log, "slab_log_jungle").meta(McConst.Meta.LOG_JUNGLE).build(),
-				slabLogOak = SlabBuilder.create(Blocks.log, "slab_log_oak").meta(McConst.Meta.LOG_OAK).build(),
-				slabLogSpruce = SlabBuilder.create(Blocks.log, "slab_log_spruce").meta(McConst.Meta.LOG_SPRUCE).build(),
+				slabLogAcacia = SlabBuilder.of(Blocks.log2, "slab_log_acacia").meta(McConst.Meta.LOG2_ACACIA).build(),
+				slabLogBirch = SlabBuilder.of(Blocks.log, "slab_log_birch").meta(McConst.Meta.LOG_BIRCH).build(),
+				slabLogDarkOak = SlabBuilder.of(Blocks.log2, "slab_log_dark_oak").meta(McConst.Meta.LOG2_DARK_OAK).build(),
+				slabLogJungle = SlabBuilder.of(Blocks.log, "slab_log_jungle").meta(McConst.Meta.LOG_JUNGLE).build(),
+				slabLogOak = SlabBuilder.of(Blocks.log, "slab_log_oak").meta(McConst.Meta.LOG_OAK).build(),
+				slabLogSpruce = SlabBuilder.of(Blocks.log, "slab_log_spruce").meta(McConst.Meta.LOG_SPRUCE).build(),
 				null
 		);
 	}
