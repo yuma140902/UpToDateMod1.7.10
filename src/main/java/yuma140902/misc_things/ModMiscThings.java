@@ -44,7 +44,7 @@ public class ModMiscThings {
 		loadModMetadata(modMetadata);
 		MTConfigCore.loadConfig(event);
 		
-		Contexts.setContext(new InitModContext(MTConstants.MOD_NAME, new NameProvider(MTConstants.MOD_ID, MTConstants.MOD_ID)));
+		Contexts.setContext(new InitModContext(MTConstants.MOD_NAME, new NameProvider(MTConstants.TEXTURE_DOMAIN, MTConstants.UNLOCALIZED_DOMAIN)));
 		
 		MTVariantBlocks.register();
 		proxy.registerEventHandlers();
