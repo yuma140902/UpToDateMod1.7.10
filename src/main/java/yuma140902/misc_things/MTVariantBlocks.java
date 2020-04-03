@@ -11,7 +11,7 @@ import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.blocks.BlockGenericSlab;
 import yuma140902.yumalib.api.blocks.SlabBuilder;
 
-public class AdditionalVariantBlocks {
+public class MTVariantBlocks {
 	@Nonnull
 	private static final List<Block> list = new ArrayList<>();
 	
