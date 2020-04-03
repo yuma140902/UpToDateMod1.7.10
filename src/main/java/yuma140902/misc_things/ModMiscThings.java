@@ -9,6 +9,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import yuma140902.misc_things.config.MTConfigCore;
 import yuma140902.misc_things.proxy.MTCommonProxy;
+import yuma140902.misc_things.recipes.MTRecipes;
 import yuma140902.yumalib.api.context.InitModContext;
 import yuma140902.yumalib.api.registry.Contexts;
 import yuma140902.yumalib.api.util.NameProvider;
@@ -48,6 +49,8 @@ public class ModMiscThings {
 		
 		MTVariantBlocks.register();
 		proxy.registerEventHandlers();
+		
+		MTRecipes.registerAllRecipes();
 		
 		Contexts.removeContext();
 	}

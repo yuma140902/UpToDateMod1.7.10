@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import yuma140902.yumalib.api.IRegisterable;
@@ -23,6 +24,10 @@ public class MTVariantBlocks {
 		for(final Block block : blocks) {
 			add(block);
 		}
+	}
+	
+	public static List<Block> getBlocks(){
+		return ImmutableList.copyOf(list);
 	}
 	
 	public static void register() {
