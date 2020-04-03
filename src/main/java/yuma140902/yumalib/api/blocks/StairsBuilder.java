@@ -13,7 +13,7 @@ public class StairsBuilder {
 		this.name = name;
 	}
 	
-	public static StairsBuilder create(@Nullable Block baseBlock, String name) {
+	public static StairsBuilder of(@Nullable Block baseBlock, String name) {
 		return new StairsBuilder(baseBlock, name);
 	}
 	
