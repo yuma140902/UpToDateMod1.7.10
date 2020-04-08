@@ -9,6 +9,13 @@ tile.uptodate.stone.polished_andesite.name=磨かれた安山岩
 
 tile.uptodate.smooth_stone.name=滑らかな石
 
+tile.uptodate.wood.acacia.name=アカシアの木
+tile.uptodate.wood.birch.name=シラカバの木
+tile.uptodate.wood.dark_oak.name=ダークオークの木
+tile.uptodate.wood.jungle.name=ジャングルの木
+tile.uptodate.wood.oak.name=オークの木
+tile.uptodate.wood.spruce.name=マツの木
+
 tile.uptodate.stripped_log_acacia.name=樹皮を剥いだアカシアの原木
 tile.uptodate.stripped_log_birch.name=樹皮を剥いだシラカバの原木
 tile.uptodate.stripped_log_dark_oak.name=樹皮を剥いだダークオークの原木

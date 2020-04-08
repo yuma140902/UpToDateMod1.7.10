@@ -13,6 +13,7 @@ import yuma140902.uptodatemod.blocks.BlockConcrete;
 import yuma140902.uptodatemod.blocks.BlockConcretePowder;
 import yuma140902.uptodatemod.blocks.BlockDarkPrismarine;
 import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
+import yuma140902.uptodatemod.blocks.BlockFullWood;
 import yuma140902.uptodatemod.blocks.BlockGlazedTerracotta;
 import yuma140902.uptodatemod.blocks.BlockGrassPath;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
@@ -84,6 +85,8 @@ public final class MyBlocks {
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone;
 	public static final BlockSmoothStone smoothStone;
+	
+	public static final BlockFullWood wood;
 	
 	public static final BlockGenericStrippedLog strippedLogAcacia;
 	public static final BlockGenericStrippedLog strippedLogBirch;
@@ -244,6 +247,8 @@ public final class MyBlocks {
 		
 		add(stone = isEnabled(stones) ? new yuma140902.uptodatemod.blocks.BlockStone() : null);
 		add(smoothStone = isEnabled(EnumDisableableFeatures.smoothStone) ? new BlockSmoothStone() : null);
+		
+		add(wood = isEnabled(EnumDisableableFeatures.wood) ? new BlockFullWood() : null);
 		
 		if(isEnabled(strippedLogs)) {
 			add(strippedLogAcacia = 	new BlockGenericStrippedLog("stripped_log_acacia", 		"stripped_acacia_log", 		McConst.Meta.PLANK_ACACIA));

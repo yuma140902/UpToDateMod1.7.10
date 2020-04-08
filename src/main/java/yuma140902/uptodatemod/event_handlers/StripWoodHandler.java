@@ -7,9 +7,12 @@ import javax.annotation.Nonnull;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import yuma140902.uptodatemod.MyBlocks;
+import yuma140902.uptodatemod.blocks.BlockFullWood;
+import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.yumalib.api.McConst;
@@ -87,6 +90,15 @@ public class StripWoodHandler {
 			
 			assert strippedLog != null;
 			return new BlockState(strippedLog, axis << 2);
+		}, "dig.cloth"));
+		
+		
+		register(WoodStrippingInfo.of(state -> {
+			if(state.block != MyBlocks.wood) return null;
+			int meta = MathHelper.clamp_int(state.meta, 0, BlockFullWood.META_MAX);
+			BlockGenericStrippedLog blockToPlace = BlockFullWood.getStrippedLog(meta);
+			int metaToBe = 12;
+			return new BlockState(blockToPlace, metaToBe);
 		}, "dig.cloth"));
 	}
 }
