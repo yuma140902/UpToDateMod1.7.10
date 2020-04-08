@@ -124,6 +124,8 @@ public final class Recipes {
 		registerSlabRecipes();
 		registerWallRecipes();
 		
+		
+		RecipeRegister.addSmelting(new ItemStack(Blocks.stonebrick, 1, McConst.Meta.STONEBRICK_NORMAL), new ItemStack(Blocks.stonebrick, 1, McConst.Meta.STONEBRICK_CRACKED), McConst.EXP_BRICK);
 	}
 	
 	private static void registerDoorRecipes() {
