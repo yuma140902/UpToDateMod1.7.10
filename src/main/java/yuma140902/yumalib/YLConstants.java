@@ -1,5 +1,7 @@
 package yuma140902.yumalib;
 
+import net.minecraft.creativetab.CreativeTabs;
+
 public class YLConstants {
 	public static final String MOD_NAME = "YumaLib";
 	public static final String MOD_ID = "yumalib";
@@ -10,4 +12,5 @@ public class YLConstants {
 	public static final String PROXY_CLIENT = "yuma140902.yumalib.proxy.YLClientProxy";
 	public static final String CONFIG_GUI_FACTORY = "yuma140902.yumalib.gui.YLConfigGuiFactory";
 	
+	public static final CreativeTabs MOD_CREATIVE_TAB = new YumaLibCreativeTab();
 }
