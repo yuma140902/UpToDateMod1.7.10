@@ -25,6 +25,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.event_handlers.StripWoodHandler;
 import yuma140902.uptodatemod.integration.Plugins;
 import yuma140902.uptodatemod.loot.MobLoot;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
@@ -138,6 +139,7 @@ public class ModUpToDateMod {
 		MyGuis.register();
 		
 		MobLoot.registerBasicMobLoots();
+		StripWoodHandler.registerBasicWoodStripping();
 		
 		networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
 		networkWrapper.registerMessage(ArmorStandInteractHandler.class, ArmorStandInteractMessage.class, 0, Side.SERVER);
