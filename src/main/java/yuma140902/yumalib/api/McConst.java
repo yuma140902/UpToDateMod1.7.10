@@ -101,6 +101,12 @@ public final class McConst {
 				SANDSTONE_NORMAL = 0,
 				SANDSTONE_CHISELED = 1,
 				SANDSTONE_CUT = 2;
+		
+		public static final int
+				STONEBRICK_NORMAL = 0,
+				STONEBRICK_MOSSY = 1,
+				STONEBRICK_CRACKED = 2,
+				STONEBRICK_CHISELED = 3;
 	}
 	
 	
