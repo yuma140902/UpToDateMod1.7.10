@@ -3,6 +3,8 @@ package yuma140902.uptodatemod.blocks;
 import java.util.List;
 import java.util.Random;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -21,6 +23,7 @@ import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.util.BlockPos;
 import yuma140902.yumalib.api.util.WorldUtils;
 
@@ -115,6 +118,24 @@ public class BlockMagma extends Block implements IRegisterable, IHasRecipes {
     {
         world.setBlockToAir(x, y + 1, z);
     }
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+		if(world.isRaining()) {
+			double posX = x + 0.5;
+			double posY = y + 1.1;
+			double posZ = z + 0.5;
+			double velX = 0;
+			double velY = 0;
+			double velZ = 0;
+			
+			int count = rand.nextInt(8);
+			for(int i=0; i<count; ++i) {
+				world.spawnParticle(McConst.Particle.SMOKE, posX+rand.nextDouble()-0.5, posY, posZ+rand.nextDouble()-0.5, velX, velY, velZ);
+			}
+		}
 	}
 	
 	@Override
