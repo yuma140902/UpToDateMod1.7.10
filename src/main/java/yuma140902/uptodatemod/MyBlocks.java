@@ -49,7 +49,6 @@ import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.blocks.BlockGenericButton;
-import yuma140902.yumalib.api.blocks.BlockGenericDoor;
 import yuma140902.yumalib.api.blocks.BlockGenericFence;
 import yuma140902.yumalib.api.blocks.BlockGenericFenceGate;
 import yuma140902.yumalib.api.blocks.BlockGenericPressurePlate;
@@ -247,6 +246,16 @@ public final class MyBlocks {
 	public static final BlockUnlimitedPot unlimitedPot;
 	
 	
+	/*
+	 * !!! 注意 !!!
+	 * MyItemsのstaticイニシャライザが呼ばれてしまい、
+	 * 予期しないタイミングで変数の値がnullになってしまうため、
+	 * MyBlocksのstaticイニシャライザでMyItemsのプロパティを参照してはいけない。
+	 * また、各ブロックのコンストラクタでもMyItemsのプロパティを参照してはいけない。
+	 */
+	/*
+	 * MyBlocksのstaticイニシャライザはMyItemsのstaticイニシャライザよりも先に実行されるようにすること
+	 */
 	static {
 		ModUpToDateMod.LOGGER.info("Blocks init");
 		
