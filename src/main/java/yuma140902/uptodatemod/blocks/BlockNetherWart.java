@@ -24,6 +24,11 @@ public class BlockNetherWart extends Block implements IRegisterable, IHasRecipes
 		this.setHardness(1.0F);
 		this.setStepSound(soundTypeNetherWart);
 		this.setCreativeTab(CreativeTabs.tabBlock);
+		/* 本当はクワを適正ツールにしたいが、
+		 * ItemHoeがItemToolを参照しないせいで、
+		 * Item#getDigSpeed()がBlock#harvestTool[]を参照しない。
+		 * ASMでItemHoe#getDigSpeed()を上書きする必要がありそう。 */
+		this.setHarvestLevel("axe", 0);
 	}
 	
 	@Override
