@@ -63,5 +63,27 @@
 			"block/bone_block/step4",
 			"block/bone_block/step5"
 		]
+	},
+
+	"dig.netherwart": {
+		"category": "block",
+		"sounds": [
+			"block/netherwart/break1",
+			"block/netherwart/break2",
+			"block/netherwart/break3",
+			"block/netherwart/break4",
+			"block/netherwart/break5",
+			"block/netherwart/break6"
+		]
+	},
+	"step.netherwart": {
+		"category": "block",
+		"sounds": [
+			"block/netherwart/step1",
+			"block/netherwart/step2",
+			"block/netherwart/step3",
+			"block/netherwart/step4",
+			"block/netherwart/step5"
+		]
 	}
 }

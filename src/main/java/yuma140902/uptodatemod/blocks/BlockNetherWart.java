@@ -7,18 +7,22 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.blocks.CustomSoundType;
 
 public class BlockNetherWart extends Block implements IRegisterable, IHasRecipes {
 
+	private Block.SoundType soundTypeNetherWart = new CustomSoundType(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "netherwart");
+	
 	public BlockNetherWart() {
 		super(Material.grass);
 		this.setHardness(1.0F);
-		this.setStepSound(soundTypeWood);
+		this.setStepSound(soundTypeNetherWart);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
