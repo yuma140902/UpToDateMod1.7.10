@@ -11,32 +11,24 @@ import net.minecraft.client.renderer.IconFlipped;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemDoor;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
-public class BlockGenericDoor extends BlockDoor implements IRegisterable {
+public abstract class BlockGenericDoor extends BlockDoor implements IRegisterable {
 	
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] iconTop;
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] iconBottom;
 	
-	private String name;
-	private String textureName;
-	private ItemDoor item;
-	
-	public BlockGenericDoor(String name, String textureName, ItemDoor item) {
+	public BlockGenericDoor() {
 		super(Material.wood);
 		this.setHardness(3.0F);
 		this.setStepSound(soundTypeWood);
 		this.disableStats();
-		this.name = name;
-		this.textureName = textureName;
-		this.item = item;
 	}
 	
 	@Override
@@ -108,9 +100,9 @@ public class BlockGenericDoor extends BlockDoor implements IRegisterable {
 	
 	@Override
 	public void register() {
-		this.setBlockName(Contexts.current().nameProvider().domainedUnlocalized(this.name));
-		this.setBlockTextureName(Contexts.current().nameProvider().domainedTexture(this.textureName));
-		GameRegistry.registerBlock(this, this.name);
+		this.setBlockName(Contexts.current().nameProvider().domainedUnlocalized(getName()));
+		this.setBlockTextureName(Contexts.current().nameProvider().domainedTexture(getNameForTexture()));
+		GameRegistry.registerBlock(this, getName());
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -125,17 +117,20 @@ public class BlockGenericDoor extends BlockDoor implements IRegisterable {
 	}
 	
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) { /* 何もしない */ }
+	public void getSubBlocks(Item item, CreativeTabs tab, List list) {}
 	
 	@Override
 	public Item getItem(World world, int x, int y, int z) {
-		return this.item;
+		return getItem();
 	}
 	
 	@Override
 	public Item getItemDropped(int meta, Random rand, int p_149650_3_)
   {
-		return (meta & 8) != 0 ? null : this.item;
+		return (meta & 8) != 0 ? null : getItem();
   }
 	
+	protected abstract String getNameForTexture();
+	protected abstract String getName();
+	protected abstract Item getItem();
 }
