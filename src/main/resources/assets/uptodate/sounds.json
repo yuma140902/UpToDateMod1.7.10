@@ -85,5 +85,28 @@
 			"block/netherwart/step4",
 			"block/netherwart/step5"
 		]
+	},
+
+	"dig.netherrack": {
+		"category": "block",
+		"sounds": [
+			"block/netherrack/break1",
+			"block/netherrack/break2",
+			"block/netherrack/break3",
+			"block/netherrack/break4",
+			"block/netherrack/break5",
+			"block/netherrack/break6"
+		]
+	},
+	"step.netherrack": {
+		"category": "block",
+		"sounds": [
+			"block/netherrack/step1",
+			"block/netherrack/step2",
+			"block/netherrack/step3",
+			"block/netherrack/step4",
+			"block/netherrack/step5",
+			"block/netherrack/step6"
+		]
 	}
 }

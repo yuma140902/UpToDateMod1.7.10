@@ -125,6 +125,56 @@
     {
       "url": "https://resources.download.minecraft.net/fb/fb223ba9978c3747c41ad4e21773b6608b33f466",
       "dest": "sounds/block/netherwart/step5.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/6a/6a4796fec25e83aa2d0151f0ddd86e6ce86bb48a",
+      "dest": "sounds/block/netherrack/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/49/49d5826555c9f00e36c1e2e0386118f4e0a27c4f",
+      "dest": "sounds/block/netherrack/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/50/5066b310fd288cf443497dd362ff151923525213",
+      "dest": "sounds/block/netherrack/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/1d/1d488970ff2dd9d19a397c8bd593b82bd061b655",
+      "dest": "sounds/block/netherrack/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b2/b2eff3be4927ad66e197d91699609bd354320bef",
+      "dest": "sounds/block/netherrack/break5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/c5/c57a387a15458219f9bbc02be71a61bdb49bf214",
+      "dest": "sounds/block/netherrack/break6.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/79/7910253fc8f50d0056e9bf8aa9b915928e90e5bc",
+      "dest": "sounds/block/netherrack/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/32/326bfdab1e9a02a7bf527da641e3a4b62edc1e9f",
+      "dest": "sounds/block/netherrack/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/96/96e2565f37e232124848743a594ba4eb4526d1a8",
+      "dest": "sounds/block/netherrack/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/04/04eb42acb97f338927ede64a898318b4fc962bad",
+      "dest": "sounds/block/netherrack/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/8b/8b6a0e0cfb6f87bbce9e4c6389175cd7f8b2a884",
+      "dest": "sounds/block/netherrack/step5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/17/178fb8d28191881e4f3808d3f9455b3f74cc7db7",
+      "dest": "sounds/block/netherrack/step6.ogg"
     }
 
   ],
