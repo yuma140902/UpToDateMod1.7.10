@@ -3,6 +3,7 @@ package yuma140902.uptodatemod.blocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -11,18 +12,22 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.blocks.CustomSoundType;
 
 public class BlockBone extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
+	
+	private Block.SoundType soundTypeBone = new CustomSoundType(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "bone", 1.0F, 1.0F);
 	
 	public BlockBone() {
 		super(Material.rock);
     setHardness(2.0F);
-    setStepSound(soundTypeStone);
+    setStepSound(soundTypeBone);
     setCreativeTab(CreativeTabs.tabBlock);
 	}
 	

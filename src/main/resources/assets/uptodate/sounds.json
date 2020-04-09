@@ -43,5 +43,25 @@
 				"stream": false
 			}
 		]
+	},
+	"dig.bone": {
+		"category": "block",
+		"sounds": [
+			"block/bone_block/break1",
+			"block/bone_block/break2",
+			"block/bone_block/break3",
+			"block/bone_block/break4",
+			"block/bone_block/break5"
+		]
+	},
+	"step.bone": {
+		"category": "block",
+		"sounds": [
+			"block/bone_block/step1",
+			"block/bone_block/step2",
+			"block/bone_block/step3",
+			"block/bone_block/step4",
+			"block/bone_block/step5"
+		]
 	}
 }

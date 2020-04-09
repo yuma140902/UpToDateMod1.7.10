@@ -37,7 +37,50 @@
     {
       "url": "https://resources.download.minecraft.net/b7/b7cf6b6ff19146fae41a39025ab709ea90bcc439",
       "dest": "sounds/note/xylobone.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/e1/e1531690171d1940e0737074a8e6dbd31387d4b1",
+      "dest": "sounds/block/bone_block/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/3e/3eddefcae7dd754b80765c2fee955aa26c644e7c",
+      "dest": "sounds/block/bone_block/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b2/b2ae2bdcbaabf46448ed282df1ae1cc7096bb8e9",
+      "dest": "sounds/block/bone_block/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/de/de98f91fbce73a38fa30e887ac8dce08aac8e675",
+      "dest": "sounds/block/bone_block/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/0a/0ae403bea99c54d26b09f7d588ea11ddb4b6dc98",
+      "dest": "sounds/block/bone_block/break5.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/49/49ae543155e15b8115206f3bdcf1b929b7725b62",
+      "dest": "sounds/block/bone_block/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/e2/e2c1207fb138a72cbc29277497408cde75b28698",
+      "dest": "sounds/block/bone_block/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a5/a5362a693f9ae184c1e87ac07fb7ad949d2aee45",
+      "dest": "sounds/block/bone_block/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/11/11b24be2acd87d0d3cadd3b4a5e7f5cf29d75b9c",
+      "dest": "sounds/block/bone_block/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/d6/d6c41fbec35949f5ab7423d0a3cd174bacfd406d",
+      "dest": "sounds/block/bone_block/step5.ogg"
     }
+
   ],
   "copies": [
     {
