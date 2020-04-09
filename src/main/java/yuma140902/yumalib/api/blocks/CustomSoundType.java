@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 
 public class CustomSoundType extends Block.SoundType {
 
-	protected String domain;
+	protected final String domain;
 	
 	public CustomSoundType(String domain, String name, float volume, float frequency) {
 		super(name, volume, frequency);
@@ -25,6 +25,9 @@ public class CustomSoundType extends Block.SoundType {
 		return domain + ":" + super.getStepResourcePath();
 	}
 	
+	/**
+	 * ブロック設置時の音を取得するのに使われると思われる
+	 */
 	@Override
 	public String func_150496_b() {
 		return this.getBreakSound();

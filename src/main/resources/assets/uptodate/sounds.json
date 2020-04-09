@@ -108,5 +108,26 @@
 			"block/netherrack/step5",
 			"block/netherrack/step6"
 		]
+	},
+
+	"dig.sweet_berry_bush": {
+		"category": "block",
+		"sounds": [
+			"block/sweet_berry_bush/break1",
+			"block/sweet_berry_bush/break2",
+			"block/sweet_berry_bush/break3",
+			"block/sweet_berry_bush/break4"
+		]
+	},
+	"place.sweet_berry_bush": {
+		"category": "block",
+		"sounds": [
+			"block/sweet_berry_bush/place1",
+			"block/sweet_berry_bush/place2",
+			"block/sweet_berry_bush/place3",
+			"block/sweet_berry_bush/place4",
+			"block/sweet_berry_bush/place5",
+			"block/sweet_berry_bush/place6"
+		]
 	}
 }
