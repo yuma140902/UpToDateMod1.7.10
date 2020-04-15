@@ -17,6 +17,7 @@ public class YLConfigCore {
 		public static EnumTooltip showBlockMaterialInfo = EnumTooltip.Never;
 	}
 	
+	public static boolean enableGMSwitcher = false;
 	public static boolean showCreativeTab = false;
 	
 	public static Configuration cfg;
@@ -35,7 +36,9 @@ public class YLConfigCore {
 				.comment("Settings of YumaLib")
 				.add(PropertyBuilder.bool("showCreativeTab")
 						.defaultBool(showCreativeTab)
-						.requireMcRestart());
+						.requireMcRestart())
+				.add(PropertyBuilder.bool("enableGMSwitcher")
+						.defaultBool(enableGMSwitcher));
 		generalCategory.registerToForge(cfg);
 		
 		
@@ -58,6 +61,7 @@ public class YLConfigCore {
 		
 		generalCategory.registerPropertiesToForge(cfg);
 		showCreativeTab = generalCategory.get("showCreativeTab", cfg).getBoolean();
+		enableGMSwitcher = generalCategory.get("enableGMSwitcher", cfg).getBoolean();
 		
 		tooltipCategory.registerPropertiesToForge(cfg);
 		Tooltip.showOreDic = EnumTooltip.valueOf(tooltipCategory.get("showOreDic", cfg).getString());
