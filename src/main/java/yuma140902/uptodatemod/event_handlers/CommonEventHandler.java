@@ -22,7 +22,6 @@ import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.EnumNoteBlockInstrument;
-import yuma140902.yumalib.api.McConst;
 
 public class CommonEventHandler {
 	private CommonEventHandler() {}
@@ -49,14 +48,6 @@ public class CommonEventHandler {
 		return false;
 	}
 	
-	private boolean isAxe(ItemStack itemstack) {
-		if(itemstack != null && itemstack.getItem() != null) {
-			Set<String> toolClasses = itemstack.getItem().getToolClasses(itemstack);
-			return toolClasses != null && toolClasses.contains("axe");
-		}
-		return false;
-	}
-	
 	@SubscribeEvent
 	public void onPlayerUsedItem(PlayerInteractEvent event) {
 		if(event.action != Action.RIGHT_CLICK_BLOCK) return;
@@ -77,31 +68,7 @@ public class CommonEventHandler {
 			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "dig.grass", 1.0F, world.rand.nextFloat() * 0.1F + 0.9F);
 		}
 		
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.strippedLogs) &&
-				isAxe(heldItem)) {
-			Block block = world.getBlock(x, y, z);
-			int log =  block == Blocks.log ? 1 : block == Blocks.log2 ? 2 : 0;
-			if(log == 0) return;
-			
-			int meta = world.getBlockMetadata(x, y, z);
-			int axis = meta >>> 2;
-			meta = meta & 0b0011;
-			
-			Block strippedLog = null;
-			switch(meta) {
-				case McConst.Meta.LOG_OAK: //LOG_META_OAK == LOG2_META_ACACIA == 0
-					strippedLog = log == 1 ? MyBlocks.strippedLogOak : MyBlocks.strippedLogAcacia; break;
-				case McConst.Meta.LOG_SPRUCE: //LOG_META_SPRUCE == LOG2_META_DARK_OAK == 1
-					strippedLog = log == 1 ? MyBlocks.strippedLogSpruce : MyBlocks.strippedLogDarkOak; break;
-				case McConst.Meta.LOG_BIRCH:	strippedLog = MyBlocks.strippedLogBirch; break;
-				case McConst.Meta.LOG_JUNGLE:	strippedLog = MyBlocks.strippedLogJungle; break;
-				default: return;
-			}
-			
-			world.setBlock(x, y, z, strippedLog);
-			world.setBlockMetadataWithNotify(x, y, z, axis << 2, 3);
-			world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "dig.cloth", 1.0F, world.rand.nextFloat() * 0.1F + 0.9F);
-		}
+		StripWoodHandler.handle(event);
 	}
 	
 	@SubscribeEvent

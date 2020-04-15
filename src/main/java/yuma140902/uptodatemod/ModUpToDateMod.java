@@ -25,6 +25,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
+import yuma140902.uptodatemod.event_handlers.StripWoodHandler;
 import yuma140902.uptodatemod.integration.Plugins;
 import yuma140902.uptodatemod.loot.MobLoot;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
@@ -37,6 +38,7 @@ import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.uptodatemod.util.UpToDateModConstants;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
+import yuma140902.yumalib.api.blocks.CustomSoundType;
 import yuma140902.yumalib.api.context.InitModContext;
 import yuma140902.yumalib.api.registry.Contexts;
 import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
@@ -95,6 +97,8 @@ public class ModUpToDateMod {
 		Blocks.packed_ice.setHarvestLevel("pickaxe", 0);
 		Blocks.ladder.setHarvestLevel("axe", 0);
 		Blocks.melon_block.setHarvestLevel("axe", 0);
+		
+		Blocks.netherrack.setStepSound(new CustomSoundType(MOD_TEXTURE_DOMAIN, "netherrack"));
 	}
 	
 	private static void setFinalField(Class<?> clazz, Object that, Object newValue, String... fieldNames) {
@@ -138,6 +142,7 @@ public class ModUpToDateMod {
 		MyGuis.register();
 		
 		MobLoot.registerBasicMobLoots();
+		StripWoodHandler.registerBasicWoodStripping();
 		
 		networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel(MOD_ID);
 		networkWrapper.registerMessage(ArmorStandInteractHandler.class, ArmorStandInteractMessage.class, 0, Side.SERVER);

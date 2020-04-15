@@ -80,8 +80,8 @@ public class ModConfigCore {
 	}
 	
 	public static class Alternative {
-		private static boolean altPrismarine = true;
-		private static boolean altPurpur = true;
+		private static boolean altPrismarine = false;
+		private static boolean altPurpur = false;
 		
 		public static boolean altPrismarine() {return altPrismarine;}
 		public static boolean altPurpur() {return altPurpur;}

@@ -12,7 +12,13 @@ import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockConcrete;
 import yuma140902.uptodatemod.blocks.BlockConcretePowder;
 import yuma140902.uptodatemod.blocks.BlockDarkPrismarine;
+import yuma140902.uptodatemod.blocks.BlockDoorAcacia;
+import yuma140902.uptodatemod.blocks.BlockDoorBirch;
+import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
+import yuma140902.uptodatemod.blocks.BlockDoorJungle;
+import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
 import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
+import yuma140902.uptodatemod.blocks.BlockFullWood;
 import yuma140902.uptodatemod.blocks.BlockGlazedTerracotta;
 import yuma140902.uptodatemod.blocks.BlockGrassPath;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
@@ -43,7 +49,6 @@ import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.blocks.BlockGenericButton;
-import yuma140902.yumalib.api.blocks.BlockGenericDoor;
 import yuma140902.yumalib.api.blocks.BlockGenericFence;
 import yuma140902.yumalib.api.blocks.BlockGenericFenceGate;
 import yuma140902.yumalib.api.blocks.BlockGenericPressurePlate;
@@ -85,6 +90,8 @@ public final class MyBlocks {
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone;
 	public static final BlockSmoothStone smoothStone;
 	
+	public static final BlockFullWood wood;
+	
 	public static final BlockGenericStrippedLog strippedLogAcacia;
 	public static final BlockGenericStrippedLog strippedLogBirch;
 	public static final BlockGenericStrippedLog strippedLogDarkOak;
@@ -92,11 +99,11 @@ public final class MyBlocks {
 	public static final BlockGenericStrippedLog strippedLogOak;
 	public static final BlockGenericStrippedLog strippedLogSpruce;
 	
-	public static final BlockGenericDoor doorAcacia;
-	public static final BlockGenericDoor doorBirch;
-	public static final BlockGenericDoor doorDarkOak;
-	public static final BlockGenericDoor doorJungle;
-	public static final BlockGenericDoor doorSpruce;
+	public static final BlockDoorAcacia doorAcacia;
+	public static final BlockDoorBirch doorBirch;
+	public static final BlockDoorDarkOak doorDarkOak;
+	public static final BlockDoorJungle doorJungle;
+	public static final BlockDoorSpruce doorSpruce;
 	
 	public static final BlockGenericFence fenceAcacia;
 	public static final BlockGenericFence fenceBirch;
@@ -239,11 +246,23 @@ public final class MyBlocks {
 	public static final BlockUnlimitedPot unlimitedPot;
 	
 	
+	/*
+	 * !!! 注意 !!!
+	 * MyItemsのstaticイニシャライザが呼ばれてしまい、
+	 * 予期しないタイミングで変数の値がnullになってしまうため、
+	 * MyBlocksのstaticイニシャライザでMyItemsのプロパティを参照してはいけない。
+	 * また、各ブロックのコンストラクタでもMyItemsのプロパティを参照してはいけない。
+	 */
+	/*
+	 * MyBlocksのstaticイニシャライザはMyItemsのstaticイニシャライザよりも先に実行されるようにすること
+	 */
 	static {
 		ModUpToDateMod.LOGGER.info("Blocks init");
 		
 		add(stone = isEnabled(stones) ? new yuma140902.uptodatemod.blocks.BlockStone() : null);
 		add(smoothStone = isEnabled(EnumDisableableFeatures.smoothStone) ? new BlockSmoothStone() : null);
+		
+		add(wood = isEnabled(EnumDisableableFeatures.wood) ? new BlockFullWood() : null);
 		
 		if(isEnabled(strippedLogs)) {
 			add(strippedLogAcacia = 	new BlockGenericStrippedLog("stripped_log_acacia", 		"stripped_acacia_log", 		McConst.Meta.PLANK_ACACIA));
@@ -263,11 +282,11 @@ public final class MyBlocks {
 		}
 		
 		if(isEnabled(doors)) {
-			add(doorAcacia = 		new BlockGenericDoor("door_acacia", 		"acacia_door", 		MyItems.itemDoorAcacia));
-			add(doorBirch = 		new BlockGenericDoor("door_birch", 			"birch_door", 		MyItems.itemDoorBirch));
-			add(doorDarkOak = 	new BlockGenericDoor("door_dark_oak", 	"dark_oak_door", 	MyItems.itemDoorDarkOak));
-			add(doorJungle = 		new BlockGenericDoor("door_jungle", 		"jungle_door", 		MyItems.itemDoorJungle));
-			add(doorSpruce = 		new BlockGenericDoor("door_spruce", 		"spruce_door", 		MyItems.itemDoorSpruce));
+			add(doorAcacia = new BlockDoorAcacia());
+			add(doorBirch = new BlockDoorBirch());
+			add(doorDarkOak = new BlockDoorDarkOak());
+			add(doorJungle = new BlockDoorJungle());
+			add(doorSpruce = new BlockDoorSpruce());
 		}
 		else {
 			doorAcacia = null;

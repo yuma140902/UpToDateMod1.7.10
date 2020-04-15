@@ -9,6 +9,13 @@ tile.uptodate.stone.polished_andesite.name=Polished Andesite
 
 tile.uptodate.smooth_stone.name=Smooth Stone
 
+tile.uptodate.wood.acacia.name=Acacia Wood
+tile.uptodate.wood.birch.name=Birch Wood
+tile.uptodate.wood.dark_oak.name=Dark Oak Wood
+tile.uptodate.wood.jungle.name=Jungle Wood
+tile.uptodate.wood.oak.name=Oak Wood
+tile.uptodate.wood.spruce.name=Spruce Wood
+
 tile.uptodate.stripped_log_acacia.name=Stripped Acacia Log
 tile.uptodate.stripped_log_birch.name=Stripped Birch Log
 tile.uptodate.stripped_log_dark_oak.name=Stripped Dark Oak Log

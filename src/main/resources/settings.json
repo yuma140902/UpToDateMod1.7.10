@@ -37,7 +37,188 @@
     {
       "url": "https://resources.download.minecraft.net/b7/b7cf6b6ff19146fae41a39025ab709ea90bcc439",
       "dest": "sounds/note/xylobone.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/e1/e1531690171d1940e0737074a8e6dbd31387d4b1",
+      "dest": "sounds/block/bone_block/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/3e/3eddefcae7dd754b80765c2fee955aa26c644e7c",
+      "dest": "sounds/block/bone_block/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b2/b2ae2bdcbaabf46448ed282df1ae1cc7096bb8e9",
+      "dest": "sounds/block/bone_block/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/de/de98f91fbce73a38fa30e887ac8dce08aac8e675",
+      "dest": "sounds/block/bone_block/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/0a/0ae403bea99c54d26b09f7d588ea11ddb4b6dc98",
+      "dest": "sounds/block/bone_block/break5.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/49/49ae543155e15b8115206f3bdcf1b929b7725b62",
+      "dest": "sounds/block/bone_block/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/e2/e2c1207fb138a72cbc29277497408cde75b28698",
+      "dest": "sounds/block/bone_block/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a5/a5362a693f9ae184c1e87ac07fb7ad949d2aee45",
+      "dest": "sounds/block/bone_block/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/11/11b24be2acd87d0d3cadd3b4a5e7f5cf29d75b9c",
+      "dest": "sounds/block/bone_block/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/d6/d6c41fbec35949f5ab7423d0a3cd174bacfd406d",
+      "dest": "sounds/block/bone_block/step5.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/df/df0655d42337a1219cb58f6b7b0a487a2bca14ed",
+      "dest": "sounds/block/netherwart/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/c6/c69af75e03da0873c06dd391b7f23cca2a7b2daa",
+      "dest": "sounds/block/netherwart/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/49/49f9d8ea4a9392ea23b01d872284c6f67066d25c",
+      "dest": "sounds/block/netherwart/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b7/b71aa4d56529cd5472850774dc6159925fdd04f1",
+      "dest": "sounds/block/netherwart/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/44/4469da7e49535f86fe8a3cdd86021b44455c225d",
+      "dest": "sounds/block/netherwart/break5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/eb/eb8853df8a04e32b79888b8c6c1dc71244095947",
+      "dest": "sounds/block/netherwart/break6.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/00/007a96cf5c6585babb020381a1075912df2279f4",
+      "dest": "sounds/block/netherwart/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/e9/e94a2a91b8834f4ab63f0b79c7f92f900384df59",
+      "dest": "sounds/block/netherwart/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/75/75af15fdccce46438f39838d400f520649b81cd8",
+      "dest": "sounds/block/netherwart/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/3d/3d0cb49d33b9bb2462ad183f65e2e11aea3c1eff",
+      "dest": "sounds/block/netherwart/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/fb/fb223ba9978c3747c41ad4e21773b6608b33f466",
+      "dest": "sounds/block/netherwart/step5.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/6a/6a4796fec25e83aa2d0151f0ddd86e6ce86bb48a",
+      "dest": "sounds/block/netherrack/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/49/49d5826555c9f00e36c1e2e0386118f4e0a27c4f",
+      "dest": "sounds/block/netherrack/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/50/5066b310fd288cf443497dd362ff151923525213",
+      "dest": "sounds/block/netherrack/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/1d/1d488970ff2dd9d19a397c8bd593b82bd061b655",
+      "dest": "sounds/block/netherrack/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b2/b2eff3be4927ad66e197d91699609bd354320bef",
+      "dest": "sounds/block/netherrack/break5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/c5/c57a387a15458219f9bbc02be71a61bdb49bf214",
+      "dest": "sounds/block/netherrack/break6.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/79/7910253fc8f50d0056e9bf8aa9b915928e90e5bc",
+      "dest": "sounds/block/netherrack/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/32/326bfdab1e9a02a7bf527da641e3a4b62edc1e9f",
+      "dest": "sounds/block/netherrack/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/96/96e2565f37e232124848743a594ba4eb4526d1a8",
+      "dest": "sounds/block/netherrack/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/04/04eb42acb97f338927ede64a898318b4fc962bad",
+      "dest": "sounds/block/netherrack/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/8b/8b6a0e0cfb6f87bbce9e4c6389175cd7f8b2a884",
+      "dest": "sounds/block/netherrack/step5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/17/178fb8d28191881e4f3808d3f9455b3f74cc7db7",
+      "dest": "sounds/block/netherrack/step6.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/8e/8eaa189e42aad889310e03cc26de676dc8431345",
+      "dest": "sounds/block/sweet_berry_bush/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a6/a67784e3903cb1e3a2005e7c36c648279b97edd8",
+      "dest": "sounds/block/sweet_berry_bush/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/35/350a9a9620efabf6edf91e75762957953bf6cb81",
+      "dest": "sounds/block/sweet_berry_bush/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a9/a9d3b12ba323f0b14a2adbf92f597a803831d6a4",
+      "dest": "sounds/block/sweet_berry_bush/break4.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/6d/6d6128196a44038658da3ff257ec2597114cd6c0",
+      "dest": "sounds/block/sweet_berry_bush/place1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/27/27d8af498c6e1a7f5ea26ab746866d10a6230419",
+      "dest": "sounds/block/sweet_berry_bush/place2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/d6/d6545aef9a74893f3ee2ced6b18afd52b4a17825",
+      "dest": "sounds/block/sweet_berry_bush/place3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/8c/8c1fd5b4accebff5dda35ef8acb762b92f4c1851",
+      "dest": "sounds/block/sweet_berry_bush/place4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/71/71b473c255837982015662f3f4e9e65981666390",
+      "dest": "sounds/block/sweet_berry_bush/place5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/40/40e5da14b4608b138ec3cc8706e45d6ffb18c405",
+      "dest": "sounds/block/sweet_berry_bush/place6.ogg"
     }
+
   ],
   "copies": [
     {

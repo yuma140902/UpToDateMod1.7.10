@@ -17,6 +17,8 @@ public class YLConfigCore {
 		public static EnumTooltip showBlockMaterialInfo = EnumTooltip.Never;
 	}
 	
+	public static boolean showCreativeTab = false;
+	
 	public static Configuration cfg;
 	
 	private static CategoryBuilder generalCategory;
@@ -30,7 +32,10 @@ public class YLConfigCore {
 	
 	private static void initConfig() {
 		generalCategory = new CategoryBuilder("General")
-				.comment("Settings of YumaLib");
+				.comment("Settings of YumaLib")
+				.add(PropertyBuilder.bool("showCreativeTab")
+						.defaultBool(showCreativeTab)
+						.requireMcRestart());
 		generalCategory.registerToForge(cfg);
 		
 		
@@ -50,6 +55,9 @@ public class YLConfigCore {
 	
 	public static void syncConfig() {
 		ModYumaLib.LOGGER.info("Loading config");
+		
+		generalCategory.registerPropertiesToForge(cfg);
+		showCreativeTab = generalCategory.get("showCreativeTab", cfg).getBoolean();
 		
 		tooltipCategory.registerPropertiesToForge(cfg);
 		Tooltip.showOreDic = EnumTooltip.valueOf(tooltipCategory.get("showOreDic", cfg).getString());

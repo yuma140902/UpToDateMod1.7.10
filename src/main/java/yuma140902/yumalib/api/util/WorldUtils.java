@@ -11,4 +11,8 @@ public class WorldUtils {
 	public static boolean isAir(World world, BlockPos pos) {
 		return world.isAirBlock(pos.x(), pos.y(), pos.z());
 	}
+	
+	public static int getMeta(World world, BlockPos pos) {
+		return world.getBlockMetadata(pos.x(), pos.y(), pos.z());
+	}
 }

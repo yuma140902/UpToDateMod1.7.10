@@ -101,6 +101,52 @@ public final class McConst {
 				SANDSTONE_NORMAL = 0,
 				SANDSTONE_CHISELED = 1,
 				SANDSTONE_CUT = 2;
+		
+		public static final int
+				STONEBRICK_NORMAL = 0,
+				STONEBRICK_MOSSY = 1,
+				STONEBRICK_CRACKED = 2,
+				STONEBRICK_CHISELED = 3;
+	}
+	
+	
+	public static final class Particle {
+		public static final String 
+				HUGE_EXPLOSION 			= "hugeexplosion",
+				LARGE_EXPLODE 			= "largeexplode",
+				FIREWORK_SPARK 			= "fireworksSpark",
+				BUBBLE 							= "bubble",
+				SUSPENDED 					= "suspended",
+				DEPTH_SUSPEND 			= "depthsuspend",
+				TOWN_AURA 					= "townaura",
+				CRITICAL 						= "crit",
+				MAGIC_CRITICAL 			= "magicCrit",
+				SMOKE 							= "smoke",
+				MOB_SPELL 					= "mobSpell",
+				MOB_SPELL_AMBIENT 	= "mobSpellAmbient",
+				SPELL 							= "spell",
+				INSTANT_SPELL 			= "instantSpell",
+				WITCH_MAGIC 				= "witchMagic",
+				NOTE 								= "note",
+				PORTAL 							= "portal",
+				ENCHANTMENT_TABLE 	= "enchantmenttable",
+				EXPLODE 						= "explode",
+				FLAME 							= "flame",
+				LAVA 								= "lava",
+				FOOTSTEP 						= "footstep",
+				SPLASH 							= "splash",
+				WAKE 								= "wake",
+				LARGE_SMOKE 				= "largesmoke",
+				CLOUD 							= "cloud",
+				REDDUST 						= "reddust",
+				SNOWBALLPOOF 				= "snowballpoof",
+				DRIP_WATER 					= "dripWater",
+				DRIP_LAVA 					= "dripLava",
+				SNOW_SHOVEL 				= "snowshovel",
+				SLIME 							= "slime",
+				HEART 							= "heart",
+				ANGRY_VILLAGER 			= "angryVillager",
+				HAPPY_VILLAGER 			= "happyVillager";
 	}
 	
 	

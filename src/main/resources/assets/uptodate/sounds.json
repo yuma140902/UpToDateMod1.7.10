@@ -43,5 +43,102 @@
 				"stream": false
 			}
 		]
+	},
+	"dig.bone": {
+		"category": "block",
+		"sounds": [
+			"block/bone_block/break1",
+			"block/bone_block/break2",
+			"block/bone_block/break3",
+			"block/bone_block/break4",
+			"block/bone_block/break5"
+		]
+	},
+	"step.bone": {
+		"category": "block",
+		"sounds": [
+			"block/bone_block/step1",
+			"block/bone_block/step2",
+			"block/bone_block/step3",
+			"block/bone_block/step4",
+			"block/bone_block/step5"
+		]
+	},
+
+	"dig.netherwart": {
+		"category": "block",
+		"sounds": [
+			"block/netherwart/break1",
+			"block/netherwart/break2",
+			"block/netherwart/break3",
+			"block/netherwart/break4",
+			"block/netherwart/break5",
+			"block/netherwart/break6"
+		]
+	},
+	"step.netherwart": {
+		"category": "block",
+		"sounds": [
+			"block/netherwart/step1",
+			"block/netherwart/step2",
+			"block/netherwart/step3",
+			"block/netherwart/step4",
+			"block/netherwart/step5"
+		]
+	},
+
+	"dig.netherrack": {
+		"category": "block",
+		"sounds": [
+			"block/netherrack/break1",
+			"block/netherrack/break2",
+			"block/netherrack/break3",
+			"block/netherrack/break4",
+			"block/netherrack/break5",
+			"block/netherrack/break6"
+		]
+	},
+	"step.netherrack": {
+		"category": "block",
+		"sounds": [
+			"block/netherrack/step1",
+			"block/netherrack/step2",
+			"block/netherrack/step3",
+			"block/netherrack/step4",
+			"block/netherrack/step5",
+			"block/netherrack/step6"
+		]
+	},
+
+	"dig.sweet_berry_bush": {
+		"category": "block",
+		"sounds": [
+			"block/sweet_berry_bush/break1",
+			"block/sweet_berry_bush/break2",
+			"block/sweet_berry_bush/break3",
+			"block/sweet_berry_bush/break4"
+		]
+	},
+	"step.sweet_berry_bush": {
+		"category": "block",
+		"sounds": [
+			"block/sweet_berry_bush/place1",
+			"block/sweet_berry_bush/place2",
+			"block/sweet_berry_bush/place3",
+			"block/sweet_berry_bush/place4",
+			"block/sweet_berry_bush/place5",
+			"block/sweet_berry_bush/place6"
+		]
+	},
+	"place.sweet_berry_bush": {
+		"category": "block",
+		"sounds": [
+			"block/sweet_berry_bush/place1",
+			"block/sweet_berry_bush/place2",
+			"block/sweet_berry_bush/place3",
+			"block/sweet_berry_bush/place4",
+			"block/sweet_berry_bush/place5",
+			"block/sweet_berry_bush/place6"
+		]
 	}
 }

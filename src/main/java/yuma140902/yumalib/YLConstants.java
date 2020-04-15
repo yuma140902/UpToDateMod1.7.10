@@ -9,5 +9,4 @@ public class YLConstants {
 	public static final String PROXY_COMMON = "yuma140902.yumalib.proxy.YLCommonProxy";
 	public static final String PROXY_CLIENT = "yuma140902.yumalib.proxy.YLClientProxy";
 	public static final String CONFIG_GUI_FACTORY = "yuma140902.yumalib.gui.YLConfigGuiFactory";
-	
 }

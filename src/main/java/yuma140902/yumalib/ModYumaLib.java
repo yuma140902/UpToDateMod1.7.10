@@ -43,6 +43,9 @@ public class ModYumaLib {
 		loadModMetadata(modMetadata);
 		proxy.checkIfIsYuma140902();
 		YLConfigCore.loadConfig(event);
+		
+		YLItems.registerAll();
+		
 		proxy.registerEventHandlers();
 	}
 	

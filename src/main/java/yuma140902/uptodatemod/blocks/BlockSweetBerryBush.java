@@ -5,6 +5,7 @@ import java.util.Random;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -20,17 +21,21 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.dispenser.DispenseBehaviorFertilize;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.blocks.CustomSoundTypeWithPlaceSound;
 
 public class BlockSweetBerryBush extends BlockBush implements IRegisterable {
 	
 	public static final int META_MAX = 3;
 	
+	private Block.SoundType soundTypeSweetBerry = new CustomSoundTypeWithPlaceSound(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "sweet_berry_bush");
+	
 	public BlockSweetBerryBush() {
-		setStepSound(soundTypeGrass);
+		setStepSound(soundTypeSweetBerry);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		setTickRandomly(true);
 		setCreativeTab(null);

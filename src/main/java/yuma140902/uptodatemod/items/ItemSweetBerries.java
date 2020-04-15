@@ -33,7 +33,11 @@ public class ItemSweetBerries extends ItemSeedFood implements IRegisterable {
 			return false;
 		}
 		
-		return super.onItemUse(itemstack, player, world, x, y, z, side, hitX, hitY, hitZ);
+		boolean placed = super.onItemUse(itemstack, player, world, x, y, z, side, hitX, hitY, hitZ);
+		if(placed) {
+			world.playSoundEffect((double)x + 0.5D, (double)y + 0.5F, (double)z + 0.5F, MyBlocks.sweetBerryBush.stepSound.func_150496_b(), (MyBlocks.sweetBerryBush.stepSound.getVolume() + 1.0F) / 2.0F, MyBlocks.sweetBerryBush.stepSound.getPitch() * 0.8F);
+		}
+		return placed;
 	}
 	
 	@Override

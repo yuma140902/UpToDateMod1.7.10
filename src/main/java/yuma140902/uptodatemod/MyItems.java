@@ -84,6 +84,9 @@ public final class MyItems {
 	
 	public static final ItemSuspiciousStew suspiciousStew;
 	
+	/*
+	 * MyItemsのstaticイニシャライザはMyBlocksのstaticイニシャライザよりも後に実行されるようにすること
+	 */
 	static {
 		ModUpToDateMod.LOGGER.info("Items init");
 		

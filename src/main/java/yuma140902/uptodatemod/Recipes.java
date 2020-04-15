@@ -124,6 +124,14 @@ public final class Recipes {
 		registerSlabRecipes();
 		registerWallRecipes();
 		
+		
+		RecipeRegister.addSmelting(new ItemStack(Blocks.stonebrick, 1, McConst.Meta.STONEBRICK_NORMAL), new ItemStack(Blocks.stonebrick, 1, McConst.Meta.STONEBRICK_CRACKED), McConst.EXP_BRICK);
+		
+		RecipeRegister.addShaped(new ItemStack(Blocks.stonebrick, 1, McConst.Meta.STONEBRICK_CHISELED), 
+				"#",
+				"#",
+				'#', new ItemStack(Blocks.stone_slab, 1, McConst.Meta.SLAB_STONEBRICKS)
+				);
 	}
 	
 	private static void registerDoorRecipes() {
