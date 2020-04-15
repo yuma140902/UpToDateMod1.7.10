@@ -1,6 +1,6 @@
 # UpToDateMod1.7.10
-[![recommended-version:v2.1.2](https://img.shields.io/badge/Recommended-v2.1.2-brightgreen.svg)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/2909458)
-[![latest-version:v2.1.2](https://img.shields.io/badge/Latest-v2.1.2-green.svg)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/2909458)
+[![recommended-version:v2.2.0](https://img.shields.io/badge/Recommended-v2.2.0-brightgreen.svg)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/2930647)
+[![latest-version:v2.2.0](https://img.shields.io/badge/Latest-v2.2.0-green.svg)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/2930647)
 [![Minecraft1.7.10](https://img.shields.io/badge/MC-1.7.10-blue.svg)](https://www.minecraft.net/)
 [![Forge 10.13.4.1558](https://img.shields.io/badge/Forge-10.13.4.1558-blue.svg)](https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html)
 [![Forge 10.13.4.1614](https://img.shields.io/badge/Forge-10.13.4.1614-blue.svg)](https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html)
