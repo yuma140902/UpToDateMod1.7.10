@@ -7,10 +7,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import yuma140902.yumalib.YumaLibCreativeTab;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
+import yuma140902.yumalib.config.YLConfigCore;
 
 public class ItemGameModeSwitcher extends Item implements IRegisterable {
 	
@@ -33,6 +35,10 @@ public class ItemGameModeSwitcher extends Item implements IRegisterable {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
 		if(!(player instanceof EntityPlayerMP)) return itemstack;
+		if(!YLConfigCore.enableGMSwitcher) {
+			player.addChatMessage(new ChatComponentText("GameModeSwitcher is disabled"));
+			return itemstack;
+		}
 		
 		try {
 			if(player.capabilities.isCreativeMode) {
