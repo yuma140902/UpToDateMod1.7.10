@@ -1008,6 +1008,11 @@
       "dest": "textures/blocks/sweet_berry_bush_stage3.png"
     },
     {
+      "ar": "mc15",
+      "src": "textures/item/sweet_berries.png",
+      "dest": "textures/items/sweet_berries.png"
+    },
+    {
       "ar": "mc12",
       "src": "textures/items/wooden_armorstand.png",
       "dest": "textures/items/armor_stand.png"
