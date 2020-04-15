@@ -13,8 +13,9 @@ public class YLConfigGui extends GuiConfig {
 	
 	@SuppressWarnings("rawtypes")
 	private static List<IConfigElement> getConfigElements(){
-		List<IConfigElement> list = new ArrayList<IConfigElement>();
-		list.add(new ConfigElement<Object>(YLConfigCore.cfg.getCategory(YLConfigCore.Tooltip.CAT_NAME)));
+		List<IConfigElement> list = new ArrayList<>();
+		list.add(new ConfigElement<>(YLConfigCore.cfg.getCategory("General")));
+		list.add(new ConfigElement<>(YLConfigCore.cfg.getCategory(YLConfigCore.Tooltip.CAT_NAME)));
 		
 		return list;
 	}

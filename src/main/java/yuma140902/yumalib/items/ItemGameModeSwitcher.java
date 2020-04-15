@@ -8,14 +8,13 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import yuma140902.yumalib.YLConstants;
+import yuma140902.yumalib.YumaLibCreativeTab;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
 public class ItemGameModeSwitcher extends Item implements IRegisterable {
 	
 	public ItemGameModeSwitcher() {
-		setCreativeTab(YLConstants.MOD_CREATIVE_TAB);
 	}
 	
 	@Override
@@ -23,6 +22,7 @@ public class ItemGameModeSwitcher extends Item implements IRegisterable {
 		this.setUnlocalizedName(Contexts.DEFAULT.nameProvider().domainedUnlocalized("gm_switcher"));
 		this.setTextureName(Contexts.DEFAULT.nameProvider().domainedTexture("gm_switcher"));
 		GameRegistry.registerItem(this, "gm_switcher");
+		YumaLibCreativeTab.setToTab(this);
 	}
 	
 	@Override

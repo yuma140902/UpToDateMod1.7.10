@@ -41,6 +41,7 @@ public class YLItems {
 	public static final ItemGameModeSwitcher gmSwitcher;
 	
 	static {
+		ModYumaLib.LOGGER.info("Items init");
 		add(
 				dummyLogo = new ItemDummyLogo(),
 				gmSwitcher = new ItemGameModeSwitcher(),
