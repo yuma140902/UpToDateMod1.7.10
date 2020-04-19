@@ -47,6 +47,7 @@ public class BlockSponge extends Block implements IRegisterable, IHasRecipes {
 		setResistance(0.6f);
 		setStepSound(soundTypeGrass);
 		setCreativeTab(CreativeTabs.tabBlock);
+		setHarvestLevel("axe", 0);
 	}
 	
 	@Override
