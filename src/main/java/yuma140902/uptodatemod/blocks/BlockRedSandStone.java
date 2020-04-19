@@ -79,7 +79,7 @@ public class BlockRedSandStone extends BlockSandStone implements IRegisterable, 
 		this.sideIcons = new IIcon[names.length];
 		
 		for (int i = 0; i < this.sideIcons.length; ++i) {
-			this.sideIcons[i] = register.registerIcon(this.getTextureName() + StringUtils.surfix("_", names[i]));
+			this.sideIcons[i] = register.registerIcon(this.getTextureName() + StringUtils.suffix("_", names[i]));
 		}
 		
 		this.topIcon = register.registerIcon(this.getTextureName() + "_top");

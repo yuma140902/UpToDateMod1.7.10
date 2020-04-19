@@ -71,7 +71,7 @@ public class ItemMultiMeta extends Item implements IRegisterable {
 	public String getUnlocalizedName(ItemStack itemstack) {
 		int meta = itemstack.getItemDamage();
 		if(0 <= meta && meta <= MAX_META) {
-			return super.getUnlocalizedName() + StringUtils.surfix(".", names[meta]);
+			return super.getUnlocalizedName() + StringUtils.suffix(".", names[meta]);
 		}
 		else {
 			return super.getUnlocalizedName();
