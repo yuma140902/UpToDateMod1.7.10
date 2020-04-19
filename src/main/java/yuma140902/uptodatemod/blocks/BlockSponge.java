@@ -75,6 +75,11 @@ public class BlockSponge extends Block implements IRegisterable, IHasRecipes {
 		list.add(new ItemStack(this, 1, META_WET));
 	}
 	
+	@Override
+	public int damageDropped(int meta) {
+		return meta;
+	}
+	
 	
 	
 	@Override
