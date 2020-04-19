@@ -3,6 +3,7 @@ package yuma140902.uptodatemod.blocks;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Random;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -25,6 +26,7 @@ import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.items.ItemBlockMultiName;
 import yuma140902.yumalib.api.util.BlockPos;
 
@@ -94,6 +96,15 @@ public class BlockSponge extends Block implements IRegisterable, IHasRecipes {
 		int meta = world.getBlockMetadata(x, y, z);
 		if(meta == META_WET && world.provider.dimensionId == -1) {
 			world.setBlockMetadataWithNotify(x, y, z, META_DRY, 3);
+			Random rand = world.rand;
+			world.playSoundEffect((double)x+0.5D, (double)y+0.5D, (double)z+0.5D, "random.fizz", 1.1F, 2.6F + (rand.nextFloat() - rand.nextFloat()) * 0.8F);
+			for(int i=0; i<rand.nextInt(10)+5; ++i) {
+				double posX = x+0.5D + (rand.nextDouble()-0.5D)*0.5D;
+				double posY = y+1.0D + (rand.nextDouble()-0.5D)*0.2D;
+				double posZ = z+0.5D + (rand.nextDouble()-0.5D)*0.5D;
+				double velY = rand.nextDouble() * 0.05D;
+				world.spawnParticle(McConst.Particle.CLOUD, posX, posY, posZ, 0, velY, 0);
+			}
 		}
 		else {
 			tryAbsorb(world, x, y, z, meta);
