@@ -13,6 +13,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -87,12 +88,16 @@ public class BlockSponge extends Block implements IRegisterable, IHasRecipes {
 		tryAbsorb(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
 	
+
 	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
+		int meta = world.getBlockMetadata(x, y, z);
 		if(meta == META_WET && world.provider.dimensionId == -1) {
-			return META_DRY;
+			world.setBlockMetadataWithNotify(x, y, z, META_DRY, 3);
 		}
-		return tryAbsorb(world, x, y, z, meta);
+		else {
+			tryAbsorb(world, x, y, z, meta);
+		}
 	}
 	
 	/**
