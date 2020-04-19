@@ -86,6 +86,23 @@ public class BlockSponge extends Block implements IRegisterable, IHasRecipes {
 	
 	
 	@Override
+	@SideOnly(Side.CLIENT)
+	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
+		if(world.getBlockMetadata(x, y, z) == META_WET) {
+			double posX = x + 0.5D + (rand.nextDouble() - 0.5D) * 1D;
+			double posY = y + 0.3D + (rand.nextDouble() - 0.5D) * 1D;
+			double posZ = z + 0.5D + (rand.nextDouble() - 0.5D) * 1D;
+			double velX = 0;
+			double velY = -(rand.nextDouble()) * 0.05D;
+			double velZ = 0;
+			
+			world.spawnParticle(McConst.Particle.DRIP_WATER, posX, posY, posZ, velX, velY, velZ);
+		}
+	}
+	
+	
+	
+	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		tryAbsorb(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
