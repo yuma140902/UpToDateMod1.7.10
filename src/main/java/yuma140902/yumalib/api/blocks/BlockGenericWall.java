@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
@@ -56,6 +57,11 @@ public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRe
 				"###",
 				"###",
 				'#', new ItemStack(this.block, 1, this.meta));
+	}
+	
+	@Override
+	public boolean canPlaceTorchOnTop(World world, int x, int y, int z) {
+		return true;
 	}
 	
 	@Override
