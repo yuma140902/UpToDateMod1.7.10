@@ -28,7 +28,7 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	
 	public BlockBarrel() {
 		super(Material.wood);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.tabDecorations);
 		setStepSound(soundTypeWood);
 		setHardness(2.5F);
 		isBlockContainer = true;
