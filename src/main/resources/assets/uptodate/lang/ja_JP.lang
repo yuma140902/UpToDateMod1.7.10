@@ -186,6 +186,8 @@ entity.uptodate.boat_spruce.name=マツのボート
 container.uptodate.barrel=樽
 tile.uptodate.barrel.name=樽
 
+tile.uptodate.lantern.name=ランタン
+
 tile.uptodate.wither_rose.name=ウィザーローズ
 tile.uptodate.flower.cornflower.name=ヤグルマギク
 tile.uptodate.flower.lily_of_the_valley.name=スズラン

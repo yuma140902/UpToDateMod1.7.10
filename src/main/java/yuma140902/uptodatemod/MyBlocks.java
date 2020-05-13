@@ -22,6 +22,7 @@ import yuma140902.uptodatemod.blocks.BlockFullWood;
 import yuma140902.uptodatemod.blocks.BlockGlazedTerracotta;
 import yuma140902.uptodatemod.blocks.BlockGrassPath;
 import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
+import yuma140902.uptodatemod.blocks.BlockLantern;
 import yuma140902.uptodatemod.blocks.BlockMagma;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
 import yuma140902.uptodatemod.blocks.BlockNewFlower;
@@ -244,6 +245,8 @@ public final class MyBlocks {
 	public static final BlockWitherRose witherRose;
 	public static final BlockNewFlower flower;
 	public static final BlockUnlimitedPot unlimitedPot;
+	
+	public static final BlockLantern lantern;
 	
 	
 	/*
@@ -589,6 +592,8 @@ public final class MyBlocks {
 		add(witherRose = isEnabled(EnumDisableableFeatures.witherRose) ? new BlockWitherRose() : null);
 		add(flower = isEnabled(EnumDisableableFeatures.flower) ? new BlockNewFlower() : null);
 		add(unlimitedPot = new BlockUnlimitedPot());
+		
+		add(lantern = new BlockLantern());
 	}
 	
 }

@@ -13,6 +13,7 @@ import net.minecraft.client.resources.IResourcePack;
 import net.minecraftforge.common.MinecraftForge;
 import yuma140902.uptodatemod.client.renderer.RenderArmorStand;
 import yuma140902.uptodatemod.client.renderer.RenderBlockGlazedTerracotta;
+import yuma140902.uptodatemod.client.renderer.RenderBlockLantern;
 import yuma140902.uptodatemod.client.renderer.RenderModBoat;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
 import yuma140902.uptodatemod.entity.item.EntityBoatAcacia;
@@ -57,6 +58,7 @@ public class ClientProxy extends CommonProxy {
 		
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
 			RenderingRegistry.registerBlockHandler(new RenderBlockGlazedTerracotta());
+		RenderingRegistry.registerBlockHandler(new RenderBlockLantern());
 	}
 	
 	@Override

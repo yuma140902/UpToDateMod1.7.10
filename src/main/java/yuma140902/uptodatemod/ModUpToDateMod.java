@@ -72,6 +72,7 @@ public class ModUpToDateMod {
 	public Path uptodatemodDirectory;
 	
 	public static int glazedTerracottaRenderId;
+	public static int lanternRenderId;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = MOD_ID;
@@ -161,6 +162,7 @@ public class ModUpToDateMod {
 		proxy.registerEntities();
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
 			glazedTerracottaRenderId = proxy.getNewRenderId();
+		lanternRenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();
 		
 		

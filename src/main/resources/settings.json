@@ -217,6 +217,56 @@
     {
       "url": "https://resources.download.minecraft.net/40/40e5da14b4608b138ec3cc8706e45d6ffb18c405",
       "dest": "sounds/block/sweet_berry_bush/place6.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/2e/2efdaa5a89ae6a68ceddf60aa91a4b410f0f3e58",
+      "dest": "sounds/block/lantern/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/44/443a6c542e6cb96d8d7d6e185623266ce0c3af69",
+      "dest": "sounds/block/lantern/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/cc/cc62eb000f8789c06cec01bfe9bf9b989b015171",
+      "dest": "sounds/block/lantern/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/fb/fbc806cf8ce69a93ddc2b0b6a01df3c94cbfda87",
+      "dest": "sounds/block/lantern/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/94/94f85a27c377b0ef874ebe810292c9c77a7be1f9",
+      "dest": "sounds/block/lantern/break5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/78/78f33e68a3142032e0a1b0c95012f4bcb2ea3ea9",
+      "dest": "sounds/block/lantern/break6.ogg"
+    },
+
+    {
+      "url": "https://resources.download.minecraft.net/66/66a7ad307e66d55be39ad129d5dde4a139c6decb",
+      "dest": "sounds/block/lantern/place1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/23/236d6b2e2841e6eeaff442cf4599ac8f1d0c87bf",
+      "dest": "sounds/block/lantern/place2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/91/913db11b61e0c079114e702507dd33fd59846c2c",
+      "dest": "sounds/block/lantern/place3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/79/79ae36927d7d5e1d4210debb5e98c0a8d0e4ba39",
+      "dest": "sounds/block/lantern/place4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/39/3920b92ee14834623308f557d4ac912aef760108",
+      "dest": "sounds/block/lantern/place5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/85/85462af1c6ccc02b19989be398b0bcc488b249f1",
+      "dest": "sounds/block/lantern/place6.ogg"
     }
 
   ],
@@ -1091,6 +1141,16 @@
       "ar": "mc15",
       "src": "textures/item/suspicious_stew.png",
       "dest": "textures/items/suspicious_stew.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/lantern.png",
+      "dest": "textures/blocks/lantern.png"
+    },
+    {
+      "ar": "mc15",
+      "src": "textures/block/lantern.png.mcmeta",
+      "dest": "textures/blocks/lantern.png.mcmeta"
     },
     {
       "ar": "mc12",

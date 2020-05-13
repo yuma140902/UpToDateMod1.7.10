@@ -140,5 +140,39 @@
 			"block/sweet_berry_bush/place5",
 			"block/sweet_berry_bush/place6"
 		]
+	},
+
+	"dig.lantern": {
+		"category": "block",
+		"sounds": [
+			"block/lantern/break1",
+			"block/lantern/break2",
+			"block/lantern/break3",
+			"block/lantern/break4",
+			"block/lantern/break5",
+			"block/lantern/break6"
+		]
+	},
+	"step.lantern": {
+		"category": "block",
+		"sounds": [
+			"block/lantern/place1",
+			"block/lantern/place2",
+			"block/lantern/place3",
+			"block/lantern/place4",
+			"block/lantern/place5",
+			"block/lantern/place6"
+		]
+	},
+	"place.lantern": {
+		"category": "block",
+		"sounds": [
+			"block/lantern/place1",
+			"block/lantern/place2",
+			"block/lantern/place3",
+			"block/lantern/place4",
+			"block/lantern/place5",
+			"block/lantern/place6"
+		]
 	}
 }

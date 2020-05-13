@@ -63,8 +63,10 @@ public final class McConst {
 			SLAB_QUARTZ = 7;
 		
 		public static final int
-			SLAB_LOWER = 0b0000,
-			SLAB_UPPER = 0b1000;
+			IS_SLAB_UPPER = 0b1000;
+		
+		public static final int
+			IS_STAIRS_UPSIDE_DOWN = 0b0100;
 		
 		
 		/**

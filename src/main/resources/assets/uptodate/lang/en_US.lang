@@ -186,6 +186,8 @@ entity.uptodate.boat_spruce.name=Spruce Boat
 container.uptodate.barrel=Barrel
 tile.uptodate.barrel.name=Barrel
 
+tile.uptodate.lantern.name=Lantern
+
 tile.uptodate.wither_rose.name=Wither Rose
 tile.uptodate.flower.cornflower.name=Cornflower
 tile.uptodate.flower.lily_of_the_valley.name=Lily of the Valley
