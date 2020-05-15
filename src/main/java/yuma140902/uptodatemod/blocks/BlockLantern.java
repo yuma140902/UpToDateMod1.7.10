@@ -37,6 +37,7 @@ public class BlockLantern extends Block implements IRegisterable, IHasRecipes {
 		setResistance(3.5F);
 		setHardness(3.5F);
 		setLightLevel(1.0F);
+		setHarvestLevel("pickaxe", 0);
 		setCreativeTab(CreativeTabs.tabDecorations);
 		setStepSound(soundTypeLantern);
 	}
