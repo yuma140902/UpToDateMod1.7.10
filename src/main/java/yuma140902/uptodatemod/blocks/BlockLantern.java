@@ -4,9 +4,6 @@ import static yuma140902.yumalib.api.McConst.*;
 import java.util.List;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockStainedGlass;
-import net.minecraft.block.BlockWall;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -14,6 +11,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -30,6 +28,9 @@ public class BlockLantern extends Block implements IRegisterable, IHasRecipes {
 	public static final int META_ON_GROUND = 0, META_HANGING = 1;
 	
 	protected final static SoundType soundTypeLantern = new CustomSoundType(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "lantern");
+
+	protected final static Vec3 bottomSutainingPoint = Vec3.createVectorHelper(0.5d, 0.5d/16d, 0.5d);
+	protected final static Vec3 topSutainingPoint = Vec3.createVectorHelper(0.5d, 1.0d-0.5d/16d, 0.5d);
 	
 	public BlockLantern() {
 		super(Material.iron);
@@ -65,15 +66,24 @@ public class BlockLantern extends Block implements IRegisterable, IHasRecipes {
 		if (World.doesBlockHaveSolidTopSurface(world, x, y, z)) {
 			return true;
 		}
+		else if(world.getBlock(x, y, z).canPlaceTorchOnTop(world, x, y, z)) {
+			return true;
+		}
 		else {
 			Block block = world.getBlock(x, y, z);
-			return block.canPlaceTorchOnTop(world, x, y, z) || block instanceof BlockStainedGlass || block instanceof BlockFence || block instanceof BlockWall;
+			block.setBlockBoundsBasedOnState(world, x, y, z);
+			AxisAlignedBB aabb = block.getCollisionBoundingBoxFromPool(world, x, y, z);
+			if(aabb == null) return false;
+			return aabb.isVecInside(topSutainingPoint.addVector(x, y, z));
 		}
 	}
 	
 	protected static boolean canSustainLanternOnBottom(World world, int x, int y, int z) {
 		Block block = world.getBlock(x, y, z);
-		return block instanceof BlockStainedGlass || block instanceof BlockFence || block instanceof BlockWall;
+		block.setBlockBoundsBasedOnState(world, x, y, z);
+		AxisAlignedBB aabb = block.getCollisionBoundingBoxFromPool(world, x, y, z);
+		if(aabb == null) return false;
+		return aabb.isVecInside(bottomSutainingPoint.addVector(x, y, z));
 	}
 	
 	protected static boolean canLanternStayAt(World world, int x, int y, int z) {
