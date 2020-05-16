@@ -61,6 +61,11 @@ public class BlockLantern extends Block implements IRegisterable, IHasRecipes {
 				);
 	}
 	
+	@Override
+	public int getMobilityFlag() {
+		return 1;
+	}
+	
 	
 	private static boolean canSustainLanternOnTop(World world, int x, int y, int z)
 	{
