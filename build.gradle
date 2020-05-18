@@ -26,6 +26,12 @@ minecraft {
     runDir = "eclipse"
 }
 
+sourceSets {
+    main {
+        output.resourcesDir = java.outputDir
+    }
+}
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
