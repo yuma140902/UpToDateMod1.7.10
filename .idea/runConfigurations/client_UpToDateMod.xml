@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="client_UpToDateMod" type="Application" factoryName="アプリケーション">
+    <option name="MAIN_CLASS_NAME" value="GradleStart" />
+    <module name="UpToDateMod1.7.10.main" />
+    <option name="PROGRAM_PARAMETERS" value="--username yuma140902" />
+    <option name="VM_PARAMETERS" value="-Xmx1G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -enableassertions:yuma140902..." />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/game_home" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
