@@ -22,6 +22,16 @@ A Forge mod which backports new Minecraft (1.8.0 and later) features to Minecraf
 ## ChangeLog
  See https://github.com/yuma140902/UpToDateMod1.7.10/releases
 
+## For Developers
+### Eclipse
+1. Run `./setup-workspace-eclipse.bat` to setup workspace.
+2. Open the directory as a project with Eclipse.
+3. Import `./eclipse_client_UpToDateMod` as a launch configuration using <btn>File</btn>/<btn>Import</btn> menu.
+
+### IntelliJ IDEA
+1. Run `./setup-workspace-intellij.bat` to setup workspace.
+2. Open the directory as a project with IntelliJ IDEA.
+
 ## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
