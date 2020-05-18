@@ -56,6 +56,16 @@ dependencies {
 		compile fileTree(dir: 'libs', include: '*.jar')
 }
 
+task deobfJar(type: Jar, dependsOn: 'jar') {
+    from "src/main/java"
+    from "src/main/resources"
+    classifier = 'dev'
+}
+
+artifacts {
+    archives deobfJar
+}
+
 processResources
 {
     // this will ensure that this task is redone when the versions change.
