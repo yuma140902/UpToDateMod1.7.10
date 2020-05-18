@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "mc1.7.10-2.3.1"
+version = "2.3.1"
 group= "yuma140902" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "UpToDateMod"
 
@@ -56,10 +56,15 @@ dependencies {
 		compile fileTree(dir: 'libs', include: '*.jar')
 }
 
+jar {
+    version = "mc1.7.10-${project.version}"
+}
+
 task deobfJar(type: Jar, dependsOn: 'jar') {
     from "src/main/java"
     from "src/main/resources"
     classifier = 'dev'
+    version = "mc1.7.10-${project.version}"
 }
 
 artifacts {
