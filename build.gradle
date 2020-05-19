@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()  // needed by com.anatawa12.forge:ForgeGradle
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
@@ -11,7 +12,8 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        //classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath "com.anatawa12.forge:ForgeGradle:1.2-1.0.1"  // A successor of ForgeGradle 1.2
     }
 }
 
