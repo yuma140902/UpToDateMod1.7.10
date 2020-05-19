@@ -61,8 +61,14 @@ task devJar(type: Jar, dependsOn: 'jar') {
     version = "mc1.7.10-${project.version}"
 }
 
+task srcJar(type: Jar, dependsOn: 'sourceMainJava') {
+    from sourceSets.main.allSource
+    classifier = 'src'
+    version = "mc1.7.10-${project.version}"
+}
+
 artifacts {
-    archives devJar
+    archives devJar, srcJar
 }
 
 processResources
