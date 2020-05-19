@@ -53,15 +53,14 @@ jar {
     version = "mc1.7.10-${project.version}"
 }
 
-task deobfJar(type: Jar, dependsOn: 'jar') {
-    from "src/main/java"
-    from "src/main/resources"
+task devJar(type: Jar, dependsOn: 'jar') {
+    from sourceSets.main.java.outputDir
     classifier = 'dev'
     version = "mc1.7.10-${project.version}"
 }
 
 artifacts {
-    archives deobfJar
+    archives devJar
 }
 
 processResources
