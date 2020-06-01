@@ -53,7 +53,7 @@ public class VanillaResourceLoader {
 			Files.createDirectories(assets);
 			
 			log.info("Starting jar downloader");
-			download(setting, caches, archives);
+			downloadArchives(setting, caches, archives);
 			registerArchives(setting, archives);
 			log.info("Starting organizer");
 			organize(setting, assets);
@@ -91,7 +91,7 @@ public class VanillaResourceLoader {
 		Files.write(assetsDir.resolve("settings.json.sha512"), lines, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
 	}
 	
-	private static void download(Setting setting, Path caches, Path archives) {
+	private static void downloadArchives(Setting setting, Path caches, Path archives) {
 		List<DownloadCandidate> candidates = new LinkedList<DownloadCandidate>();
 		for(Archive archive : setting.archives) {
 			candidates.add(new DownloadCandidate(archive));
@@ -104,14 +104,18 @@ public class VanillaResourceLoader {
 	}
 	
 	private static void registerArchives(Setting setting, Path archives) throws IOException {
+		if(setting.archives.size() <= 0) {
+			log.info("No archives.");
+			return;
+		}
+		log.info("Archives:");
 		for(Archive archive : setting.archives) {
 			String id = archive.slug;
 			Path filePath = archives.resolve(archive.filename);
 			ArchiveRegistry.register(id, filePath);
 			
-			log.info("Archives:");
-			log.info("- id: " + id);
-			log.info("  path: " + filePath);
+			log.info(" - id: " + id);
+			log.info(" - path: " + filePath);
 		}
 	}
 	
