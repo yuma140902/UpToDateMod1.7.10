@@ -73,6 +73,15 @@ public class VanillaResourceLoader {
 		log.info("Finished loading vanilla resources");
 	}
 	
+	/**
+	 * 以前に{@link VanillaResourceLoader}が実行されたときから、
+	 * settings.jsonの内容が変更されているかどうかをチェックし、
+	 * 今{@link VanillaResourceLoader}を実行する必要があるかどうかを判断する。
+	 * @param assetsDir
+	 * @param settingJson
+	 * @return
+	 * @throws IOException settings.jsonが開けなかったとき
+	 */
 	private static boolean needUpdate(Path assetsDir, InputStream settingJson) throws IOException {
 		Path versionCheckFile = assetsDir.resolve("settings.json.sha512");
 		if(!Files.exists(versionCheckFile)) {
@@ -91,6 +100,13 @@ public class VanillaResourceLoader {
 		return false;
 	}
 	
+	/**
+	 * settings.jsonのハッシュ値を計算し、settings.json.sha512に書き込む。<br>
+	 * この情報は次に{@link VanillaResourceLoader}が実行されたときに{@link #needUpdate(Path, InputStream)}によって利用される。
+	 * @param assetsDir
+	 * @param settingJson
+	 * @throws IOException settings.jsonが開けなかったとき。settings.json.sha512に書き込めなかったとき。
+	 */
 	private static void makeVersionCheckFile(Path assetsDir, InputStream settingJson) throws IOException {
 		String currentHash = Sha512.calcSha512(settingJson);
 		List<String> lines = new ArrayList<String>();
@@ -98,6 +114,14 @@ public class VanillaResourceLoader {
 		Files.write(assetsDir.resolve("settings.json.sha512"), lines, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
 	}
 	
+	/**
+	 * バニラJarのダウンロードを行い、その後ファイルが破損していないかどうか確認する。<br>
+	 * 破損していた場合はダウンロードをやり直す。
+	 * @param archives
+	 * @param cacheDir
+	 * @param archiveDir
+	 * @throws Exception ダウンロードを何回かやり直してもファイルが破損したままだったとき。
+	 */
 	private static void tryDownloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) throws Exception {
 		int trials = 0;
 		final int maxTrials = 3;
@@ -115,6 +139,12 @@ public class VanillaResourceLoader {
 		}
 	}
 	
+	/**
+	 * バニラJarのダウンロードをする。その際にウィンドウを開き進捗状況を表示する。
+	 * @param archives
+	 * @param cacheDir
+	 * @param archiveDir
+	 */
 	private static void downloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) {
 		List<DownloadCandidate> candidates = new LinkedList<DownloadCandidate>();
 		for(Archive archive : archives) {
@@ -127,6 +157,15 @@ public class VanillaResourceLoader {
 		downloader.downloadFiles(candidates);
 	}
 	
+	/**
+	 * バニラJarが破損しているかどうかチェックして、ダウンロードし直す必要があるかどうか判断する。<br>
+	 * 破損していた場合はバニラJarとそのキャッシュを削除する。
+	 * @param archives
+	 * @param cacheDir
+	 * @param archiveDir
+	 * @return
+	 * @throws IOException バニラJarとそのキャッシュを削除できなかったとき。
+	 */
 	private static boolean needReDownloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) throws IOException {
 		if(!ModConfigCore.General.validateVanillaJar()){
 			return false;
@@ -161,6 +200,12 @@ public class VanillaResourceLoader {
 		return needReDownload;
 	}
 	
+	/**
+	 * バニラJarを{@link ArchiveRegistry}に登録する。
+	 * @param archives
+	 * @param archiveDir
+	 * @throws IOException バニラJarが見つからなかったとき。
+	 */
 	private static void registerArchives(List<Archive> archives, Path archiveDir) throws IOException {
 		if(archives.size() <= 0) {
 			log.info("No archives.");
@@ -177,6 +222,13 @@ public class VanillaResourceLoader {
 		}
 	}
 	
+	/**
+	 * バニラJarからテクスチャファイルを取り出して指定された場所にコピーする。
+	 * その際にウィンドウを開き進捗状況を表示する。<br>
+	 * (既存のファイルは上書きされる)
+	 * @param copies
+	 * @param assetsDir
+	 */
 	private static void organize(List<Copy> copies, Path assetsDir) {
 		IOrganizeDisplay display = new SwingOrganizeDisplay();
 		
@@ -184,6 +236,13 @@ public class VanillaResourceLoader {
 		organizer.organize(copies);
 	}
 	
+	/**
+	 * 効果音のファイルをダウンロードする。
+	 * その際にウィンドウを開き進捗状況を表示する。
+	 * @param sounds
+	 * @param cacheDir
+	 * @param assetDir
+	 */
 	private static void setupSounds(List<Sound> sounds, Path cacheDir, Path assetDir) {
 		ISoundDownloadDisplay display = new SwingSoundDownloadDisplay();
 		
