@@ -60,20 +60,8 @@ public class VanillaResourceLoader {
 			Files.createDirectories(assetsDir);
 			
 			log.info("Starting jar downloader");
-			int trials = 0;
-			final int maxTrials = 3;
-			boolean needReDownload = false;
-			do {
-				++trials;
-				log.info("Downloading trial " + trials);
-				downloadArchives(setting.archives, caches, archives);
-				needReDownload = needReDownloadArchives(setting.archives, caches, archives);
-			}while(needReDownload && trials < maxTrials);
-			if(needReDownload){
-				// 3回ダウンロードを試行しても失敗したらクラッシュさせる
-				throw new Exception("[UpToDateMod] Failed to download resources! You seems to have bad internet connection.");
-			}
-			registerArchives(setting.archives, archives);
+			tryDownloadArchives(setting.archives, cacheDir, archiveDir);
+			registerArchives(setting.archives, archiveDir);
 			log.info("Starting organizer");
 			organize(setting.copies, assets);
 			log.info("Starting sound downloader");
@@ -108,6 +96,23 @@ public class VanillaResourceLoader {
 		List<String> lines = new ArrayList<String>();
 		lines.add(currentHash);
 		Files.write(assetsDir.resolve("settings.json.sha512"), lines, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
+	}
+	
+	private static void tryDownloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) throws Exception {
+		int trials = 0;
+		final int maxTrials = 3;
+		boolean needReDownload = false;
+		do {
+			++trials;
+			log.info("Downloading trial " + trials);
+			downloadArchives(archives, cacheDir, archiveDir);
+			needReDownload = needReDownloadArchives(archives, cacheDir, archiveDir);
+		}while(needReDownload && trials < maxTrials);
+		if(needReDownload){
+			// 3回ダウンロードを試行しても失敗したら例外を投げる。
+			// こうなった場合は対処不能なので、この例外によってクライアントがクラッシュすることを期待する。
+			throw new Exception("[UpToDateMod] Failed to download resources! You seems to have bad internet connection.");
+		}
 	}
 	
 	private static void downloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) {
