@@ -44,11 +44,13 @@ public class VanillaResourceLoader {
 	private final Path cacheDir;
 	private final Path archiveDir;
 	private final Path assetsDir;
+	private final Path versionCheckFile;
 	
 	public VanillaResourceLoader(Path cacheDir, Path archiveDir, Path assetsDir){
 		this.cacheDir = cacheDir;
 		this.archiveDir = archiveDir;
 		this.assetsDir = assetsDir;
+		this.versionCheckFile = assetsDir.resolve("settings.json.md5");
 	}
 	
 	public void load() throws VanillaResourceLoadingException, IOException {
@@ -56,8 +58,9 @@ public class VanillaResourceLoader {
 		
 		Class<ModUpToDateMod> clazz = ModUpToDateMod.class;
 		String settingFileName = "/settings.json";
+		String settingJsonHash = DigestUtils.md5Hex(clazz.getResourceAsStream(settingFileName));
 		
-		if(needUpdate(clazz.getResourceAsStream(settingFileName))) {
+		if(needUpdate(settingJsonHash)) {
 			log.info("Loading settings.json");
 			
 			Gson gson = new Gson();
@@ -78,7 +81,7 @@ public class VanillaResourceLoader {
 			setupSounds(setting.sounds);
 			ArchiveRegistry.closeAll();
 			
-			makeVersionCheckFile(clazz.getResourceAsStream(settingFileName));
+			makeVersionCheckFile(settingJsonHash);
 		}
 		log.info("Finished loading vanilla resources");
 	}
@@ -87,12 +90,11 @@ public class VanillaResourceLoader {
 	 * 以前に{@link VanillaResourceLoader}が実行されたときから、
 	 * settings.jsonの内容が変更されているかどうかをチェックし、
 	 * 今{@link VanillaResourceLoader}を実行する必要があるかどうかを判断する。
-	 * @param settingJson
+	 * @param currentHash 現在のsettings.jsonのハッシュ値
 	 * @return
-	 * @throws IOException settings.jsonが開けなかったとき
+	 * @throws IOException {@link #versionCheckFile}が開けなかったとき
 	 */
-	private boolean needUpdate(InputStream settingJson) throws IOException {
-		Path versionCheckFile = assetsDir.resolve("settings.json.md5");
+	private boolean needUpdate(String currentHash) throws IOException {
 		if(!Files.exists(versionCheckFile)) {
 			return true;
 		}
@@ -102,24 +104,22 @@ public class VanillaResourceLoader {
 		}
 		
 		String savedHash = lines.get(0);
-		String currentHash = DigestUtils.md5Hex(settingJson);
-		if(savedHash == null || !savedHash.equals(currentHash)) {
+		if(!StringUtils.equals(savedHash, currentHash)) {
 			return true;
 		}
 		return false;
 	}
 	
 	/**
-	 * settings.jsonのハッシュ値を計算し、settings.json.md5に書き込む。<br>
-	 * この情報は次に{@link VanillaResourceLoader}が実行されたときに{@link #needUpdate(InputStream)}によって利用される。
-	 * @param settingJson
-	 * @throws IOException settings.jsonが開けなかったとき。settings.json.md5に書き込めなかったとき。
+	 * settings.jsonのハッシュ値を計算し、{@link #versionCheckFile}に書き込む。<br>
+	 * この情報は次に{@link VanillaResourceLoader}が実行されたときに{@link #needUpdate(String)}によって利用される。
+	 * @param currentHash 現在のsettings.jsonのハッシュ値
+	 * @throws IOException settings.jsonが開けなかったとき。{@link #versionCheckFile}に書き込めなかったとき。
 	 */
-	private void makeVersionCheckFile(InputStream settingJson) throws IOException {
-		String currentHash = DigestUtils.md5Hex(settingJson);
+	private void makeVersionCheckFile(String currentHash) throws IOException {
 		List<String> lines = new ArrayList<String>();
 		lines.add(currentHash);
-		Files.write(assetsDir.resolve("settings.json.md5"), lines, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
+		Files.write(versionCheckFile, lines, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
 	}
 	
 	/**
