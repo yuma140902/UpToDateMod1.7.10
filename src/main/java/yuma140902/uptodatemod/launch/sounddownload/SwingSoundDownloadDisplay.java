@@ -42,7 +42,7 @@ public class SwingSoundDownloadDisplay implements ISoundDownloadDisplay {
 						+ "<br>Check your internet connection and try restarting or download it manually from" + "<br><a href=\""
 						+ sound.url + "\">" + sound.url + "</a> and put it at " + sound.dest
 						+ "</html>";
-		String title = "A download error has occured";
+		String title = "A download error has occurred";
 		
 		this.display.showError(html, title);
 	}

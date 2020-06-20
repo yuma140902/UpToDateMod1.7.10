@@ -39,7 +39,7 @@ public class SwingDownloadDisplay implements IDownloadDisplay {
 						+ "<br>Check your internet connection and try restarting or download it manually from" + "<br><a href=\""
 						+ url + "\">" + url + "</a> and put it in uptodatemod/dl-cache/" + name
 						+ "</html>";
-		String title = "A download error has occured";
+		String title = "A download error has occurred";
 		
 		this.display.showError(html, title);
 	}
