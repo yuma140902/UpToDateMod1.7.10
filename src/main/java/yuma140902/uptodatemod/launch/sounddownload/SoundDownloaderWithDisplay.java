@@ -1,10 +1,10 @@
 package yuma140902.uptodatemod.launch.sounddownload;
 
 import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
@@ -55,10 +55,10 @@ public class SoundDownloaderWithDisplay implements ISoundDownloader {
 	}
 	
 	private void download(HttpURLConnection conn, Path dest) throws IOException {
-		DataInputStream input;
-		DataOutputStream output;
-		input = new DataInputStream(conn.getInputStream());
-		output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(dest.toString())));
+		InputStream input;
+		OutputStream output;
+		input = conn.getInputStream();
+		output = new BufferedOutputStream(new FileOutputStream(dest.toString()));
 		
 		byte[] buf = new byte[4096]; // 4KB
     int readByte = 0;
