@@ -40,7 +40,7 @@ public class SwingSoundDownloadDisplay implements ISoundDownloadDisplay {
 		String html =
 				"<html>" + ModUpToDateMod.MOD_NAME + " was unable to download required sound " + sound.dest
 						+ "<br>Check your internet connection and try restarting or download it manually from" + "<br><a href=\""
-						+ sound.url + "\">" + sound.url + "</a> and put it at " + sound.dest
+						+ sound.url + "\">" + sound.url + "</a> and put it at uptodatemod/dl-cache/" + sound.dest
 						+ "</html>";
 		String title = "A download error has occurred";
 		
