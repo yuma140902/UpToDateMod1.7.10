@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -83,7 +84,7 @@ public class VanillaResourceLoader {
 	 * @throws IOException settings.jsonが開けなかったとき
 	 */
 	private static boolean needUpdate(Path assetsDir, InputStream settingJson) throws IOException {
-		Path versionCheckFile = assetsDir.resolve("settings.json.sha512");
+		Path versionCheckFile = assetsDir.resolve("settings.json.md5");
 		if(!Files.exists(versionCheckFile)) {
 			return true;
 		}
@@ -93,7 +94,7 @@ public class VanillaResourceLoader {
 		}
 		
 		String savedHash = lines.get(0);
-		String currentHash = Sha512.calcSha512(settingJson);
+		String currentHash = DigestUtils.md5Hex(settingJson);
 		if(savedHash == null || !savedHash.equals(currentHash)) {
 			return true;
 		}
@@ -101,17 +102,17 @@ public class VanillaResourceLoader {
 	}
 	
 	/**
-	 * settings.jsonのハッシュ値を計算し、settings.json.sha512に書き込む。<br>
+	 * settings.jsonのハッシュ値を計算し、settings.json.md5に書き込む。<br>
 	 * この情報は次に{@link VanillaResourceLoader}が実行されたときに{@link #needUpdate(Path, InputStream)}によって利用される。
 	 * @param assetsDir
 	 * @param settingJson
-	 * @throws IOException settings.jsonが開けなかったとき。settings.json.sha512に書き込めなかったとき。
+	 * @throws IOException settings.jsonが開けなかったとき。settings.json.md5に書き込めなかったとき。
 	 */
 	private static void makeVersionCheckFile(Path assetsDir, InputStream settingJson) throws IOException {
-		String currentHash = Sha512.calcSha512(settingJson);
+		String currentHash = DigestUtils.md5Hex(settingJson);
 		List<String> lines = new ArrayList<String>();
 		lines.add(currentHash);
-		Files.write(assetsDir.resolve("settings.json.sha512"), lines, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
+		Files.write(assetsDir.resolve("settings.json.md5"), lines, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
 	}
 	
 	/**
@@ -176,10 +177,10 @@ public class VanillaResourceLoader {
 			Path archivePath = archiveDir.resolve(archive.filename);
 			Path archiveCachedPath = cacheDir.resolve(archive.filename);
 			InputStream input;
-			String sha1;
+			String md5;
 			try {
 				input = new FileInputStream(archivePath.toFile());
-				sha1 = Sha512.calcSha512(input);
+				md5 = DigestUtils.md5Hex(input);
 			} catch (FileNotFoundException e) {
 				needReDownload = true;
 				continue;
@@ -189,8 +190,8 @@ public class VanillaResourceLoader {
 			}
 			input.close();
 			
-			if(!StringUtils.equals(sha1, archive.hash)){
-				log.error("Archive: " + archive.filename + ", expected hash: " + archive.hash + ", but got: " + sha1);
+			if(!StringUtils.equals(md5, archive.hash)){
+				log.error("Archive: " + archive.filename + ", expected hash: " + archive.hash + ", but got: " + md5);
 				needReDownload = true;
 				Files.deleteIfExists(archivePath);
 				Files.deleteIfExists(archiveCachedPath);

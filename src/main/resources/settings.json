@@ -6,7 +6,7 @@
         "https://launcher.mojang.com/v1/objects/0f275bc1547d01fa5f56ba34bdc87d981ee12daf/client.jar"
       ],
       "filename": "minecraft-client-1.12.2.jar",
-      "hash": "3AFE108C273A6BBE17F2F88DA49E5A21A5DFD0250C03AE51D7C70493D6CA015D75ABC867378F7F30D62AC9535A8A5F06C62880DDA8B31C68D734A1A8623347FE",
+      "hash": "8c0443868b9e46c77d39db61c755679d",
       "cache": "true"
     },
     {
@@ -15,7 +15,7 @@
         "https://launcher.mojang.com/v1/objects/e3f78cd16f9eb9a52307ed96ebec64241cc5b32d/client.jar"
       ],
       "filename": "minecraft-client-1.15.2.jar",
-      "hash": "84666ED989ED35CE731EDC86CD11058B8BD4B0BC4F1A0ED07FD06F34CEF8C94F9C2F77CCCBD248D4F6D50C190C444F3B5DB7CFF837FDF11A1F6B743B42896B8A",
+      "hash": "1d87e7d75a99172f0cffc4f96cdc44da",
       "cache": "true"
     }
   ],
