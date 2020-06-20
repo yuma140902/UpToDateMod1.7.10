@@ -39,10 +39,12 @@ public class ModConfigCore {
 		private static boolean doCheckUpdate = true;
 		private static String updateChannel = TsvUpdateChecker.RECOMMENDED_STR;
 		private static boolean debugMode = false;
+		private static boolean validateVanillaJar = true;
 		
 		public static boolean doCheckUpdate() {return doCheckUpdate;}
 		public static String updateChannel() {return updateChannel;}
 		public static boolean debugMode() {return debugMode;}
+		public static boolean validateVanillaJar() {return validateVanillaJar;}
 	}
 	
 	public static class WorldGen {
@@ -138,6 +140,10 @@ public class ModConfigCore {
 				.defaultBool(General.debugMode)
 				.comment("Enable debug mode", "デバッグモード。通常はfalseにすることを推奨")
 				.langKey(getPropertyLangkey("debug_mode"))
+				)
+			.add(PropertyBuilder.bool("validateVanillaJar")
+				.defaultBool(General.validateVanillaJar)
+				.comment("Validate vanilla jar hash", "バニラのJarファイルのハッシュ値を確認する")
 				);
 		generalCategory.registerToForge(cfg);
 		
@@ -251,6 +257,7 @@ public class ModConfigCore {
 		General.doCheckUpdate = generalCategory.get("doUpdateChecking", cfg).getBoolean();
 		General.updateChannel = generalCategory.get("updateChannel", cfg).getString();
 		General.debugMode = generalCategory.get("enableDebugMode", cfg).getBoolean();
+		General.validateVanillaJar = generalCategory.get("validateVanillaJar", cfg).getBoolean();
 		
 		// WorldGen
 		worldGenCategory.registerPropertiesToForge(cfg);

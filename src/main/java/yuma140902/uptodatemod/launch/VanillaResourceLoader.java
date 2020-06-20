@@ -1,5 +1,8 @@
 package yuma140902.uptodatemod.launch;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,10 +12,13 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.google.gson.Gson;
 import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.launch.archives.ArchiveRegistry;
 import yuma140902.uptodatemod.launch.download.DownloadCandidate;
 import yuma140902.uptodatemod.launch.download.DownloaderWithDisplay;
@@ -34,7 +40,7 @@ public class VanillaResourceLoader {
 	
 	public static final Logger log = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-ResourceLoader");
 	
-	public static void load(Path caches, Path archives, Path assets) throws IOException {
+	public static void load(Path caches, Path archives, Path assets) throws Exception {
 		log.info("Starting loading vanilla resources");
 		
 		Class<ModUpToDateMod> clazz = ModUpToDateMod.class;
@@ -53,7 +59,19 @@ public class VanillaResourceLoader {
 			Files.createDirectories(assets);
 			
 			log.info("Starting jar downloader");
-			downloadArchives(setting, caches, archives);
+			int trials = 0;
+			final int maxTrials = 3;
+			boolean needReDownload = false;
+			do {
+				++trials;
+				log.info("Downloading trial " + trials);
+				downloadArchives(setting, caches, archives);
+				needReDownload = needReDownloadArchives(setting, caches, archives);
+			}while(needReDownload && trials < maxTrials);
+			if(needReDownload){
+				// 3回ダウンロードを試行しても失敗したらクラッシュさせる
+				throw new Exception("[UpToDateMod] Failed to download resources! You seems to have bad internet connection.");
+			}
 			registerArchives(setting, archives);
 			log.info("Starting organizer");
 			organize(setting, assets);
@@ -101,6 +119,40 @@ public class VanillaResourceLoader {
 		
 		IDownloader downloader = new DownloaderWithDisplay(display, caches, archives);
 		downloader.downloadFiles(candidates);
+	}
+	
+	private static boolean needReDownloadArchives(Setting setting, Path caches, Path archives) throws IOException {
+		if(!ModConfigCore.General.validateVanillaJar()){
+			return false;
+		}
+		
+		boolean needReDownload = false;
+		for(final Archive archive : setting.archives){
+			Path archivePath = archives.resolve(archive.filename);
+			Path archiveCachedPath = caches.resolve(archive.filename);
+			InputStream input;
+			String sha1;
+			try {
+				input = new FileInputStream(archivePath.toFile());
+				sha1 = Sha512.calcSha512(input);
+			} catch (FileNotFoundException e) {
+				needReDownload = true;
+				continue;
+			} catch (IOException e){
+				needReDownload = true;
+				continue;
+			}
+			input.close();
+			
+			if(!StringUtils.equals(sha1, archive.hash)){
+				log.error("Archive: " + archive.filename + ", expected hash: " + archive.hash + ", but got: " + sha1);
+				needReDownload = true;
+				Files.deleteIfExists(archivePath);
+				Files.deleteIfExists(archiveCachedPath);
+			}
+		}
+		
+		return needReDownload;
 	}
 	
 	private static void registerArchives(Setting setting, Path archives) throws IOException {

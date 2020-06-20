@@ -46,5 +46,5 @@ public class CommonProxy {
 	
 	public void registerRenderers() { }
 	
-	public void loadVanillaResources() {}
+	public void loadVanillaResources() throws Exception {}
 }

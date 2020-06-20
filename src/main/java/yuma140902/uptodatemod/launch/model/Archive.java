@@ -7,4 +7,5 @@ public class Archive {
 	public List<String> urls;
 	public String filename;
 	public boolean cache;
+	public String hash;
 }

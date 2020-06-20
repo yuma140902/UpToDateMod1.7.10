@@ -62,7 +62,7 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	@Override
-	public void loadVanillaResources() {
+	public void loadVanillaResources() throws Exception {
 		try {
 			Path caches = Paths.get("uptodatemod/dl-cache");
 			Path archives = Paths.get("uptodatemod/client-jars");
