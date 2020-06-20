@@ -1,7 +1,6 @@
 package yuma140902.uptodatemod.launch;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -184,10 +183,7 @@ public class VanillaResourceLoader {
 			try {
 				input = new FileInputStream(archivePath.toFile());
 				md5 = DigestUtils.md5Hex(input);
-			} catch (FileNotFoundException e) {
-				needReDownload = true;
-				continue;
-			} catch (IOException e){
+			} catch (IOException e) {
 				needReDownload = true;
 				continue;
 			}
