@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.file.Path;
@@ -27,6 +28,7 @@ import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.event_handlers.StripWoodHandler;
 import yuma140902.uptodatemod.integration.Plugins;
+import yuma140902.uptodatemod.launch.VanillaResourceLoadingException;
 import yuma140902.uptodatemod.loot.MobLoot;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
@@ -119,7 +121,7 @@ public class ModUpToDateMod {
 	}
 	
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) throws Exception {
+	public void preInit(FMLPreInitializationEvent event) throws VanillaResourceLoadingException, IOException {
 		loadModMetadata(modMetadata);
 		ModConfigCore.loadConfig(event);
 		LOGGER.info("preInit");

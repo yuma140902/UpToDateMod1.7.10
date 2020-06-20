@@ -24,6 +24,7 @@ import yuma140902.uptodatemod.entity.item.EntityBoatSpruce;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 import yuma140902.uptodatemod.event_handlers.ClientEventHandler;
 import yuma140902.uptodatemod.launch.VanillaResourceLoader;
+import yuma140902.uptodatemod.launch.VanillaResourceLoadingException;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.resourcepack.UpToDateModResourcePack;
@@ -62,16 +63,12 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	@Override
-	public void loadVanillaResources() throws Exception {
-		try {
-			Path caches = Paths.get("uptodatemod/dl-cache");
-			Path archives = Paths.get("uptodatemod/client-jars");
-			Path assets = Paths.get("uptodatemod/assets/uptodate");
+	public void loadVanillaResources() throws VanillaResourceLoadingException, IOException {
+		Path caches = Paths.get("uptodatemod/dl-cache");
+		Path archives = Paths.get("uptodatemod/client-jars");
+		Path assets = Paths.get("uptodatemod/assets/uptodate");
 			
-			VanillaResourceLoader.load(caches, archives, assets);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		VanillaResourceLoader.load(caches, archives, assets);
 		
 		List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), "defaultResourcePacks", "field_110449_ao");
     defaultResourcePacks.add(new UpToDateModResourcePack());

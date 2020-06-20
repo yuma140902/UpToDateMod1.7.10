@@ -42,7 +42,7 @@ public class VanillaResourceLoader {
 	
 	public static final Logger log = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-ResourceLoader");
 	
-	public static void load(Path cacheDir, Path archiveDir, Path assetsDir) throws Exception {
+	public static void load(Path cacheDir, Path archiveDir, Path assetsDir) throws VanillaResourceLoadingException, IOException {
 		log.info("Starting loading vanilla resources");
 		
 		Class<ModUpToDateMod> clazz = ModUpToDateMod.class;
@@ -121,9 +121,10 @@ public class VanillaResourceLoader {
 	 * @param archives
 	 * @param cacheDir
 	 * @param archiveDir
-	 * @throws Exception ダウンロードを何回かやり直してもファイルが破損したままだったとき。
+	 * @throws VanillaResourceLoadingException ダウンロードを何回かやり直してもファイルが破損したままだったとき。
+	 * @throws IOException バニラJarとそのキャッシュを削除できなかったとき。
 	 */
-	private static void tryDownloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) throws Exception {
+	private static void tryDownloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) throws VanillaResourceLoadingException, IOException {
 		int trials = 0;
 		final int maxTrials = 3;
 		boolean needReDownload = false;
@@ -136,7 +137,7 @@ public class VanillaResourceLoader {
 		if(needReDownload){
 			// 3回ダウンロードを試行しても失敗したら例外を投げる。
 			// こうなった場合は対処不能なので、この例外によってクライアントがクラッシュすることを期待する。
-			throw new Exception("[UpToDateMod] Failed to download resources! You seems to have bad internet connection.");
+			throw new VanillaResourceLoadingException("[UpToDateMod] Failed to download resources! You seems to have bad internet connection.");
 		}
 	}
 	
