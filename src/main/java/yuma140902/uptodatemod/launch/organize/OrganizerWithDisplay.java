@@ -6,14 +6,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import javax.swing.JDialog;
-import yuma140902.uptodatemod.launch.VanillaResourceLoader;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.launch.archives.ArchiveRegistry;
 import yuma140902.uptodatemod.launch.model.Copy;
 import yuma140902.uptodatemod.launch.organize.func.Functions;
 import yuma140902.uptodatemod.launch.organize.func.IFunction;
 
 public class OrganizerWithDisplay implements IOrganizer {
-
+	
+	private final Logger log = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-Organizer");
+	
 	private IOrganizeDisplay display;
 	private Path assetsDir;
 	
@@ -50,7 +55,7 @@ public class OrganizerWithDisplay implements IOrganizer {
 		String func = copy.func;
 		
 		if(!Files.exists(src)) {
-			VanillaResourceLoader.log.error(String.format("%s was not found. Skipping.", src));
+			log.error(String.format("%s was not found. Skipping.", src));
 			return;
 		}
 		
@@ -76,7 +81,7 @@ public class OrganizerWithDisplay implements IOrganizer {
 			function = Functions.flip;
 		}
 		else {
-			VanillaResourceLoader.log.error(String.format("Skipping with unknown function %s", func));
+			log.error(String.format("Skipping with unknown function %s", func));
 			function = Functions.onlyCopy;
 		}
 		

@@ -67,8 +67,8 @@ public class ClientProxy extends CommonProxy {
 		Path caches = Paths.get("uptodatemod/dl-cache");
 		Path archives = Paths.get("uptodatemod/client-jars");
 		Path assets = Paths.get("uptodatemod/assets/uptodate");
-			
-		VanillaResourceLoader.load(caches, archives, assets);
+		
+		new VanillaResourceLoader(caches, archives, assets).load();
 		
 		List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), "defaultResourcePacks", "field_110449_ao");
     defaultResourcePacks.add(new UpToDateModResourcePack());

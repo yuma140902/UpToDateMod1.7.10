@@ -40,15 +40,25 @@ import yuma140902.uptodatemod.launch.sounddownload.SwingSoundDownloadDisplay;
 
 public class VanillaResourceLoader {
 	
-	public static final Logger log = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-ResourceLoader");
+	private final Logger log = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-ResourceLoader");
 	
-	public static void load(Path cacheDir, Path archiveDir, Path assetsDir) throws VanillaResourceLoadingException, IOException {
+	private final Path cacheDir;
+	private final Path archiveDir;
+	private final Path assetsDir;
+	
+	public VanillaResourceLoader(Path cacheDir, Path archiveDir, Path assetsDir){
+		this.cacheDir = cacheDir;
+		this.archiveDir = archiveDir;
+		this.assetsDir = assetsDir;
+	}
+	
+	public void load() throws VanillaResourceLoadingException, IOException {
 		log.info("Starting loading vanilla resources");
 		
 		Class<ModUpToDateMod> clazz = ModUpToDateMod.class;
 		String settingFileName = "/settings.json";
 		
-		if(needUpdate(assetsDir, clazz.getResourceAsStream(settingFileName))) {
+		if(needUpdate(clazz.getResourceAsStream(settingFileName))) {
 			log.info("Loading settings.json");
 			
 			Gson gson = new Gson();
@@ -61,15 +71,15 @@ public class VanillaResourceLoader {
 			Files.createDirectories(assetsDir);
 			
 			log.info("Starting jar downloader");
-			tryDownloadArchives(setting.archives, cacheDir, archiveDir);
-			registerArchives(setting.archives, archiveDir);
+			tryDownloadArchives(setting.archives);
+			registerArchives(setting.archives);
 			log.info("Starting organizer");
-			organize(setting.copies, assetsDir);
+			organize(setting.copies);
 			log.info("Starting sound downloader");
-			setupSounds(setting.sounds, cacheDir, assetsDir);
+			setupSounds(setting.sounds);
 			ArchiveRegistry.closeAll();
 			
-			makeVersionCheckFile(assetsDir, clazz.getResourceAsStream(settingFileName));
+			makeVersionCheckFile(clazz.getResourceAsStream(settingFileName));
 		}
 		log.info("Finished loading vanilla resources");
 	}
@@ -78,12 +88,11 @@ public class VanillaResourceLoader {
 	 * 以前に{@link VanillaResourceLoader}が実行されたときから、
 	 * settings.jsonの内容が変更されているかどうかをチェックし、
 	 * 今{@link VanillaResourceLoader}を実行する必要があるかどうかを判断する。
-	 * @param assetsDir
 	 * @param settingJson
 	 * @return
 	 * @throws IOException settings.jsonが開けなかったとき
 	 */
-	private static boolean needUpdate(Path assetsDir, InputStream settingJson) throws IOException {
+	private boolean needUpdate(InputStream settingJson) throws IOException {
 		Path versionCheckFile = assetsDir.resolve("settings.json.md5");
 		if(!Files.exists(versionCheckFile)) {
 			return true;
@@ -103,12 +112,11 @@ public class VanillaResourceLoader {
 	
 	/**
 	 * settings.jsonのハッシュ値を計算し、settings.json.md5に書き込む。<br>
-	 * この情報は次に{@link VanillaResourceLoader}が実行されたときに{@link #needUpdate(Path, InputStream)}によって利用される。
-	 * @param assetsDir
+	 * この情報は次に{@link VanillaResourceLoader}が実行されたときに{@link #needUpdate(InputStream)}によって利用される。
 	 * @param settingJson
 	 * @throws IOException settings.jsonが開けなかったとき。settings.json.md5に書き込めなかったとき。
 	 */
-	private static void makeVersionCheckFile(Path assetsDir, InputStream settingJson) throws IOException {
+	private void makeVersionCheckFile(InputStream settingJson) throws IOException {
 		String currentHash = DigestUtils.md5Hex(settingJson);
 		List<String> lines = new ArrayList<String>();
 		lines.add(currentHash);
@@ -119,20 +127,18 @@ public class VanillaResourceLoader {
 	 * バニラJarのダウンロードを行い、その後ファイルが破損していないかどうか確認する。<br>
 	 * 破損していた場合はダウンロードをやり直す。
 	 * @param archives
-	 * @param cacheDir
-	 * @param archiveDir
 	 * @throws VanillaResourceLoadingException ダウンロードを何回かやり直してもファイルが破損したままだったとき。
 	 * @throws IOException バニラJarとそのキャッシュを削除できなかったとき。
 	 */
-	private static void tryDownloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) throws VanillaResourceLoadingException, IOException {
+	private void tryDownloadArchives(List<Archive> archives) throws VanillaResourceLoadingException, IOException {
 		int trials = 0;
 		final int maxTrials = 3;
 		boolean needReDownload = false;
 		do {
 			++trials;
 			log.info("Downloading trial " + trials);
-			downloadArchives(archives, cacheDir, archiveDir);
-			needReDownload = needReDownloadArchives(archives, cacheDir, archiveDir);
+			downloadArchives(archives);
+			needReDownload = needReDownloadArchives(archives);
 		}while(needReDownload && trials < maxTrials);
 		if(needReDownload){
 			// 3回ダウンロードを試行しても失敗したら例外を投げる。
@@ -144,10 +150,8 @@ public class VanillaResourceLoader {
 	/**
 	 * バニラJarのダウンロードをする。その際にウィンドウを開き進捗状況を表示する。
 	 * @param archives
-	 * @param cacheDir
-	 * @param archiveDir
 	 */
-	private static void downloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) {
+	private void downloadArchives(List<Archive> archives) {
 		List<DownloadCandidate> candidates = new LinkedList<DownloadCandidate>();
 		for(Archive archive : archives) {
 			candidates.add(new DownloadCandidate(archive));
@@ -163,12 +167,10 @@ public class VanillaResourceLoader {
 	 * バニラJarが破損しているかどうかチェックして、ダウンロードし直す必要があるかどうか判断する。<br>
 	 * 破損していた場合はバニラJarとそのキャッシュを削除する。
 	 * @param archives
-	 * @param cacheDir
-	 * @param archiveDir
 	 * @return
 	 * @throws IOException バニラJarとそのキャッシュを削除できなかったとき。
 	 */
-	private static boolean needReDownloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) throws IOException {
+	private boolean needReDownloadArchives(List<Archive> archives) throws IOException {
 		if(!ModConfigCore.General.validateVanillaJar()){
 			return false;
 		}
@@ -205,10 +207,9 @@ public class VanillaResourceLoader {
 	/**
 	 * バニラJarを{@link ArchiveRegistry}に登録する。
 	 * @param archives
-	 * @param archiveDir
 	 * @throws IOException バニラJarが見つからなかったとき。
 	 */
-	private static void registerArchives(List<Archive> archives, Path archiveDir) throws IOException {
+	private void registerArchives(List<Archive> archives) throws IOException {
 		if(archives.size() <= 0) {
 			log.info("No archives.");
 			return;
@@ -229,9 +230,8 @@ public class VanillaResourceLoader {
 	 * その際にウィンドウを開き進捗状況を表示する。<br>
 	 * (既存のファイルは上書きされる)
 	 * @param copies
-	 * @param assetsDir
 	 */
-	private static void organize(List<Copy> copies, Path assetsDir) {
+	private void organize(List<Copy> copies) {
 		IOrganizeDisplay display = new SwingOrganizeDisplay();
 		
 		IOrganizer organizer = new OrganizerWithDisplay(display, assetsDir);
@@ -242,13 +242,11 @@ public class VanillaResourceLoader {
 	 * 効果音のファイルをダウンロードする。
 	 * その際にウィンドウを開き進捗状況を表示する。
 	 * @param sounds
-	 * @param cacheDir
-	 * @param assetDir
 	 */
-	private static void setupSounds(List<Sound> sounds, Path cacheDir, Path assetDir) {
+	private void setupSounds(List<Sound> sounds) {
 		ISoundDownloadDisplay display = new SwingSoundDownloadDisplay();
 		
-		ISoundDownloader downloader = new SoundDownloaderWithDisplay(display, cacheDir, assetDir);
+		ISoundDownloader downloader = new SoundDownloaderWithDisplay(display, cacheDir, assetsDir);
 		downloader.downloadSounds(sounds);
 	}
 }
