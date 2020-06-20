@@ -63,12 +63,12 @@ public class VanillaResourceLoader {
 			tryDownloadArchives(setting.archives, cacheDir, archiveDir);
 			registerArchives(setting.archives, archiveDir);
 			log.info("Starting organizer");
-			organize(setting.copies, assets);
+			organize(setting.copies, assetsDir);
 			log.info("Starting sound downloader");
-			setupSounds(setting.sounds, caches, assets);
+			setupSounds(setting.sounds, cacheDir, assetsDir);
 			ArchiveRegistry.closeAll();
 			
-			makeVersionCheckFile(assets, clazz.getResourceAsStream(settingFileName));
+			makeVersionCheckFile(assetsDir, clazz.getResourceAsStream(settingFileName));
 		}
 		log.info("Finished loading vanilla resources");
 	}
