@@ -41,13 +41,13 @@ public class VanillaResourceLoader {
 	
 	public static final Logger log = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-ResourceLoader");
 	
-	public static void load(Path caches, Path archives, Path assets) throws Exception {
+	public static void load(Path cacheDir, Path archiveDir, Path assetsDir) throws Exception {
 		log.info("Starting loading vanilla resources");
 		
 		Class<ModUpToDateMod> clazz = ModUpToDateMod.class;
 		String settingFileName = "/settings.json";
 		
-		if(needUpdate(assets, clazz.getResourceAsStream(settingFileName))) {
+		if(needUpdate(assetsDir, clazz.getResourceAsStream(settingFileName))) {
 			log.info("Loading settings.json");
 			
 			Gson gson = new Gson();
@@ -55,9 +55,9 @@ public class VanillaResourceLoader {
 			Setting setting = gson.fromJson(reader, Setting.class);
 			log.info("Successfully loaded settings.json");
 			
-			Files.createDirectories(caches);
-			Files.createDirectories(archives);
-			Files.createDirectories(assets);
+			Files.createDirectories(cacheDir);
+			Files.createDirectories(archiveDir);
+			Files.createDirectories(assetsDir);
 			
 			log.info("Starting jar downloader");
 			int trials = 0;
