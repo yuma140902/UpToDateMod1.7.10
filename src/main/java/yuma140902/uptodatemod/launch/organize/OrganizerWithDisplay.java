@@ -21,10 +21,12 @@ public class OrganizerWithDisplay implements IOrganizer {
 	
 	private IOrganizeDisplay display;
 	private Path assetsDir;
+	private final ArchiveRegistry archiveRegistry;
 	
-	public OrganizerWithDisplay(IOrganizeDisplay display, Path assetsDir) {
+	public OrganizerWithDisplay(IOrganizeDisplay display, Path assetsDir, ArchiveRegistry archiveRegistry) {
 		this.display = display;
 		this.assetsDir = assetsDir;
+		this.archiveRegistry = archiveRegistry;
 	}
 	
 	@Override
@@ -49,7 +51,7 @@ public class OrganizerWithDisplay implements IOrganizer {
 	
 	private void handle(Copy copy) throws IOException {
 		String archiveId = copy.ar;
-		FileSystem archive = ArchiveRegistry.getArchive(archiveId);
+		FileSystem archive = this.archiveRegistry.getArchive(archiveId);
 		Path src = archive.getPath("assets/minecraft/").resolve(copy.src);
 		Path dest = this.assetsDir.resolve(copy.dest);
 		String func = copy.func;

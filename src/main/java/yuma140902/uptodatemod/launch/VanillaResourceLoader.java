@@ -45,12 +45,14 @@ public class VanillaResourceLoader {
 	private final Path archiveDir;
 	private final Path assetsDir;
 	private final Path versionCheckFile;
+	private final ArchiveRegistry archiveRegistry;
 	
 	public VanillaResourceLoader(Path cacheDir, Path archiveDir, Path assetsDir){
 		this.cacheDir = cacheDir;
 		this.archiveDir = archiveDir;
 		this.assetsDir = assetsDir;
 		this.versionCheckFile = assetsDir.resolve("settings.json.md5");
+		this.archiveRegistry = new ArchiveRegistry();
 	}
 	
 	public void load() throws VanillaResourceLoadingException, IOException {
@@ -79,7 +81,7 @@ public class VanillaResourceLoader {
 			organize(setting.copies);
 			log.info("Starting sound downloader");
 			setupSounds(setting.sounds);
-			ArchiveRegistry.closeAll();
+			this.archiveRegistry.closeAll();
 			
 			makeVersionCheckFile(settingJsonHash);
 		}
@@ -201,7 +203,7 @@ public class VanillaResourceLoader {
 	}
 	
 	/**
-	 * バニラJarを{@link ArchiveRegistry}に登録する。
+	 * バニラJarを{@link #archiveRegistry}に登録する。
 	 * @param archives
 	 * @throws IOException バニラJarが見つからなかったとき。
 	 */
@@ -214,7 +216,7 @@ public class VanillaResourceLoader {
 		for(Archive archive : archives) {
 			String id = archive.slug;
 			Path filePath = archiveDir.resolve(archive.filename);
-			ArchiveRegistry.register(id, filePath);
+			this.archiveRegistry.register(id, filePath);
 			
 			log.info(" - id: " + id);
 			log.info(" - path: " + filePath);
@@ -230,7 +232,7 @@ public class VanillaResourceLoader {
 	private void organize(List<Copy> copies) {
 		IOrganizeDisplay display = new SwingOrganizeDisplay();
 		
-		IOrganizer organizer = new OrganizerWithDisplay(display, assetsDir);
+		IOrganizer organizer = new OrganizerWithDisplay(display, assetsDir, archiveRegistry);
 		organizer.organize(copies);
 	}
 	
