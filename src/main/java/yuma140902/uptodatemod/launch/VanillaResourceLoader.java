@@ -1,6 +1,5 @@
 package yuma140902.uptodatemod.launch;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,7 +25,9 @@ import yuma140902.uptodatemod.launch.download.IDownloadDisplay;
 import yuma140902.uptodatemod.launch.download.IDownloader;
 import yuma140902.uptodatemod.launch.download.SwingDownloadDisplay;
 import yuma140902.uptodatemod.launch.model.Archive;
+import yuma140902.uptodatemod.launch.model.Copy;
 import yuma140902.uptodatemod.launch.model.Setting;
+import yuma140902.uptodatemod.launch.model.Sound;
 import yuma140902.uptodatemod.launch.organize.IOrganizeDisplay;
 import yuma140902.uptodatemod.launch.organize.IOrganizer;
 import yuma140902.uptodatemod.launch.organize.OrganizerWithDisplay;
@@ -65,18 +66,18 @@ public class VanillaResourceLoader {
 			do {
 				++trials;
 				log.info("Downloading trial " + trials);
-				downloadArchives(setting, caches, archives);
-				needReDownload = needReDownloadArchives(setting, caches, archives);
+				downloadArchives(setting.archives, caches, archives);
+				needReDownload = needReDownloadArchives(setting.archives, caches, archives);
 			}while(needReDownload && trials < maxTrials);
 			if(needReDownload){
 				// 3回ダウンロードを試行しても失敗したらクラッシュさせる
 				throw new Exception("[UpToDateMod] Failed to download resources! You seems to have bad internet connection.");
 			}
-			registerArchives(setting, archives);
+			registerArchives(setting.archives, archives);
 			log.info("Starting organizer");
-			organize(setting, assets);
+			organize(setting.copies, assets);
 			log.info("Starting sound downloader");
-			setupSounds(setting, caches, assets);
+			setupSounds(setting.sounds, caches, assets);
 			ArchiveRegistry.closeAll();
 			
 			makeVersionCheckFile(assets, clazz.getResourceAsStream(settingFileName));
@@ -109,27 +110,27 @@ public class VanillaResourceLoader {
 		Files.write(assetsDir.resolve("settings.json.sha512"), lines, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
 	}
 	
-	private static void downloadArchives(Setting setting, Path caches, Path archives) {
+	private static void downloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) {
 		List<DownloadCandidate> candidates = new LinkedList<DownloadCandidate>();
-		for(Archive archive : setting.archives) {
+		for(Archive archive : archives) {
 			candidates.add(new DownloadCandidate(archive));
 		}
 		
 		IDownloadDisplay display = new SwingDownloadDisplay();
 		
-		IDownloader downloader = new DownloaderWithDisplay(display, caches, archives);
+		IDownloader downloader = new DownloaderWithDisplay(display, cacheDir, archiveDir);
 		downloader.downloadFiles(candidates);
 	}
 	
-	private static boolean needReDownloadArchives(Setting setting, Path caches, Path archives) throws IOException {
+	private static boolean needReDownloadArchives(List<Archive> archives, Path cacheDir, Path archiveDir) throws IOException {
 		if(!ModConfigCore.General.validateVanillaJar()){
 			return false;
 		}
 		
 		boolean needReDownload = false;
-		for(final Archive archive : setting.archives){
-			Path archivePath = archives.resolve(archive.filename);
-			Path archiveCachedPath = caches.resolve(archive.filename);
+		for(final Archive archive : archives){
+			Path archivePath = archiveDir.resolve(archive.filename);
+			Path archiveCachedPath = cacheDir.resolve(archive.filename);
 			InputStream input;
 			String sha1;
 			try {
@@ -155,15 +156,15 @@ public class VanillaResourceLoader {
 		return needReDownload;
 	}
 	
-	private static void registerArchives(Setting setting, Path archives) throws IOException {
-		if(setting.archives.size() <= 0) {
+	private static void registerArchives(List<Archive> archives, Path archiveDir) throws IOException {
+		if(archives.size() <= 0) {
 			log.info("No archives.");
 			return;
 		}
 		log.info("Archives:");
-		for(Archive archive : setting.archives) {
+		for(Archive archive : archives) {
 			String id = archive.slug;
-			Path filePath = archives.resolve(archive.filename);
+			Path filePath = archiveDir.resolve(archive.filename);
 			ArchiveRegistry.register(id, filePath);
 			
 			log.info(" - id: " + id);
@@ -171,17 +172,17 @@ public class VanillaResourceLoader {
 		}
 	}
 	
-	private static void organize(Setting setting, Path assets) {
+	private static void organize(List<Copy> copies, Path assetsDir) {
 		IOrganizeDisplay display = new SwingOrganizeDisplay();
 		
-		IOrganizer organizer = new OrganizerWithDisplay(display, assets);
-		organizer.organize(setting.copies);
+		IOrganizer organizer = new OrganizerWithDisplay(display, assetsDir);
+		organizer.organize(copies);
 	}
 	
-	private static void setupSounds(Setting setting, Path caches, Path assets) {
+	private static void setupSounds(List<Sound> sounds, Path cacheDir, Path assetDir) {
 		ISoundDownloadDisplay display = new SwingSoundDownloadDisplay();
 		
-		ISoundDownloader downloader = new SoundDownloaderWithDisplay(display, caches, assets);
-		downloader.downloadSounds(setting.sounds);
+		ISoundDownloader downloader = new SoundDownloaderWithDisplay(display, cacheDir, assetDir);
+		downloader.downloadSounds(sounds);
 	}
 }
