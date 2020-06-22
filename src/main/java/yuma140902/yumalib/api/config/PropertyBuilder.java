@@ -21,6 +21,9 @@ public class PropertyBuilder {
 	private String[] validStrings;
 	private Pattern validationPattern;
 	
+	private double minValue = Double.NaN;
+	private double maxValue = Double.NaN;
+	
 	private boolean requireMcRestart = false;
 	private boolean requireWorldRestart = false;
 	
@@ -121,6 +124,18 @@ public class PropertyBuilder {
 		return this;
 	}
 	
+	public PropertyBuilder min(int min){
+		assert this.valueType == Type.INT;
+		this.minValue = min;
+		return this;
+	}
+	
+	public PropertyBuilder max(int max){
+		assert this.valueType == Type.INT;
+		this.maxValue = max;
+		return this;
+	}
+	
 	public PropertyBuilder requireMcRestart() {
 		this.requireMcRestart = true;
 		return this;
@@ -167,6 +182,14 @@ public class PropertyBuilder {
 			case INT:
 				prop = cfg.get(category, name, defaultInt);
 				prop.comment = toString(comment) + " [default: " + defaultInt + "]";
+				if(!Double.isNaN(minValue)){
+					prop.setMinValue((int)minValue);
+					prop.comment += " [min: " + (int)minValue + "]";
+				}
+				if(!Double.isNaN(maxValue)){
+					prop.setMaxValue((int)maxValue);
+					prop.comment += " [max: " + (int)maxValue + "]";
+				}
 				break;
 			case STRING_LIST:
 				prop = cfg.get(category, name, defaultStringList);
