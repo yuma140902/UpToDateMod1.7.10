@@ -73,7 +73,7 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
-		return iIcons[meta];
+		return iIcons[meta%(META_MAX+1)];
 	}
 	
 	@Override

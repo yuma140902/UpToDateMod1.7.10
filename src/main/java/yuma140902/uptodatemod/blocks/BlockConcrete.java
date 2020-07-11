@@ -47,7 +47,7 @@ public class BlockConcrete extends Block implements IRegisterable {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int side, int meta) {
-		return iicons[meta];
+		return iicons[meta%(META_MAX+1)];
 	}
 	
 	@SideOnly(Side.CLIENT)

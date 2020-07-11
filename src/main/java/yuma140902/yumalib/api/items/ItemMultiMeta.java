@@ -64,7 +64,7 @@ public class ItemMultiMeta extends Item implements IRegisterable {
 	
 	@Override
 	public IIcon getIconFromDamage(int meta) {
-		return icons[meta];
+		return icons[meta%(MAX_META+1)];
 	}
 	
 	@Override
