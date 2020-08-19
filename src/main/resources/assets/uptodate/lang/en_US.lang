@@ -199,6 +199,8 @@ item.uptodate.dye.brown.name=Brown Dye
 
 item.uptodate.suspicious_stew.name=Suspicious Stew
 
+entity.uptodate.husk.name=Husk
+
 tile.uptodate.concrete.black.name=Black Concrete
 tile.uptodate.concrete.blue.name=Blue Concrete
 tile.uptodate.concrete.brown.name=Brown Concrete

@@ -38,6 +38,7 @@ public enum EnumDisableableFeatures {
 	plainDye,
 	suspiciousStew,
 	newNoteBlockInstruments,
+	zombieAndSkeletonVariants("Husk"),
 	allKindsOfStairs,
 	allKindsOfSlabs,
 	allKindsOfWalls;

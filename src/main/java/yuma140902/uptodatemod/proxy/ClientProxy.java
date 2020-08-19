@@ -14,6 +14,7 @@ import net.minecraftforge.common.MinecraftForge;
 import yuma140902.uptodatemod.client.renderer.RenderArmorStand;
 import yuma140902.uptodatemod.client.renderer.RenderBlockGlazedTerracotta;
 import yuma140902.uptodatemod.client.renderer.RenderBlockLantern;
+import yuma140902.uptodatemod.client.renderer.RenderHusk;
 import yuma140902.uptodatemod.client.renderer.RenderModBoat;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
 import yuma140902.uptodatemod.entity.item.EntityBoatAcacia;
@@ -22,6 +23,7 @@ import yuma140902.uptodatemod.entity.item.EntityBoatDarkOak;
 import yuma140902.uptodatemod.entity.item.EntityBoatJungle;
 import yuma140902.uptodatemod.entity.item.EntityBoatSpruce;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
+import yuma140902.uptodatemod.entity.monster.EntityHusk;
 import yuma140902.uptodatemod.event_handlers.ClientEventHandler;
 import yuma140902.uptodatemod.launch.VanillaResourceLoader;
 import yuma140902.uptodatemod.launch.VanillaResourceLoadingException;
@@ -55,6 +57,9 @@ public class ClientProxy extends CommonProxy {
 		}
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.armorStand)) {
 			RenderingRegistry.registerEntityRenderingHandler(EntityArmorStand.class, new RenderArmorStand());
+		}
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.zombieAndSkeletonVariants)) {
+			RenderingRegistry.registerEntityRenderingHandler(EntityHusk.class, new RenderHusk());
 		}
 		
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))

@@ -96,6 +96,7 @@ public class ModConfigCore {
 		private static int idBoatJungle = 3;
 		private static int idBoatSpruce = 4;
 		private static int idArmorStand = 5;
+		private static int idHusk = 6;
 		
 		public static int idBoatAcacia() {return idBoatAcacia;}
 		public static int idBoatBirch() {return idBoatBirch;}
@@ -103,6 +104,7 @@ public class ModConfigCore {
 		public static int idBoatJungle() {return idBoatJungle;}
 		public static int idBoatSpruce() {return idBoatSpruce;}
 		public static int idArmorStand() {return idArmorStand;}
+		public static int idHusk() {return idHusk;}
 	}
 	
 	private static CategoryBuilder generalCategory;
@@ -297,6 +299,7 @@ public class ModConfigCore {
 		Deprecated.idBoatJungle = 		cfg.getInt("idBoatJungle", 		CATEGORY_DEPRECATED, Deprecated.idBoatJungle, 	0, Integer.MAX_VALUE, "Entity ID for Jungle Boat");
 		Deprecated.idBoatSpruce = 		cfg.getInt("idBoatSpruce", 		CATEGORY_DEPRECATED, Deprecated.idBoatSpruce, 	0, Integer.MAX_VALUE, "Entity ID for Spruce Boat");
 		Deprecated.idArmorStand = 		cfg.getInt("idArmorStand", 		CATEGORY_DEPRECATED, Deprecated.idArmorStand, 	0, Integer.MAX_VALUE, "Entity ID for Armorstand");
+		Deprecated.idHusk =						cfg.getInt("idHusk", CATEGORY_DEPRECATED, Deprecated.idHusk, 0, Integer.MAX_VALUE, "Entity ID for Husk");
 		
 		IntegrationConfigs.syncConfig(cfg);
 		

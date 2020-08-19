@@ -1158,6 +1158,11 @@
       "ar": "mc12",
       "src": "textures/entity/armorstand/wood.png",
       "dest": "textures/entity/armor_stand.png"
+    },
+    {
+      "ar": "mc12",
+      "src": "textures/entity/zombie/husk.png",
+      "dest": "textures/entity/zombie/husk.png"
     }
   ]
 }

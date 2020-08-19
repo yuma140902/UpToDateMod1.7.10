@@ -12,6 +12,7 @@ import yuma140902.uptodatemod.entity.item.EntityBoatBirch;
 import yuma140902.uptodatemod.entity.item.EntityBoatDarkOak;
 import yuma140902.uptodatemod.entity.item.EntityBoatJungle;
 import yuma140902.uptodatemod.entity.item.EntityBoatSpruce;
+import yuma140902.uptodatemod.entity.monster.EntityHusk;
 import yuma140902.uptodatemod.event_handlers.CommonEventHandler;
 import yuma140902.uptodatemod.launch.VanillaResourceLoadingException;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
@@ -36,6 +37,9 @@ public class CommonProxy {
 		}
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.armorStand)) {
 			EntityRegistry.registerModEntity(EntityArmorStand.class, "wooden_armorstand", idArmorStand(), ModUpToDateMod.INSTANCE, 64, 1, true);
+		}
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.zombieAndSkeletonVariants)) {
+			EntityRegistry.registerModEntity(EntityHusk.class, "husk", idHusk(), ModUpToDateMod.INSTANCE, 64, 3, true);
 		}
 	}
 	
