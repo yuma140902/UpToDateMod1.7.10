@@ -7,6 +7,7 @@ import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
@@ -24,6 +25,12 @@ public class BlockGenericFence extends BlockFence implements IRegisterable {
 	@Override
 	public boolean canPlaceTorchOnTop(World world, int x, int y, int z) {
 		return true;
+	}
+	
+	@Override
+	// 応急処置
+	public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side) {
+		return side == ForgeDirection.UP;
 	}
 	
 	/**
