@@ -1,0 +1,307 @@
+# German translation by DariusDarkBum
+tile.uptodate.stone.0.name=Stein(UpToDateMod)
+tile.uptodate.stone.granite.name=Granit
+tile.uptodate.stone.polished_granite.name=Polierter Granit
+tile.uptodate.stone.diorite.name=Diorit
+tile.uptodate.stone.polished_diorite.name=Polierter Granit
+tile.uptodate.stone.andesite.name=Andesit
+tile.uptodate.stone.polished_andesite.name=Polierter Andesit
+
+tile.uptodate.smooth_stone.name=Glatter Stein
+
+tile.uptodate.wood.acacia.name=Akazienholz
+tile.uptodate.wood.birch.name=Birkenholz
+tile.uptodate.wood.dark_oak.name=Schwarzeichenholz
+tile.uptodate.wood.jungle.name=Tropenholz
+tile.uptodate.wood.oak.name=Eichenholz
+tile.uptodate.wood.spruce.name=Fichtenholz
+
+tile.uptodate.stripped_log_acacia.name=Entrindetes Akazienholz
+tile.uptodate.stripped_log_birch.name=Entrindetes Birkenholz
+tile.uptodate.stripped_log_dark_oak.name=Entrindetes Schwarzeichenholz
+tile.uptodate.stripped_log_jungle.name=Entrindetes Tropenholz
+tile.uptodate.stripped_log_oak.name=Entrindetes Eichenholz
+tile.uptodate.stripped_log_spruce.name=Entrindetes Fichtenholz
+tile.uptodate.stripped_log_acacia_wood.name=Entrindetes Akazienholz
+tile.uptodate.stripped_log_birch_wood.name=Entrindetes Birkenholz
+tile.uptodate.stripped_log_dark_oak_wood.name=Entrindetes Schwarzeichenholz
+tile.uptodate.stripped_log_jungle_wood.name=Entrindetes Tropenholz
+tile.uptodate.stripped_log_oak_wood.name=Entrindetes Eichenholz
+tile.uptodate.stripped_log_spruce_wood.name=Entrindetes Fichtenholz
+
+tile.uptodate.door_acacia.name=Akazienholztür
+tile.uptodate.door_birch.name=Birkenholztür
+tile.uptodate.door_dark_oak.name=Schwarzeichenholztür
+tile.uptodate.door_jungle.name=Tropenholztür
+tile.uptodate.door_spruce.name=Fichtenholztür
+
+item.uptodate.door_acacia.name=Akazienholztür
+item.uptodate.door_birch.name=Birkenholztür
+item.uptodate.door_dark_oak.name=Schwarzeichenholztür
+item.uptodate.door_jungle.name=Tropenholztür
+item.uptodate.door_spruce.name=Fichtenholztür
+
+tile.uptodate.fence_acacia.name=Akazienholzzaun
+tile.uptodate.fence_birch.name=Birkenholzzaun
+tile.uptodate.fence_dark_oak.name=Schwarzeichenholzzaun
+tile.uptodate.fence_jungle.name=Tropenholzzaun
+tile.uptodate.fence_spruce.name=Fichtenholzzaun
+
+tile.uptodate.fence_gate_acacia.name=Akazienholzzauntor
+tile.uptodate.fence_gate_birch.name=Birkenholzzauntor
+tile.uptodate.fence_gate_dark_oak.name=Schwarzeichenholzzauntor
+tile.uptodate.fence_gate_jungle.name=Tropenholzzauntor
+tile.uptodate.fence_gate_spruce.name=Fichtenholzzauntor
+
+tile.uptodate.coarse_dirt.name=Grobe Erde
+
+item.uptodate.prismarine_crystals.name=Prismarinkristalle
+item.uptodate.prismarine_shard.name=Prismarinscherbe
+tile.uptodate.prismarine_block.name=Prismarin
+tile.uptodate.prismarine_brick.name=Prismarinziegel
+tile.uptodate.dark_prismarine_block.name=Dunkler Prismarin
+tile.uptodate.sea_lantern.name=Seelaterne
+tile.uptodate.sponge.name=Schwamm
+tile.uptodate.sponge.wet.name=Nasser Schwamm
+
+item.uptodate.iron_nugget.name=Eisenklumpen
+
+tile.uptodate.trap_door_acacia.name=Akazienholzfalltür
+tile.uptodate.trap_door_birch.name=Birkenholzfalltür
+tile.uptodate.trap_door_dark_oak.name=Schwarzeichenholzfalltür
+tile.uptodate.trap_door_jungle.name=Tropenholzfalltür
+tile.uptodate.trap_door_spruce.name=Fichtenholzfalltür
+tile.uptodate.trap_door_iron.name=Eisenfalltür
+
+tile.uptodate.button_acacia.name=Akazienholzknopf
+tile.uptodate.button_birch.name=Birkenholzknopf
+tile.uptodate.button_dark_oak.name=Schwarzeichenholzknopf
+tile.uptodate.button_jungle.name=Tropenholzknopf
+tile.uptodate.button_spruce.name=Fichtenholzknopf
+
+tile.uptodate.pressure_plate_acacia.name=Akazienholzdruckplatte
+tile.uptodate.pressure_plate_birch.name=Birkenholzdruckplatte
+tile.uptodate.pressure_plate_dark_oak.name=Schwarzeichenholzdruckplatte
+tile.uptodate.pressure_plate_jungle.name=Tropenholzdruckplatte
+tile.uptodate.pressure_plate_spruce.name=Fichtenholzdruckplatte
+
+tile.uptodate.red_nether_bricks.name=Rote Netherziegel
+tile.uptodate.nether_wart_block.name=Netherwarzenblock
+tile.uptodate.magma_block.name=Magmablock
+tile.uptodate.smooth_quartz.name=Glatter Quarzblock
+
+tile.uptodate.end_stone_bricks.name=Endsteinziegel
+tile.uptodate.purpur_block.name=Purpurblock
+tile.uptodate.purpur_pillar.name=Purpursäule
+
+tile.uptodate.bone_block.name=Knochenblock
+
+tile.sandStone.smooth.name=Geschnittener Sandstein
+tile.uptodate.smooth_sandstone.name=Glatter Sandstein
+tile.uptodate.red_sandstone.name=Roter Sandstein
+tile.uptodate.red_sandstone.chiseled.name=Gemeißelter roter Sandstein
+tile.uptodate.red_sandstone.cut.name=Geschnittener roter Sandstein
+tile.uptodate.red_sandstone.smooth.name=Glatter roter Sandstein
+
+tile.uptodate.grass_path.name=Trampelpfad
+
+item.uptodate.raw_mutton.name=Rohes Hammelfleisch
+item.uptodate.cooked_mutton.name=Gebratenes Hammelfleisch
+
+item.uptodate.sweet_berries.name=Süßbeeren
+tile.uptodate.sweet_berry_bush.name=Süßbeerenstrauch
+
+tile.uptodate.stairs_stone.name=Stone Stairs
+tile.uptodate.stairs_granite.name=Granite Stairs
+tile.uptodate.stairs_diorite.name=Diorite Stairs
+tile.uptodate.stairs_andesite.name=Andesite Stairs
+tile.uptodate.stairs_polished_granite.name=Polished Granite Stairs
+tile.uptodate.stairs_polished_diorite.name=Polished Diorite Stairs
+tile.uptodate.stairs_polished_andesite.name=Polished Andesite Stairs
+tile.uptodate.stairs_red_nether_bricks.name=Red Nether Brick Stairs
+tile.uptodate.stairs_smooth_quartz.name=Smooth Quartz Stairs
+tile.uptodate.stairs_prismarine.name=Prismarine Stairs
+tile.uptodate.stairs_prismarine_bricks.name=Prismarine Brick Stairs
+tile.uptodate.stairs_dark_prismarine.name=Dark Prismarine Stairs
+tile.uptodate.stairs_purpur.name=Purpur Stairs
+tile.uptodate.stairs_smooth_sandstone.name=Smooth Sandstone Stairs
+tile.uptodate.stairs_red_sandstone.name=Red Sandstone Stairs
+tile.uptodate.stairs_smooth_red_sandstone.name=Smooth Red Sandstone Stairs
+tile.uptodate.stairs_end_stone_bricks.name=End Stone Brick Stairs
+tile.uptodate.stairs_mossy_stone_bricks.name=Mossy Stone Brick Stairs
+tile.uptodate.stairs_mossy_cobblestone.name=Mossy Cobble Stone Stairs
+
+tile.uptodate.slab_stone.name=Steinstufe
+tile.uptodate.slab_granite.name=Granitstufe
+tile.uptodate.slab_diorite.name=Dioritstufe
+tile.uptodate.slab_andesite.name=Andesitstufe
+tile.uptodate.slab_polished_granite.name=Polierte Granitstufe
+tile.uptodate.slab_polished_diorite.name=Polierte Dioritstufe
+tile.uptodate.slab_polished_andesite.name=Polierte Andesitstufe
+tile.uptodate.slab_red_nether_bricks.name=Rote Netherziegelstufe
+tile.uptodate.slab_smooth_quartz.name=Glatte Quarzstufe
+tile.uptodate.slab_end_stone_bricks.name=Endsteinziegelstufe
+tile.uptodate.slab_mossy_stone_bricks.name=Bemooste Steinziegelstufe
+tile.uptodate.slab_mossy_cobblestone.name=Bemooste Bruchsteinstufe
+tile.uptodate.slab_cut_sandstone.name=Geschnittene Sandsteinstufe
+tile.uptodate.slab_smooth_sandstone.name=Glatte Sandsteinstufe
+tile.uptodate.slab_red_sandstone.name=Rote Sandsteinstufe
+tile.uptodate.slab_cut_red_sandstone.name=Geschnittene rote Sandsteinstufe
+tile.uptodate.slab_smooth_red_sandstone.name=Glatte rote Sandsteinstufe
+tile.uptodate.slab_purpur.name=Purpurstufe
+tile.uptodate.slab_prismarine.name=Prismarinstufe
+tile.uptodate.slab_prismarine_bricks.name=Prismarinziegelstufe
+tile.uptodate.slab_dark_prismairne.name=Dunkle Prismarinstufe
+
+tile.uptodate.wall_bricks.name=Ziegelsteinmauer
+tile.uptodate.wall_stone_bricks.name=Steinziegelmauer
+tile.uptodate.wall_mossy_stone_bricks.name=Bemooste Steinziegelmauer
+tile.uptodate.wall_sandstone.name=Sandsteinmauer
+tile.uptodate.wall_red_sandstone.name=Rote Sandsteinmauer
+tile.uptodate.wall_nether_bricks.name=Netherziegelmauer
+tile.uptodate.wall_red_nether_bricks.name=Rote Netherziegelmauer
+tile.uptodate.wall_end_stone_bricks.name=Endsteinziegelmauer
+tile.uptodate.wall_andesite.name=Andesitmauer
+tile.uptodate.wall_diorite.name=Dioritmauer
+tile.uptodate.wall_granite.name=Granitmauer
+tile.uptodate.wall_prismarine.name=Prismarinmauer
+tile.uptodate.wall_prismarine_brick.name=Prismarinziegelmauer
+tile.uptodate.wall_dark_prismarine.name=Dunkle Prismarinmauer
+
+item.uptodate.armor_stand.name=Rüstungsständer
+entity.uptodate.wooden_armorstand.name=Rüstungsständer
+
+item.uptodate.item_boat_acacia.name=Akazienholzboot
+item.uptodate.item_boat_birch.name=Birkenholzboot
+item.uptodate.item_boat_dark_oak.name=Schwarzeichenholzboot
+item.uptodate.item_boat_jungle.name=Tropenholzboot
+item.uptodate.item_boat_spruce.name=Fichtenholzboot
+
+entity.uptodate.boat_acacia.name=Akazienholzboot
+entity.uptodate.boat_birch.name=Birkenholzboot
+entity.uptodate.boat_dark_oak.name=Schwarzeichenholzboot
+entity.uptodate.boat_jungle.name=Tropenholzboot
+entity.uptodate.boat_spruce.name=Fichtenholzboot
+
+container.uptodate.barrel=Fass
+tile.uptodate.barrel.name=Fass
+
+tile.uptodate.lantern.name=Laterne
+
+tile.uptodate.wither_rose.name=Witherrose
+tile.uptodate.flower.cornflower.name=Kornblume
+tile.uptodate.flower.lily_of_the_valley.name=Maiglöckchen
+
+item.uptodate.dye.blue.name=Blauer Farbstoff
+item.uptodate.dye.white.name=Weißer Farbstoff
+item.uptodate.dye.black.name=Schwarzer Farbstoff
+item.uptodate.dye.brown.name=Brauner Farbstoff
+
+item.uptodate.suspicious_stew.name=Seltsame Suppe
+
+tile.uptodate.concrete.black.name=Schwarzer Beton
+tile.uptodate.concrete.blue.name=Blauer Beton
+tile.uptodate.concrete.brown.name=Brauner Beton
+tile.uptodate.concrete.cyan.name=Türkiser Beton
+tile.uptodate.concrete.gray.name=Grauer Beton
+tile.uptodate.concrete.green.name=Grüner Beton
+tile.uptodate.concrete.light_blue.name=Hellblauer Beton
+tile.uptodate.concrete.lime.name=Hellgrüner Beton
+tile.uptodate.concrete.magenta.name=Magenta Beton
+tile.uptodate.concrete.orange.name=Oranger Beton
+tile.uptodate.concrete.pink.name=Rosa Beton
+tile.uptodate.concrete.purple.name=Violetter Beton
+tile.uptodate.concrete.red.name=Roter Beton
+tile.uptodate.concrete.light_gray.name=Hellgrauer Beton
+tile.uptodate.concrete.white.name=Weißer Beton
+tile.uptodate.concrete.yellow.name=Gelber Beton
+
+tile.uptodate.concrete_powder.black.name=Schwarzer Trockenbeton
+tile.uptodate.concrete_powder.blue.name=Blauer Trockenbeton
+tile.uptodate.concrete_powder.brown.name=Brauner Trockenbeton
+tile.uptodate.concrete_powder.cyan.name=Türkiser Trockenbeton
+tile.uptodate.concrete_powder.gray.name=Grauer Trockenbeton
+tile.uptodate.concrete_powder.green.name=Grüner Trockenbeton
+tile.uptodate.concrete_powder.light_blue.name=Hellblauer Trockenbeton
+tile.uptodate.concrete_powder.lime.name=Hellgrüner Trockenbeton
+tile.uptodate.concrete_powder.magenta.name=Magenta Trockenbeton
+tile.uptodate.concrete_powder.orange.name=Oranger Trockenbeton
+tile.uptodate.concrete_powder.pink.name=Rosa Trockenbeton
+tile.uptodate.concrete_powder.purple.name=Violetter Trockenbeton
+tile.uptodate.concrete_powder.red.name=Roter Trockenbeton
+tile.uptodate.concrete_powder.light_gray.name=Hellgrauer Trockenbeton
+tile.uptodate.concrete_powder.white.name=Weißer Trockenbeton
+tile.uptodate.concrete_powder.yellow.name=Gelber Trockenbeton
+
+tile.uptodate.glazed_terracotta.black.name=Schwarze glasierte Keramik
+tile.uptodate.glazed_terracotta.blue.name=Blaue glasierte Keramik
+tile.uptodate.glazed_terracotta.brown.name=Braune glasierte Keramik
+tile.uptodate.glazed_terracotta.cyan.name=Türkise glasierte Keramik
+tile.uptodate.glazed_terracotta.gray.name=Graue glasierte Keramik
+tile.uptodate.glazed_terracotta.green.name=Grüne glasierte Keramik
+tile.uptodate.glazed_terracotta.light_blue.name=Hellblaue glasierte Keramik
+tile.uptodate.glazed_terracotta.lime.name=Hellgrüne glasierte Keramik
+tile.uptodate.glazed_terracotta.magenta.name=Magenta glasierte Keramik
+tile.uptodate.glazed_terracotta.orange.name=Orange glasierte Keramik
+tile.uptodate.glazed_terracotta.pink.name=Rosa glasierte Keramik
+tile.uptodate.glazed_terracotta.purple.name=Violette glasierte Keramik
+tile.uptodate.glazed_terracotta.red.name=Rote glasierte Keramik
+tile.uptodate.glazed_terracotta.light_gray.name=Hellgraue glasierte Keramik
+tile.uptodate.glazed_terracotta.white.name=Weiße glasierte Keramik
+tile.uptodate.glazed_terracotta.yellow.name=Gelbe glasierte Keramik
+
+config.uptodate.category.general=Allgemein
+config.uptodate.category.general.tooltip=Allgemeine Einstellungen von UpToDateMod
+config.uptodate.prop.do_check_update=Updatecheck
+config.uptodate.prop.do_check_update.tooltip=
+config.uptodate.prop.update_channel=Updatechannel
+config.uptodate.prop.update_channel.tooltip=Stabile Veriosn ('Empfohlen') oder instable Version ('Letzte')
+config.uptodate.prop.debug_mode=Debug-Modus
+config.uptodate.prop.debug_mode.tooltip=Detaillierter Log folgt. Es wird empfohlen diese Einstellung auf 'false' zu setzen
+
+config.uptodate.category.worldgen=Weltgeneration
+config.uptodate.category.worldgen.tooltip=Einstellungen der Weltgeneration
+config.uptodate.prop.generate_stones=Gesteinsgeneration
+config.uptodate.prop.generate_stones.tooltip=Generiere Andesit, Granit, und Diorit in der Welt
+config.uptodate.prop.generate_stones_blacklist=Blacklist der Gesteinsgeneration
+config.uptodate.prop.generate_stones_blacklist.tooltip=Dimensions-IDs in denen keine Steine generiert werden sollen
+config.uptodate.prop.generate_fossiles=Fossilgeneration
+config.uptodate.prop.generate_fossiles.tooltip=Generiere Fossilien unterirdisch und in der Wüste und dem Sumpf
+config.uptodate.prop.generate_fossiles_blacklist=Blacklist der Fossilgeneration
+config.uptodate.prop.generate_fossiles_blacklist.tooltip=Dimensions-IDs in denen keine Fossilien generiert werden sollen
+config.uptodate.prop.generate_coarse_dirt=Generation von grober Erde
+config.uptodate.prop.generate_coarse_dirt.tooltip=Grober Erde wird beim Spawn Erdblöcke mit den Metadaten 1 ersetzen
+config.uptodate.prop.generate_coarse_dirt_blacklist=Blacklist der Generation von grober Erde
+config.uptodate.prop.generate_coarse_dirt_blacklist.tooltip=Dimensions-IDs in denen keine grobe Erde generiert werden sollen
+config.uptodate.prop.generate_magma_block=Generation von Magmablöcken
+config.uptodate.prop.generate_magma_block.tooltip=Magmablöcke werden im Nether generiert
+config.uptodate.prop.generate_magma_block_blacklist=Blacklist der Generation von Magmablöcken
+config.uptodate.prop.generate_magma_block_blacklist.tooltip=Dimensions-IDs in denen keine Magmablöcke generiert werden sollen
+
+config.uptodate.category.recipe=Rezepte
+config.uptodate.category.recipe.tooltip=Einstellungen der Rezepte
+config.uptodate.prop.remove_old_fence_recipe=Entferne das alte Zaunrezept
+config.uptodate.prop.remove_old_fence_recipe.tooltip=Entferne das Rezept für 2 Zäune mit 6 Stöcken
+config.uptodate.prop.use_old_smooth_stone_slab_recipe=Benutze das alte Rezept für glatte Steinstufen
+config.uptodate.prop.use_old_smooth_stone_slab_recipe.tooltip=Wenn auf true gesetzt, wird das alte Rezept für glatte Steinstufen verwendet
+
+config.uptodate.category.entity=Objekte und Mobs
+config.uptodate.category.entity.tooltip=Einstellungen der Objekte und Mobs
+config.uptodate.prop.boat_crash_when_collide=Zusammenbrechen von Booten
+config.uptodate.prop.boat_crash_when_collide.tooltip=Ob Boote zusammenbrechen, wenn sie mit einem Objekt kollidieren
+
+config.uptodate.category.alternative=Alternativen
+config.uptodate.category.alternative.tooltip=Einstellungen für die alternativen Wege, an Items zu gelangen
+config.uptodate.prop.alt_prismarine=Alternativer Prismarin-Drop
+config.uptodate.prop.alt_prismarine.tooltip=Tintenfische droppen Prismarin
+config.uptodate.prop.alt_purpur=Alternativer Purpur-Drop
+config.uptodate.prop.alt_purpur.tooltip=Endermen droppen Purpur-Gegenstände
+
+config.uptodate.category.disable_features=Features deaktivieren
+config.uptodate.category.disable_features.tooltip=Einstellungen, um bestimmte Features zu deaktivieren
+
+config.uptodate.category.experimental=Experimentelle Features
+config.uptodate.category.experimental.tooltip=Einstellungen, um experimentelle Features zu deaktivieren. Manche sind verbuggt
+
+config.uptodate.category.integration=Integration
+config.uptodate.category.integration.tooltip=Einstellungen, um andere Mods zu integrieren
