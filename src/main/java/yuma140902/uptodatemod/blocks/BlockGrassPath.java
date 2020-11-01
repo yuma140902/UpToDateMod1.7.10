@@ -64,7 +64,8 @@ public class BlockGrassPath extends Block implements IRegisterable {
 	private static boolean needEdgeCollisionBox(World world, BlockPos pos, ForgeDirection direction) {
 		pos = pos.offset(direction);
 		if(WorldUtils.getBlock(world, pos) != MyBlocks.grassPath && !WorldUtils.isAir(world, pos)) {
-			return !WorldUtils.isAir(world, pos.offset(ForgeDirection.UP, 3));
+			return !WorldUtils.noCollisionBox(world, pos.offset(ForgeDirection.UP, 3)) ||
+							!WorldUtils.noCollisionBox(world, pos.offset(ForgeDirection.UP));
 		}
 		return false;
 	}
@@ -87,6 +88,20 @@ public class BlockGrassPath extends Block implements IRegisterable {
 		 * でっぱりの当たり判定を追加するようにした。
 		 * 
 		 * 2020/03/31 yuma140902
+		 */
+		
+		/*
+		 * (横から見た図)
+		 *
+		 * ＊					■ …… 普通のブロック
+		 * ＊⊿				⊿ …… 階段ブロックなど
+		 * ◎■					＊ …… プレーヤー
+		 * 						◎ …… 草の道ブロック
+		 *
+		 * 上のようになったとき、プレーヤーがジャンプなしで右に行けるとよいが、高さの差が0.5ブロックよりわずかに大きいので行けない。
+		 * これを可能にするために、でっぱりの当たり判定を追加するようにした
+		 *
+		 * 2020/11/01 yuma140902
 		 */
 		
 		BlockPos pos = new BlockPos(x, y, z);

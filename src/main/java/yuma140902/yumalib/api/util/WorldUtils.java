@@ -36,4 +36,15 @@ public class WorldUtils {
 		}
 		return world.isSideSolid(x, y, z, direction, dflt);
 	}
+	
+	/**
+	 * ブロックが当たり判定を持たないかどうかを判定する
+	 * @param world
+	 * @param pos
+	 * @return 当たり判定を持たないならtrue、持つならfalse
+	 */
+	public static boolean noCollisionBox(World world, BlockPos pos){
+		Block block = WorldUtils.getBlock(world, pos);
+		return block.getCollisionBoundingBoxFromPool(world, pos.x(), pos.y(), pos.z()) == null;
+	}
 }

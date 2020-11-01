@@ -57,8 +57,9 @@ public class BlockMagma extends Block implements IRegisterable, IHasRecipes {
 	 */
 	private static boolean needEdgeCollisionBox(World world, BlockPos pos, ForgeDirection direction) {
 		pos = pos.offset(direction);
-		if(WorldUtils.getBlock(world, pos) != MyBlocks.magmaBlock && !WorldUtils.isAir(world, pos)) {
-			return !WorldUtils.isAir(world, pos.offset(ForgeDirection.UP, 3));
+		if(WorldUtils.getBlock(world, pos) != MyBlocks.grassPath && !WorldUtils.isAir(world, pos)) {
+			return !WorldUtils.noCollisionBox(world, pos.offset(ForgeDirection.UP, 3)) ||
+							!WorldUtils.noCollisionBox(world, pos.offset(ForgeDirection.UP));
 		}
 		return false;
 	}
