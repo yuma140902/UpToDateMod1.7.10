@@ -1,6 +1,8 @@
 package yuma140902.uptodatemod.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.BlockRotatedPillar;
@@ -10,6 +12,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -23,8 +26,12 @@ import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 
+import java.util.List;
+
 public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvider, IRegisterable, IHasRecipes {
 	private IIcon iconBottom;
+	@SideOnly(Side.CLIENT)
+	private static final int metaForItemRender = 0;
 	
 	public BlockBarrel() {
 		super(Material.wood);
@@ -39,6 +46,12 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 		setBlockName(StringUtil.name.domainedUnlocalized("barrel"));
 		setBlockTextureName(StringUtil.name.domainedTexture("barrel"));
 		GameRegistry.registerBlock(this, "barrel");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+		list.add(new ItemStack(item, 1, metaForItemRender));
 	}
 	
 	@Override
@@ -67,6 +80,11 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	@Override
 	public IIcon getIcon(int side, int meta) {
 		return meta == DirectionUtil.getBack(side) ? iconBottom : meta == side ? field_150164_N : blockIcon;
+	}
+	
+	@Override
+	public int damageDropped(int p_149692_1_) {
+		return metaForItemRender;
 	}
 	
 	@Override
