@@ -75,6 +75,7 @@ public class ModUpToDateMod {
 	
 	public static int glazedTerracottaRenderId;
 	public static int lanternRenderId;
+	public static int barrelrenderId;
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = MOD_ID;
@@ -165,6 +166,8 @@ public class ModUpToDateMod {
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
 			glazedTerracottaRenderId = proxy.getNewRenderId();
 		lanternRenderId = proxy.getNewRenderId();
+		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.barrel))
+			barrelrenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();
 		
 		

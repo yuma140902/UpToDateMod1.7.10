@@ -83,6 +83,11 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	}
 	
 	@Override
+	public int getRenderType() {
+		return ModUpToDateMod.barrelrenderId;
+	}
+	
+	@Override
 	public int damageDropped(int p_149692_1_) {
 		return 7;
 	}
