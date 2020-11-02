@@ -68,17 +68,33 @@ public class RenderBlockBarrel implements ISimpleBlockRenderingHandler {
 		if(modelId == this.getRenderId()) {
 			int meta = world.getBlockMetadata(x, y, z);
 			
-			if(meta == 2) {
+			if(meta == 0){
+				renderer.uvRotateNorth = 3;
+				renderer.uvRotateSouth = 3;
+				renderer.uvRotateEast = 3;
+				renderer.uvRotateWest = 3;
+			}
+			else if(meta == 2) {
 				renderer.uvRotateNorth = 2;
-				renderer.uvRotateEast = 0;
 				renderer.uvRotateSouth = 1;
-				renderer.uvRotateWest = 0;
 			}
 			else if(meta == 3) {
-				renderer.uvRotateNorth = 2;
-				renderer.uvRotateEast = 0;
-				renderer.uvRotateSouth = 1;
-				renderer.uvRotateWest = 0;
+				renderer.uvRotateTop = 3;
+				renderer.uvRotateBottom = 3;
+				renderer.uvRotateNorth = 1;
+				renderer.uvRotateSouth = 2;
+			}
+			else if(meta == 4){
+				renderer.uvRotateTop = 2;
+				renderer.uvRotateBottom = 1;
+				renderer.uvRotateEast = 1;
+				renderer.uvRotateWest = 2;
+			}
+			else if(meta == 5){
+				renderer.uvRotateTop = 1;
+				renderer.uvRotateBottom = 2;
+				renderer.uvRotateEast = 2;
+				renderer.uvRotateWest = 1;
 			}
 			
 			
