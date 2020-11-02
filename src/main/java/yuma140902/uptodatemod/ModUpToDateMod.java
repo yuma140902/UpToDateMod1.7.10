@@ -1,12 +1,5 @@
 package yuma140902.uptodatemod;
 
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
@@ -24,6 +17,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.event_handlers.StripWoodHandler;
@@ -47,9 +42,15 @@ import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
 import yuma140902.yumalib.api.update.IUpdateChecker;
 import yuma140902.yumalib.api.update.TsvUpdateChecker;
 
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 @Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = UpToDateModConstants.MOD_CONFIG_GUI_FACTORY,
-			dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib"
-		)
+		 dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib"
+)
 public class ModUpToDateMod {
 	@Mod.Metadata(ModUpToDateMod.MOD_ID)
 	public static ModMetadata modMetadata;
@@ -62,14 +63,14 @@ public class ModUpToDateMod {
 	
 	public static SimpleNetworkWrapper networkWrapper;
 	
-	public static final String MOD_ID = "uptodate";
-	public static final String MOD_NAME = "UpToDateMod";
-	public static final String MOD_TEXTURE_DOMAIN = "uptodate";
+	public static final String MOD_ID                       = "uptodate";
+	public static final String MOD_NAME                     = "UpToDateMod";
+	public static final String MOD_TEXTURE_DOMAIN           = "uptodate";
 	public static final String MOD_UNLOCALIZED_ENTRY_DOMAIN = "uptodate";
-	public static final String MINECRAFT_VERSION = "1.7.10";
-	public static final String MOD_VERSION = "2.3.7";
-	public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
-	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
+	public static final String MINECRAFT_VERSION            = "1.7.10";
+	public static final String MOD_VERSION                  = "2.3.7";
+	public static final String MOD_VERSIONS_TSV_URL         = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
+	public static final Logger LOGGER                       = LogManager.getLogger(MOD_NAME);
 	
 	public Path uptodatemodDirectory;
 	
@@ -109,11 +110,11 @@ public class ModUpToDateMod {
 		try {
 			Field field = ReflectionHelper.findField(clazz, fieldNames);
 			field.setAccessible(true);
-
+			
 			Field modifiersField = Field.class.getDeclaredField("modifiers");
 			modifiersField.setAccessible(true);
 			modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
-
+			
 			field.set(that, newValue);
 		} catch (Exception e) {
 			LOGGER.warn("Failed to tweak a property.");
@@ -129,14 +130,14 @@ public class ModUpToDateMod {
 		
 		Contexts.setContext(new InitModContext(MOD_NAME, StringUtil.name));
 		
-		if(ModConfigCore.General.doCheckUpdate()) {
+		if (ModConfigCore.General.doCheckUpdate()) {
 			IUpdateChecker updateChecker = new TsvUpdateChecker(MOD_NAME, "https://www.curseforge.com/minecraft/mc-mods/uptodatemod", MOD_VERSIONS_TSV_URL, MOD_VERSION, ModConfigCore.General.updateChannel());
 			UpdateCheckerRegistry.INSTANCE.register(updateChecker);
 		}
 		
 		this.uptodatemodDirectory = Paths.get("uptodatemod").toAbsolutePath();
 		proxy.loadVanillaResources();
-
+		
 		
 		tweakVanilla();
 		MyBlocks.register();
@@ -163,15 +164,15 @@ public class ModUpToDateMod {
 		Recipes.register();
 		
 		proxy.registerEntities();
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
+		if (DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
 			glazedTerracottaRenderId = proxy.getNewRenderId();
 		lanternRenderId = proxy.getNewRenderId();
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.barrel))
+		if (DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.barrel))
 			barrelrenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();
 		
 		
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stones)) {
+		if (DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stones)) {
 			MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.WorldGen.genStones(), 33, 10, 0, 80, ModConfigCore.WorldGen.stonesBlackList());
 			
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);
@@ -179,7 +180,7 @@ public class ModUpToDateMod {
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_ANDESITE, stoneConfig);
 			
 			MyMinableGenerator.Config magmaConfig
-					= new MyMinableGenerator.Config(ModConfigCore.WorldGen.genMagmaBlock(), 33, 5, 0, 40, ModConfigCore.WorldGen.magmaBlockBlackList(), Blocks.netherrack);
+							= new MyMinableGenerator.Config(ModConfigCore.WorldGen.genMagmaBlock(), 33, 5, 0, 40, ModConfigCore.WorldGen.magmaBlockBlackList(), Blocks.netherrack);
 			WorldGenerators.myMinableGenerator.addOreGenerator(MyBlocks.magmaBlock, magmaConfig);
 		}
 		WorldGenerators.register();
