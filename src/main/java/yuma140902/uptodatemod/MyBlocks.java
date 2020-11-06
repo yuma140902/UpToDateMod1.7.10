@@ -588,7 +588,7 @@ public final class MyBlocks {
 		add(flower = EnumDisableableFeatures.flower.featureEnabled() ? new BlockNewFlower() : null);
 		add(unlimitedPot = new BlockUnlimitedPot());
 		
-		add(lantern = new BlockLantern());
+		add(lantern = EnumDisableableFeatures.lantern.featureEnabled() ? new BlockLantern() : null);
 	}
 	
 }

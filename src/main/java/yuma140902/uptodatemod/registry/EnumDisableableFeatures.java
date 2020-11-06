@@ -38,6 +38,7 @@ public enum EnumDisableableFeatures implements IDisableableFeature {
 	plainDye,
 	suspiciousStew,
 	newNoteBlockInstruments,
+	lantern,
 	allKindsOfStairs,
 	allKindsOfSlabs,
 	allKindsOfWalls;

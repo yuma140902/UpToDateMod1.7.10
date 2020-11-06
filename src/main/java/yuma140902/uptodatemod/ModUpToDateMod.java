@@ -165,7 +165,8 @@ public class ModUpToDateMod {
 		proxy.registerEntities();
 		if (EnumDisableableFeatures.glazedTerracotta.featureEnabled())
 			glazedTerracottaRenderId = proxy.getNewRenderId();
-		lanternRenderId = proxy.getNewRenderId();
+		if(EnumDisableableFeatures.lantern.featureEnabled())
+			lanternRenderId = proxy.getNewRenderId();
 		if (EnumDisableableFeatures.barrel.featureEnabled())
 			barrelrenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();

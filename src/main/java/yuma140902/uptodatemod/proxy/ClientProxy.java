@@ -59,7 +59,8 @@ public class ClientProxy extends CommonProxy {
 		
 		if(EnumDisableableFeatures.glazedTerracotta.featureEnabled())
 			RenderingRegistry.registerBlockHandler(new RenderBlockGlazedTerracotta());
-		RenderingRegistry.registerBlockHandler(new RenderBlockLantern());
+		if(EnumDisableableFeatures.lantern.featureEnabled())
+			RenderingRegistry.registerBlockHandler(new RenderBlockLantern());
 		if(EnumDisableableFeatures.barrel.featureEnabled())
 			RenderingRegistry.registerBlockHandler(new RenderBlockBarrel());
 	}
