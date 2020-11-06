@@ -43,7 +43,6 @@ import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
 import yuma140902.uptodatemod.blocks.BlockUnlimitedPot;
 import yuma140902.uptodatemod.blocks.BlockWitherRose;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ColorUtil;
 import yuma140902.uptodatemod.util.StringUtil;
@@ -63,10 +62,6 @@ import yuma140902.yumalib.api.blocks.WallBuilder;
 
 public final class MyBlocks {
 	private MyBlocks() {}
-	
-	private static boolean isEnabled(EnumDisableableFeatures feature) {
-		return DisabledFeaturesRegistry.INSTANCE.isEnabled(feature);
-	}
 	
 	private static void add(Block block) {
 		if(block != null) list.add(block);
@@ -262,12 +257,12 @@ public final class MyBlocks {
 	static {
 		ModUpToDateMod.LOGGER.info("Blocks init");
 		
-		add(stone = isEnabled(stones) ? new yuma140902.uptodatemod.blocks.BlockStone() : null);
-		add(smoothStone = isEnabled(EnumDisableableFeatures.smoothStone) ? new BlockSmoothStone() : null);
+		add(stone = stones.featureEnabled() ? new yuma140902.uptodatemod.blocks.BlockStone() : null);
+		add(smoothStone = EnumDisableableFeatures.smoothStone.featureEnabled() ? new BlockSmoothStone() : null);
 		
-		add(wood = isEnabled(EnumDisableableFeatures.wood) ? new BlockFullWood() : null);
+		add(wood = EnumDisableableFeatures.wood.featureEnabled() ? new BlockFullWood() : null);
 		
-		if(isEnabled(strippedLogs)) {
+		if(strippedLogs.featureEnabled()) {
 			add(strippedLogAcacia = 	new BlockGenericStrippedLog("stripped_log_acacia", 		"stripped_acacia_log", 		McConst.Meta.PLANK_ACACIA));
 			add(strippedLogBirch = 		new BlockGenericStrippedLog("stripped_log_birch", 		"stripped_birch_log", 		McConst.Meta.PLANK_BIRCH));
 			add(strippedLogDarkOak = 	new BlockGenericStrippedLog("stripped_log_dark_oak", 	"stripped_dark_oak_log", 	McConst.Meta.PLANK_DARKOAK));
@@ -284,7 +279,7 @@ public final class MyBlocks {
 			strippedLogSpruce = null;
 		}
 		
-		if(isEnabled(doors)) {
+		if(doors.featureEnabled()) {
 			add(doorAcacia = new BlockDoorAcacia());
 			add(doorBirch = new BlockDoorBirch());
 			add(doorDarkOak = new BlockDoorDarkOak());
@@ -299,7 +294,7 @@ public final class MyBlocks {
 			doorSpruce = null;
 		}
 		
-		if(isEnabled(fences)) {
+		if(fences.featureEnabled()) {
 			add(fenceAcacia = 	new BlockGenericFence("planks_acacia", 		"fence_acacia"));
 			add(fenceBirch = 		new BlockGenericFence("planks_birch", 		"fence_birch"));
 			add(fenceDarkOak = 	new BlockGenericFence("planks_big_oak", 	"fence_dark_oak"));
@@ -314,7 +309,7 @@ public final class MyBlocks {
 			fenceSpruce = null;
 		}
 		
-		if(isEnabled(fenceGates)) {
+		if(fenceGates.featureEnabled()) {
 			add(fenceGateAcacia = 	new BlockGenericFenceGate(McConst.Meta.PLANK_ACACIA, 		"fence_gate_acacia"));
 			add(fenceGateBirch = 		new BlockGenericFenceGate(McConst.Meta.PLANK_BIRCH, 		"fence_gate_birch"));
 			add(fenceGateDarkOak = 	new BlockGenericFenceGate(McConst.Meta.PLANK_DARKOAK, 	"fence_gate_dark_oak"));
@@ -329,9 +324,9 @@ public final class MyBlocks {
 			fenceGateSpruce = null;
 		}
 		
-		add(coarseDirt = isEnabled(EnumDisableableFeatures.coarseDirt) ? new BlockCoarseDirt() : null);
+		add(coarseDirt = EnumDisableableFeatures.coarseDirt.featureEnabled() ? new BlockCoarseDirt() : null);
 		
-		if(isEnabled(prismarineStuffs)) {
+		if(prismarineStuffs.featureEnabled()) {
 			add(prismarineBlock = new BlockPrismarine());
 			add(prismarineBricks = new BlockPrismarineBricks());
 			add(prismarineDark = new BlockDarkPrismarine());
@@ -343,9 +338,9 @@ public final class MyBlocks {
 			prismarineDark = null;
 			seaLantern = null;
 		}
-		add(sponge = isEnabled(EnumDisableableFeatures.sponge) ? new BlockSponge() : null);
+		add(sponge = EnumDisableableFeatures.sponge.featureEnabled() ? new BlockSponge() : null);
 		
-		if(isEnabled(woodenTrapdoors)) {
+		if(woodenTrapdoors.featureEnabled()) {
 			add(trapDoorAcacia = 		new BlockGenericTrapDoor("trap_door_acacia", 		McConst.Meta.PLANK_ACACIA));
 			add(trapDoorBirch = 		new BlockGenericTrapDoor("trap_door_birch", 		McConst.Meta.PLANK_BIRCH));
 			add(trapDoorDarkOak = 	new BlockGenericTrapDoor("trap_door_dark_oak", 	McConst.Meta.PLANK_DARKOAK));
@@ -359,9 +354,9 @@ public final class MyBlocks {
 			trapDoorJungle = null;
 			trapDoorSpruce = null;
 		}
-		add(trapDoorIron = isEnabled(ironTrapdoor) ? new BlockIronTrapDoor() : null);
+		add(trapDoorIron = ironTrapdoor.featureEnabled() ? new BlockIronTrapDoor() : null);
 		
-		if(isEnabled(buttons)) {
+		if(buttons.featureEnabled()) {
 			add(buttonAcacia = 		new BlockGenericButton(McConst.Meta.PLANK_ACACIA, 	"button_acacia"));
 			add(buttonBirch = 		new BlockGenericButton(McConst.Meta.PLANK_BIRCH, 		"button_birch"));
 			add(buttonDarkOak = 	new BlockGenericButton(McConst.Meta.PLANK_DARKOAK, 	"button_dark_oak"));
@@ -376,7 +371,7 @@ public final class MyBlocks {
 			buttonSpruce = null;
 		}
 		
-		if(isEnabled(pressurePlates)) {
+		if(pressurePlates.featureEnabled()) {
 			add(pressurePlateAcacia = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_ACACIA, 		"pressure_plate_acacia"));
 			add(pressurePlateBirch = 		new BlockGenericPressurePlate(McConst.Meta.PLANK_BIRCH, 		"pressure_plate_birch"));
 			add(pressurePlateDarkOak = 	new BlockGenericPressurePlate(McConst.Meta.PLANK_DARKOAK, 	"pressure_plate_dark_oak"));
@@ -391,21 +386,21 @@ public final class MyBlocks {
 			pressurePlateSpruce = null;
 		}
 		
-		add(redNetherBricks = isEnabled(EnumDisableableFeatures.redNetherBricks) ? new BlockRedNetherBricks() : null);
-		add(netherWartBlock = isEnabled(EnumDisableableFeatures.netherWartBlock) ? new BlockNetherWart() : null);
-		add(magmaBlock = isEnabled(EnumDisableableFeatures.magmaBlock) ? new BlockMagma() : null);
+		add(redNetherBricks = EnumDisableableFeatures.redNetherBricks.featureEnabled() ? new BlockRedNetherBricks() : null);
+		add(netherWartBlock = EnumDisableableFeatures.netherWartBlock.featureEnabled() ? new BlockNetherWart() : null);
+		add(magmaBlock = EnumDisableableFeatures.magmaBlock.featureEnabled() ? new BlockMagma() : null);
 		add(smoothQuartz = new BlockSmoothQuartz());
 		
-		add(endStoneBricks = isEnabled(EnumDisableableFeatures.endstoneBricks) ? new BlockEndStoneBricks() : null);
-		add(purpurBlock = isEnabled(purpurStuffs) ? new BlockPurpur() : null);
-		add(purpurPillar = isEnabled(purpurStuffs) ? new BlockPurpurPillar() : null);
+		add(endStoneBricks = EnumDisableableFeatures.endstoneBricks.featureEnabled() ? new BlockEndStoneBricks() : null);
+		add(purpurBlock = purpurStuffs.featureEnabled() ? new BlockPurpur() : null);
+		add(purpurPillar = purpurStuffs.featureEnabled() ? new BlockPurpurPillar() : null);
 		
-		add(boneBlock = isEnabled(boneBlockAndFossile) ? new BlockBone() : null);
+		add(boneBlock = boneBlockAndFossile.featureEnabled() ? new BlockBone() : null);
 		
 		add(smoothSandstone = new BlockSmoothSandstone());
-		add(redSandStone = isEnabled(EnumDisableableFeatures.redSandstone) ? new BlockRedSandStone() : null);
+		add(redSandStone = EnumDisableableFeatures.redSandstone.featureEnabled() ? new BlockRedSandStone() : null);
 		
-		if(isEnabled(concreteAndConcretePowder)) {
+		if(concreteAndConcretePowder.featureEnabled()) {
 			add(concreteBlock = new BlockConcrete());
 			add(concretePowder = new BlockConcretePowder());
 		}
@@ -414,7 +409,7 @@ public final class MyBlocks {
 			concretePowder = null;
 		}
 		
-		if(isEnabled(glazedTerracotta)) {
+		if(glazedTerracotta.featureEnabled()) {
 			add(glazedTerracottaBlack = new BlockGlazedTerracotta(ColorUtil.META_BLACK));
 			add(glazedTerracottaBlue = new BlockGlazedTerracotta(ColorUtil.META_BLUE));
 			add(glazedTerracottaBrown = new BlockGlazedTerracotta(ColorUtil.META_BROWN));
@@ -451,9 +446,9 @@ public final class MyBlocks {
 			glazedTerracottaYellow = null;
 		}
 		
-		add(grassPath = isEnabled(EnumDisableableFeatures.grassPath) ? new BlockGrassPath() : null);
+		add(grassPath = EnumDisableableFeatures.grassPath.featureEnabled() ? new BlockGrassPath() : null);
 		
-		if(isEnabled(allKindsOfStairs)) {
+		if(allKindsOfStairs.featureEnabled()) {
 			add(stairsStone = StairsBuilder.of(Blocks.stone, "stairs_stone").build());
 			add(stairsGranite = StairsBuilder.of(MyBlocks.stone, "stairs_granite").meta(BlockStone.META_GRANITE).build());
 			add(stairsDiorite = StairsBuilder.of(MyBlocks.stone, "stairs_diorite").meta(BlockStone.META_DIORITE).build());
@@ -496,7 +491,7 @@ public final class MyBlocks {
 			stairsMossyCobbleStone = null;
 		}
 		
-		if(isEnabled(allKindsOfSlabs)) {
+		if(allKindsOfSlabs.featureEnabled()) {
 			add(slabStone = new BlockStoneSlab());
 			add(slabGranite = SlabBuilder.of(MyBlocks.stone, "slab_granite").meta(BlockStone.META_GRANITE).build());
 			add(slabDiorite = SlabBuilder.of(MyBlocks.stone, "slab_diorite").meta(BlockStone.META_DIORITE).build());
@@ -552,7 +547,7 @@ public final class MyBlocks {
 			slabDarkPrismarine = null;
 		}
 		
-		if(isEnabled(allKindsOfWalls)) {
+		if(allKindsOfWalls.featureEnabled()) {
 			add(wallBricks = WallBuilder.of(Blocks.brick_block, "wall_bricks").build());
 			add(wallStoneBricks = WallBuilder.of(Blocks.stonebrick, "wall_stone_bricks").build());
 			add(wallMossyStoneBricks = WallBuilder.of(Blocks.stonebrick, "wall_mossy_stone_bricks").meta(1).build());
@@ -585,12 +580,12 @@ public final class MyBlocks {
 			wallDarkPrismarine = null;
 		}
 		
-		add(barrel = isEnabled(EnumDisableableFeatures.barrel) ? new BlockBarrel() : null);
+		add(barrel = EnumDisableableFeatures.barrel.featureEnabled() ? new BlockBarrel() : null);
 		
-		add(sweetBerryBush = isEnabled(sweetBerry) ? new BlockSweetBerryBush() : null);
+		add(sweetBerryBush = sweetBerry.featureEnabled() ? new BlockSweetBerryBush() : null);
 		
-		add(witherRose = isEnabled(EnumDisableableFeatures.witherRose) ? new BlockWitherRose() : null);
-		add(flower = isEnabled(EnumDisableableFeatures.flower) ? new BlockNewFlower() : null);
+		add(witherRose = EnumDisableableFeatures.witherRose.featureEnabled() ? new BlockWitherRose() : null);
+		add(flower = EnumDisableableFeatures.flower.featureEnabled() ? new BlockNewFlower() : null);
 		add(unlimitedPot = new BlockUnlimitedPot());
 		
 		add(lantern = new BlockLantern());

@@ -4,7 +4,6 @@ import java.util.List;
 import cpw.mods.fml.common.Loader;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.config.ModConfigCore;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 
 class PluginEtFuturum implements IConfiguratingPlugin {
@@ -81,7 +80,7 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 	// ================= IConfiguratingPlugin ここまで =================
 	
 	public void getNamesToRemoveFromRecipe(List<String> list) {
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stones)) {
+		if(EnumDisableableFeatures.stones.featureEnabled()) {
 			list.add("etfuturum:stone");
 			list.add("etfuturum:stone");
 			list.add("etfuturum:stone");
@@ -89,26 +88,26 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 			list.add("etfuturum:stone");
 			list.add("etfuturum:stone");
 		}
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.ironTrapdoor)) {
+		if(EnumDisableableFeatures.ironTrapdoor.featureEnabled()) {
 			list.add("etfuturum:iron_trapdoor");
 		}
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.redSandstone)) {
+		if(EnumDisableableFeatures.redSandstone.featureEnabled()) {
 			list.add("etfuturum:red_sandstone");
 		}
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.coarseDirt)) {
+		if(EnumDisableableFeatures.coarseDirt.featureEnabled()) {
 			list.add("etfuturum:coarse_dirt");
 		}
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.endstoneBricks)) {
+		if(EnumDisableableFeatures.endstoneBricks.featureEnabled()) {
 			list.add("etfuturum:end_bricks");
 		}
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.doors)) {
+		if(EnumDisableableFeatures.doors.featureEnabled()) {
 			list.add("etfuturum:door_spruce");
 			list.add("etfuturum:door_birch");
 			list.add("etfuturum:door_jungle");
 			list.add("etfuturum:door_acacia");
 			list.add("etfuturum:door_dark_oak");
 		}
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fences)) {
+		if(EnumDisableableFeatures.fences.featureEnabled()) {
 			list.add("etfuturum:fence_oak");
 			list.add("etfuturum:fence_oak");
 			list.add("etfuturum:fence_spruce");
@@ -117,14 +116,14 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 			list.add("etfuturum:fence_acacia");
 			list.add("etfuturum:fence_dark_oak");
 		}
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fenceGates)) {
+		if(EnumDisableableFeatures.fenceGates.featureEnabled()) {
 			list.add("etfuturum:fence_gate_spruce");
 			list.add("etfuturum:fence_gate_birch");
 			list.add("etfuturum:fence_gate_jungle");
 			list.add("etfuturum:fence_gate_acacia");
 			list.add("etfuturum:fence_gate_dark_oak");
 		}
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.armorStand)) {
+		if(EnumDisableableFeatures.armorStand.featureEnabled()) {
 			list.add("etfuturum:wooden_armorstand");
 		}
 	}

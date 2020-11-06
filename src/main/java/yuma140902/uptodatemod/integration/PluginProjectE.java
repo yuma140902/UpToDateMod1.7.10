@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockStone;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 
 class PluginProjectE implements ITweakingPlugin {
@@ -47,12 +46,12 @@ class PluginProjectE implements ITweakingPlugin {
 	public void tweakMod() {
 		try {
 			IEMCProxy emcProxy = ProjectEAPI.getEMCProxy();
-			if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stones)) {
+			if(EnumDisableableFeatures.stones.featureEnabled()) {
 				emcProxy.registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_GRANITE), 16);
 				emcProxy.registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_DIORITE), 16);
 				emcProxy.registerCustomEMC(new ItemStack(MyBlocks.stone, 1, BlockStone.META_ANDESITE), 16);
 			}
-			if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.concreteAndConcretePowder)) {
+			if(EnumDisableableFeatures.concreteAndConcretePowder.featureEnabled()) {
 				for(int meta = 0; meta <= 15; ++meta) {
 					emcProxy.registerCustomEMC(new ItemStack(MyBlocks.concretePowder, 1, meta), 4);
 					emcProxy.registerCustomEMC(new ItemStack(MyBlocks.concreteBlock, 1, meta), 4);

@@ -3,7 +3,6 @@ package yuma140902.uptodatemod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.biome.BiomeGenBase;
 import yuma140902.uptodatemod.blocks.BlockNewFlower;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 import yuma140902.uptodatemod.world.generation.UpToDateWorldGenerator;
@@ -19,8 +18,8 @@ public final class WorldGenerators {
 	public static void register() {
 		GameRegistry.registerWorldGenerator(myMinableGenerator, WORLD_GENERATOR_PRIORITY);
 		GameRegistry.registerWorldGenerator(uptodateWorldGenerator, 0);
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.sweetBerry)) BiomeDecorators.register(new SweetBerryGenerator());
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.flower)) {
+		if(EnumDisableableFeatures.sweetBerry.featureEnabled()) BiomeDecorators.register(new SweetBerryGenerator());
+		if(EnumDisableableFeatures.flower.featureEnabled()) {
 			BiomeDecorators.register(new FlowerGenerator());
 			// 骨粉を撒いたときに追加の花が生成されるようにする
 			BiomeGenBase.plains.addFlower(MyBlocks.flower, BlockNewFlower.CORNFLOWER, 3);

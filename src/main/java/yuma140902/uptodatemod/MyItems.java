@@ -25,16 +25,11 @@ import yuma140902.uptodatemod.items.ItemPrismarineShard;
 import yuma140902.uptodatemod.items.ItemRawMutton;
 import yuma140902.uptodatemod.items.ItemSuspiciousStew;
 import yuma140902.uptodatemod.items.ItemSweetBerries;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.yumalib.api.IRegisterable;
 
 public final class MyItems {
 	private MyItems() {}
-	
-	private static boolean isEnabled(EnumDisableableFeatures feature) {
-		return DisabledFeaturesRegistry.INSTANCE.isEnabled(feature);
-	}
 	
 	private static void add(@Nullable Item item) {
 		if(item != null) list.add(item);
@@ -90,7 +85,7 @@ public final class MyItems {
 	static {
 		ModUpToDateMod.LOGGER.info("Items init");
 		
-		if(isEnabled(doors)) {
+		if(doors.featureEnabled()) {
 			add(itemDoorAcacia = new ItemDoorAcacia());
 			add(itemDoorBirch = new ItemDoorBirch());
 			add(itemDoorDarkOak = new ItemDoorDarkOak());
@@ -105,7 +100,7 @@ public final class MyItems {
 			itemDoorSpruce = null;
 		}
 		
-		if(isEnabled(prismarineStuffs)) {
+		if(prismarineStuffs.featureEnabled()) {
 			add(prismarineCrystal = new ItemPrismarineCrystals());
 			add(prismarineShard = new ItemPrismarineShard());
 		}
@@ -114,7 +109,7 @@ public final class MyItems {
 			prismarineShard = null;
 		}
 		
-		if(isEnabled(boats)) {
+		if(boats.featureEnabled()) {
 			add(boatAcacia = new ItemBoatAcacia());
 			add(boatBirch = new ItemBoatBirch());
 			add(boatDarkOak = new ItemBoatDarkOak());
@@ -129,9 +124,9 @@ public final class MyItems {
 			boatSpruce = null;
 		}
 		
-		add(ironNugget = isEnabled(EnumDisableableFeatures.ironNugget) ? new ItemIronNugget() : null);
+		add(ironNugget = EnumDisableableFeatures.ironNugget.featureEnabled() ? new ItemIronNugget() : null);
 		
-		if(isEnabled(mutton)) {
+		if(mutton.featureEnabled()) {
 			add(rawMutton = new ItemRawMutton());
 			add(cookedMutton = new ItemCookedMutton());
 		}
@@ -140,10 +135,10 @@ public final class MyItems {
 			cookedMutton = null;
 		}
 		
-		add(armorStand = isEnabled(EnumDisableableFeatures.armorStand) ? new ItemArmorStand() : null);
-		add(sweetBerries = isEnabled(sweetBerry) ? new ItemSweetBerries() : null);
-		add(dye = isEnabled(plainDye) ? new ItemPlainDye() : null);
-		add(suspiciousStew = isEnabled(EnumDisableableFeatures.suspiciousStew) ? new ItemSuspiciousStew() : null);
+		add(armorStand = EnumDisableableFeatures.armorStand.featureEnabled() ? new ItemArmorStand() : null);
+		add(sweetBerries = sweetBerry.featureEnabled() ? new ItemSweetBerries() : null);
+		add(dye = plainDye.featureEnabled() ? new ItemPlainDye() : null);
+		add(suspiciousStew = EnumDisableableFeatures.suspiciousStew.featureEnabled() ? new ItemSuspiciousStew() : null);
 	}
 
 }

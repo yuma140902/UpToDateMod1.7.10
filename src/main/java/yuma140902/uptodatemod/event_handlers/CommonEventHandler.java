@@ -19,7 +19,6 @@ import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockWitherRose;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.EnumNoteBlockInstrument;
 
@@ -35,7 +34,7 @@ public class CommonEventHandler {
 	
 	@SubscribeEvent
 	public void onLivingDeath(LivingDeathEvent event) {
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.witherRose)) {
+		if(EnumDisableableFeatures.witherRose.featureEnabled()) {
 			BlockWitherRose.onLivingDeathEvent(event);
 		}
 	}
@@ -59,7 +58,7 @@ public class CommonEventHandler {
 		ItemStack heldItem = event.entityPlayer.getHeldItem();
 		if(heldItem == null) return;
 		
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.grassPath) &&
+		if(EnumDisableableFeatures.grassPath.featureEnabled() &&
 				isShovel(heldItem) && world.getBlock(x, y, z) == Blocks.grass) {
 			Block blockAbove = world.getBlock(x, y + 1, z);
 			if(blockAbove != null && blockAbove.isOpaqueCube()) return;
@@ -73,7 +72,7 @@ public class CommonEventHandler {
 	
 	@SubscribeEvent
 	public void onNoteBlockPlay(NoteBlockEvent.Play event) {
-		if(!DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.newNoteBlockInstruments)) {
+		if(!EnumDisableableFeatures.newNoteBlockInstruments.featureEnabled()) {
 			return;
 		}
 		

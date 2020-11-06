@@ -2,7 +2,7 @@ package yuma140902.uptodatemod.registry;
 
 import javax.annotation.Nullable;
 
-public enum EnumDisableableFeatures {
+public enum EnumDisableableFeatures implements IDisableableFeature {
 	stones("granite, andesite, diorite, polished ones, stairs, slabs, and walls"),
 	wood,
 	smoothStone,
@@ -52,5 +52,9 @@ public enum EnumDisableableFeatures {
 	}
 	private EnumDisableableFeatures(@Nullable String comment) {
 		this.comment = comment;
+	}
+	
+	@Override public boolean featureEnabled() {
+		return DisabledFeaturesRegistry.INSTANCE.isEnabled(this);
 	}
 }

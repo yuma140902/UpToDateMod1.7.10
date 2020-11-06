@@ -10,7 +10,6 @@ import net.minecraft.world.biome.BiomeGenSwamp;
 import net.minecraft.world.chunk.IChunkProvider;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.config.ModConfigCore;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ListUtils;
 
@@ -20,11 +19,11 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 	public void generate(
 			Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if(!ListUtils.contains(ModConfigCore.WorldGen.coarseDirtBlackList(), world.provider.dimensionId)) {
-			if(ModConfigCore.WorldGen.genCoarseDirt() && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.coarseDirt))
+			if(ModConfigCore.WorldGen.genCoarseDirt() && EnumDisableableFeatures.coarseDirt.featureEnabled())
 				generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
 		if(!ListUtils.contains(ModConfigCore.WorldGen.fossilesBlackList(), world.provider.dimensionId)) {
-			if(ModConfigCore.WorldGen.genFossiles() && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.boneBlockAndFossile))
+			if(ModConfigCore.WorldGen.genFossiles() && EnumDisableableFeatures.boneBlockAndFossile.featureEnabled())
 				generateFossile(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
 	}

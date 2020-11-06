@@ -30,7 +30,6 @@ import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
 import yuma140902.uptodatemod.network.NoteBlockPlayHandler;
 import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.uptodatemod.util.UpToDateModConstants;
@@ -164,15 +163,15 @@ public class ModUpToDateMod {
 		Recipes.register();
 		
 		proxy.registerEntities();
-		if (DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
+		if (EnumDisableableFeatures.glazedTerracotta.featureEnabled())
 			glazedTerracottaRenderId = proxy.getNewRenderId();
 		lanternRenderId = proxy.getNewRenderId();
-		if (DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.barrel))
+		if (EnumDisableableFeatures.barrel.featureEnabled())
 			barrelrenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();
 		
 		
-		if (DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stones)) {
+		if (EnumDisableableFeatures.stones.featureEnabled()) {
 			MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.WorldGen.genStones(), 33, 10, 0, 80, ModConfigCore.WorldGen.stonesBlackList());
 			
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);

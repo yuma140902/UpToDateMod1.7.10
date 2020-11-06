@@ -26,7 +26,6 @@ import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 import yuma140902.uptodatemod.event_handlers.ClientEventHandler;
 import yuma140902.uptodatemod.launch.VanillaResourceLoader;
 import yuma140902.uptodatemod.launch.VanillaResourceLoadingException;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.resourcepack.UpToDateModResourcePack;
 
@@ -46,7 +45,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderers() {
 		super.registerRenderers();
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.boats)) {
+		if(EnumDisableableFeatures.boats.featureEnabled()) {
 			RenderingRegistry.registerEntityRenderingHandler(EntityBoatAcacia.class, new RenderModBoat(Type.ACACIA));
 			RenderingRegistry.registerEntityRenderingHandler(EntityBoatBirch.class, new RenderModBoat(Type.BIRCH));
 			RenderingRegistry.registerEntityRenderingHandler(EntityBoatDarkOak.class, new RenderModBoat(Type.DARK_OAK));
@@ -54,14 +53,14 @@ public class ClientProxy extends CommonProxy {
 			RenderingRegistry.registerEntityRenderingHandler(EntityBoatJungle.class, new RenderModBoat(Type.JUNGLE));
 			RenderingRegistry.registerEntityRenderingHandler(EntityBoatSpruce.class, new RenderModBoat(Type.SPRUCE));
 		}
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.armorStand)) {
+		if(EnumDisableableFeatures.armorStand.featureEnabled()) {
 			RenderingRegistry.registerEntityRenderingHandler(EntityArmorStand.class, new RenderArmorStand());
 		}
 		
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))
+		if(EnumDisableableFeatures.glazedTerracotta.featureEnabled())
 			RenderingRegistry.registerBlockHandler(new RenderBlockGlazedTerracotta());
 		RenderingRegistry.registerBlockHandler(new RenderBlockLantern());
-		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.barrel))
+		if(EnumDisableableFeatures.barrel.featureEnabled())
 			RenderingRegistry.registerBlockHandler(new RenderBlockBarrel());
 	}
 	

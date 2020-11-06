@@ -12,8 +12,8 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.config.ModConfigCore;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.registry.IDisableableFeature;
 import yuma140902.yumalib.api.loot.IMobLootInfo;
 import yuma140902.yumalib.api.loot.MobLootInfo;
 import yuma140902.yumalib.loot.MobDropHandler;
@@ -22,26 +22,26 @@ public class MobLoot {
 	private MobLoot() {}
 	
 	@SuppressWarnings("unused")
-	private static IMobLootInfo mobLootInfoOf(EnumDisableableFeatures feature, Class<? extends Entity> entityClass, Item item) {
-		return MobLootInfo.of(DisabledFeaturesRegistry.INSTANCE.isEnabled(feature), entityClass, item);
+	private static IMobLootInfo mobLootInfoOf(IDisableableFeature feature, Class<? extends Entity> entityClass, Item item) {
+		return MobLootInfo.of(feature.featureEnabled(), entityClass, item);
 	}
 	
 	@SuppressWarnings("unused")
-	private static IMobLootInfo mobLootInfoOf(EnumDisableableFeatures feature, Class<? extends Entity> entityClass, Item item, int itemMeta, int itemNum) {
-		return MobLootInfo.of(DisabledFeaturesRegistry.INSTANCE.isEnabled(feature), entityClass, item, itemMeta, itemNum);
+	private static IMobLootInfo mobLootInfoOf(IDisableableFeature feature, Class<? extends Entity> entityClass, Item item, int itemMeta, int itemNum) {
+		return MobLootInfo.of(feature.featureEnabled(), entityClass, item, itemMeta, itemNum);
 	}
 	
 	@SuppressWarnings("unused")
-	private static IMobLootInfo mobLootInfoOf(EnumDisableableFeatures feature, Class<? extends Entity> entityClass, Item item, int itemMeta, int itemNum, Predicate<LivingDropsEvent> extraValidator) {
-		return MobLootInfo.of(DisabledFeaturesRegistry.INSTANCE.isEnabled(feature), entityClass, item, itemMeta, itemNum, extraValidator);
+	private static IMobLootInfo mobLootInfoOf(IDisableableFeature feature, Class<? extends Entity> entityClass, Item item, int itemMeta, int itemNum, Predicate<LivingDropsEvent> extraValidator) {
+		return MobLootInfo.of(feature.featureEnabled(), entityClass, item, itemMeta, itemNum, extraValidator);
 	}
 	
-	private static IMobLootInfo mobLootInfoOf(EnumDisableableFeatures feature, Class<? extends Entity> entityClass, Item item, int itemMeta, Function<Random, Integer> itemNumProvider) {
-		return MobLootInfo.of(DisabledFeaturesRegistry.INSTANCE.isEnabled(feature), entityClass, item, itemMeta, itemNumProvider, null);
+	private static IMobLootInfo mobLootInfoOf(IDisableableFeature feature, Class<? extends Entity> entityClass, Item item, int itemMeta, Function<Random, Integer> itemNumProvider) {
+		return MobLootInfo.of(feature.featureEnabled(), entityClass, item, itemMeta, itemNumProvider, null);
 	}
 	
-	private static IMobLootInfo mobLootInfoOf(EnumDisableableFeatures feature, Class<? extends Entity> entityClass, Item item, int itemMeta, Function<Random, Integer> itemNumProvider, Predicate<LivingDropsEvent> extraValidator) {
-		return MobLootInfo.of(DisabledFeaturesRegistry.INSTANCE.isEnabled(feature), entityClass, item, itemMeta, itemNumProvider, extraValidator);
+	private static IMobLootInfo mobLootInfoOf(IDisableableFeature feature, Class<? extends Entity> entityClass, Item item, int itemMeta, Function<Random, Integer> itemNumProvider, Predicate<LivingDropsEvent> extraValidator) {
+		return MobLootInfo.of(feature.featureEnabled(), entityClass, item, itemMeta, itemNumProvider, extraValidator);
 	}
 	
 	public static void registerBasicMobLoots() {
