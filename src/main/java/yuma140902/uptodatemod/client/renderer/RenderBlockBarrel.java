@@ -7,8 +7,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.blocks.BlockGlazedTerracotta;
-import yuma140902.yumalib.api.McConst;
 
 import static yuma140902.yumalib.api.McConst.*;
 
@@ -117,6 +115,6 @@ public class RenderBlockBarrel implements ISimpleBlockRenderingHandler {
 	
 	@Override
 	public int getRenderId() {
-		return ModUpToDateMod.barrelrenderId;
+		return ModUpToDateMod.barrelRenderId;
 	}
 }
