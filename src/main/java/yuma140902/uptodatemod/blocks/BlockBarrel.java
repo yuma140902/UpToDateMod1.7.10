@@ -30,7 +30,6 @@ import java.util.List;
 
 public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvider, IRegisterable, IHasRecipes {
 	private IIcon iconBottom;
-	@SideOnly(Side.CLIENT)
 	private static final int metaForItemRender = 1;
 	
 	public BlockBarrel() {
@@ -89,7 +88,7 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	
 	@Override
 	public int damageDropped(int p_149692_1_) {
-		return 7;
+		return metaForItemRender;
 	}
 	
 	@Override
