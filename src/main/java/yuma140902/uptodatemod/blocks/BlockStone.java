@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -62,6 +63,7 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
+		iIcons[0] = Blocks.stone.getIcon(0, 0);
 		iIcons[META_GRANITE] = register.registerIcon(StringUtil.name.domainedTexture("stone_granite"));
 		iIcons[META_POLISHED_GRANITE] = register.registerIcon(StringUtil.name.domainedTexture("stone_polished_granite"));
 		iIcons[META_DIORITE] = register.registerIcon(StringUtil.name.domainedTexture("stone_diorite"));
