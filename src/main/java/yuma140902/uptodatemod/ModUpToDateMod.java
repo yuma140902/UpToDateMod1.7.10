@@ -67,7 +67,7 @@ public class ModUpToDateMod {
 	public static final String MOD_TEXTURE_DOMAIN           = "uptodate";
 	public static final String MOD_UNLOCALIZED_ENTRY_DOMAIN = "uptodate";
 	public static final String MINECRAFT_VERSION            = "1.7.10";
-	public static final String MOD_VERSION                  = "2.3.8";
+	public static final String MOD_VERSION                  = "2.3.9";
 	public static final String MOD_VERSIONS_TSV_URL         = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
 	public static final Logger LOGGER                       = LogManager.getLogger(MOD_NAME);
 	
