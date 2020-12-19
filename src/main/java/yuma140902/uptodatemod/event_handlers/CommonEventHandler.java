@@ -99,6 +99,8 @@ public class CommonEventHandler {
 			return;
 		}
 		
+		float f = (float)Math.pow(2.0D, (double)(noteId - 12) / 12.0D);
+		world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, instrument.getSoundName(), 3.0F, f);
 		ModUpToDateMod.networkWrapper.sendToAllAround(new NoteBlockPlayMessage(instrument, noteId, dimId, x, y, z), new TargetPoint(dimId, x, y, z, 32));
 		
 		event.setCanceled(true);
