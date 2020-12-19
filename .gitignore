@@ -1,5 +1,7 @@
 /game_home/*
 !/game_home/.gitkeep
+/server_home/*
+!/server_home/.gitkeep
 /eclipse/*
 /libs/*jar
 /src/api/java/moze_intel/projecte/api/*
