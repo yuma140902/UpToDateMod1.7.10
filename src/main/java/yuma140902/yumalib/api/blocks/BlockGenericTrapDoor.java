@@ -7,14 +7,19 @@ import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
+import yuma140902.yumalib.api.items.ItemBlockGenericTrapdoor;
 import yuma140902.yumalib.api.registry.Contexts;
+import yuma140902.yumalib.api.util.WorldUtils;
+import yuma140902.yumalib.api.blockstate.GenericTrapdoorState;
 
 public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
 	/** Set this to allow trapdoors to remain free-floating */
@@ -45,44 +50,22 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   @Override
   @SideOnly(Side.CLIENT)
   public IIcon getIcon(int side, int meta) {
-  	//メタデータの仕様
-  	/*
-  	 * 2進数で4桁
-  	 * 0b0000
-  	 * 
-  	 * 下位1,2桁目 : 方角
-  	 * 0b**00 : south
-  	 * 0b**01 : north
-  	 * 0b**10 : east
-  	 * 0b**11 : west
-  	 * 
-  	 * 下位3桁目 : 開いているか否か
-  	 * 0b*0** : 閉じている CLOSE
-  	 * 0b*1** : 開いている OPEN
-  	 * 
-  	 * 下位4桁目 : 上側に付いているか否か
-  	 * 0b0*** : 下側
-  	 * 0b1*** : 上側
-  	 */
+		GenericTrapdoorState state = GenericTrapdoorState.fromMetadata(meta);
   	
-  	//上記メタデータの仕様より、
-  	// meta & 0b0011
-  	//で方角を取得できる
-  	
-  	int direction = meta & 0b0011;
-  	boolean isOpen = (meta & 0b0100) >>> 2 == 0 ? false : true;
-  	boolean isTop = (meta & 0b1000) >>> 3 == 0 ? false : true;
+  	GenericTrapdoorState.Orientation orientation = state.orientation();
+  	boolean isOpen = state.isOpen();
+  	boolean isTop = state.isUpper();
   	
   	if(!isOpen) {
   		if (side == McConst.SIDE_TOP || side == McConst.SIDE_BOTTOM) {
-    		switch(direction) {
-    			case 0b0000:
+    		switch(orientation) {
+					case SOUTH:
     				return icon0;
-    			case 0b0001:
+					case NORTH:
     				return icon180;
-    			case 0b0010:
+					case EAST:
     				return icon270;
-    			case 0b0011:
+					case WEST:
     				return icon90;
     		}
     	}
@@ -93,7 +76,7 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   	}
   	
   	else if(isTop) {
-  		if(isSameSide(side, direction) || isOppositeSide(side, direction)) {
+  		if(GenericTrapdoorState.Orientation.isSameSide(side, orientation) || GenericTrapdoorState.Orientation.isOppositeSide(side, orientation)) {
   			return icon180;
   		}
   		
@@ -103,7 +86,7 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   	}
   	
   	else {
-  		if(isSameSide(side, direction) || isOppositeSide(side, direction)) {
+  		if(GenericTrapdoorState.Orientation.isSameSide(side, orientation) || GenericTrapdoorState.Orientation.isOppositeSide(side, orientation)) {
   			return icon0;
   		}
   		
@@ -115,27 +98,11 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
   	return Blocks.planks.getIcon(1, plankMeta);
   }
   
-  private boolean isSameSide(int side, int directionMeta) {
-  	return
-  			   (side == McConst.SIDE_SOUTH && directionMeta == 0b0000)
-  			|| (side == McConst.SIDE_NORTH && directionMeta == 0b0001)
-  			|| (side == McConst.SIDE_EAST && directionMeta == 0b0010)
-  			|| (side == McConst.SIDE_WEST && directionMeta == 0b0011);
-  }
-  
-  private boolean isOppositeSide(int side, int directionMeta) {
-  	return
-  			   (side == McConst.SIDE_NORTH && directionMeta == 0b0000)
-  			|| (side == McConst.SIDE_SOUTH && directionMeta == 0b0001)
-  			|| (side == McConst.SIDE_WEST && directionMeta == 0b0010)
-  			|| (side == McConst.SIDE_EAST && directionMeta == 0b0011);
-  }
-  
   @Override
   public void register() {
   	this.setBlockName(Contexts.current().nameProvider().domainedUnlocalized(name));
 		this.setBlockTextureName(Contexts.current().nameProvider().domainedTexture(name));
-		GameRegistry.registerBlock(this, name);
+		GameRegistry.registerBlock(this, ItemBlockGenericTrapdoor.class, name);
   }
   
   @Override
@@ -147,4 +114,14 @@ public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable
 				'#', new ItemStack(Blocks.planks, 1, plankMeta)
 				);
   }
+	
+	public static void onBlockPlaced(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata){
+  	GenericTrapdoorState state;
+ 		if(side == McConst.SIDE_BOTTOM || side == McConst.SIDE_TOP){
+ 			state = new GenericTrapdoorState(side, hitY).rotate(player);
+		}else{
+ 			state = new GenericTrapdoorState(side, hitY);
+		}
+ 		WorldUtils.setMeta(world, x, y, z, state.metadata());
+	}
 }
