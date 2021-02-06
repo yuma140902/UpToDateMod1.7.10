@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="client_UpToDateMod" type="Application" factoryName="アプリケーション">
+  <configuration default="false" name="client_UpToDateMod" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="GradleStart" />
     <module name="UpToDateMod1.7.10.main" />
     <option name="PROGRAM_PARAMETERS" value="--username yuma140902" />
