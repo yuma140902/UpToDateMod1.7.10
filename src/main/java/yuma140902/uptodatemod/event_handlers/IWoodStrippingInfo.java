@@ -1,16 +1,16 @@
 package yuma140902.uptodatemod.event_handlers;
 
 import javax.annotation.Nullable;
-import yuma140902.yumalib.api.util.BlockState;
+import yuma140902.yumalib.api.util.BlockWithMetadata;
 
 public interface IWoodStrippingInfo {
 	/**
-	 * 斧で右クリックされた{@link BlockState}から、新たに設置すべき{@link BlockState}を返す<br>
-	 * @param blockState 斧で右クリックされた{@link BlockState}
-	 * @return 新たに設置すべき{@link BlockState}。nullなら何も起こらない
+	 * 斧で右クリックされた{@link BlockWithMetadata}から、新たに設置すべき{@link BlockWithMetadata}を返す<br>
+	 * @param blockWithMetadata 斧で右クリックされた{@link BlockWithMetadata}
+	 * @return 新たに設置すべき{@link BlockWithMetadata}。nullなら何も起こらない
 	 */
 	@Nullable
-	BlockState blockStateToPlace(BlockState blockState);
+	BlockWithMetadata blockStateToPlace(BlockWithMetadata blockWithMetadata);
 	
 	/**
 	 * ブロックを設置するときの音。nullで音を鳴らさない

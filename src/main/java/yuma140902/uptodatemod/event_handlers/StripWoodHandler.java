@@ -15,8 +15,13 @@ import yuma140902.uptodatemod.blocks.BlockFullWood;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.yumalib.api.McConst;
-import yuma140902.yumalib.api.util.BlockState;
+import yuma140902.yumalib.api.blockstate.EnumVanillaLog;
+import yuma140902.yumalib.api.blockstate.EnumVanillaLog2;
+import yuma140902.yumalib.api.blockstate.VanillaRotatedPillarState;
+import yuma140902.yumalib.api.blockstate.VanillaRotatedPillarState.GenericBlockType;
+import yuma140902.yumalib.api.blockstate.VanillaRotatedPillarState.Axis;
+import yuma140902.yumalib.api.blockstate.VanillaRotatedPillarState.NoBlockType;
+import yuma140902.yumalib.api.util.BlockWithMetadata;
 
 public class StripWoodHandler {
 	
@@ -49,9 +54,9 @@ public class StripWoodHandler {
 		if(!DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.strippedLogs)) return;
 		if(!isAxe(heldItem)) return;
 		
-		BlockState state = BlockState.fromCoord(world, x, y, z);
+		BlockWithMetadata state = BlockWithMetadata.fromCoord(world, x, y, z);
 		for(final IWoodStrippingInfo info : registry) {
-			BlockState stateToBe = info.blockStateToPlace(state);
+			BlockWithMetadata stateToBe = info.blockStateToPlace(state);
 			if(stateToBe == null) continue;
 			
 			world.setBlock(x, y, z, stateToBe.block);
@@ -64,41 +69,59 @@ public class StripWoodHandler {
 	}
 	
 	public static void registerBasicWoodStripping() {
-		register(WoodStrippingInfo.of(state -> {
-			final Block block = state.block;
-			final int log = block == Blocks.log ? 1 : block == Blocks.log2 ? 2 : 0;
-			if(log == 0) return null;
-			
-			final int meta = state.meta;
-			final int axis = meta >>> 2;  // ブロックの軸の情報を取り出す
-			final int logType = meta & 0b0011;   // 木材の種類の情報を取り出す
-			
-			Block strippedLog = null;
-			switch(logType) {
-				case 0:
-					assert 0 == McConst.Meta.LOG_OAK && McConst.Meta.LOG_OAK == McConst.Meta.LOG2_ACACIA;
-					strippedLog = log == 1 ? MyBlocks.strippedLogOak : MyBlocks.strippedLogAcacia; 
-					break;
-				case 1:
-					assert 1 == McConst.Meta.LOG_SPRUCE && McConst.Meta.LOG_SPRUCE == McConst.Meta.LOG2_DARK_OAK;
-					strippedLog = log == 1 ? MyBlocks.strippedLogSpruce : MyBlocks.strippedLogDarkOak; 
-					break;
-				case McConst.Meta.LOG_BIRCH:	strippedLog = MyBlocks.strippedLogBirch; break;
-				case McConst.Meta.LOG_JUNGLE:	strippedLog = MyBlocks.strippedLogJungle; break;
-				default: return null;
+		register(WoodStrippingInfo.of(blockWithMeta -> {
+			final Block block = blockWithMeta.block;
+			if(block != Blocks.log && block != Blocks.log2){
+				return null;  // minecraft:logでもminecraft:log2でもなかったら何もしない
 			}
 			
-			assert strippedLog != null;
-			return new BlockState(strippedLog, axis << 2);
+			final Block strippedLog;
+			final Axis axis;
+			if(block == Blocks.log){
+				final VanillaRotatedPillarState<EnumVanillaLog> state = VanillaRotatedPillarState.fromMetadata(blockWithMeta.meta, EnumVanillaLog.class);
+				axis = state.axis();
+				switch (state.blockType()){
+					case Oak:
+						strippedLog = MyBlocks.strippedLogOak;
+						break;
+					case Spruce:
+						strippedLog = MyBlocks.strippedLogSpruce;
+						break;
+					case Birch:
+						strippedLog = MyBlocks.strippedLogBirch;
+						break;
+					case Jungle:
+						strippedLog = MyBlocks.strippedLogJungle;
+						break;
+					default: return null;
+				}
+			}
+			else{
+				final VanillaRotatedPillarState<EnumVanillaLog2> state = VanillaRotatedPillarState.fromMetadata(blockWithMeta.meta, EnumVanillaLog2.class);
+				axis = state.axis();
+				switch (state.blockType()){
+					case Acacia:
+						strippedLog = MyBlocks.strippedLogAcacia;
+						break;
+					case DarkOak:
+						strippedLog = MyBlocks.strippedLogDarkOak;
+						break;
+					default: return null;
+				}
+			}
+			
+			if(strippedLog == null) return null;
+			final VanillaRotatedPillarState<NoBlockType> newState = new VanillaRotatedPillarState<>(NoBlockType.NONE, axis, NoBlockType.class);
+			return new BlockWithMetadata(strippedLog, newState.metadata());
 		}, "dig.cloth"));
 		
 		
-		register(WoodStrippingInfo.of(state -> {
-			if(state.block != MyBlocks.wood) return null;
-			int meta = MathHelper.clamp_int(state.meta, 0, BlockFullWood.META_MAX);
+		register(WoodStrippingInfo.of(blockWithMeta -> {
+			if(blockWithMeta.block != MyBlocks.wood) return null;
+			int meta = MathHelper.clamp_int(blockWithMeta.meta, 0, BlockFullWood.META_MAX);
 			BlockGenericStrippedLog blockToPlace = BlockFullWood.getStrippedLog(meta);
-			int metaToBe = 12;
-			return new BlockState(blockToPlace, metaToBe);
+			VanillaRotatedPillarState<NoBlockType> newState = new VanillaRotatedPillarState<>(NoBlockType.NONE, Axis.NO_AXIS, NoBlockType.class);
+			return new BlockWithMetadata(blockToPlace, newState.metadata());
 		}, "dig.cloth"));
 	}
 }
