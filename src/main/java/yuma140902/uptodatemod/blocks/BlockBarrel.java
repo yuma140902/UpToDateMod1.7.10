@@ -25,6 +25,8 @@ import yuma140902.uptodatemod.util.DirectionUtil;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.blockstate.VanillaPistonStyleOrientationState;
+import yuma140902.yumalib.api.blockstate.VanillaRotatedPillarState;
 
 import java.util.List;
 
@@ -93,8 +95,8 @@ public class BlockBarrel extends BlockRotatedPillar implements ITileEntityProvid
 	
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemstack) {
-		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
-    world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		VanillaPistonStyleOrientationState state = new VanillaPistonStyleOrientationState(world, x, y, z, player);
+    world.setBlockMetadataWithNotify(x, y, z, state.metadata(), 2);
 	}
 	
 	@Override
