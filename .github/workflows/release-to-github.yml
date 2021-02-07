@@ -35,15 +35,12 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       
-    - name: Move output jars
+    - name: Set version
+      id: version
       run: |
-        pushd ./build/libs
-        echo ${{ github.ref }}
-        ls -a
-        mv -v ./UpToDateMod-mc1.7.10-*.jar ./output.jar
-        mv -v ./UpToDateMod-mc1.7.10-*-src.jar ./src.jar
-        mv -v ./UpToDateMod-mc1.7.10-*-dev.jar ./dev.jar
-        popd
+        VERSION=$(echo ${{ github.ref }} | sed -e "s#refs/tags/##g")
+        echo $VERSION
+        echo ::set-output name=version::2.3.9
         
     - name: Create release
       id: create_release
@@ -51,8 +48,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: v${{ steps.version.version }}
+        release_name: v${{ steps.version.version }}
         draft: false
         prerelease: false
         
@@ -63,7 +60,7 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./build/libs/output.jar
-        asset_name: UpToDateMod-mc1.7.10-${{ github.ref }}.jar
+        asset_name: UpToDateMod-mc1.7.10-${{ steps.version.version }}.jar
         asset_content_type: application/java-archive
     
     - name: Upload src jar
@@ -73,7 +70,7 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./build/libs/src.jar
-        asset_name: UpToDateMod-mc1.7.10-${{ github.ref }}-src.jar
+        asset_name: UpToDateMod-mc1.7.10-${{ steps.version.version }}-src.jar
         asset_content_type: application/java-archive
         
     - name: Upload dev jar
@@ -83,5 +80,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./build/libs/dev.jar
-        asset_name: UpToDateMod-mc1.7.10-${{ github.ref }}-dev.jar
+        asset_name: UpToDateMod-mc1.7.10-${{ steps.version.version }}-dev.jar
         asset_content_type: application/java-archive
