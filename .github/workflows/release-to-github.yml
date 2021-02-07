@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  release:
 
     runs-on: ubuntu-latest
 
@@ -38,9 +38,11 @@ jobs:
     - name: Move output jars
       run: |
         pushd ./build/libs
-        mv ./UpToDateMod-mc1.7.10-*.jar ./output.jar
-        mv ./UpToDateMod-mc1.7.10-*-src.jar ./src.jar
-        mv ./UpToDateMod-mc1.7.10-*-dev.jar ./dev.jar
+        echo ${{ github.ref }}
+        ls -a
+        mv -v ./UpToDateMod-mc1.7.10-*.jar ./output.jar
+        mv -v ./UpToDateMod-mc1.7.10-*-src.jar ./src.jar
+        mv -v ./UpToDateMod-mc1.7.10-*-dev.jar ./dev.jar
         popd
         
     - name: Create release
