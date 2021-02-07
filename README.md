@@ -1,4 +1,6 @@
 # UpToDateMod1.7.10
+[![Java CI with Gradle](https://github.com/yuma140902/UpToDateMod1.7.10/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/yuma140902/UpToDateMod1.7.10/actions)
+
 [![recommended-version:v2.3.10](https://badgen.net/github/release/yuma140902/UpToDateMod1.7.10/stable?color=green&label=Recommended)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/3142930)
 [![latest-version:v2.3.10](https://badgen.net/github/release/yuma140902/UpToDateMod1.7.10?color=97ca00&label=Latest)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/3142930)
 [![Minecraft1.7.10](https://img.shields.io/badge/MC-1.7.10-blue.svg)](https://www.minecraft.net/)
