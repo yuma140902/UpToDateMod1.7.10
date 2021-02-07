@@ -131,6 +131,13 @@ public final class Recipes {
 				"#",
 				'#', new ItemStack(Blocks.stone_slab, 1, McConst.Meta.SLAB_STONEBRICKS)
 				);
+		
+		RecipeRegister.addShaped(
+						new ItemStack(MyBlocks.trapDoorIron, 1, 0),
+						"##",
+						"##",
+						'#', Items.iron_ingot
+		);
 	}
 	
 	private static void registerDoorRecipes() {

@@ -21,7 +21,6 @@ import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
 import yuma140902.uptodatemod.blocks.BlockFullWood;
 import yuma140902.uptodatemod.blocks.BlockGlazedTerracotta;
 import yuma140902.uptodatemod.blocks.BlockGrassPath;
-import yuma140902.uptodatemod.blocks.BlockIronTrapDoor;
 import yuma140902.uptodatemod.blocks.BlockLantern;
 import yuma140902.uptodatemod.blocks.BlockMagma;
 import yuma140902.uptodatemod.blocks.BlockNetherWart;
@@ -58,6 +57,7 @@ import yuma140902.yumalib.api.blocks.BlockGenericTrapDoor;
 import yuma140902.yumalib.api.blocks.BlockGenericWall;
 import yuma140902.yumalib.api.blocks.SlabBuilder;
 import yuma140902.yumalib.api.blocks.StairsBuilder;
+import yuma140902.yumalib.api.blocks.TrapdoorBuilder;
 import yuma140902.yumalib.api.blocks.WallBuilder;
 
 public final class MyBlocks {
@@ -126,7 +126,7 @@ public final class MyBlocks {
 	public static final BlockGenericTrapDoor trapDoorDarkOak;
 	public static final BlockGenericTrapDoor trapDoorJungle;
 	public static final BlockGenericTrapDoor trapDoorSpruce;
-	public static final BlockIronTrapDoor trapDoorIron;
+	public static final BlockGenericTrapDoor trapDoorIron;
 	
 	public static final BlockGenericButton buttonAcacia;
 	public static final BlockGenericButton buttonBirch;
@@ -341,11 +341,11 @@ public final class MyBlocks {
 		add(sponge = EnumDisableableFeatures.sponge.featureEnabled() ? new BlockSponge() : null);
 		
 		if(woodenTrapdoors.featureEnabled()) {
-			add(trapDoorAcacia = 		new BlockGenericTrapDoor("trap_door_acacia", 		McConst.Meta.PLANK_ACACIA));
-			add(trapDoorBirch = 		new BlockGenericTrapDoor("trap_door_birch", 		McConst.Meta.PLANK_BIRCH));
-			add(trapDoorDarkOak = 	new BlockGenericTrapDoor("trap_door_dark_oak", 	McConst.Meta.PLANK_DARKOAK));
-			add(trapDoorJungle = 		new BlockGenericTrapDoor("trap_door_jungle", 		McConst.Meta.PLANK_JUNGLE));
-			add(trapDoorSpruce = 		new BlockGenericTrapDoor("trap_door_spruce", 		McConst.Meta.PLANK_SPRUCE));
+			add(trapDoorAcacia = 		TrapdoorBuilder.ofWooden("trap_door_acacia", 		McConst.Meta.PLANK_ACACIA).build());
+			add(trapDoorBirch = 		TrapdoorBuilder.ofWooden("trap_door_birch", 			McConst.Meta.PLANK_BIRCH).build());
+			add(trapDoorDarkOak = 	TrapdoorBuilder.ofWooden("trap_door_dark_oak", 	McConst.Meta.PLANK_DARKOAK).build());
+			add(trapDoorJungle = 		TrapdoorBuilder.ofWooden("trap_door_jungle", 		McConst.Meta.PLANK_JUNGLE).build());
+			add(trapDoorSpruce = 		TrapdoorBuilder.ofWooden("trap_door_spruce", 		McConst.Meta.PLANK_SPRUCE).build());
 		}
 		else {
 			trapDoorAcacia = null;
@@ -354,7 +354,7 @@ public final class MyBlocks {
 			trapDoorJungle = null;
 			trapDoorSpruce = null;
 		}
-		add(trapDoorIron = ironTrapdoor.featureEnabled() ? new BlockIronTrapDoor() : null);
+		add(trapDoorIron = ironTrapdoor.featureEnabled() ? TrapdoorBuilder.ofMetal("trap_door_iron").noRotateTex().build() : null);
 		
 		if(buttons.featureEnabled()) {
 			add(buttonAcacia = 		new BlockGenericButton(McConst.Meta.PLANK_ACACIA, 	"button_acacia"));
