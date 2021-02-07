@@ -4,7 +4,6 @@
 !/server_home/.gitkeep
 /eclipse/*
 /libs/*jar
-/src/api/java/moze_intel/projecte/api/*
 
 
 # Created by https://www.gitignore.io/api/gradle
