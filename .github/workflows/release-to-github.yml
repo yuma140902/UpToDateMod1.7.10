@@ -41,6 +41,7 @@ jobs:
         VERSION=$(echo ${{ github.ref }} | sed -e "s#refs/tags/v##g")
         echo $VERSION
         echo ::set-output name=version::2.3.9
+        ls ./build/libs
         
     - name: Create release
       id: create_release
