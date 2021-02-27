@@ -1,10 +1,9 @@
 buildscript {
     repositories {
         mavenCentral()
-        jcenter()  // needed by com.anatawa12.forge:ForgeGradle
         maven {
             name = "forge"
-            url = "http://files.minecraftforge.net/maven"
+            url = "https://files.minecraftforge.net/maven"
         }
         maven {
             name = "sonatype"
@@ -13,7 +12,9 @@ buildscript {
     }
     dependencies {
         //classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-        classpath "com.anatawa12.forge:ForgeGradle:1.2-1.0.1"  // A successor of ForgeGradle 1.2
+        classpath("com.anatawa12.forge:ForgeGradle:1.2-1.0.+") {  // A successor of ForgeGradle 1.2
+            changing = true
+        }
     }
 }
 
