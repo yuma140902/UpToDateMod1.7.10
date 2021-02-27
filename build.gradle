@@ -4,7 +4,7 @@ buildscript {
         jcenter()  // needed by com.anatawa12.forge:ForgeGradle
         maven {
             name = "forge"
-            url = "http://files.minecraftforge.net/maven"
+            url = "https://files.minecraftforge.net/maven"
         }
         maven {
             name = "sonatype"
