@@ -6,10 +6,12 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
@@ -23,6 +25,7 @@ import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.EnumNoteBlockInstrument;
+import yuma140902.uptodatemod.registry.HoeEfficientBlockRegistry;
 
 public class CommonEventHandler {
 	private CommonEventHandler() {}
@@ -38,6 +41,28 @@ public class CommonEventHandler {
 	public void onLivingDeath(LivingDeathEvent event) {
 		if(EnumDisableableFeatures.witherRose.featureEnabled()) {
 			BlockWitherRose.onLivingDeathEvent(event);
+		}
+	}
+	
+	private Item.ToolMaterial getHoeMaterial(ItemStack itemStack){
+		if(itemStack == null || itemStack.getItem() == null) return null;
+		if(itemStack.getItem() instanceof ItemHoe){
+			ItemHoe hoe = (ItemHoe)itemStack.getItem();
+			try {
+				return Item.ToolMaterial.valueOf(hoe.getToolMaterialName());
+			}catch(IllegalArgumentException ex){
+				assert false : ex;
+			}
+		}
+		return null;
+	}
+	
+	@SubscribeEvent
+	public void hoeBreakSpeed(PlayerEvent.BreakSpeed event){
+		Item.ToolMaterial material = getHoeMaterial(event.entityPlayer.getHeldItem());
+		if(material == null) return;
+		if(HoeEfficientBlockRegistry.INSTANCE.isHoeEfficient(event.block)){
+			event.newSpeed = event.originalSpeed * material.getEfficiencyOnProperMaterial();
 		}
 	}
 	
