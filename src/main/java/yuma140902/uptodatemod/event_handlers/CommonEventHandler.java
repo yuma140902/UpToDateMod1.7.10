@@ -6,12 +6,14 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.NoteBlockEvent;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
@@ -37,6 +39,13 @@ public class CommonEventHandler {
 		if(EnumDisableableFeatures.witherRose.featureEnabled()) {
 			BlockWitherRose.onLivingDeathEvent(event);
 		}
+	}
+	
+	@SubscribeEvent
+	public void onBreakBlock(BlockEvent.BreakEvent event){
+		ItemStack heldItem = event.getPlayer().getHeldItem();
+		if(heldItem == null || heldItem.getItem() == null) return;
+		if(heldItem.getItem() instanceof ItemHoe) heldItem.damageItem(1, event.getPlayer());
 	}
 	
 	private boolean isShovel(ItemStack itemstack) {
