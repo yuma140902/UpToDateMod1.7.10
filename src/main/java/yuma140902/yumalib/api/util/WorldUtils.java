@@ -9,15 +9,15 @@ import net.minecraftforge.common.util.ForgeDirection;
 import yuma140902.yumalib.api.McConst.Meta;
 
 public class WorldUtils {
-	public static Block getBlock(World world, BlockPos pos) {
+	public static Block getBlock(IBlockAccess world, BlockPos pos) {
 		return world.getBlock(pos.x(), pos.y(), pos.z());
 	}
 	
-	public static boolean isAir(World world, BlockPos pos) {
+	public static boolean isAir(IBlockAccess world, BlockPos pos) {
 		return world.isAirBlock(pos.x(), pos.y(), pos.z());
 	}
 	
-	public static int getMeta(World world, BlockPos pos) {
+	public static int getMeta(IBlockAccess world, BlockPos pos) {
 		return world.getBlockMetadata(pos.x(), pos.y(), pos.z());
 	}
 	
