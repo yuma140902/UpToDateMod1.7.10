@@ -5,6 +5,7 @@ import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.init.Blocks;
 import yuma140902.uptodatemod.MyBlocks;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +23,9 @@ public class HoeEfficientBlockRegistry {
 	private final List<Block> exactBlocks = new ArrayList<>();
 	private final List<Class<?>> classes = new ArrayList<>();
 	
-	public void addBlock(Block block){
-		this.exactBlocks.add(block);
+	public void addBlock(@Nullable Block block){
+		if(block != null)
+			this.exactBlocks.add(block);
 	}
 	
 	public void addBlockClass(Class<?> cls){

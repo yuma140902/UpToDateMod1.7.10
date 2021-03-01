@@ -2,11 +2,15 @@ package yuma140902.uptodatemod.integration;
 
 import java.util.List;
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
+import cpw.mods.fml.common.registry.GameData;
+import net.minecraft.block.Block;
 import net.minecraftforge.common.config.Configuration;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.registry.HoeEfficientBlockRegistry;
 
-class PluginEtFuturum implements IConfiguratingPlugin {
+class PluginEtFuturum implements IConfiguratingPlugin, ITweakingPlugin {
 	private PluginEtFuturum() {}
 	
 	public static final PluginEtFuturum INSTANCE = new PluginEtFuturum();
@@ -128,4 +132,9 @@ class PluginEtFuturum implements IConfiguratingPlugin {
 		}
 	}
 	
+	@Override public void tweakMod() {
+		FMLControlledNamespacedRegistry<Block> blockRegistry = GameData.getBlockRegistry();
+		HoeEfficientBlockRegistry.INSTANCE.addBlock(blockRegistry.getObject("etfuturum:nether_wart"));
+		HoeEfficientBlockRegistry.INSTANCE.addBlock(blockRegistry.getObject("etfuturum:sponge"));
+	}
 }
