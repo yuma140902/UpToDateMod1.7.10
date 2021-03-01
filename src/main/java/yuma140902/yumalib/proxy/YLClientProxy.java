@@ -1,5 +1,6 @@
 package yuma140902.yumalib.proxy;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import yuma140902.yumalib.event_handlers.YLClientEventHandler;
@@ -12,6 +13,11 @@ public class YLClientProxy extends YLCommonProxy {
 	}
 	
 	private boolean isYuma140902 = false;
+	
+	@Override
+	public int getNewRenderId() {
+		return RenderingRegistry.getNextAvailableRenderId();
+	}
 	
 	@Override
 	public void checkIfIsYuma140902() {

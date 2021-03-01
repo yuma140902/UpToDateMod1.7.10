@@ -40,10 +40,6 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityBarrel.class, TileEntityBarrel.tileEntityId);
 	}
 	
-	public int getNewRenderId() {
-		return -1;
-	}
-	
 	public void registerRenderers() { }
 	
 	public void loadVanillaResources() throws VRLException {}

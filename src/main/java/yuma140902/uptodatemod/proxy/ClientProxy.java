@@ -36,11 +36,6 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	@Override
-	public int getNewRenderId() {
-		return RenderingRegistry.getNextAvailableRenderId();
-	}
-	
-	@Override
 	public void registerRenderers() {
 		super.registerRenderers();
 		if(EnumDisableableFeatures.boats.featureEnabled()) {
