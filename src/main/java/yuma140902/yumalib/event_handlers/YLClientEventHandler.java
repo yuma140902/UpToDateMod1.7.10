@@ -5,10 +5,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.command.server.CommandMessageRaw;
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.util.StatCollector;
+import net.minecraftforge.client.event.DrawBlockHighlightEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
 import yuma140902.yumalib.api.update.IUpdateChecker;
+import yuma140902.yumalib.client.renderer.RenderYLBlockModelOutline;
 
 public class YLClientEventHandler {
 	private YLClientEventHandler() {}
@@ -36,6 +38,11 @@ public class YLClientEventHandler {
 		}
 		
 		hasNotifiedAboutUpdate = true;
+	}
+	
+	@SubscribeEvent
+	public void onRenderBlockOutline(DrawBlockHighlightEvent event){
+		event.setCanceled(RenderYLBlockModelOutline.renderOutlineInWorld(event.context, event.player, event.target, event.partialTicks));
 	}
 	
 	@SubscribeEvent
