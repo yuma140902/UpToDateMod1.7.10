@@ -12,6 +12,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.client.model.IBlockWithYLBlockModel;
 import yuma140902.yumalib.api.client.model.YLBlockModel;
+import yuma140902.yumalib.api.math.Cuboid;
 import yuma140902.yumalib.api.util.BlockPos;
 import yuma140902.yumalib.api.util.WorldUtils;
 
@@ -43,9 +44,7 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 	}
 	
 	private void renderElement(Block block, int x, int y, int z, YLBlockModel.Element element, RenderBlocks renderer){
-		int[] from = element.getFrom();
-		int[] to = element.getTo();
-		renderer.setRenderBounds(from[0]/16f, from[1]/16f, from[2]/16f, to[0]/16f, to[1]/16f, to[2]/16f);
+		element.cuboid.setRenderBounds(renderer);
 		
 		if(Minecraft.isAmbientOcclusionEnabled() && block.getLightValue() == 0){
 			if(renderer.partialRenderBounds)
@@ -98,7 +97,7 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		IBlockWithYLBlockModel blockWithModel = (IBlockWithYLBlockModel)block;
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_BOTTOM), pos, renderer.blockAccess)) {
-			if (element.getFromY() <= 0) {
+			if (element.cuboid.from.y() <= 0) {
 				--y;
 			}
 			
@@ -147,13 +146,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPNP = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y, z + 1);
 			}
 			
-			if (element.getFromY() <= 0.0D) {
+			if (element.cuboid.from.y() <= 0.0D) {
 				++y;
 			}
 			
 			int mixedBrightnessForBottom = mixedBrightness;
 			
-			if (element.getFromY() <= 0.0D || !renderer.blockAccess.getBlock(x, y - 1, z).isOpaqueCube()) {
+			if (element.cuboid.from.y() <= 0.0D || !renderer.blockAccess.getBlock(x, y - 1, z).isOpaqueCube()) {
 				mixedBrightnessForBottom = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y - 1, z);
 			}
 			
@@ -189,11 +188,11 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			this.renderFaceBottom(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_BOTTOM), renderer);
+			this.renderFaceBottom(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_BOTTOM), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_TOP), pos, renderer.blockAccess)) {
-			if (element.getTo()[1] >= 16) {
+			if (element.cuboid.to.y() >= 16) {
 				++y;
 			}
 			
@@ -242,13 +241,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y, z + 1);
 			}
 			
-			if (element.getTo()[1] >= 16) {
+			if (element.cuboid.to.y() >= 16) {
 				--y;
 			}
 			
 			i1 = mixedBrightness;
 			
-			if (element.getTo()[1] >= 16 || !renderer.blockAccess.getBlock(x, y + 1, z).isOpaqueCube()) {
+			if (element.cuboid.to.y() >= 16 || !renderer.blockAccess.getBlock(x, y + 1, z).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y + 1, z);
 			}
 			
@@ -276,11 +275,11 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			this.renderFaceTop(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_TOP), renderer);
+			this.renderFaceTop(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_TOP), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_NORTH), pos, renderer.blockAccess)) {
-			if (element.getFromZ() <= 0) {
+			if (element.cuboid.from.z() <= 0) {
 				--z;
 			}
 			
@@ -329,13 +328,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPPN = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y + 1, z);
 			}
 			
-			if (element.getFromZ() <= 0) {
+			if (element.cuboid.from.z() <= 0) {
 				++z;
 			}
 			
 			i1 = mixedBrightness;
 			
-			if (element.getFromZ() <= 0 || !renderer.blockAccess.getBlock(x, y, z - 1).isOpaqueCube()) {
+			if (element.cuboid.from.z() <= 0 || !renderer.blockAccess.getBlock(x, y, z - 1).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z - 1);
 			}
 			
@@ -371,11 +370,11 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			this.renderFaceNorth(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_NORTH), renderer);
+			this.renderFaceNorth(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_NORTH), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_SOUTH), pos, renderer.blockAccess)) {
-			if (element.getTo()[2] >= 16) {
+			if (element.cuboid.to.z() >= 16) {
 				++z;
 			}
 			
@@ -424,13 +423,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y + 1, z);
 			}
 			
-			if (element.getTo()[2] >= 16) {
+			if (element.cuboid.to.z() >= 16) {
 				--z;
 			}
 			
 			i1 = mixedBrightness;
 			
-			if (element.getTo()[2] >= 16 || !renderer.blockAccess.getBlock(x, y, z + 1).isOpaqueCube()) {
+			if (element.cuboid.to.z() >= 16 || !renderer.blockAccess.getBlock(x, y, z + 1).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z + 1);
 			}
 			
@@ -466,11 +465,11 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			this.renderFaceSouth(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_SOUTH), renderer);
+			this.renderFaceSouth(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_SOUTH), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_WEST), pos, renderer.blockAccess)) {
-			if (element.getFromX() <= 0) {
+			if (element.cuboid.from.x() <= 0) {
 				--x;
 			}
 			
@@ -519,13 +518,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZNPP = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y + 1, z + 1);
 			}
 			
-			if (element.getFromX() <= 0) {
+			if (element.cuboid.from.x() <= 0) {
 				++x;
 			}
 			
 			i1 = mixedBrightness;
 			
-			if (element.getFromX() <= 0 || !renderer.blockAccess.getBlock(x - 1, y, z).isOpaqueCube()) {
+			if (element.cuboid.from.x() <= 0 || !renderer.blockAccess.getBlock(x - 1, y, z).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x - 1, y, z);
 			}
 			
@@ -561,11 +560,11 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			this.renderFaceWest(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_WEST), renderer);
+			this.renderFaceWest(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_WEST), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_EAST), pos, renderer.blockAccess)) {
-			if (element.getTo()[0] >= 16) {
+			if (element.cuboid.to.x() >= 16) {
 				++x;
 			}
 			
@@ -614,13 +613,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y + 1, z + 1);
 			}
 			
-			if (element.getTo()[0] >= 16) {
+			if (element.cuboid.to.x() >= 16) {
 				--x;
 			}
 			
 			i1 = mixedBrightness;
 			
-			if (element.getTo()[0] >= 16 || !renderer.blockAccess.getBlock(x + 1, y, z).isOpaqueCube()) {
+			if (element.cuboid.to.x() >= 16 || !renderer.blockAccess.getBlock(x + 1, y, z).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y, z);
 			}
 			
@@ -656,7 +655,7 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			this.renderFaceEast(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_EAST), renderer);
+			this.renderFaceEast(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_EAST), renderer);
 		}
 		
 		renderer.enableAO = false;
@@ -704,7 +703,7 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		IBlockWithYLBlockModel blockWithModel = (IBlockWithYLBlockModel)block;
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_BOTTOM), pos, renderer.blockAccess)) {
-			if (element.getFromY() <= 0) {
+			if (element.cuboid.from.y() <= 0) {
 				--y;
 			}
 			
@@ -753,13 +752,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPNP = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y, z + 1);
 			}
 			
-			if (element.getFromY() <= 0) {
+			if (element.cuboid.from.y() <= 0) {
 				++y;
 			}
 			
 			i1 = l;
 			
-			if (element.getFromY() <= 0 || !renderer.blockAccess.getBlock(x, y - 1, z).isOpaqueCube()) {
+			if (element.cuboid.from.y() <= 0 || !renderer.blockAccess.getBlock(x, y - 1, z).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y - 1, z);
 			}
 			
@@ -795,11 +794,11 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			this.renderFaceBottom(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_BOTTOM), renderer);
+			this.renderFaceBottom(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_BOTTOM), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_TOP), pos, renderer.blockAccess)) {
-			if ((element.getToY()/16f) >= 1.0D) {
+			if (element.cuboid.to.y() >= 16) {
 				++y;
 			}
 			
@@ -848,13 +847,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y, z + 1);
 			}
 			
-			if ((element.getToY()/16f) >= 1.0D) {
+			if (element.cuboid.to.y() >= 16) {
 				--y;
 			}
 			
 			i1 = l;
 			
-			if ((element.getToY()/16f) >= 1.0D || !renderer.blockAccess.getBlock(x, y + 1, z).isOpaqueCube()) {
+			if (element.cuboid.to.y() >= 16 || !renderer.blockAccess.getBlock(x, y + 1, z).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y + 1, z);
 			}
 			
@@ -882,7 +881,7 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			this.renderFaceTop(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_TOP), renderer);
+			this.renderFaceTop(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_TOP), renderer);
 		}
 		
 		float f8;
@@ -893,10 +892,9 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		int k1;
 		int l1;
 		int i2;
-		IIcon iicon;
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_NORTH), pos, renderer.blockAccess)) {
-			if (element.getFromZ() <= 0) {
+			if (element.cuboid.from.z() <= 0) {
 				--z;
 			}
 			
@@ -945,13 +943,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPPN = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y + 1, z);
 			}
 			
-			if (element.getFromZ() <= 0) {
+			if (element.cuboid.from.z() <= 0) {
 				++z;
 			}
 			
 			i1 = l;
 			
-			if (element.getFromZ() <= 0 || !renderer.blockAccess.getBlock(x, y, z - 1).isOpaqueCube()) {
+			if (element.cuboid.from.z() <= 0 || !renderer.blockAccess.getBlock(x, y, z - 1).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z - 1);
 			}
 			
@@ -960,18 +958,18 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			f9 = (f7 + renderer.aoLightValueScratchYZPN + renderer.aoLightValueScratchXZPN + renderer.aoLightValueScratchXYZPPN) / 4.0F;
 			f10 = (renderer.aoLightValueScratchYZNN + f7 + renderer.aoLightValueScratchXYZPNN + renderer.aoLightValueScratchXZPN) / 4.0F;
 			f11 = (renderer.aoLightValueScratchXYZNNN + renderer.aoLightValueScratchXZNN + renderer.aoLightValueScratchYZNN + f7) / 4.0F;
-			f3 = (float) ((double) f8 * (element.getToY()/16f) * (1.0D - (element.getFromX()/16f)) + (double) f9 * (element.getToY()/16f) * (element.getFromX()/16f) + (double) f10 * (1.0D - (element.getToY()/16f)) * (element.getFromX()/16f) + (double) f11 * (1.0D - (element.getToY()/16f)) * (1.0D - (element.getFromX()/16f)));
-			f4 = (float) ((double) f8 * (element.getToY()/16f) * (1.0D - (element.getToX()/16f)) + (double) f9 * (element.getToY()/16f) * (element.getToX()/16f) + (double) f10 * (1.0D - (element.getToY()/16f)) * (element.getToX()/16f) + (double) f11 * (1.0D - (element.getToY()/16f)) * (1.0D - (element.getToX()/16f)));
-			f5 = (float) ((double) f8 * (element.getFromY()/16f) * (1.0D - (element.getToX()/16f)) + (double) f9 * (element.getFromY()/16f) * (element.getToX()/16f) + (double) f10 * (1.0D - (element.getFromY()/16f)) * (element.getToX()/16f) + (double) f11 * (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getToX()/16f)));
-			f6 = (float) ((double) f8 * (element.getFromY()/16f) * (1.0D - (element.getFromX()/16f)) + (double) f9 * (element.getFromY()/16f) * (element.getFromX()/16f) + (double) f10 * (1.0D - (element.getFromY()/16f)) * (element.getFromX()/16f) + (double) f11 * (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getFromX()/16f)));
+			f3 = (float) ((double) f8 * (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.from.x()/16f)) + (double) f9 * (element.cuboid.to.y()/16f) * (element.cuboid.from.x()/16f) + (double) f10 * (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.from.x()/16f) + (double) f11 * (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.from.x()/16f)));
+			f4 = (float) ((double) f8 * (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.to.x()/16f)) + (double) f9 * (element.cuboid.to.y()/16f) * (element.cuboid.to.x()/16f) + (double) f10 * (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.to.x()/16f) + (double) f11 * (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.to.x()/16f)));
+			f5 = (float) ((double) f8 * (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.to.x()/16f)) + (double) f9 * (element.cuboid.from.y()/16f) * (element.cuboid.to.x()/16f) + (double) f10 * (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.to.x()/16f) + (double) f11 * (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.to.x()/16f)));
+			f6 = (float) ((double) f8 * (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.from.x()/16f)) + (double) f9 * (element.cuboid.from.y()/16f) * (element.cuboid.from.x()/16f) + (double) f10 * (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.from.x()/16f) + (double) f11 * (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.from.x()/16f)));
 			j1 = renderer.getAoBrightness(renderer.aoBrightnessXZNN, renderer.aoBrightnessXYZNPN, renderer.aoBrightnessYZPN, i1);
 			k1 = renderer.getAoBrightness(renderer.aoBrightnessYZPN, renderer.aoBrightnessXZPN, renderer.aoBrightnessXYZPPN, i1);
 			l1 = renderer.getAoBrightness(renderer.aoBrightnessYZNN, renderer.aoBrightnessXYZPNN, renderer.aoBrightnessXZPN, i1);
 			i2 = renderer.getAoBrightness(renderer.aoBrightnessXYZNNN, renderer.aoBrightnessXZNN, renderer.aoBrightnessYZNN, i1);
-			renderer.brightnessTopLeft = renderer.mixAoBrightness(j1, k1, l1, i2, (element.getToY()/16f) * (1.0D - (element.getFromX()/16f)), (element.getToY()/16f) * (element.getFromX()/16f), (1.0D - (element.getToY()/16f)) * (element.getFromX()/16f), (1.0D - (element.getToY()/16f)) * (1.0D - (element.getFromX()/16f)));
-			renderer.brightnessBottomLeft = renderer.mixAoBrightness(j1, k1, l1, i2, (element.getToY()/16f) * (1.0D - (element.getToX()/16f)), (element.getToY()/16f) * (element.getToX()/16f), (1.0D - (element.getToY()/16f)) * (element.getToX()/16f), (1.0D - (element.getToY()/16f)) * (1.0D - (element.getToX()/16f)));
-			renderer.brightnessBottomRight = renderer.mixAoBrightness(j1, k1, l1, i2, (element.getFromY()/16f) * (1.0D - (element.getToX()/16f)), (element.getFromY()/16f) * (element.getToX()/16f), (1.0D - (element.getFromY()/16f)) * (element.getToX()/16f), (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getToX()/16f)));
-			renderer.brightnessTopRight = renderer.mixAoBrightness(j1, k1, l1, i2, (element.getFromY()/16f) * (1.0D - (element.getFromX()/16f)), (element.getFromY()/16f) * (element.getFromX()/16f), (1.0D - (element.getFromY()/16f)) * (element.getFromX()/16f), (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getFromX()/16f)));
+			renderer.brightnessTopLeft = renderer.mixAoBrightness(j1, k1, l1, i2, (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.from.x()/16f)), (element.cuboid.to.y()/16f) * (element.cuboid.from.x()/16f), (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.from.x()/16f), (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.from.x()/16f)));
+			renderer.brightnessBottomLeft = renderer.mixAoBrightness(j1, k1, l1, i2, (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.to.x()/16f)), (element.cuboid.to.y()/16f) * (element.cuboid.to.x()/16f), (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.to.x()/16f), (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.to.x()/16f)));
+			renderer.brightnessBottomRight = renderer.mixAoBrightness(j1, k1, l1, i2, (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.to.x()/16f)), (element.cuboid.from.y()/16f) * (element.cuboid.to.x()/16f), (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.to.x()/16f), (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.to.x()/16f)));
+			renderer.brightnessTopRight = renderer.mixAoBrightness(j1, k1, l1, i2, (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.from.x()/16f)), (element.cuboid.from.y()/16f) * (element.cuboid.from.x()/16f), (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.from.x()/16f), (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.from.x()/16f)));
 			
 			if (flag1) {
 				renderer.colorRedTopLeft = renderer.colorRedBottomLeft = renderer.colorRedBottomRight = renderer.colorRedTopRight = colorR * 0.8F;
@@ -995,12 +993,11 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			iicon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 2);
-			this.renderFaceNorth(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_NORTH), renderer);
+			this.renderFaceNorth(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_NORTH), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_SOUTH), pos, renderer.blockAccess)) {
-			if (element.getToZ() >= 16) {
+			if (element.cuboid.to.z() >= 16) {
 				++z;
 			}
 			
@@ -1049,13 +1046,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y + 1, z);
 			}
 			
-			if (element.getToZ() >= 16) {
+			if (element.cuboid.to.z() >= 16) {
 				--z;
 			}
 			
 			i1 = l;
 			
-			if (element.getToZ() >= 16 || !renderer.blockAccess.getBlock(x, y, z + 1).isOpaqueCube()) {
+			if (element.cuboid.to.z() >= 16 || !renderer.blockAccess.getBlock(x, y, z + 1).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z + 1);
 			}
 			
@@ -1064,18 +1061,18 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			f9 = (f7 + renderer.aoLightValueScratchYZPP + renderer.aoLightValueScratchXZPP + renderer.aoLightValueScratchXYZPPP) / 4.0F;
 			f10 = (renderer.aoLightValueScratchYZNP + f7 + renderer.aoLightValueScratchXYZPNP + renderer.aoLightValueScratchXZPP) / 4.0F;
 			f11 = (renderer.aoLightValueScratchXYZNNP + renderer.aoLightValueScratchXZNP + renderer.aoLightValueScratchYZNP + f7) / 4.0F;
-			f3 = (float) ((double) f8 * (element.getToY()/16f) * (1.0D - (element.getFromX()/16f)) + (double) f9 * (element.getToY()/16f) * (element.getFromX()/16f) + (double) f10 * (1.0D - (element.getToY()/16f)) * (element.getFromX()/16f) + (double) f11 * (1.0D - (element.getToY()/16f)) * (1.0D - (element.getFromX()/16f)));
-			f4 = (float) ((double) f8 * (element.getFromY()/16f) * (1.0D - (element.getFromX()/16f)) + (double) f9 * (element.getFromY()/16f) * (element.getFromX()/16f) + (double) f10 * (1.0D - (element.getFromY()/16f)) * (element.getFromX()/16f) + (double) f11 * (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getFromX()/16f)));
-			f5 = (float) ((double) f8 * (element.getFromY()/16f) * (1.0D - (element.getToX()/16f)) + (double) f9 * (element.getFromY()/16f) * (element.getToX()/16f) + (double) f10 * (1.0D - (element.getFromY()/16f)) * (element.getToX()/16f) + (double) f11 * (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getToX()/16f)));
-			f6 = (float) ((double) f8 * (element.getToY()/16f) * (1.0D - (element.getToX()/16f)) + (double) f9 * (element.getToY()/16f) * (element.getToX()/16f) + (double) f10 * (1.0D - (element.getToY()/16f)) * (element.getToX()/16f) + (double) f11 * (1.0D - (element.getToY()/16f)) * (1.0D - (element.getToX()/16f)));
+			f3 = (float) ((double) f8 * (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.from.x()/16f)) + (double) f9 * (element.cuboid.to.y()/16f) * (element.cuboid.from.x()/16f) + (double) f10 * (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.from.x()/16f) + (double) f11 * (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.from.x()/16f)));
+			f4 = (float) ((double) f8 * (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.from.x()/16f)) + (double) f9 * (element.cuboid.from.y()/16f) * (element.cuboid.from.x()/16f) + (double) f10 * (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.from.x()/16f) + (double) f11 * (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.from.x()/16f)));
+			f5 = (float) ((double) f8 * (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.to.x()/16f)) + (double) f9 * (element.cuboid.from.y()/16f) * (element.cuboid.to.x()/16f) + (double) f10 * (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.to.x()/16f) + (double) f11 * (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.to.x()/16f)));
+			f6 = (float) ((double) f8 * (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.to.x()/16f)) + (double) f9 * (element.cuboid.to.y()/16f) * (element.cuboid.to.x()/16f) + (double) f10 * (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.to.x()/16f) + (double) f11 * (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.to.x()/16f)));
 			j1 = renderer.getAoBrightness(renderer.aoBrightnessXZNP, renderer.aoBrightnessXYZNPP, renderer.aoBrightnessYZPP, i1);
 			k1 = renderer.getAoBrightness(renderer.aoBrightnessYZPP, renderer.aoBrightnessXZPP, renderer.aoBrightnessXYZPPP, i1);
 			l1 = renderer.getAoBrightness(renderer.aoBrightnessYZNP, renderer.aoBrightnessXYZPNP, renderer.aoBrightnessXZPP, i1);
 			i2 = renderer.getAoBrightness(renderer.aoBrightnessXYZNNP, renderer.aoBrightnessXZNP, renderer.aoBrightnessYZNP, i1);
-			renderer.brightnessTopLeft = renderer.mixAoBrightness(j1, i2, l1, k1, (element.getToY()/16f) * (1.0D - (element.getFromX()/16f)), (1.0D - (element.getToY()/16f)) * (1.0D - (element.getFromX()/16f)), (1.0D - (element.getToY()/16f)) * (element.getFromX()/16f), (element.getToY()/16f) * (element.getFromX()/16f));
-			renderer.brightnessBottomLeft = renderer.mixAoBrightness(j1, i2, l1, k1, (element.getFromY()/16f) * (1.0D - (element.getFromX()/16f)), (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getFromX()/16f)), (1.0D - (element.getFromY()/16f)) * (element.getFromX()/16f), (element.getFromY()/16f) * (element.getFromX()/16f));
-			renderer.brightnessBottomRight = renderer.mixAoBrightness(j1, i2, l1, k1, (element.getFromY()/16f) * (1.0D - (element.getToX()/16f)), (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getToX()/16f)), (1.0D - (element.getFromY()/16f)) * (element.getToX()/16f), (element.getFromY()/16f) * (element.getToX()/16f));
-			renderer.brightnessTopRight = renderer.mixAoBrightness(j1, i2, l1, k1, (element.getToY()/16f) * (1.0D - (element.getToX()/16f)), (1.0D - (element.getToY()/16f)) * (1.0D - (element.getToX()/16f)), (1.0D - (element.getToY()/16f)) * (element.getToX()/16f), (element.getToY()/16f) * (element.getToX()/16f));
+			renderer.brightnessTopLeft = renderer.mixAoBrightness(j1, i2, l1, k1, (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.from.x()/16f)), (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.from.x()/16f)), (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.from.x()/16f), (element.cuboid.to.y()/16f) * (element.cuboid.from.x()/16f));
+			renderer.brightnessBottomLeft = renderer.mixAoBrightness(j1, i2, l1, k1, (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.from.x()/16f)), (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.from.x()/16f)), (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.from.x()/16f), (element.cuboid.from.y()/16f) * (element.cuboid.from.x()/16f));
+			renderer.brightnessBottomRight = renderer.mixAoBrightness(j1, i2, l1, k1, (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.to.x()/16f)), (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.to.x()/16f)), (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.to.x()/16f), (element.cuboid.from.y()/16f) * (element.cuboid.to.x()/16f));
+			renderer.brightnessTopRight = renderer.mixAoBrightness(j1, i2, l1, k1, (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.to.x()/16f)), (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.to.x()/16f)), (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.to.x()/16f), (element.cuboid.to.y()/16f) * (element.cuboid.to.x()/16f));
 			
 			if (flag1) {
 				renderer.colorRedTopLeft = renderer.colorRedBottomLeft = renderer.colorRedBottomRight = renderer.colorRedTopRight = colorR * 0.8F;
@@ -1099,12 +1096,11 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			iicon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 3);
-			this.renderFaceSouth(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_SOUTH), renderer);
+			this.renderFaceSouth(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_SOUTH), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_WEST), pos, renderer.blockAccess)) {
-			if (element.getFromX() <= 0) {
+			if (element.cuboid.from.x() <= 0) {
 				--x;
 			}
 			
@@ -1153,13 +1149,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZNPP = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y + 1, z + 1);
 			}
 			
-			if (element.getFromX() <= 0) {
+			if (element.cuboid.from.x() <= 0) {
 				++x;
 			}
 			
 			i1 = l;
 			
-			if (element.getFromX() <= 0 || !renderer.blockAccess.getBlock(x - 1, y, z).isOpaqueCube()) {
+			if (element.cuboid.from.x() <= 0 || !renderer.blockAccess.getBlock(x - 1, y, z).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x - 1, y, z);
 			}
 			
@@ -1168,18 +1164,18 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			f9 = (f7 + renderer.aoLightValueScratchXZNP + renderer.aoLightValueScratchXYNP + renderer.aoLightValueScratchXYZNPP) / 4.0F;
 			f10 = (renderer.aoLightValueScratchXZNN + f7 + renderer.aoLightValueScratchXYZNPN + renderer.aoLightValueScratchXYNP) / 4.0F;
 			f11 = (renderer.aoLightValueScratchXYZNNN + renderer.aoLightValueScratchXYNN + renderer.aoLightValueScratchXZNN + f7) / 4.0F;
-			f3 = (float) ((double) f9 * (element.getToY()/16f) * (element.getToZ()/16f) + (double) f10 * (element.getToY()/16f) * (1.0D - (element.getToZ()/16f)) + (double) f11 * (1.0D - (element.getToY()/16f)) * (1.0D - (element.getToZ()/16f)) + (double) f8 * (1.0D - (element.getToY()/16f)) * (element.getToZ()/16f));
-			f4 = (float) ((double) f9 * (element.getToY()/16f) * (element.getFromZ()/16f) + (double) f10 * (element.getToY()/16f) * (1.0D - (element.getFromZ()/16f)) + (double) f11 * (1.0D - (element.getToY()/16f)) * (1.0D - (element.getFromZ()/16f)) + (double) f8 * (1.0D - (element.getToY()/16f)) * (element.getFromZ()/16f));
-			f5 = (float) ((double) f9 * (element.getFromY()/16f) * (element.getFromZ()/16f) + (double) f10 * (element.getFromY()/16f) * (1.0D - (element.getFromZ()/16f)) + (double) f11 * (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getFromZ()/16f)) + (double) f8 * (1.0D - (element.getFromY()/16f)) * (element.getFromZ()/16f));
-			f6 = (float) ((double) f9 * (element.getFromY()/16f) * (element.getToZ()/16f) + (double) f10 * (element.getFromY()/16f) * (1.0D - (element.getToZ()/16f)) + (double) f11 * (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getToZ()/16f)) + (double) f8 * (1.0D - (element.getFromY()/16f)) * (element.getToZ()/16f));
+			f3 = (float) ((double) f9 * (element.cuboid.to.y()/16f) * (element.cuboid.to.z()/16f) + (double) f10 * (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.to.z()/16f)) + (double) f11 * (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.to.z()/16f)) + (double) f8 * (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.to.z()/16f));
+			f4 = (float) ((double) f9 * (element.cuboid.to.y()/16f) * (element.cuboid.from.z()/16f) + (double) f10 * (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.from.z()/16f)) + (double) f11 * (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.from.z()/16f)) + (double) f8 * (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.from.z()/16f));
+			f5 = (float) ((double) f9 * (element.cuboid.from.y()/16f) * (element.cuboid.from.z()/16f) + (double) f10 * (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.from.z()/16f)) + (double) f11 * (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.from.z()/16f)) + (double) f8 * (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.from.z()/16f));
+			f6 = (float) ((double) f9 * (element.cuboid.from.y()/16f) * (element.cuboid.to.z()/16f) + (double) f10 * (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.to.z()/16f)) + (double) f11 * (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.to.z()/16f)) + (double) f8 * (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.to.z()/16f));
 			j1 = renderer.getAoBrightness(renderer.aoBrightnessXYNN, renderer.aoBrightnessXYZNNP, renderer.aoBrightnessXZNP, i1);
 			k1 = renderer.getAoBrightness(renderer.aoBrightnessXZNP, renderer.aoBrightnessXYNP, renderer.aoBrightnessXYZNPP, i1);
 			l1 = renderer.getAoBrightness(renderer.aoBrightnessXZNN, renderer.aoBrightnessXYZNPN, renderer.aoBrightnessXYNP, i1);
 			i2 = renderer.getAoBrightness(renderer.aoBrightnessXYZNNN, renderer.aoBrightnessXYNN, renderer.aoBrightnessXZNN, i1);
-			renderer.brightnessTopLeft = renderer.mixAoBrightness(k1, l1, i2, j1, (element.getToY()/16f) * (element.getToZ()/16f), (element.getToY()/16f) * (1.0D - (element.getToZ()/16f)), (1.0D - (element.getToY()/16f)) * (1.0D - (element.getToZ()/16f)), (1.0D - (element.getToY()/16f)) * (element.getToZ()/16f));
-			renderer.brightnessBottomLeft = renderer.mixAoBrightness(k1, l1, i2, j1, (element.getToY()/16f) * (element.getFromZ()/16f), (element.getToY()/16f) * (1.0D - (element.getFromZ()/16f)), (1.0D - (element.getToY()/16f)) * (1.0D - (element.getFromZ()/16f)), (1.0D - (element.getToY()/16f)) * (element.getFromZ()/16f));
-			renderer.brightnessBottomRight = renderer.mixAoBrightness(k1, l1, i2, j1, (element.getFromY()/16f) * (element.getFromZ()/16f), (element.getFromY()/16f) * (1.0D - (element.getFromZ()/16f)), (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getFromZ()/16f)), (1.0D - (element.getFromY()/16f)) * (element.getFromZ()/16f));
-			renderer.brightnessTopRight = renderer.mixAoBrightness(k1, l1, i2, j1, (element.getFromY()/16f) * (element.getToZ()/16f), (element.getFromY()/16f) * (1.0D - (element.getToZ()/16f)), (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getToZ()/16f)), (1.0D - (element.getFromY()/16f)) * (element.getToZ()/16f));
+			renderer.brightnessTopLeft = renderer.mixAoBrightness(k1, l1, i2, j1, (element.cuboid.to.y()/16f) * (element.cuboid.to.z()/16f), (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.to.z()/16f)), (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.to.z()/16f)), (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.to.z()/16f));
+			renderer.brightnessBottomLeft = renderer.mixAoBrightness(k1, l1, i2, j1, (element.cuboid.to.y()/16f) * (element.cuboid.from.z()/16f), (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.from.z()/16f)), (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.from.z()/16f)), (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.from.z()/16f));
+			renderer.brightnessBottomRight = renderer.mixAoBrightness(k1, l1, i2, j1, (element.cuboid.from.y()/16f) * (element.cuboid.from.z()/16f), (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.from.z()/16f)), (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.from.z()/16f)), (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.from.z()/16f));
+			renderer.brightnessTopRight = renderer.mixAoBrightness(k1, l1, i2, j1, (element.cuboid.from.y()/16f) * (element.cuboid.to.z()/16f), (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.to.z()/16f)), (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.to.z()/16f)), (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.to.z()/16f));
 			
 			if (flag1) {
 				renderer.colorRedTopLeft = renderer.colorRedBottomLeft = renderer.colorRedBottomRight = renderer.colorRedTopRight = colorR * 0.6F;
@@ -1203,12 +1199,11 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			iicon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 4);
-			this.renderFaceWest(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_WEST), renderer);
+			this.renderFaceWest(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_WEST), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_EAST), pos, renderer.blockAccess)) {
-			if (element.getToX() >= 16) {
+			if (element.cuboid.to.x() >= 16) {
 				++x;
 			}
 			
@@ -1257,13 +1252,13 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 				renderer.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y + 1, z + 1);
 			}
 			
-			if (element.getToX() >= 16) {
+			if (element.cuboid.to.x() >= 16) {
 				--x;
 			}
 			
 			i1 = l;
 			
-			if (element.getToX() >= 16 || !renderer.blockAccess.getBlock(x + 1, y, z).isOpaqueCube()) {
+			if (element.cuboid.to.x() >= 16 || !renderer.blockAccess.getBlock(x + 1, y, z).isOpaqueCube()) {
 				i1 = block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y, z);
 			}
 			
@@ -1272,18 +1267,18 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			f9 = (renderer.aoLightValueScratchXYZPNN + renderer.aoLightValueScratchXYPN + renderer.aoLightValueScratchXZPN + f7) / 4.0F;
 			f10 = (renderer.aoLightValueScratchXZPN + f7 + renderer.aoLightValueScratchXYZPPN + renderer.aoLightValueScratchXYPP) / 4.0F;
 			f11 = (f7 + renderer.aoLightValueScratchXZPP + renderer.aoLightValueScratchXYPP + renderer.aoLightValueScratchXYZPPP) / 4.0F;
-			f3 = (float) ((double) f8 * (1.0D - (element.getFromY()/16f)) * (element.getToZ()/16f) + (double) f9 * (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getToZ()/16f)) + (double) f10 * (element.getFromY()/16f) * (1.0D - (element.getToZ()/16f)) + (double) f11 * (element.getFromY()/16f) * (element.getToZ()/16f));
-			f4 = (float) ((double) f8 * (1.0D - (element.getFromY()/16f)) * (element.getFromZ()/16f) + (double) f9 * (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getFromZ()/16f)) + (double) f10 * (element.getFromY()/16f) * (1.0D - (element.getFromZ()/16f)) + (double) f11 * (element.getFromY()/16f) * (element.getFromZ()/16f));
-			f5 = (float) ((double) f8 * (1.0D - (element.getToY()/16f)) * (element.getFromZ()/16f) + (double) f9 * (1.0D - (element.getToY()/16f)) * (1.0D - (element.getFromZ()/16f)) + (double) f10 * (element.getToY()/16f) * (1.0D - (element.getFromZ()/16f)) + (double) f11 * (element.getToY()/16f) * (element.getFromZ()/16f));
-			f6 = (float) ((double) f8 * (1.0D - (element.getToY()/16f)) * (element.getToZ()/16f) + (double) f9 * (1.0D - (element.getToY()/16f)) * (1.0D - (element.getToZ()/16f)) + (double) f10 * (element.getToY()/16f) * (1.0D - (element.getToZ()/16f)) + (double) f11 * (element.getToY()/16f) * (element.getToZ()/16f));
+			f3 = (float) ((double) f8 * (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.to.z()/16f) + (double) f9 * (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.to.z()/16f)) + (double) f10 * (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.to.z()/16f)) + (double) f11 * (element.cuboid.from.y()/16f) * (element.cuboid.to.z()/16f));
+			f4 = (float) ((double) f8 * (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.from.z()/16f) + (double) f9 * (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.from.z()/16f)) + (double) f10 * (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.from.z()/16f)) + (double) f11 * (element.cuboid.from.y()/16f) * (element.cuboid.from.z()/16f));
+			f5 = (float) ((double) f8 * (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.from.z()/16f) + (double) f9 * (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.from.z()/16f)) + (double) f10 * (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.from.z()/16f)) + (double) f11 * (element.cuboid.to.y()/16f) * (element.cuboid.from.z()/16f));
+			f6 = (float) ((double) f8 * (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.to.z()/16f) + (double) f9 * (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.to.z()/16f)) + (double) f10 * (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.to.z()/16f)) + (double) f11 * (element.cuboid.to.y()/16f) * (element.cuboid.to.z()/16f));
 			j1 = renderer.getAoBrightness(renderer.aoBrightnessXYPN, renderer.aoBrightnessXYZPNP, renderer.aoBrightnessXZPP, i1);
 			k1 = renderer.getAoBrightness(renderer.aoBrightnessXZPP, renderer.aoBrightnessXYPP, renderer.aoBrightnessXYZPPP, i1);
 			l1 = renderer.getAoBrightness(renderer.aoBrightnessXZPN, renderer.aoBrightnessXYZPPN, renderer.aoBrightnessXYPP, i1);
 			i2 = renderer.getAoBrightness(renderer.aoBrightnessXYZPNN, renderer.aoBrightnessXYPN, renderer.aoBrightnessXZPN, i1);
-			renderer.brightnessTopLeft = renderer.mixAoBrightness(j1, i2, l1, k1, (1.0D - (element.getFromY()/16f)) * (element.getToZ()/16f), (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getToZ()/16f)), (element.getFromY()/16f) * (1.0D - (element.getToZ()/16f)), (element.getFromY()/16f) * (element.getToZ()/16f));
-			renderer.brightnessBottomLeft = renderer.mixAoBrightness(j1, i2, l1, k1, (1.0D - (element.getFromY()/16f)) * (element.getFromZ()/16f), (1.0D - (element.getFromY()/16f)) * (1.0D - (element.getFromZ()/16f)), (element.getFromY()/16f) * (1.0D - (element.getFromZ()/16f)), (element.getFromY()/16f) * (element.getFromZ()/16f));
-			renderer.brightnessBottomRight = renderer.mixAoBrightness(j1, i2, l1, k1, (1.0D - (element.getToY()/16f)) * (element.getFromZ()/16f), (1.0D - (element.getToY()/16f)) * (1.0D - (element.getFromZ()/16f)), (element.getToY()/16f) * (1.0D - (element.getFromZ()/16f)), (element.getToY()/16f) * (element.getFromZ()/16f));
-			renderer.brightnessTopRight = renderer.mixAoBrightness(j1, i2, l1, k1, (1.0D - (element.getToY()/16f)) * (element.getToZ()/16f), (1.0D - (element.getToY()/16f)) * (1.0D - (element.getToZ()/16f)), (element.getToY()/16f) * (1.0D - (element.getToZ()/16f)), (element.getToY()/16f) * (element.getToZ()/16f));
+			renderer.brightnessTopLeft = renderer.mixAoBrightness(j1, i2, l1, k1, (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.to.z()/16f), (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.to.z()/16f)), (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.to.z()/16f)), (element.cuboid.from.y()/16f) * (element.cuboid.to.z()/16f));
+			renderer.brightnessBottomLeft = renderer.mixAoBrightness(j1, i2, l1, k1, (1.0D - (element.cuboid.from.y()/16f)) * (element.cuboid.from.z()/16f), (1.0D - (element.cuboid.from.y()/16f)) * (1.0D - (element.cuboid.from.z()/16f)), (element.cuboid.from.y()/16f) * (1.0D - (element.cuboid.from.z()/16f)), (element.cuboid.from.y()/16f) * (element.cuboid.from.z()/16f));
+			renderer.brightnessBottomRight = renderer.mixAoBrightness(j1, i2, l1, k1, (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.from.z()/16f), (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.from.z()/16f)), (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.from.z()/16f)), (element.cuboid.to.y()/16f) * (element.cuboid.from.z()/16f));
+			renderer.brightnessTopRight = renderer.mixAoBrightness(j1, i2, l1, k1, (1.0D - (element.cuboid.to.y()/16f)) * (element.cuboid.to.z()/16f), (1.0D - (element.cuboid.to.y()/16f)) * (1.0D - (element.cuboid.to.z()/16f)), (element.cuboid.to.y()/16f) * (1.0D - (element.cuboid.to.z()/16f)), (element.cuboid.to.y()/16f) * (element.cuboid.to.z()/16f));
 			
 			if (flag1) {
 				renderer.colorRedTopLeft = renderer.colorRedBottomLeft = renderer.colorRedBottomRight = renderer.colorRedTopRight = colorR * 0.6F;
@@ -1307,8 +1302,7 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 			renderer.colorRedTopRight *= f6;
 			renderer.colorGreenTopRight *= f6;
 			renderer.colorBlueTopRight *= f6;
-			iicon = renderer.getBlockIcon(block, renderer.blockAccess, x, y, z, 5);
-			this.renderFaceEast(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_EAST), renderer);
+			this.renderFaceEast(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_EAST), renderer);
 		}
 		
 		renderer.enableAO = false;
@@ -1354,39 +1348,39 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		int l = block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z);
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_BOTTOM), pos, renderer.blockAccess)) {
-			tessellator.setBrightness(element.getFromY() > 0 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x, y - 1, z));
+			tessellator.setBrightness(element.cuboid.from.y() > 0 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x, y - 1, z));
 			tessellator.setColorOpaque_F(bottomR, bottomG, bottomB);
-			this.renderFaceBottom(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_BOTTOM), renderer);
+			this.renderFaceBottom(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_BOTTOM), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_TOP), pos, renderer.blockAccess)) {
-			tessellator.setBrightness(element.getToY() < 16 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x, y + 1, z));
+			tessellator.setBrightness(element.cuboid.to.y() < 16 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x, y + 1, z));
 			tessellator.setColorOpaque_F(topR, topG, topB);
-			this.renderFaceTop(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_TOP), renderer);
+			this.renderFaceTop(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_TOP), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_NORTH), pos, renderer.blockAccess)) {
-			tessellator.setBrightness(element.getFromZ() > 0 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z - 1));
+			tessellator.setBrightness(element.cuboid.from.z() > 0 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z - 1));
 			tessellator.setColorOpaque_F(nsR, nsG, nsB);
-			this.renderFaceNorth(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_NORTH), renderer);
+			this.renderFaceNorth(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_NORTH), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_SOUTH), pos, renderer.blockAccess)) {
-			tessellator.setBrightness(element.getToZ() < 16 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z + 1));
+			tessellator.setBrightness(element.cuboid.to.z() < 16 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z + 1));
 			tessellator.setColorOpaque_F(nsR, nsG, nsB);
-			this.renderFaceSouth(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_SOUTH), renderer);
+			this.renderFaceSouth(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_SOUTH), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_WEST), pos, renderer.blockAccess)) {
-			tessellator.setBrightness(element.getFromX() > 0 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x - 1, y, z));
+			tessellator.setBrightness(element.cuboid.from.x() > 0 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x - 1, y, z));
 			tessellator.setColorOpaque_F(weR, weG, weB);
-			this.renderFaceWest(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_WEST), renderer);
+			this.renderFaceWest(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_WEST), renderer);
 		}
 		
 		if (this.shouldRenderFace(element.getFace(McConst.SIDE_EAST), pos, renderer.blockAccess)) {
-			tessellator.setBrightness(element.getToX() < 16 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y, z));
+			tessellator.setBrightness(element.cuboid.to.x() < 16 ? l : block.getMixedBrightnessForBlock(renderer.blockAccess, x + 1, y, z));
 			tessellator.setColorOpaque_F(weR, weG, weB);
-			this.renderFaceEast(blockWithModel, x, y, z, element, element.getFace(McConst.SIDE_EAST), renderer);
+			this.renderFaceEast(blockWithModel, x, y, z, element.cuboidInWorld(x, y, z), element.getFace(McConst.SIDE_EAST), renderer);
 		}
 	}
 	
@@ -1398,7 +1392,7 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 	}
 	
 	// -Y
-	private void renderFaceBottom(IBlockWithYLBlockModel block, int x, int y, int z, YLBlockModel.Element element, YLBlockModel.Face face, RenderBlocks renderer) {
+	private void renderFaceBottom(IBlockWithYLBlockModel block, int x, int y, int z, Cuboid cuboid, YLBlockModel.Face face, RenderBlocks renderer) {
 		Tessellator tessellator = Tessellator.instance;
 		IIcon icon = block.getFaceTexture(face.getTextureName());
 		
@@ -1407,35 +1401,29 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		double vMin = icon.getInterpolatedV(face.getVMin());
 		double vMax = icon.getInterpolatedV(face.getVMax());
 		
-		double xFrom = x + element.getFromX() / 16f;
-		double xTo = x + element.getToX() / 16f;
-		double yFrom = y + element.getFromY() / 16f;
-		double zFrom = z + element.getFromZ() / 16f;
-		double zTo = z + element.getToZ() / 16f;
-		
 		if (renderer.enableAO) {
 			tessellator.setColorOpaque_F(renderer.colorRedTopLeft, renderer.colorGreenTopLeft, renderer.colorBlueTopLeft);
 			tessellator.setBrightness(renderer.brightnessTopLeft);
-			tessellator.addVertexWithUV(xFrom, yFrom, zTo, uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.to.z(), uMin, vMax);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomLeft, renderer.colorGreenBottomLeft, renderer.colorBlueBottomLeft);
 			tessellator.setBrightness(renderer.brightnessBottomLeft);
-			tessellator.addVertexWithUV(xFrom, yFrom, zFrom, uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.from.z(), uMin, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomRight, renderer.colorGreenBottomRight, renderer.colorBlueBottomRight);
 			tessellator.setBrightness(renderer.brightnessBottomRight);
-			tessellator.addVertexWithUV(xTo, yFrom, zFrom, uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.from.z(), uMax, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedTopRight, renderer.colorGreenTopRight, renderer.colorBlueTopRight);
 			tessellator.setBrightness(renderer.brightnessTopRight);
-			tessellator.addVertexWithUV(xTo, yFrom, zTo, uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.to.z(), uMax, vMax);
 		} else {
-			tessellator.addVertexWithUV(xFrom, yFrom, zTo, uMin, vMax);
-			tessellator.addVertexWithUV(xFrom, yFrom, zFrom, uMin, vMin);
-			tessellator.addVertexWithUV(xTo, yFrom, zFrom, uMax, vMin);
-			tessellator.addVertexWithUV(xTo, yFrom, zTo, uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.to.z(), uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.from.z(), uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.from.z(), uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.to.z(), uMax, vMax);
 		}
 	}
 	
 	// +Y
-	public void renderFaceTop(IBlockWithYLBlockModel block, int x, int y, int z, YLBlockModel.Element element, YLBlockModel.Face face, RenderBlocks renderer) {
+	public void renderFaceTop(IBlockWithYLBlockModel block, int x, int y, int z, Cuboid cuboid, YLBlockModel.Face face, RenderBlocks renderer) {
 		Tessellator tessellator = Tessellator.instance;
 		IIcon icon = block.getFaceTexture(face.getTextureName());
 		
@@ -1444,35 +1432,29 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		double vMin = icon.getInterpolatedV(face.getVMin());
 		double vMax = icon.getInterpolatedV(face.getVMax());
 		
-		double xFrom = x + element.getFromX() / 16f;
-		double xTo = x + element.getToX() / 16f;
-		double yTo = y + element.getToY() / 16f;
-		double zFrom = z + element.getFromZ() / 16f;
-		double zTo = z + element.getToZ() / 16f;
-		
 		if (renderer.enableAO) {
 			tessellator.setColorOpaque_F(renderer.colorRedTopLeft, renderer.colorGreenTopLeft, renderer.colorBlueTopLeft);
 			tessellator.setBrightness(renderer.brightnessTopLeft);
-			tessellator.addVertexWithUV(xTo, yTo, zTo, uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.to.z(), uMax, vMax);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomLeft, renderer.colorGreenBottomLeft, renderer.colorBlueBottomLeft);
 			tessellator.setBrightness(renderer.brightnessBottomLeft);
-			tessellator.addVertexWithUV(xTo, yTo, zFrom, uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.from.z(), uMax, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomRight, renderer.colorGreenBottomRight, renderer.colorBlueBottomRight);
 			tessellator.setBrightness(renderer.brightnessBottomRight);
-			tessellator.addVertexWithUV(xFrom, yTo, zFrom, uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.from.z(), uMin, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedTopRight, renderer.colorGreenTopRight, renderer.colorBlueTopRight);
 			tessellator.setBrightness(renderer.brightnessTopRight);
-			tessellator.addVertexWithUV(xFrom, yTo, zTo, uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.to.z(), uMin, vMax);
 		} else {
-			tessellator.addVertexWithUV(xTo, yTo, zTo, uMax, vMax);
-			tessellator.addVertexWithUV(xTo, yTo, zFrom, uMax, vMin);
-			tessellator.addVertexWithUV(xFrom, yTo, zFrom, uMin, vMin);
-			tessellator.addVertexWithUV(xFrom, yTo, zTo, uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.to.z(), uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.from.z(), uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.from.z(), uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.to.z(), uMin, vMax);
 		}
 	}
 	
 	// -Z
-	private void renderFaceNorth(IBlockWithYLBlockModel block, int x, int y, int z, YLBlockModel.Element element, YLBlockModel.Face face, RenderBlocks renderer) {
+	private void renderFaceNorth(IBlockWithYLBlockModel block, int x, int y, int z, Cuboid cuboid, YLBlockModel.Face face, RenderBlocks renderer) {
 		Tessellator tessellator = Tessellator.instance;
 		IIcon icon = block.getFaceTexture(face.getTextureName());
 		
@@ -1481,35 +1463,29 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		double vMin = icon.getInterpolatedV(face.getVMin());
 		double vMax = icon.getInterpolatedV(face.getVMax());
 		
-		double xFrom = x + element.getFromX() / 16f;
-		double xTo = x + element.getToX() / 16f;
-		double yFrom = y + element.getFromY() / 16f;
-		double yTo = y + element.getToY() / 16f;
-		double zFrom = z + element.getFromZ() / 16f;
-		
 		if (renderer.enableAO) {
 			tessellator.setColorOpaque_F(renderer.colorRedTopLeft, renderer.colorGreenTopLeft, renderer.colorBlueTopLeft);
 			tessellator.setBrightness(renderer.brightnessTopLeft);
-			tessellator.addVertexWithUV(xFrom, yTo, zFrom, uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.from.z(), uMax, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomLeft, renderer.colorGreenBottomLeft, renderer.colorBlueBottomLeft);
 			tessellator.setBrightness(renderer.brightnessBottomLeft);
-			tessellator.addVertexWithUV(xTo, yTo, zFrom, uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.from.z(), uMin, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomRight, renderer.colorGreenBottomRight, renderer.colorBlueBottomRight);
 			tessellator.setBrightness(renderer.brightnessBottomRight);
-			tessellator.addVertexWithUV(xTo, yFrom, zFrom, uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.from.z(), uMin, vMax);
 			tessellator.setColorOpaque_F(renderer.colorRedTopRight, renderer.colorGreenTopRight, renderer.colorBlueTopRight);
 			tessellator.setBrightness(renderer.brightnessTopRight);
-			tessellator.addVertexWithUV(xFrom, yFrom, zFrom, uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.from.z(), uMax, vMax);
 		} else {
-			tessellator.addVertexWithUV(xFrom, yTo, zFrom, uMax, vMin);
-			tessellator.addVertexWithUV(xTo, yTo, zFrom, uMin, vMin);
-			tessellator.addVertexWithUV(xTo, yFrom, zFrom, uMin, vMax);
-			tessellator.addVertexWithUV(xFrom, yFrom, zFrom, uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.from.z(), uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.from.z(), uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.from.z(), uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.from.z(), uMax, vMax);
 		}
 	}
 	
 	// +Z
-	public void renderFaceSouth(IBlockWithYLBlockModel block, int x, int y, int z, YLBlockModel.Element element, YLBlockModel.Face face, RenderBlocks renderer) {
+	public void renderFaceSouth(IBlockWithYLBlockModel block, int x, int y, int z, Cuboid cuboid, YLBlockModel.Face face, RenderBlocks renderer) {
 		Tessellator tessellator = Tessellator.instance;
 		IIcon icon = block.getFaceTexture(face.getTextureName());
 		
@@ -1518,35 +1494,29 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		double vMin = icon.getInterpolatedV(face.getVMin());
 		double vMax = icon.getInterpolatedV(face.getVMax());
 		
-		double xFrom = x + element.getFromX() / 16f;
-		double xTo = x + element.getToX() / 16f;
-		double yFrom = y + element.getFromY() / 16f;
-		double yTo = y + element.getToY() / 16f;
-		double zTo = z + element.getToZ() / 16f;
-		
 		if (renderer.enableAO) {
 			tessellator.setColorOpaque_F(renderer.colorRedTopLeft, renderer.colorGreenTopLeft, renderer.colorBlueTopLeft);
 			tessellator.setBrightness(renderer.brightnessTopLeft);
-			tessellator.addVertexWithUV(xFrom, yTo, zTo, uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.to.z(), uMin, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomLeft, renderer.colorGreenBottomLeft, renderer.colorBlueBottomLeft);
 			tessellator.setBrightness(renderer.brightnessBottomLeft);
-			tessellator.addVertexWithUV(xFrom, yFrom, zTo, uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.to.z(), uMin, vMax);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomRight, renderer.colorGreenBottomRight, renderer.colorBlueBottomRight);
 			tessellator.setBrightness(renderer.brightnessBottomRight);
-			tessellator.addVertexWithUV(xTo, yFrom, zTo, uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.to.z(), uMax, vMax);
 			tessellator.setColorOpaque_F(renderer.colorRedTopRight, renderer.colorGreenTopRight, renderer.colorBlueTopRight);
 			tessellator.setBrightness(renderer.brightnessTopRight);
-			tessellator.addVertexWithUV(xTo, yTo, zTo, uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.to.z(), uMax, vMin);
 		} else {
-			tessellator.addVertexWithUV(xFrom, yTo, zTo, uMin, vMin);
-			tessellator.addVertexWithUV(xFrom, yFrom, zTo, uMin, vMax);
-			tessellator.addVertexWithUV(xTo, yFrom, zTo, uMax, vMax);
-			tessellator.addVertexWithUV(xTo, yTo, zTo, uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.to.z(), uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.to.z(), uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.to.z(), uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.to.z(), uMax, vMin);
 		}
 	}
 	
 	// -X
-	private void renderFaceWest(IBlockWithYLBlockModel block, int x, int y, int z, YLBlockModel.Element element, YLBlockModel.Face face, RenderBlocks renderer) {
+	private void renderFaceWest(IBlockWithYLBlockModel block, int x, int y, int z, Cuboid cuboid, YLBlockModel.Face face, RenderBlocks renderer) {
 		Tessellator tessellator = Tessellator.instance;
 		IIcon icon = block.getFaceTexture(face.getTextureName());
 		
@@ -1555,35 +1525,29 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		double vMin = icon.getInterpolatedV(face.getVMin());
 		double vMax = icon.getInterpolatedV(face.getVMax());
 		
-		double xFrom = x + element.getFromX() / 16f;
-		double yFrom = y + element.getFromY() / 16f;
-		double yTo = y + element.getToY() / 16f;
-		double zFrom = z + element.getFromZ() / 16f;
-		double zTo = z + element.getToZ() / 16f;
-		
 		if (renderer.enableAO) {
 			tessellator.setColorOpaque_F(renderer.colorRedTopLeft, renderer.colorGreenTopLeft, renderer.colorBlueTopLeft);
 			tessellator.setBrightness(renderer.brightnessTopLeft);
-			tessellator.addVertexWithUV(xFrom, yTo, zTo, uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.to.z(), uMax, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomLeft, renderer.colorGreenBottomLeft, renderer.colorBlueBottomLeft);
 			tessellator.setBrightness(renderer.brightnessBottomLeft);
-			tessellator.addVertexWithUV(xFrom, yTo, zFrom, uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.from.z(), uMin, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomRight, renderer.colorGreenBottomRight, renderer.colorBlueBottomRight);
 			tessellator.setBrightness(renderer.brightnessBottomRight);
-			tessellator.addVertexWithUV(xFrom, yFrom, zFrom, uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.from.z(), uMin, vMax);
 			tessellator.setColorOpaque_F(renderer.colorRedTopRight, renderer.colorGreenTopRight, renderer.colorBlueTopRight);
 			tessellator.setBrightness(renderer.brightnessTopRight);
-			tessellator.addVertexWithUV(xFrom, yFrom, zTo, uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.to.z(), uMax, vMax);
 		} else {
-			tessellator.addVertexWithUV(xFrom, yTo, zTo, uMax, vMin);
-			tessellator.addVertexWithUV(xFrom, yTo, zFrom, uMin, vMin);
-			tessellator.addVertexWithUV(xFrom, yFrom, zFrom, uMin, vMax);
-			tessellator.addVertexWithUV(xFrom, yFrom, zTo, uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.to.z(), uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.to.y(), cuboid.from.z(), uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.from.z(), uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.from.x(), cuboid.from.y(), cuboid.to.z(), uMax, vMax);
 		}
 	}
 	
 	// +X
-	public void renderFaceEast(IBlockWithYLBlockModel block, int x, int y, int z, YLBlockModel.Element element, YLBlockModel.Face face, RenderBlocks renderer) {
+	public void renderFaceEast(IBlockWithYLBlockModel block, int x, int y, int z, Cuboid cuboid, YLBlockModel.Face face, RenderBlocks renderer) {
 		Tessellator tessellator = Tessellator.instance;
 		IIcon icon = block.getFaceTexture(face.getTextureName());
 		
@@ -1592,30 +1556,24 @@ public class RenderYLBlockModel implements ISimpleBlockRenderingHandler {
 		double vMin = icon.getInterpolatedV(face.getVMin());
 		double vMax = icon.getInterpolatedV(face.getVMax());
 		
-		double xTo = x + element.getToX() / 16f;
-		double yFrom = y + element.getFromY() / 16f;
-		double yTo = y + element.getToY() / 16f;
-		double zFrom = z + element.getFromZ() / 16f;
-		double zTo = z + element.getToZ() / 16f;
-		
 		if (renderer.enableAO) {
 			tessellator.setColorOpaque_F(renderer.colorRedTopLeft, renderer.colorGreenTopLeft, renderer.colorBlueTopLeft);
 			tessellator.setBrightness(renderer.brightnessTopLeft);
-			tessellator.addVertexWithUV(xTo, yFrom, zTo, uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.to.z(), uMin, vMax);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomLeft, renderer.colorGreenBottomLeft, renderer.colorBlueBottomLeft);
 			tessellator.setBrightness(renderer.brightnessBottomLeft);
-			tessellator.addVertexWithUV(xTo, yFrom, zFrom, uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.from.z(), uMax, vMax);
 			tessellator.setColorOpaque_F(renderer.colorRedBottomRight, renderer.colorGreenBottomRight, renderer.colorBlueBottomRight);
 			tessellator.setBrightness(renderer.brightnessBottomRight);
-			tessellator.addVertexWithUV(xTo, yTo, zFrom, uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.from.z(), uMax, vMin);
 			tessellator.setColorOpaque_F(renderer.colorRedTopRight, renderer.colorGreenTopRight, renderer.colorBlueTopRight);
 			tessellator.setBrightness(renderer.brightnessTopRight);
-			tessellator.addVertexWithUV(xTo, yTo, zTo, uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.to.z(), uMin, vMin);
 		} else {
-			tessellator.addVertexWithUV(xTo, yFrom, zTo, uMin, vMax);
-			tessellator.addVertexWithUV(xTo, yFrom, zFrom, uMax, vMax);
-			tessellator.addVertexWithUV(xTo, yTo, zFrom, uMax, vMin);
-			tessellator.addVertexWithUV(xTo, yTo, zTo, uMin, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.to.z(), uMin, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.from.y(), cuboid.from.z(), uMax, vMax);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.from.z(), uMax, vMin);
+			tessellator.addVertexWithUV(cuboid.to.x(), cuboid.to.y(), cuboid.to.z(), uMin, vMin);
 		}
 	}
 	
