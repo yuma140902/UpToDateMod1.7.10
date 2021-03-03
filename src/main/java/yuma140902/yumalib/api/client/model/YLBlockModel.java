@@ -4,6 +4,8 @@ package yuma140902.yumalib.api.client.model;
 import net.minecraftforge.common.util.ForgeDirection;
 import yuma140902.yumalib.ModYumaLib;
 import yuma140902.yumalib.api.McConst;
+import yuma140902.yumalib.api.math.Cuboid;
+import yuma140902.yumalib.api.math.Vector3;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -20,8 +22,7 @@ public class YLBlockModel {
 	 * ブロックモデルを構成する直方体
 	 */
 	public static class Element {
-		private final int[] from;
-		private final int[] to;
+		public final Cuboid cuboid;
 		private final Face faceDown;
 		private final Face faceUp;
 		private final Face faceNorth;
@@ -33,12 +34,11 @@ public class YLBlockModel {
 		 * @param from 直方体の始点 [x, y, z]
 		 * @param to 直方体の終点 [x, y, z]
 		 */
-		public Element(int[] from, int[] to, Face faceDown, Face faceUp, Face faceNorth, Face faceSouth, Face faceWest, Face faceEast){
+		public Element(double[] from, double[] to, Face faceDown, Face faceUp, Face faceNorth, Face faceSouth, Face faceWest, Face faceEast){
 			if(from.length != 3 || to.length != 3){
 				throw new IllegalArgumentException();
 			}
-			this.from = from;
-			this.to = to;
+			this.cuboid = new Cuboid(new Vector3(from), new Vector3(to));
 			this.faceDown = faceDown;
 			this.faceUp = faceUp;
 			this.faceNorth = faceNorth;
@@ -47,31 +47,24 @@ public class YLBlockModel {
 			this.faceEast = faceEast;
 		}
 		
-		/**
-		 * 直方体の始点。
-		 * ちなみに1ブロックは16*16*16
-		 * @return [x, y, z]
-		 */
-		public int[] getFrom(){
-			return this.from;
+		
+		private int cacheX = -1;
+		private int cacheY = -1;
+		private int cacheZ = -1;
+		private Cuboid cuboidInWorld = null;
+		public Cuboid cuboidInWorld(int x, int y, int z){
+			if(x == cacheX && y == cacheY && z == cacheZ && cuboidInWorld != null)
+				return cuboidInWorld;
+			
+			Vector3 newFrom = this.cuboid.from.newMultiplied16th().addSelf(x, y, z);
+			Vector3 newTo = this.cuboid.to.newMultiplied16th().addSelf(x, y, z);
+			Cuboid newCuboid = new Cuboid(newFrom, newTo);
+			cacheX = x;
+			cacheY = y;
+			cacheZ = z;
+			cuboidInWorld = newCuboid;
+			return cuboidInWorld;
 		}
-		
-		public int getFromX() {return this.from[0];}
-		public int getFromY() {return this.from[1];}
-		public int getFromZ() {return this.from[2];}
-		
-		/**
-		 * 直方体の終点。
-		 * ちなみに1ブロックは16*16*16
-		 * @return [x, y, z]
-		 */
-		public int[] getTo(){
-			return this.to;
-		}
-		
-		public int getToX(){return this.to[0];}
-		public int getToY(){return this.to[1];}
-		public int getToZ(){return this.to[2];}
 		
 		@Nullable
 		public Face getFace(int side){
