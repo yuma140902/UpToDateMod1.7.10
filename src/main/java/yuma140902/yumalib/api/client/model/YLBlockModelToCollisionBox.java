@@ -22,13 +22,7 @@ public class YLBlockModelToCollisionBox {
 	}
 	
 	public static AxisAlignedBB newAABBFromElement(int x, int y, int z, YLBlockModel.Element element){
-		double xFrom = x + element.getFromX() / 16f;
-		double xTo = x + element.getToX() / 16f;
-		double yFrom = y + element.getFromY() / 16f;
-		double yTo = y + element.getToY() / 16f;
-		double zFrom = z + element.getFromZ() / 16f;
-		double zTo = z + element.getToZ() / 16f;
-		return AxisAlignedBB.getBoundingBox(xFrom, yFrom, zFrom, xTo, yTo, zTo);
+		return element.cuboidInWorld(x, y, z).toAABB();
 	}
 	
 	private static void addIfIntersects(AxisAlignedBB aabb, AxisAlignedBB mask, List list) {
