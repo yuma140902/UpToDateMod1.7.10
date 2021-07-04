@@ -2,11 +2,11 @@
 [![Java CI with Gradle](https://github.com/yuma140902/UpToDateMod1.7.10/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/yuma140902/UpToDateMod1.7.10/actions)
 
 [![Available on CurseForge](https://cf.way2muchnoise.eu/full_306766_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod)
-[![recommended-version:v2.3.10](https://badgen.net/github/release/yuma140902/UpToDateMod1.7.10/stable?color=green&label=Recommended)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/3142930)
-[![latest-version:v2.3.10](https://badgen.net/github/release/yuma140902/UpToDateMod1.7.10?color=97ca00&label=Latest)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/3142930)
+[![recommended-version:v2.3.10](https://badgen.net/github/release/yuma140902/UpToDateMod1.7.10/stable?color=green&label=Recommended)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/3375733)
+[![latest-version:v2.3.10](https://badgen.net/github/release/yuma140902/UpToDateMod1.7.10?color=97ca00&label=Latest)](https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/3375733)
 [![Minecraft1.7.10](https://img.shields.io/badge/Minecraft-1.7.10-blue.svg)](https://www.minecraft.net/)
 
-[![All Blocks and Items as of v2.0.1](https://yuma140902.github.io/img/uptodatemod-allitems.png)](#)
+[![All Blocks and Items as of v2.0.1](https://media.forgecdn.net/attachments/280/876/uptodatemod-allitems.png)](#)
 
 A Forge mod which backports new Minecraft (1.8.0 and later) features to Minecraft 1.7.10
 
