@@ -48,7 +48,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Mod(modid = ModUpToDateMod.MOD_ID, name = ModUpToDateMod.MOD_NAME, version = ModUpToDateMod.MOD_VERSION, useMetadata = true, guiFactory = UpToDateModConstants.MOD_CONFIG_GUI_FACTORY,
-		 dependencies = "after:etfuturum;after:ProjectE;required-after:yumalib"
+		 dependencies = "after:etfuturum;after:ProjectE;after:Thaumcraft;required-after:yumalib"
 )
 public class ModUpToDateMod {
 	@Mod.Metadata(ModUpToDateMod.MOD_ID)

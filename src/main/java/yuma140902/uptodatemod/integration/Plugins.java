@@ -18,6 +18,7 @@ public final class Plugins {
 	static {
 		registerPlugin(PluginEtFuturum.INSTANCE);
 		registerPlugin(PluginProjectE.INSTANCE);
+		registerPlugin(PluginThaumcraft.INSTANCE);
 	}
 	
 	private static void registerPlugin(IPlugin plugin) {
