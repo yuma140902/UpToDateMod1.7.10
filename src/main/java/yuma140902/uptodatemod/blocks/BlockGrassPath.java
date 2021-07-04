@@ -32,6 +32,7 @@ public class BlockGrassPath extends Block implements IRegisterable {
 		this.setLightOpacity(0);
 		this.setCreativeTab(CreativeTabs.tabDecorations);
 		this.setHardness(0.65F);
+		this.setHarvestLevel("shovel", 0);
 		useNeighborBrightness = true;
 		this.setStepSound(soundTypeGrass);
 	}
