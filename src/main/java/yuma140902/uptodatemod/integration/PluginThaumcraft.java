@@ -5,16 +5,18 @@ import cpw.mods.fml.common.Loader;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.config.Configuration;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.blocks.*;
+import yuma140902.uptodatemod.config.ModConfigCore;
 
 import java.util.stream.IntStream;
 
-public class PluginThaumcraft implements ITweakingPostPlugin {
+public class PluginThaumcraft implements ITweakingPostPlugin, IConfiguratingPlugin {
   public static final PluginThaumcraft INSTANCE = new PluginThaumcraft();
 
   @Override
@@ -41,6 +43,36 @@ public class PluginThaumcraft implements ITweakingPostPlugin {
   public boolean isIntegrationEnabled() {
     return isModLoaded();
   }
+
+  public static final String CATEGORY = ModConfigCore.getSubCategory("Integration.ThaumCraft");
+
+  public boolean config_integrateWithTC = true;
+
+  @Override
+  public void initConfig(Configuration cfg) {
+    if(!isModLoaded()) {
+      return;
+    }
+
+    cfg.addCustomCategoryComment(CATEGORY, "Settings to cooperate with ThaumCraft");
+    cfg.setCategoryLanguageKey(CATEGORY, ModConfigCore.getCategoryLangkey("integration.thaumcraft").toString());
+    cfg.setCategoryRequiresMcRestart(CATEGORY, true);
+  }
+
+  @Override
+  public void syncConfig(Configuration cfg) {
+    if(!isModLoaded()) {
+      return;
+    }
+
+    config_integrateWithTC = cfg.getBoolean("integrate", CATEGORY, true,
+            "Cooperate with ThaumCraft or not | ThaumCraftと連携するかどうか",
+            ModConfigCore.getPropertyLangkey("integrate_thaumcraft").toString());
+
+  }
+
+  @Override
+  public void wrapConfig(Configuration cfg) {}
 
   private static void registerObjectTagNullable(String oreDict, AspectList aspects){
     if(Strings.isNullOrEmpty(oreDict) || aspects == null) return;

@@ -18,16 +18,17 @@ public class IntegrationConfigs {
 			.requireMcRestart();
 		integrationCategory.registerToForge(cfg);
 		
-		PluginEtFuturum.INSTANCE.initConfig(cfg);
+		Plugins.initConfig(cfg);
 	}
 
 	public static void syncConfig(Configuration cfg) {
 		integrationCategory.registerPropertiesToForge(cfg);
-		PluginEtFuturum.INSTANCE.syncConfig(cfg);
+
+		Plugins.syncConfig(cfg);
 	}
 
 	public static void wrapConfig(Configuration cfg) {
-		PluginEtFuturum.INSTANCE.wrapConfig(cfg);
+		Plugins.wrapConfig(cfg);
 	}
 	
 	

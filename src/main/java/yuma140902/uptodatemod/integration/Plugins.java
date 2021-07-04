@@ -3,6 +3,8 @@ package yuma140902.uptodatemod.integration;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import yuma140902.uptodatemod.ModUpToDateMod;
@@ -52,6 +54,30 @@ public final class Plugins {
 				((ITweakingPostPlugin)plugin).tweakModPost();
 			}
 		}
+	}
+
+	static void initConfig(Configuration cfg) {
+		plugins.stream()
+						.filter(IPlugin::isIntegrationEnabled)
+						.filter(p -> p instanceof IConfiguratingPlugin)
+						.map(p -> (IConfiguratingPlugin)p)
+						.forEach(p -> p.initConfig(cfg));
+	}
+
+	static void syncConfig(Configuration cfg) {
+		plugins.stream()
+						.filter(IPlugin::isIntegrationEnabled)
+						.filter(p -> p instanceof IConfiguratingPlugin)
+						.map(p -> (IConfiguratingPlugin)p)
+						.forEach(p -> p.syncConfig(cfg));
+	}
+
+	static void wrapConfig(Configuration cfg){
+		plugins.stream()
+						.filter(IPlugin::isIntegrationEnabled)
+						.filter(p -> p instanceof IConfiguratingPlugin)
+						.map(p -> (IConfiguratingPlugin)p)
+						.forEach(p -> p.wrapConfig(cfg));
 	}
 	
 	private static void removeOtherModsRecipes() {
