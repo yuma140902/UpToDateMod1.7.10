@@ -178,8 +178,11 @@ public class ModUpToDateMod {
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_DIORITE, stoneConfig);
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_ANDESITE, stoneConfig);
 			
+
+		}
+		if(EnumDisableableFeatures.magmaBlock.featureEnabled()) {
 			MyMinableGenerator.Config magmaConfig
-							= new MyMinableGenerator.Config(ModConfigCore.WorldGen.genMagmaBlock(), 33, 5, 0, 40, ModConfigCore.WorldGen.magmaBlockBlackList(), Blocks.netherrack);
+					= new MyMinableGenerator.Config(ModConfigCore.WorldGen.genMagmaBlock(), 33, 5, 0, 40, ModConfigCore.WorldGen.magmaBlockBlackList(), Blocks.netherrack);
 			WorldGenerators.myMinableGenerator.addOreGenerator(MyBlocks.magmaBlock, magmaConfig);
 		}
 		WorldGenerators.register();
