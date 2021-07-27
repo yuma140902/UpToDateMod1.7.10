@@ -56,6 +56,8 @@ public class ModConfigCore {
 		private static int[] coarseDirtBlackList = new int[] {1, -1};
 		private static boolean genMagmaBlock = true;
 		private static int[] magmaBlockBlackList = new int[] {0, 1};
+		private static boolean genDeepslate = true;
+		private static int[] deepslateBlackList = new int[]{1, -1};
 		
 		public static boolean genStones() {return genStones;}
 		public static int[] stonesBlackList() {return stonesBlackList;}
@@ -65,6 +67,8 @@ public class ModConfigCore {
 		public static int[] coarseDirtBlackList() {return coarseDirtBlackList;}
 		public static boolean genMagmaBlock() {return genMagmaBlock;}
 		public static int[] magmaBlockBlackList() {return magmaBlockBlackList;}
+		public static boolean genDeepslate() {return genDeepslate;}
+		public static int[] deepslateBlackList(){return deepslateBlackList;}
 	}
 	
 	public static class Recipe {
@@ -189,6 +193,13 @@ public class ModConfigCore {
 			.add(PropertyBuilder.integerList("genMagmaBlockDimensionBlackList")
 				.defaultIntList(WorldGen.magmaBlockBlackList)
 				.langKey(getPropertyLangkey("generate_magma_block_blacklist"))
+				)
+			.add(PropertyBuilder.bool("genDeepslate")
+				.defaultBool(WorldGen.genDeepslate)
+				.comment("Generate Deepslate or not", "深層岩を生成するかどうか")
+				)
+			.add(PropertyBuilder.integerList("genDeepslateDimensionBlackList")
+				.defaultIntList(WorldGen.deepslateBlackList)
 				);
 		worldGenCategory.registerToForge(cfg);
 		
@@ -269,6 +280,8 @@ public class ModConfigCore {
 		WorldGen.coarseDirtBlackList = toIntList(worldGenCategory.get("genCoarseDirtDimensionBlackList", cfg).getStringList());       // 過去のconfigファイルとの互換性
 		WorldGen.genMagmaBlock = worldGenCategory.get("genMagmaBlock", cfg).getBoolean();
 		WorldGen.magmaBlockBlackList = worldGenCategory.get("genMagmaBlockDimensionBlackList", cfg).getIntList();
+		WorldGen.genDeepslate = worldGenCategory.get("genDeepslate", cfg).getBoolean();
+		WorldGen.deepslateBlackList = worldGenCategory.get("genDeepslateDimensionBlackList", cfg).getIntList();
 		
 		// Recipe
 		recipeCategory.registerPropertiesToForge(cfg);

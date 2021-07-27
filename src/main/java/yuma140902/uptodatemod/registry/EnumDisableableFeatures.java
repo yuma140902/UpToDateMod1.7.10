@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 public enum EnumDisableableFeatures implements IDisableableFeature {
 	stones("granite, andesite, diorite, polished ones, stairs, slabs, and walls"),
+	deepslateStone,
 	wood,
 	smoothStone,
 	armorStand,
