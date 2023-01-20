@@ -6,7 +6,41 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import yuma140902.uptodatemod.blocks.*;
+import yuma140902.uptodatemod.blocks.BlockBarrel;
+import yuma140902.uptodatemod.blocks.BlockBone;
+import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
+import yuma140902.uptodatemod.blocks.BlockConcrete;
+import yuma140902.uptodatemod.blocks.BlockConcretePowder;
+import yuma140902.uptodatemod.blocks.BlockDarkPrismarine;
+import yuma140902.uptodatemod.blocks.BlockDoorAcacia;
+import yuma140902.uptodatemod.blocks.BlockDoorBirch;
+import yuma140902.uptodatemod.blocks.BlockDoorDarkOak;
+import yuma140902.uptodatemod.blocks.BlockDoorJungle;
+import yuma140902.uptodatemod.blocks.BlockDoorSpruce;
+import yuma140902.uptodatemod.blocks.BlockEndStoneBricks;
+import yuma140902.uptodatemod.blocks.BlockFullWood;
+import yuma140902.uptodatemod.blocks.BlockGlazedTerracotta;
+import yuma140902.uptodatemod.blocks.BlockGrassPath;
+import yuma140902.uptodatemod.blocks.BlockLantern;
+import yuma140902.uptodatemod.blocks.BlockMagma;
+import yuma140902.uptodatemod.blocks.BlockNetherWart;
+import yuma140902.uptodatemod.blocks.BlockNewFlower;
+import yuma140902.uptodatemod.blocks.BlockPrismarine;
+import yuma140902.uptodatemod.blocks.BlockPrismarineBricks;
+import yuma140902.uptodatemod.blocks.BlockPurpur;
+import yuma140902.uptodatemod.blocks.BlockPurpurPillar;
+import yuma140902.uptodatemod.blocks.BlockRedNetherBricks;
+import yuma140902.uptodatemod.blocks.BlockRedSandStone;
+import yuma140902.uptodatemod.blocks.BlockSeaLantern;
+import yuma140902.uptodatemod.blocks.BlockSmoothQuartz;
+import yuma140902.uptodatemod.blocks.BlockSmoothSandstone;
+import yuma140902.uptodatemod.blocks.BlockSmoothStone;
+import yuma140902.uptodatemod.blocks.BlockSponge;
+import yuma140902.uptodatemod.blocks.BlockStone;
+import yuma140902.uptodatemod.blocks.BlockStoneSlab;
+import yuma140902.uptodatemod.blocks.BlockSweetBerryBush;
+import yuma140902.uptodatemod.blocks.BlockUnlimitedPot;
+import yuma140902.uptodatemod.blocks.BlockWitherRose;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ColorUtil;
@@ -51,11 +85,6 @@ public final class MyBlocks {
 	
 	public static final yuma140902.uptodatemod.blocks.BlockStone stone;
 	public static final BlockSmoothStone smoothStone;
-
-	public static final BlockDeepslate deepslate;
-	public static final BlockDeepslateCobbled cobbledDeepslate;
-	public static final BlockDeepslateBricks deepslateBricks;
-	public static final BlockDeepslatePolished polishedDeepslate;
 	
 	public static final BlockFullWood wood;
 	
@@ -154,10 +183,6 @@ public final class MyBlocks {
 	public static final BlockGenericStairs stairsPolishedGranite;
 	public static final BlockGenericStairs stairsPolishedDiorite;
 	public static final BlockGenericStairs stairsPolishedAndesite;
-	public static final BlockGenericStairs stairsCobbledDeepslate;
-	public static final BlockGenericStairs stairsDeepslateBricks;
-	public static final BlockGenericStairs stairsDeepslateTiles;
-	public static final BlockGenericStairs stairsPolishedDeepslate;
 	public static final BlockGenericStairs stairsRedNetherBricks;
 	public static final BlockGenericStairs stairsSmoothQuartz;
 	public static final BlockGenericStairs stairsPrismarine;
@@ -178,10 +203,6 @@ public final class MyBlocks {
 	public static final BlockGenericSlab slabPolishedGranite;
 	public static final BlockGenericSlab slabPolishedDiorite;
 	public static final BlockGenericSlab slabPolishedAndesite;
-	public static final BlockGenericSlab slabCobbledDeepslate;
-	public static final BlockGenericSlab slabPolishedDeepslate;
-	public static final BlockGenericSlab slabDeepslateBricks;
-	public static final BlockGenericSlab slabDeepslateTiles;
 	public static final BlockGenericSlab slabRedNetherBricks;
 	public static final BlockGenericSlab slabSmoothQuartz;
 	public static final BlockGenericSlab slabEndStoneBricks;
@@ -200,10 +221,6 @@ public final class MyBlocks {
 	public static final BlockGenericWall wallBricks;
 	public static final BlockGenericWall wallStoneBricks;
 	public static final BlockGenericWall wallMossyStoneBricks;
-	public static final BlockGenericWall wallCobbledDeepslate;
-	public static final BlockGenericWall wallPolishedDeepslate;
-	public static final BlockGenericWall wallDeepslateBricks;
-	public static final BlockGenericWall wallDeepslateTiles;
 	public static final BlockGenericWall wallSandstone;
 	public static final BlockGenericWall wallRedSandstone;
 	public static final BlockGenericWall wallNetherBricks;
@@ -242,18 +259,6 @@ public final class MyBlocks {
 		
 		add(stone = stones.featureEnabled() ? new yuma140902.uptodatemod.blocks.BlockStone() : null);
 		add(smoothStone = EnumDisableableFeatures.smoothStone.featureEnabled() ? new BlockSmoothStone() : null);
-		if(deepslateStone.featureEnabled()){
-			add(deepslate = new BlockDeepslate());
-			add(cobbledDeepslate = new BlockDeepslateCobbled());
-			add(deepslateBricks = new BlockDeepslateBricks());
-			add(polishedDeepslate = new BlockDeepslatePolished());
-		}
-		else{
-			deepslate = null;
-			cobbledDeepslate = null;
-			deepslateBricks = null;
-			polishedDeepslate = null;
-		}
 		
 		add(wood = EnumDisableableFeatures.wood.featureEnabled() ? new BlockFullWood() : null);
 		
@@ -451,10 +456,6 @@ public final class MyBlocks {
 			add(stairsPolishedGranite = StairsBuilder.of(MyBlocks.stone, "stairs_polished_granite").meta(BlockStone.META_POLISHED_GRANITE).build());
 			add(stairsPolishedDiorite = StairsBuilder.of(MyBlocks.stone, "stairs_polished_diorite").meta(BlockStone.META_POLISHED_DIORITE).build());
 			add(stairsPolishedAndesite = StairsBuilder.of(MyBlocks.stone, "stairs_polished_andesite").meta(BlockStone.META_POLISHED_ANDESITE).build());
-			add(stairsCobbledDeepslate = StairsBuilder.of(MyBlocks.cobbledDeepslate, "stairs_cobbled_deepslate").build());
-			add(stairsPolishedDeepslate = StairsBuilder.of(MyBlocks.polishedDeepslate, "stairs_polished_deepslate").meta(BlockDeepslatePolished.META_POLISHED).build());
-			add(stairsDeepslateBricks = StairsBuilder.of(MyBlocks.deepslateBricks, "stairs_deepslate_bricks").meta(BlockDeepslateBricks.META_BRICKS).build());
-			add(stairsDeepslateTiles = StairsBuilder.of(MyBlocks.deepslateBricks, "stairs_deepslate_tiles").meta(BlockDeepslateBricks.META_TILES).build());
 			add(stairsRedNetherBricks = StairsBuilder.of(MyBlocks.redNetherBricks, "stairs_red_nether_bricks").build());
 			add(stairsSmoothQuartz = StairsBuilder.of(MyBlocks.smoothQuartz, "stairs_smooth_quartz").build());
 			add(stairsPrismarine = StairsBuilder.of(MyBlocks.prismarineBlock, "stairs_prismarine").build());
@@ -476,10 +477,6 @@ public final class MyBlocks {
 			stairsPolishedGranite = null;
 			stairsPolishedDiorite = null;
 			stairsPolishedAndesite = null;
-			stairsCobbledDeepslate = null;
-			stairsPolishedDeepslate = null;
-			stairsDeepslateBricks = null;
-			stairsDeepslateTiles = null;
 			stairsRedNetherBricks = null;
 			stairsSmoothQuartz = null;
 			stairsPrismarine = null;
@@ -511,13 +508,6 @@ public final class MyBlocks {
 					= SlabBuilder.of(MyBlocks.stone, "slab_polished_andesite")
 					.meta(BlockStone.META_POLISHED_ANDESITE)
 					.specialSideTexture(StringUtil.name.domainedTexture("polished_andesite_slab_side")).build());
-			add(slabCobbledDeepslate = SlabBuilder.of(MyBlocks.cobbledDeepslate, "slab_cobbled_deepslate").build());
-			add(slabPolishedDeepslate = SlabBuilder.of(MyBlocks.polishedDeepslate, "slab_polished_deepslate")
-					.meta(BlockDeepslatePolished.META_POLISHED).build());
-			add(slabDeepslateBricks = SlabBuilder.of(MyBlocks.deepslateBricks, "slab_deepslate_bricks")
-					.meta(BlockDeepslateBricks.META_BRICKS).build());
-			add(slabDeepslateTiles = SlabBuilder.of(MyBlocks.deepslateBricks, "slab_deepslate_tiles")
-					.meta(BlockDeepslateBricks.META_TILES).build());
 			add(slabRedNetherBricks = SlabBuilder.of(MyBlocks.redNetherBricks, "slab_red_nether_bricks").build());
 			add(slabSmoothQuartz = SlabBuilder.of(MyBlocks.smoothQuartz, "slab_smooth_quartz").build());
 			add(slabEndStoneBricks = SlabBuilder.of(MyBlocks.endStoneBricks, "slab_end_stone_bricks").build());
@@ -541,10 +531,6 @@ public final class MyBlocks {
 			slabPolishedGranite = null;
 			slabPolishedDiorite = null;
 			slabPolishedAndesite = null;
-			slabCobbledDeepslate = null;
-			slabPolishedDeepslate = null;
-			slabDeepslateBricks = null;
-			slabDeepslateTiles = null;
 			slabRedNetherBricks = null;
 			slabSmoothQuartz = null;
 			slabEndStoneBricks = null;
@@ -565,13 +551,6 @@ public final class MyBlocks {
 			add(wallBricks = WallBuilder.of(Blocks.brick_block, "wall_bricks").build());
 			add(wallStoneBricks = WallBuilder.of(Blocks.stonebrick, "wall_stone_bricks").build());
 			add(wallMossyStoneBricks = WallBuilder.of(Blocks.stonebrick, "wall_mossy_stone_bricks").meta(1).build());
-			add(wallCobbledDeepslate = WallBuilder.of(MyBlocks.cobbledDeepslate, "wall_cobbled_deepslate").build());
-			add(wallPolishedDeepslate = WallBuilder.of(MyBlocks.polishedDeepslate, "wall_polished_deepslate")
-					.meta(BlockDeepslatePolished.META_POLISHED).build());
-			add(wallDeepslateBricks = WallBuilder.of(MyBlocks.deepslateBricks, "wall_deepslate_bricks")
-					.meta(BlockDeepslateBricks.META_BRICKS).build());
-			add(wallDeepslateTiles = WallBuilder.of(MyBlocks.deepslateBricks, "wall_deepslate_tiles")
-					.meta(BlockDeepslateBricks.META_TILES).build());
 			add(wallSandstone = WallBuilder.of(Blocks.sandstone, "wall_sandstone").build());
 			add(wallRedSandstone = WallBuilder.of(MyBlocks.redSandStone, "wall_red_sandstone").build());
 			add(wallNetherBricks = WallBuilder.of(Blocks.nether_brick, "wall_nether_bricks").build());
@@ -588,10 +567,6 @@ public final class MyBlocks {
 			wallBricks = null;
 			wallStoneBricks = null;
 			wallMossyStoneBricks = null;
-			wallCobbledDeepslate = null;
-			wallPolishedDeepslate = null;
-			wallDeepslateBricks = null;
-			wallDeepslateTiles = null;
 			wallSandstone = null;
 			wallRedSandstone = null;
 			wallNetherBricks = null;
