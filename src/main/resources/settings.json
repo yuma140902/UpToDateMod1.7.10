@@ -10,12 +10,12 @@
       "cache": "true"
     },
     {
-      "slug": "mc17",
+      "slug": "mc15",
       "urls": [
-        "https://launcher.mojang.com/v1/objects/1cf89c77ed5e72401b869f66410934804f3d6f52/client.jar"
+        "https://launcher.mojang.com/v1/objects/e3f78cd16f9eb9a52307ed96ebec64241cc5b32d/client.jar"
       ],
-      "filename": "minecraft-client-1.17.jar",
-      "hash": "d31cd74449fd04c8645d59ec15e885c9",
+      "filename": "minecraft-client-1.15.2.jar",
+      "hash": "1d87e7d75a99172f0cffc4f96cdc44da",
       "cache": "true"
     }
   ],
@@ -274,22 +274,22 @@
   ],
   "copies": [
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/barrel_bottom.png",
       "dest": "textures/blocks/barrel_bottom.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/barrel_side.png",
       "dest": "textures/blocks/barrel_side.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/barrel_top.png",
       "dest": "textures/blocks/barrel_top.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/barrel_top_open.png",
       "dest": "textures/blocks/barrel_top_open.png"
     },
@@ -845,130 +845,130 @@
       "dest": "textures/blocks/stone_polished_granite.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_acacia_log.png",
       "dest": "textures/blocks/stripped_acacia_log.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_acacia_log_top.png",
       "dest": "textures/blocks/stripped_acacia_log_top.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_birch_log.png",
       "dest": "textures/blocks/stripped_birch_log.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_birch_log_top.png",
       "dest": "textures/blocks/stripped_birch_log_top.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_dark_oak_log.png",
       "dest": "textures/blocks/stripped_dark_oak_log.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_dark_oak_log_top.png",
       "dest": "textures/blocks/stripped_dark_oak_log_top.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_jungle_log.png",
       "dest": "textures/blocks/stripped_jungle_log.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_jungle_log_top.png",
       "dest": "textures/blocks/stripped_jungle_log_top.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_oak_log.png",
       "dest": "textures/blocks/stripped_oak_log.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_oak_log_top.png",
       "dest": "textures/blocks/stripped_oak_log_top.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_spruce_log.png",
       "dest": "textures/blocks/stripped_spruce_log.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/stripped_spruce_log_top.png",
       "dest": "textures/blocks/stripped_spruce_log_top.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/acacia_trapdoor.png",
       "dest": "textures/blocks/trap_door_acacia.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/acacia_trapdoor.png",
       "dest": "textures/blocks/trap_door_acacia_180.png",
       "func": "rotate180"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/acacia_trapdoor.png",
       "dest": "textures/blocks/trap_door_acacia_270.png",
       "func": "rotate270"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/acacia_trapdoor.png",
       "dest": "textures/blocks/trap_door_acacia_90.png",
       "func": "rotate90"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/birch_trapdoor.png",
       "dest": "textures/blocks/trap_door_birch.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/birch_trapdoor.png",
       "dest": "textures/blocks/trap_door_birch_180.png",
       "func": "rotate180"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/birch_trapdoor.png",
       "dest": "textures/blocks/trap_door_birch_270.png",
       "func": "rotate270"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/birch_trapdoor.png",
       "dest": "textures/blocks/trap_door_birch_90.png",
       "func": "rotate90"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/dark_oak_trapdoor.png",
       "dest": "textures/blocks/trap_door_dark_oak.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/dark_oak_trapdoor.png",
       "dest": "textures/blocks/trap_door_dark_oak_180.png",
       "func": "rotate180"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/dark_oak_trapdoor.png",
       "dest": "textures/blocks/trap_door_dark_oak_270.png",
       "func": "rotate270"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/dark_oak_trapdoor.png",
       "dest": "textures/blocks/trap_door_dark_oak_90.png",
       "func": "rotate90"
@@ -979,88 +979,88 @@
       "dest": "textures/blocks/trap_door_iron.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/jungle_trapdoor.png",
       "dest": "textures/blocks/trap_door_jungle.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/jungle_trapdoor.png",
       "dest": "textures/blocks/trap_door_jungle_180.png",
       "func": "rotate180"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/jungle_trapdoor.png",
       "dest": "textures/blocks/trap_door_jungle_270.png",
       "func": "rotate270"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/jungle_trapdoor.png",
       "dest": "textures/blocks/trap_door_jungle_90.png",
       "func": "rotate90"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/spruce_trapdoor.png",
       "dest": "textures/blocks/trap_door_spruce.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/spruce_trapdoor.png",
       "dest": "textures/blocks/trap_door_spruce_180.png",
       "func": "rotate180"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/spruce_trapdoor.png",
       "dest": "textures/blocks/trap_door_spruce_270.png",
       "func": "rotate270"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/spruce_trapdoor.png",
       "dest": "textures/blocks/trap_door_spruce_90.png",
       "func": "rotate90"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/wither_rose.png",
       "dest": "textures/blocks/wither_rose.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/cornflower.png",
       "dest": "textures/blocks/flower_cornflower.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/lily_of_the_valley.png",
       "dest": "textures/blocks/flower_lily_of_the_valley.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/sweet_berry_bush_stage0.png",
       "dest": "textures/blocks/sweet_berry_bush_stage0.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/sweet_berry_bush_stage1.png",
       "dest": "textures/blocks/sweet_berry_bush_stage1.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/sweet_berry_bush_stage2.png",
       "dest": "textures/blocks/sweet_berry_bush_stage2.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/sweet_berry_bush_stage3.png",
       "dest": "textures/blocks/sweet_berry_bush_stage3.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/item/sweet_berries.png",
       "dest": "textures/items/sweet_berries.png"
     },
@@ -1120,37 +1120,37 @@
       "dest": "textures/items/raw_mutton.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/item/white_dye.png",
       "dest": "textures/items/white_dye.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/item/blue_dye.png",
       "dest": "textures/items/blue_dye.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/item/black_dye.png",
       "dest": "textures/items/black_dye.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/item/brown_dye.png",
       "dest": "textures/items/brown_dye.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/item/suspicious_stew.png",
       "dest": "textures/items/suspicious_stew.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/lantern.png",
       "dest": "textures/blocks/lantern.png"
     },
     {
-      "ar": "mc17",
+      "ar": "mc15",
       "src": "textures/block/lantern.png.mcmeta",
       "dest": "textures/blocks/lantern.png.mcmeta"
     },
