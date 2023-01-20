@@ -9,7 +9,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.List;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import javax.swing.JDialog;
 import yuma140902.uptodatemod.launch.model.Sound;
 
@@ -45,11 +53,37 @@ public class SoundDownloaderWithDisplay implements ISoundDownloader {
 		dialog.dispose();
 	}
 	
-	private HttpURLConnection newConnection(String url) throws IOException {
-		HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+	private HttpsURLConnection newConnection(String url) throws IOException {
+		TrustManager[] tm = { new X509TrustManager() {
+			public X509Certificate[] getAcceptedIssuers() {
+				return null;
+			}
+			@Override
+			public void checkClientTrusted(X509Certificate[] chain,
+										   String authType) throws CertificateException {
+			}
+			@Override
+			public void checkServerTrusted(X509Certificate[] chain,
+										   String authType) throws CertificateException {
+			}
+		} };
+		SSLContext sslcontext = null;
+		try {
+			sslcontext = SSLContext.getInstance("SSL");
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+		try {
+			sslcontext.init(null, tm, null);
+		} catch (KeyManagementException e) {
+			throw new RuntimeException(e);
+		}
+
+		HttpsURLConnection conn = (HttpsURLConnection) new URL(url).openConnection();
 		conn.setAllowUserInteraction(false);
 		conn.setInstanceFollowRedirects(true);
 		conn.setRequestMethod("GET");
+		conn.setSSLSocketFactory(sslcontext.getSocketFactory());
 		
 		return conn;
 	}
@@ -74,16 +108,18 @@ public class SoundDownloaderWithDisplay implements ISoundDownloader {
 	private void handle(Sound sound) throws IOException {
 		
 		Path dest = assetDir.resolve(sound.dest);
-		
+		System.out.println("handling sound " + sound.dest);
 		if(cacheExists(sound.dest)) {
+			System.out.println("sound " + sound.dest + " exists. skipping...");
 			applyCache(sound.dest);
 			return;
 		}
+		System.out.println("downloading sound " + sound.dest);
 		
-		HttpURLConnection conn = newConnection(sound.url);
+		HttpsURLConnection conn = newConnection(sound.url);
 		conn.connect();
 		
-		if(conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+		if(conn.getResponseCode() != HttpsURLConnection.HTTP_OK) {
 			this.display.showErrorDialog(sound);
 			return;
 		}

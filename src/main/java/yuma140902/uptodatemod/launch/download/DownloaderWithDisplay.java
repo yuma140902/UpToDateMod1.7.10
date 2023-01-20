@@ -5,11 +5,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.List;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import javax.swing.JDialog;
 
 public class DownloaderWithDisplay implements IDownloader {
@@ -46,11 +53,14 @@ public class DownloaderWithDisplay implements IDownloader {
 						succeeded = true;
 						break;
 					}
-					
-					HttpURLConnection conn = newConnection(url);
+
+					System.out.println("creating connection");
+					HttpsURLConnection conn = newConnection(url);
+					System.out.println("created connection");
 					conn.connect();
+					System.out.println("connected");
 					
-					if(conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+					if(conn.getResponseCode() != HttpsURLConnection.HTTP_OK) {
 						// 接続に失敗したら次の候補のURLをダウンロード
 						continue;
 					}
@@ -105,16 +115,46 @@ public class DownloaderWithDisplay implements IDownloader {
 	}
 	
 	
-	private HttpURLConnection newConnection(String url) throws IOException {
-		HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+	private HttpsURLConnection newConnection(String url) throws IOException {
+		System.out.println("creating connection to " + url);
+		URL urlobj = new URL(url);
+		System.out.println("created urlobj " + urlobj);
+		TrustManager[] tm = { new X509TrustManager() {
+			public X509Certificate[] getAcceptedIssuers() {
+				return null;
+			}
+			@Override
+			public void checkClientTrusted(X509Certificate[] chain,
+										   String authType) throws CertificateException {
+			}
+			@Override
+			public void checkServerTrusted(X509Certificate[] chain,
+										   String authType) throws CertificateException {
+			}
+		} };
+		SSLContext sslcontext = null;
+		try {
+			sslcontext = SSLContext.getInstance("SSL");
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+		try {
+			sslcontext.init(null, tm, null);
+		} catch (KeyManagementException e) {
+			throw new RuntimeException(e);
+		}
+
+		HttpsURLConnection conn = (HttpsURLConnection) urlobj.openConnection();
+		System.out.println("created");
 		conn.setAllowUserInteraction(false);
 		conn.setInstanceFollowRedirects(true);
 		conn.setRequestMethod("GET");
+		conn.setSSLSocketFactory(sslcontext.getSocketFactory());
 		
 		return conn;
 	}
 	
-	private void download(HttpURLConnection conn, String fileName) throws IOException {
+	private void download(HttpsURLConnection conn, String fileName) throws IOException {
 		Path dest = destDirectory.resolve(fileName);
 		
 		InputStream input;
