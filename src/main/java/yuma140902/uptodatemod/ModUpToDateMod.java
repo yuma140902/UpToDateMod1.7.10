@@ -185,6 +185,10 @@ public class ModUpToDateMod {
 					= new MyMinableGenerator.Config(ModConfigCore.WorldGen.genMagmaBlock(), 33, 5, 0, 40, ModConfigCore.WorldGen.magmaBlockBlackList(), Blocks.netherrack);
 			WorldGenerators.myMinableGenerator.addOreGenerator(MyBlocks.magmaBlock, magmaConfig);
 		}
+		if(EnumDisableableFeatures.deepslateStone.featureEnabled()){
+			MyMinableGenerator.Config config = new MyMinableGenerator.Config(ModConfigCore.WorldGen.genDeepslate(), 60, 10, 0, 16, ModConfigCore.WorldGen.deepslateBlackList());
+			WorldGenerators.myMinableGenerator.addOreGenerator(MyBlocks.deepslate, config);
+		}
 		WorldGenerators.register();
 		
 		proxy.registerEventHandlers();

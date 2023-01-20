@@ -9,6 +9,15 @@ tile.uptodate.stone.polished_andesite.name=磨かれた安山岩
 
 tile.uptodate.smooth_stone.name=滑らかな石
 
+tile.uptodate.deepslate.name=深層岩
+tile.uptodate.cobbled_deepslate.name=深層岩の丸石
+tile.uptodate.polished_deepslate.name=磨かれた深層岩
+tile.uptodate.polished_deepslate.chiseled.name=模様入りの深層岩
+tile.uptodate.deepslate_bricks.name=深層岩レンガ
+tile.uptodate.deepslate_bricks.cracked.name=ひび割れた深層岩レンガ
+tile.uptodate.deepslate_bricks.tiles.name=深層岩タイル
+tile.uptodate.deepslate_bricks.cracked_tiles.name=ひび割れた深層岩タイル
+
 tile.uptodate.wood.acacia.name=アカシアの木
 tile.uptodate.wood.birch.name=シラカバの木
 tile.uptodate.wood.dark_oak.name=ダークオークの木
@@ -118,6 +127,10 @@ tile.uptodate.stairs_andesite.name=安山岩の階段
 tile.uptodate.stairs_polished_granite.name=磨かれた花崗岩の階段
 tile.uptodate.stairs_polished_diorite.name=磨かれた閃緑岩の階段
 tile.uptodate.stairs_polished_andesite.name=磨かれた安山岩の階段
+tile.uptodate.stairs_cobbled_deepslate.name=深層岩の丸石の階段
+tile.uptodate.stairs_polished_deepslate.name=磨かれた深層岩の階段
+tile.uptodate.stairs_deepslate_bricks.name=深層岩レンガの階段
+tile.uptodate.stairs_deepslate_tiles.name=深層岩タイルの階段
 tile.uptodate.stairs_red_nether_bricks.name=赤いネザーレンガの階段
 tile.uptodate.stairs_smooth_quartz.name=滑らかなネザー水晶の階段
 tile.uptodate.stairs_prismarine.name=プリズマリンの階段
@@ -138,6 +151,10 @@ tile.uptodate.slab_andesite.name=安山岩のハーフブロック
 tile.uptodate.slab_polished_granite.name=磨かれた花崗岩のハーフブロック
 tile.uptodate.slab_polished_diorite.name=磨かれた閃緑岩のハーフブロック
 tile.uptodate.slab_polished_andesite.name=磨かれた安山岩のハーフブロック
+tile.uptodate.slab_cobbled_deepslate.name=深層岩の丸石のハーフブロック
+tile.uptodate.slab_polished_deepslate.name=磨かれた深層岩のハーフブロック
+tile.uptodate.slab_deepslate_bricks.name=深層岩レンガのハーフブロック
+tile.uptodate.slab_deepslate_tiles.name=深層岩タイルのハーフブロック
 tile.uptodate.slab_red_nether_bricks.name=赤いネザーレンガのハーフブロック
 tile.uptodate.slab_smooth_quartz.name=滑らかなネザー水晶のハーフブロック
 tile.uptodate.slab_end_stone_bricks.name=エンドストーンレンガのハーフブロック
@@ -156,6 +173,10 @@ tile.uptodate.slab_dark_prismairne.name=ダークプリズマリンのハーフ�
 tile.uptodate.wall_bricks.name=レンガの壁
 tile.uptodate.wall_stone_bricks.name=石レンガの壁
 tile.uptodate.wall_mossy_stone_bricks.name=苔むした石レンガの壁
+tile.uptodate.wall_cobbled_deepslate.name=深層岩の丸石の壁
+tile.uptodate.wall_polished_deepslate.name=磨かれた深層岩の壁
+tile.uptodate.wall_deepslate_bricks.name=深層岩レンガの壁
+tile.uptodate.wall_deepslate_tiles.name=深層岩タイルの壁
 tile.uptodate.wall_sandstone.name=砂岩の壁
 tile.uptodate.wall_red_sandstone.name=赤い砂岩の壁
 tile.uptodate.wall_nether_bricks.name=ネザーレンガの壁
@@ -304,4 +325,4 @@ config.uptodate.category.experimental=実験的機能
 config.uptodate.category.experimental.tooltip=実験的な機能。深刻なバグがあるかもしれません。
 
 config.uptodate.category.integration=他MODとの連携
-config.uptodate.category.integration.tooltip=他MODとの連携に関する設定
+config.uptodate.category.integration.tooltip=他MODとの連携に関する設定tile.uptodate.stone.0.name=Stone(UpToDateMod)
