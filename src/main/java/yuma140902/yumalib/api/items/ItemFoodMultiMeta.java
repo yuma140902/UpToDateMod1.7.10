@@ -13,13 +13,24 @@ import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 import yuma140902.yumalib.api.util.StringUtils;
 
+/**
+ * メタによって名前とテクスチャが変わるItemFood.
+ * <p>
+ *     マイクラの仕様により回復量をメタによって変えることはできない？
+ * </p>
+ */
 public class ItemFoodMultiMeta extends ItemFood implements IRegisterable {
 	@Nonnull protected final String name;
 	@Nonnull protected final String[] names;
 	protected final int MAX_META;
 	@Nonnull protected final String[] textureNames;
 	@Nonnull protected final IIcon[] icons;
-	
+
+	/**
+	 * @param name アイテム名。ModIDなし
+	 * @param names langファイルのキーの末尾につけられる文字列のリスト
+	 * @param textureNames テクスチャ名。ModIDなし
+	 */
 	public ItemFoodMultiMeta(int healAmount, float saturationModifier, @Nonnull String name, @Nonnull String[] names, @Nonnull String[] textureNames) {
 		super(healAmount, saturationModifier, false);
 		

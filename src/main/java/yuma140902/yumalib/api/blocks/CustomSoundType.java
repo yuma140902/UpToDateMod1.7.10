@@ -2,6 +2,9 @@ package yuma140902.yumalib.api.blocks;
 
 import net.minecraft.block.Block;
 
+/**
+ * ドメインを指定可能な{@link Block.SoundType}
+ */
 public class CustomSoundType extends Block.SoundType {
 
 	protected final String domain;

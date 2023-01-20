@@ -11,9 +11,19 @@ import net.minecraftforge.common.util.ForgeDirection;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
+/**
+ * 既存のフルサイズのブロックに対応するフェンスブロック。
+ * <p>
+ * 普通は継承する必要はない
+ * </p>
+ */
 public class BlockGenericFence extends BlockFence implements IRegisterable {
-	private String name;
-	
+	private final String name;
+
+	/**
+	 * @param texture テクスチャ名。ModIDなし
+	 * @param name 名前。ModIDなし
+	 */
 	public BlockGenericFence(String texture, String name) {
 		super(texture, Material.wood);
 		this.name = name;
@@ -29,6 +39,7 @@ public class BlockGenericFence extends BlockFence implements IRegisterable {
 	
 	@Override
 	// 応急処置
+	// TODO: ちゃんと実装する
 	public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side) {
 		return side == ForgeDirection.UP;
 	}

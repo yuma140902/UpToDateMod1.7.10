@@ -7,7 +7,6 @@ import net.minecraft.world.World;
 
 /**
  * ブロックの状態を表す。ブロックとメタデータの組み合わせ。
- * @author yuma1
  */
 public class BlockWithMetadata {
 	@Nonnull

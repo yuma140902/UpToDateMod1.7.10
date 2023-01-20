@@ -5,8 +5,15 @@ import net.minecraft.item.ItemMultiTexture;
 import net.minecraft.item.ItemStack;
 import yuma140902.yumalib.api.util.StringUtils;
 
+/**
+ * 複数のメタを持ち、メタによって名前が変わるブロックに対応するItemBlock
+ */
 public class ItemBlockMultiName extends ItemMultiTexture {
-	
+
+	/**
+	 * @param block ブロック
+	 * @param names langファイルのキーの末尾につけられる文字列のリスト
+	 */
 	public ItemBlockMultiName(Block block, String[] names) {
 		super(block, block, names);
 	}

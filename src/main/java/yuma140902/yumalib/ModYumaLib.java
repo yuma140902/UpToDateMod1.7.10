@@ -13,6 +13,9 @@ import yuma140902.yumalib.api.update.IUpdateChecker;
 import yuma140902.yumalib.config.YLConfigCore;
 import yuma140902.yumalib.proxy.YLCommonProxy;
 
+/**
+ * ModとしてのYumaLibのメインクラス
+ */
 @Mod(modid = YLConstants.MOD_ID, name = YLConstants.MOD_NAME, version = YLConstants.MOD_VERSION, useMetadata = true, guiFactory = YLConstants.CONFIG_GUI_FACTORY)
 public class ModYumaLib {
 	

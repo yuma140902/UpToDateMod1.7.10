@@ -10,11 +10,17 @@ import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
+/**
+ * 既存のフルサイズのブロックに対応する壁ブロック。
+ * <p>
+ * 普通は継承する必要はなく、{@link StairsBuilder}を使ってインスタンスを生成すればよい
+ * </p>
+ */
 public class BlockGenericStairs extends BlockStairs implements IRegisterable, IHasRecipes {
 
-	private Block baseBlock;
-	private int meta;
-	private String name;
+	private final Block baseBlock;
+	private final int meta;
+	private final String name;
 	
 	protected BlockGenericStairs(Block baseBlock, int meta, String name) {
 		super(baseBlock, meta);

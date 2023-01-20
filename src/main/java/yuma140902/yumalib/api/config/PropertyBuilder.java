@@ -6,9 +6,15 @@ import javax.annotation.Nullable;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
+/**
+ * コンフィグの項目のビルダー。
+ * <p>
+ *     ビルダーといいつつ最終的にインスタンスを作るのではなくForgeに情報を登録する。
+ * </p>
+ */
 public class PropertyBuilder {
 	
-	private String name;
+	private final String name;
 	private String category;
 	
 	private Type valueType;
@@ -33,38 +39,58 @@ public class PropertyBuilder {
 	
 	// ================= アクセサ ここから =================
 	
-	public String name() {
+	String name() {
 		return this.name;
 	}
 	
 	// ================= アクセサ ここまで =================
 	
 	// ================= コンストラクタ ここから =================
-	
+
+	/**
+	 * bool用のビルダーを新しく開始する
+	 * @param name 項目名
+	 */
 	public static PropertyBuilder bool(String name) {
 		PropertyBuilder property = new PropertyBuilder(name);
 		property.valueType = Type.BOOL;
 		return property;
 	}
-	
+
+	/**
+	 * string用のビルダーを新しく開始する
+	 * @param name 項目名
+	 */
 	public static PropertyBuilder string(String name) {
 		PropertyBuilder property = new PropertyBuilder(name);
 		property.valueType = Type.STRING;
 		return property;
 	}
-	
+
+	/**
+	 * int用のビルダーを新しく開始する
+	 * @param name 項目名
+	 */
 	public static PropertyBuilder integer(String name) {
 		PropertyBuilder property = new PropertyBuilder(name);
 		property.valueType = Type.INT;
 		return property;
 	}
-	
+
+	/**
+	 * 文字列のリスト用のビルダーを新しく開始する
+	 * @param name 項目名
+	 */
 	public static PropertyBuilder stringList(String name) {
 		PropertyBuilder property = new PropertyBuilder(name);
 		property.valueType = Type.STRING_LIST;
 		return property;
 	}
-	
+
+	/**
+	 * intのリスト用のビルダーを新しく開始する
+	 * @param name 項目名
+	 */
 	public static PropertyBuilder integerList(String name) {
 		PropertyBuilder property = new PropertyBuilder(name);
 		property.valueType = Type.INT_LIST;
@@ -74,85 +100,144 @@ public class PropertyBuilder {
 	// ================= コンストラクタ ここまで =================
 	
 	// ================= 組み立て用メソッド ここから =================
-	
-	public PropertyBuilder category(String category) {
+
+	/**
+	 * カテゴリ名を指定する
+	 * @return this
+	 */
+	protected PropertyBuilder category(String category) {
 		this.category = category;
 		return this;
 	}
-	
+
+	/**
+	 * boolとしてのデフォルト値を指定する
+	 * @return this
+	 */
 	public PropertyBuilder defaultBool(boolean value) {
 		assert this.valueType == Type.BOOL;
 		this.defaultBool = value;
 		return this;
 	}
-	
+
+	/**
+	 * stringとしてのデフォルト値を指定する
+	 * @return this
+	 */
 	public PropertyBuilder defaultString(String value) {
 		assert this.valueType == Type.STRING;
 		this.defaultString = value;
 		return this;
 	}
-	
+
+	/**
+	 * intとしてのデフォルト値を指定する
+	 * @return this
+	 */
 	public PropertyBuilder defaultInt(int value) {
 		assert this.valueType == Type.INT;
 		this.defaultInt = value;
 		return this;
 	}
-	
+
+	/**
+	 * 文字列のリストとしてのデフォルト値を指定する
+	 * @return this
+	 */
 	public PropertyBuilder defaultStringList(String[] values) {
 		assert this.valueType == Type.STRING_LIST;
 		this.defaultStringList = values;
 		return this;
 	}
-	
+
+	/**
+	 * intのリストとしてのデフォルト値を指定する
+	 * @return this
+	 */
 	public PropertyBuilder defaultIntList(int[] values) {
 		assert this.valueType == Type.INT_LIST;
 		this.defaultIntList = values;
 		return this;
 	}
-	
+
+	/**
+	 * 指定可能な文字列のリストを指定する
+	 * @return this
+	 */
 	public PropertyBuilder validStrings(String[] strings) {
 		assert this.valueType == Type.STRING;
 		this.validStrings = strings;
 		return this;
 	}
-	
+
+	/**
+	 * 指定可能な文字列のパターンを指定する
+	 * @return this
+	 */
 	public PropertyBuilder validationPattern(Pattern pattern) {
 		this.validationPattern = pattern;
 		return this;
 	}
-	
+
+	/**
+	 * この項目を変更した後、設定を反映させるためにゲームの再起動が必要であると指定する
+	 * @return this
+	 */
 	public PropertyBuilder requireMcRestart() {
 		this.requireMcRestart = true;
 		return this;
 	}
-	
+
+	/**
+	 * この項目を変更した後、設定を反映させるためにワールドの再読み込みが必要であると指定する
+	 * @return this
+	 */
 	public PropertyBuilder requireWorldRestart() {
 		this.requireWorldRestart = true;
 		return this;
 	}
-	
+
+	/**
+	 * GUIで表示する文字列のlangファイルのキーを指定する
+	 * @return this
+	 */
 	public PropertyBuilder langKey(LangKey langKey) {
 		this.langKey = langKey;
 		return this;
 	}
-	
+
+	/**
+	 * ファイルに出力される説明コメントを指定する
+	 * @return this
+	 */
 	public PropertyBuilder comment(MultiLingualString comment) {
 		this.comment = comment;
 		return this;
 	}
-	
+
+	/**
+	 * ファイルに出力される説明コメントを指定する
+	 * @return this
+	 */
 	public PropertyBuilder comment(String enMessage, String jaMessage) {
 		this.comment = MultiLingualString.en_ja(enMessage, jaMessage);
 		return this;
 	}
-	
+
+	/**
+	 * ファイルに出力される説明コメントを指定する
+	 * @return this
+	 */
 	public PropertyBuilder comment(String comment) {
 		this.comment = MultiLingualString.single(comment);
 		return this;
 	}
 	
 	// ================= 組み立て用メソッド ここまで =================
-	
+
+	/**
+	 * Forgeに登録する
+	 */
 	public void registerToForge(Configuration cfg) {
 		Property prop = null;
 		switch(this.valueType) {

@@ -7,6 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import yuma140902.yumalib.api.blocks.BlockGenericTrapDoor;
 
+/**
+ * {@link BlockGenericTrapDoor}に対応するItemBlock
+ */
 public class ItemBlockGenericTrapdoor extends ItemBlock {
 	public ItemBlockGenericTrapdoor(Block block) {
 		super(block);

@@ -9,6 +9,9 @@ import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.items.ItemDummyLogo;
 import yuma140902.yumalib.items.ItemGameModeSwitcher;
 
+/**
+ * YumaLibの実装するアイテムを保持・ゲームへ登録するクラス
+ */
 public class YLItems {
 	private static final List<Item> items = new ArrayList<>();
 	
@@ -28,7 +31,10 @@ public class YLItems {
 			add(item);
 		}
 	}
-	
+
+	/**
+	 * すべてのアイテムをゲームに登録する
+	 */
 	public static void registerAll() {
 		for(final Item item : items) {
 			if(item instanceof IRegisterable) {

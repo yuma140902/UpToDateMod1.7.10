@@ -22,6 +22,15 @@ import yuma140902.yumalib.api.util.ItemWithMetadata;
 import yuma140902.yumalib.api.util.WorldUtils;
 import yuma140902.yumalib.api.blockstate.GenericTrapdoorState;
 
+/**
+ * トラップドア。
+ * <p>
+ * 普通は継承する必要はなく、{@link TrapdoorBuilder}を使ってインスタンスを生成すればよい
+ * </p>
+ * <p>
+ *     回転に対応しているので便利
+ * </p>
+ */
 public class BlockGenericTrapDoor extends BlockTrapDoor implements IRegisterable, IHasRecipes {
 	/** Set this to allow trapdoors to remain free-floating */
   private final String name;

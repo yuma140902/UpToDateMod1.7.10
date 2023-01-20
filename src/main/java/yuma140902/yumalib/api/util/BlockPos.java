@@ -3,6 +3,9 @@ package yuma140902.yumalib.api.util;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
 
+/**
+ * ブロックの座標を表す型
+ */
 public class BlockPos {
 	public BlockPos(int x, int y, int z) {
 		this.x = x;

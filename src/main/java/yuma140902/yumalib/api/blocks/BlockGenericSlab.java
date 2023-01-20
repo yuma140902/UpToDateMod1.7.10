@@ -22,14 +22,20 @@ import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.items.ItemBlockGenericSlab;
 import yuma140902.yumalib.api.registry.Contexts;
 
+/**
+ * 既存のフルサイズのブロックに対応するハーフブロック。
+ * <p>
+ *     普通は継承する必要はなく、{@link SlabBuilder}でインスタンスを生成すればよい
+ * </p>
+ */
 public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRecipes {
 	
-	private Block baseBlock;
-	private int meta;
-	private String name;
-	private boolean useSpecialSideTexture = false;
-	private String specialSideTexureName = null;
-	private boolean ignoreMetaInRecipe = false;
+	private final Block baseBlock;
+	private final int meta;
+	private final String name;
+	private final boolean useSpecialSideTexture;
+	private final String specialSideTextureName;
+	private final boolean ignoreMetaInRecipe;
 	
 	private IIcon specialSideTexture = null;
 	private BlockGenericSlab slab;
@@ -41,7 +47,7 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 		this.meta = meta;
 		this.name = name;
 		this.useSpecialSideTexture = specialSideTextureName != null;
-		this.specialSideTexureName = specialSideTextureName;
+		this.specialSideTextureName = specialSideTextureName;
 		this.ignoreMetaInRecipe = ignoreMetaInRecipe;
 		
     this.setStepSound(baseBlock.stepSound);
@@ -59,7 +65,7 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 	public void register() {
 		if(isDouble()) return;
 		
-		BlockGenericSlab slabDouble = new BlockGenericSlab(true, this.baseBlock, this.meta, this.name, this.specialSideTexureName, this.ignoreMetaInRecipe);
+		BlockGenericSlab slabDouble = new BlockGenericSlab(true, this.baseBlock, this.meta, this.name, this.specialSideTextureName, this.ignoreMetaInRecipe);
 		this.setSlabs(this, slabDouble);
 		slabDouble.setSlabs(this, slabDouble);
 		
@@ -147,7 +153,7 @@ public class BlockGenericSlab extends BlockSlab implements IRegisterable, IHasRe
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
-		if(this.useSpecialSideTexture) this.specialSideTexture = reg.registerIcon(this.specialSideTexureName);
+		if(this.useSpecialSideTexture) this.specialSideTexture = reg.registerIcon(this.specialSideTextureName);
 	}
 
 	@Override

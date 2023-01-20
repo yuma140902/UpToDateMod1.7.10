@@ -8,6 +8,11 @@ import javax.annotation.Nonnull;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
+// TODO: registryへ移動
+
+/**
+ * {@link IBiomeDecorator}のレジストリ
+ */
 public class BiomeDecorators {
 	
 	@Nonnull

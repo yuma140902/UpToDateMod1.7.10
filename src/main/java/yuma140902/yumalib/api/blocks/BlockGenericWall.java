@@ -19,13 +19,19 @@ import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
+/**
+ * 既存のフルサイズのブロックに対応する壁ブロック。
+ * <p>
+ * 普通は継承する必要はなく、{@link WallBuilder}を使ってインスタンスを生成すればよい
+ * </p>
+ */
 public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRecipes {
 
-	private Block block;
-	private int meta;
-	private String name;
+	private final Block block;
+	private final int meta;
+	private final String name;
 	
-	public BlockGenericWall(Block block, int meta, String name) {
+	protected BlockGenericWall(Block block, int meta, String name) {
 		super(block);
 		this.block = block;
 		this.meta = meta;
@@ -46,7 +52,8 @@ public class BlockGenericWall extends BlockWall implements IRegisterable, IHasRe
 	
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs craetiveTab, List list) {
+	@SuppressWarnings({"raw", "unchecked"})
+	public void getSubBlocks(Item item, CreativeTabs creativeTab, List list) {
 		list.add(new ItemStack(item));
 	}
 	

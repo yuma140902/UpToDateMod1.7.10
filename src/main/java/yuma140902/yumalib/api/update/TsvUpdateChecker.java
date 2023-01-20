@@ -9,6 +9,9 @@ import java.util.HashMap;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.config.ModConfigCore;
 
+/**
+ * 更新情報をWEB上のTSVファイルとして配信するタイプの更新確認
+ */
 public class TsvUpdateChecker implements IUpdateChecker {
 	public static final String LATEST_STR = "latest";
 	public static final String RECOMMENDED_STR = "recommended";

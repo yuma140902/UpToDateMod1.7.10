@@ -10,8 +10,6 @@ import yuma140902.yumalib.api.util.NameProvider;
 
 /**
  * {@link InitModContext}のレジストリ
- * @author yuma1
- *
  */
 public class Contexts {
 	@Nonnull
@@ -27,12 +25,18 @@ public class Contexts {
 	public static InitModContext current() {
 		return current != null ? current : DEFAULT;
 	}
-	
+
+	/**
+	 * 現在のコンテキストを上書きする
+	 */
 	public static void setContext(@Nonnull InitModContext context) {
 		current = context;
 		ModYumaLib.LOGGER.info("Context updated: " + context.addonModName());
 	}
-	
+
+	/**
+	 * 現在のコンテキストを消去してデフォルト値に戻す
+	 */
 	public static void removeContext() {
 		current = null;
 		ModYumaLib.LOGGER.info("Context reset");

@@ -17,10 +17,18 @@ import net.minecraft.world.World;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
+/**
+ * {@link BlockDoor}を便利にした抽象クラス。
+ * <p>
+ *     継承して実装してください
+ * </p>
+ */
 public abstract class BlockGenericDoor extends BlockDoor implements IRegisterable {
-	
+
+	/** ドアの上半分用のテクスチャ */
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] iconTop;
+	/** ドアの下半分用のテクスチャ */
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] iconBottom;
 	
@@ -30,7 +38,12 @@ public abstract class BlockGenericDoor extends BlockDoor implements IRegisterabl
 		this.setStepSound(soundTypeWood);
 		this.disableStats();
 	}
-	
+
+	/**
+	 * これは多分呼ばれない。代わりに{@link #getIcon(IBlockAccess, int, int, int, int)}が呼ばれると思う。
+	 * @param p_149691_1_ side
+	 * @param p_149691_2_ meta
+	 */
 	@Override
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
 		return iconBottom[0];
@@ -111,9 +124,9 @@ public abstract class BlockGenericDoor extends BlockDoor implements IRegisterabl
 		this.iconTop = new IIcon[2];
 		this.iconBottom = new IIcon[2];
 		this.iconTop[0] = register.registerIcon(this.getTextureName() + "_top");
-    this.iconBottom[0] = register.registerIcon(this.getTextureName() + "_bottom");
-    this.iconTop[1] = new IconFlipped(this.iconTop[0], true, false);
-    this.iconBottom[1] = new IconFlipped(this.iconBottom[0], true, false);
+		this.iconBottom[0] = register.registerIcon(this.getTextureName() + "_bottom");
+		this.iconTop[1] = new IconFlipped(this.iconTop[0], true, false);
+		this.iconBottom[1] = new IconFlipped(this.iconBottom[0], true, false);
 	}
 	
 	@Override
@@ -125,12 +138,14 @@ public abstract class BlockGenericDoor extends BlockDoor implements IRegisterabl
 	}
 	
 	@Override
-	public Item getItemDropped(int meta, Random rand, int p_149650_3_)
-  {
+	public Item getItemDropped(int meta, Random rand, int p_149650_3_) {
 		return (meta & 8) != 0 ? null : getItem();
-  }
-	
+	}
+
+	/** テクスチャ名。ModIDなし */
 	protected abstract String getNameForTexture();
+	/** ブロックの名前。ModIDなし */
 	protected abstract String getName();
+	/** アイテムの名前。ModIDなし */
 	protected abstract Item getItem();
 }

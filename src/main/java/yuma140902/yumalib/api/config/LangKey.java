@@ -1,7 +1,10 @@
 package yuma140902.yumalib.api.config;
 
+/**
+ * ほぼString。langファイルのキーを表すドメイン固有型
+ */
 public class LangKey {
-	private String value;
+	private final String value;
 	
 	private LangKey(String value) {
 		this.value = value;

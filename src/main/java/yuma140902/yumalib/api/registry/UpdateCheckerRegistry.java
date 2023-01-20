@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import yuma140902.yumalib.api.update.IUpdateChecker;
 
+/**
+ * {@link IUpdateChecker}のレジストリ
+ */
 public class UpdateCheckerRegistry {
 	private UpdateCheckerRegistry() {}
 	

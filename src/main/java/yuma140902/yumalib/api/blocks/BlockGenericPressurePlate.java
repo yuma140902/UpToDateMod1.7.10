@@ -15,11 +15,21 @@ import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
+/**
+ * 既存のフルサイズのブロックに対応する感圧板ブロック。
+ * <p>
+ * 普通は継承する必要はない
+ * </p>
+ */
 public class BlockGenericPressurePlate extends BlockPressurePlate implements IRegisterable, IHasRecipes {
 
-	private int plankMeta;
-	private String name;
-	
+	private final int plankMeta;
+	private final String name;
+
+	/**
+	 * @param plankMeta テクスチャとして使用するBlockPlankのメタ
+	 * @param name 名前。ModIDなし
+	 */
 	public BlockGenericPressurePlate(int plankMeta, String name) {
 		super("planks_oak", Material.wood, Sensitivity.everything);
 		this.plankMeta = plankMeta;
@@ -50,10 +60,10 @@ public class BlockGenericPressurePlate extends BlockPressurePlate implements IRe
 	
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		System.out.println("hogehoge!!!!!!!!!!!!!!!");
 		return World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) || isBlockFence(world.getBlock(x, y - 1, z));
 	}
-	
+
+	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 		boolean flag = false;
 		
@@ -67,7 +77,8 @@ public class BlockGenericPressurePlate extends BlockPressurePlate implements IRe
 		}
 	}
 	
-	// net.minecraft.BlockFence.func_149825_a(Block)の代わり。いつかMixinかなにかで置き換えたい
+	// net.minecraft.BlockFence.func_149825_a(Block)の代わり。
+	// TODO: いつかMixinかなにかで置き換えたい
 	public static boolean isBlockFence(Block block){
 		return block instanceof BlockFence;
 	}

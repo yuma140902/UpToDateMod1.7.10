@@ -8,9 +8,12 @@ import yuma140902.yumalib.api.util.NameProvider;
  * @author yuma1
  */
 public class InitModContext {
-	private String addonModName;
-	private NameProvider nameProvider;
-	
+	private final String addonModName;
+	private final NameProvider nameProvider;
+
+	/**
+	 * @param addonModName YumaLibのAPIを呼び出しているModのID。YumaLibに依存するModのことをAddonModと呼んでいる
+	 */
 	public InitModContext(String addonModName, NameProvider nameProvider) {
 		this.addonModName = addonModName;
 		this.nameProvider = nameProvider;

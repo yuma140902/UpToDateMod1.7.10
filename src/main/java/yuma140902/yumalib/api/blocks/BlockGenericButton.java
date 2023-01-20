@@ -13,10 +13,20 @@ import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
+/**
+ * 既存のフルサイズのブロックに対応するボタンブロック。
+ * <p>
+ * 普通は継承する必要はない
+ * </p>
+ */
 public class BlockGenericButton extends BlockButtonWood implements IRegisterable, IHasRecipes {
-	private int texture_plank_meta;
-	private String name;
-	
+	private final int texture_plank_meta;
+	private final String name;
+
+	/**
+	 * @param texture_plank_meta テクスチャとして使用するBlockPlankのメタ
+	 * @param name 名前。ModIDなし
+	 */
 	public BlockGenericButton(int texture_plank_meta, String name) {
 		this.texture_plank_meta = texture_plank_meta;
 		this.name = name;

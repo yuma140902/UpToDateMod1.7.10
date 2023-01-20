@@ -9,10 +9,20 @@ import net.minecraft.util.IIcon;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 
+/**
+ * 既存のフルサイズのブロックに対応するフェンスゲートブロック。
+ * <p>
+ * 普通は継承する必要はない
+ * </p>
+ */
 public class BlockGenericFenceGate extends BlockFenceGate implements IRegisterable {
-	private int iconSourcePlankMeta;
-	private String name;
-	
+	private final int iconSourcePlankMeta;
+	private final String name;
+
+	/**
+	 * @param iconSourcePlankMeta テクスチャとして使うBlockPlankのメタ
+	 * @param name 名前。ModIDなし
+	 */
 	public BlockGenericFenceGate(int iconSourcePlankMeta, String name) {
 		super();
 		this.iconSourcePlankMeta = iconSourcePlankMeta;

@@ -1,6 +1,13 @@
 package yuma140902.yumalib.api;
 
+/**
+ * バニラMinecraftに関する定数
+ */
 public final class McConst {
+
+	/**
+	 * バニラMinecraftのメタデータに関する定数
+	 */
 	public static final class Meta {
 		public static final int
 						PLANK_OAK     = 0,
@@ -100,8 +107,11 @@ public final class McConst {
 						STONEBRICK_CRACKED  = 2,
 						STONEBRICK_CHISELED = 3;
 	}
-	
-	
+
+
+	/**
+	 * バニラMinecraftのパーティクルに関する定数
+	 */
 	public static final class Particle {
 		public static final String
 						HUGE_EXPLOSION    = "hugeexplosion",

@@ -12,13 +12,21 @@ import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.registry.Contexts;
 import yuma140902.yumalib.api.util.StringUtils;
 
+/**
+ * メタによって名前とテクスチャが変わるItemFood.
+ */
 public class ItemMultiMeta extends Item implements IRegisterable {
 	@Nonnull protected final String name;
 	@Nonnull protected final String[] names;
 	protected final int MAX_META;
 	@Nonnull protected final String[] textureNames;
 	@Nonnull protected final IIcon[] icons;
-	
+
+	/**
+	 * @param name アイテム名。ModIDなし
+	 * @param names langファイルのキーの末尾につけられる文字列のリスト
+	 * @param textureNames テクスチャ名。ModIDなし
+	 */
 	public ItemMultiMeta(@Nonnull String name, @Nonnull String[] names, @Nonnull String[] textureNames) {
 		this.name = name;
 		this.names = names;

@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import yuma140902.yumalib.api.loot.IMobLootInfo;
 
+// TODO: yuma140902.yumalib.api.lootに移動する？
 public class MobDropHandler {
 	
 	public static MobDropHandler INSTANCE = new MobDropHandler();

@@ -6,6 +6,9 @@ import net.minecraft.item.ItemStack;
 
 import java.util.Objects;
 
+/**
+ * アイテムとメタの組み合わせ。ItemStackだとcountやNBTが付いていて過剰な場合があるため作った
+ */
 public class ItemWithMetadata {
 	public final Item item;
 	public final int meta;
