@@ -25,7 +25,7 @@ plugins {
 
 apply plugin: 'forge'
 
-version = "2.3.11"
+version = "2.3.12"
 group= "yuma140902" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "UpToDateMod"
 
