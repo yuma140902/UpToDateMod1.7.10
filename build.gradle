@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
         maven {
             name = "forge"
-            url = "https://files.minecraftforge.net/maven"
+            url = "https://maven.minecraftforge.net/"
         }
         maven {
             name = "sonatype"
@@ -18,6 +18,11 @@ buildscript {
     }
 }
 
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
 apply plugin: 'forge'
 
 version = "2.3.11"
@@ -25,7 +30,7 @@ group= "yuma140902" // http://maven.apache.org/guides/mini/guide-naming-conventi
 archivesBaseName = "UpToDateMod"
 
 minecraft {
-    version = "1.7.10-10.13.4.1558-1.7.10"
+    version = "1.7.10-10.13.4.1614-1.7.10"
     runDir = "eclipse"
 }
 
