@@ -62,7 +62,7 @@ public class VanillaResourceLoader {
 		String settingFileName = "/settings.json";
 		String settingJsonHash = DigestUtils.md5Hex(clazz.getResourceAsStream(settingFileName));
 		
-		if(needUpdate(settingJsonHash)) {
+		if(/*needUpdate(settingJsonHash)*/true) {
 			log.info("Loading settings.json");
 			
 			Gson gson = new Gson();
