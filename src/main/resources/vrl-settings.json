@@ -1,0 +1,1164 @@
+{
+  "downloads": [
+    {
+      "id": "mc12",
+      "url": "https://launcher.mojang.com/v1/objects/0f275bc1547d01fa5f56ba34bdc87d981ee12daf/client.jar",
+      "to": "client-jars/minecraft-client-1.12.2.jar",
+      "hash": "8c0443868b9e46c77d39db61c755679d"
+    },
+    {
+      "id": "mc17",
+      "url": "https://launcher.mojang.com/v1/objects/1cf89c77ed5e72401b869f66410934804f3d6f52/client.jar",
+      "to": "client-jars/minecraft-client-1.17.jar",
+      "hash": "d31cd74449fd04c8645d59ec15e885c9"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/df/dffb5d6066ba89a4d3a609eb0c607606d4a524e2",
+      "to": "assets/uptodate/sounds/note/bell.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a7/a7f05f19c3e553c61deb61e5e8123a82cdbec758",
+      "to": "assets/uptodate/sounds/note/flute.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/3e/3ea516355b5ec2bef08d9e6aa3ebc6626acb583b",
+      "to": "assets/uptodate/sounds/note/guitar.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/56/562f63e81572019a66cf795cea914ed6910edb53",
+      "to": "assets/uptodate/sounds/note/icechime.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b7/b7cf6b6ff19146fae41a39025ab709ea90bcc439",
+      "to": "assets/uptodate/sounds/note/xylobone.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/e1/e1531690171d1940e0737074a8e6dbd31387d4b1",
+      "to": "assets/uptodate/sounds/block/bone_block/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/3e/3eddefcae7dd754b80765c2fee955aa26c644e7c",
+      "to": "assets/uptodate/sounds/block/bone_block/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b2/b2ae2bdcbaabf46448ed282df1ae1cc7096bb8e9",
+      "to": "assets/uptodate/sounds/block/bone_block/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/de/de98f91fbce73a38fa30e887ac8dce08aac8e675",
+      "to": "assets/uptodate/sounds/block/bone_block/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/0a/0ae403bea99c54d26b09f7d588ea11ddb4b6dc98",
+      "to": "assets/uptodate/sounds/block/bone_block/break5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/49/49ae543155e15b8115206f3bdcf1b929b7725b62",
+      "to": "assets/uptodate/sounds/block/bone_block/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/e2/e2c1207fb138a72cbc29277497408cde75b28698",
+      "to": "assets/uptodate/sounds/block/bone_block/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a5/a5362a693f9ae184c1e87ac07fb7ad949d2aee45",
+      "to": "assets/uptodate/sounds/block/bone_block/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/11/11b24be2acd87d0d3cadd3b4a5e7f5cf29d75b9c",
+      "to": "assets/uptodate/sounds/block/bone_block/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/d6/d6c41fbec35949f5ab7423d0a3cd174bacfd406d",
+      "to": "assets/uptodate/sounds/block/bone_block/step5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/df/df0655d42337a1219cb58f6b7b0a487a2bca14ed",
+      "to": "assets/uptodate/sounds/block/netherwart/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/c6/c69af75e03da0873c06dd391b7f23cca2a7b2daa",
+      "to": "assets/uptodate/sounds/block/netherwart/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/49/49f9d8ea4a9392ea23b01d872284c6f67066d25c",
+      "to": "assets/uptodate/sounds/block/netherwart/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b7/b71aa4d56529cd5472850774dc6159925fdd04f1",
+      "to": "assets/uptodate/sounds/block/netherwart/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/44/4469da7e49535f86fe8a3cdd86021b44455c225d",
+      "to": "assets/uptodate/sounds/block/netherwart/break5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/eb/eb8853df8a04e32b79888b8c6c1dc71244095947",
+      "to": "assets/uptodate/sounds/block/netherwart/break6.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/00/007a96cf5c6585babb020381a1075912df2279f4",
+      "to": "assets/uptodate/sounds/block/netherwart/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/e9/e94a2a91b8834f4ab63f0b79c7f92f900384df59",
+      "to": "assets/uptodate/sounds/block/netherwart/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/75/75af15fdccce46438f39838d400f520649b81cd8",
+      "to": "assets/uptodate/sounds/block/netherwart/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/3d/3d0cb49d33b9bb2462ad183f65e2e11aea3c1eff",
+      "to": "assets/uptodate/sounds/block/netherwart/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/fb/fb223ba9978c3747c41ad4e21773b6608b33f466",
+      "to": "assets/uptodate/sounds/block/netherwart/step5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/6a/6a4796fec25e83aa2d0151f0ddd86e6ce86bb48a",
+      "to": "assets/uptodate/sounds/block/netherrack/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/49/49d5826555c9f00e36c1e2e0386118f4e0a27c4f",
+      "to": "assets/uptodate/sounds/block/netherrack/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/50/5066b310fd288cf443497dd362ff151923525213",
+      "to": "assets/uptodate/sounds/block/netherrack/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/1d/1d488970ff2dd9d19a397c8bd593b82bd061b655",
+      "to": "assets/uptodate/sounds/block/netherrack/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/b2/b2eff3be4927ad66e197d91699609bd354320bef",
+      "to": "assets/uptodate/sounds/block/netherrack/break5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/c5/c57a387a15458219f9bbc02be71a61bdb49bf214",
+      "to": "assets/uptodate/sounds/block/netherrack/break6.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/79/7910253fc8f50d0056e9bf8aa9b915928e90e5bc",
+      "to": "assets/uptodate/sounds/block/netherrack/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/32/326bfdab1e9a02a7bf527da641e3a4b62edc1e9f",
+      "to": "assets/uptodate/sounds/block/netherrack/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/96/96e2565f37e232124848743a594ba4eb4526d1a8",
+      "to": "assets/uptodate/sounds/block/netherrack/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/04/04eb42acb97f338927ede64a898318b4fc962bad",
+      "to": "assets/uptodate/sounds/block/netherrack/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/8b/8b6a0e0cfb6f87bbce9e4c6389175cd7f8b2a884",
+      "to": "assets/uptodate/sounds/block/netherrack/step5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/17/178fb8d28191881e4f3808d3f9455b3f74cc7db7",
+      "to": "assets/uptodate/sounds/block/netherrack/step6.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/8e/8eaa189e42aad889310e03cc26de676dc8431345",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a6/a67784e3903cb1e3a2005e7c36c648279b97edd8",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/35/350a9a9620efabf6edf91e75762957953bf6cb81",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a9/a9d3b12ba323f0b14a2adbf92f597a803831d6a4",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/6d/6d6128196a44038658da3ff257ec2597114cd6c0",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/place1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/27/27d8af498c6e1a7f5ea26ab746866d10a6230419",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/place2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/d6/d6545aef9a74893f3ee2ced6b18afd52b4a17825",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/place3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/8c/8c1fd5b4accebff5dda35ef8acb762b92f4c1851",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/place4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/71/71b473c255837982015662f3f4e9e65981666390",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/place5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/40/40e5da14b4608b138ec3cc8706e45d6ffb18c405",
+      "to": "assets/uptodate/sounds/block/sweet_berry_bush/place6.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/2e/2efdaa5a89ae6a68ceddf60aa91a4b410f0f3e58",
+      "to": "assets/uptodate/sounds/block/lantern/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/44/443a6c542e6cb96d8d7d6e185623266ce0c3af69",
+      "to": "assets/uptodate/sounds/block/lantern/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/cc/cc62eb000f8789c06cec01bfe9bf9b989b015171",
+      "to": "assets/uptodate/sounds/block/lantern/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/fb/fbc806cf8ce69a93ddc2b0b6a01df3c94cbfda87",
+      "to": "assets/uptodate/sounds/block/lantern/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/94/94f85a27c377b0ef874ebe810292c9c77a7be1f9",
+      "to": "assets/uptodate/sounds/block/lantern/break5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/78/78f33e68a3142032e0a1b0c95012f4bcb2ea3ea9",
+      "to": "assets/uptodate/sounds/block/lantern/break6.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/66/66a7ad307e66d55be39ad129d5dde4a139c6decb",
+      "to": "assets/uptodate/sounds/block/lantern/place1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/23/236d6b2e2841e6eeaff442cf4599ac8f1d0c87bf",
+      "to": "assets/uptodate/sounds/block/lantern/place2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/91/913db11b61e0c079114e702507dd33fd59846c2c",
+      "to": "assets/uptodate/sounds/block/lantern/place3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/79/79ae36927d7d5e1d4210debb5e98c0a8d0e4ba39",
+      "to": "assets/uptodate/sounds/block/lantern/place4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/39/3920b92ee14834623308f557d4ac912aef760108",
+      "to": "assets/uptodate/sounds/block/lantern/place5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/85/85462af1c6ccc02b19989be398b0bcc488b249f1",
+      "to": "assets/uptodate/sounds/block/lantern/place6.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/bb/bb709bbfde582e0b261b4f8d01e10e35ee41e63b",
+      "to": "assets/uptodate/sounds/block/deepslate/break1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/d8/d80d4bd2f28318f7291baa4fec3f00b4bd56066a",
+      "to": "assets/uptodate/sounds/block/deepslate/break2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/16/16f63773f4258b983891136c54c32735c59b2c05",
+      "to": "assets/uptodate/sounds/block/deepslate/break3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a7/a7ff95731dd1668bff61898362091cce9c49cdf1",
+      "to": "assets/uptodate/sounds/block/deepslate/break4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a1/a181d87822808974392cd7bf081121523687cd3d",
+      "to": "assets/uptodate/sounds/block/deepslate/place1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a2/a24c6e7d083b8e69caf5de24eb698611b304fc87",
+      "to": "assets/uptodate/sounds/block/deepslate/place2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/36/36c387db12975376921f130e0971f52bd0bd573a",
+      "to": "assets/uptodate/sounds/block/deepslate/place3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/3a/3a7888bdd0e2803a2b08d2505e4ff99c707df1f9",
+      "to": "assets/uptodate/sounds/block/deepslate/place4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/bd/bdece9f83ab1959684fd51b8b806dce647012dcc",
+      "to": "assets/uptodate/sounds/block/deepslate/place5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/1e/1e99a8f02ad6154660b68863b5dddbfc06aa95a7",
+      "to": "assets/uptodate/sounds/block/deepslate/place6.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/f6/f66841e1965b8a4b85fe01a21af09172b002401c",
+      "to": "assets/uptodate/sounds/block/deepslate/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a2/a2d1a08b5c89ff034009d33053fed40c29f68f2e",
+      "to": "assets/uptodate/sounds/block/deepslate/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/e8/e889bcce8431d117ce4c0ef3fd9b9a0567484faa",
+      "to": "assets/uptodate/sounds/block/deepslate/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/52/52ff5e2c9ff808388c76e2ad1b2b805cb53ebd38",
+      "to": "assets/uptodate/sounds/block/deepslate/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/54/5447b5165697eb5e2b4724a9dc5b345ba5cce111",
+      "to": "assets/uptodate/sounds/block/deepslate/step5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/d7/d7f85e94a76e067aad8e2b8ee612d65ecfffc11a",
+      "to": "assets/uptodate/sounds/block/deepslate/step6.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/f7/f71e1acfb97f26e48044e0d2cacb986b1311d4d9",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/place1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/d4/d4c30f6ed41abefe8f72e1578c1006f581fd8a77",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/place2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/71/719a10effd17a4f440985febde4d27529cc278db",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/place3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/1b/1bd5bc41540c90a5a156377e7d1acde0c82b0e8f",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/place4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/4d/4d68e519f69b99c678870b71d7a8dcdbfda153b3",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/place5.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/d5/d5671a3b331716cd8a294a089150329dad4d8041",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/place6.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/0a/0af366a1afbede2e47146caa5e4a48b647fa770f",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/step1.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/7d/7d3c3e8889167578206fddb0a25d30f713159de9",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/step2.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/36/3634810d138e7094a12b13cbeb46fa0c63f78d13",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/step3.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/9e/9ee3c91e8feabf53412b7987e1cbf68d4bfe55aa",
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/step4.ogg"
+    },
+    {
+      "url": "https://resources.download.minecraft.net/a2/a2ab744b54a54e2eb1fc12c7e26dd6066b1799e8",
+      "dest": "sounds/block/deepslate_bricks/step5.ogg"
+    }
+  ],
+  "extraction": {
+    "texture_styles": {
+      "before12": [
+        "blocks12",
+        "items12",
+        "entity12",
+        "blocks17",
+        "items17"
+      ]
+    },
+    "parts": [
+      {
+        "archive_id": "mc12",
+        "part_id": "blocks12",
+        "src_dir": "assets/minecraft/textures/blocks/",
+        "dst_dir": "assets/uptodate/textures/blocks/",
+        "files": [
+          {
+            "src": "bone_block_side.png",
+            "dst": "bone_block_side.png"
+          },
+          {
+            "src": "bone_block_top.png",
+            "dst": "bone_block_top.png"
+          },
+          {
+            "src": "coarse_dirt.png",
+            "dst": "coarse_dirt.png"
+          },
+          {
+            "src": "concrete_black.png",
+            "dst": "concrete_black.png"
+          },
+          {
+            "src": "concrete_blue.png",
+            "dst": "concrete_blue.png"
+          },
+          {
+            "src": "concrete_brown.png",
+            "dst": "concrete_brown.png"
+          },
+          {
+            "src": "concrete_cyan.png",
+            "dst": "concrete_cyan.png"
+          },
+          {
+            "src": "concrete_gray.png",
+            "dst": "concrete_gray.png"
+          },
+          {
+            "src": "concrete_green.png",
+            "dst": "concrete_green.png"
+          },
+          {
+            "src": "concrete_light_blue.png",
+            "dst": "concrete_light_blue.png"
+          },
+          {
+            "src": "concrete_light_gray.png",
+            "dst": "concrete_light_gray.png"
+          },
+          {
+            "src": "concrete_lime.png",
+            "dst": "concrete_lime.png"
+          },
+          {
+            "src": "concrete_magenta.png",
+            "dst": "concrete_magenta.png"
+          },
+          {
+            "src": "concrete_orange.png",
+            "dst": "concrete_orange.png"
+          },
+          {
+            "src": "concrete_pink.png",
+            "dst": "concrete_pink.png"
+          },
+          {
+            "src": "concrete_powder_black.png",
+            "dst": "concrete_powder_black.png"
+          },
+          {
+            "src": "concrete_powder_blue.png",
+            "dst": "concrete_powder_blue.png"
+          },
+          {
+            "src": "concrete_powder_brown.png",
+            "dst": "concrete_powder_brown.png"
+          },
+          {
+            "src": "concrete_powder_cyan.png",
+            "dst": "concrete_powder_cyan.png"
+          },
+          {
+            "src": "concrete_powder_gray.png",
+            "dst": "concrete_powder_gray.png"
+          },
+          {
+            "src": "concrete_powder_green.png",
+            "dst": "concrete_powder_green.png"
+          },
+          {
+            "src": "concrete_powder_light_blue.png",
+            "dst": "concrete_powder_light_blue.png"
+          },
+          {
+            "src": "concrete_powder_light_gray.png",
+            "dst": "concrete_powder_light_gray.png"
+          },
+          {
+            "src": "concrete_powder_lime.png",
+            "dst": "concrete_powder_lime.png"
+          },
+          {
+            "src": "concrete_powder_magenta.png",
+            "dst": "concrete_powder_magenta.png"
+          },
+          {
+            "src": "concrete_powder_orange.png",
+            "dst": "concrete_powder_orange.png"
+          },
+          {
+            "src": "concrete_powder_pink.png",
+            "dst": "concrete_powder_pink.png"
+          },
+          {
+            "src": "concrete_powder_purple.png",
+            "dst": "concrete_powder_purple.png"
+          },
+          {
+            "src": "concrete_powder_red.png",
+            "dst": "concrete_powder_red.png"
+          },
+          {
+            "src": "concrete_powder_white.png",
+            "dst": "concrete_powder_white.png"
+          },
+          {
+            "src": "concrete_powder_yellow.png",
+            "dst": "concrete_powder_yellow.png"
+          },
+          {
+            "src": "concrete_purple.png",
+            "dst": "concrete_purple.png"
+          },
+          {
+            "src": "concrete_red.png",
+            "dst": "concrete_red.png"
+          },
+          {
+            "src": "concrete_white.png",
+            "dst": "concrete_white.png"
+          },
+          {
+            "src": "concrete_yellow.png",
+            "dst": "concrete_yellow.png"
+          },
+          {
+            "src": "prismarine_dark.png",
+            "dst": "dark_prismarine_block.png"
+          },
+          {
+            "src": "sponge.png",
+            "dst": "sponge.png"
+          },
+          {
+            "src": "sponge_wet.png",
+            "dst": "wet_sponge.png"
+          },
+          {
+            "src": "door_acacia_lower.png",
+            "dst": "acacia_door_bottom.png"
+          },
+          {
+            "src": "door_acacia_upper.png",
+            "dst": "acacia_door_top.png"
+          },
+          {
+            "src": "door_birch_lower.png",
+            "dst": "birch_door_bottom.png"
+          },
+          {
+            "src": "door_birch_upper.png",
+            "dst": "birch_door_top.png"
+          },
+          {
+            "src": "door_dark_oak_lower.png",
+            "dst": "dark_oak_door_bottom.png"
+          },
+          {
+            "src": "door_dark_oak_upper.png",
+            "dst": "dark_oak_door_top.png"
+          },
+          {
+            "src": "door_jungle_lower.png",
+            "dst": "jungle_door_bottom.png"
+          },
+          {
+            "src": "door_jungle_upper.png",
+            "dst": "jungle_door_top.png"
+          },
+          {
+            "src": "door_spruce_lower.png",
+            "dst": "spruce_door_bottom.png"
+          },
+          {
+            "src": "door_spruce_upper.png",
+            "dst": "spruce_door_top.png"
+          },
+          {
+            "src": "end_bricks.png",
+            "dst": "end_stone_bricks.png"
+          },
+          {
+            "src": "glazed_terracotta_black.png",
+            "dst": "glazed_terracotta_black.png"
+          },
+          {
+            "src": "glazed_terracotta_black.png",
+            "dst": "glazed_terracotta_black_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_blue.png",
+            "dst": "glazed_terracotta_blue.png"
+          },
+          {
+            "src": "glazed_terracotta_blue.png",
+            "dst": "glazed_terracotta_blue_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_brown.png",
+            "dst": "glazed_terracotta_brown.png"
+          },
+          {
+            "src": "glazed_terracotta_brown.png",
+            "dst": "glazed_terracotta_brown_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_cyan.png",
+            "dst": "glazed_terracotta_cyan.png"
+          },
+          {
+            "src": "glazed_terracotta_cyan.png",
+            "dst": "glazed_terracotta_cyan_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_gray.png",
+            "dst": "glazed_terracotta_gray.png"
+          },
+          {
+            "src": "glazed_terracotta_gray.png",
+            "dst": "glazed_terracotta_gray_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_green.png",
+            "dst": "glazed_terracotta_green.png"
+          },
+          {
+            "src": "glazed_terracotta_green.png",
+            "dst": "glazed_terracotta_green_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_light_blue.png",
+            "dst": "glazed_terracotta_light_blue.png"
+          },
+          {
+            "src": "glazed_terracotta_light_blue.png",
+            "dst": "glazed_terracotta_light_blue_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_silver.png",
+            "dst": "glazed_terracotta_light_gray.png"
+          },
+          {
+            "src": "glazed_terracotta_silver.png",
+            "dst": "glazed_terracotta_light_gray_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_lime.png",
+            "dst": "glazed_terracotta_lime.png"
+          },
+          {
+            "src": "glazed_terracotta_lime.png",
+            "dst": "glazed_terracotta_lime_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_magenta.png",
+            "dst": "glazed_terracotta_magenta.png"
+          },
+          {
+            "src": "glazed_terracotta_magenta.png",
+            "dst": "glazed_terracotta_magenta_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_orange.png",
+            "dst": "glazed_terracotta_orange.png"
+          },
+          {
+            "src": "glazed_terracotta_orange.png",
+            "dst": "glazed_terracotta_orange_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_pink.png",
+            "dst": "glazed_terracotta_pink.png"
+          },
+          {
+            "src": "glazed_terracotta_pink.png",
+            "dst": "glazed_terracotta_pink_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_purple.png",
+            "dst": "glazed_terracotta_purple.png"
+          },
+          {
+            "src": "glazed_terracotta_purple.png",
+            "dst": "glazed_terracotta_purple_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_red.png",
+            "dst": "glazed_terracotta_red.png"
+          },
+          {
+            "src": "glazed_terracotta_red.png",
+            "dst": "glazed_terracotta_red_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_white.png",
+            "dst": "glazed_terracotta_white.png"
+          },
+          {
+            "src": "glazed_terracotta_white.png",
+            "dst": "glazed_terracotta_white_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "glazed_terracotta_yellow.png",
+            "dst": "glazed_terracotta_yellow.png"
+          },
+          {
+            "src": "glazed_terracotta_yellow.png",
+            "dst": "glazed_terracotta_yellow_flip.png",
+            "func": "flip"
+          },
+          {
+            "src": "grass_path_side.png",
+            "dst": "grass_path_side.png"
+          },
+          {
+            "src": "grass_path_top.png",
+            "dst": "grass_path_top.png"
+          },
+          {
+            "src": "magma.png",
+            "dst": "magma_block.png"
+          },
+          {
+            "src": "magma.png.mcmeta",
+            "dst": "magma_block.png.mcmeta"
+          },
+          {
+            "src": "nether_wart_block.png",
+            "dst": "nether_wart_block.png"
+          },
+          {
+            "src": "prismarine_rough.png",
+            "dst": "prismarine.png"
+          },
+          {
+            "src": "prismarine_rough.png.mcmeta",
+            "dst": "prismarine.png.mcmeta"
+          },
+          {
+            "src": "prismarine_bricks.png",
+            "dst": "prismarine_bricks.png"
+          },
+          {
+            "src": "purpur_block.png",
+            "dst": "purpur_block.png"
+          },
+          {
+            "src": "purpur_pillar.png",
+            "dst": "purpur_pillar.png"
+          },
+          {
+            "src": "purpur_pillar_top.png",
+            "dst": "purpur_pillar_top.png"
+          },
+          {
+            "src": "red_nether_brick.png",
+            "dst": "red_nether_bricks.png"
+          },
+          {
+            "src": "red_sandstone_normal.png",
+            "dst": "red_sandstone.png"
+          },
+          {
+            "src": "red_sandstone_bottom.png",
+            "dst": "red_sandstone_bottom.png"
+          },
+          {
+            "src": "red_sandstone_carved.png",
+            "dst": "red_sandstone_chiseled.png"
+          },
+          {
+            "src": "red_sandstone_smooth.png",
+            "dst": "red_sandstone_cut.png"
+          },
+          {
+            "src": "red_sandstone_top.png",
+            "dst": "red_sandstone_smooth.png"
+          },
+          {
+            "src": "red_sandstone_top.png",
+            "dst": "red_sandstone_top.png"
+          },
+          {
+            "src": "sea_lantern.png",
+            "dst": "sea_lantern.png"
+          },
+          {
+            "src": "sea_lantern.png.mcmeta",
+            "dst": "sea_lantern.png.mcmeta"
+          },
+          {
+            "src": "stone_andesite.png",
+            "dst": "stone_andesite.png"
+          },
+          {
+            "src": "stone_diorite.png",
+            "dst": "stone_diorite.png"
+          },
+          {
+            "src": "stone_granite.png",
+            "dst": "stone_granite.png"
+          },
+          {
+            "src": "stone_andesite_smooth.png",
+            "dst": "stone_polished_andesite.png"
+          },
+          {
+            "src": "stone_diorite_smooth.png",
+            "dst": "stone_polished_diorite.png"
+          },
+          {
+            "src": "stone_granite_smooth.png",
+            "dst": "stone_polished_granite.png"
+          },
+          {
+            "src": "iron_trapdoor.png",
+            "dst": "trap_door_iron.png"
+          }
+        ]
+      },
+      {
+        "archive_id": "mc12",
+        "part_id": "items12",
+        "src_dir": "assets/minecraft/textures/items/",
+        "dst_dir": "assets/uptodate/textures/items/",
+        "files:": [
+          {
+            "src": "wooden_armorstand.png",
+            "dst": "armor_stand.png"
+          },
+          {
+            "src": "mutton_cooked.png",
+            "dst": "cooked_mutton.png"
+          },
+          {
+            "src": "door_acacia.png",
+            "dst": "acacia_door.png"
+          },
+          {
+            "src": "door_birch.png",
+            "dst": "birch_door.png"
+          },
+          {
+            "src": "door_dark_oak.png",
+            "dst": "dark_oak_door.png"
+          },
+          {
+            "src": "door_jungle.png",
+            "dst": "jungle_door.png"
+          },
+          {
+            "src": "door_spruce.png",
+            "dst": "spruce_door.png"
+          },
+          {
+            "src": "iron_nugget.png",
+            "dst": "iron_nugget.png"
+          },
+          {
+            "src": "prismarine_crystals.png",
+            "dst": "prismarine_crystals.png"
+          },
+          {
+            "src": "prismarine_shard.png",
+            "dst": "prismarine_shard.png"
+          },
+          {
+            "src": "mutton_raw.png",
+            "dst": "raw_mutton.png"
+          }
+        ]
+      },
+      {
+        "archive_id": "mc12",
+        "part_id": "entity12",
+        "src_dir": "assets/minecraft/textures/entity/",
+        "dst_dir": "assets/uptodate/textures/entity/",
+        "files": [
+          {
+            "src": "armorstand/wood.png",
+            "dst": "armor_stand.png"
+          }
+        ]
+      },
+      {
+        "archive_id": "mc17",
+        "part_id": "blocks17",
+        "src_dir": "assets/minecraft/textures/block/",
+        "dst_dir": "assets/uptodate/textures/blocks/",
+        "files": [
+          {
+            "src": "barrel_bottom.png",
+            "dst": "barrel_bottom.png"
+          },
+          {
+            "src": "barrel_side.png",
+            "dst": "barrel_side.png"
+          },
+          {
+            "src": "barrel_top.png",
+            "dst": "barrel_top.png"
+          },
+          {
+            "src": "barrel_top_open.png",
+            "dst": "barrel_top_open.png"
+          },
+          {
+            "src": "deepslate.png",
+            "dst": "deepslate.png"
+          },
+          {
+            "src": "cobbled_deepslate.png",
+            "dst": "cobbled_deepslate.png"
+          },
+          {
+            "src": "polished_deepslate.png",
+            "dst": "polished_deepslate.png"
+          },
+          {
+            "src": "chiseled_deepslate.png",
+            "dst": "chiseled_deepslate.png"
+          },
+          {
+            "src": "deepslate_bricks.png",
+            "dst": "deepslate_bricks.png"
+          },
+          {
+            "src": "cracked_deepslate_bricks.png",
+            "dst": "cracked_deepslate_bricks.png"
+          },
+          {
+            "src": "deepslate_tiles.png",
+            "dst": "deepslate_tiles.png"
+          },
+          {
+            "src": "cracked_deepslate_tiles.png",
+            "dst": "cracked_deepslate_tiles.png"
+          },
+          {
+            "src": "stripped_acacia_log.png",
+            "dst": "stripped_acacia_log.png"
+          },
+          {
+            "src": "stripped_acacia_log_top.png",
+            "dst": "stripped_acacia_log_top.png"
+          },
+          {
+            "src": "stripped_birch_log.png",
+            "dst": "stripped_birch_log.png"
+          },
+          {
+            "src": "stripped_birch_log_top.png",
+            "dst": "stripped_birch_log_top.png"
+          },
+          {
+            "src": "stripped_dark_oak_log.png",
+            "dst": "stripped_dark_oak_log.png"
+          },
+          {
+            "src": "stripped_dark_oak_log_top.png",
+            "dst": "stripped_dark_oak_log_top.png"
+          },
+          {
+            "src": "stripped_jungle_log.png",
+            "dst": "stripped_jungle_log.png"
+          },
+          {
+            "src": "stripped_jungle_log_top.png",
+            "dst": "stripped_jungle_log_top.png"
+          },
+          {
+            "src": "stripped_oak_log.png",
+            "dst": "stripped_oak_log.png"
+          },
+          {
+            "src": "stripped_oak_log_top.png",
+            "dst": "stripped_oak_log_top.png"
+          },
+          {
+            "src": "stripped_spruce_log.png",
+            "dst": "stripped_spruce_log.png"
+          },
+          {
+            "src": "stripped_spruce_log_top.png",
+            "dst": "stripped_spruce_log_top.png"
+          },
+          {
+            "src": "acacia_trapdoor.png",
+            "dst": "trap_door_acacia.png"
+          },
+          {
+            "src": "acacia_trapdoor.png",
+            "dst": "trap_door_acacia_180.png",
+            "func": "rotate180"
+          },
+          {
+            "src": "acacia_trapdoor.png",
+            "dst": "trap_door_acacia_270.png",
+            "func": "rotate270"
+          },
+          {
+            "src": "acacia_trapdoor.png",
+            "dst": "trap_door_acacia_90.png",
+            "func": "rotate90"
+          },
+          {
+            "src": "birch_trapdoor.png",
+            "dst": "trap_door_birch.png"
+          },
+          {
+            "src": "birch_trapdoor.png",
+            "dst": "trap_door_birch_180.png",
+            "func": "rotate180"
+          },
+          {
+            "src": "birch_trapdoor.png",
+            "dst": "trap_door_birch_270.png",
+            "func": "rotate270"
+          },
+          {
+            "src": "birch_trapdoor.png",
+            "dst": "trap_door_birch_90.png",
+            "func": "rotate90"
+          },
+          {
+            "src": "dark_oak_trapdoor.png",
+            "dst": "trap_door_dark_oak.png"
+          },
+          {
+            "src": "dark_oak_trapdoor.png",
+            "dst": "trap_door_dark_oak_180.png",
+            "func": "rotate180"
+          },
+          {
+            "src": "dark_oak_trapdoor.png",
+            "dst": "trap_door_dark_oak_270.png",
+            "func": "rotate270"
+          },
+          {
+            "src": "dark_oak_trapdoor.png",
+            "dst": "trap_door_dark_oak_90.png",
+            "func": "rotate90"
+          },
+          {
+            "src": "jungle_trapdoor.png",
+            "dst": "trap_door_jungle.png"
+          },
+          {
+            "src": "jungle_trapdoor.png",
+            "dst": "trap_door_jungle_180.png",
+            "func": "rotate180"
+          },
+          {
+            "src": "jungle_trapdoor.png",
+            "dst": "trap_door_jungle_270.png",
+            "func": "rotate270"
+          },
+          {
+            "src": "jungle_trapdoor.png",
+            "dst": "trap_door_jungle_90.png",
+            "func": "rotate90"
+          },
+          {
+            "src": "spruce_trapdoor.png",
+            "dst": "trap_door_spruce.png"
+          },
+          {
+            "src": "spruce_trapdoor.png",
+            "dst": "trap_door_spruce_180.png",
+            "func": "rotate180"
+          },
+          {
+            "src": "spruce_trapdoor.png",
+            "dst": "trap_door_spruce_270.png",
+            "func": "rotate270"
+          },
+          {
+            "src": "spruce_trapdoor.png",
+            "dst": "trap_door_spruce_90.png",
+            "func": "rotate90"
+          },
+          {
+            "src": "wither_rose.png",
+            "dst": "wither_rose.png"
+          },
+          {
+            "src": "cornflower.png",
+            "dst": "flower_cornflower.png"
+          },
+          {
+            "src": "lily_of_the_valley.png",
+            "dst": "flower_lily_of_the_valley.png"
+          },
+          {
+            "src": "sweet_berry_bush_stage0.png",
+            "dst": "sweet_berry_bush_stage0.png"
+          },
+          {
+            "src": "sweet_berry_bush_stage1.png",
+            "dst": "sweet_berry_bush_stage1.png"
+          },
+          {
+            "src": "sweet_berry_bush_stage2.png",
+            "dst": "sweet_berry_bush_stage2.png"
+          },
+          {
+            "src": "sweet_berry_bush_stage3.png",
+            "dst": "sweet_berry_bush_stage3.png"
+          },
+          {
+            "src": "lantern.png",
+            "dst": "lantern.png"
+          },
+          {
+            "src": "lantern.png.mcmeta",
+            "dst": "lantern.png.mcmeta"
+          }
+        ]
+      },
+      {
+        "archive_id": "mc17",
+        "part_id": "items17",
+        "src_dir": "assets/minecraft/textures/item/",
+        "dst_dir": "assets/uptodate/textures/items/",
+        "files": [
+          {
+            "src": "sweet_berries.png",
+            "dst": "sweet_berries.png"
+          },
+          {
+            "src": "white_dye.png",
+            "dst": "white_dye.png"
+          },
+          {
+            "src": "blue_dye.png",
+            "dst": "blue_dye.png"
+          },
+          {
+            "src": "black_dye.png",
+            "dst": "black_dye.png"
+          },
+          {
+            "src": "brown_dye.png",
+            "dst": "brown_dye.png"
+          },
+          {
+            "src": "suspicious_stew.png",
+            "dst": "suspicious_stew.png"
+          }
+        ]
+      }
+    ]
+  }
+}
