@@ -63,6 +63,11 @@ public class DownloadTask {
         this.status = status;
     }
 
+    public void setFailed(Throwable reason) {
+        setStatus(DownloadTaskStatus.FAILED);
+        setFailureReason(reason);
+    }
+
     public Throwable getFailureReason() {
         return failureReason;
     }
