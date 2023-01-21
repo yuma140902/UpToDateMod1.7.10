@@ -1,5 +1,6 @@
 package yuma140902.uptodatemod.vrl.ui;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import yuma140902.uptodatemod.vrl.download.DownloadTask;
 import yuma140902.uptodatemod.vrl.download.DownloadTaskStatus;
 
@@ -8,10 +9,11 @@ import javax.swing.event.HyperlinkEvent;
 import javax.swing.table.DefaultTableModel;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.awt.*;
 
@@ -21,11 +23,13 @@ public class SwingDownloadProgressWindow extends JFrame {
 
     private int taskIndexToShowProgressBars;
 
+    private boolean shouldCloseMinecraftWhenClosing = true;
+
     private final JEditorPane urlEp = new JEditorPane("text/html", "");
     private final JEditorPane localPathEp = new JEditorPane("text/plain", "");
     private final JProgressBar bytesProgressBar = new JProgressBar();
     private final JProgressBar filesProgressBar = new JProgressBar();
-    private final JEditorPane errorMessageEp = new JEditorPane("text/html", "");
+    private final JEditorPane messageEp = new JEditorPane("text/html", "");
     private final DefaultTableModel tableModel = new DefaultTableModel();
 
     public SwingDownloadProgressWindow() {
@@ -74,9 +78,9 @@ public class SwingDownloadProgressWindow extends JFrame {
 
         box.add(Box.createRigidArea(new Dimension(0, 10)));
 
-        this.errorMessageEp.setEditable(false);
-        this.errorMessageEp.setOpaque(false);
-        box.add(this.errorMessageEp);
+        this.messageEp.setEditable(false);
+        this.messageEp.setOpaque(false);
+        box.add(this.messageEp);
 
         box.add(Box.createRigidArea(new Dimension(0, 10)));
 
@@ -129,6 +133,20 @@ public class SwingDownloadProgressWindow extends JFrame {
         this.add(box);
 
         this.pack();
+
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if(shouldCloseMinecraftWhenClosing) {
+                    int shouldClose = JOptionPane.showConfirmDialog(
+                            null, "Are you sure you want to stop?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                    if (shouldClose == JOptionPane.YES_OPTION) {
+                        FMLCommonHandler.instance().exitJava(0, false);
+                    }
+                }
+            }
+        });
     }
 
     public void setDownloadTasks(List<DownloadTask> tasks) {
@@ -184,9 +202,8 @@ public class SwingDownloadProgressWindow extends JFrame {
                 clearLocalPath();
                 clearBytesProgressBar();
                 break;
-            case DOWNLOADING_FIRST_TIME:
-            case RE_DOWNLOADING_BECAUSE_HASH_DOES_NOT_MATCH:
-            case SKIPPED_BECAUSE_ALREADY_DOWNLOADED:
+            case DOWNLOADING:
+            case SKIPPED:
             case FAILED:
             case DOWNLOADED:
                 setUrl(task.getUrl().toString());
@@ -226,16 +243,21 @@ public class SwingDownloadProgressWindow extends JFrame {
     private void updateFilesProgressBar() {
         int numAllFiles = this.tasks.size();
         int numDoneFiles = (int) this.tasks.stream().filter(t ->
-                t.getStatus() == DownloadTaskStatus.SKIPPED_BECAUSE_ALREADY_DOWNLOADED ||
-                t.getStatus() == DownloadTaskStatus.DOWNLOADED
+                t.getStatus() == DownloadTaskStatus.SKIPPED ||
+                t.getStatus() == DownloadTaskStatus.DOWNLOADED ||
+                t.getStatus() == DownloadTaskStatus.FAILED
             ).count();
         this.filesProgressBar.setMaximum(numAllFiles);
         this.filesProgressBar.setValue(numDoneFiles);
         this.filesProgressBar.setString(String.format("%d / %d files", numAllFiles, numDoneFiles));
     }
 
-    public void showErrorMessageHTML(String message) {
-        this.errorMessageEp.setText(message);
+    public void setShouldCloseMinecraftWhenClosing(boolean b){
+        this.shouldCloseMinecraftWhenClosing = b;
+    }
+
+    public void showMessageHTML(String message) {
+        this.messageEp.setText(message);
     }
 
 }
