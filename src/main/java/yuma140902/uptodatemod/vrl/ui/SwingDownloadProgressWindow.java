@@ -107,7 +107,7 @@ public class SwingDownloadProgressWindow extends JFrame {
             DownloadTask selectedTask = this.tasks.get(row);
 
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-            StringSelection ss = new StringSelection(selectedTask.getUrl());
+            StringSelection ss = new StringSelection(selectedTask.getUrl().toString());
             clipboard.setContents(ss, null);
         });
         JButton btnCopyPath = new JButton("Copy selected Path");
@@ -117,7 +117,7 @@ public class SwingDownloadProgressWindow extends JFrame {
             DownloadTask selectedTask = this.tasks.get(row);
 
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-            StringSelection ss = new StringSelection(selectedTask.getLocalPath());
+            StringSelection ss = new StringSelection(selectedTask.getLocalPath().toString());
             clipboard.setContents(ss, null);
         });
         tableButtons.add(btnCopyUrl);
@@ -148,8 +148,8 @@ public class SwingDownloadProgressWindow extends JFrame {
                 task.getStatus().toString(),
                 downloadedBytes < 0 ? "" : Integer.toString(downloadedBytes),
                 totalBytes < 0 ? "" : Integer.toString(totalBytes),
-                task.getUrl(),
-                task.getLocalPath()
+                task.getUrl().toString(),
+                task.getLocalPath().toString()
         };
     }
 
@@ -189,8 +189,8 @@ public class SwingDownloadProgressWindow extends JFrame {
             case SKIPPED_BECAUSE_ALREADY_DOWNLOADED:
             case FAILED:
             case DOWNLOADED:
-                setUrl(task.getUrl());
-                setLocalPath(task.getLocalPath());
+                setUrl(task.getUrl().toString());
+                setLocalPath(task.getLocalPath().toString());
                 updateBytesProgressBar(task.getDownloadedBytes(), task.getTotalBytes());
                 break;
         }

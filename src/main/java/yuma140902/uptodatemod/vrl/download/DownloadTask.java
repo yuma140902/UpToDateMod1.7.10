@@ -1,8 +1,11 @@
 package yuma140902.uptodatemod.vrl.download;
 
+import java.net.URL;
+import java.nio.file.Path;
+
 public class DownloadTask {
-    private final String url;
-    private final String localPath;
+    private final URL url;
+    private final Path localPath;
     private final String hash;
     private final String id;
     private int totalBytes;
@@ -10,7 +13,7 @@ public class DownloadTask {
     private DownloadTaskStatus status;
     private Throwable failureReason;
 
-    public DownloadTask(String url, String localPath, String hash, String id) {
+    public DownloadTask(URL url, Path localPath, String hash, String id) {
         this.url = url;
         this.localPath = localPath;
         this.hash = hash;
@@ -20,11 +23,11 @@ public class DownloadTask {
         this.status = DownloadTaskStatus.NOT_STARTED;
     }
 
-    public String getUrl() {
+    public URL getUrl() {
         return url;
     }
 
-    public String getLocalPath() {
+    public Path getLocalPath() {
         return localPath;
     }
 
