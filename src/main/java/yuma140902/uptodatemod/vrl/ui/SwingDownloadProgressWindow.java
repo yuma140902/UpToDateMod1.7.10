@@ -3,7 +3,6 @@ package yuma140902.uptodatemod.vrl.ui;
 import yuma140902.uptodatemod.vrl.download.DownloadTask;
 import yuma140902.uptodatemod.vrl.download.DownloadTaskStatus;
 
-import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.table.DefaultTableModel;
@@ -26,7 +25,7 @@ public class SwingDownloadProgressWindow extends JFrame {
     private final JEditorPane localPathEp = new JEditorPane("text/plain", "");
     private final JProgressBar bytesProgressBar = new JProgressBar();
     private final JProgressBar filesProgressBar = new JProgressBar();
-
+    private final JEditorPane errorMessageEp = new JEditorPane("text/html", "");
     private final DefaultTableModel tableModel = new DefaultTableModel();
 
     public SwingDownloadProgressWindow() {
@@ -72,6 +71,12 @@ public class SwingDownloadProgressWindow extends JFrame {
 
         this.filesProgressBar.setStringPainted(true);
         box.add(this.filesProgressBar);
+
+        box.add(Box.createRigidArea(new Dimension(0, 10)));
+
+        this.errorMessageEp.setEditable(false);
+        this.errorMessageEp.setOpaque(false);
+        box.add(this.errorMessageEp);
 
         box.add(Box.createRigidArea(new Dimension(0, 10)));
 
@@ -227,6 +232,10 @@ public class SwingDownloadProgressWindow extends JFrame {
         this.filesProgressBar.setMaximum(numAllFiles);
         this.filesProgressBar.setValue(numDoneFiles);
         this.filesProgressBar.setString(String.format("%d / %d files", numAllFiles, numDoneFiles));
+    }
+
+    public void showErrorMessageHTML(String message) {
+        this.errorMessageEp.setText(message);
     }
 
 }
