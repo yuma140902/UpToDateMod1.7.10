@@ -358,7 +358,7 @@
     },
     {
       "url": "https://resources.download.minecraft.net/a2/a2ab744b54a54e2eb1fc12c7e26dd6066b1799e8",
-      "dest": "sounds/block/deepslate_bricks/step5.ogg"
+      "to": "sounds/block/deepslate_bricks/step5.ogg"
     }
   ],
   "extraction": {
