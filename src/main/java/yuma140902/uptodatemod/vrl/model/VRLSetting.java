@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class VRLSetting {
+	public List<Archive> archives;
 	public List<Download> downloads;
 	public Extraction extraction;
 
@@ -21,12 +22,11 @@ public class VRLSetting {
 			URL url = null;
 			Path path = basePath.resolve(d.to);
 			String hash = d.hash;
-			String id = d.id;
 			try {
 				url = new URL(d.url);
 			} catch (MalformedURLException e) {
 				try {
-					DownloadTask task = new DownloadTask(new URL("http://example.com/"), path, hash, id);
+					DownloadTask task = new DownloadTask(new URL("http://example.com/"), path, hash);
 					task.setStatus(DownloadTaskStatus.FAILED);
 					task.setFailureReason(e);
 					return task;
@@ -35,7 +35,7 @@ public class VRLSetting {
 					return null;
 				}
 			}
-			return new DownloadTask(url, path, hash, id);
+			return new DownloadTask(url, path, hash);
 		}).filter(Objects::nonNull);
 	}
 }
