@@ -3,14 +3,18 @@ package yuma140902.uptodatemod.vrl.download;
 public class DownloadTask {
     private final String url;
     private final String localPath;
+    private final String hash;
+    private final String id;
     private int totalBytes;
     private int downloadedBytes;
     private DownloadTaskStatus status;
     private Throwable failureReason;
 
-    public DownloadTask(String url, String localPath) {
+    public DownloadTask(String url, String localPath, String hash, String id) {
         this.url = url;
         this.localPath = localPath;
+        this.hash = hash;
+        this.id = id;
         this.totalBytes = -1;
         this.downloadedBytes = 0;
         this.status = DownloadTaskStatus.NOT_STARTED;
@@ -22,6 +26,14 @@ public class DownloadTask {
 
     public String getLocalPath() {
         return localPath;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public int getTotalBytes() {

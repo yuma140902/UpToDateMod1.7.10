@@ -131,7 +131,7 @@ public class SwingDownloadProgressWindow extends JFrame {
         this.pack();
     }
 
-    public void setDownloadTasks(Collection<DownloadTask> tasks) {
+    public void setDownloadTasks(List<DownloadTask> tasks) {
         this.tasks.addAll(tasks);
         int i = 0;
         for(final DownloadTask task : tasks) {
