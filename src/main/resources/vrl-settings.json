@@ -1,13 +1,21 @@
 {
-  "downloads": [
+  "archives": [
     {
       "id": "mc12",
+      "path": "client-jars/minecraft-client-1.12.2.jar"
+    },
+    {
+      "id": "mc17",
+      "path": "client-jars/minecraft-client-1.17.jar"
+    }
+  ],
+  "downloads": [
+    {
       "url": "https://launcher.mojang.com/v1/objects/0f275bc1547d01fa5f56ba34bdc87d981ee12daf/client.jar",
       "to": "client-jars/minecraft-client-1.12.2.jar",
       "hash": "8c0443868b9e46c77d39db61c755679d"
     },
     {
-      "id": "mc17",
       "url": "https://launcher.mojang.com/v1/objects/1cf89c77ed5e72401b869f66410934804f3d6f52/client.jar",
       "to": "client-jars/minecraft-client-1.17.jar",
       "hash": "d31cd74449fd04c8645d59ec15e885c9"
