@@ -23,7 +23,6 @@ import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.event_handlers.StripWoodHandler;
 import yuma140902.uptodatemod.integration.Plugins;
-import yuma140902.uptodatemod.launch.VanillaResourceLoadingException;
 import yuma140902.uptodatemod.loot.MobLoot;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
@@ -33,6 +32,7 @@ import yuma140902.uptodatemod.proxy.CommonProxy;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.uptodatemod.util.UpToDateModConstants;
+import yuma140902.uptodatemod.vrl.VRLException;
 import yuma140902.uptodatemod.world.generation.MyMinableGenerator;
 import yuma140902.yumalib.api.blocks.CustomSoundType;
 import yuma140902.yumalib.api.context.InitModContext;
@@ -41,7 +41,6 @@ import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
 import yuma140902.yumalib.api.update.IUpdateChecker;
 import yuma140902.yumalib.api.update.TsvUpdateChecker;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.file.Path;
@@ -122,7 +121,7 @@ public class ModUpToDateMod {
 	}
 	
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) throws VanillaResourceLoadingException, IOException {
+	public void preInit(FMLPreInitializationEvent event) throws VRLException {
 		loadModMetadata(modMetadata);
 		ModConfigCore.loadConfig(event);
 		LOGGER.info("preInit");

@@ -13,11 +13,9 @@ import yuma140902.uptodatemod.entity.item.EntityBoatDarkOak;
 import yuma140902.uptodatemod.entity.item.EntityBoatJungle;
 import yuma140902.uptodatemod.entity.item.EntityBoatSpruce;
 import yuma140902.uptodatemod.event_handlers.CommonEventHandler;
-import yuma140902.uptodatemod.launch.VanillaResourceLoadingException;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel;
-
-import java.io.IOException;
+import yuma140902.uptodatemod.vrl.VRLException;
 
 public class CommonProxy {
 	public void registerEventHandlers() {
@@ -48,5 +46,5 @@ public class CommonProxy {
 	
 	public void registerRenderers() { }
 	
-	public void loadVanillaResources() throws VanillaResourceLoadingException, IOException {}
+	public void loadVanillaResources() throws VRLException {}
 }

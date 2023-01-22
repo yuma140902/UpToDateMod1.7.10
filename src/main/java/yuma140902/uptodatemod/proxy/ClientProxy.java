@@ -1,8 +1,5 @@
 package yuma140902.uptodatemod.proxy;
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
@@ -11,6 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraftforge.common.MinecraftForge;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.client.renderer.RenderArmorStand;
 import yuma140902.uptodatemod.client.renderer.RenderBlockBarrel;
 import yuma140902.uptodatemod.client.renderer.RenderBlockGlazedTerracotta;
@@ -24,10 +22,10 @@ import yuma140902.uptodatemod.entity.item.EntityBoatJungle;
 import yuma140902.uptodatemod.entity.item.EntityBoatSpruce;
 import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 import yuma140902.uptodatemod.event_handlers.ClientEventHandler;
-import yuma140902.uptodatemod.launch.VanillaResourceLoader;
-import yuma140902.uptodatemod.launch.VanillaResourceLoadingException;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.resourcepack.UpToDateModResourcePack;
+import yuma140902.uptodatemod.vrl.VRLException;
+import yuma140902.uptodatemod.vrl.VanillaResourceLoader;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -66,14 +64,10 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	@Override
-	public void loadVanillaResources() throws VanillaResourceLoadingException, IOException {
-		Path caches = Paths.get("uptodatemod/dl-cache");
-		Path archives = Paths.get("uptodatemod/client-jars");
-		Path assets = Paths.get("uptodatemod/assets/uptodate");
-		
-		new VanillaResourceLoader(caches, archives, assets).load();
+	public void loadVanillaResources() throws VRLException {
+		new VanillaResourceLoader(ModUpToDateMod.INSTANCE.uptodatemodDirectory).load();
 		
 		List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), "defaultResourcePacks", "field_110449_ao");
-    defaultResourcePacks.add(new UpToDateModResourcePack());
+		defaultResourcePacks.add(new UpToDateModResourcePack());
 	}
 }
