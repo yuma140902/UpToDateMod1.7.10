@@ -366,7 +366,7 @@
     },
     {
       "url": "https://resources.download.minecraft.net/a2/a2ab744b54a54e2eb1fc12c7e26dd6066b1799e8",
-      "to": "sounds/block/deepslate_bricks/step5.ogg"
+      "to": "assets/uptodate/sounds/block/deepslate_bricks/step5.ogg"
     }
   ],
   "extraction": {
@@ -427,7 +427,7 @@
             "dst": "concrete_light_blue.png"
           },
           {
-            "src": "concrete_light_gray.png",
+            "src": "concrete_silver.png",
             "dst": "concrete_light_gray.png"
           },
           {
@@ -475,7 +475,7 @@
             "dst": "concrete_powder_light_blue.png"
           },
           {
-            "src": "concrete_powder_light_gray.png",
+            "src": "concrete_powder_silver.png",
             "dst": "concrete_powder_light_gray.png"
           },
           {
@@ -841,7 +841,7 @@
         "part_id": "items12",
         "src_dir": "assets/minecraft/textures/items/",
         "dst_dir": "assets/uptodate/textures/items/",
-        "files:": [
+        "files": [
           {
             "src": "wooden_armorstand.png",
             "dst": "armor_stand.png"
