@@ -1,4 +1,4 @@
-package yuma140902.uptodatemod.vrl.ui;
+package yuma140902.uptodatemod.vrl.download;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import yuma140902.uptodatemod.vrl.download.DownloadTask;

@@ -2,7 +2,6 @@ package yuma140902.uptodatemod.vrl.download;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import yuma140902.uptodatemod.vrl.VRLException;
-import yuma140902.uptodatemod.vrl.ui.SwingDownloadProgressWindow;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
