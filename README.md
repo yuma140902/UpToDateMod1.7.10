@@ -6,7 +6,8 @@
 [![latest-version:v2.4.0](https://badgen.net/github/release/yuma140902/UpToDateMod1.7.10?color=97ca00&label=Latest)](#)
 [![Minecraft1.7.10](https://img.shields.io/badge/Minecraft-1.7.10-blue.svg)](https://www.minecraft.net/)
 
-[![All Blocks and Items as of v2.0.1](https://user-images.githubusercontent.com/23431077/124374944-38459e80-dcda-11eb-8d23-3330a2af91d1.png)](#)
+[![All Blocks and Items as of v2.4.0](https://user-images.githubusercontent.com/23431077/219945662-0b6d1e42-18e3-4f7f-a200-4758f7fdc17b.png)](#)
+
 
 A Forge mod which backports new Minecraft (1.8.0 and later) features to Minecraft 1.7.10
 
