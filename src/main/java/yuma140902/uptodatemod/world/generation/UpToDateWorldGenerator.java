@@ -2,6 +2,7 @@ package yuma140902.uptodatemod.world.generation;
 
 import java.util.Random;
 import cpw.mods.fml.common.IWorldGenerator;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -22,6 +23,10 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 			if(ModConfigCore.WorldGen.genCoarseDirt() && EnumDisableableFeatures.coarseDirt.featureEnabled())
 				generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
+		if(!ListUtils.contains(ModConfigCore.WorldGen.deepslateBlackList(), world.provider.dimensionId)) {
+			if(ModConfigCore.WorldGen.genDeepslate() && EnumDisableableFeatures.deepslateStone.featureEnabled())
+				generateDeepslateOres(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+		}
 		if(!ListUtils.contains(ModConfigCore.WorldGen.fossilesBlackList(), world.provider.dimensionId)) {
 			if(ModConfigCore.WorldGen.genFossiles() && EnumDisableableFeatures.boneBlockAndFossile.featureEnabled())
 				generateFossile(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
@@ -40,7 +45,25 @@ public class UpToDateWorldGenerator implements IWorldGenerator{
 			}
 		}
 	}
-	
+
+	private void generateDeepslateOres(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+		for(int x = chunkX * 16; x < chunkX * 16 + 16; ++x) {
+			for(int z = chunkZ * 16; z < chunkZ * 16 + 16; ++z) {
+				for(int y = 0; y <= 16; ++y) {
+					Block block = world.getBlock(x, y, z);
+					if(block == Blocks.coal_ore) world.setBlock(x, y, z, MyBlocks.deepslateCoalOre, 0, 2);
+					else if(block == Blocks.diamond_ore) world.setBlock(x, y, z, MyBlocks.deepslateDiamondOre, 0, 2);
+					else if(block == Blocks.emerald_ore) world.setBlock(x, y, z, MyBlocks.deepslateEmeraldOre, 0, 2);
+					else if(block == Blocks.gold_ore) world.setBlock(x, y, z, MyBlocks.deepslateGoldOre, 0, 2);
+					else if(block == Blocks.iron_ore) world.setBlock(x, y, z, MyBlocks.deepslateIronOre, 0, 2);
+					else if(block == Blocks.lapis_ore) world.setBlock(x, y, z, MyBlocks.deepslateLapisOre, 0, 2);
+					else if(block == Blocks.redstone_ore || block == Blocks.lit_redstone_ore)
+						world.setBlock(x, y, z, MyBlocks.deepslateRedstoneOre, 0, 2);
+				}
+			}
+		}
+	}
+
 	private void generateFossile(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if(random.nextInt(64) != 0) return;
 		BiomeGenBase biome = world.provider.getBiomeGenForCoords(chunkX * 16, chunkZ * 16);
