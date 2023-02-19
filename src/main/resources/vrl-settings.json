@@ -5,8 +5,8 @@
       "path": "client-jars/minecraft-client-1.12.2.jar"
     },
     {
-      "id": "mc17",
-      "path": "client-jars/minecraft-client-1.17.jar"
+      "id": "mc19",
+      "path": "client-jars/minecraft-client-1.19.jar"
     }
   ],
   "downloads": [
@@ -16,9 +16,9 @@
       "hash": "8c0443868b9e46c77d39db61c755679d"
     },
     {
-      "url": "https://launcher.mojang.com/v1/objects/1cf89c77ed5e72401b869f66410934804f3d6f52/client.jar",
-      "to": "client-jars/minecraft-client-1.17.jar",
-      "hash": "d31cd74449fd04c8645d59ec15e885c9"
+      "url": "https://launcher.mojang.com/v1/objects/c0898ec7c6a5a2eaa317770203a1554260699994/client.jar",
+      "to": "client-jars/minecraft-client-1.19.jar",
+      "hash": "c4b4e3aa6b9a79bdb9224cbdc801d7dd"
     },
     {
       "url": "https://resources.download.minecraft.net/df/dffb5d6066ba89a4d3a609eb0c607606d4a524e2",
@@ -901,7 +901,7 @@
         ]
       },
       {
-        "archive_id": "mc17",
+        "archive_id": "mc19",
         "part_id": "blocks17",
         "src_dir": "assets/minecraft/textures/block/",
         "dst_dir": "assets/uptodate/textures/blocks/",
@@ -1164,7 +1164,7 @@
         ]
       },
       {
-        "archive_id": "mc17",
+        "archive_id": "mc19",
         "part_id": "items17",
         "src_dir": "assets/minecraft/textures/item/",
         "dst_dir": "assets/uptodate/textures/items/",
