@@ -298,6 +298,10 @@ config.uptodate.prop.generate_magma_block=Magma Block generation
 config.uptodate.prop.generate_magma_block.tooltip=Magma Blocks will be generated in Nether
 config.uptodate.prop.generate_magma_block_blacklist=Blacklist of magma block generation
 config.uptodate.prop.generate_magma_block_blacklist.tooltip=Dimension IDs in which magma blocks should not be generated
+config.uptodate.prop.generate_deepslate=Deepslate generation
+config.uptodate.prop.generate_deepslate.tooltip=Deepslate will be generated below y=16
+config.uptodate.prop.generate_deepslate_blacklist=Blacklist of deepslate generation
+config.uptodate.prop.generate_deepslate_blacklist.tooltip=Dimension IDs in which deepslate should not be generated
 
 config.uptodate.category.recipe=Recipes
 config.uptodate.category.recipe.tooltip=Settings of recipes

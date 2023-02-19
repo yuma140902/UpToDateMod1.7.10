@@ -298,6 +298,10 @@ config.uptodate.prop.generate_magma_block=マグマブロックの生成
 config.uptodate.prop.generate_magma_block.tooltip=マグマブロックをネザーに生成するかどうか
 config.uptodate.prop.generate_magma_block_blacklist=マグマブロックの生成のブラックリスト
 config.uptodate.prop.generate_magma_block_blacklist.tooltip=マグマブロックを生成しないディメンションのIDを指定します。
+config.uptodate.prop.generate_deepslate=深層岩の生成
+config.uptodate.prop.generate_deepslate.tooltip=深層岩を生成するかどうか
+config.uptodate.prop.generate_deepslate_blacklist=深層岩の生成のブラックリスト
+config.uptodate.prop.generate_deepslate_blacklist.tooltip=深層岩を生成しないディメンションのIDを指定します。
 
 config.uptodate.category.recipe=レシピ
 config.uptodate.category.recipe.tooltip=レシピに関する設定
@@ -325,4 +329,4 @@ config.uptodate.category.experimental=実験的機能
 config.uptodate.category.experimental.tooltip=実験的な機能。深刻なバグがあるかもしれません。
 
 config.uptodate.category.integration=他MODとの連携
-config.uptodate.category.integration.tooltip=他MODとの連携に関する設定tile.uptodate.stone.0.name=Stone(UpToDateMod)
+config.uptodate.category.integration.tooltip=他MODとの連携に関する設定
