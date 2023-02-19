@@ -247,6 +247,7 @@ public final class MyBlocks {
 	 */
 	static {
 		ModUpToDateMod.LOGGER.info("Blocks init");
+		add(new BlockTest());
 		
 		add(stone = stones.featureEnabled() ? new yuma140902.uptodatemod.blocks.BlockStone() : null);
 		add(smoothStone = EnumDisableableFeatures.smoothStone.featureEnabled() ? new BlockSmoothStone() : null);

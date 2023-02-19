@@ -24,6 +24,7 @@ import yuma140902.uptodatemod.entity.item.EntityModBoatBase.Type;
 import yuma140902.uptodatemod.event_handlers.ClientEventHandler;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.resourcepack.UpToDateModResourcePack;
+import yuma140902.yumalib.client.renderer.RenderYLBlockModel;
 import yuma140902.uptodatemod.vrl.VRLException;
 import yuma140902.uptodatemod.vrl.VanillaResourceLoader;
 
@@ -56,6 +57,7 @@ public class ClientProxy extends CommonProxy {
 			RenderingRegistry.registerBlockHandler(new RenderBlockLantern());
 		if(EnumDisableableFeatures.barrel.featureEnabled())
 			RenderingRegistry.registerBlockHandler(new RenderBlockBarrel());
+		RenderingRegistry.registerBlockHandler(new RenderYLBlockModel());
 	}
 	
 	@Override
