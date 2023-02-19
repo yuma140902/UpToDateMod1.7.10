@@ -2,10 +2,15 @@ package yuma140902.uptodatemod.blocks;
 
 import com.google.common.collect.Lists;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.ModUpToDateMod;
@@ -19,7 +24,7 @@ import yuma140902.yumalib.api.blocks.CustomSoundTypeWithPlaceSound;
 
 import java.util.ArrayList;
 
-public class BlockDeepslate extends Block implements IRegisterable, IHasRecipes {
+public class BlockDeepslate extends BlockRotatedPillar implements IRegisterable, IHasRecipes {
 
     public final static SoundType soundTypeDeepslate = new CustomSoundTypeWithPlaceSound(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "deepslate");
 
@@ -63,5 +68,17 @@ public class BlockDeepslate extends Block implements IRegisterable, IHasRecipes 
                 MyBlocks.cobbledDeepslate,
                 new ItemStack(this, 1),
                 McConst.EXP_STONE);
+    }
+
+    @Override
+    protected IIcon getSideIcon(int p_150163_1_) {
+        return blockIcon;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister register) {
+        super.registerBlockIcons(register);
+        field_150164_N = register.registerIcon(getTextureName());
     }
 }

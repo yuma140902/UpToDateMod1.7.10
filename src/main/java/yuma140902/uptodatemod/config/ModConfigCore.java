@@ -197,9 +197,11 @@ public class ModConfigCore {
 			.add(PropertyBuilder.bool("genDeepslate")
 				.defaultBool(WorldGen.genDeepslate)
 				.comment("Generate Deepslate or not", "深層岩を生成するかどうか")
+				.langKey(getPropertyLangkey("generate_deepslate"))
 				)
 			.add(PropertyBuilder.integerList("genDeepslateDimensionBlackList")
 				.defaultIntList(WorldGen.deepslateBlackList)
+				.langKey(getPropertyLangkey("generate_deepslate_blacklist"))
 				);
 		worldGenCategory.registerToForge(cfg);
 		

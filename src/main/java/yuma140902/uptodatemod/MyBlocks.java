@@ -56,7 +56,15 @@ public final class MyBlocks {
 	public static final BlockDeepslateCobbled cobbledDeepslate;
 	public static final BlockDeepslateBricks deepslateBricks;
 	public static final BlockDeepslatePolished polishedDeepslate;
-	
+	public static final BlockDeepslateIronOre deepslateIronOre;
+	public static final BlockDeepslateGoldOre deepslateGoldOre;
+	public static final BlockDeepslateDiamondOre deepslateDiamondOre;
+	public static final BlockDeepslateEmeraldOre deepslateEmeraldOre;
+	public static final BlockDeepslateCoalOre deepslateCoalOre;
+	public static final BlockDeepslateLapisOre deepslateLapisOre;
+	public static final BlockDeepslateRedstoneOre deepslateRedstoneOre;
+	public static final BlockDeepslateRedstoneOre deepslateRedstoneOreLit;
+
 	public static final BlockFullWood wood;
 	
 	public static final BlockGenericStrippedLog strippedLogAcacia;
@@ -247,12 +255,28 @@ public final class MyBlocks {
 			add(cobbledDeepslate = new BlockDeepslateCobbled());
 			add(deepslateBricks = new BlockDeepslateBricks());
 			add(polishedDeepslate = new BlockDeepslatePolished());
+			add(deepslateIronOre = new BlockDeepslateIronOre());
+			add(deepslateGoldOre = new BlockDeepslateGoldOre());
+			add(deepslateDiamondOre = new BlockDeepslateDiamondOre());
+			add(deepslateEmeraldOre = new BlockDeepslateEmeraldOre());
+			add(deepslateCoalOre= new BlockDeepslateCoalOre());
+			add(deepslateLapisOre = new BlockDeepslateLapisOre());
+			add(deepslateRedstoneOre = new BlockDeepslateRedstoneOre(false));
+			add(deepslateRedstoneOreLit = new BlockDeepslateRedstoneOre(true));
 		}
 		else{
 			deepslate = null;
 			cobbledDeepslate = null;
 			deepslateBricks = null;
 			polishedDeepslate = null;
+			deepslateIronOre = null;
+			deepslateGoldOre = null;
+			deepslateDiamondOre = null;
+			deepslateEmeraldOre = null;
+			deepslateCoalOre = null;
+			deepslateLapisOre = null;
+			deepslateRedstoneOre = null;
+			deepslateRedstoneOreLit = null;
 		}
 		
 		add(wood = EnumDisableableFeatures.wood.featureEnabled() ? new BlockFullWood() : null);

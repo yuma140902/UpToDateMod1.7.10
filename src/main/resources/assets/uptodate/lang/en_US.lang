@@ -17,6 +17,13 @@ tile.uptodate.deepslate_bricks.name=Deepslate Bricks
 tile.uptodate.deepslate_bricks.cracked.name=Cracked Deepslate Bricks
 tile.uptodate.deepslate_bricks.tiles.name=Deepslate Tiles
 tile.uptodate.deepslate_bricks.cracked_tiles.name=Cracked Deepslate Tiles
+tile.uptodate.deepslate_iron_ore.name=Deepslate Iron Ore
+tile.uptodate.deepslate_gold_ore.name=Deepslate Gold Ore
+tile.uptodate.deepslate_diamond_ore.name=Deepslate Diamond Ore
+tile.uptodate.deepslate_emerald_ore.name=Deepslate Emerald Ore
+tile.uptodate.deepslate_coal_ore.name=Deepslate Coal Ore
+tile.uptodate.deepslate_lapis_ore.name=Deepslate Lapis Ore
+tile.uptodate.deepslate_redstone_ore.name=Deepslate Redstone Ore
 
 tile.uptodate.wood.acacia.name=Acacia Wood
 tile.uptodate.wood.birch.name=Birch Wood
@@ -298,6 +305,10 @@ config.uptodate.prop.generate_magma_block=Magma Block generation
 config.uptodate.prop.generate_magma_block.tooltip=Magma Blocks will be generated in Nether
 config.uptodate.prop.generate_magma_block_blacklist=Blacklist of magma block generation
 config.uptodate.prop.generate_magma_block_blacklist.tooltip=Dimension IDs in which magma blocks should not be generated
+config.uptodate.prop.generate_deepslate=Deepslate generation
+config.uptodate.prop.generate_deepslate.tooltip=Deepslate will be generated below y=16
+config.uptodate.prop.generate_deepslate_blacklist=Blacklist of deepslate generation
+config.uptodate.prop.generate_deepslate_blacklist.tooltip=Dimension IDs in which deepslate should not be generated
 
 config.uptodate.category.recipe=Recipes
 config.uptodate.category.recipe.tooltip=Settings of recipes

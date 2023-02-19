@@ -17,6 +17,13 @@ tile.uptodate.deepslate_bricks.name=深層岩レンガ
 tile.uptodate.deepslate_bricks.cracked.name=ひび割れた深層岩レンガ
 tile.uptodate.deepslate_bricks.tiles.name=深層岩タイル
 tile.uptodate.deepslate_bricks.cracked_tiles.name=ひび割れた深層岩タイル
+tile.uptodate.deepslate_iron_ore.name=深層鉄鉱石
+tile.uptodate.deepslate_gold_ore.name=深層金鉱石
+tile.uptodate.deepslate_diamond_ore.name=深層ダイヤモンド鉱石
+tile.uptodate.deepslate_emerald_ore.name=深層エメラルド鉱石
+tile.uptodate.deepslate_coal_ore.name=深層石炭鉱石
+tile.uptodate.deepslate_lapis_ore.name=深層ラピスラズリ鉱石
+tile.uptodate.deepslate_redstone_ore.name=深層レッドストーン鉱石
 
 tile.uptodate.wood.acacia.name=アカシアの木
 tile.uptodate.wood.birch.name=シラカバの木
@@ -298,6 +305,10 @@ config.uptodate.prop.generate_magma_block=マグマブロックの生成
 config.uptodate.prop.generate_magma_block.tooltip=マグマブロックをネザーに生成するかどうか
 config.uptodate.prop.generate_magma_block_blacklist=マグマブロックの生成のブラックリスト
 config.uptodate.prop.generate_magma_block_blacklist.tooltip=マグマブロックを生成しないディメンションのIDを指定します。
+config.uptodate.prop.generate_deepslate=深層岩の生成
+config.uptodate.prop.generate_deepslate.tooltip=深層岩を生成するかどうか
+config.uptodate.prop.generate_deepslate_blacklist=深層岩の生成のブラックリスト
+config.uptodate.prop.generate_deepslate_blacklist.tooltip=深層岩を生成しないディメンションのIDを指定します。
 
 config.uptodate.category.recipe=レシピ
 config.uptodate.category.recipe.tooltip=レシピに関する設定
@@ -325,4 +336,4 @@ config.uptodate.category.experimental=実験的機能
 config.uptodate.category.experimental.tooltip=実験的な機能。深刻なバグがあるかもしれません。
 
 config.uptodate.category.integration=他MODとの連携
-config.uptodate.category.integration.tooltip=他MODとの連携に関する設定tile.uptodate.stone.0.name=Stone(UpToDateMod)
+config.uptodate.category.integration.tooltip=他MODとの連携に関する設定
