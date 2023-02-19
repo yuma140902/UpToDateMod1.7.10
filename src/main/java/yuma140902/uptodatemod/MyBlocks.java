@@ -56,6 +56,7 @@ public final class MyBlocks {
 	public static final BlockDeepslateCobbled cobbledDeepslate;
 	public static final BlockDeepslateBricks deepslateBricks;
 	public static final BlockDeepslatePolished polishedDeepslate;
+	public static final BlockDeepslateIronOre deepslateIronOre;
 	
 	public static final BlockFullWood wood;
 	
@@ -247,12 +248,14 @@ public final class MyBlocks {
 			add(cobbledDeepslate = new BlockDeepslateCobbled());
 			add(deepslateBricks = new BlockDeepslateBricks());
 			add(polishedDeepslate = new BlockDeepslatePolished());
+			add(deepslateIronOre = new BlockDeepslateIronOre());
 		}
 		else{
 			deepslate = null;
 			cobbledDeepslate = null;
 			deepslateBricks = null;
 			polishedDeepslate = null;
+			deepslateIronOre = null;
 		}
 		
 		add(wood = EnumDisableableFeatures.wood.featureEnabled() ? new BlockFullWood() : null);
