@@ -17,6 +17,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.NoteBlockEvent;
+import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
@@ -80,6 +81,10 @@ public class CommonEventHandler {
 		}
 		return false;
 	}
+
+	private boolean canBlockTurnIntoGlassPath(Block block) {
+		return block == Blocks.grass || block == Blocks.dirt || block == MyBlocks.coarseDirt;
+	}
 	
 	@SubscribeEvent
 	public void onPlayerUsedItem(PlayerInteractEvent event) {
@@ -93,7 +98,7 @@ public class CommonEventHandler {
 		if(heldItem == null) return;
 		
 		if(EnumDisableableFeatures.grassPath.featureEnabled() &&
-				isShovel(heldItem) && world.getBlock(x, y, z) == Blocks.grass) {
+				isShovel(heldItem) && canBlockTurnIntoGlassPath(world.getBlock(x, y, z))  ) {
 			Block blockAbove = world.getBlock(x, y + 1, z);
 			if(blockAbove != null && blockAbove.isOpaqueCube()) return;
 			
