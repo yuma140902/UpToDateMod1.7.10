@@ -61,6 +61,7 @@ public final class MyBlocks {
 	public static final BlockDeepslateDiamondOre deepslateDiamondOre;
 	public static final BlockDeepslateEmeraldOre deepslateEmeraldOre;
 	public static final BlockDeepslateCoalOre deepslateCoalOre;
+	public static final BlockDeepslateLapisOre deepslateLapisOre;
 	
 	public static final BlockFullWood wood;
 	
@@ -257,6 +258,7 @@ public final class MyBlocks {
 			add(deepslateDiamondOre = new BlockDeepslateDiamondOre());
 			add(deepslateEmeraldOre = new BlockDeepslateEmeraldOre());
 			add(deepslateCoalOre= new BlockDeepslateCoalOre());
+			add(deepslateLapisOre = new BlockDeepslateLapisOre());
 		}
 		else{
 			deepslate = null;
@@ -268,6 +270,7 @@ public final class MyBlocks {
 			deepslateDiamondOre = null;
 			deepslateEmeraldOre = null;
 			deepslateCoalOre = null;
+			deepslateLapisOre = null;
 		}
 		
 		add(wood = EnumDisableableFeatures.wood.featureEnabled() ? new BlockFullWood() : null);
