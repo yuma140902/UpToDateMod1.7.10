@@ -959,6 +959,10 @@
             "dst": "deepslate_iron_ore.png"
           },
           {
+            "src": "deepslate_gold_ore.png",
+            "dst": "deepslate_gold_ore.png"
+          },
+          {
             "src": "stripped_acacia_log.png",
             "dst": "stripped_acacia_log.png"
           },
