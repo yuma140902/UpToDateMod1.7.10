@@ -63,7 +63,7 @@
    [/list]
 
    このMODで追加されるすべての要素は[url=https://docs.google.com/spreadsheets/d/1OiqEOgDV31E1ZJaxhGSqJT37xrWkqHZGmpzVUvk4uZs/edit?usp=sharing]ここ[/url]で見られます
-   [url=https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files/******]CurseForgeからダウンロード[/url]
+   [url=https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files]CurseForgeからダウンロード[/url]
    ```
 
 11. フォーラムのトップの記事を更新
