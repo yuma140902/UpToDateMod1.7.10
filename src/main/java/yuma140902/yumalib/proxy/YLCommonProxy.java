@@ -10,6 +10,10 @@ public class YLCommonProxy {
 		FMLCommonHandler.instance().bus().register(YLCommonEventHandler.INSTANCE);
 	}
 	
+	public int getNewRenderId() {
+		return -1;
+	}
+	
 	public void checkIfIsYuma140902() {}
 	
 	public boolean isYuma140902() {
