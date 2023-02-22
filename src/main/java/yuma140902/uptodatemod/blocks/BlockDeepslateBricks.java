@@ -54,11 +54,12 @@ public class BlockDeepslateBricks extends Block implements IRegisterable, IHasRe
     }
 
     @SideOnly(Side.CLIENT)
-    private IIcon[] icons = new IIcon[META_MAX + 1];
+    private IIcon[] icons;
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
+        icons = new IIcon[META_MAX + 1];
         icons[META_BRICKS] = register.registerIcon(StringUtil.name.domainedTexture("deepslate_bricks"));
         icons[META_CRACKED_BRICKS] = register.registerIcon(StringUtil.name.domainedTexture("cracked_deepslate_bricks"));
         icons[META_TILES] = register.registerIcon(StringUtil.name.domainedTexture("deepslate_tiles"));
