@@ -49,11 +49,12 @@ public class BlockDeepslatePolished extends Block implements IRegisterable, IHas
     }
 
     @SideOnly(Side.CLIENT)
-    private IIcon[] icons = new IIcon[META_MAX + 1];
+    private IIcon[] icons;
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister register) {
+        icons = new IIcon[META_MAX + 1];
         icons[META_POLISHED] = register.registerIcon(StringUtil.name.domainedTexture("polished_deepslate"));
         icons[META_CHISELED] = register.registerIcon(StringUtil.name.domainedTexture("chiseled_deepslate"));
     }
