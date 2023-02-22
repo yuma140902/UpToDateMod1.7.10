@@ -36,19 +36,20 @@
    
    Supported Java Versions は Java 8、1.7.10、Forgeにチェック
 
-8. リポジトリのREADMEの最新バージョンの記述などを変更
+8. アップデート確認用リポジトリのtsvに新しいバージョンを追加
 
-9. アップデート確認用リポジトリのtsvに新しいバージョンを追加
-
-    - latest、recommendの指定バージョンも忘れずに変更
+   - https://github.com/yuma140902/UpdateJSON_Forge/blob/master/UpToDateModVersions.tsv
+   - latest、recommendの指定バージョンも忘れずに変更
     
-10. フォーラムで変更を通知
+9. フォーラムで変更を通知
 
    テンプレ
    ```
    [b][size=110]アップデートのお知らせ[/size][/b]
    
-   [b][color=#008000]UpToDateMod[/color] v2.*.*を公開しました[/b]
+   [b][color=#008000]UpToDateMod[/color] v2.n.xを公開しました[/b]
+   
+   [size=110]v2.n.0[/size]
    
    [b]追加[/b]
    [list]
@@ -66,6 +67,6 @@
    [url=https://www.curseforge.com/minecraft/mc-mods/uptodatemod/files]CurseForgeからダウンロード[/url]
    ```
 
-11. フォーラムのトップの記事を更新
+10. フォーラムのトップの記事を更新
 
-12. 機能リストのスプレッドシートに新しい機能について追記
+11. 機能リストのスプレッドシートに新しい機能について追記
