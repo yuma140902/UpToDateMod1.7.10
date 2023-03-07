@@ -3,6 +3,9 @@ package yuma140902.yumalib.api.util
 import net.minecraft.block.Block
 import net.minecraft.item.{Item, ItemStack}
 
+/**
+ * アイテムとメタの組み合わせ。ItemStackだとcountやNBTが付いていて過剰な場合があるため作った
+ */
 case class ItemWithMetadata(item: Item, meta: Int) {
   def newItemStack: ItemStack = new ItemStack(item, 1, meta)
 }

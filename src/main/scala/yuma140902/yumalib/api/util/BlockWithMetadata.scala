@@ -3,6 +3,9 @@ package yuma140902.yumalib.api.util
 import net.minecraft.block.Block
 import net.minecraft.world.World
 
+/**
+ * ブロックの状態を表す。ブロックとメタデータの組み合わせ。
+ */
 case class BlockWithMetadata(block: Block, meta: Int)
 
 object BlockWithMetadata {
