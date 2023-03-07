@@ -21,6 +21,7 @@ import yuma140902.yumalib.api.registry.Contexts;
 import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
 import yuma140902.yumalib.api.update.IUpdateChecker;
 import yuma140902.yumalib.api.update.TsvUpdateChecker;
+import yuma140902.yumalib.api.util.NameProvider;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -60,6 +61,7 @@ public class ModUpToDateMod {
     public static final String MOD_VERSION = "2.4.1";
     public static final String MOD_VERSIONS_TSV_URL = "https://raw.githubusercontent.com/yuma140902/UpdateJSON_Forge/master/UpToDateModVersions.tsv";
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
+    public static final NameProvider name = new NameProvider(ModUpToDateMod.MOD_TEXTURE_DOMAIN, ModUpToDateMod.MOD_UNLOCALIZED_ENTRY_DOMAIN);
     @Mod.Metadata(ModUpToDateMod.MOD_ID)
     public static ModMetadata modMetadata;
     @Mod.Instance(ModUpToDateMod.MOD_ID)
