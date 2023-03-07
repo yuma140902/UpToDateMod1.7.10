@@ -1,0 +1,41 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <JavaCodeStyleSettings>
+      <option name="IMPORT_LAYOUT_TABLE">
+        <value>
+          <package name="yuma140902" withSubpackages="true" static="false" />
+          <emptyLine />
+          <package name="" withSubpackages="true" static="false" />
+          <emptyLine />
+          <package name="cpw.mods.fml" withSubpackages="true" static="false" />
+          <package name="net.minecraft" withSubpackages="true" static="false" />
+          <package name="net.minecraftforge" withSubpackages="true" static="false" />
+          <emptyLine />
+          <package name="javax" withSubpackages="true" static="false" />
+          <package name="java" withSubpackages="true" static="false" />
+          <emptyLine />
+          <package name="" withSubpackages="true" static="true" />
+        </value>
+      </option>
+    </JavaCodeStyleSettings>
+    <ScalaCodeStyleSettings>
+      <option name="importLayout">
+        <array>
+          <option value="base package imports" />
+          <option value="_______ blank line _______" />
+          <option value="yuma140902" />
+          <option value="_______ blank line _______" />
+          <option value="all other imports" />
+          <option value="_______ blank line _______" />
+          <option value="cpw.mods.fml" />
+          <option value="net.minecraft" />
+          <option value="net.minecraftforge" />
+          <option value="_______ blank line _______" />
+          <option value="java" />
+          <option value="javax" />
+          <option value="scala" />
+        </array>
+      </option>
+    </ScalaCodeStyleSettings>
+  </code_scheme>
+</component>
