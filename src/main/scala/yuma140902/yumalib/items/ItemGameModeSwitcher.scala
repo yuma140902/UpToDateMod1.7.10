@@ -3,6 +3,8 @@ package yuma140902.yumalib.items
 import yuma140902.yumalib.YumaLibCreativeTab
 import yuma140902.yumalib.api.IRegisterable
 import yuma140902.yumalib.api.registry.Contexts
+import yuma140902.yumalib.api.util.Name
+import yuma140902.yumalib.api.util.NameExtensions._
 import yuma140902.yumalib.config.YLConfigCore
 
 import cpw.mods.fml.common.registry.GameRegistry
@@ -16,7 +18,7 @@ object ItemGameModeSwitcher extends Item with IRegisterable {
 
   override def register(): Unit = {
     this.setUnlocalizedName(Contexts.DEFAULT.nameProvider.domainedUnlocalized("gm_switcher"))
-    this.setTextureName(Contexts.DEFAULT.nameProvider.domainedTexture("gm_switcher"))
+    this.setTextureName(Contexts.DEFAULT.nameProvider.domainedTexture(Name("gm_switcher")))
     GameRegistry.registerItem(this, "gm_switcher")
     YumaLibCreativeTab.setToTab(this)
   }

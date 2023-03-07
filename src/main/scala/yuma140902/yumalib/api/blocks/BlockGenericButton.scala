@@ -2,10 +2,10 @@ package yuma140902.yumalib.api.blocks
 
 import yuma140902.uptodatemod.registry.RecipeRegister
 import yuma140902.yumalib.api.registry.Contexts
-import yuma140902.yumalib.api.util.BlockWithMetadata
+import yuma140902.yumalib.api.util.NameExtensions._
+import yuma140902.yumalib.api.util.{BlockWithMetadata, GameRegistryEx, Name}
 import yuma140902.yumalib.api.{IHasRecipes, IRegisterable}
 
-import cpw.mods.fml.common.registry.GameRegistry
 import cpw.mods.fml.relauncher.{Side, SideOnly}
 import net.minecraft.block.{Block, BlockButtonWood}
 import net.minecraft.creativetab.CreativeTabs
@@ -16,8 +16,8 @@ class BlockGenericButton(
                           /** ベースとなるブロック */
                           val baseBlock: BlockWithMetadata,
 
-                          /** 名前。ModIDなし */
-                          val name: String
+                          /** 名前 */
+                          val name: Name
                         )
   extends BlockButtonWood with IRegisterable with IHasRecipes {
 
@@ -30,9 +30,9 @@ class BlockGenericButton(
     baseBlock.block.getIcon(1, baseBlock.meta)
 
   override def register(): Unit = {
-    this.setBlockName(Contexts.current.nameProvider.domainedUnlocalized(name))
+    this.setBlockName(Contexts.current.nameProvider.domainedUnlocalized(name.str))
     this.setBlockTextureName(Contexts.current.nameProvider.domainedTexture(name))
-    GameRegistry.registerBlock(this, name)
+    GameRegistryEx.registerBlock(this, name)
   }
 
 
