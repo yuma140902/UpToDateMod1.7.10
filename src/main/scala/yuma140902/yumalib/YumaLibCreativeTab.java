@@ -22,7 +22,7 @@ public class YumaLibCreativeTab extends CreativeTabs {
 
 	@Override
 	public Item getTabIconItem() {
-		return YLItems.dummyLogo;
+		return YLItems.dummyLogo();
 	}
 
 	/**
