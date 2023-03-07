@@ -9,6 +9,7 @@ import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.items.ItemFoodMultiMeta;
+import yuma140902.yumalib.api.util.Name;
 import yuma140902.yumalib.api.util.ScalaCompat;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -62,7 +63,7 @@ public class ItemSuspiciousStew extends ItemFoodMultiMeta implements IRegisterab
 
 
     public ItemSuspiciousStew() {
-        super(6, 0.6f, "suspicious_stew", flowerNames, ScalaCompat.array(StringUtil.name.domainedTextures_(ScalaCompat.seq(new String[]{"suspicious_stew"})), new String[]{}));
+        super(6, 0.6f, new Name("suspicious_stew"), flowerNames, ScalaCompat.array(StringUtil.name.domainedTextures_(ScalaCompat.seq(new String[]{"suspicious_stew"})), new String[]{}));
         this.setAlwaysEdible();
         this.setMaxStackSize(1);
     }

@@ -5,6 +5,7 @@ import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.items.ItemMultiMeta;
+import yuma140902.yumalib.api.util.Name;
 import yuma140902.yumalib.api.util.ScalaCompat;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,7 +17,7 @@ public class ItemPlainDye extends ItemMultiMeta implements IRegisterable, IHasRe
     public static final int BLUE = 0, WHITE = 1, BLACK = 2, BROWN = 3;
 
     public ItemPlainDye() {
-        super("dye", new String[]{"blue", "white", "black", "brown"}, ScalaCompat.array(StringUtil.name.domainedTextures_(ScalaCompat.seq(new String[]{"blue_dye", "white_dye", "black_dye", "brown_dye"})), new String[]{}));
+        super(new Name("dye"), new String[]{"blue", "white", "black", "brown"}, ScalaCompat.array(StringUtil.name.domainedTextures_(ScalaCompat.seq(new String[]{"blue_dye", "white_dye", "black_dye", "brown_dye"})), new String[]{}));
         setCreativeTab(CreativeTabs.tabMaterials);
     }
 
