@@ -1,5 +1,13 @@
 package yuma140902.uptodatemod.blocks;
 
+import yuma140902.uptodatemod.ModUpToDateMod;
+import yuma140902.uptodatemod.registry.RecipeRegister;
+import yuma140902.uptodatemod.util.ColorUtil;
+import yuma140902.uptodatemod.util.StringUtil;
+import yuma140902.yumalib.api.IHasRecipes;
+import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.McConst;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,70 +21,63 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.registry.RecipeRegister;
-import yuma140902.uptodatemod.util.ColorUtil;
-import yuma140902.uptodatemod.util.StringUtil;
-import yuma140902.yumalib.api.IHasRecipes;
-import yuma140902.yumalib.api.IRegisterable;
-import yuma140902.yumalib.api.McConst;
 
 public class BlockGlazedTerracotta extends Block implements IRegisterable, IHasRecipes {
 
-	public static final int META_NORTH = 2, META_EAST = 3, META_SOUTH = 0, META_WEST = 1;
-	
-	private int colorMeta;
-	
-	@SideOnly(Side.CLIENT)
-	private IIcon icon;
-	@SideOnly(Side.CLIENT)
-	private IIcon iconFliped;
-	
-	public BlockGlazedTerracotta(int colorMeta) {
-		super(Material.rock);
-		setHardness(1.4F);
-		setStepSound(soundTypeStone);
-		setCreativeTab(CreativeTabs.tabDecorations);
-		
-		this.colorMeta = colorMeta;
-	}
-	
-	@Override
-	public void register() {
-		String colorName = ColorUtil.metaToString(colorMeta);
-		this.setBlockName(StringUtil.name.domainedUnlocalized("glazed_terracotta." + colorName));
-		this.setBlockTextureName(StringUtil.name.domainedTexture("glazed_terracotta_" + colorName));
-		GameRegistry.registerBlock(this, "glazed_terracotta_" + colorName);
-	}
-	
-	@Override
-	public void registerRecipes() {
-		RecipeRegister.addSmelting(new ItemStack(Blocks.stained_hardened_clay, 1, colorMeta), new ItemStack(this), 0.3F);
-	}
-	
-	@Override
-	public void registerBlockIcons(IIconRegister register) {
-		icon = register.registerIcon(getTextureName());
-		iconFliped = register.registerIcon(getTextureName() + "_flip");
-	}
-	
-	@Override
-	public IIcon getIcon(int side, int meta) {
-		if(side == McConst.SIDE_BOTTOM()) return iconFliped;
-		else if(side == McConst.SIDE_NORTH() && meta%2 == 0) return iconFliped;
-		else if(side == McConst.SIDE_EAST() && meta%2 == 1) return iconFliped;
-		return icon;
-	}
-	
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemstack) {
-		int rotation = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-		world.setBlockMetadataWithNotify(x, y, z, rotation, 3);
-	}
-	
-	@Override
-	public int getRenderType() {
-		return ModUpToDateMod.glazedTerracottaRenderId;
-	}
-	
+    public static final int META_NORTH = 2, META_EAST = 3, META_SOUTH = 0, META_WEST = 1;
+
+    private int colorMeta;
+
+    @SideOnly(Side.CLIENT)
+    private IIcon icon;
+    @SideOnly(Side.CLIENT)
+    private IIcon iconFliped;
+
+    public BlockGlazedTerracotta(int colorMeta) {
+        super(Material.rock);
+        setHardness(1.4F);
+        setStepSound(soundTypeStone);
+        setCreativeTab(CreativeTabs.tabDecorations);
+
+        this.colorMeta = colorMeta;
+    }
+
+    @Override
+    public void register() {
+        String colorName = ColorUtil.metaToString(colorMeta);
+        this.setBlockName(StringUtil.name.domainedUnlocalized("glazed_terracotta." + colorName));
+        this.setBlockTextureName(StringUtil.name.domainedTexture("glazed_terracotta_" + colorName));
+        GameRegistry.registerBlock(this, "glazed_terracotta_" + colorName);
+    }
+
+    @Override
+    public void registerRecipes() {
+        RecipeRegister.addSmelting(new ItemStack(Blocks.stained_hardened_clay, 1, colorMeta), new ItemStack(this), 0.3F);
+    }
+
+    @Override
+    public void registerBlockIcons(IIconRegister register) {
+        icon = register.registerIcon(getTextureName());
+        iconFliped = register.registerIcon(getTextureName() + "_flip");
+    }
+
+    @Override
+    public IIcon getIcon(int side, int meta) {
+        if (side == McConst.SIDE_BOTTOM()) return iconFliped;
+        else if (side == McConst.SIDE_NORTH() && meta % 2 == 0) return iconFliped;
+        else if (side == McConst.SIDE_EAST() && meta % 2 == 1) return iconFliped;
+        return icon;
+    }
+
+    @Override
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemstack) {
+        int rotation = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        world.setBlockMetadataWithNotify(x, y, z, rotation, 3);
+    }
+
+    @Override
+    public int getRenderType() {
+        return ModUpToDateMod.glazedTerracottaRenderId;
+    }
+
 }
