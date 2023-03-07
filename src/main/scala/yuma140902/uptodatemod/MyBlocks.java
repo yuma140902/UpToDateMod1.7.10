@@ -8,6 +8,7 @@ import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IRegisterable;
 import yuma140902.yumalib.api.McConst;
 import yuma140902.yumalib.api.blocks.*;
+import yuma140902.yumalib.api.util.BlockWithMetadata;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -314,11 +315,11 @@ public final class MyBlocks {
         add(trapDoorIron = ironTrapdoor.featureEnabled() ? TrapdoorBuilder.ofMetal("trap_door_iron").noRotateTex().build() : null);
 
         if (buttons.featureEnabled()) {
-            add(buttonAcacia = new BlockGenericButton(McConst.Meta$.MODULE$.PLANK_ACACIA(), "button_acacia"));
-            add(buttonBirch = new BlockGenericButton(McConst.Meta$.MODULE$.PLANK_BIRCH(), "button_birch"));
-            add(buttonDarkOak = new BlockGenericButton(McConst.Meta$.MODULE$.PLANK_DARKOAK(), "button_dark_oak"));
-            add(buttonJungle = new BlockGenericButton(McConst.Meta$.MODULE$.PLANK_JUNGLE(), "button_jungle"));
-            add(buttonSpruce = new BlockGenericButton(McConst.Meta$.MODULE$.PLANK_SPRUCE(), "button_spruce"));
+            add(buttonAcacia = new BlockGenericButton(new BlockWithMetadata(Blocks.planks, McConst.Meta$.MODULE$.PLANK_ACACIA()), "button_acacia"));
+            add(buttonBirch = new BlockGenericButton(new BlockWithMetadata(Blocks.planks, McConst.Meta$.MODULE$.PLANK_BIRCH()), "button_birch"));
+            add(buttonDarkOak = new BlockGenericButton(new BlockWithMetadata(Blocks.planks, McConst.Meta$.MODULE$.PLANK_DARKOAK()), "button_dark_oak"));
+            add(buttonJungle = new BlockGenericButton(new BlockWithMetadata(Blocks.planks, McConst.Meta$.MODULE$.PLANK_JUNGLE()), "button_jungle"));
+            add(buttonSpruce = new BlockGenericButton(new BlockWithMetadata(Blocks.planks, McConst.Meta$.MODULE$.PLANK_SPRUCE()), "button_spruce"));
         } else {
             buttonAcacia = null;
             buttonBirch = null;
