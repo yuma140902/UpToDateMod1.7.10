@@ -12,7 +12,7 @@ import net.minecraft.block.Block
 import net.minecraft.block.material.Material
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.init.Blocks
-import net.minecraft.item.ItemStack
+import net.minecraft.item.{ItemBlock, ItemStack}
 import net.minecraft.util.IIcon
 import net.minecraft.world.IBlockAccess
 import net.minecraftforge.common.IPlantable
@@ -20,7 +20,7 @@ import net.minecraftforge.common.util.ForgeDirection
 import net.minecraftforge.event.entity.player.UseHoeEvent
 
 // TODO: object
-class BlockCoarseDirt extends Block(Material.ground) with RegisterableBlock with IHasRecipes {
+class BlockCoarseDirt extends Block(Material.ground) with RegisterableBlock[ItemBlock] with IHasRecipes {
   override val name: Name = Name("coarse_dirt")
 
   this.setHardness(0.5F)

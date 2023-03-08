@@ -15,12 +15,12 @@ import net.minecraft.block.{Block, BlockRotatedPillar}
 import net.minecraft.client.renderer.texture.IIconRegister
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.entity.player.EntityPlayer
-import net.minecraft.item.{Item, ItemStack}
+import net.minecraft.item.{Item, ItemBlock, ItemStack}
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.IIcon
 import net.minecraft.world.World
 
-object BlockBarrel extends BlockRotatedPillar(Material.wood) with VanillaPistonStyleOrientation with RegisterableBlock with DroppableTileEntityProvider[TileEntityBarrel] with IRegisterable with IHasRecipes {
+object BlockBarrel extends BlockRotatedPillar(Material.wood) with VanillaPistonStyleOrientation with RegisterableBlock[ItemBlock] with DroppableTileEntityProvider[TileEntityBarrel] with IRegisterable with IHasRecipes {
   override val name: Name = Name("barrel")
   private val metaForItemRender = 1
   private var iconBottom: Option[IIcon] = None
