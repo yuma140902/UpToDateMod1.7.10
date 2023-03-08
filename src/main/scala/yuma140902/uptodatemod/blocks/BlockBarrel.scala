@@ -7,9 +7,8 @@ import yuma140902.uptodatemod.{ModUpToDateMod, MyGuis}
 import yuma140902.yumalib.api.blocks.mixins.{DroppableTileEntityProvider, VanillaPistonStyleOrientation}
 import yuma140902.yumalib.api.util.Name
 import yuma140902.yumalib.api.util.NameExtensions._
-import yuma140902.yumalib.api.{IHasRecipes, IRegisterable}
+import yuma140902.yumalib.api.{IHasRecipes, IRegisterable, RegisterableBlock}
 
-import cpw.mods.fml.common.registry.GameRegistry
 import cpw.mods.fml.relauncher.{Side, SideOnly}
 import net.minecraft.block.material.Material
 import net.minecraft.block.{Block, BlockRotatedPillar}
@@ -21,20 +20,16 @@ import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.IIcon
 import net.minecraft.world.World
 
-object BlockBarrel extends BlockRotatedPillar(Material.wood) with VanillaPistonStyleOrientation with DroppableTileEntityProvider[TileEntityBarrel] with IRegisterable with IHasRecipes {
+object BlockBarrel extends BlockRotatedPillar(Material.wood) with VanillaPistonStyleOrientation with RegisterableBlock with DroppableTileEntityProvider[TileEntityBarrel] with IRegisterable with IHasRecipes {
+  override val name: Name = Name("barrel")
+  private val metaForItemRender = 1
+  private var iconBottom: Option[IIcon] = None
+
   this.setCreativeTab(CreativeTabs.tabDecorations)
   this.setStepSound(Block.soundTypeWood)
   this.setHardness(2.5F)
   this.isBlockContainer = true
-
-  private val metaForItemRender = 1
-  private var iconBottom: Option[IIcon] = None
-
-  override def register(): Unit = {
-    this.setBlockName(ModUpToDateMod.name.domainedUnlocalized("barrel"))
-    this.setBlockTextureName(ModUpToDateMod.name.domainedTexture(Name("barrel")))
-    GameRegistry.registerBlock(this, "barrel")
-  }
+  this.setBlockTextureName(ModUpToDateMod.name.domainedTexture(name))
 
   @SideOnly(Side.CLIENT)
   override def getSubBlocks(item: Item, tab: CreativeTabs, list: java.util.List[_]): Unit = {

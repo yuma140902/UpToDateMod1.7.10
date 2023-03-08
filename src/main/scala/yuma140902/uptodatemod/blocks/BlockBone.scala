@@ -16,6 +16,7 @@ import net.minecraft.init.Items
 import net.minecraft.item.ItemStack
 import net.minecraft.util.IIcon
 
+// TODO: object
 class BlockBone extends BlockRotatedPillar(Material.rock) with RegisterableBlock with IHasRecipes {
   override val name: Name = Name("bone_block")
   private val soundTypeBone = new CustomSoundType(ModUpToDateMod.MOD_TEXTURE_DOMAIN, "bone", 1.0F, 1.0F)
