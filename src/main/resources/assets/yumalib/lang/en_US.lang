@@ -4,3 +4,4 @@ text.yumalib.update_notify=["",{"text":"%s:","bold":true,"color":"dark_green"},{
 itemGroup.yumalib=YumaLib
 
 item.yumalib.gm_switcher.name=Gamemode Switcher
+tile.yumalib.test.name=Test Block
