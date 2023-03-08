@@ -15,4 +15,9 @@
     <option name="minecraftVersion" value="1.7.10" />
     <option name="srgType" value="SRG" />
   </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../../src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/scala" isTestSource="true" />
+    </content>
+  </component>
 </module>

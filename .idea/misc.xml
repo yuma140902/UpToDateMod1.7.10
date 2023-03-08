@@ -3,9 +3,17 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../javadoc" />
-    <option name="OTHER_OPTIONS" value="-encoding UTF-8 -charset UTF-8" />
+    <option name="OTHER_OPTIONS" value="-encoding UTF-8 -charset UTF-8 -windowtitle &quot;UpToDateMod1.7.10 Java ドキュメント&quot;" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$APPLICATION_HOME_DIR$/jbr/bin/out" />
+  </component>
+  <component name="ScaladocSettings">
+    <option name="outputDir" value="C:\Users\yuma1\pj\mc\1.7.10\UpToDateMod\scaladoc" />
+    <option name="additionalFlags" value="" />
+    <option name="maxHeapSize" value="" />
+    <option name="docTitle" value="UpToDateMod1.7.10 Scala ドキュメント" />
+    <option name="verbose" value="false" />
+    <option name="openInBrowser" value="false" />
   </component>
 </project>
