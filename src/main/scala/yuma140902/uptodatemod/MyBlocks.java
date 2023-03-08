@@ -174,7 +174,7 @@ public final class MyBlocks {
     public static final BlockGenericWall wallPrismarine;
     public static final BlockGenericWall wallPrismarineBrick;
     public static final BlockGenericWall wallDarkPrismarine;
-    public static final BlockBarrel barrel;
+    public static final BlockBarrel$ barrel;
     public static final BlockSweetBerryBush sweetBerryBush;
     public static final BlockWitherRose witherRose;
     public static final BlockNewFlower flower;
@@ -562,7 +562,7 @@ public final class MyBlocks {
             wallDarkPrismarine = null;
         }
 
-        add(barrel = EnumDisableableFeatures.barrel.featureEnabled() ? new BlockBarrel() : null);
+        add(barrel = EnumDisableableFeatures.barrel.featureEnabled() ? BlockBarrel$.MODULE$ : null);
 
         add(sweetBerryBush = sweetBerry.featureEnabled() ? new BlockSweetBerryBush() : null);
 
