@@ -4,26 +4,24 @@ import yuma140902.uptodatemod.registry.RecipeRegister
 import yuma140902.uptodatemod.tileentity.TileEntityBarrel
 import yuma140902.uptodatemod.util.DirectionUtil
 import yuma140902.uptodatemod.{ModUpToDateMod, MyGuis}
-import yuma140902.yumalib.api.blockstate.VanillaPistonStyleOrientationState
+import yuma140902.yumalib.api.blocks.mixins.{DroppableTileEntityProvider, VanillaPistonStyleOrientation}
+import yuma140902.yumalib.api.util.Name
 import yuma140902.yumalib.api.util.NameExtensions._
-import yuma140902.yumalib.api.util.WorldExtensions._
-import yuma140902.yumalib.api.util.{BlockPos, Name, SetBlockFlag}
 import yuma140902.yumalib.api.{IHasRecipes, IRegisterable}
 
 import cpw.mods.fml.common.registry.GameRegistry
 import cpw.mods.fml.relauncher.{Side, SideOnly}
 import net.minecraft.block.material.Material
-import net.minecraft.block.{Block, BlockRotatedPillar, ITileEntityProvider}
+import net.minecraft.block.{Block, BlockRotatedPillar}
 import net.minecraft.client.renderer.texture.IIconRegister
 import net.minecraft.creativetab.CreativeTabs
-import net.minecraft.entity.EntityLivingBase
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.{Item, ItemStack}
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.IIcon
 import net.minecraft.world.World
 
-object BlockBarrel extends BlockRotatedPillar(Material.wood) with ITileEntityProvider with IRegisterable with IHasRecipes {
+object BlockBarrel extends BlockRotatedPillar(Material.wood) with VanillaPistonStyleOrientation with DroppableTileEntityProvider[TileEntityBarrel] with IRegisterable with IHasRecipes {
   this.setCreativeTab(CreativeTabs.tabDecorations)
   this.setStepSound(Block.soundTypeWood)
   this.setHardness(2.5F)
@@ -67,27 +65,12 @@ object BlockBarrel extends BlockRotatedPillar(Material.wood) with ITileEntityPro
 
   override def damageDropped(p_149692_1_ : Int): Int = metaForItemRender
 
-  override def onBlockPlacedBy(world: World, x: Int, y: Int, z: Int, player: EntityLivingBase, itemStack: ItemStack): Unit = {
-    val state = new VanillaPistonStyleOrientationState(world, x, y, z, player)
-    world.setMeta(BlockPos(x, y, z), state.metadata, SetBlockFlag(blockUpdate = false, clientUpdate = true, preventReRendering = false))
-  }
-
-  override def createNewTileEntity(world: World, meta: Int): TileEntity = new TileEntityBarrel
-
   override def onBlockActivated(world: World, x: Int, y: Int, z: Int, player: EntityPlayer, side: Int, hitX: Float, hitY: Float, hitZ: Float): Boolean = {
     player.openGui(ModUpToDateMod.INSTANCE, MyGuis.ID_BARREL, world, x, y, z)
     true
   }
 
-  override def breakBlock(world: World, x: Int, y: Int, z: Int, block: Block, meta: Int): Unit = {
-    val tileEntity = world.getTileEntity(x, y, z)
-    tileEntity match {
-      case barrel: TileEntityBarrel =>
-        barrel.drop()
-      case _ =>
-    }
-    super.breakBlock(world, x, y, z, block, meta)
-  }
+  override def createNewTileEntity(p_149915_1_ : World, p_149915_2_ : Int): TileEntity = new TileEntityBarrel
 
   override protected def getSideIcon(i: Int): IIcon = this.blockIcon
 }
