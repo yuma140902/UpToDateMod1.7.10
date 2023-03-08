@@ -19,6 +19,7 @@ import yuma140902.yumalib.api.blocks.CustomSoundType;
 import yuma140902.yumalib.api.context.InitModContext;
 import yuma140902.yumalib.api.registry.Contexts;
 import yuma140902.yumalib.api.registry.UpdateCheckerRegistry;
+import yuma140902.yumalib.api.renderer.RenderIDProvider;
 import yuma140902.yumalib.api.update.IUpdateChecker;
 import yuma140902.yumalib.api.update.TsvUpdateChecker;
 import yuma140902.yumalib.api.util.NameProvider;
@@ -160,11 +161,11 @@ public class ModUpToDateMod {
 
         proxy.registerEntities();
         if (EnumDisableableFeatures.glazedTerracotta.featureEnabled())
-            glazedTerracottaRenderId = proxy.getNewRenderId();
+            glazedTerracottaRenderId = RenderIDProvider.newUniqueRenderId();
         if (EnumDisableableFeatures.lantern.featureEnabled())
-            lanternRenderId = proxy.getNewRenderId();
+            lanternRenderId = RenderIDProvider.newUniqueRenderId();
         if (EnumDisableableFeatures.barrel.featureEnabled())
-            barrelRenderId = proxy.getNewRenderId();
+            barrelRenderId = RenderIDProvider.newUniqueRenderId();
         proxy.registerRenderers();
 
 
