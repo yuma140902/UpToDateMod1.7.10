@@ -1,9 +1,16 @@
 package yuma140902.uptodatemod.world.generation.biome;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeManager;
+import yuma140902.uptodatemod.config.ModConfigCore;
 
 public class UpToDateModBiomeManager {
 	private static int nextBiomeId = 40;
+	
+	public static void registerBiomes(){
+		BiomeManager.addBiome(BiomeManager.BiomeType.DESERT new BiomeGenEndIsland(ModConfigCore.WorldGen.endIslandBiomeId());
+		
+	}
 	
 	public static int getNextFreeBiomeId() {
 		for (int i = nextBiomeId; i < 256; i++)

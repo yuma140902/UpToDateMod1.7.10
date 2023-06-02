@@ -12,6 +12,7 @@ import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.integration.IntegrationConfigs;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
+import yuma140902.uptodatemod.world.generation.biome.UpToDateModBiomeManager;
 import yuma140902.yumalib.api.config.CategoryBuilder;
 import yuma140902.yumalib.api.config.LangKey;
 import yuma140902.yumalib.api.config.PropertyBuilder;
@@ -56,6 +57,9 @@ public class ModConfigCore {
 		private static int[] coarseDirtBlackList = new int[] {1, -1};
 		private static boolean genMagmaBlock = true;
 		private static int[] magmaBlockBlackList = new int[] {0, 1};
+		private static boolean genEndIslands = true;
+		private static int distanceToEndIslands = 3000;
+		private static int endIslandBiomeId;
 		
 		public static boolean genStones() {return genStones;}
 		public static int[] stonesBlackList() {return stonesBlackList;}
@@ -65,6 +69,9 @@ public class ModConfigCore {
 		public static int[] coarseDirtBlackList() {return coarseDirtBlackList;}
 		public static boolean genMagmaBlock() {return genMagmaBlock;}
 		public static int[] magmaBlockBlackList() {return magmaBlockBlackList;}
+		public static boolean genEndIslands() {return genEndIslands;}
+		public static int distanceToEndIslands() {return distanceToEndIslands;}
+		public static int endIslandBiomeId() {return endIslandBiomeId;}
 	}
 	
 	public static class Recipe {
@@ -189,6 +196,17 @@ public class ModConfigCore {
 			.add(PropertyBuilder.integerList("genMagmaBlockDimensionBlackList")
 				.defaultIntList(WorldGen.magmaBlockBlackList)
 				.langKey(getPropertyLangkey("generate_magma_block_blacklist"))
+				)
+			.add(PropertyBuilder.bool("genEndIslands")
+				.defaultBool(WorldGen.genEndIslands)
+				)
+			.add(PropertyBuilder.integer("distanceToEndIslands")
+				.defaultInt(WorldGen.distanceToEndIslands)
+				)
+			.add(PropertyBuilder.integer("endIslandBiomeId")
+				.defaultInt(UpToDateModBiomeManager.getNextFreeBiomeId())
+				.min(40)
+				.max(255)
 				);
 		worldGenCategory.registerToForge(cfg);
 		
@@ -269,6 +287,9 @@ public class ModConfigCore {
 		WorldGen.coarseDirtBlackList = toIntList(worldGenCategory.get("genCoarseDirtDimensionBlackList", cfg).getStringList());       // 過去のconfigファイルとの互換性
 		WorldGen.genMagmaBlock = worldGenCategory.get("genMagmaBlock", cfg).getBoolean();
 		WorldGen.magmaBlockBlackList = worldGenCategory.get("genMagmaBlockDimensionBlackList", cfg).getIntList();
+		WorldGen.genEndIslands = worldGenCategory.get("genEndIslands", cfg).getBoolean();
+		WorldGen.distanceToEndIslands = worldGenCategory.get("distanceToEndIslands", cfg).getInt();
+		WorldGen.endIslandBiomeId = worldGenCategory.get("endIslandBiomeId", cfg).getInt();
 		
 		// Recipe
 		recipeCategory.registerPropertiesToForge(cfg);
