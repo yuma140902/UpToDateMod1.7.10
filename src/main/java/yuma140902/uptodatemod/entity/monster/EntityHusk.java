@@ -7,6 +7,10 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import yuma140902.yumalib.asm.AdapterEntityZombie;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class EntityHusk extends EntityZombie {
 	public EntityHusk(World world) {
@@ -42,8 +46,26 @@ public class EntityHusk extends EntityZombie {
 	}
 	
 	@Override
+	public void onLivingUpdate() {
+		try {
+			Method method = EntityZombie.class.getDeclaredMethod(AdapterEntityZombie.BYPASS_SUPER_ON_LIVING_UPDATE, null);
+			method.invoke(this, null);
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+			super.onLivingUpdate();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+			super.onLivingUpdate();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+			super.onLivingUpdate();
+		}
+		
+	}
+	
+	@Override
 	public void setFire(int seconds) {
-		if(worldObj.isDaytime()) return;
+		//if(worldObj.isDaytime()) return;
 		super.setFire(seconds);
 	}
 }
