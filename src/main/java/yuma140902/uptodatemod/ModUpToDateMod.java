@@ -21,6 +21,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
+import yuma140902.uptodatemod.api.UpToDateModAPI;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.integration.Plugins;
@@ -139,6 +141,8 @@ public class ModUpToDateMod {
 		LOGGER.info("init");
 		Recipes.removeVanillaRecipes();
 		Recipes.register();
+		UpToDateModAPI.getStonecutterRecipeRegistry().addRecipe(new ItemStack(Blocks.cobblestone), 6, new ItemStack(Blocks.stone_stairs), 4);
+		UpToDateModAPI.getStonecutterRecipeRegistry().addRecipe(new ItemStack(Blocks.cobblestone), 6, new ItemStack(Blocks.cobblestone_wall), 6);
 		
 		proxy.registerEntities();
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.glazedTerracotta))

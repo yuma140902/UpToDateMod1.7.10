@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 import org.lwjgl.opengl.GL11;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
@@ -28,30 +29,38 @@ public class GuiUtils extends cpw.mods.fml.client.config.GuiUtils {
 		tessellator.draw();
 	}
 	
-	private static void startDrawingItem() {
+	public static void startDrawingItem() {
+		RenderHelper.disableStandardItemLighting();
+		GL11.glDisable(GL11.GL_LIGHTING);
+    GL11.glDisable(GL11.GL_DEPTH_TEST);
+		
     GL11.glPushMatrix();
     RenderHelper.enableGUIStandardItemLighting();
+    
+    short short1 = 240;
+    short short2 = 240;
+    OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)short1 / 1.0F, (float)short2 / 1.0F);
 		
 		itemRender.zLevel = 100.0f;
 	}
 	
-	private static void stopDrawingItem() {
+	public static void stopDrawingItem() {
 		GL11.glPopMatrix();
+		GL11.glEnable(GL11.GL_LIGHTING);
+    GL11.glEnable(GL11.GL_DEPTH_TEST);
+    RenderHelper.enableGUIStandardItemLighting();
 		
 		itemRender.zLevel = 0.0F;
 	}
 	
-	private static void drawSingleItem(int x, int y, @Nonnull ItemStack itemToShow, Minecraft mc) {
-		boolean hover = false;// = p_146977_1_ == this.clickedSlot && this.draggedStack != null && !this.isRightMouseClick;
+	public static void drawSingleItem(int x, int y, @Nonnull ItemStack itemToShow, Minecraft mc) {
  		String s = null;
  		
- 		if (!hover)
- 		{
- 			GL11.glEnable(GL11.GL_DEPTH_TEST);
- 			FontRenderer fontRendererObj = mc.fontRenderer;
- 			itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), itemToShow, x, y);
- 			itemRender.renderItemOverlayIntoGUI(fontRendererObj, mc.getTextureManager(), itemToShow, x, y, s);
- 		}
+ 		GL11.glEnable(GL11.GL_DEPTH_TEST);
+ 		FontRenderer fontRendererObj = mc.fontRenderer;
+ 		//itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), itemToShow, x, y);
+ 		itemRender.renderItemIntoGUI(fontRendererObj, mc.getTextureManager(), itemToShow, x, y);
+ 		itemRender.renderItemOverlayIntoGUI(fontRendererObj, mc.getTextureManager(), itemToShow, x, y, s);
 	}
 	
 	// 参考: GuiContainer#drawScreen(int, int, float) と GuiContainer#func_146977_a(Slot)
