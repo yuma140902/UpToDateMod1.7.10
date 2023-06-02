@@ -10,6 +10,7 @@ class BlockPosTest extends AnyFunSuite {
     assert(BlockPos(1, 2, 3).offset(ForgeDirection.UP) == BlockPos(1, 3, 3))
     assert(BlockPos(1, 2, 3).offset(ForgeDirection.NORTH, 4) == BlockPos(1, 2, -1))
     assert(BlockPos(1, 2, 3).offset(ForgeDirection.SOUTH, -4) == BlockPos(1, 2, -1))
+    fail
   }
 
 }
