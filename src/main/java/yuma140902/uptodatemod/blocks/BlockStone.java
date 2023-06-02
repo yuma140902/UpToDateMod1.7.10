@@ -1,7 +1,7 @@
 package yuma140902.uptodatemod.blocks;
 
 import java.util.List;
-import cpw.mods.fml.common.registry.GameRegistry;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -16,12 +16,15 @@ import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.items.ItemBlockStone;
+import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.RecipeRegister;
 import yuma140902.uptodatemod.util.StringUtil;
 import yuma140902.yumalib.api.IHasRecipes;
-import yuma140902.yumalib.api.IRegisterable;
+import yuma140902.yumalib.api.registry.BlockDef;
+import yuma140902.yumalib.api.registry.OnRegistered;
 
-public class BlockStone extends Block implements IRegisterable, IHasRecipes {
+@BlockDef(name = "stone", itemBlock = ItemBlockStone.class, requirements = EnumDisableableFeatures.stones)
+public class BlockStone extends Block implements OnRegistered, IHasRecipes {
 	public static final int META_MAX = 6;
 	public static final int META_GRANITE = 1;
 	public static final int META_POLISHED_GRANITE = 2;
@@ -49,10 +52,7 @@ public class BlockStone extends Block implements IRegisterable, IHasRecipes {
 	}
 	
 	@Override
-	public void register() {
-		this.setBlockName(StringUtil.name.domainedUnlocalized("stone"));
-		GameRegistry.registerBlock(this, ItemBlockStone.class, "stone");
-		
+	public void onRegistered() {
 		for(int meta = 1; meta <= META_MAX; ++meta) {
 			OreDictionary.registerOre("stone" + oredicNames[meta], new ItemStack(this, 1, meta));
 		}
