@@ -21,6 +21,7 @@ buildscript {
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id("com.github.maiflai.scalatest") version "0.25"
 }
 
 apply plugin: 'scala'
@@ -59,6 +60,7 @@ dependencies {
     compile 'org.scala-lang:scala-library:2.11.1'
     testImplementation 'org.scalactic:scalactic_2.11:3.2.15'
     testImplementation 'org.scalatest:scalatest_2.11:3.2.15'
+    testRuntimeOnly 'com.vladsch.flexmark:flexmark-all:0.62.2'
 }
 
 jar {
