@@ -3,6 +3,7 @@ package yuma140902.uptodatemod.gui.widgets;
 import java.util.Iterator;
 import javax.annotation.Nonnull;
 import cpw.mods.fml.client.config.GuiButtonExt;
+import lombok.Setter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SoundHandler;
 import yuma140902.uptodatemod.gui.event.IEvent;
@@ -25,7 +26,7 @@ public class GuiScrollBar extends GuiButtonExt implements IEventProvider<ScrollC
 	private int prevMouseX = -1;
 	private int prevMouseY = -1;
 	private int currentValue = 0;
-	private int scrollMax;
+	@Setter private int scrollMax;
 	
 	public GuiScrollBar(int id, int x, int y, int width, int height, int scrollMax, IResourceLocationPart gripRes) {
 		super(id, x, y, width, height, "");

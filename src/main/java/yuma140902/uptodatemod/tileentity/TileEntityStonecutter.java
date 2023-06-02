@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod.tileentity;
 
 import java.util.Iterator;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -180,6 +181,11 @@ public class TileEntityStonecutter extends TileEntity implements ISidedInventory
 			}
 		}
 		return null;
+	}
+	
+	@Nonnull
+	public Iterator<IStonecutterRecipe> getRecipes() {
+		return UpToDateModAPI.getStonecutterRecipeRegistry().getRecipes(inventory[SLOT_MATERIAL]);
 	}
 	
 	// ================= レシピ処理 ここまで =================

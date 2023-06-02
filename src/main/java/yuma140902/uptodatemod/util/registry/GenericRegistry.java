@@ -16,6 +16,10 @@ public class GenericRegistry<T> implements IReadOnlyRegistry<T> {
 		list.remove(item);
 	}
 	
+	public void removeAll() {
+		list.clear();
+	}
+	
 	public Iterator<T> iterator(){
 		return list.iterator();
 	}
