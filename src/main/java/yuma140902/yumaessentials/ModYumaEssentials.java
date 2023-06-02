@@ -1,6 +1,9 @@
 package yuma140902.yumaessentials;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -13,11 +16,21 @@ import yuma140902.yumaessentials.util.StringUtil;
 import yuma140902.yumalib.api.context.InitModContext;
 import yuma140902.yumalib.api.registry.Contexts;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Mod(modid = YEConstants.MOD_ID, name = YEConstants.MOD_NAME, version = YEConstants.MOD_VERSION, useMetadata = true, guiFactory = YEConstants.CONFIG_GUI_FACTORY,
 				dependencies = "required-after:yumalib;required-after:uptodate")
 public class ModYumaEssentials {
 	
 	public static final Logger LOGGER = LogManager.getLogger(YEConstants.MOD_NAME);
+	private static Path mcGameDir;
+	private static Path modDir;
 	
 	@Mod.Metadata(YEConstants.MOD_ID)
 	public static ModMetadata modMetadata;
@@ -27,6 +40,9 @@ public class ModYumaEssentials {
 	
 	@SidedProxy(modId = YEConstants.MOD_ID, clientSide = YEConstants.PROXY_CLIENT, serverSide = YEConstants.PROXY_COMMON)
 	public static YECommonProxy proxy;
+	
+	public static Path mcGameDir(){return mcGameDir;}
+	public static Path modDir(){return modDir;}
 	
 	private void loadModMetadata(ModMetadata modMetadata) {
 		modMetadata.modId = YEConstants.MOD_ID;
@@ -45,6 +61,16 @@ public class ModYumaEssentials {
 		
 		Contexts.setContext(new InitModContext(YEConstants.MOD_NAME, StringUtil.name));
 		
+		mcGameDir = Loader.instance().getConfigDir().getParentFile().toPath();
+		modDir = mcGameDir.resolve(YEConstants.MOD_ID);
+		try {
+			if(!Files.exists(modDir)) Files.createDirectory(modDir);
+		} catch (IOException e) {
+			e.printStackTrace();
+			FMLCommonHandler.instance().exitJava(-1, false);
+		}
+		proxy.arrangeEnvironments();
+		
 		YEBlocks.registerAll();
 		YEItems.registerAll();
 		
@@ -53,7 +79,14 @@ public class ModYumaEssentials {
 	
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		
+		List<String> modIds = Loader.instance().getModList().stream().map(ModContainer::getModId).collect(Collectors.toList());
+		Path modIdsFile = modDir.resolve("modIds.txt");
+		try {
+			if(!Files.exists(modIdsFile)) Files.createFile(modIdsFile);
+			Files.write(modIdsFile, modIds, StandardCharsets.UTF_8, StandardOpenOption.WRITE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		Contexts.removeContext();
 	}
 }

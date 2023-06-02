@@ -1,0 +1,190 @@
+[
+  {
+    "modid": "additionalpipes",
+    "domain": "additionalpipes"
+  },
+  {
+    "modid": "AdvancedSolarPanel",
+    "domain": "advancedsolarpanel"
+  },
+  {
+    "modid": "appliedenergistics2",
+    "domain": "appliedenergistics2"
+  },
+  {
+    "modid": "Aroma1997Core",
+    "domain": "aroma1997core"
+  },
+  {
+    "modid": "Baubles",
+    "domain": "baubles"
+  },
+  {
+    "modid": "BigReactors",
+    "domain": "bigreactors"
+  },
+  {
+    "modid": "BiblioCraft",
+    "domain": "biliocraft"
+  },
+  {
+    "modid": "BuildCraft|Core",
+    "domain": "buildcraft"
+  },
+  {
+    "modid": "chisel",
+    "domain": "chisel"
+  },
+  {
+    "modid": "CodeChickenCore",
+    "domain": "codechickencore"
+  },
+  {
+    "modid": "CoFHCore",
+    "domain": "cofh"
+  },
+  {
+    "modid": "Cogs",
+    "domain": "cogs"
+  },
+  {
+    "modid": "CompactSolars",
+    "domain": "compactsolars"
+  },
+  {
+    "modid": "craftguide",
+    "domain": "craftguide"
+  },
+  {
+    "modid": "EnderIO",
+    "domain": "enderio"
+  },
+  {
+    "modid": "EnderStorage",
+    "domain": "enderstorage"
+  },
+  {
+    "modid": "ExtraUtilities",
+    "domain": "extrautils"
+  },
+  {
+    "modid": "GraviSuite",
+    "domain": "gravisuite"
+  },
+  {
+    "modid": "HardcoreQuesting",
+    "domain": "hqm"
+  },
+  {
+    "modid": "IC2",
+    "domain": "ic2classic"
+  },
+  {
+    "modid": "IguanaTweaksTConstruct",
+    "domain": "iguanatweakstconstruct"
+  },
+  {
+    "modid": "IronChest",
+    "domain": "ironchest"
+  },
+  {
+    "modid": "journeymap",
+    "domain": "journeymap"
+  },
+  {
+    "modid": "magicalcrops",
+    "domain": "magicalcrops"
+  },
+  {
+    "modid": "MultiPageChest",
+    "domain": "multipagechest"
+  },
+  {
+    "modid": "Mystcraft",
+    "domain": "mystcraft"
+  },
+  {
+    "modid": "NotEnoughItems",
+    "domain": "nei"
+  },
+  {
+    "modid": "NEIAddons",
+    "domain": "neiaddons"
+  },
+  {
+    "modid": "neiintegration",
+    "domain": "neiintegration"
+  },
+  {
+    "modid": "NetherOres",
+    "domain": "netherores"
+  },
+  {
+    "modid": "OpenBlocks",
+    "domain": "openblocks"
+  },
+  {
+    "modid": "OpenMods",
+    "domain": "openmodslib"
+  },
+  {
+    "modid": "PowerConverters",
+    "domain": "powerconverters"
+  },
+  {
+    "modid": "ProjRed|Core",
+    "domain": "projectred"
+  },
+  {
+    "modid": "simplyjetpacks",
+    "domain": "simplyjetpacks"
+  },
+  {
+    "modid": "SolarFlux",
+    "domain": "solarflux"
+  },
+  {
+    "modid": "Thaumcraft",
+    "domain": "thaumcraft"
+  },
+  {
+    "modid": "ThermalDynamics",
+    "domain": "thermaldynamics"
+  },
+  {
+    "modid": "ThermalExpansion",
+    "domain": "thermalexpansion"
+  },
+  {
+    "modid": "ThermalFoundation",
+    "domain": "thermalfoundation"
+  },
+  {
+    "modid": "TiCTooltips",
+    "domain": "tictooltips"
+  },
+  {
+    "modid": "TConstruct",
+    "domain": "tinker"
+  },
+  {
+    "modid": "Translocator",
+    "domain": "translocator"
+  },
+  {
+    "modid": "TwilightForest",
+    "domain": "twilightforest"
+  },
+  {
+    "modid": "waila",
+    "domain": "waila"
+  },
+  {
+    "modid": "WailaHarvestability",
+    "domain": "wailaharvestability"
+  },
+  {
+    "modid": "witchery",
+    "domain": "witchery"
+  }
+]
