@@ -53,6 +53,11 @@ dependencies {
 
 jar {
     version = "mc1.7.10-${project.version}"
+    manifest {
+        attributes(
+                "FMLCorePlugin": "yuma140902.yumalib.asm.YLCorePlugin",
+                "FMLCorePluginContainsFMLMod": "*")
+    }
 }
 
 task devJar(type: Jar, dependsOn: 'jar') {
