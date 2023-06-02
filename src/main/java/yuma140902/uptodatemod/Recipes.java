@@ -14,7 +14,11 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import yuma140902.uptodatemod.config.ModConfigCore;
+<<<<<<< Updated upstream
 import yuma140902.uptodatemod.integration.Plugins;
+=======
+import yuma140902.uptodatemod.recipe.BlastFurnaceRecipes;
+>>>>>>> Stashed changes
 import yuma140902.uptodatemod.util.ListUtils;
 
 public final class Recipes {
@@ -27,6 +31,8 @@ public final class Recipes {
 		PLANK_JUNGLE = new ItemStack(Blocks.planks, 1, PLANK_META_JUNGLE),
 		PLANK_SPRUCE = new ItemStack(Blocks.planks, 1, PLANK_META_SPRUCE),
 		PLANK_OAK = new ItemStack(Blocks.planks, 1, PLANK_META_OAK);
+	
+	public static BlastFurnaceRecipes blastFurnace = new BlastFurnaceRecipes();
 	
 	public static void removeVanillaRecipes() {
 		List<String> removeRecipesOutputNameList = new ArrayList<>();
@@ -107,7 +113,11 @@ public final class Recipes {
 		
 		MyBlocks.concretePowder.registerRecipes();
 		
+<<<<<<< Updated upstream
 		registerGlazedTerracottaRecipes();
+=======
+		MyBlocks.blastFurnace.registerRecipes();
+>>>>>>> Stashed changes
 	}
 	
 	private static void registerWoodRecipes() {

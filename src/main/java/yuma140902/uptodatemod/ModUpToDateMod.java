@@ -23,7 +23,11 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
 import yuma140902.uptodatemod.config.ModConfigCore;
+<<<<<<< Updated upstream
 import yuma140902.uptodatemod.integration.Plugins;
+=======
+import yuma140902.uptodatemod.gui.ModGuiHandler;
+>>>>>>> Stashed changes
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
 import yuma140902.uptodatemod.network.ArmorStandInteractMessage;
 import yuma140902.uptodatemod.proxy.CommonProxy;
@@ -130,7 +134,9 @@ public class ModUpToDateMod {
 		proxy.registerEntities();
 		glazedTerracottaRenderId = proxy.getNewRenderId();
 		proxy.registerRenderers();
+		proxy.registerTileEntites();
 		
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, ModGuiHandler.instance);
 		
 		MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.worldGen_genStones, 33, 10, 0, 80, ModConfigCore.worldGen_genStones_blackList);
 		

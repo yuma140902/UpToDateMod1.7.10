@@ -2,6 +2,7 @@ package yuma140902.uptodatemod.proxy;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.entity.item.EntityArmorStand;
@@ -11,6 +12,7 @@ import yuma140902.uptodatemod.entity.item.EntityBoatDarkOak;
 import yuma140902.uptodatemod.entity.item.EntityBoatJungle;
 import yuma140902.uptodatemod.entity.item.EntityBoatSpruce;
 import yuma140902.uptodatemod.event_handlers.CommonEventHandler;
+import yuma140902.uptodatemod.tileentity.TileEntityBlastFurnace;
 
 public class CommonProxy {
 	public void registerEventHandlers() {
@@ -25,6 +27,10 @@ public class CommonProxy {
 		EntityRegistry.registerModEntity(EntityBoatJungle.class, "boat_jungle", 3, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityBoatSpruce.class, "boat_spruce", 4, ModUpToDateMod.INSTANCE, 128, 5, true);
 		EntityRegistry.registerModEntity(EntityArmorStand.class, "wooden_armorstand", 5, ModUpToDateMod.INSTANCE, 64, 1, true);
+	}
+	
+	public void registerTileEntites() {
+		GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, TileEntityBlastFurnace.tileEntityId);
 	}
 	
 	public int getNewRenderId() {

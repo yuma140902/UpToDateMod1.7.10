@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod;
 
 import net.minecraft.init.Blocks;
+import yuma140902.uptodatemod.blocks.BlockBlastFurnace;
 import yuma140902.uptodatemod.blocks.BlockBone;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockConcrete;
@@ -129,6 +130,8 @@ public final class MyBlocks {
 		glazedTerracottaYellow.register();
 		
 		grassPath.register();
+		
+		blastFurnace.register();
 		
 		stairsStone.register();
 		stairsGranite.register();
@@ -268,6 +271,8 @@ public final class MyBlocks {
 	public static final BlockGlazedTerracotta glazedTerracottaYellow = new BlockGlazedTerracotta(ColorUtil.META_YELLOW);
 	
 	public static final BlockGrassPath grassPath = new BlockGrassPath();
+	
+	public static final BlockBlastFurnace blastFurnace = new BlockBlastFurnace();
 	
 	public static final BlockGenericStairs stairsStone = new BlockGenericStairs(Blocks.stone, 0, "stairs_stone");
 	public static final BlockGenericStairs stairsGranite = new BlockGenericStairs(MyBlocks.stone, BlockStone.META_GRANITE, "stairs_granite");
