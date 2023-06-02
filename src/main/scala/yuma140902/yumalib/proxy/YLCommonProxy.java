@@ -21,4 +21,7 @@ public class YLCommonProxy {
     public int newUniqueRenderId() {
         return -1;
     }
+
+    public void registerRenderers() {
+    }
 }

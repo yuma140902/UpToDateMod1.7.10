@@ -1,6 +1,7 @@
 package yuma140902.yumalib.api.model
 
 import net.minecraft.util.IIcon
+import net.minecraftforge.common.util.ForgeDirection
 
 case class YLBlockModel(
                          textures: Map[TextureId, IIcon],
@@ -26,11 +27,11 @@ case class Point(x: Float, y: Float, z: Float)
 case class Face(
                  //TODO: auto-calculate uv range: Option[UvRange]
                  uv: UvRange,
-                 texture: TextureId
-                 //TODO: cull face
+                 texture: TextureId,
+                 cullface: ForgeDirection = ForgeDirection.UNKNOWN
                  //TODO: rotation
                )
 
-case class UvRange(u1: Float, v1: Float, u2: Float, v2: Float)
+case class UvRange(uMin: Float, vMin: Float, uMax: Float, vMax: Float)
 
 case class TextureId(name: String)

@@ -13,6 +13,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
@@ -32,6 +33,8 @@ public class ModYumaLib {
 
     @SidedProxy(modId = YLConstants.MOD_ID, clientSide = YLConstants.PROXY_CLIENT, serverSide = YLConstants.PROXY_COMMON)
     public static YLCommonProxy proxy;
+
+    public static int ylBlockModelRenderId;
 
     private void loadModMetadata(ModMetadata modMetadata) {
         modMetadata.modId = YLConstants.MOD_ID;
@@ -56,6 +59,12 @@ public class ModYumaLib {
         YLItems.registerAll();
 
         proxy.registerEventHandlers();
+    }
+
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
+        ylBlockModelRenderId = proxy.newUniqueRenderId();
+        proxy.registerRenderers();
     }
 
     @EventHandler

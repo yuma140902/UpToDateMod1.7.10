@@ -1,5 +1,6 @@
 package yuma140902.yumalib.proxy;
 
+import yuma140902.yumalib.api.renderer.YLBlockModelRenderer$;
 import yuma140902.yumalib.event_handlers.YLClientEventHandler;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -33,5 +34,10 @@ public class YLClientProxy extends YLCommonProxy {
     @Override
     public int newUniqueRenderId() {
         return RenderingRegistry.getNextAvailableRenderId();
+    }
+
+    @Override
+    public void registerRenderers() {
+        RenderingRegistry.registerBlockHandler(YLBlockModelRenderer$.MODULE$);
     }
 }

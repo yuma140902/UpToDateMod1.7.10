@@ -1,6 +1,8 @@
 package yuma140902.yumalib.blocks
 
 import yuma140902.yumalib.YumaLibCreativeTab
+import yuma140902.yumalib.api.blocks.mixins.BlockWithYLBlockModel
+import yuma140902.yumalib.api.model._
 import yuma140902.yumalib.api.registry.Contexts
 import yuma140902.yumalib.api.util.Name
 import yuma140902.yumalib.api.{McConst, RegisterableBlock}
@@ -10,8 +12,9 @@ import net.minecraft.block.material.Material
 import net.minecraft.client.renderer.texture.IIconRegister
 import net.minecraft.item.ItemBlock
 import net.minecraft.util.IIcon
+import net.minecraft.world.IBlockAccess
 
-object BlockTest extends Block(Material.circuits) with RegisterableBlock[ItemBlock] {
+object BlockTest extends Block(Material.circuits) with RegisterableBlock[ItemBlock] with BlockWithYLBlockModel {
   override val name: Name = Name("test")
 
   this.setBlockTextureName(Contexts.DEFAULT.nameProvider.domainedTexture(name).str)
@@ -47,4 +50,52 @@ object BlockTest extends Block(Material.circuits) with RegisterableBlock[ItemBlo
     case McConst.SIDE_BOTTOM => bottom.orNull
     case _ => testIcon.orNull
   }
+
+  override def colorMultiplier(world: IBlockAccess, x: Int, y: Int, z: Int): Int = {
+    val r = (x % 8) * 32
+    val g = (y % 8) * 32
+    val b = (z % 8) * 32
+    r * 256 * 256 + g * 256 + b
+  }
+
+  override def getYLBlockModel(world: IBlockAccess, x: Int, y: Int, z: Int): YLBlockModel = YLBlockModel(
+    textures = Map(
+      TextureId("#bottom") -> bottom.orNull,
+      TextureId("#top") -> top.orNull,
+      TextureId("#north") -> north.orNull,
+      TextureId("#south") -> south.orNull,
+      TextureId("#west") -> west.orNull,
+      TextureId("#east") -> east.orNull
+    ),
+    ambientOcclusion = true,
+    elements = Seq(
+      Element(
+        cuboid = Cuboid(Point(0, 0, 0), Point(16, 16, 8)),
+        down = Face(
+          texture = TextureId("#bottom"),
+          uv = UvRange(0, 0, 16, 16)
+        ),
+        up = Face(
+          texture = TextureId("#top"),
+          uv = UvRange(0, 0, 16, 16)
+        ),
+        north = Face(
+          texture = TextureId("#north"),
+          uv = UvRange(0, 0, 16, 16)
+        ),
+        south = Face(
+          texture = TextureId("#south"),
+          uv = UvRange(0, 0, 16, 16)
+        ),
+        west = Face(
+          texture = TextureId("#west"),
+          uv = UvRange(0, 0, 16, 16)
+        ),
+        east = Face(
+          texture = TextureId("#east"),
+          uv = UvRange(0, 0, 16, 16)
+        )
+      )
+    )
+  )
 }
