@@ -1,6 +1,5 @@
 package yuma140902.uptodatemod.config.model.category;
 
-import static yuma140902.uptodatemod.util.l10n.EnumLanguage.*;
 import javax.annotation.Nonnull;
 import yuma140902.uptodatemod.config.model.ConfigCategoryRoot;
 import yuma140902.uptodatemod.config.model.IConfigProp;
@@ -18,12 +17,16 @@ public class CategoryGeneral extends ConfigCategoryRoot {
 	
 	public CategoryGeneral() {
 		super(name);
-		addCommentLine(L10nString.ml().put(en_US, "Settings of UpToDateMod").put(ja_JP, "UpToDateModの設定").nonnull());
 		
-		doUpdateChecking = addSubValue("doUpdateChecking");
-		updateChannel = addSubValue("updateChannel");
+		setLocalizationKey("config.uptodate.category.general");
+		addCommentLine(L10nString.ofKey("config.uptodate.category.general.tooltip"));
+		
+		doUpdateChecking = addSubProp("doUpdateChecking");
+		doUpdateChecking.setDefault(true);
+		updateChannel = addSubProp("updateChannel");
 		updateChannel.setValidStrings(UpdateChecker.RECOMMENDED_STR, UpdateChecker.LATEST_STR);
-		debugMode = addSubValue("enableDebugMode");
+		updateChannel.setDefault(UpdateChecker.RECOMMENDED_STR);
+		debugMode = addSubProp("enableDebugMode");
 	}
 	
 }

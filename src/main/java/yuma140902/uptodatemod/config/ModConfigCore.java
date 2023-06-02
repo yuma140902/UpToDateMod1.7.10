@@ -1,21 +1,7 @@
 package yuma140902.uptodatemod.config;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
-import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.entity.item.EntityModBoatBase;
-import yuma140902.uptodatemod.integration.IntegrationConfigs;
-import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
-import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.uptodatemod.util.UpdateChecker;
-
 public class ModConfigCore {
-	public static final String
+	/*public static final String
 		CATEGORY_GENERAL = "General",
 		CATEGORY_WORLDGEN = CATEGORY_GENERAL + ".WorldGen",
 		CATEGORY_RECIPE = CATEGORY_GENERAL + ".Recipe",
@@ -193,5 +179,5 @@ public class ModConfigCore {
 	
 	public static String getPropertyLangkey(String key) {
 		return CONFIG_PROP_LANGKEY + key;
-	}
+	}*/
 }

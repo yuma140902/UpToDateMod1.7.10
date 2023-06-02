@@ -13,11 +13,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
-import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.registry.RecipeRegister;
-import yuma140902.uptodatemod.util.ListUtils;
 
 public final class Recipes {
 	private Recipes() {}
@@ -35,7 +33,7 @@ public final class Recipes {
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.doors)) {
 			removeRecipesOutputNameList.add("minecraft:wooden_door");
 		}
-		if(ModConfigCore.recipeRemove_oldFenceRecipe || DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fences)) {
+		if(ModUpToDateMod.config.recipe.removeOldFence.get() || DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fences)) {
 			removeRecipesOutputNameList.add("minecraft:fence");
 		}
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.fenceGates)) {
@@ -62,7 +60,7 @@ public final class Recipes {
 				Item outputItem = recipe.getRecipeOutput().getItem();
 				String name = itemRegistry.getNameForObject(outputItem);
 				
-				if(ListUtils.contains(outputNameList, name)) {
+				if(outputNameList.contains(name)) {
 					// このループ内では削除はせず、い)ったん削除予定リストに入れる
 					removeList.add(recipe);
 

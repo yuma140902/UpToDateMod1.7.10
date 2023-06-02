@@ -9,8 +9,13 @@ import yuma140902.uptodatemod.util.l10n.L10nString;
 
 public abstract class ConfigEntryBase implements IConfigEntry {
 	ConfigEntryBase(@Nullable IConfigCategory category, @Nonnull String name) {
+		this(category, name, name);
+	}
+	
+	ConfigEntryBase(@Nullable IConfigCategory category, @Nonnull String name, String localizationKey) {
 		this.category = category;
 		this.name = name;
+		this.localizationKey = localizationKey;
 	}
 	
 	
@@ -18,6 +23,7 @@ public abstract class ConfigEntryBase implements IConfigEntry {
 	protected final IConfigCategory category;
 	@Nonnull
 	protected final String name;
+	protected String localizationKey;
 	@Nonnull
 	protected final List<L10nString> comments = new ArrayList<L10nString>();
 	protected boolean requireMcRestart = false;
@@ -38,6 +44,16 @@ public abstract class ConfigEntryBase implements IConfigEntry {
 	public String comment() {
 		String comment = this.comments.stream().map(cmnt -> cmnt.message()).collect(Collectors.joining("\n"));
 		return comment != null ? comment : "";
+	}
+	
+	@Override
+	public String localizationKey() {
+		return this.localizationKey;
+	}
+	
+	@Override
+	public void setLocalizationKey(String key) {
+		this.localizationKey = key;
 	}
 	
 	@Override

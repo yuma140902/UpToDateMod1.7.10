@@ -3,6 +3,7 @@ package yuma140902.uptodatemod.world.generation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import org.apache.commons.lang3.ArrayUtils;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -10,7 +11,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import yuma140902.uptodatemod.util.ListUtils;
 import yuma140902.uptodatemod.util.Pair;
 
 public class MyMinableGenerator implements IWorldGenerator {
@@ -71,7 +71,7 @@ public class MyMinableGenerator implements IWorldGenerator {
 			WorldGenMinable generator = pair.getLeft();
 			Config config = pair.getRight();
 			
-			if(!ListUtils.contains(config.dimensionIDBlackList, world.provider.dimensionId))
+			if(!ArrayUtils.contains(config.dimensionIDBlackList, world.provider.dimensionId))
 				runGenerator(generator, config, world, random, chunkX, chunkZ);
 		}
 	}

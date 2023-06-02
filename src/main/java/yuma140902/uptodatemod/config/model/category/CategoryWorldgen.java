@@ -1,12 +1,10 @@
 package yuma140902.uptodatemod.config.model.category;
 
 import javax.annotation.Nonnull;
-import yuma140902.uptodatemod.config.model.ConfigCategoryBase;
 import yuma140902.uptodatemod.config.model.IConfigCategory;
 import yuma140902.uptodatemod.config.model.IConfigProp;
-import yuma140902.uptodatemod.util.l10n.L10nString;
 
-public class CategoryWorldgen extends ConfigCategoryBase {
+public class CategoryWorldgen extends ConfigCategoryUpToDateModBase {
 
 	@Nonnull
 	public static final String name = "WorldGen";
@@ -21,14 +19,21 @@ public class CategoryWorldgen extends ConfigCategoryBase {
 	public CategoryWorldgen(IConfigCategory category) {
 		super(category, name);
 		
-		addCommentLine(L10nString.of(""));
 		setRequiresMcRestart();
 		
-		genStones = addSubValue("genStones");
-		stoneDimBlackList = addSubValue("genStonesDimensionBlackList");
-		genFossiles = addSubValue("genFossiles");
-		fossilesDimBlackList = addSubValue("genFossilesDimensionBlackList");
-		genCoarseDirt = addSubValue("genCoarseDirt");
-		coarseDirtDimBlackList = addSubValue("genCoarseDirtDimensionBlackList");
+		genStones = addSubProp("genStones");
+		genStones.setDefault(true);
+		stoneDimBlackList = addSubProp("genStonesDimensionBlackList");
+		stoneDimBlackList.setDefaultIntList(1, -1);
+		
+		genFossiles = addSubProp("genFossiles");
+		genFossiles.setDefault(true);
+		fossilesDimBlackList = addSubProp("genFossilesDimensionBlackList");
+		fossilesDimBlackList.setDefaultIntList(1, -1);
+		
+		genCoarseDirt = addSubProp("genCoarseDirt");
+		genCoarseDirt.setDefault(true);
+		coarseDirtDimBlackList = addSubProp("genCoarseDirtDimensionBlackList");
+		coarseDirtDimBlackList.setDefaultIntList(1, -1);
 	}
 }

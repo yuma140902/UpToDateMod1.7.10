@@ -253,6 +253,8 @@ config.uptodate.category.recipe=レシピ
 config.uptodate.category.recipe.tooltip=レシピに関する設定
 config.uptodate.prop.remove_old_fence_recipe=古いフェンスのレシピの削除
 config.uptodate.prop.remove_old_fence_recipe.tooltip=棒6本からフェンス2個を作るフェンスの古いレシピを削除するかどうか
+config.uptodate.prop.addstoneslabrecipe=古い石ハーフブロックのレシピを追加
+config.uptodate.prop.addstoneslabrecipe.tooltip=石ブロックから石ハーフブロックではなく滑らかな石ハーフブロックが作れるようにする
 
 config.uptodate.category.entity=エンティティ・モブ
 config.uptodate.category.entity.tooltip=エンティティやモブに関する設定
@@ -263,3 +265,9 @@ config.uptodate.category.experimental=実験的機能
 config.uptodate.category.experimental.tooltip=実験的な機能。深刻なバグがあるかもしれません。
 config.uptodate.prop.observer=オブザーバーブロックを有効化
 config.uptodate.prop.observer.tooltip=【オブザーバーは未実装機能・バグ多数につき無効にしておくことを推奨】
+
+config.uptodate.category.disablefeatures=各機能のON/OFF
+config.uptodate.category.disablefeatures.tooltip=
+
+config.uptodate.category.integration=Mod連携
+config.uptodate.category.integration.tooltip=他Modとの連携のための設定

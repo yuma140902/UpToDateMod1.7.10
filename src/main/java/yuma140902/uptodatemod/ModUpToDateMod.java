@@ -2,6 +2,7 @@ package yuma140902.uptodatemod;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Mod;
@@ -22,7 +23,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import yuma140902.uptodatemod.blocks.BlockStone;
-import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.config.NewCore;
 import yuma140902.uptodatemod.integration.Plugins;
 import yuma140902.uptodatemod.network.ArmorStandInteractHandler;
@@ -53,7 +53,7 @@ public class ModUpToDateMod {
 	
 	public static SimpleNetworkWrapper networkWrapper;
 	
-	public static NewCore configCore;
+	public static NewCore config;
 	
 	public static final String MOD_ID = "uptodate";
 	public static final String MOD_NAME = "UpToDateMod";
@@ -111,8 +111,8 @@ public class ModUpToDateMod {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		loadModMetadata(modMetadata);
-		configCore = new NewCore();
-		configCore.loadConfig(event);
+		config = new NewCore();
+		config.loadConfig(event);
 		LOGGER.info("preInit");
 		try {
 			UpdateChecker.INSTANCE.checkForUpdates();
@@ -150,7 +150,7 @@ public class ModUpToDateMod {
 		
 		
 		if(DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.stones)) {
-			MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(ModConfigCore.worldGen_genStones, 33, 10, 0, 80, ModConfigCore.worldGen_genStones_blackList);
+			MyMinableGenerator.Config stoneConfig = new MyMinableGenerator.Config(config.worldgen.genStones.get(), 33, 10, 0, 80, ArrayUtils.toPrimitive(config.worldgen.stoneDimBlackList.get()));
 			
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_GRANITE, stoneConfig);
 			WorldGenerators.myMinableGenerator.addOreGenerator((Block) MyBlocks.stone, BlockStone.META_DIORITE, stoneConfig);

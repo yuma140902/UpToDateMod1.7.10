@@ -10,7 +10,11 @@ import javax.annotation.Nullable;
 public class ConfigCategoryBase extends ConfigEntryBase implements IConfigCategory {
 
 	public ConfigCategoryBase(@Nullable IConfigCategory category, @Nonnull String name) {
-		super(category, category != null ? category.name() + "." + name : name);
+		this(category, name, name);
+	}
+	
+	public ConfigCategoryBase(@Nullable IConfigCategory category, @Nonnull String name, String localizationKey) {
+		super(category, category != null ? category.name() + "." + name : name, localizationKey);
 	}
 	
 	@Nonnull protected final List<IConfigEntry> subEntries = new ArrayList<IConfigEntry>();
@@ -24,7 +28,7 @@ public class ConfigCategoryBase extends ConfigEntryBase implements IConfigCatego
 		
 		this.subEntries.add(entry);
 		this.subEntryNames.add(entry.name());
-		return this;
+		return entry;
 	}
 	
 	@SuppressWarnings("null")

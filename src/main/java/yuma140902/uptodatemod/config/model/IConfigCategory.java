@@ -16,13 +16,13 @@ public interface IConfigCategory extends IConfigEntry {
 	
 	@SuppressWarnings("unchecked")
 	@Nonnull
-	default <T> IConfigProp<T> addSubValue(@Nonnull String name, @Nonnull ConfigPropFactory<T> factory) {
+	default <T> IConfigProp<T> addSubProp(@Nonnull String name, @Nonnull ConfigPropFactory<T> factory) {
 		return (IConfigProp<T>) addSubEntry(() -> factory.build(this, name));
 	}
 	
 	@Nonnull
-	default <T> IConfigProp<T> addSubValue(@Nonnull String name) {
-		return addSubValue(name, ConfigProp::new);
+	default <T> IConfigProp<T> addSubProp(@Nonnull String name) {
+		return addSubProp(name, ConfigProp::new);
 	}
 	
 	@Nonnull

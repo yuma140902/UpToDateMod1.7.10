@@ -8,6 +8,8 @@ public interface IConfigEntry {
 	@Nullable IConfigCategory category();
 	@Nonnull String name();
 	@Nonnull String comment();
+	@Nonnull String localizationKey();
+	void setLocalizationKey(@Nonnull String key);
 	@Nullable
 	default String tooltipComment() {
 		return comment();

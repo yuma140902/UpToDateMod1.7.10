@@ -45,7 +45,6 @@ import yuma140902.uptodatemod.blocks.generics.BlockGenericStairs;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericStrippedLog;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericTrapDoor;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericWall;
-import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.ColorUtil;
@@ -309,7 +308,7 @@ public final class MyBlocks {
 			seaLantern = null;
 		}
 		
-		add(observer = ModConfigCore.enable_observer ? new BlockObserver() : null);
+		add(observer = ModUpToDateMod.config.experimental.enableObserver.get() ? new BlockObserver() : null);
 		
 		if(isEnabled(woodenTrapdoors)) {
 			add(trapDoorAcacia = new BlockGenericTrapDoor("trap_door_acacia", Stat.PLANK_META_ACACIA));

@@ -23,8 +23,12 @@ public class ConfigProp<T> extends ConfigEntryBase implements IConfigProp<T> {
 	@Nonnull protected String[] validStrings = ArrayUtils.EMPTY_STRING_ARRAY;
 	
 
-	protected ConfigProp(@Nonnull IConfigCategory category, @Nonnull String name) {
-		super(category, name);
+	public ConfigProp(@Nonnull IConfigCategory category, @Nonnull String name) {
+		this(category, name, name);
+	}
+	
+	public ConfigProp(@Nonnull IConfigCategory category, @Nonnull String name, @Nonnull String localizationKey) {
+		super(category, name, localizationKey);
 		this.category = category;
 	}
 	
@@ -95,7 +99,7 @@ public class ConfigProp<T> extends ConfigEntryBase implements IConfigProp<T> {
 	}
 
 	@Override
-	public void setDefaultIntList(int[] list) {
+	public void setDefaultIntList(int... list) {
 		this.defaultIntList = list;
 	}
 	@Override

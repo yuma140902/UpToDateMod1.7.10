@@ -1,8 +1,8 @@
 package yuma140902.uptodatemod.blocks;
 
 import net.minecraft.init.Blocks;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.blocks.generics.BlockGenericSlab;
-import yuma140902.uptodatemod.config.ModConfigCore;
 
 public class BlockStoneSlab extends BlockGenericSlab {
 	
@@ -13,6 +13,6 @@ public class BlockStoneSlab extends BlockGenericSlab {
 	
 	@Override
 	public void registerRecipes() {
-		if(!ModConfigCore.useOldSmoothStoneSlabRecipe) super.registerRecipes();
+		if(!ModUpToDateMod.config.recipe.addOldSmoothStoneSlab.get()) super.registerRecipes();
 	}
 }

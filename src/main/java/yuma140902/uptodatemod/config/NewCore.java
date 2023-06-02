@@ -30,6 +30,7 @@ public class NewCore {
 	private final Logger logger = LogManager.getLogger(ModUpToDateMod.MOD_NAME + "-Config");
 	
 	private ForgeConfigBridge cfg;
+	private Configuration configFile;
 	
 	public NewCore() {
 		general = new CategoryGeneral();
@@ -41,11 +42,15 @@ public class NewCore {
 	}
 	
 	public void loadConfig(FMLPreInitializationEvent event) {
-		Configuration configFile = new Configuration(event.getSuggestedConfigurationFile(), true);
+		this.configFile = new Configuration(event.getSuggestedConfigurationFile(), ModUpToDateMod.MOD_VERSION, true);
 		this.cfg = new ForgeConfigBridge(general, configFile);
 		initConfig();
 		syncConfig();
 		wrapConfig();
+	}
+	
+	public Configuration forgeConfiguration() {
+		return this.configFile;
 	}
 	
 	private void initConfig() {
@@ -68,14 +73,16 @@ public class NewCore {
 		cfg.getBoolean(worldgen.genCoarseDirt);
 		cfg.getIntList(worldgen.coarseDirtDimBlackList);
 		
-		cfg.getBoolean(recipe.oldFence);
-		cfg.getBoolean(recipe.oldSmoothStoneSlab);
+		cfg.getBoolean(recipe.removeOldFence);
+		cfg.getBoolean(recipe.addOldSmoothStoneSlab);
 		
 		cfg.getBoolean(entity.boatCrashWhenCollide);
 		
 		cfg.getBoolean(experimental.enableObserver);
 		
 		syncDisableableFeaturesConfig();
+		
+		cfg.removeProperty(recipe, "addStoneSlabRecipe");
 		
 		
 		cfg.setCategoryPropertyOrder(general);

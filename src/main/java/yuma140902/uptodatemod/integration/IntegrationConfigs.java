@@ -1,12 +1,9 @@
 package yuma140902.uptodatemod.integration;
 
-import static yuma140902.uptodatemod.config.ModConfigCore.*;
 import yuma140902.uptodatemod.config.IConfigBridge;
 
 public class IntegrationConfigs {
 	private IntegrationConfigs() {}
-	
-	public static final String CATEGORY_INTEGRATION = getSubCategory("Integration");
 	
 	public static CategoryIntegration category;
 	

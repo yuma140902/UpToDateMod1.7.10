@@ -26,6 +26,9 @@ minecraft {
     runDir = "eclipse"
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 [compileJava, compileTestJava].each {
     it.options.encoding = 'UTF-8'
     it.options.compilerArgs += ['-source', '1.8', '-target', '1.8']
@@ -45,6 +48,8 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 		compile fileTree(dir: 'libs', include: '*.jar')
+		compile 'org.projectlombok:lombok:1.18.8'
+		
 }
 
 processResources

@@ -50,14 +50,24 @@ public class ForgeConfigBridge implements IConfigBridge {
 	
 	@Override
 	public void initCategory(IConfigCategory category) {
+		cfg.setCategoryLanguageKey(category.name(), category.localizationKey());
 		cfg.setCategoryComment(category.name(), category.comment());
 		cfg.setCategoryRequiresMcRestart(category.name(), category.requireMcRestart());
 		cfg.setCategoryRequiresWorldRestart(category.name(), category.requireWorldRestart());
 	}
 	
+	public void removeProperty(IConfigCategory category, String propName) {
+		removeProperty(category.name(), propName);
+	}
+	
+	public void removeProperty(String category, String propName) {
+		cfg.getCategory(category).remove(propName);
+	}
+	
 	@Override
 	public boolean getBoolean(IConfigProp<Boolean> prop) {
 		Property forgeProp = cfg.get(prop.category().name(), prop.name(), prop.defaultBool());
+		forgeProp.setLanguageKey(prop.localizationKey());
 		forgeProp.comment = prop.comment();
 		forgeProp.setRequiresMcRestart(prop.requireMcRestart());
 		forgeProp.setRequiresWorldRestart(prop.requireWorldRestart());
@@ -70,6 +80,7 @@ public class ForgeConfigBridge implements IConfigBridge {
 	@Override
 	public int getInt(IConfigProp<Integer> prop) {
 		Property forgeProp = cfg.get(prop.category().name(), prop.name(), prop.defaultInt());
+		forgeProp.setLanguageKey(prop.localizationKey());
 		forgeProp.comment = prop.comment();
 		forgeProp.setRequiresMcRestart(prop.requireMcRestart());
 		forgeProp.setRequiresWorldRestart(prop.requireWorldRestart());
@@ -82,6 +93,7 @@ public class ForgeConfigBridge implements IConfigBridge {
 	@Override
 	public String getString(IConfigProp<String> prop) {
 		Property forgeProp = cfg.get(prop.category().name(), prop.name(), prop.defaultString());
+		forgeProp.setLanguageKey(prop.localizationKey());
 		forgeProp.comment = prop.comment();
 		forgeProp.setRequiresMcRestart(prop.requireMcRestart());
 		forgeProp.setRequiresWorldRestart(prop.requireWorldRestart());
@@ -102,6 +114,8 @@ public class ForgeConfigBridge implements IConfigBridge {
 	@Override
 	public String getStringSelection(IConfigProp<String> prop, String dflt) {
 		Property forgeProp = cfg.get(prop.category().name(), prop.name(), prop.defaultString(), prop.comment(), prop.validStrings());
+		forgeProp.setLanguageKey(prop.localizationKey());
+		forgeProp.comment = prop.comment();
 		forgeProp.setRequiresMcRestart(prop.requireMcRestart());
 		forgeProp.setRequiresWorldRestart(prop.requireWorldRestart());
 		
@@ -116,6 +130,7 @@ public class ForgeConfigBridge implements IConfigBridge {
 	public List<String> getStringList(IConfigProp<List<String>> prop) {
 		List<String> dflt = prop.defaultStringList();
 		Property forgeProp = cfg.get(prop.category().name(), prop.name(), dflt.toArray(new String[dflt.size()]));
+		forgeProp.setLanguageKey(prop.localizationKey());
 		forgeProp.comment = prop.comment();
 		forgeProp.setRequiresMcRestart(prop.requireMcRestart());
 		forgeProp.setRequiresWorldRestart(prop.requireWorldRestart());
@@ -130,6 +145,7 @@ public class ForgeConfigBridge implements IConfigBridge {
 	@SuppressWarnings("null")
 	public int[] getIntList(IConfigProp<Integer[]> prop) {
 		Property forgeProp = cfg.get(prop.category().name(), prop.name(), prop.defaultIntList());
+		forgeProp.setLanguageKey(prop.localizationKey());
 		forgeProp.comment = prop.comment();
 		forgeProp.setRequiresMcRestart(prop.requireMcRestart());
 		forgeProp.setRequiresWorldRestart(prop.requireWorldRestart());

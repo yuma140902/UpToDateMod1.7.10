@@ -26,6 +26,6 @@ public interface IConfigProp<T> extends IConfigEntry {
 	void setDefaultStringList(@Nonnull List<String> list);
 	@Nonnull List<String> defaultStringList();
 	
-	void setDefaultIntList(@Nonnull int[] list);
+	void setDefaultIntList(@Nonnull int... list);
 	@Nonnull int[] defaultIntList();
 }

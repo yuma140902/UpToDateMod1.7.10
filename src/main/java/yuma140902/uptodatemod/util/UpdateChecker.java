@@ -7,7 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import yuma140902.uptodatemod.ModUpToDateMod;
-import yuma140902.uptodatemod.config.ModConfigCore;
 
 public class UpdateChecker {
 	private UpdateChecker() {}
@@ -106,7 +105,7 @@ public class UpdateChecker {
 		String versionsTsv = getFromUrl(ModUpToDateMod.MOD_VERSIONS_TSV_URL);
 		if(versionsTsv == null || versionsTsv.isEmpty()) return;
 		
-		if(ModConfigCore.debug_mode) {
+		if(ModUpToDateMod.config.general.debugMode.get()) {
 			ModUpToDateMod.LOGGER.info("versionsTsv:");
 			ModUpToDateMod.LOGGER.info(versionsTsv);
 		}

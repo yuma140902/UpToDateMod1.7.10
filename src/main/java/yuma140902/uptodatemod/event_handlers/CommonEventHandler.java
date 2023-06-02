@@ -24,7 +24,6 @@ import yuma140902.uptodatemod.MyBlocks;
 import yuma140902.uptodatemod.MyItems;
 import yuma140902.uptodatemod.blocks.BlockCoarseDirt;
 import yuma140902.uptodatemod.blocks.BlockWitherRose;
-import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.network.NoteBlockPlayMessage;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
@@ -180,6 +179,6 @@ public class CommonEventHandler {
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
 		if(ModUpToDateMod.MOD_ID.equals(event.modID))
-			ModConfigCore.syncConfig();
+			ModUpToDateMod.config.syncConfig();
 	}
 }

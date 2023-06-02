@@ -1,6 +1,7 @@
 package yuma140902.uptodatemod.world.generation;
 
 import java.util.Random;
+import org.apache.commons.lang3.ArrayUtils;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -8,23 +9,31 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenDesert;
 import net.minecraft.world.biome.BiomeGenSwamp;
 import net.minecraft.world.chunk.IChunkProvider;
+import yuma140902.uptodatemod.ModUpToDateMod;
 import yuma140902.uptodatemod.MyBlocks;
-import yuma140902.uptodatemod.config.ModConfigCore;
 import yuma140902.uptodatemod.registry.DisabledFeaturesRegistry;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
-import yuma140902.uptodatemod.util.ListUtils;
 
 public class UpToDateWorldGenerator implements IWorldGenerator{
+	
+	private int[] coarseDimBlackList = null;
+	private int[] fossilesDimBlackList = null;
 
 	@Override
-	public void generate(
-			Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if(!ListUtils.contains(ModConfigCore.worldGen_genCoarseDirt_blackList, world.provider.dimensionId)) {
-			if(ModConfigCore.worldGen_genCoarseDirt && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.coarseDirt))
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+		if(this.coarseDimBlackList == null) {
+			this.coarseDimBlackList = ArrayUtils.toPrimitive(ModUpToDateMod.config.worldgen.coarseDirtDimBlackList.get());
+		}
+		if(this.fossilesDimBlackList == null) {
+			this.fossilesDimBlackList = ArrayUtils.toPrimitive(ModUpToDateMod.config.worldgen.fossilesDimBlackList.get());
+		}
+		
+		if(!ArrayUtils.contains(coarseDimBlackList, world.provider.dimensionId)) {
+			if(ModUpToDateMod.config.worldgen.genCoarseDirt.get() && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.coarseDirt))
 				generateCoarseDirt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
-		if(!ListUtils.contains(ModConfigCore.worldGen_genFossiles_blackList, world.provider.dimensionId)) {
-			if(ModConfigCore.worldGen_genFossiles && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.boneBlockAndFossile))
+		if(!ArrayUtils.contains(fossilesDimBlackList, world.provider.dimensionId)) {
+			if(ModUpToDateMod.config.worldgen.genFossiles.get() && DisabledFeaturesRegistry.INSTANCE.isEnabled(EnumDisableableFeatures.boneBlockAndFossile))
 				generateFossile(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
 	}

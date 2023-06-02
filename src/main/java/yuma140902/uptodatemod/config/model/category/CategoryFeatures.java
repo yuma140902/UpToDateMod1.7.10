@@ -1,14 +1,13 @@
 package yuma140902.uptodatemod.config.model.category;
 
 import javax.annotation.Nonnull;
-import yuma140902.uptodatemod.config.model.ConfigCategoryBase;
 import yuma140902.uptodatemod.config.model.ConfigProp;
 import yuma140902.uptodatemod.config.model.IConfigCategory;
 import yuma140902.uptodatemod.config.model.IConfigProp;
 import yuma140902.uptodatemod.registry.EnumDisableableFeatures;
 import yuma140902.uptodatemod.util.l10n.L10nString;
 
-public class CategoryFeatures extends ConfigCategoryBase {
+public class CategoryFeatures extends ConfigCategoryUpToDateModBase {
 
 	@Nonnull
 	public static final String name = "DisableFeatures";
@@ -16,14 +15,15 @@ public class CategoryFeatures extends ConfigCategoryBase {
 	public CategoryFeatures(IConfigCategory category) {
 		super(category, name);
 		
-		addCommentLine(L10nString.of(""));
+		setRequiresMcRestart();
 		
 		for(EnumDisableableFeatures feature : EnumDisableableFeatures.values()) {
 			String propName = "enable " + feature.toString();
 			String comment = feature.getComment();
 			
-			IConfigProp<Boolean> prop = addSubValue(propName, (_category, name) -> new ConfigPropFeature(_category, name, feature));
+			IConfigProp<Boolean> prop = addSubProp(propName, (_category, name) -> new ConfigPropFeature(_category, name, feature));
 			if(comment != null) prop.addCommentLine(L10nString.of(comment));
+			prop.setDefault(true);
 			
 		}
 	}
