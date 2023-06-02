@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         ref: ${{ github.ref }}
     
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       with:
         path: |
           ~/.gradle/caches
@@ -30,9 +30,10 @@ jobs:
           ${{ runner.os }}-gradle-
     
     - name: Setup Java and Scala
-      uses: olafurpg/setup-scala@v11
+      uses: coursier/setup-action@v1
       with:
-        java-version: adopt@1.8
+        jvm: adopt:1.8
+        apps: scala
     
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
